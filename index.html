@@ -498,21 +498,107 @@
       { id: 'c3', nombre: 'Café Carioca Caramelo Dulce', tipo: 'Grano de Altura (250g)', nota: 'Dulzura natural con matices de caramelo toscano.', precio: 'R$ XX.XX' },
       { id: 'c4', nombre: 'Chocolate con Avellanas Especial', tipo: 'Mezcla Artesanal (250g)', nota: 'Textura cremosa e intensidad balanceada.', precio: 'R$ XX.XX' }
     ];
+const MUSEOS_DATA = [
+  {
+    id: 'mhn',
+    nombre: 'Museu Histórico Nacional',
+    subtitulo: 'La historia de Brasil en el corazón de Río',
+    categoria: 'Historia de Brasil',
+    descripcion:
+      'El Museu Histórico Nacional es uno de los grandes museos dedicados a la historia de Brasil. Creado en 1922, ocupa un importante conjunto arquitectónico histórico formado por el antiguo Forte de Santiago, la Casa do Trem y el Arsenal de Guerra. Su colección reúne más de 300.000 piezas, incluyendo pinturas, esculturas, armas, vehículos históricos, porcelanas, objetos de plata y una de las mayores colecciones de numismática de América Latina.',
+    direccion: 'Praça Marechal Âncora, s/nº – Centro – Rio de Janeiro – RJ',
+    horario: 'Miércoles a viernes: 10h às 17h. Sábados y domingos: 13h às 17h. Cerrado lunes y martes.',
+    precio: 'Entrada gratuita',
+    destaque: 'Historia, patrimonio, arte, armas y numismática',
+    fotos: [
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3100',
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3099',
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3103',
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3100'
+    ],
+    mapa:
+      'https://www.google.com/maps?q=Museu+Historico+Nacional+Rio+de+Janeiro&output=embed'
+  },
 
-    function AppErnestinho() {
-      const [seccionActual, setSeccionActual] = useState('inicio');
-      const [menuAbierto, setMenuAbierto] = useState(false);
-      const [articuloSeleccionado, setArticuloSeleccionado] = useState(null);
-      
-      const [modalReservaOpen, setModalReservaOpen] = useState(false);
-      const [expParaReservar, setExpParaReservar] = useState(null);
-      const [reservaDatos, setReservaDatos] = useState({
-        fecha: '',
-        personas: 2,
-        nombre: '',
-        email: '',
-        telefono: ''
-      });
+  {
+    id: 'amanha',
+    nombre: 'Museu do Amanhã',
+    subtitulo: 'Ciencia, innovación y el futuro del planeta',
+    categoria: 'Ciencia y futuro',
+    descripcion:
+      'Ubicado en la Praça Mauá, el Museu do Amanhã propone una experiencia diferente: en lugar de mirar solamente hacia el pasado, invita a reflexionar sobre el presente y sobre los futuros que podemos construir. Ciencia, tecnología, medio ambiente, sostenibilidad y comportamiento humano se encuentran en sus exposiciones y experiencias interactivas.',
+    direccion: 'Praça Mauá, 1 – Centro – Rio de Janeiro – RJ – CEP 20081-240',
+    horario: 'Martes a domingo: 10h às 18h. Último acceso: 17h. Cerrado los lunes.',
+    precio: 'R$40 entrada general | R$20 media entrada',
+    destaque: 'Ciencia, tecnología, sostenibilidad y experiencias interactivas',
+    fotos: [
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3105',
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3106',
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3107',
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3108'
+    ],
+    mapa:
+      'https://www.google.com/maps?q=Museu+do+Amanha+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'musal',
+    nombre: 'Museu Aeroespacial – MUSAL',
+    subtitulo: 'La historia de la aviación brasileña',
+    categoria: 'Aviación y tecnología',
+    descripcion:
+      'El Museu Aeroespacial, conocido como MUSAL, es uno de los principales espacios dedicados a la historia de la aviación militar brasileña. Está ubicado en Campo dos Afonsos, considerado uno de los lugares fundamentales para el desarrollo de la aviación en Brasil. Su colección reúne aeronaves, motores, uniformes, documentos, objetos históricos y elementos relacionados con la evolución de la aeronáutica brasileña.',
+    direccion: 'Av. Marechal Fontenelle, 2000 – Campo dos Afonsos – Rio de Janeiro – RJ',
+    horario: 'Martes a domingo. Inicio de visitas: 9h. Cierre del portón: 15h30. Final de visitas: 16h.',
+    precio: 'Entrada y estacionamiento gratuitos',
+    destaque: 'Aeronaves históricas, aviación militar y tecnología',
+    fotos: [
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3111',
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3110',
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3113',
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3114'
+    ],
+    mapa:
+      'https://www.google.com/maps?q=Museu+Aeroespacial+MUSAL+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'naval',
+    nombre: 'Museu Naval',
+    subtitulo: 'La historia naval de Brasil',
+    categoria: 'Historia naval',
+    descripcion:
+      'El Museu Naval funciona en un edificio histórico en la Praça XV y presenta una colección dedicada a la historia marítima y naval de Brasil. Entre sus piezas se encuentran modelos de embarcaciones, obras de arte, cañones recuperados de naufragios, figuras de proa, medallas y documentos históricos. La exposición permanente “O Poder Naval na Formação do Brasil” ocupa siete salas y explica la importancia del poder naval en la formación del país.',
+    direccion: 'Rua Dom Manuel, 15 – Praça XV – Centro – Rio de Janeiro – RJ',
+    horario: 'Visita regular: 13h às 17h.',
+    precio: 'Entrada gratuita',
+    destaque: 'Historia naval, embarcaciones, armamento y patrimonio marítimo',
+    fotos: [
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3117',
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3118',
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3115',
+      'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3118'
+    ],
+    mapa:
+      'https://www.google.com/maps?q=Museu+Naval+Rio+de+Janeiro&output=embed'
+  }
+];
+   function AppErnestinho() {
+  const [seccionActual, setSeccionActual] = useState('inicio');
+  const [museoSeleccionado, setMuseoSeleccionado] = useState('mhn');
+  const [menuAbierto, setMenuAbierto] = useState(false);
+  const [articuloSeleccionado, setArticuloSeleccionado] = useState(null);
+
+  const [modalReservaOpen, setModalReservaOpen] = useState(false);
+  const [expParaReservar, setExpParaReservar] = useState(null);
+
+  const [reservaDatos, setReservaDatos] = useState({
+    fecha: '',
+    personas: 2,
+    nombre: '',
+    email: '',
+    telefono: ''
+  });
 
       useEffect(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
