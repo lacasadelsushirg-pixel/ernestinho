@@ -1457,44 +1457,831 @@
     </div>
   </section>
 )}
-            {/* TRANSPORTES */}
-            {seccionActual === 'transporte' && (
-              <section className="py-12 bg-slate-50">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6">
-                  <div className="text-center mb-12">
-                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
-                      Cómo Moverse por Río
-                    </h1>
-                    <p className="text-slate-600 max-w-2xl mx-auto">
-                      Guía práctica de transporte público y privado para moverte rápido y seguro por la ciudad.
-                    </p>
-                  </div>
+            {/* =========================================================
+    TRANSPORTES — PÁGINA PRINCIPAL
+   ========================================================= */}
 
-                  <div className="space-y-6">
-                    <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-                      <h2 className="text-xl font-bold text-teal-700 mb-2">🚇 MetroRio (Súper recomendado)</h2>
-                      <p className="text-slate-600 text-sm leading-relaxed">
-                        Es el medio más seguro, rápido y limpio para conectarte entre Zona Sur (Copacabana, Ipanema, Leblon) y el Centro Histórico o Maracaná. Puedes pagar directamente acercando tu tarjeta de crédito/débito en los molinetes con tecnología Contactless.
-                      </p>
-                    </div>
+{seccionActual === 'transportes' && (
+  <section className="min-h-screen bg-white">
 
-                    <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-                      <h2 className="text-xl font-bold text-teal-700 mb-2">🚗 Uber & Aplicaciones</h2>
-                      <p className="text-slate-600 text-sm leading-relaxed">
-                        Funcionan de manera impecable y son muy económicos. Siempre confirma la patente y el nombre del conductor antes de subir. Ideal para regresar de noche a tu alojamiento.
-                      </p>
-                    </div>
+    {/* ENCABEZADO */}
+    <div className="relative h-[380px] overflow-hidden">
+      <img
+        src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3070"
+        alt="Transporte en Río de Janeiro"
+        className="w-full h-full object-cover"
+      />
 
-                    <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-                      <h2 className="text-xl font-bold text-teal-700 mb-2">🛬 Salida desde Aeropuertos (GIG y SDU)</h2>
-                      <p className="text-slate-600 text-sm leading-relaxed">
-                        Al llegar al Aeropuerto Internacional Galeão (GIG), solicita un Uber en el área designada de la planta alta o contrata un transfer privado pre-agendado. Evita tomar taxis informales en las salidas de la terminal.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </section>
-            )}
+      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-transparent"></div>
+
+      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-12">
+        <div className="max-w-6xl mx-auto">
+          <span className="inline-block bg-teal-500 text-white px-4 py-2 rounded-full text-xs font-black uppercase tracking-wider mb-4">
+            🚍 Cómo moverse por Río
+          </span>
+
+          <h1 className="text-4xl md:text-6xl font-black text-white leading-tight">
+            Transporte en Río de Janeiro
+          </h1>
+
+          <p className="text-white/90 mt-4 max-w-3xl text-sm md:text-lg leading-relaxed">
+            Moverse por Río puede ser muy fácil si sabes qué transporte utilizar
+            en cada momento. Aquí encontrarás las mejores opciones para turistas,
+            desde Uber y Metro hasta bicicletas y transporte privado.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* INTRODUCCIÓN */}
+    <div className="max-w-6xl mx-auto px-5 py-12">
+      <div className="max-w-4xl">
+        <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-5">
+          ¿Cuál es la mejor forma de moverse por Río?
+        </h2>
+
+        <p className="text-slate-600 leading-relaxed mb-4">
+          Río de Janeiro es una ciudad enorme y los lugares turísticos están
+          distribuidos entre diferentes zonas. Por eso, no existe un único
+          transporte que sea el mejor para todo.
+        </p>
+
+        <p className="text-slate-600 leading-relaxed">
+          Dependiendo de dónde estés, a dónde quieras ir, la hora del día y si
+          llevas equipaje, puede ser mucho más conveniente utilizar Uber, Metro,
+          bicicleta o contratar un transporte privado.
+        </p>
+      </div>
+
+      {/* TARJETAS */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+
+        {/* UBER */}
+        <div className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all flex flex-col">
+
+          <div className="h-56 relative">
+            <img
+              src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3063"
+              alt="Uber en Río de Janeiro"
+              className="w-full h-full object-cover"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+            <div className="absolute bottom-4 left-5">
+              <span className="bg-black/70 text-white px-3 py-1 rounded-full text-xs font-bold">
+                🚗 Aplicación
+              </span>
+            </div>
+          </div>
+
+          <div className="p-6 flex-1 flex flex-col">
+            <h3 className="text-2xl font-black text-slate-900 mb-3">
+              Uber
+            </h3>
+
+            <p className="text-slate-600 text-sm leading-relaxed mb-6">
+              Una de las formas más cómodas y prácticas para moverse por Río,
+              especialmente cuando llevas equipaje, viajas de noche o quieres
+              llegar directamente a tu destino.
+            </p>
+
+            <button
+              onClick={() => setSeccionActual('transporte_uber')}
+              className="mt-auto w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition-colors"
+            >
+              🚗 Ver información de Uber
+            </button>
+          </div>
+        </div>
+
+
+        {/* METRO */}
+        <div className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all flex flex-col">
+
+          <div className="h-56 relative">
+            <img
+              src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3063"
+              alt="MetrôRio"
+              className="w-full h-full object-cover"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+            <div className="absolute bottom-4 left-5">
+              <span className="bg-teal-600 text-white px-3 py-1 rounded-full text-xs font-bold">
+                🚇 Transporte público
+              </span>
+            </div>
+          </div>
+
+          <div className="p-6 flex-1 flex flex-col">
+            <h3 className="text-2xl font-black text-slate-900 mb-3">
+              Metro de Río
+            </h3>
+
+            <p className="text-slate-600 text-sm leading-relaxed mb-6">
+              Rápido, práctico y especialmente útil para conectar Copacabana,
+              Ipanema, Centro, Maracaná y otras zonas de la ciudad evitando
+              buena parte del tráfico.
+            </p>
+
+            <button
+              onClick={() => setSeccionActual('transporte_metro')}
+              className="mt-auto w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 rounded-xl transition-colors"
+            >
+              🚇 Ver guía completa del Metro
+            </button>
+          </div>
+        </div>
+
+
+        {/* BICICLETAS */}
+        <div className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all flex flex-col">
+
+          <div className="h-56 relative">
+            <img
+              src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3069"
+              alt="Bike Itaú Río de Janeiro"
+              className="w-full h-full object-cover"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+            <div className="absolute bottom-4 left-5">
+              <span className="bg-amber-400 text-slate-950 px-3 py-1 rounded-full text-xs font-bold">
+                🚲 Bike Itaú
+              </span>
+            </div>
+          </div>
+
+          <div className="p-6 flex-1 flex flex-col">
+            <h3 className="text-2xl font-black text-slate-900 mb-3">
+              Bicicletas
+            </h3>
+
+            <p className="text-slate-600 text-sm leading-relaxed mb-6">
+              Una excelente alternativa para recorrer las playas y algunos de
+              los lugares más bonitos de Río a tu propio ritmo.
+            </p>
+
+            <button
+              onClick={() => setSeccionActual('transporte_bicicletas')}
+              className="mt-auto w-full bg-amber-400 hover:bg-amber-500 text-slate-950 font-bold py-3 rounded-xl transition-colors"
+            >
+              🚲 Ver guía de bicicletas
+            </button>
+          </div>
+        </div>
+
+
+        {/* TRANSPORTE PRIVADO */}
+        <div className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all flex flex-col">
+
+          <div className="h-56 relative">
+            <img
+              src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3073"
+              alt="Transporte privado en Río"
+              className="w-full h-full object-cover"
+            />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+            <div className="absolute bottom-4 left-5">
+              <span className="bg-slate-900 text-white px-3 py-1 rounded-full text-xs font-bold">
+                🚐 Servicio privado
+              </span>
+            </div>
+          </div>
+
+          <div className="p-6 flex-1 flex flex-col">
+            <h3 className="text-2xl font-black text-slate-900 mb-3">
+              Transporte privado
+            </h3>
+
+            <p className="text-slate-600 text-sm leading-relaxed mb-6">
+              Para quienes buscan comodidad, seguridad y atención personalizada,
+              puedes contratar vehículos privados con chofer para traslados,
+              excursiones y viajes entre ciudades.
+            </p>
+
+            <button
+              onClick={() => setSeccionActual('transporte_privado')}
+              className="mt-auto w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition-colors"
+            >
+              🚐 Ver transporte privado
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+)}
+
+
+{/* =========================================================
+    VENTANA — UBER
+   ========================================================= */}
+
+{seccionActual === 'transporte_uber' && (
+  <section className="min-h-screen bg-white">
+
+    <div className="max-w-5xl mx-auto px-5 py-8">
+
+      <button
+        onClick={() => setSeccionActual('transportes')}
+        className="mb-6 text-sm font-bold text-slate-600 hover:text-teal-600"
+      >
+        ← Volver a Transportes
+      </button>
+
+      <div className="rounded-3xl overflow-hidden mb-8">
+        <img
+          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3063"
+          alt="Uber Río de Janeiro"
+          className="w-full h-[300px] object-cover"
+        />
+      </div>
+
+      <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
+        Uber en Río de Janeiro
+      </h1>
+
+      <p className="text-slate-600 leading-relaxed mb-5">
+        Uber es una de las alternativas más prácticas para desplazarse por Río
+        de Janeiro. Para un turista puede resultar especialmente cómodo porque
+        permite solicitar el vehículo directamente desde el celular, conocer
+        el destino antes de iniciar el viaje y evitar tener que explicar la
+        dirección en portugués.
+      </p>
+
+      <p className="text-slate-600 leading-relaxed mb-8">
+        Es una opción muy recomendable cuando llevas maletas, cuando quieres
+        ir directamente desde tu alojamiento a una atracción turística o
+        cuando el trayecto en transporte público requiere varias conexiones.
+      </p>
+
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-8">
+        <h3 className="font-black text-slate-900 mb-2">
+          ⭐ Consejo de oro de Ernestinho
+        </h3>
+
+        <p className="text-slate-700 text-sm leading-relaxed">
+          Si vas a pagar tu Uber en efectivo, recuerda siempre verificar que
+          el conductor haya cerrado correctamente el viaje en la aplicación
+          antes de realizar el pago. Así evitas problemas con el valor final
+          del viaje o que el recorrido continúe abierto en la aplicación.
+        </p>
+      </div>
+
+      <h2 className="text-2xl font-black text-slate-900 mb-4">
+        Consejos de seguridad
+      </h2>
+
+      <ul className="space-y-3 text-slate-600 text-sm leading-relaxed mb-8">
+        <li>✓ Comprueba siempre la matrícula del vehículo.</li>
+        <li>✓ Confirma que el nombre y la fotografía del conductor coincidan.</li>
+        <li>✓ No subas a un vehículo diferente al indicado en la aplicación.</li>
+        <li>✓ Comprueba el destino antes de iniciar el viaje.</li>
+        <li>✓ En zonas muy concurridas, espera en un punto seguro y visible.</li>
+      </ul>
+
+      <h2 className="text-2xl font-black text-slate-900 mb-4">
+        ¿Cuándo recomiendo utilizar Uber?
+      </h2>
+
+      <p className="text-slate-600 leading-relaxed mb-4">
+        Para ir al aeropuerto con equipaje, regresar después de una noche de
+        paseo, desplazarte entre barrios alejados o cuando el transporte
+        público no sea práctico, Uber puede ahorrarte bastante tiempo.
+      </p>
+
+      <p className="text-slate-600 leading-relaxed">
+        En horas punta, grandes eventos o zonas con mucha demanda, el precio
+        puede aumentar y el tiempo de espera puede ser mayor. En esos casos
+        conviene comparar el precio con el Metro antes de solicitar el viaje.
+      </p>
+
+    </div>
+  </section>
+)}
+
+
+{/* =========================================================
+    VENTANA — METRO
+   ========================================================= */}
+
+{seccionActual === 'transporte_metro' && (
+  <section className="min-h-screen bg-white">
+
+    <div className="max-w-5xl mx-auto px-5 py-8">
+
+      <button
+        onClick={() => setSeccionActual('transportes')}
+        className="mb-6 text-sm font-bold text-slate-600 hover:text-teal-600"
+      >
+        ← Volver a Transportes
+      </button>
+
+      <div className="rounded-3xl overflow-hidden mb-8">
+        <img
+          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3063"
+          alt="Metro de Río"
+          className="w-full h-[320px] object-cover"
+        />
+      </div>
+
+      <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
+        🚇 Metro de Río de Janeiro
+      </h1>
+
+      <p className="text-slate-600 leading-relaxed mb-5">
+        El MetrôRio es una de las mejores alternativas para desplazarse por
+        las principales zonas turísticas de Río, especialmente cuando el
+        tráfico está complicado.
+      </p>
+
+      <div className="bg-teal-50 border border-teal-100 rounded-2xl p-6 mb-8">
+        <h3 className="text-xl font-black text-slate-900 mb-2">
+          💰 Tarifa actual
+        </h3>
+
+        <p className="text-slate-700">
+          La tarifa normal del MetrôRio es actualmente de
+          <strong> R$ 7,90 por embarque</strong>.
+        </p>
+      </div>
+
+      <h2 className="text-2xl font-black text-slate-900 mb-4">
+        💳 ¿Cómo pagar el Metro?
+      </h2>
+
+      <p className="text-slate-600 leading-relaxed mb-5">
+        Una de las grandes ventajas para los turistas es que ya no es
+        necesario comprar obligatoriamente una tarjeta de transporte.
+        El MetrôRio permite diferentes formas de embarque.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+
+        <div className="bg-slate-50 p-5 rounded-2xl">
+          <h3 className="font-black text-slate-900 mb-2">
+            📱 Pago por aproximación
+          </h3>
+
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Puedes acercar directamente a la máquina de la estación una tarjeta
+            de crédito o débito compatible con NFC. También puedes utilizar
+            celulares, relojes u otros dispositivos compatibles.
+          </p>
+        </div>
+
+        <div className="bg-slate-50 p-5 rounded-2xl">
+          <h3 className="font-black text-slate-900 mb-2">
+            💳 Cartão Giro
+          </h3>
+
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Es la tarjeta propia del MetrôRio. Puede adquirirse en las
+            estaciones y recargarse posteriormente.
+          </p>
+        </div>
+
+        <div className="bg-slate-50 p-5 rounded-2xl">
+          <h3 className="font-black text-slate-900 mb-2">
+            📲 QR Code
+          </h3>
+
+          <p className="text-sm text-slate-600 leading-relaxed">
+            También existe el billete unitario mediante QR Code, que puede
+            comprarse digitalmente y utilizarse directamente en la catraca.
+          </p>
+        </div>
+
+        <div className="bg-slate-50 p-5 rounded-2xl">
+          <h3 className="font-black text-slate-900 mb-2">
+            🪪 Jaé
+          </h3>
+
+          <p className="text-sm text-slate-600 leading-relaxed">
+            El sistema Jaé forma parte del sistema de billetaje digital de
+            Río y puede utilizarse para diferentes servicios de transporte.
+            Es especialmente interesante para quienes también utilizarán
+            BRT o VLT.
+          </p>
+        </div>
+
+      </div>
+
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6 mb-10">
+        <h3 className="font-black text-slate-900 mb-2">
+          ⭐ Consejo para turistas extranjeros
+        </h3>
+
+        <p className="text-slate-700 text-sm leading-relaxed">
+          Si tu tarjeta internacional permite pagos por aproximación,
+          normalmente esta es la alternativa más sencilla para utilizar el
+          Metro durante tu viaje. No necesitas preocuparte por comprar una
+          tarjeta de transporte solamente para algunos viajes.
+        </p>
+      </div>
+
+      <h2 className="text-2xl font-black text-slate-900 mb-5">
+        🗺️ Principales líneas
+      </h2>
+
+      <div className="space-y-5 mb-10">
+
+        <div className="border border-slate-100 rounded-2xl p-5">
+          <h3 className="font-black text-slate-900 mb-2">
+            Línea 1
+          </h3>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Muy útil para moverse por la Zona Sur y conectar con zonas como
+            Copacabana, Botafogo y el Centro.
+          </p>
+        </div>
+
+        <div className="border border-slate-100 rounded-2xl p-5">
+          <h3 className="font-black text-slate-900 mb-2">
+            Línea 2
+          </h3>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Es especialmente interesante para quienes quieren visitar
+            Maracaná y diferentes zonas de la Zona Norte.
+          </p>
+        </div>
+
+        <div className="border border-slate-100 rounded-2xl p-5">
+          <h3 className="font-black text-slate-900 mb-2">
+            Línea 4
+          </h3>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Conecta la Zona Sur con Barra da Tijuca y resulta muy práctica
+            para desplazarse hacia Leblon, São Conrado y Jardim Oceânico.
+          </p>
+        </div>
+
+      </div>
+
+      <h2 className="text-2xl font-black text-slate-900 mb-5">
+        🗺️ Mapa del Metro
+      </h2>
+
+      <img
+        src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3062"
+        alt="Mapa del Metro de Río de Janeiro"
+        className="w-full rounded-2xl border border-slate-100 mb-10"
+      />
+
+      <h2 className="text-2xl font-black text-slate-900 mb-5">
+        📍 Metro y principales lugares turísticos
+      </h2>
+
+      <div className="space-y-4 text-sm text-slate-600 leading-relaxed">
+
+        <p>
+          <strong>Copacabana:</strong> las estaciones Cardeal Arcoverde,
+          Siqueira Campos y Cantagalo permiten acceder a diferentes sectores
+          del barrio.
+        </p>
+
+        <p>
+          <strong>Ipanema:</strong> las estaciones General Osório y Nossa
+          Senhora da Paz son algunas de las más útiles para visitar la zona.
+        </p>
+
+        <p>
+          <strong>Maracaná:</strong> la estación Maracanã de la Línea 2 es una
+          de las opciones más prácticas para llegar al estadio.
+        </p>
+
+        <p>
+          <strong>Centro:</strong> estaciones como Carioca, Cinelândia y
+          Uruguaiana permiten acceder a diferentes atractivos históricos y
+          culturales.
+        </p>
+
+        <p>
+          <strong>Jardim Oceânico:</strong> es una estación estratégica para
+          conectar con Barra da Tijuca y el sistema BRT.
+        </p>
+
+      </div>
+
+      <div className="mt-10 bg-slate-900 text-white rounded-3xl p-7">
+        <h3 className="text-xl font-black mb-3">
+          💡 Mi consejo
+        </h3>
+
+        <p className="text-white/80 text-sm leading-relaxed">
+          Para un turista que se está alojando en Copacabana, Ipanema o
+          Botafogo, aprender a utilizar el Metro puede significar un ahorro
+          importante de tiempo y dinero. Para distancias cortas o cuando
+          llevas equipaje, Uber puede ser más cómodo.
+        </p>
+      </div>
+
+    </div>
+  </section>
+)}
+
+
+{/* =========================================================
+    VENTANA — BICICLETAS
+   ========================================================= */}
+
+{seccionActual === 'transporte_bicicletas' && (
+  <section className="min-h-screen bg-white">
+
+    <div className="max-w-5xl mx-auto px-5 py-8">
+
+      <button
+        onClick={() => setSeccionActual('transportes')}
+        className="mb-6 text-sm font-bold text-slate-600 hover:text-teal-600"
+      >
+        ← Volver a Transportes
+      </button>
+
+      <img
+        src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3069"
+        alt="Bike Itaú Río de Janeiro"
+        className="w-full h-[320px] object-cover rounded-3xl mb-8"
+      />
+
+      <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
+        🚲 Bicicletas Bike Itaú
+      </h1>
+
+      <p className="text-slate-600 leading-relaxed mb-5">
+        Río de Janeiro es una ciudad excelente para recorrer en bicicleta,
+        especialmente por la zona de las playas. El sistema Bike Itaú permite
+        alquilar bicicletas desde una aplicación y devolverlas en estaciones
+        distribuidas por diferentes sectores de la ciudad.
+      </p>
+
+      <p className="text-slate-600 leading-relaxed mb-8">
+        Para un turista, es una opción especialmente interesante para recorrer
+        el eje Leblon – Ipanema – Copacabana, la Laguna Rodrigo de Freitas y
+        otros sectores donde existen ciclovías.
+      </p>
+
+      <h2 className="text-2xl font-black text-slate-900 mb-5">
+        📱 ¿Cómo funciona?
+      </h2>
+
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-10">
+
+        <div className="bg-slate-50 p-5 rounded-2xl text-center">
+          <div className="text-3xl mb-2">1️⃣</div>
+          <h3 className="font-black">Descarga la App</h3>
+        </div>
+
+        <div className="bg-slate-50 p-5 rounded-2xl text-center">
+          <div className="text-3xl mb-2">2️⃣</div>
+          <h3 className="font-black">Elige tu plan</h3>
+        </div>
+
+        <div className="bg-slate-50 p-5 rounded-2xl text-center">
+          <div className="text-3xl mb-2">3️⃣</div>
+          <h3 className="font-black">Desbloquea la bici</h3>
+        </div>
+
+        <div className="bg-slate-50 p-5 rounded-2xl text-center">
+          <div className="text-3xl mb-2">4️⃣</div>
+          <h3 className="font-black">Devuélvela</h3>
+        </div>
+
+      </div>
+
+      <h2 className="text-2xl font-black text-slate-900 mb-5">
+        💰 Valores actuales
+      </h2>
+
+      <div className="bg-teal-50 border border-teal-100 rounded-2xl p-6 mb-8">
+
+        <p className="text-slate-700 text-sm leading-relaxed mb-4">
+          Los precios pueden variar según el plan disponible en la aplicación.
+          Actualmente, la página oficial de Bike Itaú para Río muestra, entre
+          otras opciones:
+        </p>
+
+        <ul className="space-y-3 text-sm text-slate-700">
+          <li>🚲 <strong>Plan mensual:</strong> desde R$ 43,90/mes.</li>
+          <li>🚲 Hasta 4 viajes diarios en bicicletas mecánicas dentro del plan.</li>
+          <li>⏱️ Hasta 60 minutos por viaje durante la semana.</li>
+          <li>⏱️ Hasta 2 horas por viaje durante los fines de semana.</li>
+          <li>⚡ Las bicicletas eléctricas tienen tarifas adicionales específicas.</li>
+        </ul>
+
+      </div>
+
+      <h2 className="text-2xl font-black text-slate-900 mb-5">
+        🗺️ Recorridos que recomiendo
+      </h2>
+
+      <div className="space-y-5 mb-10">
+
+        <div className="border border-slate-100 rounded-2xl p-5">
+          <h3 className="font-black text-slate-900 mb-2">
+            Leblon → Ipanema → Copacabana
+          </h3>
+          <p className="text-sm text-slate-600">
+            Uno de los recorridos más agradables para conocer las playas
+            mientras pedaleas.
+          </p>
+        </div>
+
+        <div className="border border-slate-100 rounded-2xl p-5">
+          <h3 className="font-black text-slate-900 mb-2">
+            Copacabana → Botafogo → Flamengo
+          </h3>
+          <p className="text-sm text-slate-600">
+            Una ruta que permite disfrutar de algunas de las mejores vistas
+            de la costa de Río.
+          </p>
+        </div>
+
+        <div className="border border-slate-100 rounded-2xl p-5">
+          <h3 className="font-black text-slate-900 mb-2">
+            Laguna Rodrigo de Freitas
+          </h3>
+          <p className="text-sm text-slate-600">
+            Ideal para pedalear tranquilamente y disfrutar del paisaje con
+            el Cristo Redentor como telón de fondo.
+          </p>
+        </div>
+
+        <div className="border border-slate-100 rounded-2xl p-5">
+          <h3 className="font-black text-slate-900 mb-2">
+            Ipanema → Leblon → São Conrado
+          </h3>
+          <p className="text-sm text-slate-600">
+            Una ruta más larga y exigente, con paisajes espectaculares.
+          </p>
+        </div>
+
+      </div>
+
+      <img
+        src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3068"
+        alt="Ciclovías de Río de Janeiro"
+        className="w-full rounded-3xl mb-8"
+      />
+
+      <div className="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+        <h3 className="font-black text-slate-900 mb-2">
+          ⭐ Consejo de Ernestinho
+        </h3>
+
+        <p className="text-slate-700 text-sm leading-relaxed">
+          Para disfrutar realmente la bicicleta en Río, intenta utilizar las
+          ciclovías y evita las calles con mucho tráfico cuando exista una
+          alternativa más segura.
+        </p>
+      </div>
+
+    </div>
+  </section>
+)}
+
+
+{/* =========================================================
+    VENTANA — TRANSPORTE PRIVADO
+   ========================================================= */}
+
+{seccionActual === 'transporte_privado' && (
+  <section className="min-h-screen bg-white">
+
+    <div className="max-w-5xl mx-auto px-5 py-8">
+
+      <button
+        onClick={() => setSeccionActual('transportes')}
+        className="mb-6 text-sm font-bold text-slate-600 hover:text-teal-600"
+      >
+        ← Volver a Transportes
+      </button>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+
+        <img
+          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3070"
+          alt="Transporte privado"
+          className="w-full h-[280px] object-cover rounded-3xl"
+        />
+
+        <img
+          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3073"
+          alt="Vehículo privado"
+          className="w-full h-[280px] object-cover rounded-3xl"
+        />
+
+      </div>
+
+      <h1 className="text-4xl md:text-5xl font-black text-slate-900 mb-6">
+        🚐 Transporte privado en Río
+      </h1>
+
+      <p className="text-slate-600 leading-relaxed mb-5">
+        Si quieres viajar de una manera más cómoda, segura y personalizada,
+        también puedes contratar un servicio de transporte privado con
+        conductor.
+      </p>
+
+      <p className="text-slate-600 leading-relaxed mb-8">
+        Es una alternativa ideal para quienes viajan en familia, grupos de
+        amigos, personas con equipaje o simplemente prefieren no preocuparse
+        por el transporte durante sus vacaciones.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
+
+        <div className="bg-slate-50 rounded-2xl p-6">
+          <h3 className="text-xl font-black text-slate-900 mb-3">
+            ✈️ Aeropuerto → Hotel
+          </h3>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Traslado privado desde los aeropuertos de Río hasta tu alojamiento
+            y también servicio de regreso al aeropuerto.
+          </p>
+        </div>
+
+        <div className="bg-slate-50 rounded-2xl p-6">
+          <h3 className="text-xl font-black text-slate-900 mb-3">
+            🏖️ Río → Búzios
+          </h3>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Transporte privado entre Río de Janeiro y Búzios, con horarios
+            adaptados a tu viaje.
+          </p>
+        </div>
+
+        <div className="bg-slate-50 rounded-2xl p-6">
+          <h3 className="text-xl font-black text-slate-900 mb-3">
+            🌴 Río → Angra dos Reis
+          </h3>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            Una opción cómoda para trasladarte entre Río y Angra dos Reis
+            evitando las complicaciones del transporte colectivo.
+          </p>
+        </div>
+
+        <div className="bg-slate-50 rounded-2xl p-6">
+          <h3 className="text-xl font-black text-slate-900 mb-3">
+            🗺️ Paseos privados
+          </h3>
+          <p className="text-sm text-slate-600 leading-relaxed">
+            También puedes contratar un vehículo con conductor para realizar
+            un paseo privado y organizar el recorrido de acuerdo con tus
+            intereses.
+          </p>
+        </div>
+
+      </div>
+
+      <div className="bg-slate-900 text-white rounded-3xl p-7 mb-8">
+
+        <h2 className="text-2xl font-black mb-4">
+          ¿Por qué elegir un transporte privado?
+        </h2>
+
+        <ul className="space-y-3 text-white/80 text-sm">
+          <li>✓ Mayor comodidad durante el viaje.</li>
+          <li>✓ Servicio personalizado.</li>
+          <li>✓ Vehículos para diferentes tamaños de grupos.</li>
+          <li>✓ Conductores experimentados.</li>
+          <li>✓ Traslados entre Río y otras ciudades turísticas.</li>
+          <li>✓ Posibilidad de organizar horarios de acuerdo con tu itinerario.</li>
+        </ul>
+
+      </div>
+
+      <div className="text-center bg-teal-50 rounded-3xl p-8">
+
+        <h2 className="text-2xl font-black text-slate-900 mb-3">
+          📲 ¿Quieres cotizar tu traslado?
+        </h2>
+
+        <p className="text-slate-600 text-sm mb-6">
+          Escríbenos por WhatsApp indicando tu fecha, horario, origen,
+          destino y cantidad de pasajeros.
+        </p>
+
+        <a
+          href="https://wa.me/5521969946938"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-black px-8 py-4 rounded-2xl transition-colors shadow-lg"
+        >
+          💬 Cotizar por WhatsApp
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+)}
 
             {/* QUÉ HACER */}
             {seccionActual === 'que_hacer' && (
