@@ -933,25 +933,23 @@
                               <p>📍 Punto: {exp.encuentro}</p>
                             </div>
                           </div>
-<button
-  onClick={() => {
-    if (exp.id === 'exp-1') {
-      setSeccionActual('full_day_rio');
-    } else {
-      abrirReserva(exp);
-    }
-  }}
-  className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs uppercase py-3 rounded-xl transition-colors shadow-sm"
->
-  {exp.id === 'exp-1' ? 'Ver Experiencia' : 'Reservar Ahora'}
-</button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-            )}
+
+<div className="flex flex-col sm:flex-row gap-2 mt-4">
+
+  <button
+    onClick={() => {
+      if (exp.id === 'exp-1') {
+        setSeccionActual('full_day_rio');
+      } else {
+        setSeccionActual(`detalle_${exp.id}`);
+      }
+    }}
+    className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase py-3 rounded-xl transition-colors shadow-sm"
+  >
+    👁️ Ver Experiencia
+  </button>
+</div>
+    
 {/* VISTA DETALLADA — FULL DAY RÍO */}
 {seccionActual === 'full_day_rio' && (
   <section className="py-12 sm:py-16 bg-slate-50">
