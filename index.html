@@ -1457,6 +1457,401 @@
     </div>
   </section>
 )}
+            {/* VISTA DETALLADA — BÚZIOS */}
+{seccionActual === 'buzios' && (
+  <section className="py-12 sm:py-16 bg-slate-50">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
+      {/* VOLVER */}
+      <button
+        onClick={() => setSeccionActual('experiencias')}
+        className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors"
+      >
+        ← Volver a Experiencias
+      </button>
+
+      {/* CABECERA */}
+      <div className="text-center max-w-4xl mx-auto mb-10">
+        <span className="inline-flex items-center bg-teal-500 text-white font-black text-xs uppercase tracking-widest px-4 py-2 rounded-full mb-4 shadow-sm">
+          🌊 Experiencia de Playa
+        </span>
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 uppercase tracking-tight mb-5">
+          Búzios <span className="text-teal-500">en Goleta</span>
+        </h1>
+
+        <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+          Descubre la perla de la Región de Lagos y disfruta de algunas de las
+          playas más encantadoras de Brasil en una experiencia completa desde Río de Janeiro.
+        </p>
+      </div>
+
+      {/* VIDEO */}
+      <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 mb-10">
+        <div className="relative w-full aspect-video bg-slate-900">
+          <iframe
+            className="absolute inset-0 w-full h-full"
+            src="https://www.youtube.com/embed/z_mYfwJ8Dao"
+            title="Búzios — Tour en Goleta"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
+        </div>
+      </div>
+
+      {/* INTRO + PRECIO */}
+      <div className="bg-white rounded-3xl shadow-lg border border-slate-100 p-6 sm:p-10 mb-10">
+
+        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-8">
+
+          <div className="max-w-3xl">
+            <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+              Tour completo desde Río
+            </span>
+
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-4">
+              Búzios, playas paradisíacas y paseo en goleta
+            </h2>
+
+            <p className="text-slate-600 leading-relaxed">
+              Descubre Búzios, la perla de la Región de Lagos, en la costa norte
+              del Estado de Río de Janeiro. A aproximadamente 160 km de la ciudad
+              de Río, Búzios reúne playas de diferentes formas y paisajes que
+              pueden disfrutarse durante todo el año.
+            </p>
+
+            <p className="text-slate-600 leading-relaxed mt-4">
+              El viaje desde Río hasta Armação de Búzios dura aproximadamente
+              2 horas y 40 minutos, dependiendo de las condiciones del tráfico.
+              Al llegar, embarcaremos en la goleta para comenzar nuestro recorrido
+              por algunas de las playas más bonitas de la región.
+            </p>
+          </div>
+
+          <div className="shrink-0 bg-teal-500 text-white rounded-2xl px-6 py-5 text-center shadow-md">
+            <span className="block text-[10px] font-black uppercase tracking-widest">
+              Desde
+            </span>
+
+            <span className="text-4xl font-black block">
+              R$230
+            </span>
+
+            <span className="block text-xs font-bold">
+              por persona
+            </span>
+
+            <span className="block text-[10px] font-semibold mt-1">
+              + taxa marinha
+            </span>
+          </div>
+
+        </div>
+
+        {/* PARADAS */}
+        <div className="space-y-10">
+
+          {/* JOÃO FERNANDES */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3079"
+                alt="Playa João Fernandes en Búzios"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
+
+            <div>
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                01 · Primera parada
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                🏖️ Playa João Fernandes
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Una de las playas más conocidas de Búzios, rodeada de aguas
+                tranquilas y hermosos paisajes. Es uno de los lugares que hacen
+                de Búzios uno de los destinos de playa más encantadores de Brasil.
+              </p>
+            </div>
+
+          </div>
+
+          {/* PRAIA DAS MOÇAS */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="md:order-2 rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3080"
+                alt="Praia das Moças e Ilha Feia"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
+
+            <div className="md:order-1">
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                02 · Segunda parada
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                🌊 Praia das Moças · Ilha Feia
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Durante el recorrido en goleta también disfrutaremos de la
+                región de Praia das Moças, junto a Ilha Feia, uno de los
+                paisajes naturales que forman parte del encanto de la costa de Búzios.
+              </p>
+            </div>
+
+          </div>
+
+          {/* TARTARUGA */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3081"
+                alt="Praia da Tartaruga en Búzios"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
+
+            <div>
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                03 · Tercera parada
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                🐢 Praia da Tartaruga
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Cerramos el recorrido en una de las playas más famosas de
+                Búzios, rodeada de naturaleza y aguas que invitan a disfrutar
+                del paseo y del paisaje.
+              </p>
+            </div>
+
+          </div>
+
+          {/* RUA DAS PEDRAS */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="md:order-2 rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3082"
+                alt="Rua das Pedras en Búzios"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
+
+            <div className="md:order-1">
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                04 · Tiempo libre
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                🛍️ Rua das Pedras
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Después del almuerzo tendrás tiempo libre para caminar por
+                la famosa Rua das Pedras, la calle principal de Búzios, con
+                restaurantes, tiendas, bares y mucho movimiento.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* QUÉ INCLUYE */}
+      <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl mb-10">
+
+        <div className="text-center mb-8">
+          <span className="text-amber-400 font-black text-xs uppercase tracking-widest">
+            Tu experiencia incluye
+          </span>
+
+          <h2 className="text-2xl sm:text-3xl font-black mt-2">
+            Todo preparado para disfrutar Búzios
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          <div className="bg-white/5 rounded-2xl p-5">
+            <span className="text-amber-400 text-2xl">✓</span>
+            <h3 className="font-black mt-2">Transporte</h3>
+            <p className="text-slate-300 text-sm mt-1">
+              Transporte con aire acondicionado desde Río.
+            </p>
+          </div>
+
+          <div className="bg-white/5 rounded-2xl p-5">
+            <span className="text-amber-400 text-2xl">✓</span>
+            <h3 className="font-black mt-2">Guía bilingüe</h3>
+            <p className="text-slate-300 text-sm mt-1">
+              Acompañamiento durante la experiencia.
+            </p>
+          </div>
+
+          <div className="bg-white/5 rounded-2xl p-5">
+            <span className="text-amber-400 text-2xl">✓</span>
+            <h3 className="font-black mt-2">Tour en goleta</h3>
+            <p className="text-slate-300 text-sm mt-1">
+              Recorrido de aproximadamente 2 horas y 30 minutos.
+            </p>
+          </div>
+
+          <div className="bg-white/5 rounded-2xl p-5">
+            <span className="text-amber-400 text-2xl">✓</span>
+            <h3 className="font-black mt-2">Almuerzo</h3>
+            <p className="text-slate-300 text-sm mt-1">
+              Almuerzo incluido durante la excursión.
+            </p>
+          </div>
+
+        </div>
+
+        {/* DATOS */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-8 pt-8 border-t border-white/10">
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Duración total
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              Aprox. 13 horas
+            </p>
+          </div>
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Goleta
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              Aprox. 2h30
+            </p>
+          </div>
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Salidas
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              Todos los días
+            </p>
+          </div>
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Horario
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              07:00 - 08:30
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* INFORMACIÓN IMPORTANTE */}
+      <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 shadow-md mb-10">
+
+        <div className="flex gap-4 items-start">
+
+          <div className="text-3xl shrink-0">
+            ⚠️
+          </div>
+
+          <div>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-3">
+              Información importante sobre el paseo en goleta
+            </h2>
+
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+              La embarcación cuenta con música, servicio de bar y baños.
+              Las goletas en Búzios no tienen permiso para acercarse a la
+              franja de arena, por lo que los pasajeros pueden nadar
+              únicamente alrededor de la embarcación, utilizando flotadores
+              tipo "fideos".
+            </p>
+
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4">
+              El paseo en barco está sujeto a las condiciones climáticas y a
+              la autorización de la Marina de Brasil. En determinados días,
+              aunque haya sol, el viento puede provocar el cierre del puerto
+              y la prohibición de salida de las embarcaciones.
+            </p>
+
+            <p className="text-slate-900 font-bold text-sm sm:text-base leading-relaxed mt-4">
+              🚐 En caso de que la Marina prohíba la salida de los barcos por
+              viento u otras condiciones climáticas, la actividad será
+              realizada por tierra para que podamos continuar disfrutando
+              de Búzios.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* PRECIO + RESERVA */}
+      <div className="bg-teal-500 text-white rounded-3xl p-6 sm:p-8 shadow-xl">
+
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+
+          <div>
+            <span className="text-xs font-black uppercase tracking-widest">
+              Precio especial
+            </span>
+
+            <h2 className="text-4xl sm:text-5xl font-black mt-1">
+              R$230
+            </h2>
+
+            <p className="text-sm font-bold mt-1">
+              Por persona + taxa marinha
+            </p>
+
+            <p className="text-xs sm:text-sm mt-3 max-w-2xl">
+              Salidas todos los días. Horarios de recogida entre las 07:00 y
+              las 08:30, según el punto de encuentro.
+            </p>
+          </div>
+
+          <button
+            onClick={() =>
+              abrirReserva({
+                id: 'exp-2',
+                titulo: 'Búzios — Tour en Goleta',
+                precio: 'R$230 + taxa marinha',
+                duracion: 'Aproximadamente 13 horas',
+                grupo: 'Salidas todos los días',
+                encuentro: 'Consultar'
+              })
+            }
+            className="w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-10 rounded-2xl shadow-lg transition-all hover:scale-105"
+          >
+            📅 Reservar Ahora
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+)}
 {/* =========================================================
     TRANSPORTES — PÁGINA PRINCIPAL
    ========================================================= */}
