@@ -1,0 +1,2098 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ernestinho Carioca - Río desde mi mirada</title>
+
+  <!-- Cargadores de dependencias para Systeme.io -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Estilos personalizados auxiliares para animaciones y scroll -->
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.25s ease-out forwards;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    /* Estilo para ocultar scrollbars estéticas */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+  <!-- Contenedor Principal donde se montará la Plataforma -->
+  <div id="ernestinho-carioca-root" class="w-full min-h-screen"></div>
+
+  <!-- Código de la Aplicación React preparado para Systeme.io -->
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // --- COMPONENTE DE ÍCONO AUXILIAR LIGERO ---
+    const Icon = ({ name, className = "w-5 h-5", fill = "none" }) => {
+      useEffect(() => {
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      }, [name]);
+      return <i data-lucide={name} className={className} style={{ fill: fill !== 'none' ? fill : 'transparent' }}></i>;
+    };
+
+    // --- DATOS MUESTRA Y CONTENIDOS COMPLETOS ---
+    const CATEGORIAS_QUE_HACER = [
+      { id: 'atracciones', nombre: 'Atracciones', icon: '🏛️', desc: 'Los monumentos icónicos e imperdibles de la Ciudad Maravillosa.' },
+      { id: 'playas', nombre: 'Playas', icon: '🏖️', desc: 'Las mejores franjas de arena, olas y ambiente playero del mundo.' },
+      { id: 'naturaleza', nombre: 'Naturaleza', icon: '🌴', desc: 'Bosques urbanos, morros y senderos exuberantes.' },
+      { id: 'aventura', nombre: 'Aventura', icon: '🥾', desc: 'Vuelo libre, kayak, rapel y experiencias extremas.' },
+      { id: 'cultura', nombre: 'Cultura', icon: '🎭', desc: 'Samba, museos, historia local y arquitectura carioca.' },
+      { id: 'gastronomia', nombre: 'Gastronomía', icon: '🍽️', desc: 'Sabores locales, churrasquerías y comida de playa.' },
+      { id: 'nocturna', nombre: 'Vida Nocturna', icon: '🌙', desc: 'Bares de Lapa, rodas de samba y fiestas junto al mar.' },
+      { id: 'familia', nombre: 'Familia', icon: '👨‍👩‍👧', desc: 'Actividades seguras y divertidas para todas las edades.' },
+      { id: 'fotografia', nombre: 'Fotografía', icon: '📸', desc: 'Los puntos panorámicos más espectaculares para tus fotos.' }
+    ];
+
+    const PLAYAS_DETALLADAS_DATA = [
+      {
+        id: 'leme',
+        nombre: 'Playa de Leme',
+        tag: 'Tranquilidad y Familia',
+        videoUrl: 'https://www.youtube.com/watch?v=u_65Go3a9vA',
+        mapUrl: 'https://www.google.com/maps?ll=-22.9646,-43.168959&z=15&t=m&hl=es-419&gl=BR&mapclient=embed&q=Praia+do+Leme+R%C3%ADo+de+Janeiro+-+Estado+de+R%C3%ADo+de+Janeiro',
+        imagenes: [
+          'https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?auto=format&fit=crop&q=80&w=800',
+          'https://st3.depositphotos.com/2169563/14131/i/450/depositphotos_141317238-stock-photo-famous-portuguese-style-mosaic.jpg'
+        ],
+        descripcion: 'La primera playa de la zona sur de Río de Janeiro. Se extiende desde el cruce de Av. Atlántica con Av. Princesa Isabel hasta la Plaza Almirante Júlio de Noronha, a los pies del Morro de Leme.',
+        detalles: [
+          'Aunque no hay una división física con Copacabana, Leme tiene una identidad propia con una franja de arena más ancha y un ambiente más familiar.',
+          'A los pies del Morro de Leme se encuentra el "Camino de Pescadores", un lindo paseo asfaltado para contemplar el atardecer, ver pescadores y jóvenes practicando bodysurf.',
+          'En la cima del morro está el Fuerte Duque de Caxias (Fuerte de Leme), dentro de un Área de Protección Ambiental con vistas panorámicas increíbles al Pan de Azúcar, Cristo Redentor y la bahía.'
+        ]
+      },
+      {
+        id: 'copacabana',
+        nombre: 'Playa de Copacabana',
+        tag: 'Princesinha do Mar',
+        videoUrl: 'https://www.youtube.com/watch?v=xSGM0OZQSCY',
+        mapUrl: 'https://www.google.com/maps?q=Praia+de+Copacabana+Rio+de+Janeiro',
+        imagenes: [
+          'https://megustavolar.iberia.com/wp-content/uploads/mgv/Copabacana_Brasil_Rio_Janeiro_Catarina-Belova_Shutterstock-640x428.jpg',
+          'https://external-preview.redd.it/7xayvBrYtrkR-kgn6oAPGJj2zMm2aYcvKvGYdXD9ze4.jpg?auto=webp&s=5f91c554f6e3d9486a8ccfd7fbfcffedc7042c8a'
+        ],
+        descripcion: 'La playa más famosa de Brasil y del mundo. Inconfundible por su famoso paseo marítimo (Orla) diseñado por Roberto Burle Marx.',
+        detalles: [
+          'Enmarcada entre el Fuerte de Leme y el Fuerte de Copacabana, es un punto de encuentro permanente de cariocas y turistas a cualquier hora del día o de la noche.',
+          'Vivió su era dorada en los años 40 y 50 con elegantes clubes y el majestuoso hotel Copacabana Palace.',
+          'Concentra la mayor cantidad de alojamientos, quioscos frente al mar, restaurantes y bares históricos patrimoniales de Río.'
+        ]
+      },
+      {
+        id: 'arpoador',
+        nombre: 'Playa de Arpoador',
+        tag: 'La Mejor Puesta de Sol',
+        videoUrl: 'https://www.youtube.com/watch?v=pBdNTgHGiiU',
+        mapUrl: 'https://www.google.com/maps?ll=-22.988579,-43.194114&z=15&t=m&hl=es-419&gl=BR&mapclient=embed&q=Arpoador+Ipanema+R%C3%ADo+de+Janeiro+-+Estado+de+R%C3%ADo+de+Janeiro',
+        imagenes: [
+          'https://a.cdn-hotels.com/gdcs/production70/d1191/8aa1310a-1226-4628-962d-6beffa746837.jpg',
+          'https://www.viajali.com.br/wp-content/uploads/2019/01/arpoador-00.jpg'
+        ],
+        descripcion: 'Pequeña franja delimitada por la famosa península de roca (Pedra do Arpoador) que separa Copacabana e Ipanema.',
+        detalles: [
+          'Su nombre proviene de épocas antiguas cuando los pescadores cazaban ballenas con arpones desde las rocas cerca de la costa.',
+          'Es mundialmente célebre por regalar una de las puestas de sol más espectaculares de Río, donde la gente se reúne sobre las rocas a aplaudir el atardecer mientras el sol se oculta tras el Morro Dois Irmãos.'
+        ]
+      },
+      {
+        id: 'praia-do-diabo',
+        nombre: 'Praia do Diabo (Playa del Diablo)',
+        tag: 'Rincón Tranquilo & Naturaleza',
+        videoUrl: 'https://www.youtube.com/watch?v=Iu3qfDU5270',
+        mapUrl: 'https://www.google.com/maps?q=Praia+do+Diabo+Ipanema+Rio+de+Janeiro',
+        imagenes: [
+          'https://www.tevejopelomundo.com.br/wp-content/uploads/2020/04/praia-do-diabo-mare-baixa.jpg',
+          'https://www.tevejopelomundo.com.br/wp-content/uploads/2020/04/praia-do-diabo-google-maps.jpeg'
+        ],
+        descripcion: 'Ubicada justo a la izquierda de la Pedra do Arpoador, a pesar de su nombre es un auténtico paraíso escondido para contemplar el amanecer.',
+        detalles: [
+          'Ideal para practicar deportes al aire libre o disfrutar en familia gracias a sus plazas con bancos bajo la sombra.',
+          'Disfruta de agua de coco helada en un entorno relajado y menos concurrido que las playas vecinas.'
+        ]
+      },
+      {
+        id: 'ipanema',
+        nombre: 'Playa de Ipanema',
+        tag: 'Bossa Nova, Moda & Estilo',
+        videoUrl: 'https://www.youtube.com/watch?v=pBdNTgHGiiU',
+        mapUrl: 'https://www.google.com/maps?q=Ipanema+Beach+Rio+de+Janeiro',
+        imagenes: [
+          'https://a.cdn-hotels.com/gdcs/production165/d100/5e0a7326-4dd3-40cc-9eb7-3af978f69b3d.jpg',
+          'https://www.viajali.com.br/wp-content/uploads/2020/05/praia-de-ipanema-11.jpg'
+        ],
+        descripcion: 'Ubicada entre Arpoador y Jardim de Alah, es una de las playas más vibrantes y chic del mundo con 2 km de extensión.',
+        detalles: [
+          'Inspiración de poetas y músicos, cuna de "Garota de Ipanema" de Vinícius de Moraes y Tom Jobim.',
+          'Punto de encuentro multicultural dividido por puestos (Postos): surfistas, jóvenes, comunidad LGBTQ+ y deportistas de altísimo nivel.',
+          'Rodeada por tiendas de alta gama, galerías de arte, bares tradicionales como Garota de Ipanema y una activa vida nocturna.'
+        ]
+      },
+      {
+        id: 'leblon',
+        nombre: 'Playa de Leblon',
+        tag: 'Exclusividad, Gastronomía & Mirador',
+        videoUrl: 'https://www.youtube.com/watch?v=pBdNTgHGiiU',
+        mapUrl: 'https://www.google.com/maps?q=Praia+do+Leblon+Rio+de+Janeiro',
+        imagenes: [
+          'https://www.transportal.com.br/noticias/wp-content/uploads/2020/07/Leblon.jpg',
+          'https://external-preview.redd.it/3323iLDW5vqbLVtUm8DOZRv0CDDD1YhzdsR67qjvaJM.jpg?auto=webp&s=dbdc48e9bc3f9016be6903685ef94c8799e9eed4'
+        ],
+        descripcion: 'Ubicada en el barrio homónimo en la Zona Sur, es considerada una de las zonas más nobles y exclusivas de Río de Janeiro.',
+        detalles: [
+          'El barrio es famoso por sus afamados restaurantes, bares, quioscos sofisticados y hoteles que garantizan una excelente infraestructura turística.',
+          'Muy frecuentada por residentes locales y celebridades que buscan refrescarse en las aguas del mar o caminar por su paseo marítimo.',
+          'Ofrece una vista magnífica del Pan de Azúcar y del Morro Dois Irmãos al atardecer, ideal para fotos desde su icónico Mirador de Leblon.'
+        ]
+      },
+      {
+        id: 'prainha-vidigal',
+        nombre: 'Prainha do Vidigal',
+        tag: 'Rincón Local al Pie del Morro',
+        videoUrl: 'https://www.youtube.com/watch?v=u_65Go3a9vA',
+        mapUrl: 'https://www.google.com/maps?q=Praia+do+Vidigal+Rio+de+Janeiro',
+        imagenes: [
+          'https://ogimg.infoglobo.com.br/in/18641983-d9f-34e/FT1086A/2016-885149432-201602021235295503.jpg_20160202.jpg',
+          'https://tevejopelomundo.com.br/wp-content/uploads/2017/11/praia-do-vidigal-vista-das-pedras.jpg'
+        ],
+        descripcion: 'Ubicada al inicio de São Conrado en la Zona Sur, esta pequeña franja de 500 metros se encuentra a los pies del Morro Dois Irmãos.',
+        detalles: [
+          'Desde los años 40 ha sido frecuentada principalmente por los residentes de la Favela do Vidigal.',
+          'Al borde de la playa se encuentra el icónico Hotel Sheraton de Río de Janeiro, construido a finales de los años 60.',
+          'A pesar de los intentos históricos de privatizar su acceso, la playa sigue siendo pública y muy apreciada por su oleaje y vistas desde las piedras.'
+        ]
+      },
+      {
+        id: 'praia-vermelha',
+        nombre: 'Praia Vermelha',
+        tag: 'Encanto al Pie del Pan de Azúcar',
+        videoUrl: 'https://www.youtube.com/watch?v=u_65Go3a9vA',
+        mapUrl: 'https://maps.app.goo.gl/RV2crzxvmdJX7WcG7',
+        imagenes: [
+          'https://a.cdn-hotels.com/gdcs/production41/d1240/968d4064-1c6a-40dd-a825-0d93debe5ad9.jpg',
+          'https://a.cdn-hotels.com/gdcs/production179/d1982/ad9dc07c-7c0d-4f35-bd60-7f52f294d526.jpg'
+        ],
+        descripcion: 'Pequeña joya de 200 metros ubicada en Urca, entre el Morro da Urca y el Morro da Babilônia, justo al lado de la estación del bondinho del Pan de Azúcar.',
+        detalles: [
+          'Caracterizada por su arena rojiza y aguas tranquilas rodeadas de exuberante vegetación.',
+          'Inicio de la famosa pista de jogging Cláudio Coutinho (1.250 m) para caminar al borde del mar y la montaña.',
+          'Urca es un barrio tranquilo e histórico, repleto de arquitectura militar y un ambiente idílico para ver el atardecer.'
+        ]
+      },
+      {
+        id: 'botafogo',
+        nombre: 'Playa de Botafogo',
+        tag: 'Vista Postal del Pan de Azúcar',
+        videoUrl: 'https://www.youtube.com/watch?v=u_65Go3a9vA',
+        mapUrl: 'https://www.google.com/maps?q=Praia+de+Botafogo+Rio+de+Janeiro',
+        imagenes: [
+          'https://images.mnstatic.com/1a/fa/1afa6f0082e3a41a2c52453d4947facc.jpg?quality=75&format=pjpg&fit=crop&width=980&height=880&aspect_ratio=980%3A880',
+          'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/4f/39/3b/20170128-142713-largejpg.jpg?w=1200&h=-1&s=1'
+        ],
+        descripcion: 'Con 700 metros de extensión, conecta el Centro con la Zona Sur. Célebre por ofrecer una de las vistas panorámicas más hermosas del Pan de Azúcar y la Bahía de Guanabara.',
+        detalles: [
+          'Aunque no se suele utilizar para el baño de mar, es excelente para la navegación a vela, ciclismo por su ciclovía, caminatas y eventos/conciertos al aire libre.',
+          'El barrio de Botafogo destaca por su polo gastronómico, bares modernos, cines independientes y vida nocturna joven.'
+        ]
+      },
+      {
+        id: 'sao-conrado',
+        nombre: 'Playa de São Conrado',
+        tag: 'Vuelo Libre, Mansiones & Rocinha',
+        videoUrl: 'https://www.youtube.com/watch?v=pBdNTgHGiiU',
+        mapUrl: 'https://www.google.com/maps?q=Praia+de+Sao+Conrado+Rio+de+Janeiro',
+        imagenes: [
+          'https://a.travel-assets.com/findyours-php/viewfinder/images/res70/64000/64417-Sao-Conrado-Beach.jpg',
+          'https://a.travel-assets.com/findyours-php/viewfinder/images/res70/64000/64416-Sao-Conrado-Beach.jpg'
+        ],
+        descripcion: 'Antes llamada Praia da Gávea, se ubica en uno de los barrios más nobles y contrastantes de la ciudad.',
+        detalles: [
+          'Rodeada por imponentes formaciones rocosas como la Pedra da Gávea y el Morro Dois Irmãos, es el punto mundial de aterrizaje de alas delta y parapentes.',
+          'Enmarca mansiones y edificios de lujo junto a la vibrante Favela da Rocinha (con más de 200.000 habitantes y gran actividad comercial).'
+        ]
+      },
+      {
+        id: 'joatinga',
+        nombre: 'Playa de Joatinga',
+        tag: 'Exclusiva, Salvaje & Paraíso Oculto',
+        videoUrl: 'https://www.youtube.com/watch?v=pBdNTgHGiiU',
+        mapUrl: 'https://www.google.com/maps?q=Praia+da+Joatinga+Rio+de+Janeiro',
+        imagenes: [
+          'https://www.dicasdeviagem.com/wp-content/uploads/2015/06/Joatinga-praia-rj.jpg',
+          'https://a.cdn-hotels.com/gdcs/production142/d846/0f298f20-3ae6-470d-b388-b1b7d90e6e0e.jpg'
+        ],
+        descripcion: 'Playa súper exclusiva de menos de 300 m ubicada dentro de un condominio privado en el barrio de Joá, entre São Conrado y Barra da Tijuca.',
+        detalles: [
+          'Acceso libre por una caminata/escalinata entre rocas. Muy frecuentada por surfistas, artistas y jóvenes.',
+          '⚠️ ¡IMPORTANTE! Consultar la tabla de mareas antes de ir, ya que en días de marea alta la franja de arena desaparece por completo.',
+          'Lleva tu propia sombrilla y comida/bebida, ya que no cuenta con infraestructura de quioscos permanente.'
+        ]
+      },
+      {
+        id: 'praia-dos-amores',
+        nombre: 'Praia dos Amores (Barra)',
+        tag: 'Aguas Calmas al Pie del Joá',
+        videoUrl: 'https://www.youtube.com/watch?v=Iu3qfDU5270',
+        mapUrl: 'https://www.google.com/maps?q=Praia+dos+Amores+Barra+da+Tijuca+Rio+de+Janeiro',
+        imagenes: [
+          'https://diariodorio.com/wp-content/uploads/2021/09/praia-dos-amores-696x522.jpg',
+          'https://www.cariocasemfronteiras.com.br/wp-content/uploads/2020/08/Praia-dos-Amores-Quebra-Mar-Barra-da-Tijuca-1024x768.jpg'
+        ],
+        descripcion: 'Rincón encantador ubicado "debajo" del Elevado do Joá, considerado una extensión de Quebra-Mar al inicio de Barra da Tijuca.',
+        detalles: [
+          'Destaca por sus aguas muy poco profundas y tranquilas, ideales para escapar del bullicio de las playas turísticas tradicionales.',
+          'Su franja de arena depende de la marea baja. Cuenta con quioscos locales para tomar una cerveza bien fría y comer petiscos con vista al mar.'
+        ]
+      },
+      {
+        id: 'praia-da-reserva',
+        nombre: 'Praia da Reserva',
+        tag: 'Tranquilidad & Reserva Ecológica',
+        videoUrl: 'https://www.youtube.com/watch?v=xSGM0OZQSCY',
+        mapUrl: 'https://www.google.com/maps?q=Praia+da+Reserva+Barra+da+Tijuca+Rio+de+Janeiro',
+        imagenes: [
+          'https://imgmd.net/images/v1/guia/1689728/praia-da-reserva.jpg',
+          'https://imgmd.net/images/v1/guia/1689726/praia-da-reserva.jpg'
+        ],
+        descripcion: 'Ubicada a lo largo de la Av. Lúcio Costa entre Barra da Tijuca y Recreio dos Bandeirantes, en medio de una Reserva Ecológica protegida.',
+        detalles: [
+          'Muy extensa, limpia y poco concurrida, siendo la alternativa perfecta para quienes buscan un día de playa tranquilo lejos de las multitudes.',
+          'Sus aguas son cristalinas y abiertas, muy apreciadas por amantes de la naturaleza y el descanso.'
+        ]
+      },
+      {
+        id: 'recreio',
+        nombre: 'Playa de Recreio dos Bandeirantes',
+        tag: 'Surf, Reservas Naturales & Espacio',
+        videoUrl: 'https://www.youtube.com/watch?v=xSGM0OZQSCY',
+        mapUrl: 'https://www.google.com/maps?q=Praia+do+Recreio+dos+Bandeirantes+Rio+de+Janeiro',
+        imagenes: [
+          'https://diariodorio.com/wp-content/uploads/2019/07/praia-do-recreio-rio-de-janeiro-1280x720.jpeg',
+          'https://diariodorio.com/wp-content/uploads/2019/06/o-que-fazer-no-recreio-dos-bandeirantes-7.jpg'
+        ],
+        descripcion: 'Extensa playa al final de la Av. Sernambetiba, continuación de Barra da Tijuca. Sede de torneos internacionales de surf y bodyboard.',
+        detalles: [
+          'Rodeada por reservas ecológicas protegidas como la Lagoa de Marapendi, el Parque Chico Mendes y Prainha.',
+          'Excelente infraestructura de quioscos, ciclovías y edificios modernos en un ambiente relajado y natural.'
+        ]
+      },
+      {
+        id: 'abrico',
+        nombre: 'Playa de Abricó',
+        tag: 'Naturismo & Naturaleza Libre',
+        videoUrl: 'https://www.youtube.com/watch?v=u_65Go3a9vA',
+        mapUrl: 'https://www.google.com/maps?q=Praia+do+Abrico+Grumari+Rio+de+Janeiro',
+        imagenes: [
+          'https://www.viagenspossiveis.com.br/wp-content/uploads/2013/03/praia-nudismo-abrico-rj-42.jpg',
+          'https://www.fbrn.org.br/wp-content/uploads/2021/05/anabricopage1720x480.png'
+        ],
+        descripcion: 'Ubicada dentro del Parque Municipal de Grumari, es la única playa oficialmente naturalista/nudista de la ciudad de Río de Janeiro.',
+        detalles: [
+          'Utilizada por naturistas desde la década de 1940 e impulsada por figuras como Luz del Fuego en los años 50.',
+          'Afiliada a la ANA (Associação Naturalista de Abricó). Fines de semana y feriados la desnudez es requerida según el código ético naturista.'
+        ]
+      }
+    ];
+
+    const SHOPPINGS_DATA = [
+      {
+        id: 'rio-sul',
+        nombre: 'Shopping Rio Sul',
+        barrio: 'Botafogo (a 5 min de Copacabana)',
+        imagen: 'https://iguatemi.com.br/_next/image?url=https%3A%2F%2Fstorage.googleapis.com%2Fstrapi-igta%2FLogo_RIOSUL_Colorida_alta_30_f712820fad%2FLogo_RIOSUL_Colorida_alta_30_f712820fad.png&w=640&q=75',
+        mapUrl: 'https://maps.app.goo.gl/DkkaGVwCd2aoxrhm6',
+        desc: 'Ubicado en el barrio de Botafogo a solo 5 minutos de Copacabana. Es uno de los shoppings más completos y tradicionales de la ciudad, con excelente red de transporte.',
+        extraTip: '⚽ ¡Tip Futbolero! A solo media cuadra se encuentra la sede oficial del Botafogo de Futebol e Regatas, donde puedes visitar la sala de trofeos y comprar indumentaria oficial en su tienda.'
+      },
+      {
+        id: 'shopping-leblon',
+        nombre: 'Shopping Leblon',
+        barrio: 'Leblon',
+        imagen: 'https://agendacarioca.com.br/wp-content/uploads/2021/08/Fachada-Shopping-Leblon.jpg',
+        mapUrl: 'https://maps.app.goo.gl/jP4ghrHx5gKRGC7BA',
+        desc: 'En pleno corazón de Leblon se encuentra este centro comercial lleno de glamour. De ambiente sofisticado y concurrido, es muy común cruzarse con celebridades de TV Globo o músicos famosos de compras.',
+        extraTip: '✨ Cuenta con restaurantes de alta gastronomía en su terraza con vistas al Morro Dois Irmãos.'
+      },
+      {
+        id: 'fashion-mall',
+        nombre: 'Fashion Mall',
+        barrio: 'São Conrado',
+        imagen: 'https://vejario.abril.com.br/wp-content/uploads/2016/11/9d8a6c030c06cb4e643a0b8a9dd490e1.jpeg?quality=70&strip=info&resize=850,567',
+        mapUrl: 'https://maps.app.goo.gl/FashionMall',
+        desc: 'Ubicado en el exclusivo barrio de São Conrado. Si prefieres hacer compras tranquilas sin multitudes, este es tu shopping ideal.',
+        extraTip: '🌧️ Con tiendas de diseñador de renombre y cines confortables, es una opción perfecta para días de lluvia.'
+      },
+      {
+        id: 'village-mall',
+        nombre: 'VillageMall',
+        barrio: 'Barra da Tijuca',
+        imagen: 'https://images.unsplash.com/photo-1544989164-3075c75f3a0a?auto=format&fit=crop&q=80&w=800',
+        mapUrl: 'https://maps.app.goo.gl/VillageMall',
+        desc: 'El shopping más exclusivo e imponente de Río de Janeiro. Alberga las marcas de lujo internacionales más prestigiosas del mundo.',
+        extraTip: '💎 Tan exclusivo que está prohibido tomar fotos en varios de sus pasillos interiores. ¡Preparen las billeteras!'
+      },
+      {
+        id: 'barra-shopping',
+        nombre: 'BarraShopping',
+        barrio: 'Barra da Tijuca',
+        imagen: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&q=80&w=800',
+        mapUrl: 'https://maps.app.goo.gl/BarraShopping',
+        desc: 'Uno de los complejos comerciales más grandes de toda América Latina. Conectado al New York City Center, ofrece cientos de tiendas, parque de diversiones, cines y gastronomía.',
+        extraTip: '🛍️ Ideal para encontrar de todo en un solo lugar a precios variados.'
+      }
+    ];
+
+    const BARRIOS_DATA = [
+      { nombre: 'Copacabana', desc: 'El barrio icónico con su calçadão, hoteles de historia y vibrante pulso nocturno.', img: 'https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?auto=format&fit=crop&q=80&w=400' },
+      { nombre: 'Ipanema', desc: 'Moda, alta gastronomía, cultura bohemia y las puestas de sol más aplaudidas.', img: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=400' },
+      { nombre: 'Santa Teresa', desc: 'Barrio bohemio en lo alto de la colina con mansiones antiguas, galerías de arte y el tranvía amarillo.', img: 'https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&q=80&w=400' },
+      { nombre: 'Lapa', desc: 'El corazón de la noche carioca. Arcos históricos, rodas de samba en vivo y bares inolvidables.', img: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&q=80&w=400' },
+      { nombre: 'Botafogo', desc: 'El barrio "hipster" con vistas espectaculares al Pan de Azúcar, bares gastronómicos y cines independientes.', img: 'https://images.unsplash.com/photo-1544989164-3075c75f3a0a?auto=format&fit=crop&q=80&w=400' },
+      { nombre: 'Urca', desc: 'Barrio residencial tranquilo y ultraseguro al pie del Pan de Azúcar, ideal para tomar algo en Mureta da Urca.', img: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=400' },
+    ];
+
+    const EXPERIENCIAS_DATA = [
+      {
+        id: 'exp-1',
+        titulo: 'Cristo Redentor + Pan de Azúcar Espectacular',
+        precio: 'R$ XXX',
+        duracion: '7 horas',
+        grupo: 'Máximo 10 personas',
+        encuentro: 'Recogida en hotel (Zona Sur)',
+        imagen: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&q=80&w=600',
+        descripcion: 'Un recorrido sin prisas por los dos mayores símbolos de Río, con acceso prioritario y mi mirada local sobre la historia de la ciudad.'
+      },
+      {
+        id: 'exp-2',
+        titulo: 'Río para Principiantes: Primer Impacto',
+        precio: 'R$ XXX',
+        duracion: '4 horas',
+        grupo: 'Grupos reducidos',
+        encuentro: 'Forte de Copacabana',
+        imagen: 'https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?auto=format&fit=crop&q=80&w=600',
+        descripcion: 'La orientación perfecta en tu primer día: seguridad, cómo moverte, probar el jugo de açaí original y secretos de la ciudad.'
+      },
+      {
+        id: 'exp-3',
+        titulo: 'Experiencia Carioca: Samba & Botecos Secreto',
+        precio: 'R$ XXX',
+        duracion: '5 horas',
+        grupo: 'Privado o grupos pequeños',
+        encuentro: 'Barrio de Lapa / Santa Teresa',
+        imagen: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=600',
+        descripcion: 'Vive la verdadera noche de Río lejos de las trampas para turistas. Samba auténtica, petiscos deliciosos y caipirinhas reales.'
+      },
+      {
+        id: 'exp-4',
+        titulo: 'Tour 100% Personalizado "A tu medida"',
+        precio: 'Bajo Consulta',
+        duracion: 'Flexible',
+        grupo: 'Tu grupo privado',
+        encuentro: 'A convenir',
+        imagen: 'https://images.unsplash.com/photo-1544989164-3075c75f3a0a?auto=format&fit=crop&q=80&w=600',
+        descripcion: 'Diseñamos juntos un día inolvidable según tus gustos específicos: senderismo, arte local, compras o fotografía escondida.'
+      }
+    ];
+
+    const LISTA_20_CONSEJOS = [
+      { num: "1", titulo: "Caminar con el celular en la mano por cualquier lugar", texto: "Cuando estés sacando fotos, mirando el mapa o buscando una dirección, intenta estar siempre atento a tu teléfono. No necesitas dejar de usarlo: simplemente evita caminar completamente distraído mientras lo llevas en la mano." },
+      { num: "2", titulo: "Dejar el celular, cartera o mochila sin vigilancia en la playa", texto: "Si vas con familia o amigos, pueden turnarse para que alguien vigile las cosas mientras los demás se bañan. Y si estás en nuestro puesto Barraca Rio 122, puedes consultar con nuestro personal para que te orienten sobre dónde dejar tus pertenencias mientras disfrutas del mar." },
+      { num: "3", titulo: "Llevar joyas caras o relojes llamativos", texto: "No es recomendable andar por la Cidade Maravihlosa con artículos de oro, collares llamativos o relojes costosos. Lo mejor es dejarlos en casa o guardados en tu alojamiento y salir ligero para disfrutar Río sin preocuparte por objetos innecesarios." },
+      { num: "4", titulo: "Caminar solo por calles aisladas o poco iluminadas de noche", texto: "Cuando cae la noche, lo más práctico es elegir calles con movimiento y lugares conocidos. Si no conoces la zona, pregunta antes de salir o utiliza una aplicación para planificar tu recorrido." },
+      { num: "5", titulo: "Ir a la playa de noche pensando que funciona igual que durante el día", texto: "La playa es uno de los grandes encantos de Río, pero el ambiente cambia bastante después de que cae el sol. Para disfrutar de la noche, prefiere lugares con movimiento y sigue las recomendaciones de quienes conocen la zona." },
+      { num: "6", titulo: "Llevar todos tus documentos y dinero encima", texto: "No necesitas salir con todo lo que tienes en el alojamiento. Lleva solamente lo necesario para tu paseo y guarda el resto en un lugar seguro. Menos cosas encima significa también más comodidad para disfrutar el día." },
+      { num: "7", titulo: "Entrar a un Uber sin comprobar la matrícula y el conductor", texto: "Antes de subir, revisa que la matrícula, el modelo del vehículo y la información del conductor coincidan con lo que aparece en la aplicación. Son apenas unos segundos y forman parte de viajar tranquilo." },
+      { num: "8", titulo: "Mostrar públicamente cuánto dinero llevas", texto: "En Río, como en cualquier destino turístico, es mejor evitar mostrar grandes cantidades de dinero en público. Lleva solamente lo que necesitas y guarda tus tarjetas y efectivo de forma discreta." },
+      { num: "9", titulo: "Aceptar ayuda de desconocidos cuando estás realizando una operación con dinero o tarjeta", texto: "Si necesitas sacar dinero, pagar o resolver algo con tu tarjeta, utiliza siempre los canales oficiales del banco o del establecimiento. Si tienes alguna duda, es mejor preguntar directamente al personal del lugar." },
+      { num: "10", titulo: "Dejar una bebida abandonada en un bar", texto: "Si estás disfrutando de una noche carioca y dejas tu bebida sin vigilancia durante un rato, lo más práctico es pedir otra cuando regreses. Así puedes seguir disfrutando de la noche con tranquilidad." },
+      { num: "11", titulo: "Aceptar cualquier precio de un vendedor sin preguntar antes", texto: "Antes de comprar, simplemente pregunta cuánto cuesta. Es una costumbre sencilla que evita sorpresas y te permite comparar tranquilamente antes de decidir." },
+      { num: "12", titulo: "No preguntar el precio antes de consumir en la playa", texto: "Antes de pedir una bebida, comida o alquilar algún servicio en la playa, pregunta el precio. No tiene nada de malo hacerlo y te permite disfrutar sin sorpresas en la cuenta." },
+      { num: "13", titulo: "Pensar que todas las playas de Río son iguales", texto: "Copacabana, Ipanema, Leblon, São Conrado, Prainha y las demás playas tienen ambientes completamente diferentes. Parte de la magia de Río está justamente en descubrir cuál combina más con tu estilo de viaje." },
+      { num: "14", titulo: "Salir sin protector solar", texto: "En Río puedes estar disfrutando de una playa, caminando por la ciudad o haciendo una trilha y darte cuenta demasiado tarde de cuánto sol recibiste. Llevar protector solar en la mochila es uno de esos pequeños hábitos que hacen una gran diferencia." },
+      { num: "15", titulo: "Subestimar las distancias de Río", texto: "Río parece fácil de recorrer cuando miras el mapa, pero las montañas, el tráfico y la distribución de los barrios pueden hacer que un trayecto tome más tiempo de lo esperado. Organiza tus recorridos por zonas y aprovecharás mucho mejor el día." },
+      { num: "16", titulo: "Intentar conocer toda la ciudad en un solo día", texto: "Río no se conoce corriendo. Es mejor disfrutar dos o tres lugares con calma que intentar marcar diez puntos en un solo día. Deja espacio para sentarte frente al mar, tomar un café o simplemente disfrutar del momento." },
+      { num: "17", titulo: "Entrar en una comunidad o favela desconocida por cuenta propia", texto: "Las comunidades forman parte de la historia y de la vida de Río, pero no todas funcionan de la misma manera ni todas están preparadas para recibir visitantes. Si quieres conocer una, hazlo con alguien que conozca bien el lugar y pueda orientarte." },
+      { num: "18", titulo: "Hacer senderismo por lugares aislados sin conocer la ruta", texto: "Río tiene trilhas increíbles, pero antes de comenzar una caminata conviene conocer la ruta, el nivel de dificultad y las condiciones del lugar. Si no conoces el camino, considera hacerlo con un guía o alguien que tenga experiencia en esa trilha." },
+      { num: "19", titulo: "Creer todo lo que aparece en internet sobre Río sin verificarlo", texto: "En internet encontrarás consejos excelentes y también información antigua o exagerada. Antes de tomar una decisión, compara fuentes y, cuando sea posible, pregunta a alguien que viva realmente en Río." },
+      { num: "20", titulo: "Venir con miedo y olvidarte de disfrutar Río", texto: "Este es quizás el consejo más importante. Infórmate, utiliza el sentido común, presta atención a tus cosas y después disfruta. Río tiene playas, música, gastronomía, naturaleza, cultura y una energía que difícilmente se explica hasta que la vives." }
+    ];
+
+    const ARTICULOS_CONSEJOS = [
+      {
+        id: 'art-1',
+        titulo: '20 Errores que debes evitar sí o sí en Río de Janeiro',
+        categoria: 'Seguridad y Consejos',
+        minutos: '8 min lectura',
+        resumen: 'Desde pequeños hábitos con el teléfono hasta cómo moverte y disfrutar la playa sin preocupaciones.',
+        imagen: 'https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&q=80&w=800'
+      },
+      {
+        id: 'art-electricidad',
+        titulo: 'Electricidad y adaptadores en Brasil: Enchufes y Voltaje',
+        categoria: 'Información Útil',
+        minutos: '5 min lectura',
+        resumen: 'Conoce los enchufes tipo N (3 clavijas redondas), compatibilidad de 110V/220V y cómo conseguir adaptadores económicos.',
+        imagen: 'https://www.worldstandards.eu/wp-content/uploads/electricity-tiles-type-N-1536x1536.jpg'
+      },
+      {
+        id: 'art-maletas',
+        titulo: 'Preparando las maletas para Río: Clima, Ropa e Imprevistos',
+        categoria: 'Planificación',
+        minutos: '5 min lectura',
+        resumen: 'Qué empacar para el calor carioca, qué hacer si llueve y cómo prepararte para disfrutar sin importar el tiempo.',
+        imagen: 'https://images.unsplash.com/photo-1520116468816-95b69f847357?auto=format&fit=crop&q=80&w=800'
+      },
+      {
+        id: 'art-vacunas',
+        titulo: 'Vacunas para viajar a Brasil: Fiebre Amarilla y Salud',
+        categoria: 'Salud',
+        minutos: '4 min lectura',
+        resumen: 'Aclara tus dudas: ¿Es obligatoria la vacuna de fiebre amarilla? Recomendaciones clave para viajar tranquilo.',
+        imagen: 'https://www.enjoytrip.com.br/wp-content/uploads/2018/01/febre_amarelaaa-4844684.jpg'
+      },
+      {
+        id: 'art-visado',
+        titulo: 'Visado, Requisitos de Entrada y Aduana en Brasil',
+        categoria: 'Trámites',
+        minutos: '6 min lectura',
+        resumen: 'Países exentos para permanencias menores a 90 días, requisitos de pasaporte, sellos de la Policía Federal y normas aduaneras.',
+        imagen: 'https://static.hosteltur.com/app/public/uploads/img/articles/2016/11/01/L_5c1a4ae2afe62_Migraciones-ezeiza.jpg'
+      }
+    ];
+
+    const CAFE_PRODUCTOS = [
+      { id: 'c1', nombre: 'Café Rio Tradicional Ernestinho', tipo: 'Grano entero o Molido (250g)', nota: 'Notas a chocolate, cuerpo denso y acidez suave.', precio: 'R$ XX.XX' },
+      { id: 'c2', nombre: 'Edición Especial Chocolate & Menta', tipo: 'Molido Gourmet (250g)', nota: 'Aroma fresco y regusto aterciopelado.', precio: 'R$ XX.XX' },
+      { id: 'c3', nombre: 'Café Carioca Caramelo Dulce', tipo: 'Grano de Altura (250g)', nota: 'Dulzura natural con matices de caramelo toscano.', precio: 'R$ XX.XX' },
+      { id: 'c4', nombre: 'Chocolate con Avellanas Especial', tipo: 'Mezcla Artesanal (250g)', nota: 'Textura cremosa e intensidad balanceada.', precio: 'R$ XX.XX' }
+    ];
+
+    function AppErnestinho() {
+      const [seccionActual, setSeccionActual] = useState('inicio');
+      const [menuAbierto, setMenuAbierto] = useState(false);
+      const [articuloSeleccionado, setArticuloSeleccionado] = useState(null);
+      
+      const [modalReservaOpen, setModalReservaOpen] = useState(false);
+      const [expParaReservar, setExpParaReservar] = useState(null);
+      const [reservaDatos, setReservaDatos] = useState({
+        fecha: '',
+        personas: 2,
+        nombre: '',
+        email: '',
+        telefono: ''
+      });
+
+      useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.lucide) {
+          window.lucide.createIcons();
+        }
+      }, [seccionActual, articuloSeleccionado, modalReservaOpen]);
+
+      const abrirReserva = (exp) => {
+        setExpParaReservar(exp);
+        setModalReservaOpen(true);
+      };
+
+      const verArticulo = (art) => {
+        setArticuloSeleccionado(art);
+        setSeccionActual('articulo_detalle');
+      };
+
+      const enviarReservaWhatsApp = (e) => {
+        e.preventDefault();
+        const msg = `Hola Ernestinho! Quisiera consultar la reserva para:
+*Experiencia:* ${expParaReservar?.titulo || 'Tour'}
+*Fecha estimada:* ${reservaDatos.fecha || 'Por definir'}
+*Personas:* ${reservaDatos.personas}
+*Nombre:* ${reservaDatos.nombre}
+*Email:* ${reservaDatos.email}
+*Teléfono:* ${reservaDatos.telefono}`;
+
+        window.open(`https://wa.me/5521969946938?text=${encodeURIComponent(msg)}`, '_blank');
+        setModalReservaOpen(false);
+      };
+
+      return (
+        <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col selection:bg-amber-300 selection:text-amber-950">
+          
+          {/* BANNER DE ALERTA PROTOTIPO */}
+          <div className="bg-amber-500 text-slate-900 text-xs sm:text-sm font-medium py-1.5 px-4 text-center flex items-center justify-center gap-2 shadow-inner">
+            <Icon name="info" className="w-4 h-4 shrink-0" />
+            <span>Prototipo visual e interactivo de demostración. Los precios figurativos se muestran como R$ XXX.</span>
+          </div>
+
+          {/* CABECERA & NAVEGACIÓN */}
+          <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+              
+              {/* LOGO CON IMAGEN OFICIAL */}
+              <button 
+                onClick={() => { setSeccionActual('inicio'); setArticuloSeleccionado(null); }} 
+                className="flex items-center gap-3 text-left group"
+              >
+                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-emerald-500 via-teal-500 to-amber-400 p-0.5 shadow-md group-hover:scale-105 transition-transform overflow-hidden flex items-center justify-center bg-white">
+                  <img 
+                    src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/89161BC4-595E-455D-8211-87277AC58B53" 
+                    alt="Logo Ernestinho Carioca" 
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
+                <div>
+                  <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 uppercase block leading-none">
+                    Ernestinho <span className="text-teal-600">Carioca</span>
+                  </span>
+                  <span className="text-[10px] sm:text-xs text-slate-500 font-medium tracking-wider uppercase block mt-0.5">
+                    Río desde mi mirada
+                  </span>
+                </div>
+              </button>
+
+              {/* MENÚ DE ESCRITORIO REORGANIZADO */}
+              <nav className="hidden xl:flex items-center gap-1 text-sm font-semibold text-slate-700">
+                {[
+                  { id: 'guia', label: 'Guía de Río' },
+                  { id: 'experiencias', label: 'Experiencias' },
+                  { id: 'transporte', label: 'Transportes' },
+                  { id: 'que_hacer', label: 'Qué Hacer' },
+                  { id: 'consejos', label: 'Consejos' },
+                  { id: 'playas', label: 'Playas' },
+                  { id: 'compras', label: 'Compras' },
+                  { id: 'barrios', label: 'Barrios' },
+                  { id: 'hospedaje', label: 'Hospedaje' },
+                  { id: 'cafe', label: 'Café Rio' },
+                ].map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => { setSeccionActual(item.id); setArticuloSeleccionado(null); }}
+                    className={`px-3 py-2 rounded-full transition-all ${
+                      seccionActual === item.id 
+                        ? 'bg-teal-50 text-teal-700 font-bold' 
+                        : 'hover:bg-slate-100 text-slate-600'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+
+              {/* BOTÓN WHATSAPP HEADER */}
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://wa.me/5521969946938?text=Hola%20Ernestinho,%20quisiera%20información%20sobre%20Río"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hidden sm:flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs sm:text-sm py-2.5 px-4 rounded-full shadow-md transition-all hover:shadow-lg transform hover:-translate-y-0.5"
+                >
+                  <Icon name="message-circle" className="w-4 h-4" />
+                  <span>Hablar con Ernestinho</span>
+                </a>
+
+                <button
+                  onClick={() => setMenuAbierto(!menuAbierto)}
+                  className="xl:hidden p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+                  aria-label="Abrir Menú"
+                >
+                  <Icon name={menuAbierto ? "x" : "menu"} className="w-6 h-6" />
+                </button>
+              </div>
+            </div>
+
+            {/* MENÚ MÓVIL REORGANIZADO */}
+            {menuAbierto && (
+              <div className="xl:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-1 shadow-2xl animate-fadeIn">
+                {[
+                  { id: 'inicio', label: 'INICIO', icon: 'sun' },
+                  { id: 'guia', label: 'GUÍA DE RÍO', icon: 'compass' },
+                  { id: 'experiencias', label: 'EXPERIENCIAS', icon: 'star' },
+                  { id: 'transporte', label: 'TRANSPORTES', icon: 'bus' },
+                  { id: 'que_hacer', label: 'QUÉ HACER', icon: 'map-pin' },
+                  { id: 'consejos', label: 'CONSEJOS', icon: 'shield-check' },
+                  { id: 'playas', label: 'PLAYAS', icon: 'anchor' },
+                  { id: 'compras', label: 'COMPRAS', icon: 'shopping-bag' },
+                  { id: 'barrios', label: 'BARRIOS', icon: 'navigation' },
+                  { id: 'hospedaje', label: 'HOSPEDAJE', icon: 'heart' },
+                  { id: 'cafe', label: 'CAFÉ RIO', icon: 'coffee' },
+                ].map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      setSeccionActual(item.id);
+                      setArticuloSeleccionado(null);
+                      setMenuAbierto(false);
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-xl flex items-center gap-3 font-bold text-sm tracking-wide transition-colors ${
+                      seccionActual === item.id 
+                        ? 'bg-teal-600 text-white shadow-md' 
+                        : 'text-slate-700 hover:bg-slate-100'
+                    }`}
+                  >
+                    <Icon name={item.icon} className="w-5 h-5" />
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </header>
+
+          {/* CONTENIDO PRINCIPAL DINÁMICO */}
+          <main className="flex-1">
+
+            {/* INICIO */}
+            {seccionActual === 'inicio' && (
+              <div>
+                <section className="relative min-h-[85vh] flex items-center justify-center bg-slate-900 text-white overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&q=80&w=2000"
+                    alt="Río de Janeiro Vista Panorámica"
+                    className="absolute inset-0 w-full h-full object-cover opacity-50 scale-105 transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent" />
+                  
+                  <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-20">
+                    <span className="inline-flex items-center gap-2 bg-amber-400/90 text-slate-950 text-xs sm:text-sm font-black tracking-widest uppercase py-1.5 px-4 rounded-full mb-6 shadow-lg">
+                      <Icon name="sun" className="w-4 h-4" fill="#0f172a" />
+                      Experiencia Local & Auténtica
+                    </span>
+                    
+                    <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight uppercase leading-tight drop-shadow-md mb-6">
+                      Ernestinho <span className="text-amber-400">Carioca</span>
+                    </h1>
+                    
+                    <p className="text-2xl sm:text-3xl font-light text-slate-100 italic mb-6 tracking-wide">
+                      “Río de Janeiro desde mi mirada.”
+                    </p>
+                    
+                    <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-200 mb-10 leading-relaxed font-normal">
+                      Consejos reales, lugares secretos, experiencias memorables y todo lo que necesitas para descubrir Río de Janeiro como alguien que verdaderamente conoce la ciudad.
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                      <button
+                        onClick={() => setSeccionActual('que_hacer')}
+                        className="w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm tracking-wider uppercase py-4 px-8 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center justify-center gap-2"
+                      >
+                        <Icon name="compass" className="w-5 h-5" />
+                        Explorar Río
+                      </button>
+                      <button
+                        onClick={() => setSeccionActual('experiencias')}
+                        className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm tracking-wider uppercase py-4 px-8 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center justify-center gap-2"
+                      >
+                        <Icon name="star" className="w-5 h-5" />
+                        Viaja Conmigo
+                      </button>
+                    </div>
+                  </div>
+                </section>
+
+                <section className="py-16 bg-white border-b border-slate-100">
+                  <div className="max-w-5xl mx-auto px-4 text-center">
+                    <span className="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">
+                      Bienvenido a la Experiencia
+                    </span>
+                    <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6">
+                      Alegría, Confianza y Vivencia 100% Carioca
+                    </h2>
+                    <p className="text-slate-600 text-base sm:text-lg max-w-3xl mx-auto leading-relaxed">
+                      Olvídate de los tours masivos e impersonales. Esta plataforma está pensada para brindarte la tranquilidad de viajar a Río de la mano de un amigo local que te comparte sus secretos mejor guardados.
+                    </p>
+                  </div>
+                </section>
+
+                <section className="py-16 bg-slate-50">
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                      <div>
+                        <h2 className="text-3xl font-black text-slate-900 tracking-tight uppercase">
+                          Experiencias Destacadas
+                        </h2>
+                        <p className="text-slate-600 mt-2">
+                          Descubre la ciudad conmigo a través de recorridos auténticos y seguros.
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => setSeccionActual('experiencias')}
+                        className="mt-4 md:mt-0 inline-flex items-center gap-2 text-teal-600 hover:text-teal-700 font-bold text-sm"
+                      >
+                        <span>Ver todas las experiencias</span>
+                        <Icon name="arrow-right" className="w-4 h-4" />
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                      {EXPERIENCIAS_DATA.map((exp) => (
+                        <div key={exp.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all border border-slate-100 flex flex-col">
+                          <div className="relative h-48 overflow-hidden">
+                            <img src={exp.imagen} alt={exp.titulo} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                            <span className="absolute top-3 right-3 bg-amber-400 text-slate-950 font-black text-xs px-3 py-1 rounded-full shadow">
+                              {exp.precio}
+                            </span>
+                          </div>
+                          <div className="p-5 flex-1 flex flex-col justify-between">
+                            <div>
+                              <h3 className="font-bold text-slate-900 text-lg leading-snug mb-2">
+                                {exp.titulo}
+                              </h3>
+                              <p className="text-slate-600 text-xs line-clamp-3 mb-4">
+                                {exp.descripcion}
+                              </p>
+                            </div>
+                            <button
+                              onClick={() => abrirReserva(exp)}
+                              className="w-full bg-slate-900 hover:bg-teal-600 text-white font-bold text-xs uppercase py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
+                            >
+                              <span>Reservar / Consultar</span>
+                            </button>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              </div>
+            )}
+
+            {/* GUÍA DE RÍO */}
+            {seccionActual === 'guia' && (
+              <section className="py-12 bg-slate-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                  <div className="text-center max-w-3xl mx-auto mb-12">
+                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+                      Guía de Río
+                    </h1>
+                    <p className="text-lg text-slate-600 font-medium">
+                      “Todo lo que necesitas saber antes y durante tu viaje a Río de Janeiro.”
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {[
+                      { titulo: 'Primer viaje a Río', desc: 'Lo indispensable si es tu primera vez en la ciudad.', icon: '✈️', art: ARTICULOS_CONSEJOS[0] },
+                      { titulo: 'Electricidad y adaptadores', desc: 'Voltaje (110V/220V), enchufes tipo N y adaptadores.', icon: '🔌', art: ARTICULOS_CONSEJOS[1] },
+                      { titulo: 'Preparando las maletas', desc: 'Clima tropical, pronósticos, ropa recomendada y días de lluvia.', icon: '🧳', art: ARTICULOS_CONSEJOS[2] },
+                      { titulo: 'Vacunas', desc: 'Información sobre fiebre amarilla, requisitos de salud y prevención.', icon: '💉', art: ARTICULOS_CONSEJOS[3] },
+                      { titulo: 'Visado y aduana', desc: 'Exención de visas (90 días), pasaporte y regulaciones de aduana.', icon: '📄', art: ARTICULOS_CONSEJOS[4] },
+                      { titulo: 'Dónde hospedarse', desc: 'Comparativa de barrios: Copacabana vs Ipanema vs Barra.', icon: '🏨', sec: 'hospedaje' },
+                      { titulo: 'Qué hacer en Río', desc: 'Lista maestra de lugares imperdibles.', icon: '🏛️', sec: 'que_hacer' },
+                      { titulo: 'Playas Cariocas', desc: 'Guía detallada con todas las playas, mapas y videos.', icon: '🏖️', sec: 'playas' },
+                      { titulo: 'Gastronomía Local', desc: 'Feijoada, churrasco, açaí y comida de quiosco.', icon: '🍖', sec: 'que_hacer' },
+                      { titulo: 'Vida Nocturna', desc: 'Dónde escuchar samba real y bailar en Lapa.', icon: '🌙', sec: 'que_hacer' },
+                      { titulo: 'Compras & Souvenirs', desc: 'Los mejores shoppings, ferias artesanales y tiendas de moda.', icon: '🛍️', sec: 'compras' },
+                      { titulo: 'Excursiones Cercanas', desc: 'Búzios, Arraial do Cabo, Angra e Ilha Grande.', icon: '🚐', sec: 'experiencias' },
+                    ].map((tarjeta, index) => (
+                      <div 
+                        key={index} 
+                        onClick={() => {
+                          if (tarjeta.sec) setSeccionActual(tarjeta.sec);
+                          else if (tarjeta.art) verArticulo(tarjeta.art);
+                          else setSeccionActual('consejos');
+                        }}
+                        className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border border-slate-100 cursor-pointer group flex flex-col justify-between"
+                      >
+                        <div>
+                          <span className="text-4xl mb-4 block">{tarjeta.icon}</span>
+                          <h3 className="font-extrabold text-slate-900 text-lg mb-2 group-hover:text-teal-600 transition-colors">
+                            {tarjeta.titulo}
+                          </h3>
+                          <p className="text-slate-500 text-xs leading-relaxed">
+                            {tarjeta.desc}
+                          </p>
+                        </div>
+                        <div className="mt-6 pt-4 border-t border-slate-50 flex items-center justify-between text-xs font-bold text-teal-600">
+                          <span>VER ARTÍCULO</span>
+                          <Icon name="chevron-right" className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* EXPERIENCIAS */}
+            {seccionActual === 'experiencias' && (
+              <section className="py-12 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                  <div className="text-center max-w-3xl mx-auto mb-12">
+                    <span className="text-amber-500 font-bold text-xs uppercase tracking-widest block mb-2">Exclusividad & Seguridad</span>
+                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+                      Tours & Experiencias Privadas
+                    </h1>
+                    <p className="text-slate-600 text-base">
+                      Vive Río con la comodidad de un vehículo privado, acceso sin filas y la amabilidad de un guía apasionado.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {EXPERIENCIAS_DATA.map((exp) => (
+                      <div key={exp.id} className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 flex flex-col sm:flex-row shadow-sm hover:shadow-md transition-all">
+                        <div className="sm:w-2/5 h-56 sm:h-auto relative">
+                          <img src={exp.imagen} alt={exp.titulo} className="w-full h-full object-cover" />
+                        </div>
+                        <div className="sm:w-3/5 p-6 flex flex-col justify-between">
+                          <div>
+                            <div className="flex justify-between items-center mb-2">
+                              <span className="text-xs font-bold text-teal-600 uppercase">★ Tour Guiado</span>
+                              <span className="text-xs font-black bg-amber-400 px-2.5 py-1 rounded-md text-slate-950">{exp.precio}</span>
+                            </div>
+                            <h3 className="text-xl font-bold text-slate-900 mb-2">{exp.titulo}</h3>
+                            <p className="text-slate-600 text-xs leading-relaxed mb-4">{exp.descripcion}</p>
+                            <div className="text-[11px] text-slate-500 space-y-1 mb-6">
+                              <p>⏱️ Duración: {exp.duracion}</p>
+                              <p>👥 Grupo: {exp.grupo}</p>
+                              <p>📍 Punto: {exp.encuentro}</p>
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => abrirReserva(exp)}
+                            className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs uppercase py-3 rounded-xl transition-colors shadow-sm"
+                          >
+                            Reservar Ahora
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* TRANSPORTES */}
+            {seccionActual === 'transporte' && (
+              <section className="py-12 bg-slate-50">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6">
+                  <div className="text-center mb-12">
+                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+                      Cómo Moverse por Río
+                    </h1>
+                    <p className="text-slate-600 max-w-2xl mx-auto">
+                      Guía práctica de transporte público y privado para moverte rápido y seguro por la ciudad.
+                    </p>
+                  </div>
+
+                  <div className="space-y-6">
+                    <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                      <h2 className="text-xl font-bold text-teal-700 mb-2">🚇 MetroRio (Súper recomendado)</h2>
+                      <p className="text-slate-600 text-sm leading-relaxed">
+                        Es el medio más seguro, rápido y limpio para conectarte entre Zona Sur (Copacabana, Ipanema, Leblon) y el Centro Histórico o Maracaná. Puedes pagar directamente acercando tu tarjeta de crédito/débito en los molinetes con tecnología Contactless.
+                      </p>
+                    </div>
+
+                    <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                      <h2 className="text-xl font-bold text-teal-700 mb-2">🚗 Uber & Aplicaciones</h2>
+                      <p className="text-slate-600 text-sm leading-relaxed">
+                        Funcionan de manera impecable y son muy económicos. Siempre confirma la patente y el nombre del conductor antes de subir. Ideal para regresar de noche a tu alojamiento.
+                      </p>
+                    </div>
+
+                    <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+                      <h2 className="text-xl font-bold text-teal-700 mb-2">🛬 Salida desde Aeropuertos (GIG y SDU)</h2>
+                      <p className="text-slate-600 text-sm leading-relaxed">
+                        Al llegar al Aeropuerto Internacional Galeão (GIG), solicita un Uber en el área designada de la planta alta o contrata un transfer privado pre-agendado. Evita tomar taxis informales en las salidas de la terminal.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* QUÉ HACER */}
+            {seccionActual === 'que_hacer' && (
+              <section className="py-12 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                  <div className="text-center max-w-3xl mx-auto mb-12">
+                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+                      Qué Hacer en Río
+                    </h1>
+                    <p className="text-slate-600">
+                      Explora las diversas experiencias organizadas por categoría.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {CATEGORIAS_QUE_HACER.map((cat) => (
+                      <div key={cat.id} className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-teal-200 transition-all flex flex-col justify-between shadow-sm">
+                        <div>
+                          <div className="text-4xl mb-3">{cat.icon}</div>
+                          <h3 className="text-xl font-bold text-slate-900 mb-2 uppercase tracking-wide">
+                            {cat.nombre}
+                          </h3>
+                          <p className="text-slate-600 text-sm mb-6">
+                            {cat.desc}
+                          </p>
+                        </div>
+                        <button
+                          onClick={() => setSeccionActual('guia')}
+                          className="w-full bg-white hover:bg-slate-900 text-slate-900 hover:text-white border border-slate-200 font-bold text-xs uppercase py-3 rounded-xl transition-all flex items-center justify-center gap-2"
+                        >
+                          <span>VER MÁS</span>
+                          <Icon name="chevron-right" className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* CONSEJOS */}
+            {seccionActual === 'consejos' && (
+              <section className="py-12 bg-slate-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                  <div className="text-center max-w-3xl mx-auto mb-12">
+                    <span className="text-amber-500 font-bold text-xs uppercase tracking-widest block mb-2">
+                      Experiencia Directa
+                    </span>
+                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+                      Los Consejos de Ernestinho
+                    </h1>
+                    <p className="text-slate-600">
+                      Artículos e itinerarios diseñados para que ahorres tiempo, dinero y malos ratos.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {ARTICULOS_CONSEJOS.map((art) => (
+                      <div key={art.id} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 flex flex-col sm:flex-row">
+                        <div className="sm:w-2/5 h-48 sm:h-auto relative">
+                          <img src={art.imagen} alt={art.titulo} className="w-full h-full object-cover" />
+                        </div>
+                        <div className="sm:w-3/5 p-6 flex flex-col justify-between">
+                          <div>
+                            <div className="flex items-center gap-2 mb-2">
+                              <span className="bg-teal-50 text-teal-700 text-[10px] font-bold uppercase px-2.5 py-1 rounded-md">
+                                {art.categoria}
+                              </span>
+                              <span className="text-slate-400 text-[10px]">
+                                • {art.minutos}
+                              </span>
+                            </div>
+                            <h3 className="font-bold text-slate-900 text-lg leading-snug mb-2">
+                              {art.titulo}
+                            </h3>
+                            <p className="text-slate-500 text-xs leading-relaxed mb-4">
+                              {art.resumen}
+                            </p>
+                          </div>
+                          <button
+                            onClick={() => verArticulo(art)}
+                            className="self-start text-xs font-bold text-teal-600 hover:text-teal-700 uppercase flex items-center gap-1"
+                          >
+                            <span>Leer artículo completo</span>
+                            <Icon name="chevron-right" className="w-4 h-4" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* SECCIÓN RENOVADA DE PLAYAS CARIOCAS SEPARADAS */}
+            {seccionActual === 'playas' && (
+              <section className="py-12 bg-slate-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                  
+                  <div className="text-center max-w-3xl mx-auto mb-12">
+                    <span className="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">
+                      Litoral Carioca Completo
+                    </span>
+                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+                      Las Playas de Río
+                    </h1>
+                    <p className="text-slate-600 text-base">
+                      Descubre la personalidad, atractivos, ubicación exacta e imágenes de cada una de las playas de la Ciudad Maravillosa.
+                    </p>
+                  </div>
+
+                  <div className="space-y-12">
+                    {PLAYAS_DETALLADAS_DATA.map((playa) => (
+                      <div key={playa.id} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 p-6 sm:p-8 space-y-6">
+                        
+                        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-100 pb-4">
+                          <div>
+                            <span className="text-teal-600 font-bold text-xs uppercase tracking-wider block mb-1">
+                              {playa.tag}
+                            </span>
+                            <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
+                              {playa.nombre}
+                            </h2>
+                          </div>
+
+                          <div className="flex items-center gap-3 shrink-0">
+                            {playa.videoUrl && (
+                              <a 
+                                href={playa.videoUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs py-2 px-4 rounded-full flex items-center gap-1.5 shadow transition-transform hover:scale-105"
+                              >
+                                <Icon name="video" className="w-4 h-4" />
+                                <span>Ver Video</span>
+                              </a>
+                            )}
+                            {playa.mapUrl && (
+                              <a 
+                                href={playa.mapUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs py-2 px-4 rounded-full flex items-center gap-1.5 shadow transition-transform hover:scale-105"
+                              >
+                                <Icon name="map-pin" className="w-4 h-4" />
+                                <span>Google Maps</span>
+                              </a>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* FOTOS DE LA PLAYA */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          {playa.imagenes.map((imgUrl, i) => (
+                            <div key={i} className="h-56 sm:h-64 rounded-2xl overflow-hidden shadow-sm border border-slate-100">
+                              <img src={imgUrl} alt={`${playa.nombre} foto ${i+1}`} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* DESCRIPCIÓN Y DETALLES */}
+                        <div className="space-y-4">
+                          <p className="text-slate-700 text-sm sm:text-base leading-relaxed font-medium">
+                            {playa.descripcion}
+                          </p>
+
+                          <div className="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-2">
+                            <span className="font-bold text-xs text-slate-900 uppercase block mb-2">Lo que debes saber de esta playa:</span>
+                            <ul className="space-y-2">
+                              {playa.detalles.map((det, indexDet) => (
+                                <li key={indexDet} className="text-xs sm:text-sm text-slate-600 flex items-start gap-2 leading-relaxed">
+                                  <span className="text-teal-600 shrink-0 font-bold">•</span>
+                                  <span>{det}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+
+                      </div>
+                    ))}
+                  </div>
+
+                </div>
+              </section>
+            )}
+
+            {/* SECCIÓN RENOVADA DE COMPRAS EN RÍO & SHOPPINGS */}
+            {seccionActual === 'compras' && (
+              <section className="py-12 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                  
+                  <div className="text-center max-w-3xl mx-auto mb-12">
+                    <span className="text-amber-500 font-bold text-xs uppercase tracking-widest block mb-2">
+                      Guía Comercial & Moda Carioca
+                    </span>
+                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+                      Compras en Río
+                    </h1>
+                    <p className="text-slate-600 text-base">
+                      Conoce los shoppings más destacados de la ciudad, desde opciones con historia hasta centros de moda y marcas exclusivas.
+                    </p>
+                  </div>
+
+                  {/* SHOPPINGS DESTACADOS */}
+                  <div className="space-y-10">
+                    <h2 className="text-2xl font-black text-slate-900 uppercase tracking-tight border-b border-slate-200 pb-3 flex items-center gap-2">
+                      <span>🛍️ Los Mejores Shoppings de Río</span>
+                    </h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {SHOPPINGS_DATA.map((shop) => (
+                        <div key={shop.id} className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm flex flex-col justify-between p-6 sm:p-8 hover:border-teal-200 transition-all">
+                          <div>
+                            <div className="h-48 rounded-2xl overflow-hidden mb-5 border border-slate-200 shadow-inner bg-white flex items-center justify-center p-2">
+                              <img src={shop.imagen} alt={shop.nombre} className="w-full h-full object-cover rounded-xl" />
+                            </div>
+
+                            <span className="text-teal-600 font-bold text-xs uppercase tracking-wider block mb-1">
+                              📍 {shop.barrio}
+                            </span>
+                            <h3 className="text-2xl font-black text-slate-900 mb-3">
+                              {shop.nombre}
+                            </h3>
+                            <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                              {shop.desc}
+                            </p>
+
+                            {shop.extraTip && (
+                              <div className="bg-amber-50 border border-amber-200 p-4 rounded-2xl text-xs text-amber-950 font-medium mb-6">
+                                {shop.extraTip}
+                              </div>
+                            )}
+                          </div>
+
+                          <a
+                            href={shop.mapUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-slate-900 hover:bg-teal-600 text-white font-bold text-xs uppercase py-3.5 px-6 rounded-xl transition-colors text-center flex items-center justify-center gap-2 shadow"
+                          >
+                            <Icon name="map-pin" className="w-4 h-4" />
+                            <span>Ver en Google Maps</span>
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* FERIAS Y OTRAS COMPRAS */}
+                  <div className="mt-16 border-t border-slate-100 pt-12">
+                    <h2 className="text-2xl font-black text-slate-900 uppercase tracking-tight mb-8">
+                      🎨 Ferias Artesanales & Souvenirs
+                    </h2>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {[
+                        { titulo: '🛍️ Feira Hippie de Ipanema', desc: 'Feria dominical emblemática en Praça General Osório con artesanías, cuadros, cuero y recuerdos únicos.' },
+                        { titulo: '🎨 Saara (Centro de Río)', desc: 'El corazón del comercio tradicional al aire libre, ideal para souvenirs a precios locales.' },
+                        { titulo: '🏖️ Moda Playera Carioca', desc: 'Boutiques exclusivas de trajes de baño y bikinis en Ipanema, Copacabana y Leblon.' },
+                        { titulo: '☕ Recuerdos Gourmet & Cachaça', desc: 'Café brasileño de especialidad, cachaça artesanal y dulces típicos.' },
+                        { titulo: '🖼️ Galerías de Santa Teresa', desc: 'Arte independiente, cerámica y piezas hechas a mano por artesanos locales.' },
+                      ].map((item, idx) => (
+                        <div key={idx} className="bg-slate-50 p-6 rounded-2xl shadow-sm border border-slate-100 flex flex-col justify-between">
+                          <div>
+                            <h3 className="text-lg font-bold text-slate-900 mb-2">{item.titulo}</h3>
+                            <p className="text-slate-600 text-xs mb-4">{item.desc}</p>
+                          </div>
+                          <span className="text-[10px] text-teal-600 font-bold uppercase block">Recomendación Local</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                </div>
+              </section>
+            )}
+
+            {/* BARRIOS */}
+            {seccionActual === 'barrios' && (
+              <section className="py-12 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                  <div className="text-center max-w-3xl mx-auto mb-12">
+                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+                      Descubre los Barrios
+                    </h1>
+                    <p className="text-slate-600">
+                      Cada barrio de Río tiene su propia alma, ritmo e identidad.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {BARRIOS_DATA.map((barrio, i) => (
+                      <div key={i} className="bg-slate-50 rounded-2xl overflow-hidden shadow-sm border border-slate-100 group">
+                        <div className="h-48 overflow-hidden relative">
+                          <img src={barrio.img} alt={barrio.nombre} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
+                          <h3 className="absolute bottom-4 left-4 text-2xl font-black text-white uppercase tracking-wide">
+                            {barrio.nombre}
+                          </h3>
+                        </div>
+                        <div className="p-6">
+                          <p className="text-slate-600 text-sm leading-relaxed mb-4">
+                            {barrio.desc}
+                          </p>
+                          <button
+                            onClick={() => setSeccionActual('guia')}
+                            className="text-teal-600 font-bold text-xs uppercase hover:underline flex items-center gap-1"
+                          >
+                            <span>Explorar {barrio.nombre}</span>
+                            <Icon name="chevron-right" className="w-3.5 h-3.5" />
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* HOSPEDAJE REESCRITO CON ESTILO GUÍA COMPLETA ERNESTINHO CARIOCA */}
+            {seccionActual === 'hospedaje' && (
+              <section className="py-12 bg-slate-50">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6">
+                  
+                  {/* ENCABEZADO E INTRODUCCIÓN */}
+                  <div className="text-center max-w-3xl mx-auto mb-12">
+                    <span className="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">
+                      Guía de Alojamiento Local
+                    </span>
+                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-6">
+                      ¿DÓNDE ALOJARSE EN RÍO DE JANEIRO?
+                    </h1>
+                    <p className="text-slate-700 text-base sm:text-lg leading-relaxed font-normal">
+                      “Río de Janeiro es una ciudad enorme y elegir bien dónde dormir puede cambiar completamente tu experiencia. Si es tu primer viaje, mi recomendación es buscar un lugar que combine buena ubicación, transporte, comercio, restaurantes y facilidad para llegar a los principales puntos turísticos.”
+                    </p>
+                    <p className="text-slate-600 text-base sm:text-lg leading-relaxed font-normal mt-4">
+                      “Hay muchas zonas donde puedes hospedarte, pero estas son las que yo considero más interesantes para diferentes tipos de viajeros.”
+                    </p>
+                  </div>
+
+                  {/* BLOQUE DESTACADO: CONSEJO GOLD GENERAL */}
+                  <div className="bg-gradient-to-br from-amber-400/20 via-amber-100/50 to-amber-50 border-2 border-amber-400 rounded-3xl p-6 sm:p-8 mb-12 shadow-sm">
+                    <div className="flex items-center gap-2 mb-3">
+                      <span className="bg-amber-400 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
+                        ⭐ CONSEJO GOLD DE ERNESTINHO
+                      </span>
+                    </div>
+                    <p className="text-slate-800 text-sm sm:text-base leading-relaxed font-semibold italic mb-3">
+                      “Si es tu primera vez en Río y todavía no conoces bien la ciudad, yo priorizaría la ubicación antes que ahorrar unos reales en el alojamiento. Estar cerca del Metro, supermercados, restaurantes, playa y transporte puede hacer que aproveches muchísimo más tus días.”
+                    </p>
+                    <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-medium">
+                      Y recuerda: no necesitas estar frente al mar para estar bien ubicado. Muchas veces una calle a pocas cuadras de la playa puede ofrecer una excelente relación entre precio y ubicación.
+                    </p>
+                  </div>
+
+                  {/* SECCIONES DETALLADAS DE BARRIOS */}
+                  <div className="space-y-12">
+
+                    {/* 1. COPACABANA */}
+                    <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm p-6 sm:p-8">
+                      <div className="flex flex-col md:flex-row gap-6 items-start">
+                        <div className="w-full md:w-1/2 h-56 rounded-2xl overflow-hidden shrink-0">
+                          <img 
+                            src="https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?auto=format&fit=crop&q=80&w=800" 
+                            alt="Playa de Copacabana con su calçadão e imponentes edificios" 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="w-full md:w-1/2">
+                          <span className="text-xs font-bold text-teal-600 uppercase tracking-wider block mb-1">
+                            La opción que más recomiendo para tu primer viaje
+                          </span>
+                          <h2 className="text-2xl font-black text-slate-900 mb-3 flex items-center gap-2">
+                            <span>1. 🏖️ COPACABANA</span>
+                          </h2>
+                          <div className="text-slate-600 text-sm leading-relaxed space-y-3">
+                            <p>
+                              Copacabana tiene prácticamente todo lo que un turista puede necesitar: playa, restaurantes, bares, supermercados, farmacias, comercio, hoteles y apartamentos de diferentes precios. Además, tienes varias estaciones de Metro y muchas opciones de transporte para moverte por la ciudad.
+                            </p>
+                            <p>
+                              Es una zona muy movimentada y turística, especialmente buena para quienes quieren salir del alojamiento y tener muchas cosas a pocos minutos caminando.
+                            </p>
+                            <p>
+                              Y algo que muchos viajeros valoran: puedes encontrar desde alojamientos económicos hasta hoteles de mayor categoría, por lo que es posible adaptar la zona a diferentes presupuestos.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-slate-50 p-4 rounded-2xl">
+                          <span className="font-bold text-slate-900 text-xs uppercase block mb-2">Para quién recomiendo Copacabana:</span>
+                          <ul className="text-xs text-slate-600 space-y-1.5 list-disc list-inside">
+                            <li>Primer viaje a Río</li>
+                            <li>Familias</li>
+                            <li>Parejas</li>
+                            <li>Turistas latinoamericanos</li>
+                            <li>Personas que quieren tener todo cerca</li>
+                            <li>Viajeros que quieren combinar playa + turismo + gastronomía</li>
+                          </ul>
+                        </div>
+                        <div className="bg-amber-50/70 border border-amber-200 p-4 rounded-2xl">
+                          <span className="font-bold text-amber-900 text-xs uppercase block mb-1">⭐ CONSEJO GOLD DE ERNESTINHO</span>
+                          <p className="text-xs text-amber-950 leading-relaxed italic">
+                            “Si es tu primera vez en Río, Copacabana probablemente será mi primera recomendación. No porque sea el único lugar bueno para hospedarse, sino porque te permite tener muchas cosas a mano y comenzar a conocer la ciudad sin complicarte demasiado con los desplazamientos.”
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 2. IPANEMA */}
+                    <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm p-6 sm:p-8">
+                      <div className="flex flex-col md:flex-row gap-6 items-start">
+                        <div className="w-full md:w-1/2 h-56 rounded-2xl overflow-hidden shrink-0 md:order-2">
+                          <img 
+                            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" 
+                            alt="Playa de Ipanema con el morro Dois Irmãos al fondo" 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="w-full md:w-1/2 md:order-1">
+                          <span className="text-xs font-bold text-teal-600 uppercase tracking-wider block mb-1">
+                            Para quienes buscan un ambiente más sofisticado
+                          </span>
+                          <h2 className="text-2xl font-black text-slate-900 mb-3 flex items-center gap-2">
+                            <span>2. 🌴 IPANEMA</span>
+                          </h2>
+                          <div className="text-slate-600 text-sm leading-relaxed space-y-3">
+                            <p>
+                              Ipanema es una de las zonas más famosas y encantadoras de Río. Tiene una combinación espectacular de playa, restaurantes, bares, tiendas, cafés y vida nocturna, además de excelentes conexiones de Metro.
+                            </p>
+                            <p>
+                              Es una zona un poco más exclusiva y, en general, los precios de hospedaje pueden ser superiores a los de Copacabana. A cambio, tienes un ambiente muy especial y estás cerca de lugares como Arpoador, Lagoa y Leblon.
+                            </p>
+                            <p>
+                              Si te gusta caminar, comer bien, tomar un café, ir a la playa y tener una gran variedad de opciones alrededor, Ipanema es una excelente elección.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-slate-50 p-4 rounded-2xl">
+                          <span className="font-bold text-slate-900 text-xs uppercase block mb-2">Para quién recomiendo Ipanema:</span>
+                          <ul className="text-xs text-slate-600 space-y-1.5 list-disc list-inside">
+                            <li>Parejas</li>
+                            <li>Viajeros que buscan mayor comodidad</li>
+                            <li>Personas que disfrutan de restaurantes y cafés</li>
+                            <li>Viajeros que quieren estar cerca de Arpoador y Leblon</li>
+                            <li>Quienes prefieren un ambiente más sofisticado</li>
+                          </ul>
+                        </div>
+                        <div className="bg-amber-50/70 border border-amber-200 p-4 rounded-2xl">
+                          <span className="font-bold text-amber-900 text-xs uppercase block mb-1">⭐ CONSEJO GOLD DE ERNESTINHO</span>
+                          <p className="text-xs text-amber-950 leading-relaxed italic">
+                            “Si encuentras un buen alojamiento en Ipanema a un precio parecido al de Copacabana, yo lo consideraría seriamente. La ubicación es excelente y puedes hacer muchísimas cosas caminando.”
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 3. BARRA DA TIJUCA */}
+                    <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm p-6 sm:p-8">
+                      <div className="flex flex-col md:flex-row gap-6 items-start">
+                        <div className="w-full md:w-1/2 h-56 rounded-2xl overflow-hidden shrink-0">
+                          <img 
+                            src="https://images.unsplash.com/photo-1544989164-3075c75f3a0a?auto=format&fit=crop&q=80&w=800" 
+                            alt="Vista moderna de la extensa playa de Barra da Tijuca" 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="w-full md:w-1/2">
+                          <span className="text-xs font-bold text-teal-600 uppercase tracking-wider block mb-1">
+                            Más espacio, playas enormes y el lado moderno de Río
+                          </span>
+                          <h2 className="text-2xl font-black text-slate-900 mb-3 flex items-center gap-2">
+                            <span>3. 🌊 BARRA DA TIJUCA</span>
+                          </h2>
+                          <div className="text-slate-600 text-sm leading-relaxed space-y-3">
+                            <p>
+                              Barra da Tijuca es completamente diferente de Copacabana e Ipanema. Es una zona más moderna, con grandes edificios, condominios, centros comerciales, restaurantes y playas enormes.
+                            </p>
+                            <p>
+                              Es una excelente alternativa para quienes buscan tranquilidad, espacio y alojamientos modernos. También puede ser una buena opción para estadías más largas o para quienes ya conocen Río y quieren experimentar otra parte de la ciudad.
+                            </p>
+                            <div className="bg-rose-50 border-l-4 border-rose-500 p-3 rounded-r-xl text-xs text-rose-900 font-medium">
+                              <strong>PERO OJO:</strong> Su principal inconveniente para un turista que quiere conocer los lugares clásicos de Río es la distancia. Cristo Redentor, Pan de Azúcar, Copacabana, Ipanema, Lapa y otros puntos turísticos quedan más lejos.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* MENCIÓN AL SERVICIO DE SERVICIO DE TOURS */}
+                      <div className="mt-6 bg-teal-50 border border-teal-200 p-4 rounded-2xl text-xs text-teal-900 leading-relaxed flex items-center gap-3">
+                        <span className="text-2xl shrink-0">🚐</span>
+                        <div>
+                          <strong className="block font-bold">¿Te estás hospedando en Barra?</strong>
+                          <span>No hay problema. En Ernestinho Carioca también podemos buscarte en Barra da Tijuca para realizar nuestros tours y experiencias. Puedes entrar en contacto con nosotros para consultar las opciones disponibles.</span>
+                        </div>
+                      </div>
+
+                      <div className="mt-6 pt-6 border-t border-slate-100">
+                        <span className="font-bold text-slate-900 text-xs uppercase block mb-2">Para quién recomiendo Barra:</span>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs text-slate-600">
+                          <span className="bg-slate-50 p-2 rounded-lg">👨‍👩‍👧 Familias</span>
+                          <span className="bg-slate-50 p-2 rounded-lg">🗓️ Estadías largas</span>
+                          <span className="bg-slate-50 p-2 rounded-lg">🧘 Personas que buscan tranquilidad</span>
+                          <span className="bg-slate-50 p-2 rounded-lg">🏢 Apartamentos modernos</span>
+                          <span className="bg-slate-50 p-2 rounded-lg">🔁 Ya conocen la Zona Sur</span>
+                          <span className="bg-slate-50 p-2 rounded-lg">🚗 Cómodos con desplazamientos</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 4. CENTRO DE RÍO */}
+                    <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm p-6 sm:p-8">
+                      <div className="flex flex-col md:flex-row gap-6 items-start">
+                        <div className="w-full md:w-1/2 h-56 rounded-2xl overflow-hidden shrink-0 md:order-2">
+                          <img 
+                            src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&q=80&w=800" 
+                            alt="Arcos da Lapa y arquitectura histórica del Centro de Río" 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="w-full md:w-1/2 md:order-1">
+                          <span className="text-xs font-bold text-teal-600 uppercase tracking-wider block mb-1">
+                            Historia, cultura, bares y vida bohemia
+                          </span>
+                          <h2 className="text-2xl font-black text-slate-900 mb-3 flex items-center gap-2">
+                            <span>4. 🎭 CENTRO DE RÍO</span>
+                          </h2>
+                          <div className="text-slate-600 text-sm leading-relaxed space-y-3">
+                            <p>
+                              El Centro de Río es otra experiencia completamente diferente. Aquí encuentras edificios históricos, museos, iglesias, el Teatro Municipal, Lapa, bares, restaurantes y una enorme parte de la historia de la ciudad.
+                            </p>
+                            <p>
+                              También puede ser una alternativa más económica en determinados tipos de alojamiento y tiene excelentes conexiones de transporte, incluyendo Metro, VLT y otros medios.
+                            </p>
+                            <p>
+                              Para quien quiere disfrutar principalmente de la playa y de los barrios de la Zona Sur, puede resultar menos práctico. Y dependiendo del horario y de la zona, conviene tener más atención y elegir bien dónde y cómo desplazarse.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="mt-6 pt-6 border-t border-slate-100 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-slate-50 p-4 rounded-2xl">
+                          <span className="font-bold text-slate-900 text-xs uppercase block mb-2">Para quién puede funcionar:</span>
+                          <ul className="text-xs text-slate-600 space-y-1.5 list-disc list-inside">
+                            <li>Jóvenes y grupos de amigos</li>
+                            <li>Viajeros interesados en historia y cultura</li>
+                            <li>Personas que buscan vida nocturna en Lapa</li>
+                            <li>Viajeros con presupuesto más ajustado</li>
+                            <li>Personas que ya conocen Río</li>
+                          </ul>
+                        </div>
+                        <div className="bg-amber-50/70 border border-amber-200 p-4 rounded-2xl">
+                          <span className="font-bold text-amber-900 text-xs uppercase block mb-1">⭐ CONSEJO GOLD DE ERNESTINHO</span>
+                          <p className="text-xs text-amber-950 leading-relaxed italic">
+                            “Si eliges hospedarte en el Centro, yo elegiría el alojamiento pensando mucho en la ubicación exacta y en cómo será tu regreso por la noche. El Centro puede ser increíble para vivir la parte histórica y bohemia de Río, pero no necesariamente es la opción más práctica para tu primer viaje si tu prioridad es playa y turismo tradicional.”
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* 5. OTRAS ZONAS */}
+                    <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm p-6 sm:p-8">
+                      <div className="flex flex-col md:flex-row gap-6 items-center">
+                        <div className="w-full md:w-1/3 h-48 rounded-2xl overflow-hidden shrink-0">
+                          <img 
+                            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800" 
+                            alt="Paisaje de Botafogo y Flamengo con el Pan de Azúcar al fondo" 
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <div className="w-full md:w-2/3">
+                          <h2 className="text-xl font-black text-slate-900 mb-2">
+                            🌿 OTRAS ZONAS QUE TAMBIÉN PUEDES CONSIDERAR
+                          </h2>
+                          <span className="text-xs font-bold text-teal-600 uppercase block mb-3">¿Y qué pasa con otros barrios?</span>
+                          <div className="text-slate-600 text-xs sm:text-sm leading-relaxed space-y-2">
+                            <p>
+                              Río tiene muchísimas otras opciones. Flamengo, Botafogo, Leme, Leblon, São Conrado, Recreio dos Bandeirantes y diferentes zonas de la Zona Norte y Zona Oeste pueden funcionar muy bien dependiendo de tu presupuesto, estilo de viaje y lo que quieras hacer.
+                            </p>
+                            <p>
+                              Por ejemplo, Botafogo y Flamengo pueden ser excelentes alternativas para quienes quieren estar en la Zona Sur, tener buena conexión de transporte y estar cerca de varios puntos turísticos sin necesariamente pagar el precio de las zonas más exclusivas.
+                            </p>
+                            <p className="font-semibold text-slate-800 pt-1">
+                              No existe un único barrio perfecto para todo el mundo. El mejor lugar para hospedarte depende de lo que quieras hacer durante tu viaje.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                  {/* BLOQUE RESUMEN CONCLUSIVO */}
+                  <div className="mt-14 bg-slate-900 text-white rounded-3xl p-8 sm:p-10 shadow-xl border border-slate-800 text-center">
+                    <span className="bg-amber-400 text-slate-950 font-black text-xs uppercase px-4 py-1.5 rounded-full inline-block mb-4 shadow">
+                      🏆 RESUMEN RÁPIDO
+                    </span>
+                    <h3 className="text-2xl font-black uppercase mb-6 tracking-tight">
+                      ¿CUÁL ELEGIRÍA ERNESTINHO?
+                    </h3>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-left max-w-3xl mx-auto mb-8">
+                      <div className="bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
+                        <span className="text-lg block mb-1">🏖️ Primera vez en Río</span>
+                        <strong className="text-amber-400 font-extrabold text-sm block">Copacabana</strong>
+                      </div>
+                      <div className="bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
+                        <span className="text-lg block mb-1">🌴 Más sofisticado</span>
+                        <strong className="text-amber-400 font-extrabold text-sm block">Ipanema</strong>
+                      </div>
+                      <div className="bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
+                        <span className="text-lg block mb-1">🌊 Moderno y tranquilo</span>
+                        <strong className="text-amber-400 font-extrabold text-sm block">Barra da Tijuca</strong>
+                      </div>
+                      <div className="bg-slate-800/80 p-4 rounded-2xl border border-slate-700">
+                        <span className="text-lg block mb-1">🎭 Cultura, bares y ambiente bohemio</span>
+                        <strong className="text-amber-400 font-extrabold text-sm block">Centro</strong>
+                      </div>
+                      <div className="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 sm:col-span-2 md:col-span-2">
+                        <span className="text-lg block mb-1">🌿 Alternativa equilibrada</span>
+                        <strong className="text-amber-400 font-extrabold text-sm block">Botafogo / Flamengo</strong>
+                      </div>
+                    </div>
+
+                    <p className="text-sm sm:text-base text-slate-300 font-light italic mb-8 max-w-2xl mx-auto leading-relaxed">
+                      “Si me preguntas dónde me quedaría para mi primer viaje a Río, probablemente elegiría Copacabana o Ipanema. Pero si me cuentas tu presupuesto, cuántos días vienes y qué quieres conocer, puedo ayudarte a elegir la zona que mejor combina contigo.”
+                    </p>
+
+                    <a
+                      href="https://wa.me/5521969946938?text=Hola%20Ernestinho,%20necesito%20ayuda%20para%20elegir%20mi%20alojamiento%20en%20R%C3%ADo"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase py-4 px-8 rounded-full shadow-lg transition-transform hover:scale-105"
+                    >
+                      <Icon name="message-circle" className="w-5 h-5" fill="#0f172a" />
+                      Preguntarle a Ernestinho por WhatsApp
+                    </a>
+                  </div>
+
+                </div>
+              </section>
+            )}
+
+            {/* CAFÉ RIO */}
+            {seccionActual === 'cafe' && (
+              <section className="py-12 bg-white">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6">
+                  <div className="text-center max-w-3xl mx-auto mb-12">
+                    <span className="text-amber-600 font-bold text-xs uppercase tracking-widest block mb-2">
+                      Sabor Artesanal 100% Brasil
+                    </span>
+                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+                      Café Rio Ernestinho
+                    </h1>
+                    <p className="text-slate-600">
+                      Lleva a tu casa el aroma y el sabor del café brasileño de alta selección, tostado con maestría.
+                    </p>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {CAFE_PRODUCTOS.map((prod) => (
+                      <div key={prod.id} className="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col justify-between shadow-sm">
+                        <div>
+                          <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-800 font-bold text-xl mb-4">
+                            ☕
+                          </div>
+                          <h3 className="font-bold text-slate-900 text-base mb-1">{prod.nombre}</h3>
+                          <span className="text-[11px] text-teal-600 font-semibold block mb-2">{prod.tipo}</span>
+                          <p className="text-slate-500 text-xs leading-relaxed mb-4">{prod.nota}</p>
+                        </div>
+                        <div>
+                          <span className="text-lg font-black text-slate-900 block mb-3">{prod.precio}</span>
+                          <button 
+                            onClick={() => window.open(`https://wa.me/5521969946938?text=Hola%20Ernestinho,%20quisiera%20comprar%20el%20${encodeURIComponent(prod.nombre)}`, '_blank')}
+                            className="w-full bg-slate-900 hover:bg-amber-500 text-white hover:text-slate-950 font-bold text-xs uppercase py-2.5 rounded-xl transition-all"
+                          >
+                            Pedir por WhatsApp
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* VISTA DETALLADA DE ARTÍCULOS COMPLETOS */}
+            {seccionActual === 'articulo_detalle' && articuloSeleccionado && (
+              <article className="py-12 bg-white">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6">
+                  
+                  <button
+                    onClick={() => setSeccionActual('consejos')}
+                    className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors"
+                  >
+                    ← Volver a Consejos
+                  </button>
+
+                  <span className="bg-teal-100 text-teal-800 text-xs font-bold uppercase px-3 py-1 rounded-full block w-max mb-4">
+                    {articuloSeleccionado.categoria}
+                  </span>
+
+                  {/* VISTA 1: ELECTRICIDAD Y ADAPTADORES */}
+                  {articuloSeleccionado.id === 'art-electricidad' && (
+                    <div className="space-y-6">
+                      <h1 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
+                        Electricidad y adaptadores en Brasil
+                      </h1>
+
+                      <p className="text-slate-700 text-base sm:text-lg leading-relaxed">
+                        Uno de los datos más útiles a tener en cuenta al viajar al exterior es el tipo de enchufes y voltaje de electricidad existentes en el destino elegido. Conocer el padrón de enchufes y voltaje en Brasil es fundamental para poder conectar tus equipos eléctricos a utilizar durante la estadía.
+                      </p>
+
+                      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4">
+                        <h2 className="text-2xl font-extrabold text-slate-900">Los enchufes en Brasil</h2>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          Recientemente se ha establecido de manera oficial un tipo único de enchufe y toma corriente en todo el territorio brasileño. La toma corriente (hembra) tiene tres orificios (Tipo N).
+                        </p>
+
+                        <div className="rounded-2xl overflow-hidden my-4 border border-slate-200 shadow-sm max-w-md mx-auto">
+                          <img 
+                            src="https://www.worldstandards.eu/wp-content/uploads/electricity-tiles-type-N-1536x1536.jpg" 
+                            alt="Tipo N Enchufe Brasil" 
+                            className="w-full h-auto object-cover" 
+                          />
+                        </div>
+
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          El enchufe (macho) puede tener dos o tres clavijas redondas. El modelo difiere de los previamente existentes en Brasil, por lo que en muchos casos coexisten las tomas de corriente antiguas (un orificio redondo y dos clavijas planas) con las nuevas.
+                        </p>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          Esta nueva toma de corriente sirve para la mayoría de los enchufes de dos clavijas redondas. De no contar con este tipo de enchufe, será necesario conseguir un adaptador. No obstante, la mayoría de los hoteles aún conservan ambos tipos de toma de corriente, los antiguos y los nuevos. Quien compre un aparato eléctrico en Brasil para llevarlo a su país, deberá comprar un adaptador en caso de que el enchufe tenga tres orificios, ya que ese modelo de toma corriente no está disponible en la mayoría de los países.
+                        </p>
+                      </div>
+
+                      <div className="bg-amber-50 border-2 border-amber-400 rounded-3xl p-6 sm:p-8 flex items-start gap-4">
+                        <span className="text-3xl shrink-0">💡</span>
+                        <div>
+                          <strong className="text-amber-950 font-bold text-base block mb-1">Dato Práctico de Ernestinho:</strong>
+                          <p className="text-amber-900 text-sm leading-relaxed">
+                            Es muy fácil encontrar adaptadores en cualquier puesto de calle, farmacia o supermercado en Río si tu enchufe es diferente. Los consigues fácilmente a partir de los <strong>5 a 10 reales (R$ 5 - R$ 10)</strong> dependiendo del sector.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4">
+                        <h2 className="text-2xl font-extrabold text-slate-900">Voltajes en Brasil</h2>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          En cuanto a los voltajes, no ha habido cambios recientes en su legislación. Hay dos voltajes coexistentes en Brasil: 220V y 127V (que a los efectos no ofrece diferencias con el de 110V, más familiar para el turista, por lo que suele denominarse con esta cifra). Hay regiones donde se emplean ambos, y otras donde solo está disponible uno u otro voltaje.
+                        </p>
+                        <p className="text-slate-800 text-sm font-semibold bg-white p-4 rounded-xl border border-slate-200">
+                          ⚡ En los estados de Rio de Janeiro y San Pablo (y en ambas capitales) está más extendido el voltaje de 110V, si bien algunos hoteles también cuentan con tomas señalizadas de 220V.
+                        </p>
+
+                        <div className="rounded-2xl overflow-hidden my-4 border border-slate-200 shadow-sm max-w-lg mx-auto">
+                          <img 
+                            src="https://toursbuzios.com/wp-content/uploads/2018/09/tomacorrientes-buzios-rio-de-janeiro-brail-c%C3%B3pia-1024x768.jpg" 
+                            alt="Tomacorrientes en Río de Janeiro y Búzios" 
+                            className="w-full h-auto object-cover" 
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* VISTA 2: PREPARANDO LAS MALETAS */}
+                  {articuloSeleccionado.id === 'art-maletas' && (
+                    <div className="space-y-6">
+                      <h1 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
+                        Preparando las maletas para Río
+                      </h1>
+
+                      <p className="text-slate-700 text-base sm:text-lg leading-relaxed">
+                        Si bien Río de Janeiro es una ciudad con un clima tropical en donde predomina el sol y el calor durante la mayor parte del año, recomendamos revisar el pronóstico del tiempo antes del viaje, porque la temperatura puede descender puntualmente y durante tu viaje puedes encontrarte con algunos días de lluvia.
+                      </p>
+
+                      <div className="rounded-3xl overflow-hidden h-72 sm:h-80 shadow-md">
+                        <img 
+                          src="https://images.unsplash.com/photo-1520116468816-95b69f847357?auto=format&fit=crop&q=80&w=1000" 
+                          alt="Preparando ropa de playa para viajar a Río" 
+                          className="w-full h-full object-cover" 
+                        />
+                      </div>
+
+                      <div className="bg-teal-50 border border-teal-200 rounded-3xl p-6 sm:p-8 space-y-3">
+                        <h2 className="text-xl font-bold text-teal-900">🌧️ ¿Lluvia en Río? ¡No te preocupes!</h2>
+                        <p className="text-teal-800 text-sm leading-relaxed">
+                          ¡Que un par de nubes no arruinen tu viaje! En nuestra aplicación encontrarás un gran número de actividades de interior pensadas especialmente para días lluviosos: visitas a museos icónicos (como el Museo del Mañana o el MAR en Porto Maravilha), cafeterías históricas como la Confeitaria Colombo, centros culturales en el Centro Histórico, acuario AquaRio, shoppings modernos y paseos gastronómicos inolvidables.
+                        </p>
+                      </div>
+
+                      <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 space-y-4">
+                        <h3 className="text-lg font-bold text-slate-900">🎒 Lista de indispensables en tu maleta:</h3>
+                        <ul className="text-xs sm:text-sm text-slate-600 space-y-2 list-disc list-inside">
+                          <li><strong>Ropa ligera de algodón o lino:</strong> remeras, shorts, vestidos frescos y traje de baño.</li>
+                          <li><strong>Calzado cómodo:</strong> zapatillas respirables para caminar o hacer senderismo y un par de chinelas/havaianas para la playa.</li>
+                          <li><strong>Un abrigo liviano o campera rompevientos:</strong> ideal para pasajes con aire acondicionado fuerte o noches frescas en la costa.</li>
+                          <li><strong>Piloto o paraguas pequeño plegable:</strong> súper práctico si te sorprende un chaparrón tropical.</li>
+                          <li><strong>Protector solar de alto espectro y repelente de insectos:</strong> infaltables tanto en la franja de arena como en las caminatas por la floresta de Tijuca.</li>
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* VISTA 3: VACUNAS */}
+                  {articuloSeleccionado.id === 'art-vacunas' && (
+                    <div className="space-y-6">
+                      <h1 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
+                        Vacunas para viajar a Brasil
+                      </h1>
+
+                      <div className="rounded-3xl overflow-hidden h-64 sm:h-80 shadow-md">
+                        <img 
+                          src="https://www.enjoytrip.com.br/wp-content/uploads/2018/01/febre_amarelaaa-4844684.jpg" 
+                          alt="Campaña de vacunación fiebre amarilla" 
+                          className="w-full h-full object-cover" 
+                        />
+                      </div>
+
+                      <div className="bg-amber-50 border-2 border-amber-400 rounded-3xl p-6 sm:p-8">
+                        <h2 className="text-xl sm:text-2xl font-black text-amber-950 uppercase mb-3">
+                          ¿ES OBLIGATORIA LA VACUNA DE LA FIEBRE AMARILLA PARA ENTRAR A BRASIL?
+                        </h2>
+                        <p className="text-amber-900 font-extrabold text-lg mb-3">
+                          LA RESPUESTA ES “NO”.
+                        </p>
+                        <p className="text-slate-800 text-sm leading-relaxed">
+                          La Embajada de Brasil en sus canales oficiales reitera que <strong>NO es obligatoria</strong> la vacuna contra la fiebre amarilla para ingresar al territorio nacional.
+                        </p>
+                      </div>
+
+                      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 space-y-4">
+                        <h3 className="text-lg font-bold text-slate-900">📌 Información útil según tu país:</h3>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          Vale la pena mencionar que en países como Argentina, si lo deseas, puedes vacunarte de manera gratuita en centros de vacunación de salud pública internacionales. Les recordamos que la vacuna demora <strong>10 días en hacer efecto</strong> en el organismo.
+                        </p>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          En países como Chile la vacuna se puede conseguir en vacunatorios privados con un costo adicional.
+                        </p>
+                        <div className="bg-teal-50 border-l-4 border-teal-600 p-4 rounded-r-2xl text-teal-900 text-xs sm:text-sm font-semibold">
+                          💡 Nuestra recomendación personal: si tienes la oportunidad de colocártela antes de tu viaje, hazlo. Realmente nunca está de más cuando de salud y tranquilidad durante las vacaciones se trata.
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* VISTA 4: VISADO Y ADUANA */}
+                  {articuloSeleccionado.id === 'art-visado' && (
+                    <div className="space-y-6">
+                      <h1 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
+                        Visado, Requisitos de Entrada y Aduana
+                      </h1>
+
+                      <div className="rounded-3xl overflow-hidden h-64 sm:h-80 shadow-md">
+                        <img 
+                          src="https://static.hosteltur.com/app/public/uploads/img/articles/2016/11/01/L_5c1a4ae2afe62_Migraciones-ezeiza.jpg" 
+                          alt="Control de Migraciones" 
+                          className="w-full h-full object-cover" 
+                        />
+                      </div>
+
+                      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4">
+                        <h2 className="text-xl font-bold text-slate-900">Requisitos para Ingresar a Brasil</h2>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          Para entrar en territorio brasileño es necesario poseer pasaporte vigente (o DNI/Cédula de Identidad para ciudadanos del MERCOSUR). La obligatoriedad de presentar visa depende de los acuerdos entre Brasil y los diferentes países. Los ciudadanos de aquellos países que exigen visa a los brasileños necesitan presentar un visado para ingresar al país.
+                        </p>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          La visa para Brasil es aprobada por el Ministerio de Relaciones Exteriores y puede solicitarse en las representaciones que Brasil tiene en el exterior (Embajadas y Consulados). El valor del visado varía según la nacionalidad.
+                        </p>
+                      </div>
+
+                      <div className="bg-teal-50 border border-teal-200 rounded-3xl p-6 sm:p-8 space-y-3">
+                        <h2 className="text-lg font-bold text-teal-900">✅ Países exentos de visado para permanencias menores de 90 días:</h2>
+                        <p className="text-teal-950 text-xs sm:text-sm leading-relaxed font-medium">
+                          Andorra, Argentina, Austria, Bahamas, Barbados, Bélgica, Bolivia, Chile, Colombia, Costa Rica, Dinamarca, Ecuador, Finlandia, Francia, Alemania, Grecia, Hungría, Islandia, Irlanda, Israel, Italia, Liechtenstein, Luxemburgo, Malasia, Mónaco, Marruecos, Namibia, Holanda, Noruega, Panamá, Paraguay, Perú, Filipinas, Polonia, Portugal, San Marino, Eslovenia, Sudáfrica, Corea del Sur, Malta, España, Surinam, Suecia, Suiza, Tailandia, Trinidad & Tobago, Reino Unido, Uruguay, Vaticano y Venezuela.
+                        </p>
+                      </div>
+
+                      <div className="rounded-3xl overflow-hidden h-64 sm:h-80 shadow-md">
+                        <img 
+                          src="https://imagens.ebc.com.br/sgTlBtds1GIpXhFuTHh9OVlL1tE=/1600x800/https://agenciabrasil.ebc.com.br/sites/default/files/thumbnails/image/aeroporto_jk_2603201054.jpg?itok=s5dj17Z6" 
+                          alt="Aeropuerto y Control Aduanero en Brasil" 
+                          className="w-full h-full object-cover" 
+                        />
+                      </div>
+
+                      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4">
+                        <h2 className="text-xl font-bold text-slate-900">⚠️ Extensión de Estancia y Regulaciones Aduaneras</h2>
+                        <p className="text-slate-600 text-sm leading-relaxed">
+                          Corresponde al turista observar los plazos de vencimiento de las visas o permisos de ingreso otorgados en el pasaporte (donde se marca con un sello la fecha de entrada). Si deseas solicitar una extensión, debes acudir a una comisaría de la <strong>Policía Federal (Polícia Federal)</strong> antes de que se venza el plazo. De lo contrario, se aplicará una multa al abandonar el país.
+                        </p>
+                        <div className="bg-rose-50 border-l-4 border-rose-500 p-4 rounded-r-2xl text-rose-900 text-xs sm:text-sm font-medium">
+                          <strong>🚫 Restricciones Aduaneras:</strong> Está prohibida la entrada de productos ilícitos, bebidas brasileñas y tabaco que hayan sido fabricados para su consumo exclusivo en el exterior. Asimismo, se prohíbe la posesión e ingreso de alcohol y tabaco a menores de 18 años.
+                        </div>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* VISTA 5: 20 ERRORES */}
+                  {articuloSeleccionado.id === 'art-1' && (
+                    <div>
+                      <h1 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
+                        20 Errores que debes evitar sí o sí en Río de Janeiro
+                      </h1>
+
+                      <p className="text-slate-600 text-base sm:text-lg leading-relaxed mb-8 font-normal">
+                        “Río de Janeiro es una ciudad maravillosa, pero como cualquier gran destino turístico, hay algunos pequeños detalles que conviene conocer antes de llegar. Estos consejos no son para tener miedo, sino para viajar más tranquilo, disfrutar más y moverte por la ciudad como alguien que ya conoce Río.”
+                      </p>
+
+                      <div className="flex items-center gap-4 text-xs text-slate-500 mb-8 border-b border-slate-100 pb-6">
+                        <span>Por Ernestinho Carioca</span>
+                        <span>•</span>
+                        <span>Actualizado Año 2026</span>
+                        <span>•</span>
+                        <span>8 min lectura</span>
+                      </div>
+
+                      <div className="rounded-3xl overflow-hidden mb-10 h-72 sm:h-96 shadow-md">
+                        <img 
+                          src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?auto=format&fit=crop&q=80&w=1200" 
+                          alt="Vista Panorámica de Río de Janeiro y Copacabana" 
+                          className="w-full h-full object-cover" 
+                        />
+                      </div>
+
+                      <div className="bg-gradient-to-br from-amber-400/20 via-amber-100/50 to-amber-50 border-2 border-amber-400 rounded-3xl p-6 sm:p-8 my-10 shadow-sm relative overflow-hidden">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="bg-amber-400 text-slate-950 text-xs font-black uppercase px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
+                            ⭐ CONSEJO GOLD DE ERNESTINHO
+                          </span>
+                        </div>
+                        <p className="text-slate-800 text-sm sm:text-base leading-relaxed font-semibold italic">
+                          “Lleva una copia digital de tu pasaporte en tu teléfono y, siempre que sea posible, guarda el documento físico en la caja fuerte de tu hotel o departamento. Para salir a conocer la ciudad normalmente basta con llevar lo necesario: un poco de efectivo, tu tarjeta y tu celular con las aplicaciones que recomendamos aquí en la página.”
+                        </p>
+                      </div>
+
+                      <div className="space-y-6 mt-10">
+                        {LISTA_20_CONSEJOS.map((item, idx) => (
+                          <React.Fragment key={item.num}>
+                            <div className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-teal-200 transition-all">
+                              <div className="flex items-start gap-4">
+                                <span className="text-2xl sm:text-3xl font-black text-teal-600 bg-teal-50 border border-teal-100 w-12 h-12 rounded-2xl flex items-center justify-center shrink-0 shadow-sm">
+                                  {item.num}
+                                </span>
+                                <div>
+                                  <h3 className="font-extrabold text-slate-900 text-base sm:text-lg mb-2">
+                                    {item.titulo}
+                                  </h3>
+                                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                                    “{item.texto}”
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+
+                            {idx === 3 && (
+                              <div className="my-8 rounded-3xl overflow-hidden h-64 sm:h-80 shadow-md">
+                                <img 
+                                  src="https://images.unsplash.com/photo-1520116468816-95b69f847357?auto=format&fit=crop&q=80&w=1000" 
+                                  alt="Turista disfrutando y fotografiando en Río de Janeiro" 
+                                  className="w-full h-full object-cover" 
+                                />
+                              </div>
+                            )}
+
+                            {idx === 7 && (
+                              <div className="my-8 rounded-3xl overflow-hidden h-64 sm:h-80 shadow-md">
+                                <img 
+                                  src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=1000" 
+                                  alt="Turistas disfrutando del mar y la playa carioca" 
+                                  className="w-full h-full object-cover" 
+                                />
+                              </div>
+                            )}
+
+                            {idx === 11 && (
+                              <div className="my-8 rounded-3xl overflow-hidden h-64 sm:h-80 shadow-md">
+                                <img 
+                                  src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=80&w=1000" 
+                                  alt="Ambiente nocturno y bebidas en un boteco carioca" 
+                                  className="w-full h-full object-cover" 
+                                />
+                              </div>
+                            )}
+
+                            {idx === 15 && (
+                              <div className="my-8 rounded-3xl overflow-hidden h-64 sm:h-80 shadow-md">
+                                <img 
+                                  src="https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&q=80&w=1000" 
+                                  alt="Movilidad y recorridos por Río de Janeiro" 
+                                  className="w-full h-full object-cover" 
+                                />
+                              </div>
+                            )}
+
+                            {idx === 18 && (
+                              <div className="my-8 rounded-3xl overflow-hidden h-64 sm:h-80 shadow-md">
+                                <img 
+                                  src="https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?auto=format&fit=crop&q=80&w=1000" 
+                                  alt="Vista panorámica desde un sendero en las montañas de Río" 
+                                  className="w-full h-full object-cover" 
+                                />
+                              </div>
+                            )}
+                          </React.Fragment>
+                        ))}
+                      </div>
+
+                      <div className="mt-14 bg-slate-900 text-white rounded-3xl p-8 sm:p-10 text-center shadow-xl border border-slate-800">
+                        <span className="bg-amber-400 text-slate-950 font-black text-xs uppercase px-4 py-1.5 rounded-full inline-block mb-4 shadow">
+                          EL MEJOR CONSEJO DE ERNESTINHO ❤️
+                        </span>
+                        <p className="text-base sm:text-xl font-light text-slate-100 italic mb-6 leading-relaxed">
+                          “Río no se trata de tener miedo. Se trata de saber dónde estás, disfrutar con sentido común y dejar espacio para sorprenderte. Después de conocer estos pequeños consejos, guarda el celular, ponte unas havaianas y disfruta de la Cidade Maravilhosa.”
+                        </p>
+                        <span className="text-amber-400 font-bold text-sm tracking-widest uppercase block">
+                          “Río de Janeiro desde mi mirada.”
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {/* CTA AL FINAL DEL ARTÍCULO */}
+                  <div className="mt-12 bg-gradient-to-r from-teal-900 to-slate-900 text-white rounded-3xl p-8 text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
+                    <div>
+                      <h3 className="text-2xl font-black uppercase">¿Quieres conocer Río conmigo?</h3>
+                      <p className="text-slate-300 text-sm mt-1">
+                        Diseñamos tu itinerario o te acompaño en un tour privado exclusivo.
+                      </p>
+                    </div>
+                    <a
+                      href="https://wa.me/5521969946938?text=Hola%20Ernestinho,%20leí%20tu%20artículo%20y%20quiero%20más%20información"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase py-4 px-6 rounded-full shrink-0 flex items-center gap-2 shadow-lg transition-transform hover:scale-105"
+                    >
+                      <Icon name="message-circle" className="w-5 h-5" fill="#0f172a" />
+                      HABLAR CON ERNESTINHO POR WHATSAPP
+                    </a>
+                  </div>
+
+                </div>
+              </article>
+            )}
+
+          </main>
+
+          {/* MODAL INTERACTIVO DE RESERVA */}
+          {modalReservaOpen && (
+            <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn">
+              <div className="bg-white w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-100 relative">
+                
+                <button
+                  onClick={() => setModalReservaOpen(false)}
+                  className="absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-800 rounded-full hover:bg-slate-100 transition-colors"
+                >
+                  <Icon name="x" className="w-5 h-5" />
+                </button>
+
+                <div className="mb-6">
+                  <span className="text-xs font-bold text-teal-600 uppercase tracking-widest block mb-1">Reserva Directa</span>
+                  <h3 className="text-xl font-black text-slate-900 leading-snug">
+                    {expParaReservar?.titulo || 'Consulta de Tour'}
+                  </h3>
+                </div>
+
+                <form onSubmit={enviarReservaWhatsApp} className="space-y-4">
+                  <div>
+                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Tu Nombre Completo</label>
+                    <input
+                      type="text"
+                      required
+                      value={reservaDatos.nombre}
+                      onChange={(e) => setReservaDatos({...reservaDatos, nombre: e.target.value})}
+                      placeholder="Ej. Ana García"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-teal-600"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Fecha Estimada</label>
+                      <input
+                        type="date"
+                        required
+                        value={reservaDatos.fecha}
+                        onChange={(e) => setReservaDatos({...reservaDatos, fecha: e.target.value})}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-teal-600"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Nº Personas</label>
+                      <input
+                        type="number"
+                        min="1"
+                        max="20"
+                        value={reservaDatos.personas}
+                        onChange={(e) => setReservaDatos({...reservaDatos, personas: e.target.value})}
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-teal-600"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-bold uppercase text-slate-700 mb-1">Teléfono (WhatsApp)</label>
+                    <input
+                      type="tel"
+                      required
+                      value={reservaDatos.telefono}
+                      onChange={(e) => setReservaDatos({...reservaDatos, telefono: e.target.value})}
+                      placeholder="+54 9 11 1234 5678"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-teal-600"
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs uppercase py-4 rounded-xl transition-all shadow-md mt-2 flex items-center justify-center gap-2"
+                  >
+                    <Icon name="message-circle" className="w-5 h-5" />
+                    Enviar Consulta a WhatsApp
+                  </button>
+                </form>
+
+              </div>
+            </div>
+          )}
+
+          {/* PIE DE PÁGINA / FOOTER */}
+          <footer className="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-slate-800 overflow-hidden flex items-center justify-center border border-slate-700">
+                    <img 
+                      src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/89161BC4-595E-455D-8211-87277AC58B53" 
+                      alt="Ernestinho Carioca Logo" 
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-lg font-black text-white uppercase tracking-tight block">
+                      Ernestinho <span className="text-teal-500">Carioca</span>
+                    </span>
+                    <span className="text-[10px] text-slate-500 uppercase tracking-widest block">
+                      Río de Janeiro desde mi mirada
+                    </span>
+                  </div>
+                </div>
+
+                <p className="text-xs text-slate-500 text-center md:text-right">
+                  © {new Date().getFullYear()} Ernestinho Carioca. Todos los derechos reservados.<br />
+                  Diseñado para viajeros que buscan vivir Río de forma real y auténtica.
+                </p>
+
+              </div>
+            </div>
+          </footer>
+
+        </div>
+      );
+    }
+
+    // Renderizado en el contenedor HTML objetivo
+    const rootElement = document.getElementById('ernestinho-carioca-root');
+    const root = ReactDOM.createRoot(rootElement);
+    root.render(<AppErnestinho />);
+  </script>
+</body>
+</html>
