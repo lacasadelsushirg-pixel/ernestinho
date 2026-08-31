@@ -955,12 +955,14 @@
 
   <button
     onClick={() => {
-      if (exp.id === 'exp-1') {
-        setSeccionActual('full_day_rio');
-      } else {
-        setSeccionActual(`detalle_${exp.id}`);
-      }
-    }}
+  if (exp.id === 'exp-1') {
+    setSeccionActual('full_day_rio');
+  } else if (exp.id === 'exp-2') {
+    setSeccionActual('buzios');
+  } else {
+    setSeccionActual(`detalle_${exp.id}`);
+  }
+}}
     className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase py-3 rounded-xl transition-colors shadow-sm"
   >
     👁️ Ver Experiencia
