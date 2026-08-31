@@ -1634,45 +1634,356 @@
               </section>
             )}
 
-            {/* CAFÉ RIO */}
+                       {/* CAFÉ RIO */}
             {seccionActual === 'cafe' && (
-              <section className="py-12 bg-white">
-                <div className="max-w-6xl mx-auto px-4 sm:px-6">
-                  <div className="text-center max-w-3xl mx-auto mb-12">
-                    <span className="text-amber-600 font-bold text-xs uppercase tracking-widest block mb-2">
-                      Sabor Artesanal 100% Brasil
+              <section className="py-12 sm:py-16 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+                  {/* ENCABEZADO */}
+                  <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+                    <span className="inline-block bg-amber-100 text-amber-800 font-black text-xs uppercase tracking-widest px-4 py-2 rounded-full mb-4">
+                      ☕ Sabor Artesanal 100% Brasil
                     </span>
-                    <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
-                      Café Rio Ernestinho
+
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 uppercase tracking-tight mb-5">
+                      CAFÉ <span className="text-amber-500">RIO</span>
                     </h1>
-                    <p className="text-slate-600">
-                      Lleva a tu casa el aroma y el sabor del café brasileño de alta selección, tostado con maestría.
+
+                    <p className="text-xl sm:text-2xl font-light text-slate-700 italic mb-4">
+                      El sabor de Brasil, ahora en tu taza.
+                    </p>
+
+                    <p className="text-slate-500 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto">
+                      Una colección creada para quienes quieren llevarse un pedacito
+                      de Río de Janeiro a casa. Cinco sabores especiales, preparados
+                      para transformar cada taza en una pequeña experiencia brasileña.
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {CAFE_PRODUCTOS.map((prod) => (
-                      <div key={prod.id} className="bg-slate-50 rounded-2xl p-6 border border-slate-100 flex flex-col justify-between shadow-sm">
-                        <div>
-                          <div className="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-800 font-bold text-xl mb-4">
-                            ☕
-                          </div>
-                          <h3 className="font-bold text-slate-900 text-base mb-1">{prod.nombre}</h3>
-                          <span className="text-[11px] text-teal-600 font-semibold block mb-2">{prod.tipo}</span>
-                          <p className="text-slate-500 text-xs leading-relaxed mb-4">{prod.nota}</p>
+
+                  {/* PRODUCTOS */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+
+                    {/* CHOCOLATE TRUFADO */}
+                    <div className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                      <div className="relative h-72 overflow-hidden bg-slate-100">
+                        <img
+                          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/BD8C640A-084E-4B0D-8EFC-12A579E5A43C"
+                          alt="Café Rio Chocolate Trufado"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+
+                        <div className="absolute top-4 left-4 bg-amber-400 text-slate-950 font-black text-xs uppercase px-3 py-2 rounded-full shadow-lg">
+                          ⭐ Especial
                         </div>
-                        <div>
-                          <span className="text-lg font-black text-slate-900 block mb-3">{prod.precio}</span>
-                          <button 
-                            onClick={() => window.open(`https://wa.me/5521969946938?text=Hola%20Ernestinho,%20quisiera%20comprar%20el%20${encodeURIComponent(prod.nombre)}`, '_blank')}
-                            className="w-full bg-slate-900 hover:bg-amber-500 text-white hover:text-slate-950 font-bold text-xs uppercase py-2.5 rounded-xl transition-all"
+                      </div>
+
+                      <div className="p-6">
+                        <span className="text-teal-600 font-bold text-[11px] uppercase tracking-widest">
+                          Café aromatizado
+                        </span>
+
+                        <h3 className="text-xl font-black text-slate-900 mt-1 mb-3">
+                          Chocolate Trufado
+                        </h3>
+
+                        <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                          Una combinación intensa y deliciosa que une el aroma del
+                          café brasileño con el sabor envolvente del chocolate trufado.
+                          Cremoso, aromático y perfecto para quienes disfrutan de un
+                          café con personalidad.
+                        </p>
+
+                        <div className="flex items-center justify-between gap-4">
+                          <span className="text-2xl font-black text-slate-900">
+                            R$ 35
+                          </span>
+
+                          <button
+                            onClick={() => window.open(
+                              'https://wa.me/5521969946938?text=Hola%20Ernestinho,%20quiero%20comprar%20el%20Caf%C3%A9%20Rio%20Chocolate%20Trufado%20por%20R%24%2035',
+                              '_blank'
+                            )}
+                            className="bg-slate-900 hover:bg-amber-400 hover:text-slate-950 text-white font-black text-xs uppercase py-3 px-5 rounded-full transition-all"
                           >
-                            Pedir por WhatsApp
+                            Comprar ☕
                           </button>
                         </div>
                       </div>
-                    ))}
+                    </div>
+
+
+                    {/* 100% ARÁBICO TRADICIONAL */}
+                    <div className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                      <div className="relative h-72 overflow-hidden bg-slate-100">
+                        <img
+                          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/1765D0E5-FD31-45A8-BE5A-6F73DF411BB0"
+                          alt="Café Rio 100% Arábico Tradicional"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+
+                        <div className="absolute top-4 left-4 bg-teal-500 text-white font-black text-xs uppercase px-3 py-2 rounded-full shadow-lg">
+                          ☕ Clásico
+                        </div>
+                      </div>
+
+                      <div className="p-6">
+                        <span className="text-teal-600 font-bold text-[11px] uppercase tracking-widest">
+                          100% Arábica
+                        </span>
+
+                        <h3 className="text-xl font-black text-slate-900 mt-1 mb-3">
+                          Tradicional
+                        </h3>
+
+                        <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                          Para los verdaderos amantes del café. Un café 100% arábica
+                          de sabor equilibrado, aroma agradable y personalidad
+                          brasileña. Una opción perfecta para disfrutar todos los días.
+                        </p>
+
+                        <div className="flex items-center justify-between gap-4">
+                          <span className="text-2xl font-black text-slate-900">
+                            R$ 35
+                          </span>
+
+                          <button
+                            onClick={() => window.open(
+                              'https://wa.me/5521969946938?text=Hola%20Ernestinho,%20quiero%20comprar%20el%20Caf%C3%A9%20Rio%20100%25%20Ar%C3%A1bico%20Tradicional%20por%20R%24%2035',
+                              '_blank'
+                            )}
+                            className="bg-slate-900 hover:bg-amber-400 hover:text-slate-950 text-white font-black text-xs uppercase py-3 px-5 rounded-full transition-all"
+                          >
+                            Comprar ☕
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    {/* CHOCOLATE CON MENTA */}
+                    <div className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                      <div className="relative h-72 overflow-hidden bg-slate-100">
+                        <img
+                          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3051"
+                          alt="Café Rio Chocolate con Menta"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+
+                        <div className="absolute top-4 left-4 bg-emerald-500 text-white font-black text-xs uppercase px-3 py-2 rounded-full shadow-lg">
+                          🌿 Refrescante
+                        </div>
+                      </div>
+
+                      <div className="p-6">
+                        <span className="text-teal-600 font-bold text-[11px] uppercase tracking-widest">
+                          Café aromatizado
+                        </span>
+
+                        <h3 className="text-xl font-black text-slate-900 mt-1 mb-3">
+                          Chocolate con Menta
+                        </h3>
+
+                        <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                          El encuentro perfecto entre el chocolate y el toque
+                          refrescante de la menta. Un café diferente, aromático y
+                          sorprendente, ideal para quienes buscan descubrir nuevos sabores.
+                        </p>
+
+                        <div className="flex items-center justify-between gap-4">
+                          <span className="text-2xl font-black text-slate-900">
+                            R$ 35
+                          </span>
+
+                          <button
+                            onClick={() => window.open(
+                              'https://wa.me/5521969946938?text=Hola%20Ernestinho,%20quiero%20comprar%20el%20Caf%C3%A9%20Rio%20Chocolate%20con%20Menta%20por%20R%24%2035',
+                              '_blank'
+                            )}
+                            className="bg-slate-900 hover:bg-amber-400 hover:text-slate-950 text-white font-black text-xs uppercase py-3 px-5 rounded-full transition-all"
+                          >
+                            Comprar ☕
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    {/* CARAMELO */}
+                    <div className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                      <div className="relative h-72 overflow-hidden bg-slate-100">
+                        <img
+                          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3050"
+                          alt="Café Rio con Caramelo"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+
+                        <div className="absolute top-4 left-4 bg-amber-500 text-white font-black text-xs uppercase px-3 py-2 rounded-full shadow-lg">
+                          🍯 Dulce
+                        </div>
+                      </div>
+
+                      <div className="p-6">
+                        <span className="text-teal-600 font-bold text-[11px] uppercase tracking-widest">
+                          Café aromatizado
+                        </span>
+
+                        <h3 className="text-xl font-black text-slate-900 mt-1 mb-3">
+                          Café con Caramelo
+                        </h3>
+
+                        <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                          Un café suave y aromático con deliciosas notas de caramelo.
+                          Dulce en la medida justa y perfecto para acompañar una tarde
+                          tranquila o comenzar el día con algo especial.
+                        </p>
+
+                        <div className="flex items-center justify-between gap-4">
+                          <span className="text-2xl font-black text-slate-900">
+                            R$ 35
+                          </span>
+
+                          <button
+                            onClick={() => window.open(
+                              'https://wa.me/5521969946938?text=Hola%20Ernestinho,%20quiero%20comprar%20el%20Caf%C3%A9%20Rio%20con%20Caramelo%20por%20R%24%2035',
+                              '_blank'
+                            )}
+                            className="bg-slate-900 hover:bg-amber-400 hover:text-slate-950 text-white font-black text-xs uppercase py-3 px-5 rounded-full transition-all"
+                          >
+                            Comprar ☕
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    {/* CHOCOLATE CON AVELLANAS */}
+                    <div className="group bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+                      <div className="relative h-72 overflow-hidden bg-slate-100">
+                        <img
+                          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3049"
+                          alt="Café Rio Chocolate con Avellanas"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+
+                        <div className="absolute top-4 left-4 bg-amber-400 text-slate-950 font-black text-xs uppercase px-3 py-2 rounded-full shadow-lg">
+                          🌰 Cremoso
+                        </div>
+                      </div>
+
+                      <div className="p-6">
+                        <span className="text-teal-600 font-bold text-[11px] uppercase tracking-widest">
+                          Café aromatizado
+                        </span>
+
+                        <h3 className="text-xl font-black text-slate-900 mt-1 mb-3">
+                          Chocolate con Avellanas
+                        </h3>
+
+                        <p className="text-slate-500 text-sm leading-relaxed mb-5">
+                          El sabor profundo del chocolate combinado con el delicado
+                          aroma de las avellanas. Una mezcla envolvente y sofisticada
+                          para convertir una simple taza de café en un momento especial.
+                        </p>
+
+                        <div className="flex items-center justify-between gap-4">
+                          <span className="text-2xl font-black text-slate-900">
+                            R$ 35
+                          </span>
+
+                          <button
+                            onClick={() => window.open(
+                              'https://wa.me/5521969946938?text=Hola%20Ernestinho,%20quiero%20comprar%20el%20Caf%C3%A9%20Rio%20Chocolate%20con%20Avellanas%20por%20R%24%2035',
+                              '_blank'
+                            )}
+                            className="bg-slate-900 hover:bg-amber-400 hover:text-slate-950 text-white font-black text-xs uppercase py-3 px-5 rounded-full transition-all"
+                          >
+                            Comprar ☕
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    {/* COLECCIÓN */}
+                    <div className="group bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
+                      <div className="relative h-72 overflow-hidden">
+                        <img
+                          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/DF50328D-DB89-4D22-B3BD-F79A8D259FAD"
+                          alt="Colección Café Rio Ernestinho de cinco sabores"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
+
+                        <div className="absolute top-4 left-4 bg-amber-400 text-slate-950 font-black text-xs uppercase px-3 py-2 rounded-full shadow-lg">
+                          🏆 Colección
+                        </div>
+                      </div>
+
+                      <div className="p-6">
+                        <span className="text-amber-400 font-bold text-[11px] uppercase tracking-widest">
+                          Los 5 sabores
+                        </span>
+
+                        <h3 className="text-xl font-black text-white mt-1 mb-3">
+                          Colección Café Rio
+                        </h3>
+
+                        <p className="text-slate-300 text-sm leading-relaxed mb-5">
+                          ¿No quieres elegir solo uno? Llévate la colección completa
+                          y descubre los cinco sabores: Tradicional, Chocolate Trufado,
+                          Chocolate con Menta, Caramelo y Chocolate con Avellanas.
+                        </p>
+
+                        <div className="flex items-center justify-between gap-4">
+                          <div>
+                            <span className="text-xs text-slate-400 block line-through">
+                              R$ 175
+                            </span>
+                            <span className="text-2xl font-black text-amber-400">
+                              R$ 150
+                            </span>
+                          </div>
+
+                          <button
+                            onClick={() => window.open(
+                              'https://wa.me/5521969946938?text=Hola%20Ernestinho,%20quiero%20la%20Colecci%C3%B3n%20completa%20de%20los%205%20Caf%C3%A9s%20Rio%20por%20R%24%20150',
+                              '_blank'
+                            )}
+                            className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs uppercase py-3 px-5 rounded-full transition-all"
+                          >
+                            Quiero la colección
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
+
+
+                  {/* FRASE FINAL */}
+                  <div className="mt-14 sm:mt-16 bg-gradient-to-r from-slate-950 via-slate-900 to-teal-950 rounded-3xl p-8 sm:p-10 text-center shadow-xl">
+                    <span className="text-amber-400 text-3xl block mb-3">
+                      ☕ 🇧🇷
+                    </span>
+
+                    <h2 className="text-2xl sm:text-3xl font-black text-white mb-3">
+                      Un pedacito de Río en cada taza
+                    </h2>
+
+                    <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+                      Ya sea que prefieras un café tradicional o quieras descubrir
+                      sabores diferentes, Café Rio Ernestinho fue pensado para llevar
+                      contigo un poquito de ese aroma, esa energía y ese sabor que
+                      hacen tan especial a Brasil.
+                    </p>
+
+                    <p className="text-amber-400 font-bold text-xs uppercase tracking-widest mt-5">
+                      Río de Janeiro desde mi mirada ❤️
+                    </p>
+                  </div>
+
                 </div>
               </section>
             )}
