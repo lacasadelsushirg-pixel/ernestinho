@@ -4016,30 +4016,306 @@ const MUSEOS_DATA = [
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {CATEGORIAS_QUE_HACER.map((cat) => (
-                      <div key={cat.id} className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-teal-200 transition-all flex flex-col justify-between shadow-sm">
-                        <div>
-                          <div className="text-4xl mb-3">{cat.icon}</div>
-                          <h3 className="text-xl font-bold text-slate-900 mb-2 uppercase tracking-wide">
-                            {cat.nombre}
-                          </h3>
-                          <p className="text-slate-600 text-sm mb-6">
-                            {cat.desc}
-                          </p>
-                        </div>
-                        <button
-                          onClick={() => setSeccionActual('guia')}
-                          className="w-full bg-white hover:bg-slate-900 text-slate-900 hover:text-white border border-slate-200 font-bold text-xs uppercase py-3 rounded-xl transition-all flex items-center justify-center gap-2"
-                        >
-                          <span>VER MÁS</span>
-                          <Icon name="chevron-right" className="w-4 h-4" />
-                        </button>
-                      </div>
-                    ))}
+  <div
+    key={cat.id}
+    className="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover:border-teal-200 transition-all flex flex-col justify-between shadow-sm"
+  >
+    <div>
+      <div className="text-4xl mb-3">{cat.icon}</div>
+
+      <h3 className="text-xl font-bold text-slate-900 mb-2 uppercase tracking-wide">
+        {cat.nombre}
+      </h3>
+
+      <p className="text-slate-600 text-sm mb-6">
+        {cat.desc}
+      </p>
+    </div>
+
+    <button
+      onClick={() => setSeccionActual(cat.id)}
+      className="w-full bg-white hover:bg-slate-900 text-slate-900 hover:text-white border border-slate-200 font-bold text-xs uppercase py-3 rounded-xl transition-all flex items-center justify-center gap-2"
+    >
+      <span>VER MÁS</span>
+      <Icon name="chevron-right" className="w-4 h-4" />
+    </button>
+  </div>
+))}
                   </div>
                 </div>
               </section>
             )}
+{/* ============================= */}
+{/* ATRACCIONES */}
+{/* ============================= */}
 
+{seccionActual === 'atracciones' && (
+  <section className="py-12 bg-slate-50 min-h-screen">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+      {/* ENCABEZADO */}
+      <div className="text-center max-w-4xl mx-auto mb-10">
+        <span className="text-amber-500 font-bold text-xs uppercase tracking-widest block mb-2">
+          Qué hacer en Río
+        </span>
+
+        <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+          Atracciones de Río de Janeiro
+        </h1>
+
+        <p className="text-slate-600 text-base sm:text-lg">
+          Descubre monumentos, museos, iglesias, fortalezas y espacios
+          culturales que forman parte de la historia de Río de Janeiro.
+        </p>
+      </div>
+
+      {/* CATEGORÍAS */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+        {/* CENTROS CULTURALES */}
+        <button
+          onClick={() => setSeccionActual('centros_culturales')}
+          className="text-left bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all"
+        >
+          <div className="text-4xl mb-4">🎭</div>
+
+          <h2 className="text-xl font-black text-slate-900 uppercase mb-2">
+            Centros culturales
+          </h2>
+
+          <p className="text-sm text-slate-600">
+            Espacios dedicados al arte, la cultura y la historia de Río.
+          </p>
+        </button>
+
+
+        {/* MUSEOS */}
+        <button
+          onClick={() => setSeccionActual('museos')}
+          className="text-left bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all"
+        >
+          <div className="text-4xl mb-4">🏛️</div>
+
+          <h2 className="text-xl font-black text-slate-900 uppercase mb-2">
+            Museos
+          </h2>
+
+          <p className="text-sm text-slate-600">
+            Historia, ciencia, aviación y patrimonio naval.
+          </p>
+        </button>
+
+
+        {/* IGLESIAS */}
+        <button
+          onClick={() => setSeccionActual('iglesias')}
+          className="text-left bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all"
+        >
+          <div className="text-4xl mb-4">⛪</div>
+
+          <h2 className="text-xl font-black text-slate-900 uppercase mb-2">
+            Iglesias
+          </h2>
+
+          <p className="text-sm text-slate-600">
+            Templos históricos y arquitectura religiosa carioca.
+          </p>
+        </button>
+
+
+        {/* FUERTES Y FORTALEZAS */}
+        <button
+          onClick={() => setSeccionActual('fuertes_fortalezas')}
+          className="text-left bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all"
+        >
+          <div className="text-4xl mb-4">🏰</div>
+
+          <h2 className="text-xl font-black text-slate-900 uppercase mb-2">
+            Fuertes y fortalezas
+          </h2>
+
+          <p className="text-sm text-slate-600">
+            Construcciones militares y lugares llenos de historia.
+          </p>
+        </button>
+
+
+        {/* ESPACIOS LITERARIOS */}
+        <button
+          onClick={() => setSeccionActual('espacios_literarios')}
+          className="text-left bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all"
+        >
+          <div className="text-4xl mb-4">📚</div>
+
+          <h2 className="text-xl font-black text-slate-900 uppercase mb-2">
+            Espacios literarios
+          </h2>
+
+          <p className="text-sm text-slate-600">
+            Literatura, escritores y patrimonio cultural de Río.
+          </p>
+        </button>
+
+      </div>
+
+    </div>
+  </section>
+)}
+
+
+{/* ============================= */}
+{/* MUSEOS */}
+{/* ============================= */}
+
+{seccionActual === 'museos' && (
+  <section className="py-12 bg-slate-50 min-h-screen">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+      {/* ENCABEZADO */}
+      <div className="text-center max-w-4xl mx-auto mb-10">
+
+        <span className="text-amber-500 font-bold text-xs uppercase tracking-widest block mb-2">
+          Atracciones de Río
+        </span>
+
+        <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+          Museos de Río de Janeiro
+        </h1>
+
+        <p className="text-slate-600 text-base sm:text-lg">
+          Historia, ciencia, aviación y patrimonio naval.
+          Descubre algunos de los museos más interesantes de Río de Janeiro.
+        </p>
+
+      </div>
+
+
+      {/* MUSEOS */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        {/* MUSEU HISTÓRICO NACIONAL */}
+        <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100">
+
+          <img
+            src="https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=1200&q=80"
+            alt="Museu Histórico Nacional"
+            className="w-full h-64 object-cover"
+          />
+
+          <div className="p-6">
+
+            <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+              Historia
+            </span>
+
+            <h2 className="text-2xl font-black text-slate-900 mt-2 mb-3">
+              Museu Histórico Nacional
+            </h2>
+
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Uno de los principales museos históricos de Brasil, con
+              colecciones que recorren diferentes períodos de la historia
+              brasileña.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        {/* MUSEU DO AMANHÃ */}
+        <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100">
+
+          <img
+            src="https://images.unsplash.com/photo-1518391846015-55a9cc003b25?auto=format&fit=crop&w=1200&q=80"
+            alt="Museu do Amanhã"
+            className="w-full h-64 object-cover"
+          />
+
+          <div className="p-6">
+
+            <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+              Ciencia
+            </span>
+
+            <h2 className="text-2xl font-black text-slate-900 mt-2 mb-3">
+              Museu do Amanhã
+            </h2>
+
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Un museo de ciencia y tecnología dedicado a reflexionar sobre
+              el futuro, el planeta y los cambios que transforman nuestra
+              sociedad.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        {/* MUSEU AEROESPACIAL */}
+        <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100">
+
+          <img
+            src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80"
+            alt="Museu Aeroespacial MUSAL"
+            className="w-full h-64 object-cover"
+          />
+
+          <div className="p-6">
+
+            <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+              Aviación
+            </span>
+
+            <h2 className="text-2xl font-black text-slate-900 mt-2 mb-3">
+              Museu Aeroespacial – MUSAL
+            </h2>
+
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Un espacio dedicado a la historia de la aviación brasileña,
+              con aeronaves, objetos históricos y piezas relacionadas con
+              la evolución aeroespacial.
+            </p>
+
+          </div>
+
+        </div>
+
+
+        {/* MUSEU NAVAL */}
+        <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100">
+
+          <img
+            src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80"
+            alt="Museu Naval"
+            className="w-full h-64 object-cover"
+          />
+
+          <div className="p-6">
+
+            <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+              Patrimonio naval
+            </span>
+
+            <h2 className="text-2xl font-black text-slate-900 mt-2 mb-3">
+              Museu Naval
+            </h2>
+
+            <p className="text-sm text-slate-600 leading-relaxed">
+              Museo dedicado a la historia naval brasileña, con objetos,
+              documentos y piezas relacionadas con la Marina de Brasil.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+)}
             {/* CONSEJOS */}
             {seccionActual === 'consejos' && (
               <section className="py-12 bg-slate-50">
