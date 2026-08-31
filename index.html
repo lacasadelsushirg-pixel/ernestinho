@@ -933,12 +933,18 @@
                               <p>📍 Punto: {exp.encuentro}</p>
                             </div>
                           </div>
-                          <button
-                            onClick={() => abrirReserva(exp)}
-                            className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs uppercase py-3 rounded-xl transition-colors shadow-sm"
-                          >
-                            Reservar Ahora
-                          </button>
+<button
+  onClick={() => {
+    if (exp.id === 'exp-1') {
+      setSeccionActual('full_day_rio');
+    } else {
+      abrirReserva(exp);
+    }
+  }}
+  className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs uppercase py-3 rounded-xl transition-colors shadow-sm"
+>
+  {exp.id === 'exp-1' ? 'Ver Experiencia' : 'Reservar Ahora'}
+</button>
                         </div>
                       </div>
                     ))}
