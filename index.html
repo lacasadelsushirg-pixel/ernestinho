@@ -827,12 +827,29 @@
                                 {exp.descripcion}
                               </p>
                             </div>
-                            <button
-                              onClick={() => abrirReserva(exp)}
-                              className="w-full bg-slate-900 hover:bg-teal-600 text-white font-bold text-xs uppercase py-3 rounded-xl transition-colors flex items-center justify-center gap-2"
-                            >
-                              <span>Reservar / Consultar</span>
-                            </button>
+                          <div className="flex flex-col sm:flex-row gap-2 mt-4">
+
+  <button
+    onClick={() => {
+      if (exp.id === 'exp-1') {
+        setSeccionActual('full_day_rio');
+      } else {
+        setSeccionActual(`detalle_${exp.id}`);
+      }
+    }}
+    className="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs uppercase py-3 rounded-xl transition-colors shadow-sm"
+  >
+    👁️ Ver Experiencia
+  </button>
+
+  <button
+    onClick={() => abrirReserva(exp)}
+    className="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs uppercase py-3 rounded-xl transition-colors shadow-sm"
+  >
+    📅 Reservar Ahora
+  </button>
+
+</div>
                           </div>
                         </div>
                       ))}
