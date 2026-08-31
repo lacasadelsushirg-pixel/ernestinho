@@ -1854,6 +1854,1232 @@
     </div>
   </section>
 )}
+            {/* VISTA DETALLADA — CRISTO + CITY TOUR */}
+{seccionActual === 'detalle_exp-3' && (
+  <section className="py-12 sm:py-16 bg-slate-50">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
+      {/* VOLVER */}
+      <button
+        onClick={() => setSeccionActual('experiencias')}
+        className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors"
+      >
+        ← Volver a Experiencias
+      </button>
+
+      {/* CABECERA */}
+      <div className="text-center max-w-4xl mx-auto mb-10">
+
+        <span className="inline-flex items-center bg-teal-500 text-white font-black text-xs uppercase tracking-widest px-4 py-2 rounded-full mb-4 shadow-sm">
+          ✨ Experiencia Imperdible
+        </span>
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 uppercase tracking-tight mb-5">
+          Cristo <span className="text-teal-500">+ City Tour</span>
+        </h1>
+
+        <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+          Conoce el Cristo Redentor y descubre algunos de los principales
+          puntos turísticos de Río de Janeiro en una experiencia completa
+          para conocer la esencia de la Ciudad Maravillosa.
+        </p>
+
+      </div>
+
+      {/* IMAGEN PRINCIPAL */}
+      <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 mb-10">
+        <img
+          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3083"
+          alt="Cristo Redentor en Río de Janeiro"
+          className="w-full h-72 sm:h-96 md:h-[500px] object-cover"
+        />
+      </div>
+
+      {/* INTRODUCCIÓN */}
+      <div className="bg-white rounded-3xl shadow-lg border border-slate-100 p-6 sm:p-10 mb-10">
+
+        <div className="max-w-4xl">
+          <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+            Río de Janeiro · Cristo Redentor + City Tour
+          </span>
+
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-5">
+            Una experiencia para conocer los íconos de Río
+          </h2>
+
+          <p className="text-slate-600 leading-relaxed">
+            Ven a conocer uno de los puntos turísticos más famosos de Brasil,
+            localizado en lo alto del Morro del Corcovado. El Cristo Redentor
+            es una de las grandes postales de Río de Janeiro y una de las
+            Nuevas Siete Maravillas del Mundo.
+          </p>
+
+          <p className="text-slate-600 leading-relaxed mt-4">
+            Además de visitar el Cristo, recorreremos algunos de los
+            principales puntos de interés turístico de la ciudad, combinando
+            historia, arquitectura, cultura, fútbol y el espíritu carioca.
+          </p>
+        </div>
+
+      </div>
+
+      {/* PARADAS */}
+      <div className="bg-white rounded-3xl shadow-lg border border-slate-100 p-6 sm:p-10 mb-10">
+
+        <div className="text-center mb-10">
+          <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+            Principales visitas
+          </span>
+
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+            Descubre Río de Janeiro
+          </h2>
+        </div>
+
+        <div className="space-y-10">
+
+          {/* CRISTO */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3084"
+                alt="Cristo Redentor"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
+
+            <div>
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                01 · Principal atracción
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                ✝️ Cristo Redentor
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Visitaremos el famoso Cristo Redentor, ubicado en lo alto del
+                Morro Corcovado, uno de los lugares más emblemáticos de Río
+                de Janeiro y una de las Nuevas Siete Maravillas del Mundo.
+              </p>
+            </div>
+
+          </div>
+
+          {/* MARACANÃ */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="md:order-2 rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3086"
+                alt="Maracanã"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
+
+            <div className="md:order-1">
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                02 · Fútbol brasileño
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                ⚽ Maracanã
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Realizaremos una parada externa para fotografías frente al
+                mítico Maracanã, uno de los estadios más famosos de la historia
+                del fútbol.
+              </p>
+            </div>
+
+          </div>
+
+          {/* SAMBÓDROMO */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3087"
+                alt="Sambódromo de Río de Janeiro"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
+
+            <div>
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                03 · Carnaval
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                🎭 Sambódromo
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Conoceremos el Sambódromo da Marquês de Sapucaí, uno de los
+                grandes símbolos del Carnaval Carioca y escenario de los
+                grandes desfiles de las escuelas de samba.
+              </p>
+            </div>
+
+          </div>
+
+          {/* SELARÓN */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="md:order-2 rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3088"
+                alt="Escalera Selarón"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
+
+            <div className="md:order-1">
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                04 · Santa Teresa
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                🎨 Escalera Selarón
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Visitaremos la famosa Escalera Selarón, una de las obras más
+                coloridas y fotografiadas de Río de Janeiro, ubicada entre
+                Santa Teresa y Lapa.
+              </p>
+            </div>
+
+          </div>
+
+          {/* CATEDRAL */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3089"
+                alt="Catedral Metropolitana de Río de Janeiro"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
+
+            <div>
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                05 · Historia y arquitectura
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                ⛪ Catedral São Sebastião
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Conoceremos la Catedral Metropolitana de São Sebastião,
+                uno de los edificios religiosos más particulares de Río,
+                reconocido por su impresionante arquitectura.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      {/* QUÉ INCLUYE */}
+      <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl mb-10">
+
+        <div className="text-center mb-8">
+          <span className="text-amber-400 font-black text-xs uppercase tracking-widest">
+            Tu experiencia incluye
+          </span>
+
+          <h2 className="text-2xl sm:text-3xl font-black mt-2">
+            Todo preparado para disfrutar Río
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          <div className="bg-white/5 rounded-2xl p-5">
+            <span className="text-amber-400 text-2xl">✓</span>
+            <h3 className="font-black mt-2">Cristo Redentor</h3>
+            <p className="text-slate-300 text-sm mt-1">
+              Visita al Cristo Redentor.
+            </p>
+          </div>
+
+          <div className="bg-white/5 rounded-2xl p-5">
+            <span className="text-amber-400 text-2xl">✓</span>
+            <h3 className="font-black mt-2">City Tour</h3>
+            <p className="text-slate-300 text-sm mt-1">
+              Recorrido por los principales puntos turísticos.
+            </p>
+          </div>
+
+          <div className="bg-white/5 rounded-2xl p-5">
+            <span className="text-amber-400 text-2xl">✓</span>
+            <h3 className="font-black mt-2">Almuerzo</h3>
+            <p className="text-slate-300 text-sm mt-1">
+              Opción con almuerzo incluido.
+            </p>
+          </div>
+
+          <div className="bg-white/5 rounded-2xl p-5">
+            <span className="text-amber-400 text-2xl">✓</span>
+            <h3 className="font-black mt-2">Transporte</h3>
+            <p className="text-slate-300 text-sm mt-1">
+              Transporte durante la experiencia.
+            </p>
+          </div>
+
+        </div>
+
+        {/* DATOS */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 mt-8 pt-8 border-t border-white/10">
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Horario
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              08:00 - 13:30/14:00
+            </p>
+          </div>
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Salidas
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              Diarias
+            </p>
+          </div>
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Con almuerzo
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              R$250
+            </p>
+          </div>
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Sin almuerzo
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              R$230
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* INFORMACIÓN NIÑOS */}
+      <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 shadow-md mb-10">
+
+        <div className="flex gap-4 items-start">
+
+          <div className="text-3xl shrink-0">
+            👨‍👩‍👧‍👦
+          </div>
+
+          <div>
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-3">
+              Información para familias
+            </h2>
+
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+              Niños de 5 a 10 años: consultar valor.
+            </p>
+
+            <p className="text-slate-900 font-bold text-sm sm:text-base leading-relaxed mt-2">
+              Niños de 0 a 4 años: no pagan.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* PRECIO + RESERVA */}
+      <div className="bg-teal-500 text-white rounded-3xl p-6 sm:p-8 shadow-xl">
+
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+
+          <div>
+            <span className="text-xs font-black uppercase tracking-widest">
+              Precio especial
+            </span>
+
+            <h2 className="text-4xl sm:text-5xl font-black mt-1">
+              R$230
+            </h2>
+
+            <p className="text-sm font-bold mt-1">
+              Sin almuerzo · R$250 con almuerzo
+            </p>
+
+            <p className="text-xs sm:text-sm mt-3">
+              Salidas diarias. Inicio de recepción de pasajeros desde las
+              08:00 hasta las 13:30/14:00 aproximadamente.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+
+            <button
+              onClick={() =>
+                abrirReserva({
+                  id: 'exp-3',
+                  titulo: 'Cristo + City Tour',
+                  precio: 'R$230 / R$250 con almuerzo',
+                  duracion: 'Consultar',
+                  grupo: 'Consultar',
+                  encuentro: 'Consultar'
+                })
+              }
+              className="w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl shadow-lg transition-all hover:scale-105"
+            >
+              📅 Reservar Ahora
+            </button>
+
+            <a
+              href="TU_LINK_WHATSAPP"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl shadow-lg transition-all hover:scale-105 text-center"
+            >
+              💬 WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+)}
+            {/* VISTA DETALLADA — ARRAIAL DO CABO */}
+{seccionActual === 'detalle_exp-4' && (
+  <section className="py-12 sm:py-16 bg-slate-50">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <button
+        onClick={() => setSeccionActual('experiencias')}
+        className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors"
+      >
+        ← Volver a Experiencias
+      </button>
+
+      {/* CABECERA */}
+      <div className="text-center max-w-4xl mx-auto mb-10">
+
+        <span className="inline-flex items-center bg-teal-500 text-white font-black text-xs uppercase tracking-widest px-4 py-2 rounded-full mb-4 shadow-sm">
+          🏝️ Paraíso Brasileño
+        </span>
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 uppercase tracking-tight mb-5">
+          Arraial <span className="text-teal-500">do Cabo</span>
+        </h1>
+
+        <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+          Descubre el llamado Caribe Brasileño y navega por algunos de los
+          paisajes más impresionantes del litoral de Río de Janeiro.
+        </p>
+
+      </div>
+
+      {/* IMAGEN PRINCIPAL */}
+      <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 mb-10">
+        <img
+          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3093"
+          alt="Arraial do Cabo"
+          className="w-full h-72 sm:h-96 md:h-[500px] object-cover"
+        />
+      </div>
+
+      {/* INTRO */}
+      <div className="bg-white rounded-3xl shadow-lg border border-slate-100 p-6 sm:p-10 mb-10">
+
+        <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+          El Caribe Brasileño
+        </span>
+
+        <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-5">
+          Un día entre playas, dunas y aguas cristalinas
+        </h2>
+
+        <p className="text-slate-600 leading-relaxed">
+          Arraial do Cabo reúne algunos de los paisajes más bellos del
+          litoral del Estado de Río de Janeiro, con dunas, restingas,
+          lagunas, playas y costas paradisíacas.
+        </p>
+
+        <p className="text-slate-600 leading-relaxed mt-4">
+          Después de recoger a los pasajeros en los principales hoteles de
+          Zona Sul y Centro de Río de Janeiro, continuaremos hacia Arraial
+          do Cabo para disfrutar de un hermoso paseo en barco por la región.
+        </p>
+
+      </div>
+
+      {/* PASEO EN BARCO */}
+      <div className="bg-white rounded-3xl shadow-lg border border-slate-100 p-6 sm:p-10 mb-10">
+
+        <div className="text-center mb-10">
+
+          <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+            Paseo en barco
+          </span>
+
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+            Tres paradas para disfrutar el paraíso
+          </h2>
+
+        </div>
+
+        <div className="space-y-10">
+
+          {/* PRAIA DO FORNO */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3091"
+                alt="Praia do Forno en Arraial do Cabo"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
+
+            <div>
+
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                01 · Primera parada
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                🏖️ Praia do Forno
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Realizaremos una parada frente a Praia do Forno para disfrutar
+                de sus aguas cristalinas y podremos nadar alrededor de la
+                embarcación.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* ILHA DO FAROL */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="md:order-2 rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3090"
+                alt="Ilha do Farol"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
+
+            <div className="md:order-1">
+
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                02 · Segunda parada
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                🏝️ Praia do Farol · Ilha do Farol
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Descenderemos en la famosa Praia do Farol, una de las playas
+                más espectaculares de la región, rodeada de naturaleza y
+                aguas cristalinas.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* PRAINHAS */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="rounded-2xl overflow-hidden shadow-md">
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3090"
+                alt="Prainhas do Pontal do Atalaia"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+            </div>
+
+            <div>
+
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                03 · Tercera parada
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                📸 Prainhas do Pontal do Atalaia
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Otra de las grandes postales de Arraial do Cabo. Aquí se
+                encuentran las famosas escaleras que descienden hacia una
+                de las playas más fotografiadas de la región.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* ALMUERZO */}
+      <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl mb-10">
+
+        <div className="text-center mb-8">
+
+          <span className="text-amber-400 font-black text-xs uppercase tracking-widest">
+            Almuerzo incluido
+          </span>
+
+          <h2 className="text-2xl sm:text-3xl font-black mt-2">
+            Para cerrar el día, un almuerzo en tierra firme
+          </h2>
+
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base">
+            El almuerzo será servido en tierra firme al regresar del paseo
+            en barco, aproximadamente a las 17:00 horas.
+          </p>
+
+          <p className="text-slate-300 leading-relaxed text-sm sm:text-base mt-4">
+            El paseo en barco tiene una duración aproximada de 4 a 4 horas
+            y 30 minutos.
+          </p>
+
+        </div>
+
+      </div>
+
+      {/* INFORMACIÓN IMPORTANTE */}
+      <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 shadow-md mb-10">
+
+        <div className="flex gap-4 items-start">
+
+          <div className="text-3xl shrink-0">
+            ⚠️
+          </div>
+
+          <div>
+
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-3">
+              Información importante
+            </h2>
+
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+              El paseo en barco está sujeto a las condiciones climáticas y
+              a las condiciones de navegación de la región.
+            </p>
+
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4">
+              El horario de regreso puede sufrir modificaciones debido al
+              tráfico en carretera, especialmente durante feriados y
+              temporadas de mayor movimiento.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* DATOS */}
+      <div className="bg-white rounded-3xl shadow-lg border border-slate-100 p-6 sm:p-10 mb-10">
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Duración
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              Aprox. 14 horas
+            </p>
+          </div>
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Embarque
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              Desde 07:00
+            </p>
+          </div>
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Regreso
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              Aprox. 21:00
+            </p>
+          </div>
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Barco
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              4h - 4h30
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* PRECIO */}
+      <div className="bg-teal-500 text-white rounded-3xl p-6 sm:p-8 shadow-xl">
+
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+
+          <div>
+
+            <span className="text-xs font-black uppercase tracking-widest">
+              Precio especial
+            </span>
+
+            <h2 className="text-4xl sm:text-5xl font-black mt-1">
+              R$200
+            </h2>
+
+            <p className="text-sm font-bold mt-1">
+              + taxa da Marinha / pescadores
+            </p>
+
+            <p className="text-xs sm:text-sm mt-3 max-w-2xl">
+              Valor referencial de temporada baja. Consultar valor de la
+              tasa vigente.
+            </p>
+
+            <p className="text-xs sm:text-sm mt-2">
+              Niños de 0 a 5 años no pagan. Niños de 6 a 10 años pagan el 50%.
+            </p>
+
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+
+            <button
+              onClick={() =>
+                abrirReserva({
+                  id: 'exp-4',
+                  titulo: 'Arraial do Cabo',
+                  precio: 'R$200 + taxa da Marinha/Pescadores',
+                  duracion: 'Aproximadamente 14 horas',
+                  grupo: 'Consultar',
+                  encuentro: 'Hoteles Zona Sul y Centro'
+                })
+              }
+              className="w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl shadow-lg transition-all hover:scale-105"
+            >
+              📅 Reservar Ahora
+            </button>
+
+            <a
+              href="TU_LINK_WHATSAPP"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl shadow-lg transition-all hover:scale-105 text-center"
+            >
+              💬 WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+)}
+            {/* VISTA DETALLADA — ANGRA DOS REIS */}
+{seccionActual === 'detalle_exp-5' && (
+  <section className="py-12 sm:py-16 bg-slate-50">
+    <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
+      <button
+        onClick={() => setSeccionActual('experiencias')}
+        className="inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors"
+      >
+        ← Volver a Experiencias
+      </button>
+
+      {/* CABECERA */}
+      <div className="text-center max-w-4xl mx-auto mb-10">
+
+        <span className="inline-flex items-center bg-teal-500 text-white font-black text-xs uppercase tracking-widest px-4 py-2 rounded-full mb-4 shadow-sm">
+          🏝️ Paraíso Tropical
+        </span>
+
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 uppercase tracking-tight mb-5">
+          Angra <span className="text-teal-500">dos Reis</span>
+        </h1>
+
+        <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+          Descubre un paraíso formado por islas, aguas cristalinas,
+          naturaleza preservada y paisajes que parecen sacados de una postal.
+        </p>
+
+      </div>
+
+      {/* IMAGEN PRINCIPAL */}
+      <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-slate-100 mb-10">
+
+        <img
+          src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3097"
+          alt="Angra dos Reis"
+          className="w-full h-72 sm:h-96 md:h-[500px] object-cover"
+        />
+
+      </div>
+
+      {/* INTRO */}
+      <div className="bg-white rounded-3xl shadow-lg border border-slate-100 p-6 sm:p-10 mb-10">
+
+        <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+          Angra dos Reis · Costa Verde
+        </span>
+
+        <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-5">
+          365 islas y un paisaje de otro mundo
+        </h2>
+
+        <p className="text-slate-600 leading-relaxed">
+          Angra dos Reis es una de las regiones más bellas de Brasil,
+          formada por un impresionante conjunto de islas y una naturaleza
+          preservada que convierte el destino en una experiencia inolvidable.
+        </p>
+
+        <p className="text-slate-600 leading-relaxed mt-4">
+          Desde Río de Janeiro recorreremos aproximadamente 166 km hasta
+          Angra dos Reis, en un viaje de unas 2 horas y 30 minutos,
+          dependiendo de las condiciones del tráfico.
+        </p>
+
+      </div>
+
+      {/* RECORRIDO */}
+      <div className="bg-white rounded-3xl shadow-lg border border-slate-100 p-6 sm:p-10 mb-10">
+
+        <div className="text-center mb-10">
+
+          <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+            Recorrido
+          </span>
+
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+            Un día navegando por Angra
+          </h2>
+
+        </div>
+
+        <div className="space-y-10">
+
+          {/* CATAGUASES */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="rounded-2xl overflow-hidden shadow-md">
+
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3096"
+                alt="Playa Cataguases"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+
+            </div>
+
+            <div>
+
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                01 · Primera parada
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                🏝️ Playa Cataguases
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Primera parada para disfrutar de las aguas de Angra.
+                El baño se realiza alrededor de la embarcación y no
+                desembarcamos en la playa.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* BLUE LAGOON */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="md:order-2 rounded-2xl overflow-hidden shadow-md">
+
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3094"
+                alt="Blue Lagoon Angra dos Reis"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+
+            </div>
+
+            <div className="md:order-1">
+
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                02 · Segunda parada
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                💙 Blue Lagoon
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                Una de las paradas más esperadas del recorrido. Blue Lagoon
+                es un verdadero acuario natural, donde tendremos alrededor
+                de 40 minutos para nadar y bucear alrededor del barco.
+              </p>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mt-3">
+                Dentro del barco también es posible alquilar máscaras de
+                buceo. Quienes lo deseen pueden contratar fotografías
+                profesionales bajo el agua.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* JAPARIZ */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="rounded-2xl overflow-hidden shadow-md">
+
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3095"
+                alt="Japariz Beach"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+
+            </div>
+
+            <div>
+
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                03 · Almuerzo
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                🍽️ Japariz Beach
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                En Japariz Beach realizaremos el almuerzo en un restaurante
+                rústico de cocina casera. La región es de preservación
+                natural y cuenta con una infraestructura sencilla.
+              </p>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed mt-3">
+                El almuerzo está incluido. Bebidas y postres no están incluidos.
+                Después de comer tendremos tiempo para disfrutar de la playa.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* SANTANA / ARAÇA */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+
+            <div className="md:order-2 rounded-2xl overflow-hidden shadow-md">
+
+              <img
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3097"
+                alt="Playa de Santana o Araça"
+                className="w-full h-64 sm:h-80 object-cover"
+              />
+
+            </div>
+
+            <div className="md:order-1">
+
+              <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+                04 · Última parada
+              </span>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+                🌴 Santana o Araça
+              </h3>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                La última parada programada será en la playa de Santana
+                o Araça, dependiendo de las condiciones de navegación.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* PARADA EN CARRETERA */}
+      <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl mb-10">
+
+        <div className="flex gap-4 items-start">
+
+          <div className="text-3xl shrink-0">
+            ☕
+          </div>
+
+          <div>
+
+            <span className="text-amber-400 font-black text-xs uppercase tracking-widest">
+              Durante el viaje
+            </span>
+
+            <h2 className="text-2xl sm:text-3xl font-black mt-2 mb-4">
+              Parada técnica en Muriqui
+            </h2>
+
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+              Durante el trayecto hasta Angra realizaremos una parada
+              aproximada de 20 minutos en Muriqui para tomar un café,
+              comer algo y utilizar los sanitarios.
+            </p>
+
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed mt-4">
+              En el regreso también se realizará una parada técnica
+              aproximada de 15 minutos.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* INFORMACIÓN IMPORTANTE */}
+      <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 shadow-md mb-10">
+
+        <div className="flex gap-4 items-start">
+
+          <div className="text-3xl shrink-0">
+            ⚠️
+          </div>
+
+          <div>
+
+            <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-3">
+              Información importante
+            </h2>
+
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+              El orden de las paradas y las playas puede cambiar a criterio
+              del capitán debido a las condiciones de marea y viento,
+              priorizando siempre la seguridad de los pasajeros.
+            </p>
+
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4">
+              Los paseos en barco se realizan únicamente cuando las
+              condiciones climáticas son favorables.
+            </p>
+
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed mt-4">
+              El tiempo de regreso puede retrasarse debido al tráfico,
+              especialmente durante feriados prolongados y períodos de
+              gran movimiento en la ciudad.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* QUÉ INCLUYE */}
+      <div className="bg-white rounded-3xl shadow-lg border border-slate-100 p-6 sm:p-10 mb-10">
+
+        <div className="text-center mb-8">
+
+          <span className="text-teal-600 font-black text-xs uppercase tracking-widest">
+            Tu experiencia incluye
+          </span>
+
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+            Todo preparado para disfrutar Angra
+          </h2>
+
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+          <div className="bg-slate-50 rounded-2xl p-5">
+            <span className="text-teal-600 text-2xl">✓</span>
+            <h3 className="font-black mt-2 text-slate-900">Transporte</h3>
+            <p className="text-slate-500 text-sm mt-1">
+              Transporte desde hoteles de Zona Sul y Centro.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 rounded-2xl p-5">
+            <span className="text-teal-600 text-2xl">✓</span>
+            <h3 className="font-black mt-2 text-slate-900">Paseo en barco</h3>
+            <p className="text-slate-500 text-sm mt-1">
+              Recorrido por las islas y playas de Angra dos Reis.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 rounded-2xl p-5">
+            <span className="text-teal-600 text-2xl">✓</span>
+            <h3 className="font-black mt-2 text-slate-900">Almuerzo</h3>
+            <p className="text-slate-500 text-sm mt-1">
+              Almuerzo incluido. Bebidas y postres no incluidos.
+            </p>
+          </div>
+
+          <div className="bg-slate-50 rounded-2xl p-5">
+            <span className="text-teal-600 text-2xl">✓</span>
+            <h3 className="font-black mt-2 text-slate-900">Guía turístico</h3>
+            <p className="text-slate-500 text-sm mt-1">
+              Servicio de guía durante la experiencia.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* DATOS */}
+      <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl mb-10">
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Duración
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              Aprox. 12 horas
+            </p>
+          </div>
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Salidas
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              Diarias
+            </p>
+          </div>
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Embarque
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              Zona Sul y Centro
+            </p>
+          </div>
+
+          <div>
+            <span className="text-slate-400 text-[10px] uppercase font-bold">
+              Transporte
+            </span>
+            <p className="font-black text-base sm:text-lg">
+              Minibús / Bus
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* PRECIO + RESERVA */}
+      <div className="bg-teal-500 text-white rounded-3xl p-6 sm:p-8 shadow-xl">
+
+        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+
+          <div>
+
+            <span className="text-xs font-black uppercase tracking-widest">
+              Precio desde
+            </span>
+
+            <h2 className="text-4xl sm:text-5xl font-black mt-1">
+              R$200
+            </h2>
+
+            <p className="text-sm font-bold mt-1">
+              + taxa da Marinha
+            </p>
+
+            <p className="text-xs sm:text-sm mt-3">
+              Valor sujeto a temporada y condiciones del servicio.
+            </p>
+
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3">
+
+            <button
+              onClick={() =>
+                abrirReserva({
+                  id: 'exp-5',
+                  titulo: 'Angra dos Reis',
+                  precio: 'Desde R$200 + taxa da Marinha',
+                  duracion: 'Aproximadamente 12 horas',
+                  grupo: 'Consultar',
+                  encuentro: 'Hoteles Zona Sul y Centro'
+                })
+              }
+              className="w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl shadow-lg transition-all hover:scale-105"
+            >
+              📅 Reservar Ahora
+            </button>
+
+            <a
+              href="TU_LINK_WHATSAPP"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl shadow-lg transition-all hover:scale-105 text-center"
+            >
+              💬 WhatsApp
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+)}
 {/* =========================================================
     TRANSPORTES — PÁGINA PRINCIPAL
    ========================================================= */}
