@@ -9420,6 +9420,1176 @@ function SeccionFuertesFortalezas() {
     </section>
   );
 }
+ /* ===================================================== */
+/* FAMILIA                                               */
+/* ===================================================== */
+
+const FAMILIA_DATA = [
+
+  {
+    id: 'bioparque',
+    nombre: 'BioParque do Rio',
+    categoria: 'Animales y conservación',
+    subtitulo: 'Una experiencia familiar para descubrir la vida animal',
+    descripcion:
+      'El antiguo zoológico de Río fue transformado en un bioparque enfocado en conservación, investigación, educación ambiental y bienestar animal.',
+    historia:
+      'El zoológico original fue inaugurado en 1945 dentro de Quinta da Boa Vista. Después de una gran transformación, reabrió como BioParque con nuevos recintos y una propuesta moderna.',
+    experiencia:
+      'La familia puede conocer animales de diferentes regiones, participar en actividades educativas y observar cómo trabaja un centro de conservación.',
+    destaque:
+      'Animales, educación ambiental y la posibilidad de combinar la visita con Quinta da Boa Vista.',
+    direccion:
+      'Parque da Quinta da Boa Vista, s/n — São Cristóvão.',
+    horario:
+      'Generalmente de miércoles a domingo, de 09:00 a 17:00, con última entrada alrededor de las 16:00. En vacaciones y feriados puede abrir otros días.',
+    valor:
+      'Entrada pagada, con valores variables según fecha, promociones y residencia. Consulta antes de comprar.',
+    edad:
+      'Apto para todas las edades. Los niños pequeños deben permanecer acompañados.',
+    duracion:
+      'Entre 2 horas y media y 4 horas.',
+    reserva:
+      'Se recomienda comprar la entrada anticipadamente, especialmente en vacaciones y fines de semana.',
+    accesibilidad:
+      'Recorrido mayoritariamente plano, con baños y rutas accesibles.',
+    comoLlegar:
+      'Puedes utilizar metro o tren hasta São Cristóvão y continuar caminando o en transporte por aplicación.',
+    consejoErnestinho:
+      'Llega por la mañana, lleva agua, protector solar y gorro para los niños. No intentes ver todo corriendo: revisa los horarios de actividades especiales al entrar.',
+    aviso: '',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=BioParque+do+Rio&output=embed'
+  },
+
+  {
+    id: 'aquario',
+    nombre: 'AquaRio',
+    categoria: 'Vida marina y educación',
+    subtitulo: 'El mayor acuario marino de América del Sur',
+    descripcion:
+      'AquaRio reúne miles de animales marinos en decenas de recintos y permite conocer tiburones, rayas, peces y ecosistemas acuáticos.',
+    historia:
+      'Fue inaugurado en 2016 como parte de la revitalización de la Zona Portuaria y se convirtió en una de las principales atracciones familiares de Río.',
+    experiencia:
+      'El punto más esperado es el gran tanque oceánico con túnel transparente. También existen exhibiciones educativas y experiencias adicionales.',
+    destaque:
+      'Caminar por el túnel submarino mientras tiburones y rayas pasan alrededor.',
+    direccion:
+      'Praça Muhammad Ali — Gamboa, Zona Portuaria.',
+    horario:
+      'Generalmente todos los días, aproximadamente de 09:00 a 17:00. Confirma el último horario de entrada.',
+    valor:
+      'Entrada pagada y dinámica. El precio puede cambiar según día, anticipación y promociones.',
+    edad:
+      'Apto para todas las edades.',
+    duracion:
+      'Entre 2 y 3 horas.',
+    reserva:
+      'Compra anticipada recomendada. Experiencias adicionales se pagan por separado.',
+    accesibilidad:
+      'Atracción cubierta, climatizada y con ascensores y rutas accesibles.',
+    comoLlegar:
+      'Utiliza el VLT hasta Utopia AquaRio o transporte por aplicación.',
+    consejoErnestinho:
+      'Es una excelente opción para lluvia o calor fuerte. Compra antes y evita los horarios más concurridos de fines de semana y vacaciones.',
+    aviso: '',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=AquaRio+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'planetario',
+    nombre: 'Planetário do Rio y Museu do Universo',
+    categoria: 'Astronomía y ciencia',
+    subtitulo: 'Un viaje por el espacio sin salir de Gávea',
+    descripcion:
+      'El Planetário combina experimentos interactivos, astronomía, exposiciones y sesiones audiovisuales proyectadas dentro de una gran cúpula.',
+    historia:
+      'La Fundação Planetário fue creada para acercar la astronomía y las ciencias del espacio al público mediante educación y divulgación científica.',
+    experiencia:
+      'Puedes recorrer el Museu do Universo y asistir a una sesión de cúpula. Las películas y horarios cambian según la programación.',
+    destaque:
+      'Las sesiones de cúpula que simulan un cielo lleno de estrellas.',
+    direccion:
+      'Rua Vice-Governador Rubens Berardo, 100 — Gávea.',
+    horario:
+      'El museo y las sesiones poseen horarios diferentes. Consulta la programación antes de ir.',
+    valor:
+      'Museu do Universo: referencia de R$15 más tasa. Los martes existe gratuidad general. Las sesiones pueden tener entrada separada.',
+    edad:
+      'Ideal desde aproximadamente 4 años; revisa la clasificación de cada sesión.',
+    duracion:
+      'Entre 1 hora y media y 3 horas.',
+    reserva:
+      'Compra o retira con anticipación las entradas para las sesiones de cúpula.',
+    accesibilidad:
+      'Dispone de acceso y circulación adaptados.',
+    comoLlegar:
+      'Utiliza autobús o transporte por aplicación. No existe metro directo en Gávea.',
+    consejoErnestinho:
+      'No vayas solamente al museo: organiza el horario para incluir una sesión de cúpula, que es la parte más especial para los niños.',
+    aviso:
+      'Las sesiones tienen horarios y clasificaciones propias. Llegar tarde puede impedir el ingreso.',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Planetário+do+Rio+Gávea&output=embed'
+  },
+
+  {
+    id: 'yup-star',
+    nombre: 'Yup Star Rio',
+    categoria: 'Rueda gigante y mirador',
+    subtitulo: 'Una vista de Río desde 88 metros de altura',
+    descripcion:
+      'La rueda gigante de la Zona Portuaria permite observar la Bahía de Guanabara, Museu do Amanhã, Ponte Rio–Niterói, Cristo Redentor y Pão de Açúcar.',
+    historia:
+      'Fue inaugurada como parte de la renovación turística de la Zona Portuaria y se convirtió en un nuevo punto panorámico de la ciudad.',
+    experiencia:
+      'Cada vuelta dura aproximadamente 20 minutos y se realiza dentro de cabinas cerradas y climatizadas con capacidad para hasta ocho personas.',
+    destaque:
+      'La vista panorámica desde una cabina climatizada.',
+    direccion:
+      'Avenida Rodrigues Alves, 455 — Santo Cristo.',
+    horario:
+      'Funciona en horarios variables según temporada, mantenimiento y eventos.',
+    valor:
+      'Entrada pagada con valores y promociones variables.',
+    edad:
+      'Apto para todas las edades. Menores deben estar acompañados.',
+    duracion:
+      'Reserva entre 45 minutos y 1 hora, incluyendo acceso y fila.',
+    reserva:
+      'Compra anticipada recomendada para atardecer, fines de semana y feriados.',
+    accesibilidad:
+      'Consulta el embarque para silla de ruedas y necesidades específicas.',
+    comoLlegar:
+      'Puedes utilizar el VLT hasta Cidade do Samba o transporte por aplicación.',
+    consejoErnestinho:
+      'El atardecer es hermoso, pero también es el horario más solicitado. Llega antes y revisa el clima porque neblina o lluvia reducen la visibilidad.',
+    aviso: '',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Yup+Star+Rio&output=embed'
+  },
+
+  {
+    id: 'maracana-tour',
+    nombre: 'Maracanã Tour con Ernestinho',
+    categoria: 'Fútbol y experiencia guiada',
+    subtitulo: 'Conoce por dentro uno de los estadios más famosos del mundo',
+    descripcion:
+      'Una experiencia para conocer la historia del Maracanã y recorrer espacios relacionados con grandes partidos, jugadores y momentos del fútbol.',
+    historia:
+      'El Maracanã fue inaugurado para la Copa del Mundo de 1950 y recibió finales mundialistas, Juegos Olímpicos, conciertos y algunos de los partidos más importantes de Brasil.',
+    experiencia:
+      'Dependiendo de la operación del estadio, la visita puede incluir tribunas, zona de prensa, vestuarios, túnel de jugadores, borde del campo y exposición histórica.',
+    destaque:
+      'Caminar por el túnel y acercarse al campo del Maracanã.',
+    direccion:
+      'Avenida Presidente Castelo Branco, Portão A — Maracanã.',
+    horario:
+      'Generalmente funciona durante el día, pero puede cerrar antes o suspenderse en fechas de partidos y eventos.',
+    valor:
+      'Consulta con Ernestinho los valores del servicio compartido y del tour privado con transporte y guía.',
+    edad:
+      'Apto para todas las edades y especialmente recomendado para fanáticos del fútbol.',
+    duracion:
+      'El tour interno dura aproximadamente 45 minutos. Con transporte y guía, reserva varias horas.',
+    reserva:
+      'Reserva anticipada con Ernestinho. Los horarios pueden cambiar por partidos.',
+    accesibilidad:
+      'El estadio posee ascensores y rutas accesibles. Informa previamente cualquier necesidad.',
+    comoLlegar:
+      'El servicio de Ernestinho puede incluir transporte desde zonas turísticas según la modalidad contratada.',
+    consejoErnestinho:
+      'No reserves sin revisar la agenda deportiva. Un partido confirmado puede reducir o cancelar algunos horarios del tour.',
+    aviso:
+      'Disponible como servicio compartido o privado con transporte y guía.',
+    servicioErnestinho: true,
+    mensajeWhatsApp:
+      'Hola Ernestinho, quiero información sobre el Maracanã Tour. Me gustaría conocer las opciones de servicio compartido y tour privado con transporte y guía.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Maracanã+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'carnaval-experience',
+    nombre: 'Carnaval Experience con Ernestinho',
+    categoria: 'Carnaval, samba y bastidores',
+    subtitulo: 'Descubre cómo se prepara el mayor espectáculo de Río',
+    descripcion:
+      'Una experiencia familiar dentro de Cidade do Samba para conocer los bastidores de una escuela de samba, sus fantasías, carros alegóricos y artistas.',
+    historia:
+      'Cidade do Samba concentra los barracones donde las principales escolas crean durante meses los elementos que aparecen en el Sambódromo.',
+    experiencia:
+      'La actividad puede incluir explicación sobre la historia del carnaval, visita al barracón, contacto con fantasías, demostración de samba y experiencias interactivas.',
+    destaque:
+      'Conocer un barracón y ver cómo nacen las fantasías y carros del carnaval.',
+    direccion:
+      'Cidade do Samba — Gamboa, Zona Portuaria.',
+    horario:
+      'Las visitas se realizan en horarios programados y requieren reserva.',
+    valor:
+      'Consulta directamente con Ernestinho las modalidades disponibles.',
+    edad:
+      'Apto para todas las edades.',
+    duracion:
+      'Aproximadamente entre 1 hora y 1 hora y media, sin contar el transporte.',
+    reserva:
+      'Reserva obligatoria con Ernestinho.',
+    accesibilidad:
+      'Informa previamente cualquier necesidad de movilidad.',
+    comoLlegar:
+      'Ernestinho informará punto de encuentro, transporte y modalidad de la experiencia.',
+    consejoErnestinho:
+      'Es una de las mejores formas de conocer el carnaval fuera de febrero. Usa ropa cómoda y participa: prueba los elementos de fantasía y aprende algunos pasos de samba.',
+    aviso:
+      'La reserva y toda la información comercial se realizan exclusivamente con Ernestinho.',
+    servicioErnestinho: true,
+    mensajeWhatsApp:
+      'Hola Ernestinho, quiero reservar Carnaval Experience. Envíame información sobre horarios, valores y opciones de transporte.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Cidade+do+Samba+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'ilha-fiscal',
+    nombre: 'Ilha Fiscal y experiencia naval',
+    categoria: 'Historia, navegación y aventura familiar',
+    subtitulo: 'Un pequeño palacio en medio de la Bahía de Guanabara',
+    descripcion:
+      'La visita combina un trayecto en embarcación con un recorrido guiado por el edificio neogótico de Ilha Fiscal.',
+    historia:
+      'Ilha Fiscal fue escenario del llamado Último Baile del Imperio, realizado pocos días antes de la Proclamación de la República en 1889.',
+    experiencia:
+      'El recorrido parte del Espaço Cultural da Marinha y puede incluir el torreón, salas históricas, exposiciones y vistas de la bahía.',
+    destaque:
+      'Navegar hasta un palacio histórico construido sobre una isla.',
+    direccion:
+      'Embarque en el Espaço Cultural da Marinha — Orla Conde, Praça XV.',
+    horario:
+      'Salidas en horarios determinados, sujetas al clima, mantenimiento y operación de la Marina.',
+    valor:
+      'Entrada pagada con valores de completa y media entrada. Confirma la tabla vigente.',
+    edad:
+      'Apto para familias. Menores deben estar acompañados.',
+    duracion:
+      'Reserva entre 2 y 3 horas para check-in, embarque y visita.',
+    reserva:
+      'Compra anticipada recomendada. Es obligatorio validar la entrada antes del embarque.',
+    accesibilidad:
+      'Consulta las condiciones de embarque y las escaleras interiores de Ilha Fiscal.',
+    comoLlegar:
+      'Utiliza el VLT hasta Praça XV. No se puede llegar a Ilha Fiscal por medios propios.',
+    consejoErnestinho:
+      'Llega con anticipación. Antes o después del embarque aprovecha para conocer el submarino, el navío de guerra, el helicóptero y la nau histórica, según disponibilidad.',
+    aviso:
+      'Las embarcaciones y equipos del Espaço Cultural da Marinha pueden cerrar individualmente por mantenimiento.',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Espaço+Cultural+da+Marinha+Rio&output=embed'
+  },
+
+  {
+    id: 'jardim-botanico',
+    nombre: 'Jardim Botânico',
+    categoria: 'Naturaleza, historia y biodiversidad',
+    subtitulo: 'Palmeras imperiales, jardines y naturaleza en plena ciudad',
+    descripcion:
+      'El Jardim Botânico reúne miles de especies vegetales, senderos, lagos, jardines temáticos, edificios históricos y una rica presencia de aves.',
+    historia:
+      'Fue creado en 1808 por Dom João VI para aclimatar especies vegetales procedentes de diferentes regiones del mundo.',
+    experiencia:
+      'La familia puede recorrer la avenida de palmeras, orquidario, bromeliario, lago con victorias regias, jardín japonés y áreas históricas.',
+    destaque:
+      'La avenida de palmeras imperiales y la enorme diversidad de plantas.',
+    direccion:
+      'Rua Jardim Botânico, 1008 — Jardim Botânico.',
+    horario:
+      'Funciona diariamente con horarios que pueden variar según el día y la temporada.',
+    valor:
+      'Entrada pagada, con diferentes categorías y posibles gratuidades.',
+    edad:
+      'Apto para todas las edades.',
+    duracion:
+      'Entre 2 y 4 horas.',
+    reserva:
+      'Compra anticipada recomendada durante vacaciones y fines de semana.',
+    accesibilidad:
+      'Posee caminos amplios, aunque algunas áreas tienen piso irregular.',
+    comoLlegar:
+      'Utiliza autobús o transporte por aplicación. No existe metro directo.',
+    consejoErnestinho:
+      'Lleva repelente, agua y protector solar. No alimentes animales y no intentes tocar saguis o aves.',
+    aviso: '',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Jardim+Botânico+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'parque-lage',
+    nombre: 'Parque Lage',
+    categoria: 'Jardines, bosque y patrimonio',
+    subtitulo: 'Naturaleza a los pies del Cristo Redentor',
+    descripcion:
+      'Parque Lage ofrece jardines, caminos, grutas, puentes, áreas de bosque y vistas del Cristo Redentor.',
+    historia:
+      'La antigua propiedad fue transformada durante el siglo XX y su palacete se convirtió en sede de la Escola de Artes Visuais.',
+    experiencia:
+      'Aunque el palacete esté cerrado o restringido, los jardines y áreas verdes continúan ofreciendo un paseo agradable.',
+    destaque:
+      'Los jardines rodeados por la Floresta da Tijuca y la vista del Cristo.',
+    direccion:
+      'Rua Jardim Botânico, 414 — Jardim Botânico.',
+    horario:
+      'Los jardines funcionan diariamente dentro del horario oficial del parque.',
+    valor:
+      'Acceso gratuito a las áreas abiertas.',
+    edad:
+      'Apto para todas las edades, con supervisión cerca de lagos, grutas y caminos.',
+    duracion:
+      'Entre 1 y 2 horas.',
+    reserva:
+      'Los jardines normalmente no requieren reserva.',
+    accesibilidad:
+      'Algunas áreas poseen piedras, desniveles y caminos naturales.',
+    comoLlegar:
+      'Utiliza autobús o transporte por aplicación.',
+    consejoErnestinho:
+      'Ven por los jardines y la naturaleza, no exclusivamente por la fotografía de la piscina. Confirma la situación del palacete antes de ir.',
+    aviso:
+      'El palacete y la famosa piscina están cerrados o con acceso restringido debido a obras. Los jardines continúan abiertos.',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Parque+Lage+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'parque-catacumba',
+    nombre: 'Parque Natural Municipal da Catacumba',
+    categoria: 'Senderos, miradores y aventura',
+    subtitulo: 'Naturaleza y vistas panorámicas junto a Lagoa',
+    descripcion:
+      'El parque ofrece senderos cortos, esculturas al aire libre, áreas verdes y miradores sobre Lagoa Rodrigo de Freitas.',
+    historia:
+      'La región fue recuperada ambientalmente y transformada en parque después del traslado de la antigua comunidad de Catacumba.',
+    experiencia:
+      'La familia puede caminar por senderos y, cuando exista operador activo, contratar actividades de aventura.',
+    destaque:
+      'Los miradores con vista a Lagoa y a las montañas de Río.',
+    direccion:
+      'Avenida Epitácio Pessoa, 3000 — Lagoa.',
+    horario:
+      'Funciona durante el día. Confirma el horario y las actividades de aventura.',
+    valor:
+      'Entrada gratuita al parque. Actividades de aventura se pagan por separado.',
+    edad:
+      'Senderos para familias activas; actividades de aventura poseen edad, peso y altura mínimos.',
+    duracion:
+      'Entre 1 y 2 horas y media.',
+    reserva:
+      'No suele requerirse para el parque. Las aventuras pueden necesitar reserva.',
+    accesibilidad:
+      'Los miradores requieren subida y no son plenamente accesibles.',
+    comoLlegar:
+      'Utiliza autobús o transporte por aplicación hasta Lagoa.',
+    consejoErnestinho:
+      'Lleva agua y calzado cerrado. No prometas tirolesa o arborismo sin confirmar que el operador esté funcionando ese día.',
+    aviso: '',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Parque+da+Catacumba+Rio&output=embed'
+  },
+
+  {
+    id: 'bosque-barra',
+    nombre: 'Bosque da Barra',
+    categoria: 'Naturaleza, picnic y animales',
+    subtitulo: 'Un gran refugio verde para familias hospedadas en Barra',
+    descripcion:
+      'El Bosque da Barra posee senderos planos, lagos, áreas para picnic, aves, capibaras y vegetación de restinga.',
+    historia:
+      'El parque fue creado para proteger parte del ecosistema natural de Barra da Tijuca durante su urbanización.',
+    experiencia:
+      'Es un lugar tranquilo para caminar, descansar y observar animales a distancia.',
+    destaque:
+      'Capibaras, aves y senderos fáciles en medio de Barra.',
+    direccion:
+      'Avenida das Américas, 6000 — Barra da Tijuca.',
+    horario:
+      'Funciona durante el día y puede cerrar por mantenimiento o condiciones climáticas.',
+    valor:
+      'Entrada gratuita.',
+    edad:
+      'Apto para todas las edades.',
+    duracion:
+      'Entre 1 y 2 horas.',
+    reserva:
+      'No requiere reserva.',
+    accesibilidad:
+      'Senderos mayoritariamente planos.',
+    comoLlegar:
+      'Recomendado para quienes están en Barra. Utiliza BRT, autobús o transporte por aplicación.',
+    consejoErnestinho:
+      'No te acerques ni alimentes a las capibaras. Lleva repelente y evita hacer un largo desplazamiento desde Copacabana solo para conocer este parque.',
+    aviso: '',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Bosque+da+Barra+Rio&output=embed'
+  },
+
+  {
+    id: 'hotzone',
+    nombre: 'HotZone BarraShopping',
+    categoria: 'Parque de juegos interior',
+    subtitulo: 'Videojuegos, simuladores y diversión para días de lluvia',
+    descripcion:
+      'HotZone es un gran espacio de entretenimiento interior con juegos electrónicos, simuladores y atracciones para diferentes edades.',
+    historia:
+      'La unidad de BarraShopping se consolidó como uno de los parques interiores más conocidos de Río.',
+    experiencia:
+      'La familia carga créditos en una tarjeta y los utiliza en las diferentes máquinas y atracciones disponibles.',
+    destaque:
+      'Gran variedad de juegos dentro de un ambiente cubierto y climatizado.',
+    direccion:
+      'BarraShopping — Avenida das Américas, 4666, Barra da Tijuca.',
+    horario:
+      'Habitualmente funciona hasta la noche siguiendo el horario de entretenimiento del centro comercial.',
+    valor:
+      'El valor depende de los créditos cargados y de cada atracción.',
+    edad:
+      'Posee opciones para niños, adolescentes y adultos. Cada juego puede tener restricciones.',
+    duracion:
+      'Entre 1 y 3 horas.',
+    reserva:
+      'Normalmente no requiere reserva.',
+    accesibilidad:
+      'Centro comercial con ascensores, baños adaptados y estacionamiento.',
+    comoLlegar:
+      'Utiliza BRT, autobús, automóvil o transporte por aplicación.',
+    consejoErnestinho:
+      'Define antes cuánto quieres gastar porque los créditos pueden terminar rápidamente. Es una buena alternativa para lluvia o calor fuerte.',
+    aviso:
+      'La unidad anunció cierre temporal por modernización entre agosto y octubre de 2026. Confirma que haya reabierto antes de ir.',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=HotZone+BarraShopping&output=embed'
+  },
+
+  {
+    id: 'escape-60',
+    nombre: 'Escape 60 Copacabana',
+    categoria: 'Desafíos, acertijos y trabajo en equipo',
+    subtitulo: 'Sesenta minutos para resolver el misterio y escapar',
+    descripcion:
+      'Un escape room coloca al grupo dentro de una sala temática donde debe encontrar pistas, abrir mecanismos y resolver desafíos antes de que termine el tiempo.',
+    historia:
+      'Escape 60 fue una de las primeras grandes redes de escape rooms de Brasil y posee unidades con diferentes historias y niveles de dificultad.',
+    experiencia:
+      'Los participantes forman un equipo y reciben hasta 60 minutos para completar una misión.',
+    destaque:
+      'Una actividad diferente que exige comunicación, observación y trabajo en equipo.',
+    direccion:
+      'Shopping Cassino Atlântico — Avenida Atlântica, 4240, Copacabana.',
+    horario:
+      'Funciona mediante horarios reservados, generalmente todos los días.',
+    valor:
+      'Precio variable por persona, sala, fecha y cantidad de participantes.',
+    edad:
+      'Depende de cada sala. Selecciona aventuras familiares y evita terror para niños sensibles.',
+    duracion:
+      'Aproximadamente 1 hora y media contando instrucciones y juego.',
+    reserva:
+      'Reserva anticipada obligatoria o muy recomendada.',
+    accesibilidad:
+      'Consulta la accesibilidad y los efectos físicos de cada sala.',
+    comoLlegar:
+      'Está en Posto 6, cerca de General Osório.',
+    consejoErnestinho:
+      'Consulta si pueden ofrecer instrucciones en español y elige una sala adecuada a la edad. No selecciones terror solamente porque a los adultos les parece divertido.',
+    aviso:
+      'Algunas salas utilizan oscuridad, sustos, sonidos fuertes o espacios estrechos.',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Escape+60+Copacabana&output=embed'
+  },
+
+  {
+    id: 'barra-bowling',
+    nombre: 'Barra Bowling Grill',
+    categoria: 'Boliche, juegos y restaurante',
+    subtitulo: 'Veinte pistas para jugar en familia',
+    descripcion:
+      'Barra Bowling Grill combina boliche, juegos, restaurante y ambiente de entretenimiento dentro de BarraShopping.',
+    historia:
+      'El boliche forma parte de la oferta de ocio de uno de los centros comerciales más grandes de Río.',
+    experiencia:
+      'La familia puede alquilar una pista por tiempo, jugar con calzado especial y pedir comidas o bebidas.',
+    destaque:
+      'Veinte pistas de boliche dentro de BarraShopping.',
+    direccion:
+      'BarraShopping, tercer piso — Avenida das Américas, 4666.',
+    horario:
+      'Generalmente lunes a viernes desde las 15:00; sábados, domingos y feriados desde las 12:00.',
+    valor:
+      'Cobro por pista y tiempo, con valores variables según día y horario.',
+    edad:
+      'Apto para familias. Consulta disponibilidad de rampas y bolas infantiles.',
+    duracion:
+      'Entre 1 y 2 horas.',
+    reserva:
+      'Recomendada para noches, vacaciones y fines de semana.',
+    accesibilidad:
+      'Centro comercial con ascensores y baños adaptados.',
+    comoLlegar:
+      'Utiliza BRT, autobús, automóvil o transporte por aplicación.',
+    consejoErnestinho:
+      'Reserva si vas durante el fin de semana. Confirma cuántas personas pueden jugar por pista y si el calzado está incluido.',
+    aviso: '',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Barra+Bowling+Grill&output=embed'
+  },
+
+  {
+    id: 'meta-kart',
+    nombre: 'Meta Kart Indoor',
+    categoria: 'Karting y velocidad',
+    subtitulo: 'Una experiencia para adolescentes y familias competitivas',
+    descripcion:
+      'Meta Kart ofrece carreras en pista interior dentro de Shopping Metropolitano Barra.',
+    historia:
+      'La operación desarrolló diferentes pistas interiores en Río para entrenamientos, diversión y campeonatos.',
+    experiencia:
+      'Después de las instrucciones y equipamiento, los participantes conducen karts dentro de una pista protegida.',
+    destaque:
+      'Competir en una pista cubierta sin depender de la lluvia.',
+    direccion:
+      'Shopping Metropolitano Barra — Avenida Embaixador Abelardo Bueno, 1300.',
+    horario:
+      'Normalmente desde la tarde entre semana y desde el mediodía los fines de semana.',
+    valor:
+      'Valor variable según día, categoría y promoción.',
+    edad:
+      'Existen requisitos de edad y altura. Niños pequeños no pueden conducir karts de adultos.',
+    duracion:
+      'Entre 1 y 2 horas contando registro, espera y carrera.',
+    reserva:
+      'Reserva recomendada.',
+    accesibilidad:
+      'La conducción exige movilidad y capacidad para controlar el kart.',
+    comoLlegar:
+      'Utiliza BRT, automóvil o transporte por aplicación hasta Shopping Metropolitano.',
+    consejoErnestinho:
+      'Confirma altura mínima, categoría junior y horarios antes de ir. Usa calzado cerrado y evita ropa suelta.',
+    aviso:
+      'No todos los miembros de la familia podrán correr juntos si pertenecen a categorías diferentes.',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Meta+Kart+Shopping+Metropolitano+Barra&output=embed'
+  },
+
+  {
+    id: 'lagoa-familia',
+    nombre: 'Lagoa Rodrigo de Freitas en familia',
+    categoria: 'Paseo, bicicleta y actividades al aire libre',
+    subtitulo: 'Un paseo sencillo con vista al Cristo Redentor',
+    descripcion:
+      'Lagoa ofrece ciclovía, caminata, bicicletas, triciclos, parques infantiles, quioscos y amplias vistas de las montañas.',
+    historia:
+      'La laguna forma parte del paisaje natural de Río y se convirtió en una de las principales áreas deportivas y recreativas de la Zona Sur.',
+    experiencia:
+      'Puedes caminar, alquilar bicicletas familiares, hacer picnic y utilizar actividades temporales disponibles en sus diferentes sectores.',
+    destaque:
+      'Recorrer Lagoa en bicicleta con el Cristo Redentor como escenario.',
+    direccion:
+      'Lagoa Rodrigo de Freitas — Zona Sur.',
+    horario:
+      'Espacio público abierto. Los alquileres y atracciones poseen horarios propios.',
+    valor:
+      'El paseo es gratuito. Bicicletas, triciclos y otras actividades son pagadas.',
+    edad:
+      'Apto para todas las edades con supervisión junto al agua y la ciclovía.',
+    duracion:
+      'Entre 1 y 3 horas.',
+    reserva:
+      'Normalmente no requiere reserva.',
+    accesibilidad:
+      'Circuito mayoritariamente plano.',
+    comoLlegar:
+      'Puedes acceder desde Ipanema, Leblon, Jardim Botânico, Gávea o Botafogo.',
+    consejoErnestinho:
+      'No intentes recorrer toda Lagoa caminando con niños pequeños. Elige un sector, alquila una bicicleta familiar y evita el sol del mediodía.',
+    aviso:
+      'La disponibilidad de pedalinhos y atracciones cambia; confirma directamente en el lugar.',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Lagoa+Rodrigo+de+Freitas&output=embed'
+  },
+
+  {
+    id: 'pista-claudio-coutinho',
+    nombre: 'Pista Cláudio Coutinho y Praia Vermelha',
+    categoria: 'Caminata, mar y naturaleza',
+    subtitulo: 'Un paseo fácil junto al Pão de Açúcar',
+    descripcion:
+      'La Pista Cláudio Coutinho bordea el mar al pie del Morro da Urca y ofrece una caminata agradable rodeada de vegetación.',
+    historia:
+      'La pista fue creada como área de entrenamiento y actualmente es uno de los paseos gratuitos más agradables de Urca.',
+    experiencia:
+      'La familia puede caminar por la pista y después descansar en Praia Vermelha, siempre observando las condiciones del mar.',
+    destaque:
+      'La combinación de montaña, bosque, mar y vistas de la costa.',
+    direccion:
+      'Praça General Tibúrcio — Praia Vermelha, Urca.',
+    horario:
+      'La pista funciona durante el día en horario controlado.',
+    valor:
+      'Acceso gratuito.',
+    edad:
+      'Apto para familias. La pista pavimentada es distinta del sendero empinado hacia Morro da Urca.',
+    duracion:
+      'Entre 1 y 2 horas.',
+    reserva:
+      'No requiere reserva.',
+    accesibilidad:
+      'La pista principal es pavimentada, pero puede tener pequeñas pendientes.',
+    comoLlegar:
+      'Utiliza autobús o transporte por aplicación hasta Praia Vermelha.',
+    consejoErnestinho:
+      'No confundas la pista tranquila con el sendero de subida al Morro da Urca. Con niños pequeños quédate en el recorrido pavimentado.',
+    aviso:
+      'Comprueba siempre el oleaje y las indicaciones de los salvavidas antes de entrar al mar.',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Pista+Cláudio+Coutinho+Rio&output=embed'
+  },
+
+  {
+    id: 'feira-sao-cristovao',
+    nombre: 'Feira de São Cristóvão en familia',
+    categoria: 'Cultura nordestina, música y gastronomía',
+    subtitulo: 'Sabores, música y tradiciones del Nordeste de Brasil',
+    descripcion:
+      'La feria reúne restaurantes, tiendas, artesanía, dulces, música y productos típicos de diferentes estados del Nordeste.',
+    historia:
+      'Nació de los encuentros de migrantes nordestinos que llegaban a Río y se transformó en un gran centro de cultura popular.',
+    experiencia:
+      'La familia puede probar comidas, escuchar música, comprar recuerdos y conocer expresiones culturales nordestinas.',
+    destaque:
+      'La enorme variedad gastronómica y cultural dentro de un mismo espacio.',
+    direccion:
+      'Campo de São Cristóvão, s/n — São Cristóvão.',
+    horario:
+      'El funcionamiento y la programación cambian según el día. Los fines de semana concentran más actividades.',
+    valor:
+      'Puede existir entrada según día y evento. Consumo y atracciones se pagan por separado.',
+    edad:
+      'Apto para familias durante horarios adecuados.',
+    duracion:
+      'Entre 2 y 4 horas.',
+    reserva:
+      'No suele requerir reserva, excepto restaurantes o eventos especiales.',
+    accesibilidad:
+      'Espacio amplio, con algunos sectores muy concurridos.',
+    comoLlegar:
+      'Utiliza metro hasta São Cristóvão y continúa caminando o en transporte por aplicación.',
+    consejoErnestinho:
+      'Con niños, recomiendo ir de día o al comienzo de la noche. Pregunta precios antes de ordenar y comparte platos porque algunas porciones son enormes.',
+    aviso:
+      'Por la noche puede haber música alta y mayor consumo de alcohol; elige el horario según la edad de los niños.',
+    servicioErnestinho: false,
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Feira+de+São+Cristóvão+Rio&output=embed'
+  }
+
+];
+
+
+/* ===================================================== */
+/* COMPONENTE FAMILIA                                    */
+/* ===================================================== */
+
+function SeccionFamilia() {
+
+  const [actividadSeleccionada, setActividadSeleccionada] =
+    useState('bioparque');
+
+  const [selectorFamiliaAbierto, setSelectorFamiliaAbierto] =
+    useState(false);
+
+  const [busquedaFamilia, setBusquedaFamilia] =
+    useState('');
+
+  const actividadActual = FAMILIA_DATA.find(
+    (actividad) => actividad.id === actividadSeleccionada
+  );
+
+  const actividadesFiltradas = FAMILIA_DATA.filter(
+    (actividad) =>
+      `${actividad.nombre} ${actividad.categoria}`
+        .toLowerCase()
+        .includes(busquedaFamilia.toLowerCase())
+  );
+
+  return (
+    <section className="py-12 bg-slate-50 min-h-screen">
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+        {/* ENCABEZADO */}
+        <div className="text-center max-w-4xl mx-auto mb-10">
+
+          <span className="text-amber-500 font-bold text-xs uppercase tracking-widest block mb-2">
+            Río para todas las edades
+          </span>
+
+          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+            Río en familia
+          </h1>
+
+          <p className="text-slate-600 text-base sm:text-lg">
+            Animales, ciencia, fútbol, carnaval, naturaleza y juegos
+            para disfrutar Río con niños y adolescentes.
+          </p>
+
+        </div>
+
+
+        {/* SELECTOR */}
+        <div className="mb-10">
+
+          <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-5 sm:p-6">
+
+            <p className="text-[11px] font-bold uppercase tracking-widest text-teal-600 mb-2">
+              Actividad seleccionada
+            </p>
+
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+
+              <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+                {actividadActual?.nombre}
+              </h2>
+
+              <button
+                type="button"
+                onClick={() =>
+                  setSelectorFamiliaAbierto(!selectorFamiliaAbierto)
+                }
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-teal-700 text-white font-black text-xs uppercase tracking-wide px-5 py-3.5 rounded-xl transition-all"
+              >
+                <span>
+                  {selectorFamiliaAbierto
+                    ? 'Cerrar lista'
+                    : 'Elegir otra actividad'}
+                </span>
+
+                <span>
+                  {selectorFamiliaAbierto ? '▲' : '▼'}
+                </span>
+              </button>
+
+            </div>
+          </div>
+
+
+          {selectorFamiliaAbierto && (
+            <div className="mt-3 bg-white rounded-3xl border border-slate-200 shadow-xl p-4 sm:p-6">
+
+              <div className="relative mb-5">
+
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                  🔍
+                </span>
+
+                <input
+                  type="text"
+                  value={busquedaFamilia}
+                  onChange={(e) => setBusquedaFamilia(e.target.value)}
+                  placeholder="Buscar actividad familiar..."
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-sm text-slate-700 outline-none focus:ring-2 focus:ring-teal-500"
+                />
+
+              </div>
+
+
+              <div className="max-h-[430px] overflow-y-auto pr-1">
+
+                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
+
+                  {actividadesFiltradas.map((actividad) => (
+
+                    <button
+                      type="button"
+                      key={actividad.id}
+                      onClick={() => {
+                        setActividadSeleccionada(actividad.id);
+                        setSelectorFamiliaAbierto(false);
+                        setBusquedaFamilia('');
+                      }}
+                      className={`overflow-hidden rounded-2xl text-left transition-all border ${
+                        actividadSeleccionada === actividad.id
+                          ? 'bg-slate-900 text-white border-slate-900 shadow-md scale-[1.02]'
+                          : 'bg-slate-50 text-slate-700 border-slate-100 hover:bg-teal-50 hover:border-teal-200'
+                      }`}
+                    >
+
+                      {actividad.miniatura && (
+                        <img
+                          src={actividad.miniatura}
+                          alt={actividad.nombre}
+                          className="w-full h-24 sm:h-28 object-cover"
+                        />
+                      )}
+
+                      <div className="min-h-[96px] px-3 py-4 flex flex-col items-center justify-center">
+
+                        <span className="text-xs sm:text-sm font-bold leading-snug text-center">
+                          {actividad.nombre}
+                        </span>
+
+                        <span className={`text-[10px] uppercase tracking-wide mt-2 text-center ${
+                          actividadSeleccionada === actividad.id
+                            ? 'text-teal-300'
+                            : 'text-teal-600'
+                        }`}>
+                          {actividad.categoria}
+                        </span>
+
+                      </div>
+
+                    </button>
+
+                  ))}
+
+                </div>
+
+              </div>
+
+
+              {actividadesFiltradas.length === 0 && (
+                <p className="text-center text-sm text-slate-500 py-8">
+                  No encontramos una actividad con ese nombre.
+                </p>
+              )}
+
+            </div>
+          )}
+
+        </div>
+
+
+        {/* ACTIVIDAD SELECCIONADA */}
+        {actividadActual && (
+          <div key={actividadActual.id}>
+
+            <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 mb-8">
+
+              <div className="p-6 sm:p-10">
+
+                <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+                  {actividadActual.categoria}
+                </span>
+
+                <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-2">
+                  {actividadActual.nombre}
+                </h2>
+
+                <p className="text-amber-500 font-bold text-sm mb-6">
+                  {actividadActual.subtitulo}
+                </p>
+
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base max-w-4xl">
+                  {actividadActual.descripcion}
+                </p>
+
+              </div>
+
+
+              {actividadActual.fotoPrincipal && (
+                <div className="px-2 pb-2">
+
+                  <img
+                    src={actividadActual.fotoPrincipal}
+                    alt={actividadActual.nombre}
+                    className="w-full h-72 sm:h-[480px] object-cover rounded-2xl"
+                  />
+
+                </div>
+              )}
+
+            </div>
+
+
+            {/* HISTORIA */}
+            <div className="max-w-4xl mx-auto mb-10">
+
+              <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+                Historia y contexto
+              </span>
+
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-5">
+                Conoce mejor esta experiencia
+              </h2>
+
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                {actividadActual.historia}
+              </p>
+
+            </div>
+
+
+            {actividadActual.fotoMedia && (
+              <div className="my-12 rounded-3xl overflow-hidden shadow-md">
+
+                <img
+                  src={actividadActual.fotoMedia}
+                  alt={`${actividadActual.nombre} - experiencia familiar`}
+                  className="w-full h-72 sm:h-[430px] object-cover"
+                />
+
+              </div>
+            )}
+
+
+            {/* EXPERIENCIA */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm mb-8">
+
+              <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+                La experiencia
+              </span>
+
+              <h2 className="text-2xl font-black text-slate-900 mt-2 mb-4">
+                Qué hará la familia
+              </h2>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                {actividadActual.experiencia}
+              </p>
+
+            </div>
+
+
+            {/* AVISO */}
+            {actividadActual.aviso && (
+              <div className="bg-red-50 border-2 border-red-200 rounded-3xl p-6 sm:p-8 mb-8">
+
+                <p className="text-xs uppercase tracking-widest text-red-600 font-black mb-2">
+                  ⚠️ Información importante
+                </p>
+
+                <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                  {actividadActual.aviso}
+                </p>
+
+              </div>
+            )}
+
+
+            {/* INFORMACIÓN PRÁCTICA */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+
+              {[
+                ['📍 Dirección', actividadActual.direccion],
+                ['🕐 Horarios', actividadActual.horario],
+                ['🎟️ Valores', actividadActual.valor],
+                ['👨‍👩‍👧 Edad recomendada', actividadActual.edad],
+                ['⏱️ Duración', actividadActual.duracion],
+                ['📅 Reserva', actividadActual.reserva],
+                ['♿ Accesibilidad', actividadActual.accesibilidad],
+                ['🚇 Cómo llegar', actividadActual.comoLlegar]
+              ].map(([titulo, contenido]) => (
+
+                <div
+                  key={titulo}
+                  className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm"
+                >
+
+                  <p className="text-xs uppercase tracking-widest text-teal-600 font-black mb-2">
+                    {titulo}
+                  </p>
+
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    {contenido}
+                  </p>
+
+                </div>
+
+              ))}
+
+            </div>
+
+
+            {/* CONSEJO */}
+            <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 mb-8">
+
+              <div className="flex items-start gap-4">
+
+                <div className="text-3xl shrink-0">
+                  💡
+                </div>
+
+                <div>
+
+                  <p className="text-xs uppercase tracking-widest text-amber-600 font-black mb-2">
+                    Consejo de Ernestinho
+                  </p>
+
+                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                    {actividadActual.consejoErnestinho}
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* DESTACADO */}
+            <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 mb-8">
+
+              <p className="text-xs uppercase tracking-widest text-amber-400 font-bold mb-2">
+                ⭐ Lo más destacado
+              </p>
+
+              <p className="font-bold text-lg">
+                {actividadActual.destaque}
+              </p>
+
+            </div>
+
+
+            {/* RESERVA ERNESTINHO */}
+            {actividadActual.servicioErnestinho && (
+              <div className="bg-teal-700 text-white rounded-3xl p-6 sm:p-8 mb-8">
+
+                <p className="text-xs uppercase tracking-widest text-teal-200 font-black mb-2">
+                  Servicio de Ernestinho
+                </p>
+
+                <h2 className="text-2xl font-black mb-3">
+                  Consulta disponibilidad y modalidades
+                </h2>
+
+                <p className="text-teal-50 text-sm sm:text-base mb-6">
+                  Escríbeme para conocer horarios, valores, servicio compartido
+                  y opciones privadas con transporte y guía.
+                </p>
+
+                <a
+                  href={`https://wa.me/5521969946938?text=${encodeURIComponent(
+                    actividadActual.mensajeWhatsApp
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide px-6 py-4 rounded-xl transition-all shadow-md"
+                >
+                  RESERVAR CON ERNESTINHO
+                </a>
+
+              </div>
+            )}
+
+
+            {/* MAPA */}
+            <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm mb-10">
+
+              <div className="p-6">
+
+                <p className="text-xs uppercase tracking-widest text-teal-600 font-black mb-2">
+                  Ubicación
+                </p>
+
+                <h2 className="text-2xl font-black text-slate-900">
+                  Mapa de Google
+                </h2>
+
+              </div>
+
+              <div className="w-full h-[350px] sm:h-[450px]">
+
+                <iframe
+                  src={actividadActual.mapa}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Mapa de ${actividadActual.nombre}`}
+                ></iframe>
+
+              </div>
+
+            </div>
+
+          </div>
+        )}
+
+      </div>
+
+    </section>
+  );
+}   
 function AppErnestinho() {
   const [seccionActual, setSeccionActual] = useState('inicio');
   const [museoSeleccionado, setMuseoSeleccionado] = useState('mhn');
@@ -13697,6 +14867,13 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
 
 {seccionActual === 'fuertes_fortalezas' && (
   <SeccionFuertesFortalezas />
+)}
+            {/* ============================= */}
+{/* FAMILIA */}
+{/* ============================= */}
+
+{seccionActual === 'familia' && (
+  <SeccionFamilia />
 )}
 {/* CONSEJOS */}
             {seccionActual === 'consejos' && (
