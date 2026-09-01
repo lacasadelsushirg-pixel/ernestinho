@@ -476,7 +476,7 @@
       },
       {
         id: 'art-vacunas',
-        titulo: 'Vacunas para viajar a Brasil: Fiebre Amarilla y Salud',
+        titulo: ' viajar a Brasil: Fiebre Amarilla y Salud',
         categoria: 'Salud',
         minutos: '4 min lectura',
         resumen: 'Aclara tus dudas: ¿Es obligatoria la vacuna de fiebre amarilla? Recomendaciones clave para viajar tranquilo.',
@@ -5495,47 +5495,284 @@ const MUSEOS_DATA = [
                     </div>
                   )}
 
-                  {/* VISTA 3: VACUNAS */}
-                  {articuloSeleccionado.id === 'art-vacunas' && (
-                    <div className="space-y-6">
-                      <h1 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
-                        Vacunas para viajar a Brasil
-                      </h1>
+             {/* VISTA 3: VACUNAS */}
+{articuloSeleccionado.id === 'art-vacunas' && (
+  <div className="space-y-8">
 
-                      <div className="rounded-3xl overflow-hidden h-64 sm:h-80 shadow-md">
-                        <img 
-                          src="https://res.cloudinary.com/qa301cbc/image/upload/v1788271105/WhatsApp_Image_2026-09-01_at_10.57.13.jpg" 
-                          alt="Campaña de vacunación fiebre amarilla" 
-                          className="w-full h-full object-cover" 
-                        />
-                      </div>
+    {/* TÍTULO */}
+    <div>
+      <h1 className="text-3xl sm:text-5xl font-black text-slate-900 leading-tight mb-4">
+        Vacunas para viajar a Brasil
+      </h1>
 
-                      <div className="bg-amber-50 border-2 border-amber-400 rounded-3xl p-6 sm:p-8">
-                        <h2 className="text-xl sm:text-2xl font-black text-amber-950 uppercase mb-3">
-                          ¿ES OBLIGATORIA LA VACUNA DE LA FIEBRE AMARILLA PARA ENTRAR A BRASIL?
-                        </h2>
-                        <p className="text-amber-900 font-extrabold text-lg mb-3">
-                          LA RESPUESTA ES “NO”.
-                        </p>
-                        <p className="text-slate-800 text-sm leading-relaxed">
-                          La Embajada de Brasil en sus canales oficiales reitera que <strong>NO es obligatoria</strong> la vacuna contra la fiebre amarilla para ingresar al territorio nacional.
-                        </p>
-                      </div>
+      <p className="text-slate-600 text-base sm:text-lg leading-relaxed max-w-4xl">
+        Brasil no exige una vacuna específica para ingresar al país, pero eso no significa
+        que todas las regiones tengan el mismo nivel de riesgo. Si vas a viajar por
+        diferentes zonas de Brasil, especialmente hacia áreas de selva, la recomendación
+        puede cambiar.
+      </p>
+    </div>
 
-                      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 space-y-4">
-                        <h3 className="text-lg font-bold text-slate-900">📌 Información útil según tu país:</h3>
-                        <p className="text-slate-600 text-sm leading-relaxed">
-                          Vale la pena mencionar que en países como Argentina, si lo deseas, puedes vacunarte de manera gratuita en centros de vacunación de salud pública internacionales. Les recordamos que la vacuna demora <strong>10 días en hacer efecto</strong> en el organismo.
-                        </p>
-                        <p className="text-slate-600 text-sm leading-relaxed">
-                          En países como Chile la vacuna se puede conseguir en vacunatorios privados con un costo adicional.
-                        </p>
-                        <div className="bg-teal-50 border-l-4 border-teal-600 p-4 rounded-r-2xl text-teal-900 text-xs sm:text-sm font-semibold">
-                          💡 Nuestra recomendación personal: si tienes la oportunidad de colocártela antes de tu viaje, hazlo. Realmente nunca está de más cuando de salud y tranquilidad durante las vacaciones se trata.
-                        </div>
-                      </div>
-                    </div>
-                  )}
+    {/* IMAGEN PRINCIPAL */}
+    <div className="rounded-3xl overflow-hidden h-64 sm:h-80 shadow-md">
+      <img 
+        src="https://res.cloudinary.com/qa301cbc/image/upload/v1788271105/WhatsApp_Image_2026-09-01_at_10.57.13.jpg" 
+        alt="Campaña de vacunación contra la fiebre amarilla" 
+        className="w-full h-full object-cover" 
+      />
+    </div>
+
+    {/* AVISO PRINCIPAL */}
+    <div className="bg-amber-50 border-2 border-amber-400 rounded-3xl p-6 sm:p-8">
+
+      <h2 className="text-xl sm:text-2xl font-black text-amber-950 uppercase mb-4">
+        ¿ES OBLIGATORIA LA VACUNA DE LA FIEBRE AMARILLA PARA ENTRAR A BRASIL?
+      </h2>
+
+      <p className="text-amber-900 font-extrabold text-lg mb-4">
+        LA RESPUESTA ES: NO.
+      </p>
+
+      <p className="text-slate-800 text-sm sm:text-base leading-relaxed">
+        Actualmente, Brasil <strong>no exige comprobante de vacunación para ingresar al país</strong>.
+        Sin embargo, el Ministerio de Salud recomienda que los viajeros mantengan sus
+        vacunas al día y, en determinadas regiones, recomienda especialmente la vacuna
+        contra la fiebre amarilla.
+      </p>
+
+    </div>
+
+    {/* NO TODO BRASIL TIENE EL MISMO RIESGO */}
+    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm">
+
+      <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+        Lo importante antes de viajar
+      </span>
+
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-4">
+        No todo Brasil tiene el mismo riesgo
+      </h2>
+
+      <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+
+        <p>
+          Brasil es enorme y las condiciones sanitarias pueden variar bastante
+          de una región a otra. Una persona que solamente visita Río de Janeiro,
+          por ejemplo, no está haciendo el mismo tipo de viaje que alguien que
+          se interna en zonas de selva o realiza actividades de ecoturismo en
+          el norte del país.
+        </p>
+
+        <p>
+          La vacuna contra la fiebre amarilla está recomendada para residentes
+          y viajeros que se dirigen a <strong>áreas donde existe recomendación
+          de vacunación o evidencia de circulación del virus</strong>.
+        </p>
+
+        <p>
+          Por eso, si tu viaje incluye destinos de la región amazónica, como
+          <strong> Amazonas</strong>, excursiones por la selva, áreas rurales
+          o actividades de ecoturismo, conviene revisar específicamente las
+          recomendaciones sanitarias del destino antes de salir.
+        </p>
+
+      </div>
+
+    </div>
+
+    {/* AMAZONAS */}
+    <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8">
+
+      <div className="flex items-start gap-4">
+
+        <div className="text-3xl">
+          🌿
+        </div>
+
+        <div>
+
+          <p className="text-amber-400 font-bold text-xs uppercase tracking-widest mb-2">
+            Especial atención
+          </p>
+
+          <h2 className="text-2xl sm:text-3xl font-black mb-4">
+            ¿Vas hacia el Amazonas o zonas de selva?
+          </h2>
+
+          <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Si dentro de tu itinerario aparecen destinos de la región amazónica,
+            excursiones por la selva, zonas rurales o actividades de ecoturismo,
+            es especialmente importante comprobar si el destino se encuentra
+            dentro de una zona con recomendación de vacunación contra la
+            fiebre amarilla.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    {/* FIEBRE AMARILLA */}
+    <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm">
+
+      <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+        Fiebre amarilla
+      </span>
+
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-5">
+        Si está recomendada para tu destino, no la dejes para último momento
+      </h2>
+
+      <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed">
+
+        <p>
+          El Ministerio de Salud recomienda que la vacuna se administre
+          <strong> al menos 10 días antes del viaje</strong>. Ese período permite
+          que el organismo desarrolle la protección necesaria.
+        </p>
+
+        <p>
+          Para la mayoría de las personas, una dosis de la vacuna contra la
+          fiebre amarilla proporciona protección de larga duración. Las
+          recomendaciones pueden variar según la edad, antecedentes de vacunación
+          y condiciones individuales.
+        </p>
+
+        <p>
+          Si tienes dudas sobre si puedes recibir esta vacuna, lo más prudente
+          es consultar previamente con un profesional de salud o un servicio
+          de vacunación.
+        </p>
+
+      </div>
+
+    </div>
+
+    {/* OTRAS VACUNAS */}
+    <div className="bg-slate-50 rounded-3xl p-6 sm:p-8 border border-slate-100">
+
+      <span className="text-amber-500 font-bold text-xs uppercase tracking-widest">
+        Más allá de la fiebre amarilla
+      </span>
+
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-5">
+        Revisa también tus vacunas de rutina
+      </h2>
+
+      <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-5">
+        Antes de viajar a Brasil, no conviene concentrarse únicamente en la
+        fiebre amarilla. Es recomendable viajar con las vacunas correspondientes
+        al calendario habitual actualizadas.
+      </p>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+
+        <div className="bg-white rounded-xl p-4 border border-slate-100">
+          <span className="text-xl">💉</span>
+          <p className="font-bold text-slate-800 text-sm mt-2">
+            Sarampión y rubéola
+          </p>
+        </div>
+
+        <div className="bg-white rounded-xl p-4 border border-slate-100">
+          <span className="text-xl">💉</span>
+          <p className="font-bold text-slate-800 text-sm mt-2">
+            Poliomielitis
+          </p>
+        </div>
+
+        <div className="bg-white rounded-xl p-4 border border-slate-100">
+          <span className="text-xl">💉</span>
+          <p className="font-bold text-slate-800 text-sm mt-2">
+            Difteria y tétanos
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    {/* CONSEJO PRÁCTICO */}
+    <div className="bg-teal-50 border border-teal-200 rounded-3xl p-6 sm:p-8">
+
+      <div className="flex items-start gap-4">
+
+        <div className="text-3xl">
+          💡
+        </div>
+
+        <div>
+
+          <h2 className="text-xl sm:text-2xl font-black text-slate-900 mb-3">
+            Mi consejo antes de hacer la maleta
+          </h2>
+
+          <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+            No mires solamente el país: mira tu <strong>itinerario</strong>.
+            Si vas a quedarte en Río de Janeiro y hacer turismo urbano, la
+            situación es muy diferente de un viaje que incluye Amazonas,
+            selva, zonas rurales o actividades de aventura en áreas donde
+            existe recomendación de vacunación.
+          </p>
+
+          <p className="text-slate-700 text-sm sm:text-base leading-relaxed mt-3">
+            Revisa tu carnet de vacunación con tiempo y, si tu recorrido incluye
+            una zona con recomendación de vacuna contra la fiebre amarilla,
+            consulta la indicación correspondiente antes de viajar.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    {/* IMPORTANTE */}
+    <div className="border-l-4 border-amber-400 bg-amber-50 rounded-r-2xl p-5">
+
+      <p className="text-sm text-slate-700 leading-relaxed">
+        <strong>Importante:</strong> las recomendaciones sanitarias pueden
+        cambiar según la situación epidemiológica y el destino concreto.
+        Antes de viajar, comprueba las indicaciones actualizadas del
+        Ministerio de Salud de Brasil y, cuando corresponda, consulta a
+        un profesional sanitario.
+      </p>
+
+    </div>
+
+    {/* RECUADRO FINAL */}
+    <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 mt-10">
+
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+
+        <div>
+
+          <h2 className="text-xl sm:text-2xl font-black mb-2">
+            ¿Quieres conocer Río conmigo?
+          </h2>
+
+          <p className="text-slate-300 text-sm sm:text-base">
+            Diseñamos tu itinerario o te acompaño en un tour privado exclusivo.
+          </p>
+
+        </div>
+
+        <a
+          href="https://wa.me/5521969946938?text=Hola%20Ernestinho,%20le%C3%AD%20tu%20art%C3%ADculo%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide px-6 py-4 rounded-xl transition-all shadow-md whitespace-nowrap"
+        >
+          HABLAR CON ERNESTINHO POR WHATSAPP
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+)}
 
                   {/* VISTA 4: VISADO Y ADUANA */}
                   {articuloSeleccionado.id === 'art-visado' && (
