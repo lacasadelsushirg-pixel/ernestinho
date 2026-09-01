@@ -3860,10 +3860,69 @@ const MUSEOS_DATA = [
   fotoMedia: '',
   fotoFinal: '',
 
-  mapa:
+   mapa:
     'https://www.google.com/maps?q=Museu+de+Arqueologia+de+Itaipu,+Praça+de+Itaipu,+Niterói&output=embed'
-},
-          {/* CABECERA & NAVEGACIÓN */}
+}
+];
+
+function AppErnestinho() {
+  const [seccionActual, setSeccionActual] = useState('inicio');
+  const [museoSeleccionado, setMuseoSeleccionado] = useState('mhn');
+  const [menuAbierto, setMenuAbierto] = useState(false);
+  const [articuloSeleccionado, setArticuloSeleccionado] = useState(null);
+
+  const [modalReservaOpen, setModalReservaOpen] = useState(false);
+  const [expParaReservar, setExpParaReservar] = useState(null);
+
+  const [reservaDatos, setReservaDatos] = useState({
+    fecha: '',
+    personas: 2,
+    nombre: '',
+    email: '',
+    telefono: ''
+  });
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+  }, [seccionActual, articuloSeleccionado, modalReservaOpen]);
+
+  const abrirReserva = (exp) => {
+    setExpParaReservar(exp);
+    setModalReservaOpen(true);
+  };
+
+  const verArticulo = (art) => {
+    setArticuloSeleccionado(art);
+    setSeccionActual('articulo_detalle');
+  };
+
+  const enviarReservaWhatsApp = (e) => {
+    e.preventDefault();
+
+    const msg = `Hola Ernestinho! Quisiera consultar la reserva para:
+*Experiencia:* ${expParaReservar?.titulo || 'Tour'}
+*Fecha estimada:* ${reservaDatos.fecha || 'Por definir'}
+*Personas:* ${reservaDatos.personas}
+*Nombre:* ${reservaDatos.nombre}
+*Email:* ${reservaDatos.email}
+*Teléfono:* ${reservaDatos.telefono}`;
+
+    window.open(
+      `https://wa.me/5521969946938?text=${encodeURIComponent(msg)}`,
+      '_blank'
+    );
+
+    setModalReservaOpen(false);
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col selection:bg-amber-300 selection:text-amber-950">
+
+      {/* CABECERA & NAVEGACIÓN */}
           <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
               
