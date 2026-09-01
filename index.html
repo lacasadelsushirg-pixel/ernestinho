@@ -4954,6 +4954,977 @@ function SeccionEspaciosLiterarios() {
     </section>
   );
 }
+    /* ===================================================== */
+/* CENTROS CULTURALES                                    */
+/* ===================================================== */
+
+const CENTROS_CULTURALES_DATA = [
+
+  {
+    id: 'espaco-marinha',
+    nombre: 'Espaço Cultural da Marinha',
+    categoria: 'Historia naval y patrimonio',
+    subtitulo: 'Submarinos, navíos históricos y aventuras en la Bahía de Guanabara',
+    descripcion:
+      'El Espaço Cultural da Marinha reúne algunas de las atracciones navales más sorprendentes de Río de Janeiro. En un mismo lugar puedes entrar en un submarino, conocer un navío de guerra, observar un helicóptero histórico y embarcar en paseos por la bahía.',
+    historia:
+      'El espacio pertenece a la Marina de Brasil y fue creado para conservar y divulgar la historia marítima del país. Sus embarcaciones y equipos permiten comprender cómo evolucionaron la navegación, la defensa naval y la vida de los marineros.',
+    visita:
+      'Entre sus principales atracciones están el Submarino-Museu Riachuelo, el Navio-Museu Bauru, el helicóptero Sea King, la Nau dos Descobrimentos y otros equipos históricos. Desde aquí también parten visitas a Ilha Fiscal y paseos marítimos.',
+    destaque:
+      'Entrar en un submarino real y recorrer embarcaciones históricas de la Marina.',
+    direccion:
+      'Orla Conde, Praça XV — Centro, Río de Janeiro.',
+    horario:
+      'Generalmente de miércoles a domingo y feriados, aproximadamente de 11:00 a 17:00. Confirma qué embarcaciones están abiertas el día de la visita.',
+    valor:
+      'Entrada de referencia: R$20 completa y R$10 media. Los paseos marítimos y la visita a Ilha Fiscal tienen valores separados. Los martes pueden existir condiciones especiales o gratuidad.',
+    duracion:
+      'Entre 2 y 3 horas; medio día si agregas Ilha Fiscal.',
+    reserva:
+      'Se recomienda comprar o reservar las entradas previamente. El billete debe validarse en la boletería antes del acceso.',
+    accesibilidad:
+      'El espacio exterior posee sectores accesibles, pero submarinos y embarcaciones tienen escaleras estrechas y accesibilidad limitada.',
+    comoLlegar:
+      'Puedes llegar por el VLT hasta Praça XV o caminando desde la estación Carioca del metro.',
+    consejoErnestinho:
+      'No vengas con prisa. Revisa primero qué embarcaciones están funcionando y, si puedes, combina la visita con Ilha Fiscal. Usa calzado cómodo y evita bolsos grandes para entrar al submarino.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Espaço+Cultural+da+Marinha+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'sbba',
+    nombre: 'Sociedade Brasileira de Belas Artes',
+    categoria: 'Artes visuales y formación artística',
+    subtitulo: 'Una institución centenaria en el corazón cultural de Lapa',
+    descripcion:
+      'La Sociedade Brasileira de Belas Artes es una institución dedicada a la enseñanza, producción y divulgación de las artes visuales.',
+    historia:
+      'Fundada en 1910, ha participado durante más de un siglo en la formación de artistas y en la preservación de técnicas como dibujo, pintura, escultura y grabado.',
+    visita:
+      'El visitante puede encontrar exposiciones, salones artísticos, cursos, talleres y actividades relacionadas con la producción de artistas brasileños.',
+    destaque:
+      'Su trayectoria centenaria formando artistas y promoviendo las bellas artes.',
+    direccion:
+      'Rua do Lavradio, 84 — Lapa.',
+    horario:
+      'El acceso depende de las exposiciones, cursos y actividades programadas. Confirma antes de ir.',
+    valor:
+      'Exposiciones generalmente gratuitas; cursos y talleres pueden ser pagados.',
+    duracion:
+      'Entre 30 minutos y 1 hora.',
+    reserva:
+      'No suele requerirse para exposiciones, pero talleres y actividades necesitan inscripción.',
+    accesibilidad:
+      'Consulta previamente las condiciones de acceso al edificio histórico.',
+    comoLlegar:
+      'Está cerca de la estación Cinelândia y de los Arcos de Lapa.',
+    consejoErnestinho:
+      'Visítala cuando exista una exposición programada y combina el recorrido con Rua do Lavradio, Escadaria Selarón y los Arcos de Lapa.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Sociedade+Brasileira+de+Belas+Artes+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'espaco-bndes',
+    nombre: 'Espaço Cultural BNDES',
+    categoria: 'Música, cine y cultura brasileña',
+    subtitulo: 'Espectáculos gratuitos dentro de uno de los edificios más conocidos del Centro',
+    descripcion:
+      'El Espaço Cultural BNDES ofrece conciertos, cine, exposiciones y proyectos dedicados a diferentes expresiones de la cultura brasileña.',
+    historia:
+      'Creado como parte de la política cultural del Banco Nacional de Desenvolvimento Econômico e Social, el espacio apoya artistas y acerca espectáculos de calidad al público.',
+    visita:
+      'La programación incluye Cine BNDES, conciertos de música popular, instrumental y erudita, además de exposiciones y encuentros.',
+    destaque:
+      'Conciertos y películas de calidad con entrada gratuita.',
+    direccion:
+      'Avenida República do Chile, 100 — Centro.',
+    horario:
+      'Funciona de acuerdo con cada evento. Cine BNDES suele tener sesiones los miércoles a las 18:30; conciertos generalmente jueves y viernes.',
+    valor:
+      'Programación generalmente gratuita.',
+    duracion:
+      'Entre 1 hora y media y 2 horas.',
+    reserva:
+      'La reserva en línea es recomendada y puede abrir el lunes de la semana del espectáculo.',
+    accesibilidad:
+      'El edificio dispone de ascensores y espacios accesibles.',
+    comoLlegar:
+      'Está cerca de las estaciones Carioca y Cinelândia del metro.',
+    consejoErnestinho:
+      'Revisa la agenda antes de ir y reserva apenas se liberen los ingresos: los conciertos más populares pueden agotarse rápidamente.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Espaço+Cultural+BNDES+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'pretos-novos',
+    nombre: 'Instituto dos Pretos Novos',
+    categoria: 'Memoria africana y arqueología',
+    subtitulo: 'Un lugar fundamental para comprender la historia de la esclavitud en Río',
+    descripcion:
+      'El Instituto dos Pretos Novos, también conocido como IPN, conserva restos arqueológicos del antiguo Cementerio de los Pretos Novos y trabaja para preservar la memoria de los africanos esclavizados que llegaron a Río.',
+    historia:
+      'El cementerio funcionó entre los siglos XVIII y XIX para sepultar africanos que morían poco después de desembarcar. Sus restos fueron descubiertos accidentalmente en 1996 durante una reforma residencial.',
+    visita:
+      'La visita incluye un documental introductorio, restos arqueológicos visibles, objetos encontrados durante las excavaciones y contenidos sobre la Pequeña África.',
+    destaque:
+      'El sitio arqueológico original del antiguo Cementerio de los Pretos Novos.',
+    direccion:
+      'Rua Pedro Ernesto, 32 — Gamboa.',
+    horario:
+      'Martes a viernes de 10:00 a 16:00 y sábados de 10:00 a 13:00.',
+    valor:
+      'Los martes la visita general suele ser gratuita. En otros días existe una contribución para la sostenibilidad del instituto; confirma el valor durante la reserva.',
+    duracion:
+      'Entre 30 minutos y 1 hora.',
+    reserva:
+      'Conviene reservar por internet. El aforo de cada visita es reducido.',
+    accesibilidad:
+      'Consulta previamente las condiciones de acceso y acompañamiento.',
+    comoLlegar:
+      'Utiliza el VLT hasta Parada dos Museus o Providência y continúa caminando.',
+    consejoErnestinho:
+      'Haz esta visita con respeto y sin tratarla solamente como un lugar para fotografías. Combínala con Cais do Valongo, Pedra do Sal y Jardim Suspenso do Valongo.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Instituto+dos+Pretos+Novos+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'acao-cidadania',
+    nombre: 'Centro Cultural Ação da Cidadania',
+    categoria: 'Cultura, ciudadanía y eventos',
+    subtitulo: 'Cultura y transformación social en la Zona Portuaria',
+    descripcion:
+      'El Centro Cultural Ação da Cidadania ocupa un antiguo almacén portuario y recibe exposiciones, ferias, espectáculos, campañas solidarias y grandes eventos.',
+    historia:
+      'La organización Ação da Cidadania fue creada en 1993 por el sociólogo Herbert de Souza, conocido como Betinho, para combatir el hambre y promover la participación social.',
+    visita:
+      'No funciona como una atracción de visita continua. La experiencia depende de la exposición, feria, concierto o actividad que se encuentre programada.',
+    destaque:
+      'Un histórico almacén portuario transformado en espacio de cultura y solidaridad.',
+    direccion:
+      'Avenida Barão de Tefé, 75 — Saúde.',
+    horario:
+      'Variable según cada evento.',
+    valor:
+      'Depende de la actividad; existen eventos gratuitos y pagados.',
+    duracion:
+      'Entre 1 y 3 horas.',
+    reserva:
+      'Consulta la programación y las condiciones de ingreso de cada evento.',
+    accesibilidad:
+      'El gran espacio del almacén ofrece circulación amplia; confirma los recursos de cada montaje.',
+    comoLlegar:
+      'Está cerca de las paradas de VLT Parada dos Museus y Utopia AquaRio.',
+    consejoErnestinho:
+      'No vayas sin revisar la agenda. Aprovecha el mismo día para recorrer el Boulevard Olímpico y la zona de Pequena África.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Centro+Cultural+Ação+da+Cidadania+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'paco-imperial',
+    nombre: 'Paço Imperial',
+    categoria: 'Historia, arte y arquitectura',
+    subtitulo: 'De residencia de gobernadores a uno de los grandes centros culturales de Río',
+    descripcion:
+      'El Paço Imperial es uno de los edificios históricos más importantes de Brasil. Actualmente funciona como centro cultural con exposiciones, actividades educativas, librería y espacios gastronómicos.',
+    historia:
+      'Construido en el siglo XVIII, fue residencia de gobernadores, sede de la administración colonial y palacio de la familia real y de los emperadores de Brasil. Aquí ocurrieron momentos como el Día del Fico y la firma de la Lei Áurea.',
+    visita:
+      'El visitante puede recorrer patios, salones y exposiciones de arte, además de observar elementos de la arquitectura colonial.',
+    destaque:
+      'Caminar por un edificio protagonista de la historia colonial, real e imperial de Brasil.',
+    direccion:
+      'Praça XV de Novembro, 48 — Centro.',
+    horario:
+      'Generalmente de martes a domingo, aproximadamente de 12:00 a 18:00. Confirma antes de ir.',
+    valor:
+      'Entrada generalmente gratuita.',
+    duracion:
+      'Entre 1 y 2 horas.',
+    reserva:
+      'La visita libre normalmente no necesita reserva.',
+    accesibilidad:
+      'Posee circulación accesible en buena parte del edificio; consulta limitaciones puntuales.',
+    comoLlegar:
+      'Llega por el VLT hasta Praça XV o caminando desde la estación Carioca.',
+    consejoErnestinho:
+      'Observa también el exterior y Praça XV. Combina la visita con Arco do Teles, Igreja do Carmo y el Espaço Cultural da Marinha.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Paço+Imperial+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'jose-bonifacio',
+    nombre: 'Centro Cultural José Bonifácio',
+    categoria: 'Cultura afrobrasileña',
+    subtitulo: 'Memoria, identidad y resistencia en la Pequena África',
+    descripcion:
+      'El Centro Cultural José Bonifácio es uno de los principales espacios dedicados a la cultura afrobrasileña y a la memoria de la población negra de Río.',
+    historia:
+      'El edificio fue inaugurado en 1877 como una de las primeras escuelas públicas de la región. Posteriormente fue restaurado y transformado en centro cultural.',
+    visita:
+      'Recibe exposiciones, talleres, encuentros, investigaciones y actividades relacionadas con la cultura africana y afrobrasileña.',
+    destaque:
+      'Su conexión con la historia y la identidad cultural de la Pequena África.',
+    direccion:
+      'Rua Pedro Ernesto, 80 — Gamboa.',
+    horario:
+      'El funcionamiento depende de exposiciones y actividades. Confirma la programación.',
+    valor:
+      'Generalmente gratuito.',
+    duracion:
+      'Entre 45 minutos y 1 hora y media.',
+    reserva:
+      'Actividades y grupos pueden necesitar inscripción.',
+    accesibilidad:
+      'Consulta las condiciones actuales antes de la visita.',
+    comoLlegar:
+      'Puedes llegar por el VLT y continuar caminando por la región de Gamboa.',
+    consejoErnestinho:
+      'Visítalo dentro de un circuito de la herencia africana que incluya IPN, Cais do Valongo, Pedra do Sal y MUHCAB.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Centro+Cultural+José+Bonifácio+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'ccbb',
+    nombre: 'Centro Cultural Banco do Brasil — CCBB',
+    categoria: 'Arte, cine, teatro y patrimonio',
+    subtitulo: 'Uno de los centros culturales más visitados de Brasil',
+    descripcion:
+      'El CCBB Rio reúne exposiciones nacionales e internacionales, cine, teatro, música, actividades educativas, biblioteca, restaurantes y una arquitectura monumental.',
+    historia:
+      'El edificio fue inaugurado a finales del siglo XIX y estuvo relacionado con actividades financieras. En 1989 fue transformado en centro cultural.',
+    visita:
+      'La programación cambia durante todo el año. Además de las exposiciones temporales, existen muestras permanentes relacionadas con la historia del dinero y del Banco do Brasil.',
+    destaque:
+      'Grandes exposiciones gratuitas dentro de un edificio histórico espectacular.',
+    direccion:
+      'Rua Primeiro de Março, 66 — Centro.',
+    horario:
+      'Generalmente de miércoles a lunes, de 09:00 a 20:00. Cerrado los martes.',
+    valor:
+      'Las exposiciones son gratuitas. Teatro, cine y espectáculos pueden tener entradas gratuitas o pagadas.',
+    duracion:
+      'Entre 2 y 4 horas.',
+    reserva:
+      'Se recomienda retirar la entrada gratuita por internet o en la boletería.',
+    accesibilidad:
+      'Dispone de ascensores, baños adaptados y recursos de accesibilidad en diferentes actividades.',
+    comoLlegar:
+      'Utiliza el VLT hasta Candelária o camina desde la estación Uruguaiana.',
+    consejoErnestinho:
+      'Aunque la entrada sea gratuita, resérvala con anticipación cuando haya una exposición famosa. No olvides mirar la rotonda desde los pisos superiores.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=CCBB+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'correios',
+    nombre: 'Centro Cultural Correios',
+    categoria: 'Exposiciones, teatro y patrimonio',
+    subtitulo: 'Arte contemporáneo dentro del corredor cultural del Centro',
+    descripcion:
+      'El Centro Cultural Correios recibe exposiciones de fotografía, pintura, escultura, instalaciones, teatro y actividades educativas.',
+    historia:
+      'El edificio fue inaugurado a comienzos del siglo XX y originalmente estaba relacionado con servicios administrativos de Correios. Posteriormente fue adaptado como centro cultural.',
+    visita:
+      'Posee varias galerías distribuidas en diferentes pisos y una programación que cambia regularmente.',
+    destaque:
+      'Exposiciones variadas con entrada gratuita cerca del CCBB.',
+    direccion:
+      'Rua Visconde de Itaboraí, 20 — Centro.',
+    horario:
+      'Generalmente de martes a sábado, aproximadamente de 12:00 a 19:00. Confirma la programación.',
+    valor:
+      'Exposiciones normalmente gratuitas.',
+    duracion:
+      'Entre 1 y 2 horas.',
+    reserva:
+      'La visita a exposiciones normalmente no necesita reserva.',
+    accesibilidad:
+      'El edificio dispone de ascensor; confirma recursos específicos para cada actividad.',
+    comoLlegar:
+      'Está a pocos pasos del CCBB y de la parada Candelária del VLT.',
+    consejoErnestinho:
+      'Arma un circuito gratuito con CCBB, Casa França-Brasil y Correios: los tres están prácticamente juntos.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Centro+Cultural+Correios+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'casa-franca',
+    nombre: 'Casa França-Brasil',
+    categoria: 'Arte contemporáneo y arquitectura',
+    subtitulo: 'Una antigua plaza de comercio convertida en espacio cultural',
+    descripcion:
+      'Casa França-Brasil es un centro cultural dedicado principalmente al arte contemporáneo, exposiciones y proyectos de intercambio cultural.',
+    historia:
+      'El edificio fue proyectado por el arquitecto francés Grandjean de Montigny e inaugurado en 1820 como Praça do Comércio. Es uno de los principales ejemplos del neoclasicismo en Río.',
+    visita:
+      'El gran salón central permite observar la arquitectura del edificio mientras se recorren exposiciones e instalaciones artísticas.',
+    destaque:
+      'La arquitectura neoclásica de Grandjean de Montigny.',
+    direccion:
+      'Rua Visconde de Itaboraí, 78 — Centro.',
+    horario:
+      'Variable de acuerdo con exposiciones, montajes y mantenimiento.',
+    valor:
+      'Entrada generalmente gratuita.',
+    duracion:
+      'Entre 30 minutos y 1 hora.',
+    reserva:
+      'Normalmente no requiere reserva.',
+    accesibilidad:
+      'El salón principal posee circulación amplia y acceso a nivel.',
+    comoLlegar:
+      'Está junto al CCBB y cerca de la parada Candelária del VLT.',
+    consejoErnestinho:
+      'Incluso cuando la exposición sea pequeña, entra para observar el edificio. Después cruza al CCBB y visita la Igreja da Candelária.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Casa+França-Brasil+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'observatorio-valongo',
+    nombre: 'Observatório do Valongo',
+    categoria: 'Astronomía, ciencia y patrimonio',
+    subtitulo: 'Un observatorio histórico escondido en el Morro da Conceição',
+    descripcion:
+      'El Observatório do Valongo pertenece a la Universidade Federal do Rio de Janeiro y combina enseñanza, investigación, historia de la astronomía y divulgación científica.',
+    historia:
+      'Sus orígenes se remontan al Observatório da Escola Politécnica, creado en el siglo XIX. Posteriormente fue trasladado al Morro da Conceição.',
+    visita:
+      'Las visitas pueden incluir edificios históricos, instrumentos astronómicos, telescopios y actividades de observación del cielo.',
+    destaque:
+      'Telescopios e historia de la astronomía en un rincón poco conocido del Centro.',
+    direccion:
+      'Ladeira Pedro Antônio, 43 — Saúde.',
+    horario:
+      'No funciona como atracción de acceso libre diario. Las visitas dependen de fechas organizadas por la UFRJ.',
+    valor:
+      'Actividades generalmente gratuitas.',
+    duracion:
+      'Entre 1 y 2 horas.',
+    reserva:
+      'El agendamiento o inscripción previa suele ser obligatorio.',
+    accesibilidad:
+      'El acceso al morro posee pendientes y algunos edificios históricos pueden presentar limitaciones.',
+    comoLlegar:
+      'Llega por VLT hasta la Zona Portuaria y continúa caminando o en transporte por aplicación.',
+    consejoErnestinho:
+      'Solo prográmalo cuando exista una visita confirmada. Aprovecha para recorrer Morro da Conceição y Pedra do Sal durante el día.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Observatório+do+Valongo+UFRJ&output=embed'
+  },
+
+  {
+    id: 'sala-cecilia',
+    nombre: 'Sala Cecília Meireles',
+    categoria: 'Música clásica y patrimonio',
+    subtitulo: 'Una de las salas de conciertos más importantes de Brasil',
+    descripcion:
+      'La Sala Cecília Meireles es una de las principales casas de música de concierto de Río y recibe orquestas, solistas, grupos de cámara y festivales.',
+    historia:
+      'El edificio tuvo diferentes usos antes de ser transformado en sala de conciertos en 1965. Recibió el nombre de la escritora y poeta Cecília Meireles.',
+    visita:
+      'La mejor forma de conocerla es asistiendo a un concierto. Su programación incluye música clásica, instrumental y proyectos educativos.',
+    destaque:
+      'Su acústica y la oportunidad de escuchar grandes músicos en Lapa.',
+    direccion:
+      'Largo da Lapa, 47 — Lapa.',
+    horario:
+      'Abre de acuerdo con el horario de cada espectáculo.',
+    valor:
+      'Variable según el concierto; algunos eventos son gratuitos.',
+    duracion:
+      'Entre 1 hora y media y 2 horas.',
+    reserva:
+      'Compra o reserva la entrada antes del espectáculo.',
+    accesibilidad:
+      'Consulta los lugares accesibles al comprar la entrada.',
+    comoLlegar:
+      'Está cerca de la estación Cinelândia, de los Arcos de Lapa y del VLT.',
+    consejoErnestinho:
+      'Revisa la programación incluso si normalmente no escuchas música clásica. Existen conciertos accesibles y el interior de la sala merece conocerse.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Sala+Cecília+Meireles+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'ccjf',
+    nombre: 'Centro Cultural Justiça Federal',
+    categoria: 'Arte, cine, teatro y arquitectura',
+    subtitulo: 'Cultura dentro del antiguo edificio del Supremo Tribunal Federal',
+    descripcion:
+      'El CCJF ofrece exposiciones, cine, teatro, música, cursos y actividades culturales dentro de uno de los edificios más elegantes de Cinelândia.',
+    historia:
+      'Inaugurado en 1909, el edificio fue sede del Supremo Tribunal Federal hasta la transferencia de la capital a Brasília. Fue restaurado y transformado en centro cultural.',
+    visita:
+      'Además de las exposiciones, destacan la escalera monumental, vitrales, salones históricos, antigua sala de sesiones y biblioteca.',
+    destaque:
+      'La arquitectura monumental y las exposiciones frente a Cinelândia.',
+    direccion:
+      'Avenida Rio Branco, 241 — Cinelândia.',
+    horario:
+      'Generalmente de martes a domingo, con horarios diferentes para galerías, cine y espectáculos.',
+    valor:
+      'Exposiciones frecuentemente gratuitas; cine y teatro pueden ser pagados.',
+    duracion:
+      'Entre 1 y 2 horas.',
+    reserva:
+      'Consulta la necesidad de entradas para cada actividad.',
+    accesibilidad:
+      'Dispone de ascensor y rutas accesibles.',
+    comoLlegar:
+      'Está frente a la estación Cinelândia del metro.',
+    consejoErnestinho:
+      'Sube por la escalera principal y presta atención a los vitrales. Combínalo con Biblioteca Nacional y Theatro Municipal.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Centro+Cultural+Justiça+Federal+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'helio-oiticica',
+    nombre: 'Centro Municipal de Arte Hélio Oiticica',
+    categoria: 'Arte contemporáneo',
+    subtitulo: 'Experimentación artística cerca de Praça Tiradentes',
+    descripcion:
+      'El Centro Municipal de Arte Hélio Oiticica está dedicado al arte contemporáneo y recibe exposiciones, proyectos experimentales, performances, debates y actividades educativas.',
+    historia:
+      'Fue inaugurado en 1996 y lleva el nombre de Hélio Oiticica, uno de los artistas brasileños más importantes del siglo XX.',
+    visita:
+      'Sus galerías ocupan un edificio histórico y presentan propuestas de artistas brasileños y extranjeros.',
+    destaque:
+      'Arte contemporáneo experimental dentro del circuito cultural de Praça Tiradentes.',
+    direccion:
+      'Rua Luís de Camões, 68 — Centro.',
+    horario:
+      'Depende de las exposiciones y periodos de montaje. Confirma antes de ir.',
+    valor:
+      'Entrada gratuita.',
+    duracion:
+      'Entre 45 minutos y 1 hora y media.',
+    reserva:
+      'La visita general normalmente no requiere reserva.',
+    accesibilidad:
+      'Consulta el funcionamiento de ascensores y recursos de cada exposición.',
+    comoLlegar:
+      'Está cerca de Praça Tiradentes y de las estaciones Carioca y Uruguaiana.',
+    consejoErnestinho:
+      'Combínalo con el Real Gabinete, que queda muy cerca. Antes de caminar hasta allí, verifica que no esté en periodo de montaje.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Centro+Municipal+de+Arte+Hélio+Oiticica&output=embed'
+  },
+
+  {
+    id: 'caixa-cultural',
+    nombre: 'CAIXA Cultural Rio de Janeiro',
+    categoria: 'Exposiciones, teatro, danza y música',
+    subtitulo: 'Programación cultural accesible en el Centro de Río',
+    descripcion:
+      'CAIXA Cultural presenta exposiciones, espectáculos teatrales, danza, música, cine, talleres y actividades educativas.',
+    historia:
+      'Forma parte de la red de centros culturales mantenida por Caixa Econômica Federal y trabaja en la difusión de artistas y proyectos culturales brasileños.',
+    visita:
+      'La experiencia depende de la programación vigente y puede incluir varias exposiciones o espectáculos en una misma semana.',
+    destaque:
+      'Programación diversa con entradas gratuitas o de precio accesible.',
+    direccion:
+      'Rua do Passeio, 38 — Centro.',
+    horario:
+      'Varía según exposiciones y espectáculos. Consulta la programación oficial.',
+    valor:
+      'Exposiciones generalmente gratuitas; espectáculos pueden ser gratuitos o pagados.',
+    duracion:
+      'Entre 1 y 2 horas.',
+    reserva:
+      'Retira o compra entradas previamente para espectáculos.',
+    accesibilidad:
+      'Consulta los recursos disponibles para cada sala y actividad.',
+    comoLlegar:
+      'Está cerca de Cinelândia y de la estación Glória del metro.',
+    consejoErnestinho:
+      'Revisa la cartelera antes de organizar tu día. Puede ser una excelente alternativa cultural y económica para la noche.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=CAIXA+Cultural+Rio+de+Janeiro&output=embed'
+  }
+
+];
+
+
+/* ===================================================== */
+/* COMPONENTE CENTROS CULTURALES                         */
+/* ===================================================== */
+
+function SeccionCentrosCulturales() {
+
+  const [centroSeleccionado, setCentroSeleccionado] =
+    useState('espaco-marinha');
+
+  const [selectorCentrosAbierto, setSelectorCentrosAbierto] =
+    useState(false);
+
+  const [busquedaCentro, setBusquedaCentro] =
+    useState('');
+
+  const centroActual = CENTROS_CULTURALES_DATA.find(
+    (centro) => centro.id === centroSeleccionado
+  );
+
+  const centrosFiltrados = CENTROS_CULTURALES_DATA.filter(
+    (centro) =>
+      centro.nombre
+        .toLowerCase()
+        .includes(busquedaCentro.toLowerCase())
+  );
+
+  return (
+    <section className="py-12 bg-slate-50 min-h-screen">
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+        {/* ENCABEZADO */}
+        <div className="text-center max-w-4xl mx-auto mb-10">
+
+          <span className="text-amber-500 font-bold text-xs uppercase tracking-widest block mb-2">
+            Arte, historia y cultura
+          </span>
+
+          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+            Centros culturales de Río
+          </h1>
+
+          <p className="text-slate-600 text-base sm:text-lg">
+            Exposiciones, música, cine, patrimonio y espacios que cuentan
+            diferentes capítulos de la historia de Río de Janeiro.
+          </p>
+
+        </div>
+
+
+        {/* SELECTOR */}
+        <div className="mb-10">
+
+          <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-5 sm:p-6">
+
+            <p className="text-[11px] font-bold uppercase tracking-widest text-teal-600 mb-2">
+              Centro seleccionado
+            </p>
+
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+
+              <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+                {centroActual?.nombre}
+              </h2>
+
+              <button
+                type="button"
+                onClick={() =>
+                  setSelectorCentrosAbierto(!selectorCentrosAbierto)
+                }
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-teal-700 text-white font-black text-xs uppercase tracking-wide px-5 py-3.5 rounded-xl transition-all"
+              >
+                <span>
+                  {selectorCentrosAbierto
+                    ? 'Cerrar lista'
+                    : 'Elegir otro centro'}
+                </span>
+
+                <span>
+                  {selectorCentrosAbierto ? '▲' : '▼'}
+                </span>
+              </button>
+
+            </div>
+          </div>
+
+
+          {selectorCentrosAbierto && (
+            <div className="mt-3 bg-white rounded-3xl border border-slate-200 shadow-xl p-4 sm:p-6">
+
+              <div className="relative mb-5">
+
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                  🔍
+                </span>
+
+                <input
+                  type="text"
+                  value={busquedaCentro}
+                  onChange={(e) => setBusquedaCentro(e.target.value)}
+                  placeholder="Buscar centro cultural..."
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-sm text-slate-700 outline-none focus:ring-2 focus:ring-teal-500"
+                />
+
+              </div>
+
+
+              <div className="max-h-[430px] overflow-y-auto pr-1">
+
+                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
+
+                  {centrosFiltrados.map((centro) => (
+
+                    <button
+                      type="button"
+                      key={centro.id}
+                      onClick={() => {
+                        setCentroSeleccionado(centro.id);
+                        setSelectorCentrosAbierto(false);
+                        setBusquedaCentro('');
+                      }}
+                      className={`overflow-hidden rounded-2xl text-left transition-all border ${
+                        centroSeleccionado === centro.id
+                          ? 'bg-slate-900 text-white border-slate-900 shadow-md scale-[1.02]'
+                          : 'bg-slate-50 text-slate-700 border-slate-100 hover:bg-teal-50 hover:border-teal-200'
+                      }`}
+                    >
+
+                      {centro.miniatura && (
+                        <img
+                          src={centro.miniatura}
+                          alt={centro.nombre}
+                          className="w-full h-24 sm:h-28 object-cover"
+                        />
+                      )}
+
+                      <div className="min-h-[82px] px-3 py-4 flex items-center justify-center">
+
+                        <span className="text-xs sm:text-sm font-bold leading-snug text-center w-full">
+                          {centro.nombre}
+                        </span>
+
+                      </div>
+
+                    </button>
+
+                  ))}
+
+                </div>
+
+              </div>
+
+
+              {centrosFiltrados.length === 0 && (
+                <p className="text-center text-sm text-slate-500 py-8">
+                  No encontramos un centro cultural con ese nombre.
+                </p>
+              )}
+
+            </div>
+          )}
+
+        </div>
+
+
+        {/* CENTRO SELECCIONADO */}
+        {centroActual && (
+          <div key={centroActual.id}>
+
+            <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 mb-8">
+
+              <div className="p-6 sm:p-10">
+
+                <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+                  {centroActual.categoria}
+                </span>
+
+                <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-2">
+                  {centroActual.nombre}
+                </h2>
+
+                <p className="text-amber-500 font-bold text-sm mb-6">
+                  {centroActual.subtitulo}
+                </p>
+
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base max-w-4xl">
+                  {centroActual.descripcion}
+                </p>
+
+              </div>
+
+
+              {centroActual.fotoPrincipal && (
+                <div className="px-2 pb-2">
+
+                  <div className="rounded-2xl overflow-hidden h-72 sm:h-[480px] shadow-md">
+
+                    <img
+                      src={centroActual.fotoPrincipal}
+                      alt={centroActual.nombre}
+                      className="w-full h-full object-cover"
+                    />
+
+                  </div>
+
+                </div>
+              )}
+
+            </div>
+
+
+            {/* HISTORIA */}
+            <div className="max-w-4xl mx-auto mb-10">
+
+              <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+                Historia
+              </span>
+
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-5">
+                Historia del espacio
+              </h2>
+
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                {centroActual.historia}
+              </p>
+
+            </div>
+
+
+            {centroActual.fotoMedia && (
+              <div className="my-12 rounded-3xl overflow-hidden shadow-md">
+
+                <img
+                  src={centroActual.fotoMedia}
+                  alt={`${centroActual.nombre} - interior`}
+                  className="w-full h-72 sm:h-[430px] object-cover"
+                />
+
+              </div>
+            )}
+
+
+            {/* EXPERIENCIA */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm mb-8">
+
+              <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+                La experiencia
+              </span>
+
+              <h2 className="text-2xl font-black text-slate-900 mt-2 mb-4">
+                Qué encontrarás
+              </h2>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                {centroActual.visita}
+              </p>
+
+            </div>
+
+
+            {/* INFORMACIÓN PRÁCTICA */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+
+              {[
+                ['📍 Dirección', centroActual.direccion],
+                ['🕐 Horarios', centroActual.horario],
+                ['🎟️ Entrada', centroActual.valor],
+                ['⏱️ Duración recomendada', centroActual.duracion],
+                ['📅 Reserva', centroActual.reserva],
+                ['♿ Accesibilidad', centroActual.accesibilidad]
+              ].map(([titulo, contenido]) => (
+
+                <div
+                  key={titulo}
+                  className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm"
+                >
+                  <p className="text-xs uppercase tracking-widest text-teal-600 font-black mb-2">
+                    {titulo}
+                  </p>
+
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    {contenido}
+                  </p>
+                </div>
+
+              ))}
+
+            </div>
+
+
+            {/* CÓMO LLEGAR */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm mb-8">
+
+              <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+                Transporte
+              </span>
+
+              <h2 className="text-2xl font-black text-slate-900 mt-2 mb-4">
+                Cómo llegar
+              </h2>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                {centroActual.comoLlegar}
+              </p>
+
+            </div>
+
+
+            {/* CONSEJO */}
+            <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 mb-8">
+
+              <div className="flex items-start gap-4">
+
+                <div className="text-3xl shrink-0">
+                  💡
+                </div>
+
+                <div>
+
+                  <p className="text-xs uppercase tracking-widest text-amber-600 font-black mb-2">
+                    Consejo de Ernestinho
+                  </p>
+
+                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                    {centroActual.consejoErnestinho}
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* DESTACADO */}
+            <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 mb-8">
+
+              <p className="text-xs uppercase tracking-widest text-amber-400 font-bold mb-2">
+                ⭐ Lo más destacado
+              </p>
+
+              <p className="font-bold text-lg">
+                {centroActual.destaque}
+              </p>
+
+            </div>
+
+
+            {/* MAPA */}
+            <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm mb-10">
+
+              <div className="p-6">
+
+                <p className="text-xs uppercase tracking-widest text-teal-600 font-black mb-2">
+                  Ubicación
+                </p>
+
+                <h2 className="text-2xl font-black text-slate-900">
+                  Mapa de Google
+                </h2>
+
+              </div>
+
+              <div className="w-full h-[350px] sm:h-[450px]">
+
+                <iframe
+                  src={centroActual.mapa}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Mapa de ${centroActual.nombre}`}
+                ></iframe>
+
+              </div>
+
+            </div>
+
+
+            {/* WHATSAPP */}
+            <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 mb-10">
+
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+
+                <div>
+
+                  <h2 className="text-xl sm:text-2xl font-black mb-2">
+                    ¿Quieres organizar tu circuito cultural?
+                  </h2>
+
+                  <p className="text-slate-300 text-sm sm:text-base">
+                    Ernestinho puede ayudarte a preparar un recorrido
+                    cultural por Río de Janeiro.
+                  </p>
+
+                </div>
+
+                <a
+                  href={`https://wa.me/5521969946938?text=${encodeURIComponent(
+                    `Hola Ernestinho, quiero conocer ${centroActual.nombre} y necesito ayuda para organizar mi recorrido.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide px-6 py-4 rounded-xl transition-all shadow-md"
+                >
+                  HABLAR CON ERNESTINHO
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+        )}
+
+      </div>
+
+    </section>
+  );
+}
 function AppErnestinho() {
   const [seccionActual, setSeccionActual] = useState('inicio');
   const [museoSeleccionado, setMuseoSeleccionado] = useState('mhn');
@@ -9189,6 +10160,13 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
 
 {seccionActual === 'espacios_literarios' && (
   <SeccionEspaciosLiterarios />
+)}
+            {/* ============================= */}
+{/* CENTROS CULTURALES */}
+{/* ============================= */}
+
+{seccionActual === 'centros_culturales' && (
+  <SeccionCentrosCulturales />
 )}
 {/* CONSEJOS */}
             {seccionActual === 'consejos' && (
