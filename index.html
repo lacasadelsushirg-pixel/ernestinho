@@ -4294,531 +4294,400 @@ const MUSEOS_DATA = [
 
     <div key={museo.id}>
 
-      {/* INFORMACIÓN PRINCIPAL */}
-      <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 mb-8">
+     {/* INFORMACIÓN PRINCIPAL */}
+<div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 mb-8">
 
-        <div className="p-6 sm:p-10">
+  <div className="p-6 sm:p-10">
 
-          <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
-            {museo.categoria}
-          </span>
+    <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+      {museo.categoria}
+    </span>
 
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-2">
-            {museo.nombre}
-          </h2>
+    <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-2">
+      {museo.nombre}
+    </h2>
 
-          <p className="text-amber-500 font-bold text-sm mb-6">
-            {museo.subtitulo}
-          </p>
+    <p className="text-amber-500 font-bold text-sm mb-6">
+      {museo.subtitulo}
+    </p>
 
-          <p className="text-slate-600 leading-relaxed text-sm sm:text-base max-w-4xl">
-            {museo.descripcion}
-          </p>
+    <p className="text-slate-600 leading-relaxed text-sm sm:text-base max-w-4xl">
+      {museo.descripcion}
+    </p>
 
-        </div>
+  </div>
 
-        {/* FOTO PRINCIPAL */}
-        {museo.fotoPrincipal && (
-          <div className="px-2 pb-2">
-            <div className="rounded-2xl overflow-hidden h-72 sm:h-[480px] shadow-md">
-              <img
-                src={museo.fotoPrincipal}
-                alt={`${museo.nombre} - vista principal`}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        )}
-
+  {/* FOTO PRINCIPAL */}
+  {museo.fotoPrincipal && (
+    <div className="px-2 pb-2">
+      <div className="rounded-2xl overflow-hidden h-72 sm:h-[480px] shadow-md">
+        <img
+          src={museo.fotoPrincipal}
+          alt={`${museo.nombre} - vista principal`}
+          className="w-full h-full object-cover"
+        />
       </div>
-
-
-      {/* HISTORIA */}
-      <div className="max-w-4xl mx-auto">
-
-        {museo.historia && (
-          <div className="mb-10">
-
-            <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
-              Historia
-            </span>
-
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-5">
-              Un viaje por la historia de Brasil
-            </h2>
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              {museo.historia}
-            </p>
-
-          </div>
-        )}
-
-
-        {museo.historia2 && (
-          <div className="mb-10">
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              {museo.historia2}
-            </p>
-
-          </div>
-        )}
-
-
-        {/* FOTO INTERMEDIA */}
-        {museo.fotoMedia && (
-          <div className="my-12 rounded-3xl overflow-hidden shadow-md">
-            <img
-              src={museo.fotoMedia}
-              alt={`${museo.nombre} - interior y patrimonio`}
-              className="w-full h-72 sm:h-[430px] object-cover"
-            />
-          </div>
-        )}
-
-
-        {museo.historia3 && (
-          <div className="mb-10">
-
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
-              El lugar donde funciona el museo
-            </h2>
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              {museo.historia3}
-            </p>
-
-          </div>
-        )}
-
-
-        {museo.historia4 && (
-          <div className="mb-10">
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              {museo.historia4}
-            </p>
-
-          </div>
-        )}
-
-
-        {museo.historia5 && (
-          <div className="bg-slate-50 rounded-3xl p-6 sm:p-8 mb-12 border border-slate-100">
-
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
-              La arquitectura también forma parte de la visita
-            </h2>
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              {museo.historia5}
-            </p>
-
-          </div>
-        )}
-
-
-        {museo.historia6 && (
-          <div className="mb-10">
-
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
-              Un acervo extraordinario
-            </h2>
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              {museo.historia6}
-            </p>
-
-          </div>
-        )}
-
-
-        {museo.historia7 && (
-          <div className="mb-10">
-
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
-              Monedas y medallas: pequeños objetos, grandes historias
-            </h2>
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              {museo.historia7}
-            </p>
-
-          </div>
-        )}
-
-
-        {/* FOTO FINAL */}
-        {museo.fotoFinal && (
-          <div className="my-12 rounded-3xl overflow-hidden shadow-md">
-            <img
-              src={museo.fotoFinal}
-              alt={`${museo.nombre} - colección histórica`}
-              className="w-full h-72 sm:h-[430px] object-cover"
-            />
-          </div>
-        )}
-
-
-        {museo.historia8 && (
-          <div className="mb-10">
-
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
-              Mucho más que historia militar
-            </h2>
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              {museo.historia8}
-            </p>
-
-          </div>
-        )}
-
-
-        {museo.historia9 && (
-          <div className="mb-10">
-
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
-              La vida cotidiana también cuenta la historia
-            </h2>
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              {museo.historia9}
-            </p>
-
-          </div>
-        )}
-
-
-        {museo.historia10 && (
-          <div className="mb-10">
-
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
-              Investigación y preservación
-            </h2>
-
-            <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-              {museo.historia10}
-            </p>
-
-          </div>
-        )}
-
-
-        {museo.historia11 && (
-          <div className="bg-teal-50 border border-teal-100 rounded-3xl p-6 sm:p-8 mb-12">
-
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
-              ¿Por qué vale la pena visitarlo?
-            </h2>
-
-            <p className="text-slate-700 text-base sm:text-lg leading-relaxed">
-              {museo.historia11}
-            </p>
-
-          </div>
-        )}
-
-
-        {/* QUÉ ENCONTRARÁS */}
-        {museo.que_encontraras && (
-          <div className="mb-12">
-
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-6">
-              ¿Qué encontrarás?
-            </h2>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-
-              {museo.que_encontraras.map((item, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm flex items-start gap-3"
-                >
-
-                  <span className="flex items-center justify-center w-7 h-7 rounded-full bg-teal-50 text-teal-600 font-black text-sm shrink-0">
-                    ✓
-                  </span>
-
-                  <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                    {item}
-                  </p>
-
-                </div>
-              ))}
-
-            </div>
-
-          </div>
-        )}
-
-
-        {/* CURIOSIDADES */}
-        {museo.curiosidades && (
-          <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 mb-12">
-
-            <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-6">
-              Curiosidades
-            </h2>
-
-            <div className="space-y-4">
-
-              {museo.curiosidades.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex items-start gap-3"
-                >
-
-                  <span className="text-amber-500 text-lg shrink-0">
-                    ★
-                  </span>
-
-                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
-                    {item}
-                  </p>
-
-                </div>
-              ))}
-
-            </div>
-
-          </div>
-        )}
-
-      </div>
-
-
-      {/* DATOS PRÁCTICOS */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
-
-        {/* DIRECCIÓN */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-
-          <div className="text-2xl mb-3">
-            📍
-          </div>
-
-          <h3 className="font-black text-slate-900 mb-2">
-            Dirección
-          </h3>
-
-          <p className="text-sm text-slate-600 leading-relaxed">
-            {museo.direccion}
-          </p>
-
-        </div>
-
-
-        {/* HORARIOS */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-
-          <div className="text-2xl mb-3">
-            🕐
-          </div>
-
-          <h3 className="font-black text-slate-900 mb-2">
-            Horarios
-          </h3>
-
-          <p className="text-sm text-slate-600 leading-relaxed">
-            {museo.horario}
-          </p>
-
-        </div>
-
-
-        {/* ENTRADA */}
-        <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
-
-          <div className="text-2xl mb-3">
-            🎟️
-          </div>
-
-          <h3 className="font-black text-slate-900 mb-2">
-            Entrada
-          </h3>
-
-          <p className="text-sm text-slate-600 leading-relaxed">
-            {museo.precio}
-          </p>
-
-        </div>
-
-      </div>
-
-
-      {/* DESTACADO */}
-      {museo.destaque && (
-        <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 mb-8">
-
-          <div className="flex flex-col md:flex-row md:items-center gap-4">
-
-            <div className="text-3xl">
-              ⭐
-            </div>
-
-            <div>
-
-              <p className="text-xs uppercase tracking-widest text-amber-400 font-bold mb-1">
-                Lo más destacado
-              </p>
-
-              <p className="font-bold text-lg">
-                {museo.destaque}
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-      )}
-
-
-      {/* MAPA */}
-      {museo.mapa && (
-        <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm mb-10">
-
-          <div className="p-6 sm:p-8">
-
-            <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
-              Cómo llegar
-            </span>
-
-            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
-              Ubicación
-            </h3>
-
-            <p className="text-sm text-slate-500 mt-2">
-              Consulta la ubicación del museo directamente en Google Maps.
-            </p>
-
-          </div>
-
-          <div className="w-full h-[350px] sm:h-[450px]">
-
-            <iframe
-              src={museo.mapa}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              loading="lazy"
-              allowFullScreen
-              referrerPolicy="no-referrer-when-downgrade"
-              title={`Mapa de ${museo.nombre}`}
-            ></iframe>
-
-          </div>
-
-        </div>
-      )}
-
-
-      {/* RECUADRO FINAL */}
-      <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 mt-10 mb-10">
-
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-
-          <div>
-
-            <h2 className="text-xl sm:text-2xl font-black mb-2">
-              ¿Quieres conocer Río conmigo?
-            </h2>
-
-            <p className="text-slate-300 text-sm sm:text-base">
-              Diseñamos tu itinerario o te acompaño en un tour privado exclusivo.
-            </p>
-
-          </div>
-
-          <a
-            href="https://wa.me/5521969946938?text=Hola%20Ernestinho,%20le%C3%AD%20tu%20art%C3%ADculo%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide px-6 py-4 rounded-xl transition-all shadow-md whitespace-nowrap"
+    </div>
+  )}
+
+</div>
+
+
+{/* HISTORIA */}
+<div className="max-w-4xl mx-auto">
+
+  {museo.historia && (
+    <div className="mb-10">
+
+      <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+        Historia
+      </span>
+
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-5">
+        Un museo nacido para contar la historia de Brasil
+      </h2>
+
+      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+        {museo.historia}
+      </p>
+
+    </div>
+  )}
+
+  {museo.historia2 && (
+    <div className="mb-10">
+      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+        {museo.historia2}
+      </p>
+    </div>
+  )}
+
+  {/* FOTO INTERMEDIA */}
+  {museo.fotoMedia && (
+    <div className="my-12 rounded-3xl overflow-hidden shadow-md">
+      <img
+        src={museo.fotoMedia}
+        alt={`${museo.nombre} - patrimonio histórico`}
+        className="w-full h-72 sm:h-[430px] object-cover"
+      />
+    </div>
+  )}
+
+  {museo.historia3 && (
+    <div className="mb-10">
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
+        Un lugar que ya formaba parte de la historia
+      </h2>
+
+      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+        {museo.historia3}
+      </p>
+    </div>
+  )}
+
+  {museo.historia4 && (
+    <div className="mb-10">
+      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+        {museo.historia4}
+      </p>
+    </div>
+  )}
+
+  {museo.historia5 && (
+    <div className="bg-slate-50 rounded-3xl p-6 sm:p-8 mb-12 border border-slate-100">
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
+        La arquitectura también forma parte de la visita
+      </h2>
+
+      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+        {museo.historia5}
+      </p>
+    </div>
+  )}
+
+  {museo.historia6 && (
+    <div className="mb-10">
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
+        Un acervo de más de 300.000 piezas
+      </h2>
+
+      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+        {museo.historia6}
+      </p>
+    </div>
+  )}
+
+  {museo.historia7 && (
+    <div className="mb-10">
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
+        Monedas y medallas que cuentan otra historia
+      </h2>
+
+      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+        {museo.historia7}
+      </p>
+    </div>
+  )}
+
+  {/* FOTO FINAL */}
+  {museo.fotoFinal && (
+    <div className="my-12 rounded-3xl overflow-hidden shadow-md">
+      <img
+        src={museo.fotoFinal}
+        alt={`${museo.nombre} - colección histórica`}
+        className="w-full h-72 sm:h-[430px] object-cover"
+      />
+    </div>
+  )}
+
+  {museo.historia8 && (
+    <div className="mb-10">
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
+        La historia militar también explica al país
+      </h2>
+
+      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+        {museo.historia8}
+      </p>
+    </div>
+  )}
+
+  {museo.historia9 && (
+    <div className="mb-10">
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
+        La vida cotidiana también deja huellas
+      </h2>
+
+      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+        {museo.historia9}
+      </p>
+    </div>
+  )}
+
+  {museo.historia10 && (
+    <div className="mb-10">
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
+        Un museo que también investiga y preserva
+      </h2>
+
+      <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+        {museo.historia10}
+      </p>
+    </div>
+  )}
+
+  {museo.historia11 && (
+    <div className="bg-teal-50 border border-teal-100 rounded-3xl p-6 sm:p-8 mb-12">
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-4">
+        ¿Por qué vale la pena visitarlo?
+      </h2>
+
+      <p className="text-slate-700 text-base sm:text-lg leading-relaxed">
+        {museo.historia11}
+      </p>
+    </div>
+  )}
+
+  {/* QUÉ ENCONTRARÁS */}
+  {museo.que_encontraras && (
+    <div className="mb-12">
+
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-6">
+        ¿Qué encontrarás durante la visita?
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+        {museo.que_encontraras.map((item, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-2xl p-4 border border-slate-100 shadow-sm flex items-start gap-3"
           >
-            HABLAR CON ERNESTINHO POR WHATSAPP
-          </a>
+            <span className="flex items-center justify-center w-7 h-7 rounded-full bg-teal-50 text-teal-600 font-black text-sm shrink-0">
+              ✓
+            </span>
 
-        </div>
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
+              {item}
+            </p>
+          </div>
+        ))}
 
       </div>
-
     </div>
-    
-          {/* DESTACADO */}
-          <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 mb-8">
+  )}
 
-            <div className="flex flex-col md:flex-row md:items-center gap-4">
+  {/* CURIOSIDADES */}
+  {museo.curiosidades && (
+    <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 mb-12">
 
-              <div className="text-3xl">
-                ⭐
-              </div>
+      <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mb-6">
+        Curiosidades
+      </h2>
 
-              <div>
+      <div className="space-y-4">
 
-                <p className="text-xs uppercase tracking-widest text-amber-400 font-bold mb-1">
-                  ¿Qué encontrarás?
-                </p>
+        {museo.curiosidades.map((item, index) => (
+          <div key={index} className="flex items-start gap-3">
 
-                <p className="font-bold text-lg">
-                  {museo.destaque}
-                </p>
+            <span className="text-amber-500 text-lg shrink-0">
+              ★
+            </span>
 
-              </div>
-
-            </div>
+            <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+              {item}
+            </p>
 
           </div>
+        ))}
+
+      </div>
+    </div>
+  )}
+
+</div>
 
 
-          {/* MAPA */}
-          <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm">
+{/* DATOS PRÁCTICOS */}
+<div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
 
-            <div className="p-6">
+  <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+    <div className="text-2xl mb-3">📍</div>
 
-              <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
-                Cómo llegar
-              </span>
+    <h3 className="font-black text-slate-900 mb-2">
+      Dirección
+    </h3>
 
-              <h3 className="text-2xl font-black text-slate-900 mt-1">
-                Ubicación
-              </h3>
+    <p className="text-sm text-slate-600 leading-relaxed">
+      {museo.direccion}
+    </p>
+  </div>
 
-              <p className="text-sm text-slate-500 mt-2">
-                Consulta la ubicación del museo directamente en Google Maps.
-              </p>
+  <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+    <div className="text-2xl mb-3">🕐</div>
 
-            </div>
+    <h3 className="font-black text-slate-900 mb-2">
+      Horarios
+    </h3>
+
+    <p className="text-sm text-slate-600 leading-relaxed">
+      {museo.horario}
+    </p>
+  </div>
+
+  <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm">
+    <div className="text-2xl mb-3">🎟️</div>
+
+    <h3 className="font-black text-slate-900 mb-2">
+      Entrada
+    </h3>
+
+    <p className="text-sm text-slate-600 leading-relaxed">
+      {museo.precio}
+    </p>
+  </div>
+
+</div>
 
 
-            <div className="w-full h-[400px]">
+{/* DESTACADO */}
+<div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 mb-8">
 
-              <iframe
-                src={museo.mapa}
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                loading="lazy"
-                allowFullScreen
-                referrerPolicy="no-referrer-when-downgrade"
-                title={`Mapa de ${museo.nombre}`}
-              ></iframe>
+  <div className="flex flex-col md:flex-row md:items-center gap-4">
 
-            </div>
+    <div className="text-3xl">
+      ⭐
+    </div>
 
-          </div>
+    <div>
 
+      <p className="text-xs uppercase tracking-widest text-amber-400 font-bold mb-1">
+        Lo más destacado
+      </p>
 
-        </div>
-
-      ))}
+      <p className="font-bold text-lg">
+        {museo.destaque}
+      </p>
 
     </div>
 
-  </section>
+  </div>
+
+</div>
+
+
+{/* MAPA */}
+{museo.mapa && (
+  <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm mb-10">
+
+    <div className="p-6 sm:p-8">
+
+      <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+        Cómo llegar
+      </span>
+
+      <h3 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+        Ubicación
+      </h3>
+
+      <p className="text-sm text-slate-500 mt-2">
+        Consulta la ubicación del museo directamente en Google Maps.
+      </p>
+
+    </div>
+
+    <div className="w-full h-[350px] sm:h-[450px]">
+
+      <iframe
+        src={museo.mapa}
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        loading="lazy"
+        allowFullScreen
+        referrerPolicy="no-referrer-when-downgrade"
+        title={`Mapa de ${museo.nombre}`}
+      ></iframe>
+
+    </div>
+
+  </div>
 )}
+
+
+{/* RECUADRO FINAL */}
+<div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 mt-10 mb-10">
+
+  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+
+    <div>
+
+      <h2 className="text-xl sm:text-2xl font-black mb-2">
+        ¿Quieres conocer Río conmigo?
+      </h2>
+
+      <p className="text-slate-300 text-sm sm:text-base">
+        Diseñamos tu itinerario o te acompaño en un tour privado exclusivo.
+      </p>
+
+    </div>
+
+    <a
+      href="https://wa.me/5521969946938?text=Hola%20Ernestinho,%20le%C3%AD%20tu%20art%C3%ADculo%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide px-6 py-4 rounded-xl transition-all shadow-md whitespace-nowrap"
+    >
+      HABLAR CON ERNESTINHO POR WHATSAPP
+    </a>
+
+  </div>
+
+</div>
+
+    </div>
+
+  ))}
             {/* CONSEJOS */}
             {seccionActual === 'consejos' && (
               <section className="py-12 bg-slate-50">
