@@ -3868,6 +3868,8 @@ const MUSEOS_DATA = [
 function AppErnestinho() {
   const [seccionActual, setSeccionActual] = useState('inicio');
   const [museoSeleccionado, setMuseoSeleccionado] = useState('mhn');
+  const [selectorMuseosAbierto, setSelectorMuseosAbierto] = useState(false);
+const [busquedaMuseo, setBusquedaMuseo] = useState('');
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [articuloSeleccionado, setArticuloSeleccionado] = useState(null);
 
@@ -7477,32 +7479,112 @@ function AppErnestinho() {
       </div>
 
 
-      {/* TABS DE MUSEOS */}
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-2 mb-10 overflow-x-auto">
+     {/* SELECTOR DE MUSEOS */}
+<div className="mb-10">
 
-        <div className="flex gap-2 min-w-max">
+  {/* MUSEO ACTUAL */}
+  <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-5 sm:p-6">
+    <p className="text-[11px] font-bold uppercase tracking-widest text-teal-600 mb-2">
+      Museo seleccionado
+    </p>
 
-          {MUSEOS_DATA.map((museo) => (
+    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+        {MUSEOS_DATA.find(
+          (museo) => museo.id === museoSeleccionado
+        )?.nombre}
+      </h2>
 
-            <button
-              key={museo.id}
-              onClick={() => setMuseoSeleccionado(museo.id)}
-              className={`px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
-                museoSeleccionado === museo.id
-                  ? 'bg-slate-900 text-white shadow-md'
-                  : 'bg-slate-50 text-slate-600 hover:bg-slate-100'
-              }`}
-            >
-              {museo.nombre}
-            </button>
+      <button
+        type="button"
+        onClick={() =>
+          setSelectorMuseosAbierto(!selectorMuseosAbierto)
+        }
+        className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-teal-700 text-white font-black text-xs uppercase tracking-wide px-5 py-3.5 rounded-xl transition-all"
+      >
+        <span>
+          {selectorMuseosAbierto
+            ? 'Cerrar lista'
+            : 'Elegir otro museo'}
+        </span>
 
-          ))}
+        <span>
+          {selectorMuseosAbierto ? '▲' : '▼'}
+        </span>
+      </button>
+    </div>
+  </div>
 
-        </div>
+  {/* VENTANA CON LA LISTA */}
+  {selectorMuseosAbierto && (
+    <div className="mt-3 bg-white rounded-3xl border border-slate-200 shadow-xl p-4 sm:p-6">
 
+      {/* BUSCADOR */}
+      <div className="relative mb-5">
+        <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+          🔍
+        </span>
+
+        <input
+          type="text"
+          value={busquedaMuseo}
+          onChange={(e) => setBusquedaMuseo(e.target.value)}
+          placeholder="Buscar museo por nombre..."
+          className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-sm text-slate-700 outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500"
+        />
       </div>
 
+      {/* TARJETAS DE MUSEOS */}
+      <div className="max-h-[420px] overflow-y-auto pr-1">
+        <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
 
+          {MUSEOS_DATA
+            .filter((museo) =>
+              museo.nombre
+                .toLowerCase()
+                .includes(busquedaMuseo.toLowerCase())
+            )
+            .map((museo) => (
+
+              <button
+                type="button"
+                key={museo.id}
+                onClick={() => {
+                  setMuseoSeleccionado(museo.id);
+                  setSelectorMuseosAbierto(false);
+                  setBusquedaMuseo('');
+                }}
+                className={`min-h-[82px] rounded-2xl px-3 py-4 text-xs sm:text-sm font-bold leading-snug transition-all border ${
+                  museoSeleccionado === museo.id
+                    ? 'bg-slate-900 text-white border-slate-900 shadow-md scale-[1.02]'
+                    : 'bg-slate-50 text-slate-700 border-slate-100 hover:bg-teal-50 hover:border-teal-200 hover:text-teal-800'
+                }`}
+              >
+                {museo.nombre}
+              </button>
+
+            ))}
+
+        </div>
+      </div>
+
+      {/* SIN RESULTADOS */}
+      {MUSEOS_DATA.filter((museo) =>
+        museo.nombre
+          .toLowerCase()
+          .includes(busquedaMuseo.toLowerCase())
+      ).length === 0 && (
+
+        <p className="text-center text-sm text-slate-500 py-8">
+          No encontramos un museo con ese nombre.
+        </p>
+
+      )}
+
+    </div>
+  )}
+
+</div>
       {/* MUSEO SELECCIONADO */}
 {MUSEOS_DATA
   .filter((museo) => museo.id === museoSeleccionado)
