@@ -8551,6 +8551,875 @@ function SeccionIglesias() {
     </section>
   );
 }
+    /* ===================================================== */
+/* FUERTES Y FORTALEZAS                                  */
+/* ===================================================== */
+
+const FUERTES_DATA = [
+
+  {
+    id: 'forte-copacabana',
+    nombre: 'Forte de Copacabana',
+    ciudad: 'Río de Janeiro',
+    categoria: 'Museo militar, fortificación y mirador',
+    subtitulo: 'Historia militar con una de las vistas más famosas de Copacabana',
+    descripcion:
+      'El Forte de Copacabana reúne fortificación, museo, enormes cañones, exposiciones históricas, cafeterías y una vista privilegiada de toda la playa.',
+    historia:
+      'Fue inaugurado en 1914 para reforzar la defensa de la entrada de la Bahía de Guanabara. También fue escenario de la Revolta dos 18 do Forte, en 1922.',
+    experiencia:
+      'Puedes caminar por el área exterior, visitar el Museu Histórico do Exército, entrar en sectores de la antigua fortificación y observar las cúpulas de los cañones.',
+    destaque:
+      'La vista de Copacabana, los enormes cañones y el museo dentro de la fortificación.',
+    direccion:
+      'Praça Coronel Eugênio Franco, 1 — Posto 6, Copacabana.',
+    horario:
+      'Generalmente de martes a domingo y feriados. Los horarios pueden variar y algunas salas pueden cerrar antes que el área exterior.',
+    valor:
+      'Entrada pagada, con valores de completa, media y posibles gratuidades. Confirma el precio actualizado antes de ir.',
+    duracion:
+      'Entre 1 hora y media y 3 horas.',
+    reserva:
+      'La visita individual normalmente no requiere reserva. Grupos deben consultar previamente.',
+    accesibilidad:
+      'El área exterior posee buena circulación, pero algunos sectores históricos tienen escaleras y pasillos estrechos.',
+    documentos:
+      'Lleva un documento de identificación con fotografía.',
+    comoLlegar:
+      'Está en el extremo de Copacabana, cerca de la estación General Osório y de varias líneas de autobús.',
+    consejoErnestinho:
+      'No vengas solamente para tomar café. Entra a la fortificación, conoce los cañones y lee sobre los 18 do Forte. Para fotografías de la playa, la luz de la mañana suele ser excelente.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Forte+de+Copacabana+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'forte-duque-caxias',
+    nombre: 'Forte Duque de Caxias',
+    ciudad: 'Río de Janeiro',
+    categoria: 'Fortificación, sendero y naturaleza',
+    subtitulo: 'Historia militar y una vista espectacular desde el Morro do Leme',
+    descripcion:
+      'El Forte Duque de Caxias combina una caminata por un área de protección ambiental con historia militar y vistas panorámicas de Copacabana, Pão de Açúcar y la Bahía de Guanabara.',
+    historia:
+      'La posición militar del Morro do Leme fue desarrollada para proteger la entrada de la bahía. El fuerte recibió posteriormente el nombre del Duque de Caxias.',
+    experiencia:
+      'La visita comienza con una subida pavimentada por el Morro do Leme. En la parte superior se encuentran instalaciones históricas, exposiciones y miradores.',
+    destaque:
+      'La vista panorámica y la caminata dentro de un área verde protegida.',
+    direccion:
+      'Praça Almirante Júlio de Noronha, s/n — Leme.',
+    horario:
+      'Visitas generalmente de martes a domingo, aproximadamente de 09:30 a 16:00. Confirma antes de ir.',
+    valor:
+      'Entrada de bajo costo, con posibles medias entradas y gratuidades.',
+    duracion:
+      'Entre 1 hora y media y 2 horas y media.',
+    reserva:
+      'Normalmente no requiere reserva para visitas individuales.',
+    accesibilidad:
+      'La subida es larga y empinada. Puede resultar difícil para personas con movilidad reducida.',
+    documentos:
+      'Lleva documento de identificación.',
+    comoLlegar:
+      'El acceso se encuentra al final de Leme, cerca de la playa y del Caminho dos Pescadores.',
+    consejoErnestinho:
+      'Usa calzado cómodo, lleva agua y evita subir durante el calor más fuerte. La pendiente exige esfuerzo, pero la vista desde arriba vale muchísimo la pena.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Forte+Duque+de+Caxias+Leme&output=embed'
+  },
+
+  {
+    id: 'fortaleza-sao-joao',
+    nombre: 'Fortaleza de São João',
+    ciudad: 'Río de Janeiro',
+    categoria: 'Sitio histórico y origen de la ciudad',
+    subtitulo: 'Una fortaleza fundamental para el nacimiento de Río de Janeiro',
+    descripcion:
+      'La Fortaleza de São João ocupa una posición estratégica entre Urca y el Pão de Açúcar y guarda capítulos esenciales de la fundación y defensa de Río.',
+    historia:
+      'La región fue ocupada por los portugueses durante los conflictos contra los franceses en el siglo XVI. Está directamente vinculada con la fundación de São Sebastião do Rio de Janeiro en 1565.',
+    experiencia:
+      'Las visitas autorizadas pueden incluir fortificaciones, espacios históricos, áreas militares y vistas poco conocidas de la entrada de la bahía.',
+    destaque:
+      'Conocer el lugar relacionado con los primeros años de la ciudad y observar el Pão de Açúcar desde una perspectiva diferente.',
+    direccion:
+      'Avenida João Luís Alves, s/n — Urca.',
+    horario:
+      'No funciona como atracción de entrada libre diaria. Las visitas dependen de autorización, agenda y actividades militares.',
+    valor:
+      'Las visitas institucionales o culturales suelen ser gratuitas, sujetas a confirmación.',
+    duracion:
+      'Entre 1 hora y media y 2 horas.',
+    reserva:
+      'Agendamiento previo obligatorio. No te presentes esperando entrar sin autorización.',
+    accesibilidad:
+      'Consulta las condiciones durante el agendamiento, ya que existen sectores históricos y áreas militares.',
+    documentos:
+      'Documento oficial con fotografía obligatorio. Pueden solicitarse previamente los datos de todos los visitantes.',
+    comoLlegar:
+      'Está en Urca. Utiliza autobús o transporte por aplicación.',
+    consejoErnestinho:
+      'Es una visita histórica extraordinaria, pero solo debes incluirla cuando tengas confirmación oficial. No fotografíes instalaciones militares sin autorización.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Fortaleza+de+São+João+Urca+Rio&output=embed'
+  },
+
+  {
+    id: 'fortaleza-conceicao',
+    nombre: 'Fortaleza da Conceição',
+    ciudad: 'Río de Janeiro',
+    categoria: 'Fortaleza histórica y patrimonio militar',
+    subtitulo: 'Una fortificación escondida sobre el Morro da Conceição',
+    descripcion:
+      'La Fortaleza da Conceição se encuentra dentro de una de las zonas históricas más interesantes del Centro y actualmente alberga dependencias militares.',
+    historia:
+      'Fue construida durante el período colonial en una posición estratégica sobre la región portuaria. A lo largo del tiempo tuvo funciones defensivas, militares y cartográficas.',
+    experiencia:
+      'Cuando existen visitas autorizadas, el público puede conocer sectores históricos, arquitectura militar y contenidos relacionados con cartografía y geografía.',
+    destaque:
+      'Su posición sobre el Morro da Conceição y su relación con la historia cartográfica de Brasil.',
+    direccion:
+      'Praça Major Valô, 1 — Morro da Conceição, Saúde.',
+    horario:
+      'Acceso restringido y sujeto a visitas previamente organizadas.',
+    valor:
+      'Generalmente gratuito cuando existen visitas culturales autorizadas.',
+    duracion:
+      'Entre 1 y 2 horas.',
+    reserva:
+      'Agendamiento y autorización militar obligatorios.',
+    accesibilidad:
+      'El Morro da Conceição posee pendientes y calles irregulares. Consulta las condiciones internas.',
+    documentos:
+      'Documento oficial obligatorio y posible envío previo de datos.',
+    comoLlegar:
+      'Utiliza el VLT hasta la Zona Portuaria y continúa caminando o en transporte por aplicación.',
+    consejoErnestinho:
+      'No intentes entrar sin reserva. Si no hay visita disponible, puedes conocer el entorno histórico del Morro da Conceição respetando las áreas militares.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Fortaleza+da+Conceição+Rio+de+Janeiro&output=embed'
+  },
+
+  {
+    id: 'santa-cruz-barra',
+    nombre: 'Fortaleza de Santa Cruz da Barra',
+    ciudad: 'Niterói',
+    categoria: 'Fortaleza colonial y defensa de la bahía',
+    subtitulo: 'Una de las fortalezas históricas más impresionantes de Brasil',
+    descripcion:
+      'La Fortaleza de Santa Cruz se encuentra frente a Urca, en el punto más estrecho de la entrada de la Bahía de Guanabara. Conserva murallas, cañones, patios, túneles y antiguas prisiones.',
+    historia:
+      'La posición fue utilizada desde el siglo XVI y ampliada durante los períodos colonial, imperial y republicano. Junto con otras fortificaciones controlaba el acceso marítimo a Río.',
+    experiencia:
+      'La visita guiada puede recorrer baterías de cañones, patios, capilla, calabozos y miradores hacia Pão de Açúcar y la entrada de la bahía.',
+    destaque:
+      'Las murallas frente al mar, los antiguos calabozos y la vista de Urca y Pão de Açúcar.',
+    direccion:
+      'Estrada General Eurico Gaspar Dutra, s/n — Jurujuba, Niterói.',
+    horario:
+      'Los días y horarios dependen del funcionamiento militar. Confirma antes de cruzar a Niterói.',
+    valor:
+      'Puede existir entrada o contribución para la visita guiada. Confirma el valor actualizado.',
+    duracion:
+      'Entre 1 hora y media y 2 horas.',
+    reserva:
+      'Se recomienda agendar o confirmar la visita antes del desplazamiento.',
+    accesibilidad:
+      'Posee pisos irregulares, rampas, escaleras y sectores históricos de acceso difícil.',
+    documentos:
+      'Lleva documento oficial con fotografía.',
+    comoLlegar:
+      'Desde el Centro de Niterói continúa hacia Jurujuba en autobús, automóvil o transporte por aplicación.',
+    consejoErnestinho:
+      'Es uno de los mejores fuertes de toda la región. Planea bien el transporte porque queda lejos del Centro de Niterói y confirma la visita el mismo día.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Fortaleza+de+Santa+Cruz+da+Barra+Niterói&output=embed'
+  },
+
+  {
+    id: 'forte-barao-rio-branco',
+    nombre: 'Forte Barão do Rio Branco',
+    ciudad: 'Niterói',
+    categoria: 'Complejo militar y acceso a fortificaciones',
+    subtitulo: 'La puerta de entrada a algunos de los fuertes históricos de Niterói',
+    descripcion:
+      'El Forte Barão do Rio Branco forma parte del conjunto de fortificaciones de Jurujuba y continúa funcionando dentro de una zona militar.',
+    historia:
+      'La posición integra el sistema defensivo creado para proteger la entrada de la Bahía de Guanabara y dar apoyo a otras fortificaciones de la región.',
+    experiencia:
+      'Algunas visitas organizadas al complejo comienzan en esta unidad y continúan hacia las fortificaciones ubicadas en las áreas elevadas.',
+    destaque:
+      'Su papel como parte del gran sistema defensivo de la entrada de la bahía.',
+    direccion:
+      'Alameda Marechal Pessoa Leal, 265 — Jurujuba, Niterói.',
+    horario:
+      'No posee visita turística libre y regular. El acceso depende de agenda militar.',
+    valor:
+      'Consulta las condiciones de la visita organizada.',
+    duracion:
+      'Entre 1 y 3 horas, dependiendo del recorrido autorizado.',
+    reserva:
+      'Autorización y agendamiento obligatorios.',
+    accesibilidad:
+      'Las visitas pueden incluir pendientes, escaleras y transporte militar.',
+    documentos:
+      'Documento oficial obligatorio.',
+    comoLlegar:
+      'Utiliza automóvil, transporte por aplicación o autobús hacia Jurujuba.',
+    consejoErnestinho:
+      'No confundas este fuerte con Santa Cruz. Antes de ir, confirma exactamente cuál fortificación incluye el recorrido y dónde se realiza el ingreso.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Forte+Barão+do+Rio+Branco+Niterói&output=embed'
+  },
+
+  {
+    id: 'forte-sao-luiz',
+    nombre: 'Forte de São Luiz',
+    ciudad: 'Niterói',
+    categoria: 'Fortificación histórica y sendero militar',
+    subtitulo: 'Ruinas, murallas y naturaleza sobre la entrada de la bahía',
+    descripcion:
+      'El Forte de São Luiz se encuentra en una posición elevada de Jurujuba y conserva estructuras históricas rodeadas por vegetación.',
+    historia:
+      'Fue construido para complementar la defensa de la Bahía de Guanabara y funcionaba en conjunto con Santa Cruz y otras baterías.',
+    experiencia:
+      'Las visitas autorizadas pueden incluir caminata, ruinas, antiguas posiciones de artillería y vistas panorámicas.',
+    destaque:
+      'La combinación de ruinas militares, bosque y vista de la bahía.',
+    direccion:
+      'Área militar de Jurujuba — Niterói.',
+    horario:
+      'Solamente mediante recorridos autorizados o eventos específicos.',
+    valor:
+      'Consulta el valor o gratuidad durante el agendamiento.',
+    duracion:
+      'Entre 2 y 3 horas dentro de un recorrido combinado.',
+    reserva:
+      'Agendamiento y autorización obligatorios.',
+    accesibilidad:
+      'Recorrido con pendientes, terreno irregular y esfuerzo físico.',
+    documentos:
+      'Documento oficial y datos previos de los participantes.',
+    comoLlegar:
+      'El acceso se organiza normalmente desde el complejo militar de Jurujuba.',
+    consejoErnestinho:
+      'Usa calzado cerrado, lleva agua y sigue siempre al responsable militar. No te apartes del recorrido ni ingreses en ruinas no autorizadas.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Forte+de+São+Luiz+Niterói&output=embed'
+  },
+
+  {
+    id: 'forte-pico',
+    nombre: 'Forte do Pico',
+    ciudad: 'Niterói',
+    categoria: 'Fortificación y mirador panorámico',
+    subtitulo: 'Una de las vistas militares más espectaculares de Guanabara',
+    descripcion:
+      'El Forte do Pico ocupa una posición todavía más elevada que São Luiz y ofrece una vista privilegiada de la bahía, Río, Niterói y el océano.',
+    historia:
+      'Su ubicación fue utilizada como punto de observación y artillería dentro del sistema defensivo de Jurujuba.',
+    experiencia:
+      'Los recorridos autorizados suelen exigir una subida considerable y permiten observar ruinas, posiciones defensivas y un panorama excepcional.',
+    destaque:
+      'La vista panorámica desde una de las posiciones defensivas más elevadas de Niterói.',
+    direccion:
+      'Área militar de Jurujuba — Niterói.',
+    horario:
+      'Acceso únicamente mediante visita autorizada.',
+    valor:
+      'Consulta durante la reserva.',
+    duracion:
+      'Entre 2 y 4 horas cuando se combina con Forte de São Luiz.',
+    reserva:
+      'Agendamiento militar obligatorio.',
+    accesibilidad:
+      'No recomendado para personas con dificultades importantes de movilidad debido a pendientes y terreno irregular.',
+    documentos:
+      'Documento oficial obligatorio.',
+    comoLlegar:
+      'Normalmente se accede desde el complejo militar de Jurujuba.',
+    consejoErnestinho:
+      'Es uno de los recorridos más exigentes de esta categoría. Lleva protección solar, agua y calzado apropiado. La visita depende totalmente de autorización y condiciones climáticas.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Forte+do+Pico+Niterói&output=embed'
+  },
+
+  {
+    id: 'forte-imbui',
+    nombre: 'Forte do Imbuí',
+    ciudad: 'Niterói',
+    categoria: 'Fortificación costera',
+    subtitulo: 'Una fortificación escondida entre el mar y las montañas de Niterói',
+    descripcion:
+      'El Forte do Imbuí ocupa una posición estratégica frente al océano y conserva estructuras militares y paisajes poco conocidos.',
+    historia:
+      'Fue desarrollado para reforzar la defensa costera y complementar el conjunto de fortificaciones de la entrada de Guanabara.',
+    experiencia:
+      'Cuando existen visitas autorizadas, el público puede conocer sectores históricos y vistas del litoral.',
+    destaque:
+      'La ubicación aislada entre mar, roca y vegetación.',
+    direccion:
+      'Estrada do Forte do Imbuí — Piratininga, Niterói.',
+    horario:
+      'No posee acceso turístico libre. Visitas solamente mediante autorización o eventos.',
+    valor:
+      'Consulta las condiciones vigentes.',
+    duracion:
+      'Entre 1 y 2 horas.',
+    reserva:
+      'Autorización militar obligatoria.',
+    accesibilidad:
+      'Puede presentar escaleras, desniveles y sectores estrechos.',
+    documentos:
+      'Documento oficial obligatorio.',
+    comoLlegar:
+      'Se recomienda automóvil o transporte por aplicación, siguiendo únicamente la ruta autorizada.',
+    consejoErnestinho:
+      'No viajes hasta allí sin confirmación escrita o información oficial de que la visita estará disponible. Es una instalación militar activa.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Forte+do+Imbuí+Niterói&output=embed'
+  },
+
+  {
+    id: 'forte-gragoata',
+    nombre: 'Forte do Gragoatá',
+    ciudad: 'Niterói',
+    categoria: 'Patrimonio militar histórico',
+    subtitulo: 'Una fortificación histórica próxima al Centro de Niterói',
+    descripcion:
+      'El Forte do Gragoatá ocupa una posición costera próxima al campus de la UFF y conserva parte de la memoria defensiva de Niterói.',
+    historia:
+      'La región fue utilizada para proteger el litoral interior de la Bahía de Guanabara y tuvo diferentes funciones militares.',
+    experiencia:
+      'El lugar puede ser observado exteriormente, pero el acceso interno depende de autorización y actividades de la unidad militar.',
+    destaque:
+      'Su ubicación costera y cercanía al Centro de Niterói.',
+    direccion:
+      'Avenida General Milton Tavares de Souza — Gragoatá, Niterói.',
+    horario:
+      'Sin visita turística interna regular.',
+    valor:
+      'No aplicable para observación exterior; visitas especiales deben confirmarse.',
+    duracion:
+      'Entre 15 y 30 minutos desde el exterior.',
+    reserva:
+      'Autorización necesaria para cualquier ingreso interno.',
+    accesibilidad:
+      'El entorno exterior es más sencillo que otros fuertes elevados.',
+    documentos:
+      'Documento obligatorio si existe una visita autorizada.',
+    comoLlegar:
+      'Está cerca del campus de Gragoatá de la UFF y del Centro de Niterói.',
+    consejoErnestinho:
+      'No lo presentes como una atracción de entrada garantizada. Su interés principal para el visitante común está en la historia y la observación exterior.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Forte+do+Gragoatá+Niterói&output=embed'
+  },
+
+  {
+    id: 'forte-laje',
+    nombre: 'Forte Tamandaré da Laje',
+    ciudad: 'Bahía de Guanabara',
+    categoria: 'Fortificación insular',
+    subtitulo: 'Una fortaleza construida sobre una roca en medio de la bahía',
+    descripcion:
+      'El Forte da Laje parece flotar en la entrada de la Bahía de Guanabara, entre Urca y la Fortaleza de Santa Cruz.',
+    historia:
+      'La roca fue utilizada desde el período colonial como parte del sistema defensivo que cruzaba fuego sobre la entrada de Guanabara.',
+    experiencia:
+      'No cuenta con visita turística regular. Puede observarse desde Urca, Pão de Açúcar, embarcaciones y Fortaleza de Santa Cruz.',
+    destaque:
+      'Su posición extraordinaria sobre una pequeña roca en medio del canal.',
+    direccion:
+      'Entrada de la Bahía de Guanabara.',
+    horario:
+      'Sin visitación turística regular.',
+    valor:
+      'No aplicable.',
+    duracion:
+      'Observación durante paseos marítimos o desde miradores.',
+    reserva:
+      'No se debe intentar acceder sin una actividad oficial autorizada.',
+    accesibilidad:
+      'No posee acceso turístico convencional.',
+    documentos:
+      'Aplican las reglas del evento oficial, si excepcionalmente existe alguno.',
+    comoLlegar:
+      'Se observa desde diferentes puntos de Urca, Niterói o durante paseos en barco.',
+    consejoErnestinho:
+      'Inclúyelo como curiosidad histórica y punto de observación, no como lugar de visita garantizada. Un paseo marítimo ofrece una de las mejores perspectivas.',
+    miniatura: '',
+    fotoPrincipal: '',
+    fotoMedia: '',
+    mapa:
+      'https://www.google.com/maps?q=Forte+Tamandaré+da+Laje+Rio+de+Janeiro&output=embed'
+  }
+
+];
+
+
+/* ===================================================== */
+/* COMPONENTE FUERTES Y FORTALEZAS                       */
+/* ===================================================== */
+
+function SeccionFuertesFortalezas() {
+
+  const [fuerteSeleccionado, setFuerteSeleccionado] =
+    useState('forte-copacabana');
+
+  const [selectorFuertesAbierto, setSelectorFuertesAbierto] =
+    useState(false);
+
+  const [busquedaFuerte, setBusquedaFuerte] =
+    useState('');
+
+  const fuerteActual = FUERTES_DATA.find(
+    (fuerte) => fuerte.id === fuerteSeleccionado
+  );
+
+  const fuertesFiltrados = FUERTES_DATA.filter(
+    (fuerte) =>
+      `${fuerte.nombre} ${fuerte.ciudad}`
+        .toLowerCase()
+        .includes(busquedaFuerte.toLowerCase())
+  );
+
+  return (
+    <section className="py-12 bg-slate-50 min-h-screen">
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+
+        {/* ENCABEZADO */}
+        <div className="text-center max-w-4xl mx-auto mb-10">
+
+          <span className="text-amber-500 font-bold text-xs uppercase tracking-widest block mb-2">
+            Historia y defensa de Guanabara
+          </span>
+
+          <h1 className="text-3xl sm:text-5xl font-black text-slate-900 uppercase tracking-tight mb-4">
+            Fuertes y fortalezas
+          </h1>
+
+          <p className="text-slate-600 text-base sm:text-lg">
+            Fortificaciones históricas, museos militares y miradores
+            estratégicos de Río de Janeiro y Niterói.
+          </p>
+
+        </div>
+
+
+        {/* AVISO */}
+        <div className="bg-amber-50 border border-amber-300 rounded-2xl p-5 mb-8">
+
+          <p className="text-sm text-slate-700 leading-relaxed">
+            <strong>Importante:</strong> varios lugares continúan dentro de
+            instalaciones militares activas. Lleva un documento con fotografía,
+            respeta las instrucciones y confirma la visita antes de desplazarte.
+            No fotografíes áreas o equipos sin autorización.
+          </p>
+
+        </div>
+
+
+        {/* SELECTOR */}
+        <div className="mb-10">
+
+          <div className="bg-white rounded-3xl border border-slate-100 shadow-sm p-5 sm:p-6">
+
+            <p className="text-[11px] font-bold uppercase tracking-widest text-teal-600 mb-2">
+              Fortaleza seleccionada
+            </p>
+
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+
+              <div>
+                <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+                  {fuerteActual?.nombre}
+                </h2>
+
+                <p className="text-sm text-slate-500 mt-1">
+                  {fuerteActual?.ciudad}
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() =>
+                  setSelectorFuertesAbierto(!selectorFuertesAbierto)
+                }
+                className="inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-teal-700 text-white font-black text-xs uppercase tracking-wide px-5 py-3.5 rounded-xl transition-all"
+              >
+                <span>
+                  {selectorFuertesAbierto
+                    ? 'Cerrar lista'
+                    : 'Elegir otra fortaleza'}
+                </span>
+
+                <span>
+                  {selectorFuertesAbierto ? '▲' : '▼'}
+                </span>
+              </button>
+
+            </div>
+          </div>
+
+
+          {selectorFuertesAbierto && (
+            <div className="mt-3 bg-white rounded-3xl border border-slate-200 shadow-xl p-4 sm:p-6">
+
+              <div className="relative mb-5">
+
+                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                  🔍
+                </span>
+
+                <input
+                  type="text"
+                  value={busquedaFuerte}
+                  onChange={(e) => setBusquedaFuerte(e.target.value)}
+                  placeholder="Buscar fuerte, fortaleza, Río o Niterói..."
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3.5 pl-11 pr-4 text-sm text-slate-700 outline-none focus:ring-2 focus:ring-teal-500"
+                />
+
+              </div>
+
+
+              <div className="max-h-[430px] overflow-y-auto pr-1">
+
+                <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
+
+                  {fuertesFiltrados.map((fuerte) => (
+
+                    <button
+                      type="button"
+                      key={fuerte.id}
+                      onClick={() => {
+                        setFuerteSeleccionado(fuerte.id);
+                        setSelectorFuertesAbierto(false);
+                        setBusquedaFuerte('');
+                      }}
+                      className={`overflow-hidden rounded-2xl text-left transition-all border ${
+                        fuerteSeleccionado === fuerte.id
+                          ? 'bg-slate-900 text-white border-slate-900 shadow-md scale-[1.02]'
+                          : 'bg-slate-50 text-slate-700 border-slate-100 hover:bg-teal-50 hover:border-teal-200'
+                      }`}
+                    >
+
+                      {fuerte.miniatura && (
+                        <img
+                          src={fuerte.miniatura}
+                          alt={fuerte.nombre}
+                          className="w-full h-24 sm:h-28 object-cover"
+                        />
+                      )}
+
+                      <div className="min-h-[96px] px-3 py-4 flex flex-col items-center justify-center">
+
+                        <span className="text-xs sm:text-sm font-bold leading-snug text-center">
+                          {fuerte.nombre}
+                        </span>
+
+                        <span className={`text-[10px] uppercase tracking-wide mt-2 ${
+                          fuerteSeleccionado === fuerte.id
+                            ? 'text-teal-300'
+                            : 'text-teal-600'
+                        }`}>
+                          {fuerte.ciudad}
+                        </span>
+
+                      </div>
+
+                    </button>
+
+                  ))}
+
+                </div>
+
+              </div>
+
+
+              {fuertesFiltrados.length === 0 && (
+                <p className="text-center text-sm text-slate-500 py-8">
+                  No encontramos una fortaleza con ese nombre.
+                </p>
+              )}
+
+            </div>
+          )}
+
+        </div>
+
+
+        {/* FUERTE SELECCIONADO */}
+        {fuerteActual && (
+          <div key={fuerteActual.id}>
+
+            <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-slate-100 mb-8">
+
+              <div className="p-6 sm:p-10">
+
+                <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+                  {fuerteActual.categoria} · {fuerteActual.ciudad}
+                </span>
+
+                <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2 mb-2">
+                  {fuerteActual.nombre}
+                </h2>
+
+                <p className="text-amber-500 font-bold text-sm mb-6">
+                  {fuerteActual.subtitulo}
+                </p>
+
+                <p className="text-slate-600 leading-relaxed text-sm sm:text-base max-w-4xl">
+                  {fuerteActual.descripcion}
+                </p>
+
+              </div>
+
+
+              {fuerteActual.fotoPrincipal && (
+                <div className="px-2 pb-2">
+
+                  <img
+                    src={fuerteActual.fotoPrincipal}
+                    alt={fuerteActual.nombre}
+                    className="w-full h-72 sm:h-[480px] object-cover rounded-2xl"
+                  />
+
+                </div>
+              )}
+
+            </div>
+
+
+            {/* HISTORIA */}
+            <div className="max-w-4xl mx-auto mb-10">
+
+              <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+                Historia
+              </span>
+
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-2 mb-5">
+                Historia de la fortificación
+              </h2>
+
+              <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
+                {fuerteActual.historia}
+              </p>
+
+            </div>
+
+
+            {fuerteActual.fotoMedia && (
+              <div className="my-12 rounded-3xl overflow-hidden shadow-md">
+
+                <img
+                  src={fuerteActual.fotoMedia}
+                  alt={`${fuerteActual.nombre} - fortificación`}
+                  className="w-full h-72 sm:h-[430px] object-cover"
+                />
+
+              </div>
+            )}
+
+
+            {/* EXPERIENCIA */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-sm mb-8">
+
+              <span className="text-teal-600 font-bold text-xs uppercase tracking-widest">
+                La experiencia
+              </span>
+
+              <h2 className="text-2xl font-black text-slate-900 mt-2 mb-4">
+                Qué encontrarás
+              </h2>
+
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                {fuerteActual.experiencia}
+              </p>
+
+            </div>
+
+
+            {/* INFORMACIÓN PRÁCTICA */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-8">
+
+              {[
+                ['📍 Dirección', fuerteActual.direccion],
+                ['🕐 Visitas', fuerteActual.horario],
+                ['🎟️ Entrada', fuerteActual.valor],
+                ['⏱️ Duración', fuerteActual.duracion],
+                ['📅 Reserva', fuerteActual.reserva],
+                ['♿ Accesibilidad', fuerteActual.accesibilidad],
+                ['🪪 Documentos', fuerteActual.documentos],
+                ['🚇 Cómo llegar', fuerteActual.comoLlegar]
+              ].map(([titulo, contenido]) => (
+
+                <div
+                  key={titulo}
+                  className="bg-white rounded-2xl p-6 border border-slate-100 shadow-sm"
+                >
+
+                  <p className="text-xs uppercase tracking-widest text-teal-600 font-black mb-2">
+                    {titulo}
+                  </p>
+
+                  <p className="text-slate-700 text-sm leading-relaxed">
+                    {contenido}
+                  </p>
+
+                </div>
+
+              ))}
+
+            </div>
+
+
+            {/* CONSEJO */}
+            <div className="bg-amber-50 border-2 border-amber-300 rounded-3xl p-6 sm:p-8 mb-8">
+
+              <div className="flex items-start gap-4">
+
+                <div className="text-3xl shrink-0">
+                  💡
+                </div>
+
+                <div>
+
+                  <p className="text-xs uppercase tracking-widest text-amber-600 font-black mb-2">
+                    Consejo de Ernestinho
+                  </p>
+
+                  <p className="text-slate-700 text-sm sm:text-base leading-relaxed">
+                    {fuerteActual.consejoErnestinho}
+                  </p>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            {/* DESTACADO */}
+            <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 mb-8">
+
+              <p className="text-xs uppercase tracking-widest text-amber-400 font-bold mb-2">
+                ⭐ Lo más destacado
+              </p>
+
+              <p className="font-bold text-lg">
+                {fuerteActual.destaque}
+              </p>
+
+            </div>
+
+
+            {/* MAPA */}
+            <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm mb-10">
+
+              <div className="p-6">
+
+                <p className="text-xs uppercase tracking-widest text-teal-600 font-black mb-2">
+                  Ubicación
+                </p>
+
+                <h2 className="text-2xl font-black text-slate-900">
+                  Mapa de Google
+                </h2>
+
+              </div>
+
+              <div className="w-full h-[350px] sm:h-[450px]">
+
+                <iframe
+                  src={fuerteActual.mapa}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Mapa de ${fuerteActual.nombre}`}
+                ></iframe>
+
+              </div>
+
+            </div>
+
+
+            {/* WHATSAPP */}
+            <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 mb-10">
+
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+
+                <div>
+
+                  <h2 className="text-xl sm:text-2xl font-black mb-2">
+                    ¿Necesitas ayuda para organizar tu visita?
+                  </h2>
+
+                  <p className="text-slate-300 text-sm sm:text-base">
+                    Ernestinho puede ayudarte a planificar tu recorrido
+                    histórico por Río y Niterói.
+                  </p>
+
+                </div>
+
+                <a
+                  href={`https://wa.me/5521969946938?text=${encodeURIComponent(
+                    `Hola Ernestinho, quiero conocer ${fuerteActual.nombre} y necesito más información.`
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide px-6 py-4 rounded-xl transition-all shadow-md"
+                >
+                  HABLAR CON ERNESTINHO
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+        )}
+
+      </div>
+
+    </section>
+  );
+}
 function AppErnestinho() {
   const [seccionActual, setSeccionActual] = useState('inicio');
   const [museoSeleccionado, setMuseoSeleccionado] = useState('mhn');
@@ -12821,6 +13690,13 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
 
 {seccionActual === 'iglesias' && (
   <SeccionIglesias />
+)}
+            {/* ============================= */}
+{/* FUERTES Y FORTALEZAS */}
+{/* ============================= */}
+
+{seccionActual === 'fuertes_fortalezas' && (
+  <SeccionFuertesFortalezas />
 )}
 {/* CONSEJOS */}
             {seccionActual === 'consejos' && (
