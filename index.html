@@ -14336,21 +14336,33 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
             .map((museo) => (
 
               <button
-                type="button"
-                key={museo.id}
-                onClick={() => {
-                  setMuseoSeleccionado(museo.id);
-                  setSelectorMuseosAbierto(false);
-                  setBusquedaMuseo('');
-                }}
-                className={`min-h-[82px] rounded-2xl px-3 py-4 text-xs sm:text-sm font-bold leading-snug transition-all border ${
-                  museoSeleccionado === museo.id
-                    ? 'bg-slate-900 text-white border-slate-900 shadow-md scale-[1.02]'
-                    : 'bg-slate-50 text-slate-700 border-slate-100 hover:bg-teal-50 hover:border-teal-200 hover:text-teal-800'
-                }`}
-              >
-                {museo.nombre}
-              </button>
+  type="button"
+  key={museo.id}
+  onClick={() => {
+    setMuseoSeleccionado(museo.id);
+    setSelectorMuseosAbierto(false);
+    setBusquedaMuseo('');
+  }}
+  className={`rounded-2xl overflow-hidden text-xs sm:text-sm font-bold leading-snug transition-all border ${
+    museoSeleccionado === museo.id
+      ? 'bg-slate-900 text-white border-slate-900 shadow-md scale-[1.02]'
+      : 'bg-slate-50 text-slate-700 border-slate-100 hover:bg-teal-50 hover:border-teal-200 hover:text-teal-800'
+  }`}
+>
+  {museo.miniatura && (
+    <div className="w-full aspect-[4/3] overflow-hidden">
+      <img
+        src={museo.miniatura}
+        alt={museo.nombre}
+        className="w-full h-full object-cover"
+      />
+    </div>
+  )}
+
+  <div className="px-3 py-4">
+    {museo.nombre}
+  </div>
+</button>
 
             ))}
 
