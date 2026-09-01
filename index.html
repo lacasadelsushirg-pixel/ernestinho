@@ -14344,10 +14344,10 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
     setBusquedaMuseo('');
   }}
   className={`rounded-2xl overflow-hidden text-xs sm:text-sm font-bold leading-snug transition-all border ${
-    museoSeleccionado === museo.id
-      ? 'bg-slate-900 text-white border-slate-900 shadow-md scale-[1.02]'
-      : 'bg-slate-50 text-slate-700 border-slate-100 hover:bg-teal-50 hover:border-teal-200 hover:text-teal-800'
-  }`}
+  museoSeleccionado === museo.id
+    ? 'bg-slate-900 text-white border-slate-900 shadow-md scale-[1.02]'
+    : 'bg-slate-50 text-slate-700 border-slate-100 hover:bg-teal-50 hover:border-teal-200 hover:text-teal-800'
+}`}
 >
   {museo.miniatura && (
     <div className="w-full h-40 overflow-hidden">
