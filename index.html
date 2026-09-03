@@ -59,7 +59,6 @@
       { id: 'playas', nombre: 'Playas', icon: '🏖️', desc: 'Las mejores franjas de arena, olas y ambiente playero del mundo.' },
       { id: 'naturaleza', nombre: 'Naturaleza', icon: '🌴', desc: 'Bosques urbanos, morros y senderos exuberantes.' },
       { id: 'aventura', nombre: 'Aventura', icon: '🥾', desc: 'Vuelo libre, kayak, rapel y experiencias extremas.' },
-      { id: 'cultura', nombre: 'Cultura', icon: '🎭', desc: 'Samba, museos, historia local y arquitectura carioca.' },
       { id: 'gastronomia', nombre: 'Gastronomía', icon: '🍽️', desc: 'Sabores locales, churrasquerías y comida de playa.' },
       { id: 'nocturna', nombre: 'Vida Nocturna', icon: '🌙', desc: 'Bares de Lapa, rodas de samba y fiestas junto al mar.' },
       { id: 'familia', nombre: 'Familia', icon: '👨‍👩‍👧', desc: 'Actividades seguras y divertidas para todas las edades.' },
@@ -146,106 +145,104 @@
       { id:'la-bicyclette', nombre:'La Bicyclette', zona:'otros', barrio:'Jardim Botânico', tipos:['cafe'], precio:'$$', destaque:'Panadería artesanal, café y brunch junto al Jardim Botânico.', recomendado:false, img:'https://cdn.prod.website-files.com/636cd7c004bf297e18d5cfc9/63725bd9b8d232dc03e3d5b2_In%C3%ADcio%2003.jpg' }
     ];
 
-    const g = (id, nombre, zona, barrio, tipos, precio, destaque, recomendado = false) => ({ id, nombre, zona, barrio, tipos, precio, destaque, recomendado });
+    const g = (id, nombre, zona, barrio, tipos, precio, destaque, recomendado = false, img = '') => ({ id, nombre, zona, barrio, tipos, precio, destaque, recomendado, img });
 
     const GASTRONOMIA_EXTRA = [
-      g('basha','Basha','copa-leme','Copacabana',['arabe','internacional'],'$$','Recetas libanesas, shawarma, pastas y platos preparados a las brasas.'),
-      g('canton-copa','Cantón','copa-leme','Copacabana',['asiatica','internacional'],'$$','Encuentro entre sabores peruanos y chinos en una casa de ambiente vibrante.'),
-      g('haru','Haru Sushi Bar','copa-leme','Copacabana',['asiatica','mariscos'],'$$$','Sushi de autor y pescados frescos en un pequeño salón muy buscado.'),
-      g('umai','Umai','copa-leme','Copacabana',['asiatica'],'$$$','Cocina japonesa contemporánea y combinados cuidadosamente presentados.'),
-      g('pergula','Pérgula','copa-leme','Copacabana',['buffet','experiencia','vista'],'$$$$','Restaurante del Copacabana Palace junto a la piscina, ideal para una ocasión especial.'),
-      g('mee','MEE','copa-leme','Copacabana',['asiatica','experiencia'],'$$$$','Alta cocina panasiática dentro del Copacabana Palace.'),
-      g('cipriani','Ristorante Hotel Cipriani','copa-leme','Copacabana',['pizza','experiencia'],'$$$$','Experiencia italiana de alta gastronomía dentro del hotel más emblemático de Río.'),
-      g('alloro','Alloro al Miramar','copa-leme','Copacabana',['pizza','internacional'],'$$$$','Cocina italiana refinada frente a la playa.'),
-      g('alfaia','Alfaia','copa-leme','Copacabana',['internacional','mariscos'],'$$$','Clásicos de la cocina portuguesa, bacalao y pescados.'),
-      g('galeto-sats','Galeto Sat’s','copa-leme','Copacabana',['carioca','carnes','madrugada'],'$$','Galeto, carnes a la brasa y bohemia carioca hasta tarde.',true),
+      g('basha','Basha','copa-leme','Copacabana',['arabe','internacional'],'$$','Recetas libanesas, shawarma, pastas y platos preparados a las brasas.',false,'https://static.where-e.com/Brazil/Rio_De_Janeiro_State/Basha-Restaurante_b4d319a39bac51369af19851a22c7fb9.jpg'),
+      g('canton-copa','Cantón','copa-leme','Copacabana',['asiatica','internacional'],'$$','Encuentro entre sabores peruanos y chinos en una casa de ambiente vibrante.',false,'https://static2.menufyy.com/canton-peruvian-chinese-food-albums-1.jpg'),
+      g('haru','Haru Sushi Bar','copa-leme','Copacabana',['asiatica','mariscos'],'$$$','Sushi de autor y pescados frescos en un pequeño salón muy buscado.',false,'https://prod-pics.guide.michelin.com/api/public/content/095897af4dcd4394832bb1674b6db111.jpeg?format=webp&h=500&w=500'),
+      g('umai','Umai','copa-leme','Copacabana',['asiatica'],'$$$','Cocina japonesa contemporánea y combinados cuidadosamente presentados.',false,'https://viagem.cnnbrasil.com.br/wp-content/uploads/sites/5/2024/09/UMAI-AMBIENTE-PRINCIPAL-COM-O-BALCAO-DE-MADEIRA-DA-CASA-FABIO-WRIGHT.jpg'),
+      g('pergula','Pérgula','copa-leme','Copacabana',['buffet','experiencia','vista'],'$$$$','Restaurante del Copacabana Palace junto a la piscina, ideal para una ocasión especial.',false,'https://cdn.audleytravel.com/1400/1000/60/16002518-pergula-restaurant-belmond-copacabana-palace.jpg'),
+      g('mee','MEE','copa-leme','Copacabana',['asiatica','experiencia'],'$$$$','Alta cocina panasiática dentro del Copacabana Palace.',false,'https://api.pico.com.br/storage/v1/object/public/uploads/google-photos/restaurante-mee-copacabana-palace-copacabana.jpg'),
+      g('cipriani','Ristorante Hotel Cipriani','copa-leme','Copacabana',['pizza','experiencia'],'$$$$','Experiencia italiana de alta gastronomía dentro del hotel más emblemático de Río.',false,'https://viagem.cnnbrasil.com.br/wp-content/uploads/sites/5/2023/11/i-f2DCpcw-X3.jpg?crop=1&h=900&w=1200'),
+      g('alloro','Alloro al Miramar','copa-leme','Copacabana',['pizza','internacional'],'$$$$','Cocina italiana refinada frente a la playa.',false,'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/be/8d/a9/restaurante-sa.jpg?h=1200&s=1&w=1200'),
+      g('alfaia','Alfaia','copa-leme','Copacabana',['internacional','mariscos'],'$$$','Clásicos de la cocina portuguesa, bacalao y pescados.',false,'https://www.guiadoturismobrasil.com/up/img/1525871258.jpg'),
+      g('galeto-sats','Galeto Sat’s','copa-leme','Copacabana',['carioca','carnes','madrugada'],'$$','Galeto, carnes a la brasa y bohemia carioca hasta tarde.',true,'https://cafeviagem.com/wp-content/uploads/2015/06/onde-comer-Copacabana-28.jpg'),
       g('carretao-lido','Carretão Lido','copa-leme','Copacabana',['carnes','buffet'],'$$$','Rodizio de carnes con buffet variado en plena Copacabana.'),
-      g('belmonte-copa','Boteco Belmonte Copacabana','copa-leme','Copacabana',['carioca','vista'],'$$','Empadas, petiscos y cerveza frente a la orla.'),
-      g('don-camillo','Don Camillo','copa-leme','Copacabana',['pizza','internacional'],'$$$','Pastas, risottos y cocina italiana muy cerca del mar.'),
+      g('belmonte-copa','Boteco Belmonte Copacabana','copa-leme','Copacabana',['carioca','vista'],'$$','Empadas, petiscos y cerveza frente a la orla.',false,'https://quantocustaviajar.com/blog/wp-content/uploads/2023/04/Snapinsta.app_328301318_173565012182490_4704611267298009102_n_1080-1024x1024.jpg'),
+      g('don-camillo','Don Camillo','copa-leme','Copacabana',['pizza','internacional'],'$$$','Pastas, risottos y cocina italiana muy cerca del mar.',false,'https://imagesapt.apontador-assets.com/fit-in/640x480/4405a833b8eb48d49f0e1e600950383c/don-camillo.jpg'),
       g('spesso','Spesso','copa-leme','Copacabana',['pizza','internacional'],'$$$','Cocina italiana contemporánea con ambiente moderno.'),
-      g('stalos','Stalos','copa-leme','Copacabana',['economico','pizza','madrugada'],'$$','Carta enorme, pizzas, desayunos y platos durante las 24 horas.',true),
-      g('eclipse','Eclipse','copa-leme','Copacabana',['economico','pizza','madrugada'],'$$','Restaurante, bar y pizzería abierto día y noche.'),
+      g('stalos','Stalos','copa-leme','Copacabana',['economico','pizza','madrugada'],'$$','Carta enorme, pizzas, desayunos y platos durante las 24 horas.',true,'https://1dosedetudo.files.wordpress.com/2016/04/707514.jpg?crop=1&h=400&w=600'),
+      g('eclipse','Eclipse','copa-leme','Copacabana',['economico','pizza','madrugada'],'$$','Restaurante, bar y pizzería abierto día y noche.',false,'https://www.restaurantespertodemim.com.br/wp-content/uploads/2025/02/Eclipse-Bar-Restaurante-aberto-24h-em-Copacabana.webp'),
       g('churrasqueira-rio','Churrasqueira Rio','copa-leme','Copacabana',['carnes','economico'],'$$','Carnes, galetos y acompañamientos con buena relación precio-calidad.'),
-      g('joaquina-leme','Joaquina','copa-leme','Leme',['carioca','vista'],'$$$','Cocina brasileña y petiscos al comienzo de la orla de Leme.'),
+      g('joaquina-leme','Joaquina','copa-leme','Leme',['carioca','vista'],'$$$','Cocina brasileña y petiscos al comienzo de la orla de Leme.',false,'https://s3-media0.fl.yelpcdn.com/bphoto/ZOp0ndSEV1lipp1pjMbaRw/l.jpg'),
       g('classico-leme','Clássico Beach Club Leme','copa-leme','Leme',['quiosque','vista','experiencia'],'$$$','Quiosque sofisticado con vista completa de Copacabana.'),
       g('rainers','Rainer’s','copa-leme','Copacabana',['quiosque','carioca','vista'],'$$','Quiosque tradicional para comer y beber con los pies junto a la arena.'),
-      g('coisa-carioca','Coisa de Carioca','copa-leme','Copacabana',['quiosque','carioca','vista'],'$$','Comida brasileña, bebidas y música frente al mar.'),
-      g('ginga','Ginga','copa-leme','Copacabana',['quiosque','carioca','vista'],'$$','Quiosque de ambiente relajado para petiscos, caipirinhas y playa.'),
-      g('samba-social','Samba Social Clube','copa-leme','Copacabana',['quiosque','carioca','experiencia'],'$$','Samba, cocina brasileña y ambiente de playa.'),
-      g('espaco-7zero6','Espaço 7zero6','copa-leme','Copacabana',['cafe','vista','experiencia'],'$$$','Desayunos y eventos en una terraza panorámica frente al mar.'),
+      g('coisa-carioca','Coisa de Carioca','copa-leme','Copacabana',['quiosque','carioca','vista'],'$$','Comida brasileña, bebidas y música frente al mar.',false,'https://media.timeout.com/images/106062427/750/422/image.jpg'),
+      g('ginga','Ginga','copa-leme','Copacabana',['quiosque','carioca','vista'],'$$','Quiosque de ambiente relajado para petiscos, caipirinhas y playa.',false,'https://orlario.com.br/wp-content/uploads/2023/07/programacao-do-quiosque-ginga-3.jpeg'),
+      g('samba-social','Samba Social Clube','copa-leme','Copacabana',['quiosque','carioca','experiencia'],'$$','Samba, cocina brasileña y ambiente de playa.',false,'https://diariodorio.com/wp-content/uploads/2024/08/img_2753-1.jpg'),
+      g('espaco-7zero6','Espaço 7zero6','copa-leme','Copacabana',['cafe','vista','experiencia'],'$$$','Desayunos y eventos en una terraza panorámica frente al mar.',false,'https://www.therooftopguide.com/rooftop-bars-in-rio-de-janeiro/Bilder/espaco-7zero6-600-6.jpg'),
 
-      g('quiteria','Quitéria','ipa-leblon','Ipanema',['carioca','internacional'],'$$$','Cocina brasileña contemporánea centrada en ingredientes nacionales.',true),
-      g('arp-bar','Arp Bar','ipa-leblon','Arpoador',['mariscos','vista','experiencia'],'$$$$','Mesa frente al Arpoador para desayunar, almorzar o acompañar el atardecer.'),
-      g('bar-astor','Bar Astor','ipa-leblon','Ipanema',['carioca','vista'],'$$$','Coctelería, petiscos y una privilegiada vista de Arpoador.'),
-      g('teva','Teva','ipa-leblon','Ipanema',['vegetariana','internacional'],'$$$','Cocina vegana creativa en un ambiente contemporáneo.'),
-      g('delirio','Delírio Tropical','ipa-leblon','Ipanema',['buffet','vegetariana','economico'],'$$','Ensaladas, platos saludables y buffet práctico para el almuerzo.'),
-      g('polis','Polis Sucos','ipa-leblon','Ipanema',['economico','carioca'],'$','Jugos, açaí, sándwiches y platos rápidos al estilo carioca.'),
-      g('casa-feijoada','Casa da Feijoada','ipa-leblon','Ipanema',['carioca','experiencia'],'$$$','Feijoada servida todos los días con acompañamientos tradicionales.'),
-      g('satyricon','Satyricon','ipa-leblon','Ipanema',['mariscos','experiencia'],'$$$$','Pescados y mariscos frescos con larga tradición en Ipanema.'),
-      g('noa','Nôa','ipa-leblon','Ipanema',['mariscos','internacional'],'$$$','Pescados, frutos del mar y preparaciones creativas en un casarón acogedor.'),
-      g('koral','Koral','ipa-leblon','Ipanema',['mariscos','internacional'],'$$$','Cocina abierta, brasas, pescados y postres de autor.'),
-      g('maska','Mäska','ipa-leblon','Ipanema',['internacional'],'$$$','Carta contemporánea, buenos tragos y platos para compartir.'),
-      g('margutta','Margutta','ipa-leblon','Ipanema',['pizza','mariscos'],'$$$','Tradición italiana especializada en pescados y frutos del mar.'),
-      g('nino','Nino Cucina','ipa-leblon','Ipanema',['pizza','internacional'],'$$$$','Cocina italiana moderna y ambiente sofisticado.'),
-      g('spicy-fish','Spicy Fish','ipa-leblon','Ipanema',['asiatica','internacional'],'$$$$','Sabores japoneses, coreanos y asiáticos en una casa de varios pisos.'),
-      g('boa-praca','Boa Praça','ipa-leblon','Ipanema',['carioca'],'$$$','Bar concurrido con mesas al aire libre, comida y coctelería.'),
+      g('quiteria','Quitéria','ipa-leblon','Ipanema',['carioca','internacional'],'$$$','Cocina brasileña contemporánea centrada en ingredientes nacionales.',true,'https://blog.ipanemainn.com.br/wp-content/uploads/2023/06/19-5-1-scaled.jpg'),
+      g('arp-bar','Arp Bar','ipa-leblon','Arpoador',['mariscos','vista','experiencia'],'$$$$','Mesa frente al Arpoador para desayunar, almorzar o acompañar el atardecer.',false,'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/7b/37/f1/jantar-13-as-23h-bar.jpg?h=800&s=1&w=1400'),
+      g('bar-astor','Bar Astor','ipa-leblon','Ipanema',['carioca','vista'],'$$$','Coctelería, petiscos y una privilegiada vista de Arpoador.',false,'https://imagesapt.apontador-assets.com/fit-in/640x480/c8c13b18915240ebbdd161c78c7ddc42/astor.jpg'),
+      g('teva','Teva','ipa-leblon','Ipanema',['vegetariana','internacional'],'$$$','Cocina vegana creativa en un ambiente contemporáneo.',false,'https://theworldkeys.com/wp-content/uploads/2022/08/Teva-restaurant-Rio-de-Janeiro_theworldkeys_7.webp'),
+      g('delirio','Delírio Tropical','ipa-leblon','Ipanema',['buffet','vegetariana','economico'],'$$','Ensaladas, platos saludables y buffet práctico para el almuerzo.',false,'https://lancamentosrj.com/wp-content/uploads/2023/10/Delirio-Tropical-Ipanema-2.webp'),
+      g('polis','Polis Sucos','ipa-leblon','Ipanema',['economico','carioca'],'$','Jugos, açaí, sándwiches y platos rápidos al estilo carioca.',false,'https://www.gringo-rio.com/wp-content/uploads/2018/01/polissuco-e1517245780379.jpg'),
+      g('casa-feijoada','Casa da Feijoada','ipa-leblon','Ipanema',['carioca','experiencia'],'$$$','Feijoada servida todos los días con acompañamientos tradicionales.',false,'https://riotheguide.com/wp-content/uploads/2015/05/casa-da-feijoada.jpg?h=678&w=1024'),
+      g('satyricon','Satyricon','ipa-leblon','Ipanema',['mariscos','experiencia'],'$$$$','Pescados y mariscos frescos con larga tradición en Ipanema.',false,'https://theworldkeys.com/wp-content/uploads/2022/08/Satyricon-restaurant-Rio-de-Janeiro_theworldkeys_5-1.webp'),
+      g('noa','Nôa','ipa-leblon','Ipanema',['mariscos','internacional'],'$$$','Pescados, frutos del mar y preparaciones creativas en un casarón acogedor.',false,'https://blogviagemgourmet.com.br/wp-content/uploads/2023/06/IMG_5407-2048x1536.jpg'),
+      g('koral','Koral','ipa-leblon','Ipanema',['mariscos','internacional'],'$$$','Cocina abierta, brasas, pescados y postres de autor.',false,'https://cms-bomgourmet.s3.amazonaws.com/bomgourmet/2024/02/28095014/koral-restaurante.jpeg'),
+      g('maska','Mäska','ipa-leblon','Ipanema',['internacional'],'$$$','Carta contemporánea, buenos tragos y platos para compartir.',false,'https://youmustgo.com.br/wp-content/uploads/2021/06/75258dc9-f121-4dcc-a727-f837f1841b79.jpg'),
+      g('margutta','Margutta','ipa-leblon','Ipanema',['pizza','mariscos'],'$$$','Tradición italiana especializada en pescados y frutos del mar.',false,'https://viagemeturismo.abril.com.br/wp-content/uploads/2016/10/3-fachada-margutta.jpeg'),
+      g('nino','Nino Cucina','ipa-leblon','Ipanema',['pizza','internacional'],'$$$$','Cocina italiana moderna y ambiente sofisticado.',false,'https://youmustgo.com.br/wp-content/uploads/2024/11/whatsapp-image-2024-11-11-at-175736-1.jpg.webp'),
+      g('spicy-fish','Spicy Fish','ipa-leblon','Ipanema',['asiatica','internacional'],'$$$$','Sabores japoneses, coreanos y asiáticos en una casa de varios pisos.',false,'https://nandicasdeviagem.com/wp-content/uploads/2022/08/Spicy-Fish.jpg'),
+      g('boa-praca','Boa Praça','ipa-leblon','Ipanema',['carioca'],'$$$','Bar concurrido con mesas al aire libre, comida y coctelería.',false,'https://revistadegusta.com/wp-content/uploads/2023/12/Boa-Praca-Ipanema-1.jpg'),
       g('venga','Venga','ipa-leblon','Ipanema',['internacional','mariscos'],'$$$','Tapas españolas, arroces, vinos y ambiente informal.'),
-      g('sushi-leblon','Sushi Leblon','ipa-leblon','Leblon',['asiatica','experiencia'],'$$$$','Uno de los restaurantes japoneses más conocidos de la ciudad.'),
-      g('oro','Oro','ipa-leblon','Leblon',['internacional','experiencia'],'$$$$','Menú degustación brasileño contemporáneo cocinado con fuego y brasas.'),
-      g('chez-claude','Chez Claude','ipa-leblon','Leblon',['internacional','experiencia'],'$$$$','Cocina abierta y platos franco-brasileños para compartir.'),
-      g('arab-leblon','Arab','ipa-leblon','Leblon',['arabe','buffet'],'$$$','Amplio repertorio de especialidades de Oriente Medio y buffet por peso.'),
-      g('ocya-leblon','Ocyá Leblon','ipa-leblon','Leblon',['mariscos','experiencia'],'$$$$','Pescados madurados y cocina marina creativa.'),
-      g('rufino','Rufino Parrilla','ipa-leblon','Leblon',['carnes'],'$$$$','Parrilla de inspiración argentina con cortes premium.'),
+      g('sushi-leblon','Sushi Leblon','ipa-leblon','Leblon',['asiatica','experiencia'],'$$$$','Uno de los restaurantes japoneses más conocidos de la ciudad.',false,'https://images.squarespace-cdn.com/content/v1/5e8f3fc29b2a084cd98c199b/1618520992422-C9Q9MI2M8TW02HQY6F4X/130235929_4814297811944994_729084620631346690_n.jpg'),
+      g('oro','Oro','ipa-leblon','Leblon',['internacional','experiencia'],'$$$$','Menú degustación brasileño contemporáneo cocinado con fuego y brasas.',false,'https://s2-oglobo.glbimg.com/EaF13zwheERxJxOcWB8Zbta3djI%3D/1600x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2023/b/Y/sdXF3hTxe5XhJhIRqwBQ/52427552-el-rio-de-janeiro-rj-16-03-2016-novo-restaurante-de-felipe-bronze-o-oro.-foto-manica-imbuz.jpg'),
+      g('chez-claude','Chez Claude','ipa-leblon','Leblon',['internacional','experiencia'],'$$$$','Cocina abierta y platos franco-brasileños para compartir.',false,'https://s2.glbimg.com/AFKe_GZGu6BNHsNwKOAu6nM25CU%3D/600x0/filters%3Aquality%2870%29/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2022/l/N/FShxlCSgGgJfqgd0TFfw/99989230-revista-rio-gastronomia-26-07-2022-restaurante-chez-claude-de-claude-troisgros.-foto-so.jpg'),
+      g('arab-leblon','Arab','ipa-leblon','Leblon',['arabe','buffet'],'$$$','Amplio repertorio de especialidades de Oriente Medio y buffet por peso.',false,'https://static.wixstatic.com/media/a9601b_390019c4b50b476186836c7241cb824a~mv2.jpg'),
+      g('ocya-leblon','Ocyá Leblon','ipa-leblon','Leblon',['mariscos','experiencia'],'$$$$','Pescados madurados y cocina marina creativa.',false,'https://viagem.cnnbrasil.com.br/wp-content/uploads/sites/5/2023/08/OCYA-LEBLON-FACHADA-CREDITO-RODRIGO-AZEVEDO.jpg'),
+      g('rufino','Rufino Parrilla','ipa-leblon','Leblon',['carnes'],'$$$$','Parrilla de inspiración argentina con cortes premium.',false,'https://viagem.cnnbrasil.com.br/wp-content/uploads/sites/5/2024/01/RUFINO-SALAO-FABIO-WRIGHT.jpg'),
       g('sabor-aguas','Sabor das Águas','ipa-leblon','Leblon',['mariscos','asiatica'],'$$$$','Pescadería, restaurante y balcón japonés en una misma dirección.'),
-      g('nido','Nido Ristorante','ipa-leblon','Leblon',['pizza','internacional'],'$$$$','Pastas artesanales y alta cocina italiana.'),
-      g('talho','Talho Capixaba','ipa-leblon','Leblon',['cafe','economico'],'$$','Panadería, delicatessen y desayunos muy frecuentados por vecinos.'),
-      g('kurt','Kurt','ipa-leblon','Leblon',['cafe'],'$$','Confitería tradicional conocida por sus tortas y dulces.'),
-      g('bb-lanches','BB Lanches','ipa-leblon','Leblon',['economico','madrugada'],'$','Jugos, açaí y sándwiches rápidos hasta tarde.'),
+      g('nido','Nido Ristorante','ipa-leblon','Leblon',['pizza','internacional'],'$$$$','Pastas artesanales y alta cocina italiana.',false,'https://viagemegastronomia.cnnbrasil.com.br/wp-content/uploads/sites/5/2022/12/NIDO-NOVA-VARANDA-RODRIGO-AZEVEDO.jpg?w=1024'),
+      g('talho','Talho Capixaba','ipa-leblon','Leblon',['cafe','economico'],'$$','Panadería, delicatessen y desayunos muy frecuentados por vecinos.',false,'https://acaradorio.com/wp-content/uploads/2015/06/Talho-Capixaba-1.jpg'),
+      g('kurt','Kurt','ipa-leblon','Leblon',['cafe'],'$$','Confitería tradicional conocida por sus tortas y dulces.',false,'https://riotur.rio/wp-content/uploads/2015/10/Kurt-Confeitaria.jpg'),
+      g('bb-lanches','BB Lanches','ipa-leblon','Leblon',['economico','madrugada'],'$','Jugos, açaí y sándwiches rápidos hasta tarde.',false,'https://vejario.abril.com.br/wp-content/uploads/2016/11/192c38689c4bfa068f252a547b3a49ff-popular.jpg?quality=70&strip=info&w=636&w=736'),
 
       g('casa-mohamed','Casa Mohamed','bota-fla','Botafogo',['arabe','economico'],'$$','Esfihas, panes y preparaciones sirias salidas del horno a leña.'),
-      g('polvo','Polvo Marisqueria','bota-fla','Botafogo',['mariscos'],'$$$','Marisquería moderna con pescados, crustáceos y platos a las brasas.'),
-      g('oteque','Oteque','bota-fla','Botafogo',['mariscos','experiencia'],'$$$$','Menú degustación de alta cocina con protagonismo del mar.'),
-      g('babbo','Babbo Osteria','bota-fla','Botafogo',['pizza','internacional'],'$$$','Osteria italiana de ambiente cálido y recetas reconfortantes.'),
-      g('kotori','Kotori','bota-fla','Botafogo',['asiatica'],'$$$','Izakaya contemporáneo con pequeños platos japoneses.'),
-      g('iraja','Irajá Redux','bota-fla','Botafogo',['internacional'],'$$$','Recetas contemporáneas y uno de los postres de chocolate más famosos del barrio.'),
-      g('quartinho','Quartinho','bota-fla','Botafogo',['carioca','madrugada'],'$$$','Bar creativo con cocina, coctelería y clima de noche botafoguense.'),
-      g('elena','Elena','bota-fla','Horto',['asiatica','experiencia'],'$$$$','Cocina asiática contemporánea en un casarón rodeado de naturaleza.'),
-      g('cabidinho','Boteco Cabidinho','bota-fla','Botafogo',['carioca','madrugada'],'$$','Boteco histórico con platos brasileños y funcionamiento hasta tarde.'),
-      g('adega-velha','Adega da Velha','bota-fla','Botafogo',['carioca','economico'],'$','Bar sencillo de barrio conocido por sus porciones y cerveza fría.'),
-      g('tacaca','Tacacá do Norte','bota-fla','Flamengo',['nordestina','economico'],'$$','Sabores amazónicos como tacacá, pato no tucupi y açaí tradicional.'),
+      g('polvo','Polvo Marisqueria','bota-fla','Botafogo',['mariscos'],'$$$','Marisquería moderna con pescados, crustáceos y platos a las brasas.',false,'https://s2-quem.glbimg.com/Ly9HZK_TJy0m4VJ9fHqyWcpbRY8%3D/filters%3Aformat%28jpeg%29/https%3A/i.s3.glbimg.com/v1/AUTH_b0f0e84207c948ab8b8777be5a6a4395/internal_photos/bs/2025/Z/v/JgUnHDT0q3RBFueZDAZw/475344412-18312790822201093-3894413269379201184-n.jpg'),
+      g('oteque','Oteque','bota-fla','Botafogo',['mariscos','experiencia'],'$$$$','Menú degustación de alta cocina con protagonismo del mar.',false,'https://ddeu48opr85vl.cloudfront.net/b2c/original/4852aacf422246888ea3a7b7470e13d1.jpeg'),
+      g('babbo','Babbo Osteria','ipa-leblon','Ipanema',['pizza','internacional'],'$$$','Osteria italiana de ambiente cálido y recetas reconfortantes.',false,'https://prod-pics.guide.michelin.com/api/public/content/22bd75ff70824457bef32d6d3925068e.jpeg?format=webp&h=500&w=500'),
+      g('iraja','Irajá Redux','bota-fla','Botafogo',['internacional'],'$$$','Recetas contemporáneas y uno de los postres de chocolate más famosos del barrio.',false,'https://revistadegusta.com/wp-content/uploads/2025/07/handler-16-585x390.jpeg'),
+      g('quartinho','Quartinho','bota-fla','Botafogo',['carioca','madrugada'],'$$$','Bar creativo con cocina, coctelería y clima de noche botafoguense.',false,'https://media.timeout.com/images/106047743/image.jpg'),
+      g('elena','Elena','bota-fla','Horto',['asiatica','experiencia'],'$$$$','Cocina asiática contemporánea en un casarón rodeado de naturaleza.',false,'https://viagem.cnnbrasil.com.br/wp-content/uploads/sites/5/2023/07/Salao-Elena.jpg?w=1024'),
+      g('adega-velha','Adega da Velha','bota-fla','Botafogo',['carioca','economico'],'$','Bar sencillo de barrio conocido por sus porciones y cerveza fría.',false,'https://viagenss2.com.br/wp-content/uploads/2024/07/Bar-Adega-da-Velha.jpg'),
+      g('tacaca','Tacacá do Norte','bota-fla','Flamengo',['nordestina','economico'],'$$','Sabores amazónicos como tacacá, pato no tucupi y açaí tradicional.',false,'https://cdn2.indagare.com/i/63193/w4032'),
       g('majorica','Majórica','bota-fla','Flamengo',['carnes'],'$$$','Churrasquería tradicional con carnes servidas a la carta.'),
-      g('rotisseria-siria','Rotisseria Sírio Libanesa','bota-fla','Catete',['arabe','economico'],'$','Comida árabe rápida y abundante junto al Largo do Machado.'),
-      g('cafe-lamas','Café Lamas','bota-fla','Flamengo',['carioca','experiencia'],'$$','Restaurante histórico con platos clásicos, filetes y memoria política carioca.'),
+      g('rotisseria-siria','Rotisseria Sírio Libanesa','bota-fla','Catete',['arabe','economico'],'$','Comida árabe rápida y abundante junto al Largo do Machado.',false,'https://media.timeout.com/images/106043355/image.jpg'),
+      g('cafe-lamas','Café Lamas','bota-fla','Flamengo',['carioca','experiencia'],'$$','Restaurante histórico con platos clásicos, filetes y memoria política carioca.',false,'https://api.pico.com.br/storage/v1/object/public/uploads/google-photos/cafe-lamas-parque-do-flamengo.jpg'),
 
-      g('lilia','Lilia','centro','Lapa',['internacional','experiencia'],'$$$','Menús creativos dentro de un antiguo casarón de la Rua do Senado.'),
-      g('labuta-bar','Labuta Bar','centro','Centro',['carioca'],'$$','Boteco contemporáneo inspirado en el centro popular de Río.'),
-      g('labuta-mar','Labuta Mar','centro','Centro',['mariscos'],'$$$','Cocina marina del grupo Labuta en el corazón histórico.'),
-      g('casa-momus','Casa Momus','centro','Lapa',['pizza','internacional'],'$$$','Cocina mediterránea e italiana dentro de un sobrado histórico.'),
-      g('bafo-prainha','Bafo da Prainha','centro','Saúde',['carioca','experiencia'],'$$','Samba, comida de boteco y ambiente cultural en la Pequena África.'),
+      g('lilia','Lilia','centro','Lapa',['internacional','experiencia'],'$$$','Menús creativos dentro de un antiguo casarón de la Rua do Senado.',false,'https://vejario.abril.com.br/wp-content/uploads/2017/03/felipe-fittipaldi22.jpg?quality=70&strip=info&w=636&w=928'),
+      g('labuta-bar','Labuta Bar','centro','Centro',['carioca'],'$$','Boteco contemporáneo inspirado en el centro popular de Río.',false,'https://www.portalin.com.br/wp-content/uploads/2025/11/labuta-bar.jpg'),
+      g('labuta-mar','Labuta Mar','centro','Centro',['mariscos'],'$$$','Cocina marina del grupo Labuta en el corazón histórico.',false,'https://media-front.elmostrador.cl/2024/03/Labuta-Mar_Varios2_Foto-Carol-Catalani-819x1024-1-480x600.png'),
+      g('casa-momus','Casa Momus','centro','Lapa',['pizza','internacional'],'$$$','Cocina mediterránea e italiana dentro de un sobrado histórico.',false,'https://images.mnstatic.com/16/ab/16ab621183af9c9718db2743ecc982a0.jpg?aspect_ratio=980%3A880&fit=crop&format=png&height=880&quality=75&width=980'),
+      g('bafo-prainha','Bafo da Prainha','centro','Saúde',['carioca','experiencia'],'$$','Samba, comida de boteco y ambiente cultural en la Pequena África.',false,'https://s2.glbimg.com/JRxBvHnBb3cgmoudISeCqHzdEMI%3D/0x0%3A753x555/984x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2022/C/4/UHBovCSSWjgmXBdeRQ8A/3.glbimg.com-v1-auth-0ae9f161c1ff459593599b7ffa1a1292-images-escenic-2022-1-25-16-1643137599930.jpg'),
       g('casa-porto','Casa Porto','centro','Saúde',['carioca','experiencia'],'$$','Comida brasileña y programación cultural cerca de Pedra do Sal.'),
-      g('bar-omar','Bar do Omar','centro','Santo Cristo',['carioca','vista'],'$$','Boteco comunitario con vista elevada de la zona portuaria.'),
-      g('imaculada','Imaculada Bar e Restaurante','centro','Saúde',['carioca'],'$$','Casarón histórico, petiscos y platos brasileños en el Morro da Conceição.'),
+      g('bar-omar','Bar do Omar','centro','Santo Cristo',['carioca','vista'],'$$','Boteco comunitario con vista elevada de la zona portuaria.',false,'https://www.correiodopovo.com.br/image/contentid/policy%3A1.375280%3A1674810939/73381207_10219838983795373_9009009995773116416_n.jpg?%24p%24f%24q%24w=51be6ba&f=4x3&q=0.9&w=900'),
+      g('imaculada','Imaculada Bar e Restaurante','centro','Saúde',['carioca'],'$$','Casarón histórico, petiscos y platos brasileños en el Morro da Conceição.',false,'https://vejario.abril.com.br/wp-content/uploads/2016/11/morro-da-conceicao-1.jpeg?quality=70&strip=info&w=1024'),
       g('nova-capela','Nova Capela','centro','Lapa',['carioca','madrugada'],'$$$','Clásico de la madrugada conocido por cabrito, arroz de brócoli y bohemia.'),
-      g('cosmopolita','Cosmopolita','centro','Lapa',['carioca','experiencia'],'$$$','Restaurante histórico asociado al célebre filé à Oswaldo Aranha.'),
-      g('xian','Xian','centro','Centro',['asiatica','vista','experiencia'],'$$$','Cocina asiática y terraza con vistas al aeropuerto Santos Dumont y la bahía.'),
-      g('curto-cafe','Curto Café','centro','Centro',['cafe','economico'],'$','Café de producción responsable dentro de la galería comercial.'),
-      g('casa-cave','Casa Cavé','centro','Centro',['cafe','experiencia'],'$$','Confitería histórica de raíces portuguesas, famosa por sus dulces.'),
-      g('manon','Confeitaria Manon','centro','Centro',['cafe','economico'],'$','Café tradicional conocido por el Madrileño y sus vitrinas clásicas.'),
+      g('cosmopolita','Cosmopolita','centro','Lapa',['carioca','experiencia'],'$$$','Restaurante histórico asociado al célebre filé à Oswaldo Aranha.',false,'https://static.itdg.com.br/images/622-auto/22a63724be88f845fa0b245d344c3200/cosmopolita-alexandre-macieira-riotur.jpg'),
+      g('xian','Xian','centro','Centro',['asiatica','vista','experiencia'],'$$$','Cocina asiática y terraza con vistas al aeropuerto Santos Dumont y la bahía.',false,'https://media.theworldkeys.com/Restaurants/16600/Gallery/Xian-restaurant-Rio-de-Janeiro_6-1.webp'),
+      g('curto-cafe','Curto Café','centro','Centro',['cafe','economico'],'$','Café de producción responsable dentro de la galería comercial.',false,'https://static.where-e.com/Brazil/Rio_De_Janeiro_State/Rio_De_Janeiro_Municipality/Curto-Cafe_4fbb23091c7eb63c83472ed694a09688.jpg'),
+      g('casa-cave','Casa Cavé','centro','Centro',['cafe','experiencia'],'$$','Confitería histórica de raíces portuguesas, famosa por sus dulces.',false,'https://viajantesemfim.com.br/wp-content/uploads/2024/05/437859999_7352383228214717_3887860171247421543_n.jpg'),
+      g('manon','Confeitaria Manon','centro','Centro',['cafe','economico'],'$','Café tradicional conocido por el Madrileño y sus vitrinas clásicas.',false,'https://s2-oglobo.glbimg.com/Pj_4I07pEvQhWX966_kOmQ4cJkE%3D/1200x/smart/filters%3Acover%28%29%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2023/d/b/ZqpLAbQJKvFoUt6tuw8g/103461420-ri-rio-de-janeiro-rj-23-06-2023-confeitaria-manon-da-decada-de-40-sobrevive-aos-tempos-e.jpg'),
       g('galeto-liceu','Galeto Liceu','centro','Centro',['carioca','economico'],'$','Galeto, arroz, farofa y comida rápida para el almuerzo del Centro.'),
-      g('esquimo','Esquimó','centro','Centro',['buffet','economico'],'$','Almuerzos ejecutivos tradicionales con precios accesibles.'),
-      g('mosteiro','Mosteiro','centro','Centro',['internacional','mariscos'],'$$$','Cocina portuguesa y bacalao en una dirección clásica del Centro.'),
+      g('esquimo','Esquimó','centro','Centro',['buffet','economico'],'$','Almuerzos ejecutivos tradicionales con precios accesibles.',false,'https://s2-g1.glbimg.com/W4plAMNlbD1YmAlk21i2pDKysLE%3D/0x0%3A1280x850/984x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2025/a/w/YjKCHBRPGdwlTmPZfSNQ/whatsapp-image-2025-05-08-at-14.18.50.jpeg'),
+      g('mosteiro','Mosteiro','centro','Centro',['internacional','mariscos'],'$$$','Cocina portuguesa y bacalao en una dirección clásica del Centro.',false,'https://diariodorio.com/wp-content/uploads/2020/06/restaurante_mosteiro-br_centro_cimg3895_1024x768.jpg'),
 
-      g('ocya-ilha','Ocyá Ilha Primeira','barra','Ilha Primeira',['mariscos','vista','experiencia'],'$$$$','Experiencia gastronómica de pescados madurados a la que se llega en barco.',true),
-      g('shiso','Shiso','barra','Barra da Tijuca',['asiatica','experiencia'],'$$$$','Alta cocina japonesa dentro del Grand Hyatt.'),
+      g('ocya-ilha','Ocyá Ilha Primeira','barra','Ilha Primeira',['mariscos','vista','experiencia'],'$$$$','Experiencia gastronómica de pescados madurados a la que se llega en barco.',true,'https://s2-casavogue.glbimg.com/eMoEPDdoDODHvTGV9sPNL4glNFs%3D/0x0%3A680x453/1000x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_d72fd4bf0af74c0c89d27a5a226dbbf8/internal_photos/bs/2023/A/Z/8S8ddoSCqzNtPDX8mUwA/8.-ocya.jpg'),
+      g('shiso','Shiso','barra','Barra da Tijuca',['asiatica','experiencia'],'$$$$','Alta cocina japonesa dentro del Grand Hyatt.',false,'https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2016/06/01/1042/Grand-Hyatt-Rio-de-Janeiro-P217-Shiso-Ambiance.jpg/Grand-Hyatt-Rio-de-Janeiro-P217-Shiso-Ambiance.4x3.jpg'),
       g('yusha','Yūsha','barra','Barra da Tijuca',['asiatica','experiencia'],'$$$$','Sushi premium, ingredientes especiales y ambiente elegante.'),
-      g('corrientes','Corrientes 348','barra','Barra da Tijuca',['carnes'],'$$$$','Parrilla argentina, cortes para compartir y carta de vinos.'),
-      g('giuseppe-mar','Giuseppe Mar','barra','Barra da Tijuca',['mariscos'],'$$$$','Pescados y frutos del mar en ambiente sofisticado.'),
-      g('naga','Naga','barra','Barra da Tijuca',['asiatica'],'$$$','Restaurante japonés contemporáneo dentro de VillageMall.'),
-      g('ryu','Ryu Restaurante','barra','Recreio',['asiatica','internacional'],'$$$','Cocina coreana y asiática contemporánea en la región del Recreio.'),
-      g('pesqueiro','Pesqueiro','barra','Barra da Tijuca',['quiosque','mariscos','vista'],'$$$','Quiosque de pescados y mariscos frente a Praia da Reserva.'),
-      g('k08','K08','barra','Barra da Tijuca',['quiosque','vista'],'$$','Quiosque deportivo para desayunos, bebidas y ambiente de playa.'),
-      g('classico-barra','Clássico Beach Club Barra','barra','Barra da Tijuca',['quiosque','vista'],'$$$','Comida, coctelería y estructura de beach club frente al mar.'),
-      g('cavalo-marinho','Cavalo Marinho','barra','Barra da Tijuca',['mariscos','vista'],'$$$','Restaurante de mariscos con ambiente de isla en la región de la Gigóia.'),
+      g('corrientes','Corrientes 348','barra','Barra da Tijuca',['carnes'],'$$$$','Parrilla argentina, cortes para compartir y carta de vinos.',false,'https://cdn0.casamentos.com.br/vendor/2134/3_2/960/jpg/corrientesbarra-272-12_13_442134-175612900643859.jpeg'),
+      g('giuseppe-mar','Giuseppe Mar','barra','Barra da Tijuca',['mariscos'],'$$$$','Pescados y frutos del mar en ambiente sofisticado.',false,'https://media.timeout.com/images/106102018/image.jpg'),
+      g('naga','Naga','barra','Barra da Tijuca',['asiatica'],'$$$','Restaurante japonés contemporáneo dentro de VillageMall.',false,'https://media.timeout.com/images/106076649/image.jpg'),
+      g('ryu','Ryu Restaurante','barra','Recreio',['asiatica','internacional'],'$$$','Cocina coreana y asiática contemporánea en la región del Recreio.',false,'https://viagem.cnnbrasil.com.br/wp-content/uploads/sites/5/2024/07/RYU-RESTAURANTE-FABIO-WRIGHT.jpg?crop=1&h=900&w=1200'),
+      g('pesqueiro','Pesqueiro','barra','Barra da Tijuca',['quiosque','mariscos','vista'],'$$$','Quiosque de pescados y mariscos frente a Praia da Reserva.',false,'https://static.where-e.com/Brazil/Beach-Club-Pesqueiro-Praia-Da-Reserva-Barra-Da-Tijuca-Quiosque_2e8a2fdcbfd544a6161992fe1852c9dd.jpg'),
+      g('k08','K08','barra','Barra da Tijuca',['quiosque','vista'],'$$','Quiosque deportivo para desayunos, bebidas y ambiente de playa.',false,'https://www.orlario.com.br/wp-content/uploads/2022/10/k08-22-1024x683.jpg'),
+      g('classico-barra','Clássico Beach Club Barra','barra','Barra da Tijuca',['quiosque','vista'],'$$$','Comida, coctelería y estructura de beach club frente al mar.',false,'https://viajantes.net/uploads/default/original/2X/2/228e1b3efd83898d85f61bea497313e0b1953831.jpeg'),
+      g('cavalo-marinho','Cavalo Marinho','barra','Barra da Tijuca',['mariscos','vista'],'$$$','Restaurante de mariscos con ambiente de isla en la región de la Gigóia.',false,'https://ogimg.infoglobo.com.br/in/20326298-981-ed7/FT1086A/760/2012-497576435-2012022769800.jpg_20120227.jpg'),
 
       g('bar-frente','Bar da Frente','norte','Praça da Bandeira',['carioca'],'$$','Petiscos creativos que reinterpretan clásicos de boteco.'),
       g('bar-gema','Bar da Gema','norte','Tijuca',['carioca'],'$$','Boteco premiado con bolinhos, porciones y platos brasileños.'),
@@ -280,24 +277,24 @@
       g('sud','Sud, o Pássaro Verde','otros','Jardim Botânico',['pizza','internacional'],'$$$$','Cocina italiana de autor y preparaciones en horno de leña.'),
       g('casa-201','Casa 201','otros','Laranjeiras',['internacional','experiencia'],'$$$$','Menú degustación servido en una casa íntima y con pocas mesas.'),
 
-      g('temperarte-posto6','Temperarte Posto 6','copa-leme','Copacabana',['buffet','economico','carioca'],'$','Buffet libre y por kilo con carnes, pescados, ensaladas y guarniciones variadas.',true),
+      g('temperarte-posto6','Temperarte Posto 6','copa-leme','Copacabana',['buffet','economico','carioca'],'$','Buffet libre y por kilo con carnes, pescados, ensaladas y guarniciones variadas.',true,'https://image-worker.mindtrip.ai/image-resize/format%3Dwebp%2Cw%3D1200/https%3A/media-cdn.tripadvisor.com/media/photo-o/26/f4/ec/07/nossa-entrada.jpg'),
       g('temperarte-bolivar','Temperarte Bolívar','copa-leme','Copacabana',['buffet','economico','carioca'],'$','Alternativa práctica y variada para almorzar en la región de la Rua Bolívar.'),
       g('deck-buffet','Deck Buffet','copa-leme','Copacabana',['buffet','carnes','vista'],'$$','Buffet frente a la Avenida Atlântica con gran variedad de platos.'),
       g('carretao-copa','Carretão Copacabana','copa-leme','Copacabana',['carnes','buffet','experiencia'],'$$$','Segunda opción de la red en Copacabana con rodizio de carnes y buffet completo.'),
       g('stambul-copa','Stambul Copacabana','copa-leme','Copacabana',['arabe','economico'],'$$','Comida árabe, esfihas, quibes, shawarma y platos para compartir.'),
       g('guacamole-copa','Guacamole Cocina Mexicana','copa-leme','Copacabana',['internacional','madrugada'],'$$$','Restaurante mexicano colorido con tacos, fajitas, tragos y ambiente festivo.'),
-      g('cabanna-copa','Cabanna','copa-leme','Copacabana',['quiosque','mariscos','vista'],'$$$','Quiosque frente al Copacabana Palace con frutos del mar, tragos y mesas junto a la arena.'),
-      g('dumare-copa','Dumaré','copa-leme','Copacabana',['quiosque','mariscos','vista'],'$$$','Cocina de mar y coctelería en el Posto 3 de Copacabana.'),
-      g('praia-skol-copa','Praia Skol','copa-leme','Copacabana',['quiosque','carioca','madrugada'],'$$','Quiosque concurrido con cocina, bebidas y funcionamiento hasta tarde.'),
-      g('coisas-bamba','Coisas de Bamba','copa-leme','Copacabana',['quiosque','carioca','experiencia'],'$$','Samba, gastronomía carioca y ambiente acogedor frente a la playa.',true),
-      g('xodozin-copa','Xodózin','copa-leme','Copacabana',['quiosque','nordestina','experiencia'],'$$','Sabores nordestinos, carne de sol, baião de dois y música en la orla.'),
-      g('espetto-quiosque','Espetto Carioca Quiosque','copa-leme','Copacabana',['quiosque','carioca','vista'],'$$','Espetos, petiscos y bebidas para una comida informal frente al mar.'),
+      g('cabanna-copa','Cabanna','copa-leme','Copacabana',['quiosque','mariscos','vista'],'$$$','Quiosque frente al Copacabana Palace con frutos del mar, tragos y mesas junto a la arena.',false,'https://riotur.rio/wp-content/uploads/2016/04/Cabanna-QC07-2.jpg'),
+      g('dumare-copa','Dumaré','copa-leme','Copacabana',['quiosque','mariscos','vista'],'$$$','Cocina de mar y coctelería en el Posto 3 de Copacabana.',false,'https://www.orlario.com.br/wp-content/uploads/2022/12/dumare-15-scaled.jpg'),
+      g('praia-skol-copa','Praia Skol','copa-leme','Copacabana',['quiosque','carioca','madrugada'],'$$','Quiosque concurrido con cocina, bebidas y funcionamiento hasta tarde.',false,'https://www.orlario.com.br/wp-content/uploads/2022/10/final-da-libertadores-no-praia-skol-futebol-3.jpg'),
+      g('coisas-bamba','Coisas de Bamba','copa-leme','Copacabana',['quiosque','carioca','experiencia'],'$$','Samba, gastronomía carioca y ambiente acogedor frente a la playa.',true,'https://rotacult.com.br/wp-content/uploads/2025/04/Quiosque-Coisas-de-Bamba--534x462.jpeg'),
+      g('xodozin-copa','Xodózin','copa-leme','Copacabana',['quiosque','nordestina','experiencia'],'$$','Sabores nordestinos, carne de sol, baião de dois y música en la orla.',false,'https://i0.wp.com/festaculturaelazer.com.br/wp-content/uploads/2021/02/20210116_171307-scaled.jpg?fit=697%2C697&ssl=1'),
+      g('espetto-quiosque','Espetto Carioca Quiosque','copa-leme','Copacabana',['quiosque','carioca','vista'],'$$','Espetos, petiscos y bebidas para una comida informal frente al mar.',false,'https://espettocarioca.com.br/wp-content/uploads/2024/05/Espetto-quisoque-copacabana-scaled.jpg'),
 
       g('sushi-praca','Sushi da Praça','ipa-leblon','Ipanema',['asiatica','mariscos'],'$$','Sushi y combinados japoneses cerca de la Praça General Osório.',true),
-      g('frontera-ipanema','Frontera Ipanema','ipa-leblon','Ipanema',['buffet','internacional','economico'],'$$','Buffet variado con ensaladas, carnes, cocina internacional y buenas opciones para el almuerzo.',true),
-      g('belmonte-ipanema','Boteco Belmonte Ipanema','ipa-leblon','Ipanema',['carioca','vista','experiencia'],'$$$','Nueva dirección frente al mar con una vista privilegiada, empadas, petiscos y cerveza fría.',true),
-      g('carretao-ipanema','Carretão Ipanema Classic Grill','ipa-leblon','Ipanema',['carnes','buffet','experiencia'],'$$$','Rodizio de carnes y buffet a pocos pasos de Arpoador y General Osório.'),
-      g('sel-ipanema','Sel d’Ipanema','ipa-leblon','Ipanema',['quiosque','mariscos','vista'],'$$$$','Quiosque sofisticado con lounge frente al mar; bonito, pero con precios orientados al turismo.'),
+      g('frontera-ipanema','Frontera Ipanema','ipa-leblon','Ipanema',['buffet','internacional','economico'],'$$','Buffet variado con ensaladas, carnes, cocina internacional y buenas opciones para el almuerzo.',true,'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/60/73/ea/interior.jpg?h=1000&s=1&w=1800'),
+      g('belmonte-ipanema','Boteco Belmonte Ipanema','ipa-leblon','Ipanema',['carioca','vista','experiencia'],'$$$','Nueva dirección frente al mar con una vista privilegiada, empadas, petiscos y cerveza fría.',true,'https://www.boadiversao.com.br/midia/image/content/botecobelmonte-ipanema-fachada-boadiversao-2021_79760.jpg'),
+      g('carretao-ipanema','Carretão Ipanema Classic Grill','ipa-leblon','Ipanema',['carnes','buffet','experiencia'],'$$$','Rodizio de carnes y buffet a pocos pasos de Arpoador y General Osório.',false,'https://carretaoipanema.com.br/wp-content/uploads/2018/04/FaixadaRestaurante.jpg'),
+      g('sel-ipanema','Sel d’Ipanema','ipa-leblon','Ipanema',['quiosque','mariscos','vista'],'$$$$','Quiosque sofisticado con lounge frente al mar; bonito, pero con precios orientados al turismo.',false,'https://static.wixstatic.com/media/16875c_83422e122bf1483085ab94214a2e5c98~mv2.jpg/v1/fill/w_679%2Ch_424%2Cal_c/16875c_83422e122bf1483085ab94214a2e5c98~mv2.jpg'),
 
       g('kilograma-centro','Kilograma Centro','centro','Centro',['buffet','economico','carioca'],'$','Buffet por kilo, parrilla y platos cotidianos en Rua do Riachuelo.',true),
       g('pilograma-centro','Pilograma Prime Grill','centro','Centro',['buffet','economico','carioca'],'$','Red tradicional del Centro con varias unidades, buffet por kilo, ensaladas, platos calientes y carnes preparadas en la parrilla.',true),
@@ -383,8 +380,61 @@
       n('zeca-vogue','Bar do Zeca Pagodinho','Barra y Recreio','Barra da Tijuca','Pagode',['Miércoles','Jueves','Viernes','Sábado','Domingo'],'$$$','Pagode, samba y cocina brasileña en Vogue Square.'),
       n('vogue-square','Vogue Square','Barra y Recreio','Barra da Tijuca','Música en vivo',['Jueves','Viernes','Sábado'],'$$$','Complejo con bares, restaurantes y programación musical.'),
       n('ocya-sunset','Ocyá Ilha Primeira','Barra y Recreio','Ilha Primeira','Música en vivo',['Viernes','Sábado','Domingo'],'$$$','Atardecer, cocina marina y eventos especiales a los que se llega en barco.')
-    ].map((item,index)=>({...item,
-      img:['https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=1000','https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1000','https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&q=80&w=1000','https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&q=80&w=1000'][index%4],
+    ];
+    const FOTOS_VIDA_NOCTURNA={
+      'pedra-sal':'https://s2rio.com.br/wp-content/uploads/2015/03/Pedra-do-Sal3-1024x768.jpg.webp',
+      'scenarium-noite':'https://www.palavradecarioca.com/uploads/4/0/6/9/40698839/image-02-02-17-at-22-58_orig.jpg',
+      'carioca-gema':'https://d2enhrgkrmsl80.cloudfront.net/poi-images/6508da2290ca9956eed04e25/ATJ83zizgZvmkje3iqSE.jpeg?f=webp&w=1000',
+      'beco-rato':'https://viagemeturismo.abril.com.br/wp-content/uploads/2016/10/botequim-beco-do-rato-no-rio-de-janeiro-rj.jpeg?quality=70&strip=info&w=817',
+      'trapiche':'https://acaradorio.com/wp-content/uploads/2014/09/trapiche-Gamboa.jpg',
+      'bafo-noite':'https://s2.glbimg.com/JRxBvHnBb3cgmoudISeCqHzdEMI%3D/0x0%3A753x555/984x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2022/C/4/UHBovCSSWjgmXBdeRQ8A/3.glbimg.com-v1-auth-0ae9f161c1ff459593599b7ffa1a1292-images-escenic-2022-1-25-16-1643137599930.jpg',
+      'sacadura':'https://grupohel.com/wp/wp-content/uploads/2019/01/Grupo-hel-espa%C3%A7o-de-eventos-sacadura-154-home-2.jpg',
+      'leviano':'https://www.viajali.com.br/wp-content/uploads/2017/02/leviano-bar-lapa-730x480.jpg',
+      'lapa40':'https://4.bp.blogspot.com/-KJZrbscKZgg/WBDu1ZBmXPI/AAAAAAAAYNs/3mkm-CafC54J8RAm8jPkHd4K0agWxmw-QCLcB/s640/Lapa40Graus_Samba%2Bdo%2BCarlinhos_Dezembro%2B2014_Foto%2B-%2BBrunno%2BDantas%2B%252811%2529.jpg',
+      'circo':'https://riotur.rio/wp-content/uploads/2016/01/Circo-Voador3_Credits-Felipe-Varanda-1.jpg',
+      'fundicao':'https://maresiasdoleme.com/wp-content/uploads/2024/03/Design-sem-nome.jpg',
+      'selina-lapa':'https://guiaaleatoriodeturismo.files.wordpress.com/2019/05/20190402_0931050314135110299688484.jpg?w=1240',
+      'bar-cachaca':'https://www.civitatis.com/f/brasil/rio-de-janeiro/galeria/bar-barrio-lapa-pub-crawl-rio.jpg',
+      'vaca-atolada':'https://s2-oglobo.glbimg.com/Qq4l49cKNqxlZohlmKfWJg1nIww%3D/0x0%3A1296x864/1000x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2022/s/b/ztyr7zReWnIssasIWQxA/80048023-rs-rio-de-janeiro-24-11-2018-rodas-de-samba-samba-no-bar-vaca-atolada-na-lapa-foto.jpg',
+      'armazem-senado':'https://vejario.abril.com.br/wp-content/uploads/2023/09/Armazem-do-Senado.jpg?crop=1&resize=1212%2C909',
+      'bar-omar-noite':'https://s2-oglobo.glbimg.com/lQbdO9SUvObO5mPVQ1t8IirzN-4%3D/0x0%3A1260x840/984x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2024/Y/b/wurs3zRB67VrCl0sGAhg/105561046-rs-rio-de-janeiro-rj-12012024-morro-do-pinto-bares-que-estao-movimentando-a-regiao-na-fo.jpg',
+      'quartinho-noite':'https://media.timeout.com/images/106047743/image.jpg',
+      'xepa':'https://sopacultural.com/wp-content/uploads/2025/08/Xepa-Bar.jpg',
+      'bukowski':'https://www.viajali.com.br/wp-content/uploads/2019/08/bares-rio-de-janeiro-019-775x477.jpg',
+      'coordenadas':'https://heloisatolipan.com.br/imagens/2016/12/Coordenadas-Bar-1.jpg',
+      'macuna':'https://img05.restaurantguru.com/r480-interior-Macuna-Bar-2025-09.jpg',
+      'comuna':'https://vejario.abril.com.br/wp-content/uploads/2022/06/IMG-7115.jpg?quality=70&strip=info&w=650',
+      'brewteco':'https://www.brewnews.com.br/wp-content/uploads/2023/04/brewtecocapa.jpg',
+      'yoo2':'https://grupoespacoa.com.br/wp-content/uploads/2018/02/tidelli-hotel-yoo2-1.jpg',
+      'fogo-chao-bar':'https://res.cloudinary.com/qa301cbc/image/upload/v1788393692/fogo_de_chao_botafogo.jpg',
+      'bip-bip':'https://cloudfront-us-east-1.images.arcpublishing.com/infobae/W6N5E4BRQNF3TOWUGKNQ3F42JA.jpg',
+      'blue-note':'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/de/90/2c/palco.jpg?h=1200&s=1&w=1200',
+      'isabel-lounge':'https://www.therooftopguide.com/rooftop-bars-in-rio-de-janeiro/Bilder/isabel-lounge-600-4.jpg',
+      'moonlounge':'https://www.therooftopguide.com/rooftop-bars-in-rio-de-janeiro/Bilder/moonlounge-rooftop-bar-600-1.jpg',
+      'beco-garrafas':'https://s2-oglobo.glbimg.com/KkKu1BnX_vy9Hl0eECVWLRc8LZk%3D/0x242%3A3456x2712/924x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2024/H/l/ozlDEvQaCYTh3IUyWPZg/86009917-ri-rio-de-janeiro-rj-04-12-2019-25-anos-da-morte-do-maestro-tom-jobim-na-foto-a-cantora-ama.jpg',
+      'galeria-cafe':'https://tenvisit.com/wp-content/uploads/2023/02/Galeria-Cafe-7.jpg',
+      'pink-flamingo':'https://images.mindtrip.ai/attractions/9aaf/852d/092f/fb46/bcfe/6b41/0fac/ac09',
+      'canastra':'https://www.gringo-rio.com/wp-content/uploads/2018/10/canastra.jpg',
+      'nosso':'https://diariodorio.com/wp-content/uploads/2019/09/BAR-Nosso_Cred-Tomas-Rangel.jpg',
+      'astor-noite':'https://imagesapt.apontador-assets.com/fit-in/640x480/c8c13b18915240ebbdd161c78c7ddc42/astor.jpg',
+      'boa-praca-noite':'https://revistadegusta.com/wp-content/uploads/2023/12/Boa-Praca-Ipanema-1.jpg',
+      'jobi-noite':'https://res.cloudinary.com/qa301cbc/image/upload/v1788393693/jobi.jpg',
+      'renascenca':'https://s2-oglobo.glbimg.com/ZY0BD0ee7qQiJrR_UG7XTJICqWI%3D/1200x/smart/filters%3Acover%28%29%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2023/U/C/BasVXBS4ivlWXbXMFrYQ/renascenca.jpg',
+      'feira-noite':'https://res.cloudinary.com/qa301cbc/image/upload/v1788393690/feira-de-sao-cristovao.jpg'
+      ,'cacique':'https://media.timeout.com/images/106045344/1920/1080/image.jpg'
+      ,'quadra-mangueira':'https://r2.riodejaneirosounds.com/static/25d4d6260e1e1b898c477b2f18f182d340de65a0.jpg'
+      ,'quadra-salgueiro':'https://cdn.getyourguide.com/img/tour/5d1cb4ab6565a.jpeg/148.jpg'
+      ,'portela':'https://gresportela.com.br/conteudo/noticias/grande/passistas_ritmista.jpg'
+      ,'vitrinni':'https://outlas.co/venues/vitrinni-lounge-rio-de-janeiro/vitrinni-lounge-rio-de-janeiro-banner-large.jpg'
+      ,'all-in':'https://www.allinlounge-rio.com.br/casa/1645479914_grande.jpg'
+      ,'bosque-bar':'https://media.timeout.com/images/106047757/image.jpg'
+      ,'zeca-vogue':'https://bfw.group/wp-content/uploads/2022/01/Bar-do-Zeca-Pagodinho-Boteco-do-Zeca-Pagodinho-Vogue-Square-Barra-da-Tijuca-BFWGroup-Patio-scaled.jpg'
+      ,'vogue-square':'https://ogimg.infoglobo.com.br/in/20495626-351-1a5/FT1086A/1615.jpg'
+      ,'ocya-sunset':'https://www.lanacion.com.ar/resizer/v2/para-fanaticos-del-pescado-la-sucursal-de-ocya-en-JORJFSSXFJE5ZGXDWFRMXFY5QM.JPG?auth=5fd04331709e672feb535b940244577ae6599a57e34f591c175826ab278016f8&height=800&quality=70&smart=true&width=1200'
+    };
+    const FOTOS_NOCHE_APOYO=['https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=1000','https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1000','https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&q=80&w=1000','https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&q=80&w=1000'];
+    const VIDA_NOCTURNA_CON_FOTOS=VIDA_NOCTURNA_DATA.map((item,index)=>({...item,
+      img:FOTOS_VIDA_NOCTURNA[item.id]||FOTOS_NOCHE_APOYO[index%FOTOS_NOCHE_APOYO.length],
       mapa:`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.nombre+' '+item.barrio+' Rio de Janeiro')}`
     }));
 
@@ -836,6 +886,23 @@
     "miniatura": "https://assets.brasildefato.com.br/2024/09/image_processing20200201-29235-wo4xej.jpg",
     "nombre": "Feira da Providência",
     "zona": "Sede variable / evento anual"
+  },
+  {
+    "id":"feira-noturna-copacabana",
+    "nombre":"Feira Noturna de Copacabana",
+    "zona":"Copacabana · Avenida Atlântica",
+    "dia":"Noches, según autorización y clima",
+    "descripcion":"Una de las ferias de recuerdos más prácticas para el turista: puestos iluminados junto al paseo marítimo con artesanía, camisetas, cuadros, accesorios, decoración y regalos de Río.",
+    "destacados":["Souvenirs","Artesanía carioca","Ropa y accesorios","Paseo nocturno frente al mar"],
+    "direccion":"Avenida Atlântica, en el tramo del paseo marítimo de Copacabana.",
+    "horario":"Suele funcionar durante la noche. Los días, el tramo exacto y los horarios pueden cambiar por clima, eventos o autorización municipal; confirma antes de ir.",
+    "comoLlegar":"Metro hasta Cantagalo o Siqueira Campos y caminata hacia la Avenida Atlântica, según el tramo en funcionamiento.",
+    "consejo":"Pregunta el precio antes de comprar, compara entre varios puestos y verifica materiales y tallas. Lleva poco efectivo y mantén el celular guardado cuando no lo estés usando.",
+    "miniatura":"https://catracalivre.com.br/wp-content/uploads/2019/12/feira-noturna-de-copacabana.jpg",
+    "fotoPrincipal":"https://catracalivre.com.br/wp-content/uploads/2019/12/feira-noturna-de-copacabana.jpg",
+    "fotoMedia":"https://casa.abril.com.br/wp-content/uploads/2019/03/rio_de_janeiro_feira_noturna_copacabana-reproduc3a7c3a3o-travel-experiences.jpg?quality=70&strip=info&w=928",
+    "mapEmbed":"https://www.google.com/maps?q=Feira+Noturna+de+Copacabana+Avenida+Atlantica&output=embed",
+    "mapUrl":"https://www.google.com/maps/search/?api=1&query=Feira+Noturna+de+Copacabana+Avenida+Atlantica"
   }
 ];
 
@@ -1250,7 +1317,7 @@ const SHOPPINGS_DATA = [
       { nombre: 'Urca', desc: 'Barrio residencial tranquilo y ultraseguro al pie del Pan de Azúcar, ideal para tomar algo en Mureta da Urca.', img: 'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3127' },
     ];
 
-   const EXPERIENCIAS_DATA = [
+const EXPERIENCIAS_DATA = [
   {
     id: 'exp-1',
     titulo: 'Full Day Río',
@@ -1302,6 +1369,139 @@ const SHOPPINGS_DATA = [
     descripcion: 'Descubre Angra dos Reis navegando entre islas, playas y aguas cristalinas. El recorrido incluye Playa Cataguases, Blue Lagoon, Japariz Beach y una última parada en Santana o Araça.'
   }
 ];
+
+const ACTIVIDADES_NUEVAS = [
+  {
+    id:'petropolis', titulo:'Petrópolis — Ciudad Imperial', categoria:'Historia & cultura', precio:'Desde R$190', duracion:'Día completo · salida 08:00', grupo:'Salidas regulares', encuentro:'Hoteles de Copacabana, Ipanema y Leblon', miniatura:'https://media.tacdn.com/media/attractions-splice-spp-674x446/07/90/15/ed.jpg',
+    intro:'Explora la belleza de Petrópolis, antiguo destino de verano de la realeza brasileña, en una visita guiada de día completo desde Río de Janeiro.',
+    parrafos:['Conocerás la Ciudad Imperial y algunos de sus lugares más emblemáticos: el Palacio de Cristal, el Museo Imperial, la Casa de Santos Dumont, la Catedral de São Pedro de Alcântara y Rua Teresa.','El paquete completo suma una parada inolvidable en Cervejaria Bohemia, donde podrás conocer la historia y la ciencia de la cerveza mediante un recorrido con exhibiciones interactivas, entrada y degustación incluidas.','Incluye transporte de ida y vuelta desde la mayoría de los hoteles de la Zona Sur, guía y almuerzo. Espera al guía en el lobby del hotel confirmado. Si tu hotel no aparece en la lista, consulta el punto y la hora de recogida más cercanos.'],
+    imagenes:[['Palacio de Cristal','https://upload.wikimedia.org/wikipedia/commons/7/7d/Pal%C3%A1cio_de_Cristal_%28Petr%C3%B3polis%29.jpg'],['Museo Imperial','https://a.cdn-hotels.com/gdcs/production71/d1486/06c0648e-c0de-4975-a20f-8e10df96cc1e.jpg?impolicy=fcrop&w=1600&h=1066&q=medium'],['Casa de Santos Dumont','https://socerj.org.br/wp-content/uploads/2013/06/Petropolis-jornal-jun-Casa-de-Santos-Dumont-interno.jpg'],['Cervejaria Bohemia','https://diariodorio.com/wp-content/uploads/2019/11/cervejaria_bohemia_-1280x720.jpg'],['Rua Teresa','https://soupetropolis.com/wp-content/uploads/2017/11/RUA-TEREZA-2-1.jpg']],
+    opciones:['Petrópolis City Tour + almuerzo — R$190','Petrópolis City Tour + almuerzo + Cervejaria Bohemia — R$220']
+  },
+  {
+    id:'helicoptero', titulo:'Vuela en helicóptero', categoria:'Experiencia aérea', precio:'Desde R$1.900', duracion:'20 a 45 minutos', grupo:'Aeronaves privadas para 2–3 o 4 personas', encuentro:'Consultar helipuerto y disponibilidad', miniatura:'https://passeiodehelicoptero.com.br/wp-content/uploads/2021/09/Helicoptero_Cristo.jpg', video:'https://www.youtube.com/watch?v=3smqm6PyZyA', instagram:'https://www.instagram.com/p/DUwKAZAkZih/',
+    intro:'¡Disfruta Río desde el cielo! Vive una experiencia privada única y contempla desde una perspectiva inolvidable algunas de las postales más famosas de la Ciudad Maravillosa.',
+    parrafos:['Según la ruta elegida podrás sobrevolar Copacabana, Ipanema, Maracaná, Pan de Azúcar y otros paisajes de Río. Todas las opciones sobrevuelan el Cristo Redentor.','Las aeronaves siguen los procedimientos de mantenimiento recomendados por los fabricantes y por la Agencia Nacional de Aviación Civil (ANAC). Los vuelos son operados por profesionales calificados y están sujetos a condiciones meteorológicas y operacionales.'],
+    opciones:['20 min · aeronave para 2–3 personas — R$1.900','20 min · aeronave para 4 personas — R$2.450','25–30 min · aeronave para 2–3 personas — R$2.200','25–30 min · aeronave para 4 personas — R$3.000','40–45 min · aeronave para 2–3 personas — R$3.200','40–45 min · aeronave para 4 personas — R$4.500','Helicóptero sin puertas · 2–3 personas · 30–35 min — R$2.600'],
+    imagenesCompletas:[['Tarifas y ruta — vuelo de 20 minutos','https://res.cloudinary.com/qa301cbc/image/upload/v1788442264/WhatsApp_Image_2026-09-03_at_10.09.20.jpg'],['Tarifas y ruta — vuelo de 25 a 30 minutos','https://res.cloudinary.com/qa301cbc/image/upload/v1788442263/WhatsApp_Image_2026-09-03_at_10.11.23.jpg'],['Tarifas y ruta — vuelo de 40 a 45 minutos','https://res.cloudinary.com/qa301cbc/image/upload/v1788442264/ChatGPT_Image_Sep_3_2026_10_27_46_AM.png']],
+    imagenes:[['Río desde el helicóptero','https://media.tacdn.com/media/attractions-splice-spp-674x446/09/9a/ac/d3.jpg']]
+  },
+  {
+    id:'aquario-boulevard', titulo:'AquaRio + Boulevard Olímpico', categoria:'Familia', precio:'R$240 por persona', duracion:'Consultar horario de salida', grupo:'Frecuencia diaria', encuentro:'Traslado incluido', miniatura:'https://i.pinimg.com/originals/64/b9/89/64b9894ad181b7f075e81aafdc5b4f46.jpg', video:'https://www.youtube.com/watch?v=8RrEoAgi0Ow',
+    intro:'Descubre el acuario más grande de Latinoamérica y recorre el Boulevard Olímpico en una experiencia ideal para toda la familia.',
+    parrafos:['AquaRio reúne más de 8.000 animales de alrededor de 350 especies, incluidos tiburones, mantarrayas y una enorme variedad de peces. Parte de sus recursos se destina a investigación en biología marina, medio ambiente y sustentabilidad.','Durante el recorrido podrás fotografiar áreas como el Océano y el gran tanque de 3,3 millones de litros y siete metros de profundidad. El túnel con el agua sobre los visitantes crea una sensación inolvidable.','Después recorreremos el Boulevard Olímpico para contemplar el Mural das Etnias, la monumental obra del artista brasileño Kobra. Al finalizar regresamos al hotel.'],
+    opciones:['Incluye traslado y guía','Niños de 3 a 10 años: 50% de descuento','Niños de 0 a 2 años: gratis en el regazo de sus padres','Es obligatorio presentar documento de identidad o copia'],
+    imagenes:[['Vida marina en AquaRio','https://www.aquariomarinhodorio.com.br/wp-content/uploads/2018/05/shark-week-aquario-425x270.jpg.webp'],['Túnel de AquaRio','https://1.bp.blogspot.com/-qCTfEnv4MU0/WCHzAKWht9I/AAAAAAAAQBE/D8NIOu3K3zgV1Ql0gQJkLwmC_CSMfxQcQCLcB/s1600/AquaRio.jpg'],['Mural das Etnias','https://www.researchgate.net/publication/329870091/figure/fig3/AS:706632522686467@1545485730391/Figura-04-Mural-Etnias-Todos-somos-uno-Eduardo-Kobra-2016-Boulevard-Olimpico-Rio-de.jpg']], instagram:'https://www.instagram.com/p/DbqW6EHhB_6/'
+  },
+  {
+    id:'parapente', titulo:'Vuelo en parapente', categoria:'Deportes & aventura', precio:'Promo septiembre R$299', duracion:'Según condiciones de vuelo', grupo:'Salidas diarias', encuentro:'Consultar punto de encuentro', miniatura:'https://i.imgur.com/6WkSJqg.jpg', instagram:'https://www.instagram.com/p/C-5rAaNpONb/',
+    intro:'Vive una aventura inolvidable en parapente con una vista increíble de Río de Janeiro.',
+    parrafos:['El vuelo biplaza es guiado por un instructor: tú disfrutas del paisaje y de la adrenalina mientras un profesional se ocupa de la operación. Antes de despegar recibirás las instrucciones necesarias y una simulación del despegue y el aterrizaje.','Para despegar deberás acompañar al piloto en una breve carrera hasta quedar suspendido. El aterrizaje es suave: bastará con levantar las piernas siguiendo las indicaciones del instructor.','Lleva ropa cómoda, preferiblemente zapatillas, protector solar, repelente y agua. La actividad depende de condiciones climáticas favorables; si no es posible volar el día reservado, podrás reprogramarla.'],
+    opciones:['Equipo homologado para vuelo biplaza y todos los elementos de seguridad','Transporte de regreso al área de despegue','Fotos y videos del vuelo','Valor habitual — R$399','Promoción de inauguración durante septiembre — R$299 con fotos y videos','Promoción válida solo para reservas realizadas desde este sitio web'],
+    imagenes:[['Preparación para el vuelo','https://i.imgur.com/ILl3Rip.jpg'],['Vuelo en parapente sobre Río','https://res.cloudinary.com/qa301cbc/image/upload/v1788443467/WhatsApp_Image_2026-09-03_at_10.50.28_1.jpg'],['Una experiencia para recordar','https://res.cloudinary.com/qa301cbc/image/upload/v1788443467/WhatsApp_Image_2026-09-03_at_10.50.28_2.jpg'],['Parapente con instructor profesional','https://res.cloudinary.com/qa301cbc/image/upload/v1788443467/WhatsApp_Image_2026-09-03_at_10.50.28.jpg']]
+  },
+  {
+    id:'paracaidas', titulo:'Salto en paracaídas', categoria:'Deportes extremos', precio:'Desde R$1.000', duracion:'Salto desde 12.000 pies', grupo:'Fines de semana', encuentro:'Consultar disponibilidad', miniatura:'https://res.cloudinary.com/qa301cbc/image/upload/v1788443901/21348a78-83f5-40c1-bc85-9cae65b79626.jpg', instagram:'https://www.instagram.com/p/DGJbPBny9_Z/',
+    intro:'Salta en paracaídas y vive una experiencia extrema con instructores capacitados, equipo de calidad e infraestructura de primer nivel.',
+    parrafos:['Tras unos 15 minutos de instrucción en tierra, pasajero e instructor realizan el salto en tándem conectados a un paracaídas preparado para dos personas. Son aproximadamente 45 segundos de caída libre a cerca de 200 km/h antes de la apertura y un aterrizaje seguro.','La experiencia queda registrada en fotos y videos para que puedas compartir este momento con familiares y amigos.'],
+    opciones:['BASE — salto tándem + Hand Cam + más de 200 fotos tipo selfie: R$1.000','PREMIUM — salto tándem + Hand Cam + cámara externa operada por otro paracaidista + más de 200 fotos: R$2.000','Consultar disponibilidad'],
+    imagenes:[['Salto en tándem','https://res.cloudinary.com/qa301cbc/image/upload/v1788443928/fdba8d85-8575-4a49-85c8-f5f589dbe284_1.jpg'],['Preparación y experiencia','https://res.cloudinary.com/qa301cbc/image/upload/v1788444134/WhatsApp_Image_2026-09-03_at_11.01.54.jpg']]
+  },
+  {
+    id:'parasail', titulo:'Parasail en Río', categoria:'Mar & aventura', precio:'R$490 por persona', duracion:'Lancha aprox. 2 h · vuelo aprox. 10 min', grupo:'Operación con clima favorable', encuentro:'Consultar punto de embarque', miniatura:'https://res.cloudinary.com/qa301cbc/image/upload/v1788444415/parasail_1.jpg',
+    intro:'Deslízate sobre el Atlántico frente a Copacabana, Ipanema y el archipiélago de Cagarras a bordo de una lancha especialmente preparada para parasailing.',
+    parrafos:['Los despegues y aterrizajes se realizan de forma lenta y gradual. Una vez arriba, el vuelo es suave y sereno: solo sentirás la brisa marina. La operación respeta las condiciones de la naturaleza y aplica control y renovación constante de los equipos.','Después de la orientación de la tripulación, recibirás chaleco salvavidas y arnés. Te sentarás en la plataforma y serás elevado suavemente por el paracaídas. No necesitas experiencia previa.','Usa pantalones cortos y camiseta, bikini o bañador si quieres nadar, y chanclas o sandalias. Puedes llevar cámara bajo tu responsabilidad.'],
+    opciones:['Valor vigente — R$490 por persona','Fotos digitales HD: R$50','Video HD de aproximadamente 10 minutos: R$50','Servicios de foto y video enviados mediante enlace de descarga'],
+    imagenes:[['Vuelo sobre el mar','https://res.cloudinary.com/qa301cbc/image/upload/v1788444416/parasail_2.jpg'],['Despegue desde la lancha','https://res.cloudinary.com/qa301cbc/image/upload/v1788444417/parasail3.jpg'],['Experiencia de parasailing','https://res.cloudinary.com/qa301cbc/image/upload/v1788444418/parasail4.jpg']]
+  },
+  {
+    id:'rocinha-tour', titulo:'Favela Rocinha', categoria:'Cultura & comunidad', precio:'R$170', duracion:'Turnos mañana y tarde', grupo:'Salidas diarias · opción privada', encuentro:'Consultar', miniatura:'https://ogimg.infoglobo.com.br/in/24236526-14c-a73/FT1086A/85207535_PA-Rio-de-Janeiro-RJ-16-10-2019Desigualdade-no-Brasil-aumenta-apesar-o-pequeno-cresc.jpg', instagram:'https://www.instagram.com/p/DN_N8AlEURe/',
+    intro:'Conoce Rocinha, una de las favelas más grandes de América Latina, caminando por la comunidad junto a un guía local.',
+    parrafos:['Interactúa respetuosamente con miembros de la comunidad, conoce cómo se estableció Rocinha y comprende mejor los factores históricos, económicos y políticos que dan forma a la sociedad de Río.','También ofrecemos recorridos privados con un guía exclusivo para tu grupo.'],
+    imagenes:[['Rocinha y su comunidad','https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/v1788444793/2025-09-23_122745.heic'],['Historia y vida local','https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/v1788444794/2025-09-23_125851.heic']]
+  },
+  {
+    id:'maracana-experience', titulo:'Maracaná Experience', categoria:'Fútbol & historia', precio:'R$250 por persona', duracion:'Consultar', grupo:'Tour con entrada incluida', encuentro:'Recogida en Copacabana, Ipanema, Leblon, Botafogo, Flamengo o Lapa', miniatura:'https://res.cloudinary.com/qa301cbc/image/upload/v1788445341/caracana4.avif', instagram:'https://www.instagram.com/p/DLa8z_wSqcR/',
+    intro:'Visita por dentro uno de los estadios más famosos del mundo y descubre los bastidores del templo del fútbol brasileño.',
+    parrafos:['Los ambientes temáticos recorren los grandes momentos del estadio. La exposición incluye piezas vinculadas a ídolos como Pelé, el uniforme usado por Garrincha en el Mundial de 1962, camisetas, botas y objetos deportivos.','Podrás conocer los vestuarios y la sala de ruedas de prensa. Es una experiencia imprescindible para fanáticos del fútbol y de las grandes historias del deporte.'],
+    opciones:['Guía de turismo','Transporte de ida y vuelta','Entrada al Maracaná'],
+    imagenes:[['Historia del Maracaná','https://res.cloudinary.com/qa301cbc/image/upload/v1788445342/maracana2.jpg'],['Dentro del estadio','https://res.cloudinary.com/qa301cbc/image/upload/v1788445343/maracasna1.jpg'],['El templo del fútbol','https://res.cloudinary.com/qa301cbc/image/upload/v1788445341/maracana3.avif']]
+  },
+  {
+    id:'pedra-telegrafo', titulo:'Pedra do Telégrafo', categoria:'Senderismo & fotografía', precio:'R$190', duracion:'6–7 h con desplazamiento', grupo:'Diario por la mañana · niños desde 10 años', encuentro:'Embarque 06:00–07:00 · Zona Sur y Centro, a consultar', miniatura:'https://res.cloudinary.com/qa301cbc/image/upload/v1788445500/WhatsApp_Image_2026-09-03_at_11.24.28.jpg',
+    intro:'Descubre uno de los puntos fotográficos más famosos de Río, dentro del Parque Estatal da Pedra Branca, a 345 metros sobre el nivel del mar.',
+    parrafos:['Te recogeremos en el hotel o posada y, camino a Pedra do Telégrafo, podrás contemplar playas como Grumari, Prainha y Recreio dos Bandeirantes. El sendero tiene unos 1.500 metros y tarda cerca de 50 minutos.','La roca permite crear la famosa fotografía que simula una caída, aunque se encuentra muy cerca del suelo. El recorrido incluye transporte y guía turístico acreditado; no incluye almuerzo, bebidas, postres ni servicios adicionales.','Lleva agua, protector solar, repelente, zapatillas y ropa cómoda. La caminata contiene tramos empinados y tiene dificultad media. También hay opción de tour privado.'],
+    imagenes:[['Inicio del sendero','https://thetravelingchild.co/wp-content/uploads/2019/04/Pedra-de-Telegrafo-Rest-Area.jpg'],['La fotografía clásica','https://cdn.getyourguide.com/img/tour/58c59e1b6f78b.jpeg/97.jpg'],['Vista desde Pedra do Telégrafo','https://res.cloudinary.com/qa301cbc/image/upload/v1788445649/dsc-5362-largejpg.jpg']]
+  },
+  {
+    id:'morro-dois-irmaos', titulo:'Morro Dois Irmãos', categoria:'Senderismo & comunidad', precio:'R$190', duracion:'Caminata aprox. 1 h 30 min', grupo:'Salidas diarias · modalidad diurna o amanecer', encuentro:'Vidigal', miniatura:'https://img3.oastatic.com/img2/55140934/max/morro-dois-irmaos-rio-de-janeiro-brasil.jpg',
+    intro:'Embárcate en una caminata fascinante al Morro Dois Irmãos y combina vistas impresionantes con un recorrido por Vidigal.',
+    parrafos:['La aventura comienza subiendo por Vidigal en moto-taxi. Después caminarás aproximadamente una hora y media por el bosque hasta alcanzar la cumbre, a 533 metros de altura.','Desde lo alto comprenderás mejor los contrastes sociales de Río y la manera en que la Floresta da Tijuca se mezcla con la ciudad. Puedes elegir la salida diurna o la experiencia especial para contemplar el nacimiento del sol.'],
+    opciones:['Modalidad diurna','Modalidad amanecer'],
+    imagenes:[['Vista hacia la Lagoa','https://trilhandomontanhas.com/arquivos/2018-03/morro-dois-irmaos-com-vista-para-lagoa-maior.jpg'],['Rocinha desde la cumbre','https://trilhandomontanhas.com/arquivos/2018-05/morro-dois-irmaos-com-rocinha-ao-fundo-maior.jpg'],['Amanecer en Morro Dois Irmãos','https://res.cloudinary.com/qa301cbc/image/upload/v1788445890/MORRONACER.jpg']]
+  },
+  {
+    id:'pedra-bonita', titulo:'Pedra Bonita', categoria:'Naturaleza & senderismo', precio:'R$250 por persona', duracion:'Aproximadamente 4 horas', grupo:'Consultar disponibilidad', encuentro:'Consultar', miniatura:'https://cdn.getyourguide.com/img/tour/59e5f3971871f.jpeg/98.jpg',
+    intro:'Pedra Bonita es uno de los miradores naturales más hermosos de Río. Su sendero exige un esfuerzo físico ligero y regala una de las vistas más espectaculares de la ciudad.',
+    parrafos:['A 693 metros de altitud, en el Parque Nacional da Tijuca, Pedra Bonita se encuentra junto a la única rampa de vuelo libre de la ciudad para ala delta y parapente. Allí podrás observar los despegues y tomar excelentes fotografías.','Desde la cima aparecen Pedra da Gávea, Barra da Tijuca, São Conrado y la inmensidad de la Floresta da Tijuca. El guía también llevará al grupo por Agulhinha da Gávea, con una hermosa vista del Morro Dois Irmãos.'],
+    imagenes:[['Mirador de Pedra Bonita','https://res.cloudinary.com/qa301cbc/image/upload/v1788446390/PEDRA4.jpg'],['Sendero y naturaleza','https://res.cloudinary.com/qa301cbc/image/upload/v1788446374/PEDRA1.jpg'],['Vista panorámica','https://cdn.getyourguide.com/img/tour/583595a955961.jpeg/145.jpg']]
+  },
+  {
+    id:'lancha-privada', titulo:'Lancha privada', categoria:'Experiencia privada', precio:'Desde R$1.950', duracion:'Consultar recorrido', grupo:'Ideal para parejas, familias y amigos', encuentro:'Marina da Glória', miniatura:'https://res.cloudinary.com/qa301cbc/image/upload/v1788446907/5dec1759-1b28-4df4-8a1c-5338edbfa9de.jpg',
+    intro:'Recorrer en lancha los principales puntos turísticos de Río es vivir un sueño sobre el mar.',
+    parrafos:['Encuentra la embarcación perfecta para disfrutar un momento especial en pareja, con la familia o con amigos. El alquiler incluye marinero y combustible.','El embarque se realiza en Marina da Glória y el recorrido puede elegirse de acuerdo con tus preferencias y las condiciones de navegación del día.'],
+    opciones:['Bom Amigo · 27 pies','Lancha acogedora y económica para grupos pequeños','Sonido Bluetooth','Baño','Parrilla','Tapete náutico','Desde R$1.950'],
+    imagenes:[['Navegación privada','https://res.cloudinary.com/qa301cbc/image/upload/v1788446908/891a4089-be6b-4466-a8b2-fd46990049f2.jpg'],['Lancha Bom Amigo','https://res.cloudinary.com/qa301cbc/image/upload/v1788446908/0665a19f-f46e-442a-b6e8-1e7d8d176ece.jpg']]
+  },
+  {
+    id:'partidos-maracana', titulo:'Partidos en el Maracaná', categoria:'Fútbol en vivo', precio:'Consultar partido', duracion:'Según calendario', grupo:'Cupos limitados', encuentro:'Zona de hospedaje confirmada', miniatura:'https://res.cloudinary.com/qa301cbc/image/upload/v1788447586/e6.jpg', instagram:'https://www.instagram.com/p/DWM2wL0xryM/',
+    intro:'¡Siente la pasión del fútbol en el templo sagrado! El Maracaná no solo se visita: se vive.',
+    parrafos:['Disfruta la energía de la hinchada y la adrenalina de los grandes partidos sin preocuparte por entradas, filas o desplazamientos. Nuestro equipo organiza la experiencia para que tu única preocupación sea cantar.','La previa comienza antes del pitazo con cerveza, tequila, jugos, agua, concursos, sorpresas y un ambiente festivo para compartir con fanáticos de todo el mundo. Los cupos son estrictamente limitados y dependen del calendario.'],
+    opciones:['Entrada garantizada para el partido reservado','Transporte de ida y vuelta desde la zona de hospedaje acordada','Guía especializado y bilingüe','Seguridad y asistencia antes, durante y después del partido','Previa con bebidas, concursos y sorpresas'],
+    imagenes:[['Noche de fútbol en Río','https://res.cloudinary.com/qa301cbc/image/upload/v1788447587/MARACAW.jpg']]
+  },
+  {
+    id:'pedra-gavea', titulo:'Trekking Pedra da Gávea', categoria:'Trekking avanzado', precio:'R$400 por persona', duracion:'Aproximadamente 7–9 horas', grupo:'Salida con guía profesional · consultar disponibilidad', encuentro:'Acceso por Barra da Tijuca', miniatura:'https://www.pelago.com/img/products/BR-Brazil/climb-to-the-top-of-pedra-da-gavea/e8617e03-4b09-470f-8506-142570330f23_climb-to-the-top-of-pedra-da-gavea.jpg',
+    intro:'Conquista una de las montañas más emblemáticas de Río y contempla una vista de 360 grados sobre el mar, la ciudad y la Floresta da Tijuca.',
+    parrafos:['Pedra da Gávea es una caminata exigente, con fuerte desnivel y sectores técnicos. El paso conocido como Carrasqueira implica exposición y trepada sobre roca, por lo que esta experiencia se realiza con guía profesional y los elementos de seguridad correspondientes.','Se necesita buen estado físico, calzado adecuado, agua, comida ligera, protector solar y ropa cómoda. La salida depende del clima, del estado del sendero y de la evaluación de seguridad del guía. No es una actividad recomendada para principiantes sin acompañamiento.'],
+    opciones:['Guía profesional','Equipo de seguridad para los sectores técnicos','Orientación durante todo el recorrido','Valor: R$400 por persona','Reserva sujeta a clima, condición física y disponibilidad'],
+    imagenes:[['Ascenso por la Carrasqueira','https://www.pelago.com/img/products/BR-Brazil/climb-to-the-top-of-pedra-da-gavea/e8617e03-4b09-470f-8506-142570330f23_climb-to-the-top-of-pedra-da-gavea.jpg']]
+  }
+];
+
+const SENDEROS_RIO = [
+ {id:'catacumba',nombre:'Parque da Catacumba',zona:'Lagoa',nivel:'Fácil',duracion:'1–2 horas',foto:'https://conteudo.imguol.com.br/c/noticias/3c/2021/11/18/parque-da-catacumba-na-lagoa-na-zona-sul-do-rio-de-janeiro-1637263668809_v2_900x506.jpg',descripcion:'Senderos cortos dentro de un parque urbano junto a la Lagoa, con esculturas, vegetación y miradores. Buena elección para familias y para quien comienza a caminar.'},
+ {id:'dois-irmaos-trek',nombre:'Morro Dois Irmãos',zona:'Vidigal',nivel:'Moderado',duracion:'2–3 horas',foto:'https://botasnatrilha.com.br/wp-content/uploads/2022/06/Trilha-Morro-Dois-Irmaos-9.jpg',descripcion:'Ascenso desde Vidigal con vistas de Ipanema, Leblon, Rocinha, Lagoa y São Conrado. Hay modalidades diurna y amanecer.'},
+ {id:'pedra-bonita-trek',nombre:'Pedra Bonita',zona:'São Conrado',nivel:'Fácil a moderado',duracion:'2–3 horas',foto:'https://res.cloudinary.com/qa301cbc/image/upload/v1788446390/PEDRA4.jpg',descripcion:'Una de las mejores relaciones entre esfuerzo y recompensa: sendero relativamente corto y panorámica de Pedra da Gávea, Barra, São Conrado y la floresta.'},
+ {id:'pedra-gavea-trek',nombre:'Pedra da Gávea',zona:'Barra da Tijuca',nivel:'Difícil y técnico',duracion:'7–9 horas',foto:'https://www.pelago.com/img/products/BR-Brazil/climb-to-the-top-of-pedra-da-gavea/e8617e03-4b09-470f-8506-142570330f23_climb-to-the-top-of-pedra-da-gavea.jpg',descripcion:'Trekking largo y exigente con el paso técnico de la Carrasqueira. Recomendamos realizarlo exclusivamente con guía profesional y equipo de seguridad.'},
+ {id:'pico-tijuca',nombre:'Pico da Tijuca',zona:'Floresta da Tijuca',nivel:'Moderado',duracion:'4–5 horas',foto:'https://d6qyz3em3b312.cloudfront.net/upload/images/media/2025/08/18/shutterstock_417094144.2048x1024.jpg',descripcion:'Ascenso al punto más alto del Parque Nacional da Tijuca, con bosque atlántico, escalinata tallada en la roca y vistas amplias de la ciudad.'},
+ {id:'bico-papagaio',nombre:'Bico do Papagaio',zona:'Floresta da Tijuca',nivel:'Moderado a difícil',duracion:'4–6 horas',foto:'https://images.unsplash.com/photo-1551632436-cbf8dd35adfa?auto=format&fit=crop&w=1200&q=85',descripcion:'Ruta de bosque y montaña hacia uno de los picos más característicos del parque. Requiere orientación y preparación para terreno irregular.'},
+ {id:'circuito-grutas',nombre:'Circuito das Grutas',zona:'Floresta da Tijuca',nivel:'Fácil a moderado',duracion:'2–4 horas',foto:'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=85',descripcion:'Recorrido sombreado entre vegetación, formaciones rocosas, grutas y caminos históricos. Ideal para conocer el interior de la floresta.'},
+ {id:'primatas',nombre:'Cachoeira dos Primatas',zona:'Jardim Botânico',nivel:'Moderado',duracion:'2–3 horas',foto:'https://s2-oglobo.glbimg.com/sqimxYspIjyEvRhQ4KKOeyvU_g8%3D/0x0%3A2464x1648/984x0/smart/filters%3Astrip_icc%28%29/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2024/Y/y/vfairjSzixVioCcrQAUA/38405004-15122005-william-de-moura-jb-zs-parque-nacional-da-tijuca-cachoeira-e-abrigo-dos-pri.jpg',descripcion:'Sendero de mata atlántica que llega a una cascada. Las piedras húmedas son resbaladizas: no se debe escalar ni deslizarse por ellas.'},
+ {id:'telegrafo-trek',nombre:'Pedra do Telégrafo',zona:'Barra de Guaratiba',nivel:'Moderado',duracion:'5–7 horas con traslado',foto:'https://res.cloudinary.com/qa301cbc/image/upload/v1788445500/WhatsApp_Image_2026-09-03_at_11.24.28.jpg',descripcion:'Sendero famoso por sus fotografías y por las vistas de playas salvajes de la Zona Oeste. Conviene salir temprano para evitar calor y filas.'},
+ {id:'pontal',nombre:'Pedra do Pontal',zona:'Recreio',nivel:'Moderado',duracion:'1–2 horas',foto:'https://vidadeviajante.com.br/wp-content/uploads/2025/06/v2-vvg38-5pw7n.jpg',descripcion:'Ascenso corto pero inclinado entre Recreio y Praia da Macumba, con panorámica del litoral de la Zona Oeste.'}
+];
+
+function GuiaSenderos({onVolver,onReservar}){
+ return <section className="min-h-screen bg-emerald-950 text-white pb-24"><div className="max-w-7xl mx-auto px-4 py-16"><button onClick={onVolver} className="text-emerald-200 font-bold">← Volver a Qué hacer</button><span className="block mt-10 text-amber-300 text-xs font-black uppercase tracking-[.25em]">Naturaleza, montaña y aventura</span><h1 className="text-4xl sm:text-6xl font-black uppercase mt-3">Senderos & trekking en Río</h1><p className="max-w-3xl text-emerald-100 mt-5">Desde caminatas urbanas sencillas hasta ascensos técnicos. Los tiempos son aproximados y cambian según ritmo, clima y condiciones del sendero.</p><div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">{SENDEROS_RIO.map(x=><article key={x.id} className="bg-white text-slate-900 rounded-3xl overflow-hidden"><img src={x.foto} alt={x.nombre} className="w-full h-56 object-cover"/><div className="p-6"><span className="text-emerald-700 text-xs font-black uppercase">{x.zona}</span><h2 className="text-2xl font-black mt-2">{x.nombre}</h2><div className="flex gap-2 mt-3"><span className="bg-emerald-100 rounded-full px-3 py-1 text-xs font-bold">{x.nivel}</span><span className="bg-amber-100 rounded-full px-3 py-1 text-xs font-bold">{x.duracion}</span></div><p className="text-sm text-slate-600 leading-relaxed mt-4">{x.descripcion}</p>{x.id==='pedra-gavea-trek'&&<button onClick={onReservar} className="w-full bg-slate-900 text-white rounded-xl py-3 mt-5 text-xs font-black uppercase">Ver experiencia guiada · R$400</button>}</div></article>)}</div><div className="bg-amber-300 text-slate-950 rounded-3xl p-7 sm:p-9 mt-10"><h2 className="text-2xl font-black">¿Quieres hacer el sendero con seguridad?</h2><p className="mt-3">Podemos organizar tu trekking con profesionales que conocen la ruta, evalúan las condiciones y te acompañan durante la experiencia.</p><a href="https://wa.me/5521969946938?text=Hola%20Ernestinho%2C%20quiero%20consultar%20un%20trekking%20guiado%20en%20R%C3%ADo." target="_blank" rel="noopener noreferrer" className="inline-block bg-emerald-950 text-white rounded-full px-6 py-4 mt-5 font-black">Consultar por WhatsApp</a></div></div></section>;
+}
+
+function ActividadNuevaDetalle({actividad,onVolver}) {
+  if (!actividad) return null;
+  const whatsapp=`https://wa.me/5521969946938?text=${encodeURIComponent(`Hola Ernestinho, quiero reservar: ${actividad.titulo}. Fecha: ____ Personas: ____`)}`;
+  return <section className="min-h-screen bg-slate-50 pb-24">
+    <div className="relative bg-slate-950 text-white overflow-hidden">
+      <img src={actividad.miniatura} alt={actividad.titulo} className="absolute inset-0 w-full h-full object-cover opacity-35"/>
+      <div className="relative max-w-6xl mx-auto px-4 py-20 sm:py-28"><span className="text-amber-400 text-xs font-black uppercase tracking-widest">{actividad.categoria}</span><h1 className="text-4xl sm:text-6xl font-black uppercase mt-3">{actividad.titulo}</h1><p className="max-w-3xl text-lg text-slate-200 mt-5">{actividad.intro}</p><div className="flex flex-wrap gap-3 mt-7"><span className="bg-amber-400 text-slate-950 rounded-full px-5 py-2 font-black">{actividad.precio}</span><span className="bg-white/10 rounded-full px-5 py-2 font-bold">{actividad.duracion}</span></div></div>
+    </div>
+    <div className="max-w-6xl mx-auto px-4 py-10">
+      <div className="grid lg:grid-cols-[1fr_320px] gap-8"><article className="bg-white rounded-3xl p-6 sm:p-9 shadow-sm"><div className="space-y-5 text-slate-700 leading-relaxed">{actividad.parrafos.map((p,i)=><p key={i}>{p}</p>)}</div>{actividad.opciones&&<div className="bg-emerald-50 border border-emerald-200 rounded-2xl p-6 mt-8"><h2 className="text-xl font-black">Información y opciones</h2><ul className="mt-4 space-y-3">{actividad.opciones.map(x=><li key={x} className="flex gap-2"><span className="text-emerald-600">✓</span><span>{x}</span></li>)}</ul></div>}</article>
+      <aside className="bg-slate-950 text-white rounded-3xl p-6 h-fit"><h2 className="text-xl font-black">Reserva con Ernestinho</h2><p className="text-sm text-slate-300 mt-3">{actividad.grupo}</p><p className="text-sm text-slate-300 mt-2">📍 {actividad.encuentro}</p><a href={whatsapp} target="_blank" rel="noopener noreferrer" className="block text-center bg-emerald-500 text-slate-950 rounded-full px-5 py-4 font-black mt-6">Reservar por WhatsApp</a>{actividad.video&&<a href={actividad.video} target="_blank" rel="noopener noreferrer" className="block text-center bg-red-600 rounded-full px-5 py-3 font-black mt-3">Ver video</a>}{actividad.instagram&&<a href={actividad.instagram} target="_blank" rel="noopener noreferrer" className="block text-center bg-fuchsia-600 rounded-full px-5 py-3 font-black mt-3">Ver en Instagram</a>}</aside></div>
+      {actividad.imagenes&&<div className="grid md:grid-cols-2 gap-6 mt-8">{actividad.imagenes.map(([alt,src])=><figure key={src} className="bg-white rounded-3xl overflow-hidden shadow-sm"><img src={src} alt={alt} className="w-full h-72 object-cover"/><figcaption className="p-4 text-sm font-bold">{alt}</figcaption></figure>)}</div>}
+      {actividad.imagenesCompletas&&<div className="space-y-8 mt-8">{actividad.imagenesCompletas.map(([alt,src])=><figure key={src} className="bg-white rounded-3xl overflow-hidden shadow-sm p-3"><img src={src} alt={alt} className="block w-full h-auto object-contain"/><figcaption className="px-3 py-4 text-sm font-bold">{alt} · imagen completa sin recorte</figcaption></figure>)}</div>}
+    </div>
+  </section>;
+}
 
     const LISTA_20_CONSEJOS = [
       { num: "1", titulo: "Caminar con el celular en la mano por cualquier lugar", texto: "Cuando estés sacando fotos, mirando el mapa o buscando una dirección, intenta estar siempre atento a tu teléfono. No necesitas dejar de usarlo: simplemente evita caminar completamente distraído mientras lo llevas en la mano." },
@@ -6938,7 +7138,7 @@ const IGLESIAS_DATA = [
       'Utiliza tren, autobús o transporte por aplicación hasta Penha.',
     consejoErnestinho:
       'No necesitas subir obligatoriamente los 382 peldaños. Consulta el transporte disponible, lleva agua y evita las horas de mayor calor. En octubre puede estar muy concurrida por la fiesta de la patrona.',
-    miniatura: 'https://riomemorias.com.br/wp-content/uploads/2024/11/Reproducao-Cancao-Nova.png',
+    miniatura: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788449395/Bas%C3%ADlica_Santu%C3%A1rio_de_Nossa_Senhora_da_Penha.jpg',
     fotoPrincipal: 'https://i.pinimg.com/736x/7c/44/5e/7c445e1446d85cb2b47e16b07b286d65.jpg',
     fotoMedia: 'https://i0.wp.com/www.turismoreligioso.travel/wp-content/uploads/2020/09/Santuario-Nossa-Senhora-da-Penha-turismo-religioso-en-brasil-imagen.png?resize=672%2C672&ssl=1',
     mapa:
@@ -6970,7 +7170,7 @@ const IGLESIAS_DATA = [
       'Está cerca de Praça XV y de la parada del VLT.',
     consejoErnestinho:
       'Observa el interior pensando que aquí ocurrieron ceremonias fundamentales para la historia de Brasil. No la confundas con la moderna Catedral Metropolitana.',
-    miniatura: 'https://riomemorias.com.br/wp-content/uploads/2022/05/128046132_1243457529370918_5048095089382369199_n-1.jpg',
+    miniatura: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788449396/igreja-nossa-senhora-do-carmo-da-antiga-se-rio-de-janeiro-rio-de-janeiro.jpg',
     fotoPrincipal: 'https://www.inventarioarqrio.com.br/imagem/acervos/177/Frontal_Acervo.webp?x=180e1600f0db9814cdfd4b8fc5952888',
     fotoMedia: 'https://patrimonioespiritual.files.wordpress.com/2015/02/img_1027.jpg?w=900',
     mapa:
@@ -7783,7 +7983,7 @@ const FUERTES_DATA = [
       'Está en el extremo de Copacabana, cerca de la estación General Osório y de varias líneas de autobús.',
     consejoErnestinho:
       'No vengas solamente para tomar café. Entra a la fortificación, conoce los cañones y lee sobre los 18 do Forte. Para fotografías de la playa, la luz de la mañana suele ser excelente.',
-    miniatura: 'https://foconaviagem.com/wp-content/uploads/2020/10/Forte-de-Copacabana-Entrada-1.jpg',
+    miniatura: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788390184/forte_copa.jpg',
     fotoPrincipal: 'https://p2.trrsf.com.br/image/fget/cf/478/481/smart/images.terra.com/2026/01/11/447976512-forte-13-reproducaotv-brasil-b.jpg',
     fotoMedia: 'https://www.segueviagem.com.br/wp-content/uploads/2021/11/Forte-de-Copacabana-Rio-de-Janeiro-shutterstock_427283719.jpg',
     mapa:
@@ -11644,8 +11844,8 @@ function VidaNocturnaCompleta({ onVolver }) {
   const [dia,setDia]=useState('Todos');
   const [tipo,setTipo]=useState('Todos');
   const [zona,setZona]=useState('Todas');
-  const zonas=['Todas',...new Set(VIDA_NOCTURNA_DATA.map(x=>x.zona))];
-  const lista=VIDA_NOCTURNA_DATA.filter(x=>(dia==='Todos'||x.dias.includes(dia))&&(tipo==='Todos'||x.tipo===tipo)&&(zona==='Todas'||x.zona===zona));
+  const zonas=['Todas',...new Set(VIDA_NOCTURNA_CON_FOTOS.map(x=>x.zona))];
+  const lista=VIDA_NOCTURNA_CON_FOTOS.filter(x=>(dia==='Todos'||x.dias.includes(dia))&&(tipo==='Todos'||x.tipo===tipo)&&(zona==='Todas'||x.zona===zona));
   return <section className="min-h-screen bg-slate-950 text-white pb-20">
     <div className="relative overflow-hidden"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=85&w=1800" className="absolute inset-0 w-full h-full object-cover opacity-35" alt="Vida nocturna de Río"/><div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-purple-950/90 to-slate-950/30"></div><div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24"><button onClick={onVolver} className="text-white/80 hover:text-fuchsia-300 font-bold text-sm">← Volver a Qué hacer</button><span className="block mt-10 text-fuchsia-300 text-xs font-black uppercase tracking-[.25em]">Río después del atardecer</span><h1 className="text-4xl sm:text-6xl font-black uppercase mt-3">Vida nocturna</h1><p className="max-w-2xl mt-5 text-slate-200">Samba, pagode, conciertos, rooftops y fiestas organizados por día, estilo y zona. Revisa siempre la agenda antes de salir.</p></div></div>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 -mt-5 relative">
@@ -12144,7 +12344,18 @@ function GuiaTransportePublico({onVolver,onMetro}){
 }
 
 function AppErnestinho() {
-  const [seccionActual, setSeccionActual] = useState('inicio');
+  const [seccionActual, setSeccionActualBase] = useState('inicio');
+  const [historialSecciones, setHistorialSecciones] = useState([]);
+  const setSeccionActual = (destino) => {
+    if (typeof destino !== 'string' || destino === seccionActual) return;
+    setHistorialSecciones(prev => [...prev, seccionActual].slice(-50));
+    setSeccionActualBase(destino);
+  };
+  const volverUnaVista = () => {
+    const anterior=historialSecciones[historialSecciones.length-1] || 'inicio';
+    setHistorialSecciones(prev => prev.slice(0,-1));
+    setSeccionActualBase(anterior);
+  };
   const [museoSeleccionado, setMuseoSeleccionado] = useState('mhn');
   const [selectorMuseosAbierto, setSelectorMuseosAbierto] = useState(false);
 const [busquedaMuseo, setBusquedaMuseo] = useState('');
@@ -12164,7 +12375,7 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
   });
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
 
     if (window.lucide) {
       window.lucide.createIcons();
@@ -12203,49 +12414,17 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col selection:bg-amber-300 selection:text-amber-950">
 {/* BOTÓN UNIVERSAL PARA VOLVER */}
-{[
-  'museos',
-  'centros_culturales',
-  'teatros',
-  'iglesias',
-  'fuertes_fortalezas',
-  'espacios_literarios',
-  'familia'
-].includes(seccionActual) && (
+{seccionActual !== 'inicio' && (
 
   <button
     type="button"
-    onClick={() => {
-      const seccionesDeAtracciones = [
-        'museos',
-        'centros_culturales',
-        'teatros',
-        'iglesias',
-        'fuertes_fortalezas',
-        'espacios_literarios'
-      ];
-
-      if (seccionesDeAtracciones.includes(seccionActual)) {
-        setSeccionActual('atracciones');
-      } else {
-        setSeccionActual('que_hacer');
-      }
-    }}
+    onClick={volverUnaVista}
     className="fixed left-4 sm:left-6 bottom-5 z-50 inline-flex items-center gap-2 bg-white hover:bg-slate-900 text-slate-800 hover:text-white border border-slate-200 shadow-xl px-4 sm:px-5 py-3 rounded-full font-black text-xs uppercase tracking-wide transition-all"
   >
     <span className="text-lg leading-none">←</span>
 
     <span>
-      {[
-        'museos',
-        'centros_culturales',
-        'teatros',
-        'iglesias',
-        'fuertes_fortalezas',
-        'espacios_literarios'
-      ].includes(seccionActual)
-        ? 'Volver a atracciones'
-        : 'Volver a qué hacer'}
+      Volver a la vista anterior
     </span>
   </button>
 
@@ -12699,9 +12878,14 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
                       </div>
                     ))}
                   </div>
+                  <div className="mt-16 mb-8"><span className="text-teal-600 font-black text-xs uppercase tracking-widest">Nuevas actividades</span><h2 className="text-3xl sm:text-4xl font-black text-slate-900 uppercase mt-2">Más formas de vivir Río</h2></div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7">
+                    {ACTIVIDADES_NUEVAS.map((actividad)=><article key={actividad.id} className="bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 shadow-sm flex flex-col"><div className="h-56"><img src={actividad.miniatura} alt={actividad.titulo} className="w-full h-full object-cover"/></div><div className="p-6 flex flex-col flex-1"><span className="text-teal-600 font-black text-xs uppercase">{actividad.categoria}</span><h3 className="text-2xl font-black mt-2">{actividad.titulo}</h3><p className="text-sm text-slate-600 mt-3 flex-1">{actividad.intro}</p><div className="flex items-center justify-between mt-6"><span className="bg-amber-400 rounded-full px-3 py-1 text-xs font-black">{actividad.precio}</span><button onClick={()=>setSeccionActual(`actividad_${actividad.id}`)} className="bg-slate-900 text-white rounded-full px-5 py-3 text-xs font-black uppercase">Ver actividad</button></div></div></article>)}
+                  </div>
                 </div>
               </section>
             )}
+            {seccionActual.startsWith('actividad_') && <ActividadNuevaDetalle actividad={ACTIVIDADES_NUEVAS.find(a=>`actividad_${a.id}`===seccionActual)} onVolver={()=>setSeccionActual('experiencias')}/>} 
 {/* VISTA DETALLADA — FULL DAY RÍO */}
 {seccionActual === 'full_day_rio' && (
   <section className="py-12 sm:py-16 bg-slate-50">
@@ -12937,7 +13121,7 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
 
             <div className="rounded-2xl overflow-hidden shadow-md">
               <img
-                src=""
+                src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3087"
                 alt="Sambódromo de Río de Janeiro"
                 className="w-full h-64 sm:h-80 object-cover"
               />
@@ -15676,13 +15860,16 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
             {seccionActual === 'nocturna' && (
               <VidaNocturnaCompleta onVolver={() => setSeccionActual('que_hacer')} />
             )}
+            {(seccionActual === 'naturaleza' || seccionActual === 'aventura') && (
+              <GuiaSenderos onVolver={() => setSeccionActual('que_hacer')} onReservar={() => setSeccionActual('actividad_pedra-gavea')} />
+            )}
 
             {seccionActual === 'fotografia' && (
               <GuiaFotografia onVolver={() => setSeccionActual('que_hacer')} />
             )}
 
             {seccionActual === 'pix' && (
-              <GuiaPix onVolver={() => setSeccionActual('consejos')} />
+              <GuiaPix onVolver={() => setSeccionActual('guia')} />
             )}
 {/* ============================= */}
 {/* ATRACCIONES */}
@@ -16932,7 +17119,7 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
                       <div className="flex flex-col md:flex-row gap-6 items-start">
                         <div className="w-full md:w-1/2 h-56 rounded-2xl overflow-hidden shrink-0">
                           <img 
-                            src="https://images.unsplash.com/photo-1516306580123-e6e52b1b7b5f?auto=format&fit=crop&q=80&w=800" 
+                            src="https://res.cloudinary.com/qa301cbc/image/upload/v1788448793/COPACABANA.jpg" 
                             alt="Playa de Copacabana con su calçadão e imponentes edificios" 
                             className="w-full h-full object-cover"
                           />
@@ -16984,7 +17171,7 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
                       <div className="flex flex-col md:flex-row gap-6 items-start">
                         <div className="w-full md:w-1/2 h-56 rounded-2xl overflow-hidden shrink-0 md:order-2">
                           <img 
-                            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" 
+                            src="https://res.cloudinary.com/qa301cbc/image/upload/v1788448796/IPANEMAS12.jpg" 
                             alt="Playa de Ipanema con el morro Dois Irmãos al fondo" 
                             className="w-full h-full object-cover"
                           />
@@ -17035,7 +17222,7 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
                       <div className="flex flex-col md:flex-row gap-6 items-start">
                         <div className="w-full md:w-1/2 h-56 rounded-2xl overflow-hidden shrink-0">
                           <img 
-                            src="https://images.unsplash.com/photo-1544989164-3075c75f3a0a?auto=format&fit=crop&q=80&w=800" 
+                            src="https://res.cloudinary.com/qa301cbc/image/upload/v1788448726/BARRADATIJD.jpg" 
                             alt="Vista moderna de la extensa playa de Barra da Tijuca" 
                             className="w-full h-full object-cover"
                           />
@@ -17088,7 +17275,7 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
                       <div className="flex flex-col md:flex-row gap-6 items-start">
                         <div className="w-full md:w-1/2 h-56 rounded-2xl overflow-hidden shrink-0 md:order-2">
                           <img 
-                            src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3054" 
+                            src="https://res.cloudinary.com/qa301cbc/image/upload/v1788448726/CENTORD.jpg" 
                             alt="Arcos da Lapa y arquitectura histórica del Centro de Río" 
                             className="w-full h-full object-cover"
                           />
@@ -17139,7 +17326,7 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
                       <div className="flex flex-col md:flex-row gap-6 items-center">
                         <div className="w-full md:w-1/3 h-48 rounded-2xl overflow-hidden shrink-0">
                           <img 
-                            src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=800" 
+                            src="https://res.cloudinary.com/qa301cbc/image/upload/v1788389092/aterro_flamengo.jpg" 
                             alt="Paisaje de Botafogo y Flamengo con el Pan de Azúcar al fondo" 
                             className="w-full h-full object-cover"
                           />
