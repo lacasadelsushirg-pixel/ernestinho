@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.ernestinhocarioca.com.br/sitemap.xml
