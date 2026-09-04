@@ -1,0 +1,38 @@
+name: Install Google Analytics
+
+on:
+  push:
+    paths:
+      - '.github/workflows/install-google-analytics.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Insert Google Analytics tag
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          measurement_id = 'G-QE1X83D419'
+          if measurement_id not in text:
+              snippet = '''\n  <!-- Google tag (gtag.js) -->\n  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QE1X83D419"></script>\n  <script>\n    window.dataLayer = window.dataLayer || [];\n    function gtag(){dataLayer.push(arguments);}\n    gtag('js', new Date());\n    gtag('config', 'G-QE1X83D419');\n  </script>\n'''
+              text = text.replace('</head>', snippet + '</head>', 1)
+              p.write_text(text, encoding='utf-8')
+          PY
+      - name: Commit change
+        run: |
+          if git diff --quiet; then
+            echo "Analytics tag already present"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Install Google Analytics tag"
+          git push
