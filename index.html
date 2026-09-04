@@ -17959,6 +17959,8 @@ function Master4MuseumsReal({go}){
  const [q,setQ]=useState('');
  const [cat,setCat]=useState('Todos');
  const [selected,setSelected]=useState(null);
+ const museoOriginal=x=>(MUSEOS_DATA||[]).find(m=>m.id===x.id)||{};
+ const imagenMuseo=x=>x.imagen||museoOriginal(x).miniatura||museoOriginal(x).fotoPrincipal||museoOriginal(x).fotoMedia||'';
  const cats=['Todos',...Array.from(new Set(MASTER4_MUSEOS_REAL.map(x=>x.categoria).filter(Boolean)))];
  const shown=MASTER4_MUSEOS_REAL.filter(x=>(cat==='Todos'||x.categoria===cat)&&(!q||(x.nombre+' '+x.subtitulo+' '+x.descripcion).toLowerCase().includes(q.toLowerCase())));
  if(selected){
@@ -17973,7 +17975,7 @@ function Master4MuseumsReal({go}){
    return <div className="min-h-screen bg-[#f7f7f4] pb-24">
     <header className="max-w-5xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>setSelected(null)} className="text-xs font-black">← MUSEOS</button>
      <div className="mt-5 rounded-[2rem] bg-slate-950 text-white overflow-hidden">
-      <div className="relative min-h-[280px] bg-slate-800">{x.imagen?<img src={x.imagen} alt={x.nombre} className="absolute inset-0 w-full h-full object-cover"/>:<div className="absolute inset-0 grid place-items-center text-6xl">🏛️</div>}<div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div><div className="absolute bottom-0 p-6 sm:p-8"><span className="text-[10px] font-black text-amber-300">{x.categoria||'MUSEO'}</span><h1 className="text-3xl sm:text-5xl font-black mt-1">{x.nombre}</h1><p className="text-sm text-white/75 mt-2">{x.subtitulo}</p></div></div>
+      <div className="relative min-h-[280px] bg-slate-800">{imagenMuseo(x)?<img src={imagenMuseo(x)} alt={x.nombre} className="absolute inset-0 w-full h-full object-cover"/>:<div className="absolute inset-0 grid place-items-center text-6xl">🏛️</div>}<div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div><div className="absolute bottom-0 p-6 sm:p-8"><span className="text-[10px] font-black text-amber-300">{x.categoria||'MUSEO'}</span><h1 className="text-3xl sm:text-5xl font-black mt-1">{x.nombre}</h1><p className="text-sm text-white/75 mt-2">{x.subtitulo}</p></div></div>
      </div>
     </header>
     <main className="max-w-5xl mx-auto px-4 sm:px-6 py-5">
@@ -17987,7 +17989,7 @@ function Master4MuseumsReal({go}){
   <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>go('master4_descubre')} className="text-xs font-black">← CONOCER RÍO</button><div className="mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10"><span className="text-[10px] font-black text-amber-300">🏛️ MUSEOS · MASTER 3 → 4.0</span><h1 className="text-4xl sm:text-6xl font-black mt-2">28 fichas reales, una nueva forma de explorarlas.</h1><p className="text-sm text-white/70 mt-3">Aquí ya no estamos creando ejemplos: estas fichas salen directamente del catálogo de museos que construimos en Master 3.</p><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Buscar museo…" className="mt-6 w-full max-w-xl rounded-2xl bg-white text-slate-900 px-5 py-4 text-sm"/></div>
    <div className="flex gap-2 overflow-x-auto py-5" style={{scrollbarWidth:'none'}}>{cats.map(c=><button key={c} onClick={()=>setCat(c)} className={`whitespace-nowrap rounded-full border px-4 py-3 text-xs font-black ${cat===c?'bg-slate-950 text-white':'bg-white'}`}>{c}</button>)}</div>
   </header>
-  <main className="max-w-7xl mx-auto px-4 sm:px-6"><div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">{shown.map(x=><button key={x.id} onClick={()=>setSelected(x)} className="rounded-[1.7rem] bg-white border overflow-hidden text-left min-h-56 flex flex-col">{x.imagen?<div className="aspect-[4/3] overflow-hidden bg-slate-100"><img src={x.imagen} alt={x.nombre} className="w-full h-full object-contain"/></div>:<div className="aspect-[4/3] bg-slate-100 grid place-items-center text-3xl">🏛️</div>}<div className="p-5 mt-auto"><span className="text-[9px] font-black text-emerald-700">{x.categoria||'MUSEO'}</span><h2 className="text-lg font-black mt-1">{x.nombre}</h2><p className="text-xs text-slate-500 mt-2 line-clamp-2">{x.subtitulo||x.descripcion}</p><span className="inline-block mt-4 text-[10px] font-black">ABRIR FICHA 4.0 →</span></div></button>)}</div></main>
+  <main className="max-w-7xl mx-auto px-4 sm:px-6"><div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">{shown.map(x=><button key={x.id} onClick={()=>setSelected(x)} className="group rounded-[1.7rem] bg-white border overflow-hidden text-left min-h-56 flex flex-col">{imagenMuseo(x)?<div className="aspect-[4/3] overflow-hidden bg-slate-100"><img src={imagenMuseo(x)} alt={x.nombre} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/></div>:<div className="aspect-[4/3] bg-slate-100 grid place-items-center text-3xl">🏛️</div>}<div className="p-5 mt-auto"><span className="text-[9px] font-black text-emerald-700">{x.categoria||'MUSEO'}</span><h2 className="text-lg font-black mt-1">{x.nombre}</h2><p className="text-xs text-slate-500 mt-2 line-clamp-2">{x.subtitulo||x.descripcion}</p><span className="inline-block mt-4 text-[10px] font-black">ABRIR FICHA 4.0 →</span></div></button>)}</div></main>
  </div>;
 }
 
@@ -18133,7 +18135,11 @@ function Master4MoreRio({kind,go}){
 
 function Master4Experiences({go}){
  const abrirReservaDirecta=(exp)=>window.open(`https://wa.me/5521969946938?text=${encodeURIComponent(`Hola Ernestinho, quiero reservar: ${exp.titulo}`)}`,'_blank');
- const verExperiencia=(exp)=>exp.id==='exp-1'?go('full_day_rio'):exp.id==='exp-2'?go('buzios'):exp.id==='exp-3'?go('detalle_exp-3'):exp.id==='exp-4'?go('detalle_exp-4'):exp.id==='exp-5'?go('detalle_exp-5'):null;
+ const todasLasExperiencias=[
+  ...EXPERIENCIAS_DATA.map(exp=>({...exp,miniatura:exp.imagen,intro:exp.descripcion,origen:'tour'})),
+  ...ACTIVIDADES_NUEVAS.map(exp=>({...exp,imagen:exp.miniatura,descripcion:exp.intro,origen:'actividad'}))
+ ];
+ const verExperiencia=(exp)=>exp.id==='exp-1'?go('full_day_rio'):exp.id==='exp-2'?go('buzios'):exp.id==='exp-3'?go('detalle_exp-3'):exp.id==='exp-4'?go('detalle_exp-4'):exp.id==='exp-5'?go('detalle_exp-5'):go(`actividad_${exp.id}`);
  return <div className="min-h-screen bg-[#f7f7f4] pb-24">
   <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
     <button onClick={()=>go('inicio')} className="text-xs font-black">← INICIO</button>
@@ -18142,11 +18148,12 @@ function Master4Experiences({go}){
       <h1 className="text-4xl sm:text-6xl font-black mt-2">Cuando quieras pasar de descubrir Río a vivirlo.</h1>
       <p className="text-sm text-white/70 mt-4 max-w-3xl">Vive Río de la mano de un equipo apasionado por mostrarte lo mejor de la Ciudad Maravillosa. Junto a mi equipo de guías y operadores locales, te ayudamos a transformar el viaje en experiencias que realmente vas a recordar.</p>
       <p className="text-sm text-white/70 mt-3 max-w-2xl">Aquí sí quiero que las fotografías hablen. Las miniaturas que ya trabajamos siguen siendo protagonistas.</p>
+      <span className="inline-flex mt-5 rounded-full bg-white/10 border border-white/10 px-4 py-2 text-xs font-black">{todasLasExperiencias.length} TOURS Y ACTIVIDADES</span>
     </div>
   </header>
   <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-      {EXPERIENCIAS_DATA.map((exp)=><article key={exp.id} className="bg-white rounded-[1.8rem] overflow-hidden shadow-sm border border-slate-100 flex flex-col">
+      {todasLasExperiencias.map((exp)=><article key={exp.id} className="bg-white rounded-[1.8rem] overflow-hidden shadow-sm border border-slate-100 flex flex-col">
         <div className="relative aspect-[16/9] overflow-hidden bg-slate-100">
           <img src={exp.imagen} alt={exp.titulo} className="w-full h-full object-cover" loading="lazy" />
           <span className="absolute top-4 right-4 max-w-[78%] bg-amber-400 text-slate-950 font-black text-sm sm:text-base px-4 py-2 rounded-full shadow-lg text-center leading-tight">{exp.precio}</span>
@@ -18689,7 +18696,7 @@ function Master4Home({go,onReserve}){
           ['Guías especiales','master4_guias_especiales','https://res.cloudinary.com/qa301cbc/image/upload/v1788492834/guias_especiales.png'],
           ['Arma tu viaje','master4_planner','https://res.cloudinary.com/qa301cbc/image/upload/v1788492833/arma_tu_viaje.png'],
           ['Museos y cultura','master4_museos_real','https://res.cloudinary.com/qa301cbc/image/upload/v1788492836/museos_y_cultura.png'],
-          ['Playas y naturaleza','master4_naturaleza','https://res.cloudinary.com/qa301cbc/image/upload/v1788492838/playas_y_naturaleza.png']
+          ['Playas y naturaleza','playas','https://res.cloudinary.com/qa301cbc/image/upload/v1788492838/playas_y_naturaleza.png']
         ].map(x=><button key={x[0]} onClick={()=>go(x[1])} className="group overflow-hidden rounded-[1.4rem] sm:rounded-[1.8rem] bg-white shadow-lg border text-left">
           <div className="w-full aspect-[4/3] overflow-hidden bg-slate-100">
             <img src={x[2]} alt={x[0]} className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"/>
