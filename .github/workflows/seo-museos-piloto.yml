@@ -21,21 +21,21 @@ jobs:
         run: |
           python - <<'PY'
           from pathlib import Path
-          p=Path('index.html')
-          text=p.read_text(encoding='utf-8')
-          marker="  const [categoriaCompras, setCategoriaCompras] = useState('shoppings');"
-          effect="""  useEffect(() => {
-    if (seccionActual === 'museos' && window.location.pathname !== '/museos') {
-      window.history.pushState({ seccion: 'museos' }, '', '/museos');
-    }
-  }, [seccionActual]);
-
-"""
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          marker = "  const [categoriaCompras, setCategoriaCompras] = useState('shoppings');"
+          effect = (
+              "  useEffect(() => {\n"
+              "    if (seccionActual === 'museos' && window.location.pathname !== '/museos') {\n"
+              "      window.history.pushState({ seccion: 'museos' }, '', '/museos');\n"
+              "    }\n"
+              "  }, [seccionActual]);\n\n"
+          )
           if "}, [seccionActual]);" not in text:
               if marker not in text:
                   raise SystemExit('No encontré el punto seguro para aplicar el arreglo')
-              text=text.replace(marker,effect+marker,1)
-          p.write_text(text,encoding='utf-8')
+              text = text.replace(marker, effect + marker, 1)
+          p.write_text(text, encoding='utf-8')
           PY
       - name: Commit pilot fix
         run: |
