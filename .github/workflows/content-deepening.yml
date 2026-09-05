@@ -32,4 +32,4 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m 'Apply Copacabana, Carnaval, football and live-source deepening'
           git push
-# trigger after workflow installation
+# trigger 2 after workflow is present on default branch
