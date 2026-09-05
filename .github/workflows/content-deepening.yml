@@ -1,0 +1,34 @@
+name: Apply content deepening
+on:
+  push:
+    branches: [contenido-profundo-copacabana-carnaval-live]
+    paths:
+      - 'scripts/apply_content_deepening.py'
+      - 'api/**'
+      - '.github/workflows/content-deepening.yml'
+permissions:
+  contents: write
+jobs:
+  patch:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/apply_content_deepening.py
+      - name: Validate anchors
+        run: |
+          grep -q 'ESTOY EN COPACABANA Y NECESITO' index.html
+          grep -q 'SOCIO OFICIAL · 5% DE DESCUENTO' index.html
+          grep -q "rio_mes_a_mes" index.html
+          grep -q 'CHM · lectura automática' index.html
+      - name: Commit generated index
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git diff --cached --quiet && exit 0
+          git commit -m 'Apply Copacabana, Carnaval, football and live-source deepening'
+          git push
