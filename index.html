@@ -19056,6 +19056,12 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
     return () => window.removeEventListener('popstate', sincronizarRuta);
   }, []);
 
+  useEffect(() => {
+    if (seccionActual === 'museos' && window.location.pathname !== '/museos') {
+      window.history.pushState({ seccion: 'museos' }, '', '/museos');
+    }
+  }, [seccionActual]);
+
   const [categoriaCompras, setCategoriaCompras] = useState('shoppings');
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [articuloSeleccionado, setArticuloSeleccionado] = useState(null);
