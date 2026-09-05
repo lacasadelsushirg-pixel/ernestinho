@@ -18995,7 +18995,8 @@ function GrandesEventosPage({onBack}) {
 }
 
 function AppErnestinho() {
-  const [seccionActual, setSeccionActualBase] = useState('inicio');
+  const rutaInicial = window.location.pathname.replace(/\/+$/, '') || '/';
+  const [seccionActual, setSeccionActualBase] = useState(rutaInicial === '/museos' ? 'museos' : 'inicio');
   const [historialSecciones, setHistorialSecciones] = useState([]);
   const [temaGuia, setTemaGuia] = useState(null);
   const [consejoSeleccionado, setConsejoSeleccionado] = useState(null);
@@ -19009,6 +19010,11 @@ function AppErnestinho() {
       return;
     }
     if (destino === 'guia') setTemaGuia(null);
+    if (destino === 'museos' && window.location.pathname !== '/museos') {
+      window.history.pushState({ seccion: 'museos' }, '', '/museos');
+    } else if (destino !== 'museos' && window.location.pathname === '/museos') {
+      window.history.pushState({ seccion: destino }, '', '/');
+    }
     setHistorialSecciones(prev => [...prev, seccionActual].slice(-50));
     setSeccionActualBase(destino);
   };
@@ -19040,6 +19046,16 @@ function AppErnestinho() {
   const [museoSeleccionado, setMuseoSeleccionado] = useState('mhn');
   const [selectorMuseosAbierto, setSelectorMuseosAbierto] = useState(false);
 const [busquedaMuseo, setBusquedaMuseo] = useState('');
+  useEffect(() => {
+    const sincronizarRuta = () => {
+      const ruta = window.location.pathname.replace(/\/+$/, '') || '/';
+      if (ruta === '/museos') setSeccionActualBase('museos');
+      else if (ruta === '/') setSeccionActualBase('inicio');
+    };
+    window.addEventListener('popstate', sincronizarRuta);
+    return () => window.removeEventListener('popstate', sincronizarRuta);
+  }, []);
+
   const [categoriaCompras, setCategoriaCompras] = useState('shoppings');
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [articuloSeleccionado, setArticuloSeleccionado] = useState(null);

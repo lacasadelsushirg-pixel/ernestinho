@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/museos",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/museos/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}
