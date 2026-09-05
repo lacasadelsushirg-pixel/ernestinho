@@ -1,154 +1,55 @@
-name: SEO Finalizer 2
+name: SEO Final Validation
 on:
   push:
     branches: [seo-museos-piloto]
     paths: ['.github/workflows/seo-finalizer2.yml']
-permissions:
-  contents: write
 jobs:
-  finalize:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: seo-museos-piloto
-      - name: Patch SEO details
-        shell: bash
+      - name: Validate generated SEO files
         run: |
-          cat > /tmp/finalize.py <<'PY'
+          python - <<'PY'
           from pathlib import Path
-          import re, unicodedata, html, json
-          p=Path('index.html')
-          text=p.read_text(encoding='utf-8')
-
-          # Extra helper for local selector components.
-          anchor="function seoNavigate(path,mode='push')"
-          if 'function seoInitialItemId(' not in text:
-              helper="function seoInitialItemId(prefix,data,defaultId){const r=seoCleanPath(location.pathname),m=r.match(new RegExp('^/'+prefix+'/([^/]+)$'));if(!m)return defaultId;const x=data.find(v=>seoSlug(v.nombre)===m[1]||seoSlug(v.id)===m[1]);return x?x.id:defaultId;}\nfunction seoLocalMeta(prefix,item){if(!item)return;seoSetMeta({path:`/${prefix}/${seoSlug(item.nombre)}`,title:`${item.nombre} en Río de Janeiro | Ernestinho Carioca`,description:item.descripcion||item.resumen||item.subtitulo||item.categoria||`Guía de ${item.nombre} en Río de Janeiro.`});}\n"
-              if anchor not in text: raise SystemExit('router anchor missing')
-              text=text.replace(anchor,helper+anchor,1)
-
-          # Direct child routes resolve to their parent App section.
-          resolver="if(SEO_PREFERRED[r])return{...base,seccion:SEO_PREFERRED[r]};"
-          if 'const localParents=' not in text:
-              add="const localParents=[['centros-culturales','centros_culturales'],['espacios-literarios','espacios_literarios'],['teatros','teatros'],['iglesias','iglesias'],['fuertes-fortalezas','fuertes_fortalezas'],['eventos','grandes_eventos']];const lp=localParents.find(([pre])=>r.startsWith('/'+pre+'/'));if(lp)return{...base,seccion:lp[1]};"
-              if resolver not in text: raise SystemExit('resolver missing')
-              text=text.replace(resolver,add+resolver,1)
-
-          specs=[
-              ('SeccionEspaciosLiterarios','espacioSeleccionado','setEspacioSeleccionado','ESPACIOS_LITERARIOS_DATA','real-gabinete','espacios-literarios','espacioActual','espacio'),
-              ('SeccionCentrosCulturales','centroSeleccionado','setCentroSeleccionado','CENTROS_CULTURALES_DATA','espaco-marinha','centros-culturales','centroActual','centro'),
-              ('SeccionTeatros','teatroSeleccionado','setTeatroSeleccionado','TEATROS_DATA','theatro-municipal','teatros','teatroActual','teatro'),
-              ('SeccionIglesias','iglesiaSeleccionada','setIglesiaSeleccionada','IGLESIAS_DATA','catedral-metropolitana','iglesias','iglesiaActual','iglesia'),
-              ('SeccionFuertesFortalezas','fuerteSeleccionado','setFuerteSeleccionado','FUERTES_DATA','forte-copacabana','fuertes-fortalezas','fuerteActual','fuerte')
-          ]
-          for fname,state,setter,data,default,prefix,current,var in specs:
-              start=text.find('function '+fname+'()')
-              end=text.find('\nfunction ',start+20)
-              if start<0: raise SystemExit(fname+' missing')
-              if end<0: end=len(text)
-              c=text[start:end]
-              old="useState('"+default+"');"
-              new="useState(()=>seoInitialItemId('"+prefix+"',"+data+",'"+default+"'));"
-              if new not in c:
-                  if old not in c: raise SystemExit(fname+' state missing')
-                  c=c.replace(old,new,1)
-              click=setter+'('+var+'.id);'
-              nav="seoNavigate(`/"+prefix+"/${seoSlug("+var+".nombre)}`);\n                        "+click
-              if nav not in c:
-                  if click not in c: raise SystemExit(fname+' click missing')
-                  c=c.replace(click,nav,1)
-              meta="seoLocalMeta('"+prefix+"',"+current+")"
-              if meta not in c:
-                  a='const '+current+' = '+data+'.find('
-                  ai=c.find(a)
-                  semi=c.find(';',ai)
-                  if ai<0 or semi<0: raise SystemExit(fname+' current missing')
-                  semi+=1
-                  hook="\n\n  useEffect(()=>{const sync=()=>"+setter+"(seoInitialItemId('"+prefix+"',"+data+",'"+default+"'));addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);\n  useEffect(()=>{"+meta+";},["+state+"]);"
-                  c=c[:semi]+hook+c[semi:]
-              text=text[:start]+c+text[end:]
-
-          # Event details.
-          start=text.find('function GrandesEventosPage({onBack})')
-          end=text.find('\nfunction AppErnestinho()',start)
-          if start<0 or end<0: raise SystemExit('events component missing')
-          c=text[start:end]
-          old='const [seleccionado,setSeleccionado]=useState(null);'
-          new="const [seleccionado,setSeleccionado]=useState(()=>{const m=seoCleanPath(location.pathname).match(/^\\/eventos\\/([^/]+)$/);return m?GRANDES_EVENTOS.find(e=>seoSlug(e.nombre)===m[1]||seoSlug(e.id)===m[1])||null:null;});"
-          if new not in c:
-              if old not in c: raise SystemExit('event state missing')
-              c=c.replace(old,new,1)
-          oldeff="useEffect(()=>{ window.scrollTo({top:0,left:0,behavior:'auto'}); },[seleccionado]);"
-          if "seoLocalMeta('eventos',seleccionado)" not in c:
-              hooks=oldeff+"\n  useEffect(()=>{const sync=()=>{const m=seoCleanPath(location.pathname).match(/^\\/eventos\\/([^/]+)$/);setSeleccionado(m?GRANDES_EVENTOS.find(e=>seoSlug(e.nombre)===m[1]||seoSlug(e.id)===m[1])||null:null);};addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);\n  useEffect(()=>{if(seleccionado)seoLocalMeta('eventos',seleccionado);else seoSetMeta({path:'/eventos',title:'Eventos en Río de Janeiro | Ernestinho Carioca',description:'Carnaval, Réveillon, Rock in Rio y otros grandes eventos de Río de Janeiro.'});},[seleccionado]);"
-              if oldeff not in c: raise SystemExit('event effect missing')
-              c=c.replace(oldeff,hooks,1)
-          c=c.replace('onClick={()=>setSeleccionado(e)}','onClick={()=>{seoNavigate(`/eventos/${seoSlug(e.nombre)}`);setSeleccionado(e)}}')
-          c=c.replace('onClick={()=>setSeleccionado(null)}',"onClick={()=>{seoNavigate('/eventos');setSeleccionado(null)}}")
-          text=text[:start]+c+text[end:]
-          p.write_text(text,encoding='utf-8')
-
-          def slug(v):
-              v=unicodedata.normalize('NFD',str(v or ''))
-              v=''.join(ch for ch in v if unicodedata.category(ch)!='Mn').lower().replace('&',' y ')
-              return re.sub(r'^-+|-+$','',re.sub(r'[^a-z0-9]+','-',v))
-          def block(a,b):
-              i=text.find(a); j=text.find(b,i+len(a)) if i>=0 else -1
-              return text[i:j] if i>=0 and j>=0 else ''
-          def fields(s,f): return re.findall(r'\b'+re.escape(f)+r"\s*:\s*['\"]([^'\"\n]+)['\"]",s)
-          def gnames(s): return re.findall(r"\bg\(\s*['\"][^'\"]+['\"]\s*,\s*['\"]([^'\"]+)['\"]",s)
-
-          urls=set(['/','/que-hacer','/atracciones','/museos','/centros-culturales','/iglesias','/fuertes-fortalezas','/teatros','/espacios-literarios','/playas','/naturaleza','/aventura','/fotografia','/familia','/gastronomia','/vida-nocturna','/compras','/barrios','/hospedaje','/transportes','/transportes/transporte-publico','/transportes/metro','/transportes/uber','/transportes/bicicletas','/transportes/traslados','/guia','/guia/pix','/consejos','/eventos','/experiencias','/copacabana','/cafe-ernestinho','/descubre-rio','/rio-en-vivo','/tv','/patrimonio','/ocio','/prepara-tu-viaje','/para-mi','/sos','/lugares'])
-          datasets=[
-              ('const MUSEOS_DATA = [','const ESPACIOS_LITERARIOS_DATA = [','nombre','/museos/'),
-              ('const ESPACIOS_LITERARIOS_DATA = [','const CENTROS_CULTURALES_DATA = [','nombre','/espacios-literarios/'),
-              ('const CENTROS_CULTURALES_DATA = [','const TEATROS_DATA = [','nombre','/centros-culturales/'),
-              ('const TEATROS_DATA = [','const IGLESIAS_DATA = [','nombre','/teatros/'),
-              ('const IGLESIAS_DATA = [','const FUERTES_DATA = [','nombre','/iglesias/'),
-              ('const FUERTES_DATA = [','function SeccionEspaciosLiterarios','nombre','/fuertes-fortalezas/'),
-              ('const GRANDES_EVENTOS = [','const OTROS_EVENTOS_RIO = [','nombre','/eventos/'),
-              ('const ARTICULOS_CONSEJOS = [','const CAFE_PRODUCTOS','titulo','/articulos/')
-          ]
-          for a,b,f,prefix in datasets:
-              for n in fields(block(a,b),f): urls.add(prefix+slug(n))
-          for n in fields(block('const BARRIOS_DATA = [','const MASTER3_NEIGHBORHOOD_BLUEPRINT'),'nombre'):
-              if not slug(n).startswith('copacabana'): urls.add('/barrios/'+slug(n))
-          for n in fields(block('const EXPERIENCIAS_DATA = [','const ACTIVIDADES_NUEVAS = ['),'titulo')+fields(block('const ACTIVIDADES_NUEVAS = [','const TRANSCARIOCA_TRECHOS = ['),'titulo'):
-              urls.add('/experiencias/'+slug(n))
-          for n in fields(block('const GASTRONOMIA_BASE = [','const g = '),'nombre')+gnames(block('const GASTRONOMIA_EXTRA = [','const FOTOS_GASTRONOMIA = [')):
-              urls.add('/gastronomia/'+slug(n))
-          for n in fields(block('const GUIA_INFO=','function GuiaRioCompleta'),'titulo'): urls.add('/guia/'+slug(n))
-          for n in ['cristo-redentor','pao-de-acucar','museu-do-amanha','aquario','buzios','palacio-do-catete','forte-de-copacabana','real-gabinete-portugues','ipanema','jardim-botanico','parque-lage','lapa','mam-rio','mar','maracana','musal','pedra-bonita','santa-teresa','escadaria-selaron','floresta-da-tijuca']:
-              urls.add('/lugares/'+n)
-          base='https://www.ernestinhocarioca.com.br'
-          out=['<?xml version="1.0" encoding="UTF-8"?>','<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-          for u in sorted(urls,key=lambda x:(x.count('/'),x)):
-              pri='1.0' if u=='/' else ('0.9' if u.count('/')==1 else '0.8')
-              out += ['  <url>','    <loc>'+html.escape(base+u)+'</loc>','    <lastmod>2026-09-05</lastmod>','    <changefreq>weekly</changefreq>','    <priority>'+pri+'</priority>','  </url>']
-          out.append('</urlset>')
-          Path('sitemap.xml').write_text('\n'.join(out)+'\n',encoding='utf-8')
-          Path('robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: https://www.ernestinhocarioca.com.br/sitemap.xml\n',encoding='utf-8')
-          prefixes=sorted(set(u.split('/')[1] for u in urls if u!='/'))
-          rew=[{'source':'/'+x,'destination':'/index.html'} for x in prefixes]+[{'source':'/'+x+'/:path*','destination':'/index.html'} for x in prefixes]
-          Path('vercel.json').write_text(json.dumps({'rewrites':rew},indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
-          print('URLS',len(urls),'MUSEOS',len([u for u in urls if u.startswith('/museos/')]),'EVENTOS',len([u for u in urls if u.startswith('/eventos/')]),'EXP',len([u for u in urls if u.startswith('/experiencias/')]))
+          import json, xml.etree.ElementTree as ET, re
+          ET.parse('sitemap.xml')
+          cfg=json.loads(Path('vercel.json').read_text())
+          sm=Path('sitemap.xml').read_text()
+          urls=re.findall(r'<loc>(.*?)</loc>',sm)
+          assert len(urls)==len(set(urls)), 'duplicate sitemap URLs'
+          assert len(urls) >= 100, 'unexpectedly small sitemap'
+          assert 'https://www.ernestinhocarioca.com.br/museos/museu-do-amanha' in urls
+          assert 'https://www.ernestinhocarioca.com.br/eventos/carnaval-de-rio' in urls
+          assert 'https://www.ernestinhocarioca.com.br/experiencias/full-day-rio' in urls
+          assert not any('/experiencias/aceptar-ayuda-de-desconocidos' in u for u in urls)
+          assert any(x.get('source')=='/museos/:path*' for x in cfg.get('rewrites',[]))
+          assert any(x.get('source')=='/eventos/:path*' for x in cfg.get('rewrites',[]))
+          print('validated sitemap URLs:',len(urls))
+          print('validated rewrites:',len(cfg.get('rewrites',[])))
           PY
-          python /tmp/finalize.py
-      - name: Validate
+      - name: Extract client app for Babel parse
         run: |
-          python -m json.tool vercel.json >/dev/null
-          grep -q '/museos/museu-do-amanha' sitemap.xml
-          grep -q '/eventos/carnaval-de-rio' sitemap.xml
-          grep -q '/experiencias/full-day-rio' sitemap.xml
-          if grep -q '/experiencias/aceptar-ayuda-de-desconocidos' sitemap.xml; then exit 1; fi
-          grep -q "seoLocalMeta('teatros'" index.html
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          text=Path('index.html').read_text(encoding='utf-8')
+          blocks=re.findall(r'<script[^>]*type=["\']text/babel["\'][^>]*>(.*?)</script>',text,re.S|re.I)
+          assert blocks, 'no text/babel app found'
+          Path('/tmp/app.jsx').write_text('\n'.join(blocks),encoding='utf-8')
+          print('babel source chars:',sum(map(len,blocks)))
+          PY
+      - name: Parse JSX with Babel
+        run: |
+          npx --yes -p @babel/core -p @babel/cli -p @babel/preset-react babel /tmp/app.jsx --presets=@babel/preset-react --out-file /tmp/app.js
+          test -s /tmp/app.js
+      - name: Check SEO router anchors
+        run: |
+          grep -q 'SEO ROUTER ERNESTINHO' index.html
+          grep -q 'seoInitialItemId' index.html
           grep -q "seoLocalMeta('eventos'" index.html
-      - name: Commit
-        run: |
-          if git diff --quiet; then exit 0; fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add index.html sitemap.xml robots.txt vercel.json
-          git commit -m 'Finalize SEO routes and sitemap'
-          git push origin seo-museos-piloto
+          grep -q 'rel="canonical"' index.html
+          grep -q 'application/ld+json' index.html
+          grep -q 'Sitemap: https://www.ernestinhocarioca.com.br/sitemap.xml' robots.txt
