@@ -19,22 +19,8 @@ jobs:
         with:
           python-version: '3.12'
       - run: python scripts/apply_content_deepening.py
-      - name: Inspect month routing before final fix
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          s=Path('index.html').read_text(encoding='utf-8')
-          for term in ['rio_mes_a_mes','grandes_eventos','Master3MonthWeatherPlanner']:
-              print('\n###',term)
-              start=0
-              for _ in range(12):
-                  i=s.find(term,start)
-                  if i<0: break
-                  print(s[max(0,i-140):i+220].replace('\n',' '))
-                  start=i+len(term)
-          PY
       - run: python scripts/final_preview_fixes.py
-      - name: Validate anchors and routes
+      - name: Validate final preview structure
         run: |
           grep -q 'ESTOY EN COPACABANA Y NECESITO' index.html
           grep -q 'SOCIO OFICIAL · 5% DE DESCUENTO' index.html
@@ -44,12 +30,14 @@ jobs:
           grep -q 'CHM · lectura automática' index.html
           python - <<'PY'
           from pathlib import Path
+          import re
           s=Path('index.html').read_text(encoding='utf-8')
           assert s.count('const COPA_UTIL_SERVICES = [') == 1, 'COPA_UTIL_SERVICES duplicate/missing'
           assert s.count('function CopacabanaUtil') == 1, 'CopacabanaUtil duplicate/missing'
-          assert s.count("{ id: 'rio_mes_a_mes', label: 'Mes a mes', icon: 'calendar-days' },") == 1, 'Mes a mes main-nav item duplicate/missing'
-          assert s.count("case 'rio_mes_a_mes': return <Master3MonthWeatherPlanner />;") == 1, 'Mes a mes route duplicate/missing'
-          assert "case 'rio_mes_a_mes': return <Rio365" not in s, 'Broken Rio365 route remains'
+          nav=re.findall(r"\{\s*id\s*:\s*['\"]rio_mes_a_mes['\"]\s*,\s*label\s*:\s*['\"]Mes a mes['\"]\s*\}",s)
+          assert len(nav) == 1, f'Mes a mes native nav count={len(nav)}'
+          assert "{seccionActual === 'rio_mes_a_mes' && <Master3MonthWeatherPlanner />}" in s, 'Mes a mes native renderer missing'
+          assert "case 'rio_mes_a_mes': return <Rio365" not in s, 'Stale Rio365 route remains'
           assert '/api/inea-balneabilidade' in s, 'INEA endpoint missing'
           assert '/api/marinha-ressaca' in s, 'CHM endpoint missing'
           assert 'Vivir un partido de fútbol en Río' in s, 'Football deepening missing'
