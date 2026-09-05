@@ -18,12 +18,26 @@ jobs:
         with:
           python-version: '3.12'
       - run: python scripts/apply_content_deepening.py
-      - name: Validate anchors
+      - name: Validate anchors and routes
         run: |
           grep -q 'ESTOY EN COPACABANA Y NECESITO' index.html
           grep -q 'SOCIO OFICIAL · 5% DE DESCUENTO' index.html
           grep -q "rio_mes_a_mes" index.html
+          grep -q 'function Master3MonthWeatherPlanner' index.html
+          grep -q '/api/inea-balneabilidade' index.html
+          grep -q '/api/marinha-ressaca' index.html
           grep -q 'CHM · lectura automática' index.html
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('index.html').read_text(encoding='utf-8')
+          assert s.count('const COPA_UTIL_SERVICES = [') == 1, 'COPA_UTIL_SERVICES duplicate/missing'
+          assert s.count('function CopacabanaUtil') == 1, 'CopacabanaUtil duplicate/missing'
+          assert s.count("id: 'rio_mes_a_mes'") == 1, 'Mes a mes nav duplicate/missing'
+          assert "case 'rio_mes_a_mes':" in s, 'Mes a mes route missing'
+          assert "case 'rio_mes_a_mes': return <Rio365" not in s, 'Broken Rio365 route remains'
+          assert "case 'rio_mes_a_mes': return <Master3MonthWeatherPlanner" in s, 'Mes a mes must use existing planner'
+          print('structural validation passed')
+          PY
       - name: Commit generated index
         run: |
           git config user.name 'github-actions[bot]'
@@ -32,4 +46,3 @@ jobs:
           git diff --cached --quiet && exit 0
           git commit -m 'Apply Copacabana, Carnaval, football and live-source deepening'
           git push
-# trigger 2 after workflow is present on default branch
