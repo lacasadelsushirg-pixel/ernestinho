@@ -14,6 +14,33 @@ jobs:
           ref: seo-museos-piloto
       - name: Apply final SEO coverage
         run: python .github/scripts/seo_last.py
+      - name: Complete shopping sitemap entries
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re, unicodedata, xml.etree.ElementTree as ET
+          text=Path('index.html').read_text(encoding='utf-8')
+          def slug(v):
+            v=unicodedata.normalize('NFD',str(v or ''))
+            v=''.join(ch for ch in v if unicodedata.category(ch)!='Mn').lower().replace('&',' y ')
+            return re.sub(r'^-+|-+$','',re.sub(r'[^a-z0-9]+','-',v))
+          def block(a,b):
+            i=text.find(a);j=text.find(b,i+len(a)) if i>=0 else -1
+            return text[i:j] if i>=0 and j>=0 else ''
+          def names(s): return re.findall(r'["\']?nombre["\']?\s*:\s*["\']([^"\'\n]+)["\']',s)
+          extra=set()
+          for n in names(block('const FEIRAS_COMPRAS_DATA = [','const MERCADOS_COMPRAS_DATA = [')): extra.add('/compras/ferias/'+slug(n))
+          for n in names(block('const MERCADOS_COMPRAS_DATA = [','const SHOPPINGS_DATA = [')): extra.add('/compras/mercados/'+slug(n))
+          for n in names(block('const SHOPPINGS_DATA = [','const BARRIOS_DATA = [')): extra.add('/compras/shoppings/'+slug(n))
+          tree=ET.parse('sitemap.xml');root=tree.getroot();ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
+          existing={x.text.replace('https://www.ernestinhocarioca.com.br','') for x in root.findall('s:url/s:loc',ns)}
+          xml=Path('sitemap.xml').read_text(encoding='utf-8');added=[]
+          for u in sorted(extra-existing):
+            added.append('  <url>\n    <loc>https://www.ernestinhocarioca.com.br'+u+'</loc>\n    <lastmod>2026-09-05</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>')
+          if added: xml=xml.replace('</urlset>','\n'.join(added)+'\n</urlset>')
+          Path('sitemap.xml').write_text(xml,encoding='utf-8')
+          print('shopping URLs added',len(added))
+          PY
       - name: Validate
         run: |
           python - <<'PY'
@@ -24,6 +51,8 @@ jobs:
           assert len(urls)==len(set(urls))
           assert 'https://www.ernestinhocarioca.com.br/playas/playa-de-arpoador' in urls
           assert 'https://www.ernestinhocarioca.com.br/vida-nocturna/pedra-do-sal' in urls
+          assert any('/compras/ferias/' in u for u in urls)
+          assert any('/compras/mercados/' in u for u in urls)
           assert any('/compras/shoppings/' in u for u in urls)
           t=Path('index.html').read_text()
           assert 'const seoPrefixMap=' in t
