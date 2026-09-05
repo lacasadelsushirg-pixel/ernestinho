@@ -1,0 +1,59 @@
+name: SEO Museos Pilot
+
+on:
+  push:
+    branches:
+      - seo-museos-piloto
+    paths:
+      - '.github/workflows/seo-museos-piloto.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: seo-museos-piloto
+      - name: Add SPA route for Museos
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          p=Path('index.html'); text=p.read_text(encoding='utf-8')
+          old="const [seccionActual, setSeccionActualBase] = useState('inicio');"
+          new="const rutaInicial = window.location.pathname.replace(/\\/+$/, '') || '/';\n  const [seccionActual, setSeccionActualBase] = useState(rutaInicial === '/museos' ? 'museos' : 'inicio');"
+          if old in text: text=text.replace(old,new,1)
+          elif "rutaInicial === '/museos'" not in text: raise SystemExit('Estado inicial no encontrado; aborto seguro')
+          oldnav="    if (destino === 'guia') setTemaGuia(null);\n    setHistorialSecciones(prev => [...prev, seccionActual].slice(-50));\n    setSeccionActualBase(destino);"
+          newnav="    if (destino === 'guia') setTemaGuia(null);\n    if (destino === 'museos' && window.location.pathname !== '/museos') {\n      window.history.pushState({ seccion: 'museos' }, '', '/museos');\n    } else if (destino !== 'museos' && window.location.pathname === '/museos') {\n      window.history.pushState({ seccion: destino }, '', '/');\n    }\n    setHistorialSecciones(prev => [...prev, seccionActual].slice(-50));\n    setSeccionActualBase(destino);"
+          if oldnav in text: text=text.replace(oldnav,newnav,1)
+          elif "window.history.pushState({ seccion: 'museos' }" not in text: raise SystemExit('Navegación no encontrada; aborto seguro')
+          anchor="const [busquedaMuseo, setBusquedaMuseo] = useState('');"
+          effect="\n  useEffect(() => {\n    const sincronizarRuta = () => {\n      const ruta = window.location.pathname.replace(/\\/+$/, '') || '/';\n      if (ruta === '/museos') setSeccionActualBase('museos');\n      else if (ruta === '/') setSeccionActualBase('inicio');\n    };\n    window.addEventListener('popstate', sincronizarRuta);\n    return () => window.removeEventListener('popstate', sincronizarRuta);\n  }, []);\n"
+          if 'const sincronizarRuta = () =>' not in text:
+              if anchor not in text: raise SystemExit('Ancla Museos no encontrada; aborto seguro')
+              text=text.replace(anchor,anchor+effect,1)
+          p.write_text(text,encoding='utf-8')
+          v=Path('vercel.json'); cfg=json.loads(v.read_text()) if v.exists() else {}
+          rw=cfg.setdefault('rewrites',[])
+          for item in [{'source':'/museos','destination':'/index.html'},{'source':'/museos/:path*','destination':'/index.html'}]:
+              if item not in rw: rw.append(item)
+          v.write_text(json.dumps(cfg,indent=2)+'\n')
+          s=Path('sitemap.xml')
+          if s.exists():
+              sm=s.read_text(); loc='<loc>https://www.ernestinhocarioca.com.br/museos</loc>'
+              if loc not in sm:
+                  block='  <url>\n    <loc>https://www.ernestinhocarioca.com.br/museos</loc>\n    <lastmod>2026-09-04</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.9</priority>\n  </url>\n'
+                  s.write_text(sm.replace('</urlset>',block+'</urlset>'))
+          PY
+      - name: Commit pilot
+        run: |
+          if git diff --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html vercel.json sitemap.xml
+          git commit -m "Add Museos SEO pilot route"
+          git push origin seo-museos-piloto
