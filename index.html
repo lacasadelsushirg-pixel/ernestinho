@@ -22749,7 +22749,7 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
 
         {/* MUSEOS */}
         <button
-          onClick={() => setSeccionActual('museos')}
+          onClick={() => { if (window.location.pathname !== '/museos') window.history.pushState({ seccion: 'museos' }, '', '/museos'); setSeccionActual('museos'); }}
           className="text-left bg-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:border-teal-200 transition-all"
         >
           <div className="text-4xl mb-4">🏛️</div>
