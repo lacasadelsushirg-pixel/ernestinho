@@ -4,6 +4,7 @@ on:
     branches: [contenido-profundo-copacabana-carnaval-live]
     paths:
       - 'scripts/apply_content_deepening.py'
+      - 'scripts/final_preview_fixes.py'
       - 'api/**'
       - '.github/workflows/content-deepening.yml'
 permissions:
@@ -18,11 +19,11 @@ jobs:
         with:
           python-version: '3.12'
       - run: python scripts/apply_content_deepening.py
+      - run: python scripts/final_preview_fixes.py
       - name: Validate anchors and routes
         run: |
           grep -q 'ESTOY EN COPACABANA Y NECESITO' index.html
           grep -q 'SOCIO OFICIAL · 5% DE DESCUENTO' index.html
-          grep -q "rio_mes_a_mes" index.html
           grep -q 'function Master3MonthWeatherPlanner' index.html
           grep -q '/api/inea-balneabilidade' index.html
           grep -q '/api/marinha-ressaca' index.html
@@ -32,10 +33,13 @@ jobs:
           s=Path('index.html').read_text(encoding='utf-8')
           assert s.count('const COPA_UTIL_SERVICES = [') == 1, 'COPA_UTIL_SERVICES duplicate/missing'
           assert s.count('function CopacabanaUtil') == 1, 'CopacabanaUtil duplicate/missing'
-          assert s.count("id: 'rio_mes_a_mes'") == 1, 'Mes a mes nav duplicate/missing'
-          assert "case 'rio_mes_a_mes':" in s, 'Mes a mes route missing'
+          assert s.count("{ id: 'rio_mes_a_mes', label: 'Mes a mes', icon: 'calendar-days' },") == 1, 'Mes a mes main-nav item duplicate/missing'
+          assert s.count("case 'rio_mes_a_mes': return <Master3MonthWeatherPlanner />;") == 1, 'Mes a mes route duplicate/missing'
           assert "case 'rio_mes_a_mes': return <Rio365" not in s, 'Broken Rio365 route remains'
-          assert "case 'rio_mes_a_mes': return <Master3MonthWeatherPlanner" in s, 'Mes a mes must use existing planner'
+          assert '/api/inea-balneabilidade' in s, 'INEA endpoint missing'
+          assert '/api/marinha-ressaca' in s, 'CHM endpoint missing'
+          assert 'Vivir un partido de fútbol en Río' in s, 'Football deepening missing'
+          assert 'partnerUrl' in s and 'COMPRAR CON 5% DE DESCUENTO' in s, 'Carnaval partner CTA data missing'
           print('structural validation passed')
           PY
       - name: Commit generated index
@@ -44,5 +48,5 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add index.html
           git diff --cached --quiet && exit 0
-          git commit -m 'Apply Copacabana, Carnaval, football and live-source deepening'
+          git commit -m 'Apply final validated content preview'
           git push
