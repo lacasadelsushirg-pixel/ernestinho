@@ -43,7 +43,10 @@ jobs:
           PY
       - name: Parse JSX with Babel
         run: |
-          npx --yes -p @babel/core -p @babel/cli -p @babel/preset-react babel /tmp/app.jsx --presets=@babel/preset-react --out-file /tmp/app.js
+          mkdir -p /tmp/seo-babel && cd /tmp/seo-babel
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund @babel/core @babel/cli @babel/preset-react >/dev/null 2>&1
+          ./node_modules/.bin/babel /tmp/app.jsx --presets ./node_modules/@babel/preset-react --out-file /tmp/app.js
           test -s /tmp/app.js
       - name: Check SEO router anchors
         run: |
