@@ -19,6 +19,20 @@ jobs:
         with:
           python-version: '3.12'
       - run: python scripts/apply_content_deepening.py
+      - name: Inspect month routing before final fix
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          s=Path('index.html').read_text(encoding='utf-8')
+          for term in ['rio_mes_a_mes','grandes_eventos','Master3MonthWeatherPlanner']:
+              print('\n###',term)
+              start=0
+              for _ in range(12):
+                  i=s.find(term,start)
+                  if i<0: break
+                  print(s[max(0,i-140):i+220].replace('\n',' '))
+                  start=i+len(term)
+          PY
       - run: python scripts/final_preview_fixes.py
       - name: Validate anchors and routes
         run: |
