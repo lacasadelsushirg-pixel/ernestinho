@@ -17,31 +17,25 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: seo-museos-piloto
-      - name: Fix Museos URL synchronization
+      - name: Patch Museos card navigation directly
         run: |
           python - <<'PY'
           from pathlib import Path
           p = Path('index.html')
           text = p.read_text(encoding='utf-8')
-          marker = "  const [categoriaCompras, setCategoriaCompras] = useState('shoppings');"
-          effect = (
-              "  useEffect(() => {\n"
-              "    if (seccionActual === 'museos' && window.location.pathname !== '/museos') {\n"
-              "      window.history.pushState({ seccion: 'museos' }, '', '/museos');\n"
-              "    }\n"
-              "  }, [seccionActual]);\n\n"
-          )
-          if "}, [seccionActual]);" not in text:
-              if marker not in text:
-                  raise SystemExit('No encontré el punto seguro para aplicar el arreglo')
-              text = text.replace(marker, effect + marker, 1)
+          old = "onClick={() => setSeccionActual('museos')}"
+          new = "onClick={() => { if (window.location.pathname !== '/museos') window.history.pushState({ seccion: 'museos' }, '', '/museos'); setSeccionActual('museos'); }}"
+          count = text.count(old)
+          if count != 1:
+              raise SystemExit(f'Esperaba 1 botón Museos y encontré {count}; aborto seguro')
+          text = text.replace(old, new, 1)
           p.write_text(text, encoding='utf-8')
           PY
-      - name: Commit pilot fix
+      - name: Commit direct navigation fix
         run: |
           if git diff --quiet; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Fix Museos URL synchronization"
+          git commit -m "Patch Museos card navigation directly"
           git push origin seo-museos-piloto
