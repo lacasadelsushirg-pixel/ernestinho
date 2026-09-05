@@ -12,91 +12,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: seo-museos-piloto
-      - name: Add remaining indexable detail routes
-        run: |
-          cat > /tmp/seo_last.py <<'PY'
-          from pathlib import Path
-          import re, unicodedata, xml.etree.ElementTree as ET
-          p=Path('index.html'); text=p.read_text(encoding='utf-8')
-
-          # Improve generic local metadata for datasets that use destaque/consejo.
-          text=text.replace("description:item.descripcion||item.resumen||item.subtitulo||item.categoria||`Guía de ${item.nombre} en Río de Janeiro.`","description:item.descripcion||item.resumen||item.subtitulo||item.destaque||item.consejo||item.categoria||`Guía de ${item.nombre} en Río de Janeiro.`",1)
-
-          # Complete router aliases for the remaining real-data catalogues.
-          old="const localParents=[['centros-culturales','centros_culturales'],['espacios-literarios','espacios_literarios'],['teatros','teatros'],['iglesias','iglesias'],['fuertes-fortalezas','fuertes_fortalezas'],['eventos','grandes_eventos']]"
-          new="const localParents=[['compras/ferias','master4_ferias_real'],['compras/mercados','master4_mercados_real'],['compras/shoppings','master4_shoppings_real'],['vida-nocturna','master4_noche_real'],['playas','master4_playas_real'],['centros-culturales','centros_culturales'],['espacios-literarios','espacios_literarios'],['teatros','teatros'],['iglesias','iglesias'],['fuertes-fortalezas','fuertes_fortalezas'],['eventos','grandes_eventos']]"
-          if old in text: text=text.replace(old,new,1)
-          elif new not in text: raise SystemExit('localParents anchor missing')
-
-          # Exact catalogue routes used after returning from a detail page.
-          oldp="const SEO_PREFERRED={'/':'inicio','/museos':'museos','/playas':'playas','/naturaleza':'naturaleza','/gastronomia':'gastronomia','/barrios':'barrios','/transportes':'transportes','/consejos':'consejos','/experiencias':'experiencias'};"
-          newp="const SEO_PREFERRED={'/':'inicio','/museos':'museos','/playas':'playas','/naturaleza':'naturaleza','/gastronomia':'gastronomia','/barrios':'barrios','/transportes':'transportes','/consejos':'consejos','/experiencias':'experiencias','/vida-nocturna':'nocturna','/compras/ferias':'master4_ferias_real','/compras/mercados':'master4_mercados_real','/compras/shoppings':'master4_shoppings_real'};"
-          if oldp in text: text=text.replace(oldp,newp,1)
-          elif newp not in text: raise SystemExit('SEO_PREFERRED anchor missing')
-
-          # Patch the reusable Master4 real-data hub: direct URL, clicks, back/forward and metadata.
-          start=text.find('function Master4LegacyDataHub({kind,go})')
-          end=text.find('\nfunction Master4MuseumsReal',start)
-          if start<0 or end<0: raise SystemExit('Legacy hub boundaries missing')
-          c=text[start:end]
-          c=c.replace(" const [selected,setSelected]=useState(null);\n",'',1)
-          anchor=" const arr=Array.isArray(c.data)?c.data:[];"
-          if 'const seoPrefixMap=' not in c:
-              insert=""" const arr=Array.isArray(c.data)?c.data:[];
- const seoPrefixMap={playas:'playas',noche:'vida-nocturna',ferias:'compras/ferias',mercados:'compras/mercados',shoppings:'compras/shoppings'};
- const seoPrefix=seoPrefixMap[kind]||null;
- const findFromRoute=()=>{if(!seoPrefix)return null;const r=seoCleanPath(location.pathname),m=r.match(new RegExp('^/'+seoPrefix+'/([^/]+)$'));if(!m)return null;return arr.find(x=>seoSlug(name(x))===m[1]||seoSlug(val(x,['id','slug']))===m[1])||null;};
- const [selected,setSelected]=useState(()=>findFromRoute());
- useEffect(()=>{if(!seoPrefix)return;const sync=()=>setSelected(findFromRoute());addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[kind]);
- useEffect(()=>{if(selected&&seoPrefix)seoLocalMeta(seoPrefix,selected);},[selected,kind]);"""
-              if anchor not in c: raise SystemExit('Legacy hub arr anchor missing')
-              c=c.replace(anchor,insert,1)
-          c=c.replace("<button onClick={()=>setSelected(null)} className=\"text-xs font-black\">← {c.title.toUpperCase()}</button>","<button onClick={()=>{if(seoPrefix)seoNavigate('/'+seoPrefix);setSelected(null)}} className=\"text-xs font-black\">← {c.title.toUpperCase()}</button>",1)
-          c=c.replace("onClick={()=>setSelected(x)} className=\"rounded-[1.7rem]", "onClick={()=>{if(seoPrefix)seoNavigate(`/${seoPrefix}/${seoSlug(name(x))}`);setSelected(x)}} className=\"rounded-[1.7rem]",1)
-          text=text[:start]+c+text[end:]
-
-          # Fix beach cards that previously pointed to non-rendered state names.
-          start=text.find('function Master4CatalogPage({kind,go})')
-          end=text.find('\nfunction Master4DiscoverRio',start)
-          if start<0 or end<0: raise SystemExit('Catalog component missing')
-          c=text[start:end]
-          anchor="const visible=cfg.cards.filter(c=>(filter==='Todos'||c[3]===filter)&&(!query||(`${c[0]} ${c[1]}`).toLowerCase().includes(query.toLowerCase())));"
-          if 'const openCatalogCard=' not in c:
-              helper=anchor+"\n  const openCatalogCard=(card)=>{if(kind==='playas'&&String(card[4]).startsWith('playa-')){const target=PLAYAS_DETALLADAS_DATA.find(x=>seoSlug(x.nombre).includes(seoSlug(card[0]))||seoSlug(x.id)===seoSlug(String(card[4]).replace('playa-','')));if(target){seoNavigate(`/playas/${seoSlug(target.nombre)}`);go('master4_playas_real');return;}}go(card[4]);};"
-              if anchor not in c: raise SystemExit('Catalog visible anchor missing')
-              c=c.replace(anchor,helper,1)
-          c=c.replace('onClick={()=>go(c[4])}','onClick={()=>openCatalogCard(c)}')
-          text=text[:start]+c+text[end:]
-
-          p.write_text(text,encoding='utf-8')
-
-          # Append real detail URLs to the already-validated sitemap, preserving all existing entries.
-          def slug(v):
-              v=unicodedata.normalize('NFD',str(v or ''))
-              v=''.join(ch for ch in v if unicodedata.category(ch)!='Mn').lower().replace('&',' y ')
-              return re.sub(r'^-+|-+$','',re.sub(r'[^a-z0-9]+','-',v))
-          def block(a,b):
-              i=text.find(a);j=text.find(b,i+len(a)) if i>=0 else -1
-              return text[i:j] if i>=0 and j>=0 else ''
-          def names(s):return re.findall(r"\bnombre\s*:\s*['\"]([^'\"\n]+)['\"]",s)
-          extra=set()
-          for n in names(block('const PLAYAS_DETALLADAS_DATA = [','const FEIRAS_COMPRAS_DATA = [')):extra.add('/playas/'+slug(n))
-          for n in re.findall(r"\bn\(\s*['\"][^'\"]+['\"]\s*,\s*['\"]([^'\"]+)['\"]",block('const VIDA_NOCTURNA_DATA = [','const FOTOS_VIDA_NOCTURNA')):extra.add('/vida-nocturna/'+slug(n))
-          for n in names(block('const FEIRAS_COMPRAS_DATA = [','const MERCADOS_COMPRAS_DATA = [')):extra.add('/compras/ferias/'+slug(n))
-          for n in names(block('const MERCADOS_COMPRAS_DATA = [','const SHOPPINGS_DATA = [')):extra.add('/compras/mercados/'+slug(n))
-          for n in names(block('const SHOPPINGS_DATA = [','const BARRIOS_DATA = [')):extra.add('/compras/shoppings/'+slug(n))
-          tree=ET.parse('sitemap.xml');root=tree.getroot();ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
-          existing={x.text.replace('https://www.ernestinhocarioca.com.br','') for x in root.findall('s:url/s:loc',ns)}
-          xml=Path('sitemap.xml').read_text(encoding='utf-8')
-          blocks=[]
-          for u in sorted(extra-existing):
-              blocks.append('  <url>\n    <loc>https://www.ernestinhocarioca.com.br'+u+'</loc>\n    <lastmod>2026-09-05</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>')
-          if blocks: xml=xml.replace('</urlset>','\n'.join(blocks)+'\n</urlset>')
-          Path('sitemap.xml').write_text(xml,encoding='utf-8')
-          print('added detail URLs',len(blocks),'total intended extras',len(extra))
-          PY
-          python /tmp/seo_last.py
-      - name: Validate last-mile SEO
+      - name: Apply final SEO coverage
+        run: python .github/scripts/seo_last.py
+      - name: Validate
         run: |
           python - <<'PY'
           from pathlib import Path
@@ -105,14 +23,13 @@ jobs:
           s=Path('sitemap.xml').read_text(); urls=re.findall(r'<loc>(.*?)</loc>',s)
           assert len(urls)==len(set(urls))
           assert 'https://www.ernestinhocarioca.com.br/playas/playa-de-arpoador' in urls
-          assert any('/vida-nocturna/pedra-do-sal' in u for u in urls)
+          assert 'https://www.ernestinhocarioca.com.br/vida-nocturna/pedra-do-sal' in urls
           assert any('/compras/shoppings/' in u for u in urls)
           t=Path('index.html').read_text()
           assert 'const seoPrefixMap=' in t
           assert 'openCatalogCard' in t
           print('final sitemap URLs',len(urls))
           PY
-          python -m json.tool vercel.json >/dev/null
       - name: Commit
         run: |
           if git diff --quiet; then exit 0; fi
