@@ -6,8 +6,10 @@
   <title>Ernestinho Carioca | Guía completa de Río de Janeiro</title>
   <meta name="description" content="Descubre Río de Janeiro con Ernestinho Carioca: atracciones, playas, museos, gastronomía, transporte, consejos y experiencias para organizar tu viaje.">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.ernestinhocarioca.com.br/">
   <meta name="theme-color" content="#0f766e">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.ernestinhocarioca.com.br/">
   <meta property="og:locale" content="es_ES">
   <meta property="og:title" content="Ernestinho Carioca | Río desde mi mirada">
   <meta property="og:description" content="La guía de Río de Janeiro con información práctica, lugares para conocer y experiencias para reservar.">
@@ -59,6 +61,8 @@
     gtag('js', new Date());
     gtag('config', 'G-QE1X83D419');
   </script>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","url":"https://www.ernestinhocarioca.com.br/","name":"Ernestinho Carioca","inLanguage":"es"},{"@type":"TravelAgency","name":"Ernestinho Carioca","url":"https://www.ernestinhocarioca.com.br/","areaServed":"Rio de Janeiro, Brasil"}]}</script>
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans antialiased">
 
@@ -8509,7 +8513,7 @@ const FUERTES_DATA = [
 function SeccionEspaciosLiterarios() {
 
   const [espacioSeleccionado, setEspacioSeleccionado] =
-    useState('real-gabinete');
+    useState(()=>seoInitialItemId('espacios-literarios',ESPACIOS_LITERARIOS_DATA,'real-gabinete'));
 
   const [selectorLiterarioAbierto, setSelectorLiterarioAbierto] =
     useState(false);
@@ -8520,6 +8524,9 @@ function SeccionEspaciosLiterarios() {
   const espacioActual = ESPACIOS_LITERARIOS_DATA.find(
     (espacio) => espacio.id === espacioSeleccionado
   );
+
+  useEffect(()=>{const sync=()=>setEspacioSeleccionado(seoInitialItemId('espacios-literarios',ESPACIOS_LITERARIOS_DATA,'real-gabinete'));addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);
+  useEffect(()=>{seoLocalMeta('espacios-literarios',espacioActual);},[espacioSeleccionado]);
 
   const espaciosFiltrados = ESPACIOS_LITERARIOS_DATA.filter(
     (espacio) =>
@@ -8623,6 +8630,7 @@ function SeccionEspaciosLiterarios() {
                       type="button"
                       key={espacio.id}
                       onClick={() => {
+                        seoNavigate(`/espacios-literarios/${seoSlug(espacio.nombre)}`);
                         setEspacioSeleccionado(espacio.id);
                         setSelectorLiterarioAbierto(false);
                         setBusquedaLiteraria('');
@@ -8980,7 +8988,7 @@ function SeccionEspaciosLiterarios() {
 function SeccionCentrosCulturales() {
 
   const [centroSeleccionado, setCentroSeleccionado] =
-    useState('espaco-marinha');
+    useState(()=>seoInitialItemId('centros-culturales',CENTROS_CULTURALES_DATA,'espaco-marinha'));
 
   const [selectorCentrosAbierto, setSelectorCentrosAbierto] =
     useState(false);
@@ -8991,6 +8999,9 @@ function SeccionCentrosCulturales() {
   const centroActual = CENTROS_CULTURALES_DATA.find(
     (centro) => centro.id === centroSeleccionado
   );
+
+  useEffect(()=>{const sync=()=>setCentroSeleccionado(seoInitialItemId('centros-culturales',CENTROS_CULTURALES_DATA,'espaco-marinha'));addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);
+  useEffect(()=>{seoLocalMeta('centros-culturales',centroActual);},[centroSeleccionado]);
 
   const centrosFiltrados = CENTROS_CULTURALES_DATA.filter(
     (centro) =>
@@ -9090,6 +9101,7 @@ function SeccionCentrosCulturales() {
                       type="button"
                       key={centro.id}
                       onClick={() => {
+                        seoNavigate(`/centros-culturales/${seoSlug(centro.nombre)}`);
                         setCentroSeleccionado(centro.id);
                         setSelectorCentrosAbierto(false);
                         setBusquedaCentro('');
@@ -9409,7 +9421,7 @@ function SeccionCentrosCulturales() {
 function SeccionTeatros() {
 
   const [teatroSeleccionado, setTeatroSeleccionado] =
-    useState('theatro-municipal');
+    useState(()=>seoInitialItemId('teatros',TEATROS_DATA,'theatro-municipal'));
 
   const [selectorTeatrosAbierto, setSelectorTeatrosAbierto] =
     useState(false);
@@ -9420,6 +9432,9 @@ function SeccionTeatros() {
   const teatroActual = TEATROS_DATA.find(
     (teatro) => teatro.id === teatroSeleccionado
   );
+
+  useEffect(()=>{const sync=()=>setTeatroSeleccionado(seoInitialItemId('teatros',TEATROS_DATA,'theatro-municipal'));addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);
+  useEffect(()=>{seoLocalMeta('teatros',teatroActual);},[teatroSeleccionado]);
 
   const teatrosFiltrados = TEATROS_DATA.filter(
     (teatro) =>
@@ -9519,6 +9534,7 @@ function SeccionTeatros() {
                       type="button"
                       key={teatro.id}
                       onClick={() => {
+                        seoNavigate(`/teatros/${seoSlug(teatro.nombre)}`);
                         setTeatroSeleccionado(teatro.id);
                         setSelectorTeatrosAbierto(false);
                         setBusquedaTeatro('');
@@ -9851,7 +9867,7 @@ function SeccionTeatros() {
 function SeccionIglesias() {
 
   const [iglesiaSeleccionada, setIglesiaSeleccionada] =
-    useState('catedral-metropolitana');
+    useState(()=>seoInitialItemId('iglesias',IGLESIAS_DATA,'catedral-metropolitana'));
 
   const [selectorIglesiasAbierto, setSelectorIglesiasAbierto] =
     useState(false);
@@ -9862,6 +9878,9 @@ function SeccionIglesias() {
   const iglesiaActual = IGLESIAS_DATA.find(
     (iglesia) => iglesia.id === iglesiaSeleccionada
   );
+
+  useEffect(()=>{const sync=()=>setIglesiaSeleccionada(seoInitialItemId('iglesias',IGLESIAS_DATA,'catedral-metropolitana'));addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);
+  useEffect(()=>{seoLocalMeta('iglesias',iglesiaActual);},[iglesiaSeleccionada]);
 
   const iglesiasFiltradas = IGLESIAS_DATA.filter(
     (iglesia) =>
@@ -9974,6 +9993,7 @@ function SeccionIglesias() {
                       type="button"
                       key={iglesia.id}
                       onClick={() => {
+                        seoNavigate(`/iglesias/${seoSlug(iglesia.nombre)}`);
                         setIglesiaSeleccionada(iglesia.id);
                         setSelectorIglesiasAbierto(false);
                         setBusquedaIglesia('');
@@ -10254,7 +10274,7 @@ function SeccionIglesias() {
 function SeccionFuertesFortalezas() {
 
   const [fuerteSeleccionado, setFuerteSeleccionado] =
-    useState('forte-copacabana');
+    useState(()=>seoInitialItemId('fuertes-fortalezas',FUERTES_DATA,'forte-copacabana'));
 
   const [selectorFuertesAbierto, setSelectorFuertesAbierto] =
     useState(false);
@@ -10265,6 +10285,9 @@ function SeccionFuertesFortalezas() {
   const fuerteActual = FUERTES_DATA.find(
     (fuerte) => fuerte.id === fuerteSeleccionado
   );
+
+  useEffect(()=>{const sync=()=>setFuerteSeleccionado(seoInitialItemId('fuertes-fortalezas',FUERTES_DATA,'forte-copacabana'));addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);
+  useEffect(()=>{seoLocalMeta('fuertes-fortalezas',fuerteActual);},[fuerteSeleccionado]);
 
   const fuertesFiltrados = FUERTES_DATA.filter(
     (fuerte) =>
@@ -10383,6 +10406,7 @@ function SeccionFuertesFortalezas() {
                       type="button"
                       key={fuerte.id}
                       onClick={() => {
+                        seoNavigate(`/fuertes-fortalezas/${seoSlug(fuerte.nombre)}`);
                         setFuerteSeleccionado(fuerte.id);
                         setSelectorFuertesAbierto(false);
                         setBusquedaFuerte('');
@@ -11920,7 +11944,7 @@ function GastronomiaCompleta({ onVolver, seleccionado, setSeleccionado }) {
               <div className="p-5 flex flex-col flex-1">
                 <p className="text-sm text-slate-600 leading-relaxed flex-1">{item.destaque}</p>
                 <div className="flex flex-wrap gap-1.5 mt-4">{item.tipos.slice(0,3).map(t => <span key={t} className="bg-slate-100 text-slate-600 rounded-full px-2.5 py-1 text-[10px] font-bold">{TIPOS_GASTRONOMICOS.find(x => x.id === t)?.nombre}</span>)}</div>
-                <button onClick={() => setSeleccionado(item)} className="mt-5 w-full bg-slate-900 hover:bg-teal-700 text-white rounded-xl py-3 text-xs font-black uppercase transition">Ver información y mapa</button>
+                <button onClick={() => {seoNavigate(`/gastronomia/${seoSlug(item.nombre)}`);setSeleccionado(item)}} className="mt-5 w-full bg-slate-900 hover:bg-teal-700 text-white rounded-xl py-3 text-xs font-black uppercase transition">Ver información y mapa</button>
               </div>
             </article>
           ))}
@@ -11942,7 +11966,7 @@ function GastronomiaCompleta({ onVolver, seleccionado, setSeleccionado }) {
       {seleccionado && (
         <div className="fixed inset-0 z-[70] bg-slate-950/80 backdrop-blur-sm p-4 flex items-center justify-center" onClick={() => setSeleccionado(null)}>
           <div className="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
-            <div className="h-56 relative"><img src={seleccionado.img} alt={seleccionado.nombre} className="w-full h-full object-cover"/><button onClick={() => setSeleccionado(null)} className="absolute top-4 right-4 bg-white w-10 h-10 rounded-full font-black shadow">✕</button></div>
+            <div className="h-56 relative"><img src={seleccionado.img} alt={seleccionado.nombre} className="w-full h-full object-cover"/><button onClick={() => {seoNavigate('/gastronomia');setSeleccionado(null)}} className="absolute top-4 right-4 bg-white w-10 h-10 rounded-full font-black shadow">✕</button></div>
             <div className="p-6 sm:p-8">
               <div className="flex justify-between gap-4"><div><span className="text-teal-600 text-xs font-black uppercase">{seleccionado.barrio}</span><h2 className="text-2xl font-black mt-1">{seleccionado.nombre}</h2></div><span className="font-black">{seleccionado.precio}</span></div>
               <p className="text-slate-600 text-sm leading-relaxed mt-4">{seleccionado.destaque}</p>
@@ -12137,8 +12161,8 @@ const GUIA_INFO = {
 
 function GuiaRioCompleta({onNavegar,onArticulo,tema,setTema}){
  const info=tema?GUIA_INFO[tema]:null, grupos=[...new Set(GUIA_TEMAS.map(x=>x.grupo))];
- if(info)return <section className="min-h-screen bg-slate-50 py-12"><article className="max-w-4xl mx-auto px-4"><button onClick={()=>setTema(null)} className="font-black text-teal-700">← Volver a Guía de Río</button>{info.hero&&<div className="mt-8 rounded-[2rem] overflow-hidden shadow-lg bg-slate-200"><img src={info.hero} alt={info.heroAlt||info.titulo} className="w-full max-h-[540px] object-cover"/></div>}<h1 className="text-3xl sm:text-5xl font-black mt-8">{info.titulo}</h1><p className="text-lg text-slate-600 mt-4">{info.intro}</p>{info.consejo&&<div className="mt-7 bg-amber-50 border-2 border-amber-300 rounded-3xl p-6"><span className="text-[11px] font-black uppercase tracking-widest text-amber-800">⭐ Consejo de Ernestinho</span><p className="text-sm sm:text-base font-semibold text-amber-950 leading-relaxed mt-3">{info.consejo}</p></div>}<div className="space-y-5 mt-9">{info.items.map(([t,p],i)=><div key={t} className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm"><span className="text-teal-600 font-black text-xs">{String(i+1).padStart(2,'0')}</span><h2 className="text-xl font-black mt-2">{t}</h2><p className="text-sm text-slate-600 leading-relaxed mt-3">{p}</p></div>)}</div>{info.links&&<div className="flex flex-wrap gap-3 mt-8">{info.links.map(([t,u])=><a key={t} href={u} target="_blank" rel="noopener noreferrer" className="bg-blue-700 text-white rounded-full px-5 py-3 text-xs font-black">{t} ↗</a>)}</div>}<p className="text-xs text-slate-500 mt-8">Información revisada en septiembre de 2026. Confirma los requisitos con Migraciones, el consulado y la aerolínea antes del viaje.</p></article></section>;
- return <section className="min-h-screen bg-slate-50 pb-20"><div className="bg-gradient-to-br from-slate-950 via-teal-950 to-teal-700 text-white"><div className="max-w-7xl mx-auto px-4 py-16"><span className="text-amber-400 text-xs font-black uppercase tracking-[.25em]">Antes y durante tu viaje</span><h1 className="text-4xl sm:text-6xl font-black uppercase mt-3">Guía de Río</h1><p className="max-w-2xl mt-5 text-teal-50 text-lg">Prepara tu viaje, llega tranquilo y encuentra rápidamente la información esencial.</p></div></div><div className="max-w-7xl mx-auto px-4 py-12">{grupos.map(g=><div key={g} className="mb-12"><h2 className="text-2xl font-black">{g}</h2><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">{GUIA_TEMAS.filter(x=>x.grupo===g).map(x=><button key={x.id} onClick={()=>x.sec?onNavegar(x.sec):x.legacy!==undefined?onArticulo(ARTICULOS_CONSEJOS[x.legacy]):setTema(x.id)} className="text-left bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition">{x.imagen?<div className="w-full aspect-[8/3] bg-slate-100 overflow-hidden"><img src={x.imagen} alt={x.titulo} className="w-full h-full object-cover" loading="lazy"/></div>:null}<div className="p-5"><h3 className="font-black text-lg">{x.titulo}</h3><p className="text-xs text-slate-500 mt-2">{x.resumen}</p><span className="block text-teal-700 text-[10px] font-black uppercase mt-4">Abrir →</span></div></button>)}</div></div>)}</div></section>;
+ if(info)return <section className="min-h-screen bg-slate-50 py-12"><article className="max-w-4xl mx-auto px-4"><button onClick={()=>{seoNavigate('/guia');setTema(null)}} className="font-black text-teal-700">← Volver a Guía de Río</button>{info.hero&&<div className="mt-8 rounded-[2rem] overflow-hidden shadow-lg bg-slate-200"><img src={info.hero} alt={info.heroAlt||info.titulo} className="w-full max-h-[540px] object-cover"/></div>}<h1 className="text-3xl sm:text-5xl font-black mt-8">{info.titulo}</h1><p className="text-lg text-slate-600 mt-4">{info.intro}</p>{info.consejo&&<div className="mt-7 bg-amber-50 border-2 border-amber-300 rounded-3xl p-6"><span className="text-[11px] font-black uppercase tracking-widest text-amber-800">⭐ Consejo de Ernestinho</span><p className="text-sm sm:text-base font-semibold text-amber-950 leading-relaxed mt-3">{info.consejo}</p></div>}<div className="space-y-5 mt-9">{info.items.map(([t,p],i)=><div key={t} className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm"><span className="text-teal-600 font-black text-xs">{String(i+1).padStart(2,'0')}</span><h2 className="text-xl font-black mt-2">{t}</h2><p className="text-sm text-slate-600 leading-relaxed mt-3">{p}</p></div>)}</div>{info.links&&<div className="flex flex-wrap gap-3 mt-8">{info.links.map(([t,u])=><a key={t} href={u} target="_blank" rel="noopener noreferrer" className="bg-blue-700 text-white rounded-full px-5 py-3 text-xs font-black">{t} ↗</a>)}</div>}<p className="text-xs text-slate-500 mt-8">Información revisada en septiembre de 2026. Confirma los requisitos con Migraciones, el consulado y la aerolínea antes del viaje.</p></article></section>;
+ return <section className="min-h-screen bg-slate-50 pb-20"><div className="bg-gradient-to-br from-slate-950 via-teal-950 to-teal-700 text-white"><div className="max-w-7xl mx-auto px-4 py-16"><span className="text-amber-400 text-xs font-black uppercase tracking-[.25em]">Antes y durante tu viaje</span><h1 className="text-4xl sm:text-6xl font-black uppercase mt-3">Guía de Río</h1><p className="max-w-2xl mt-5 text-teal-50 text-lg">Prepara tu viaje, llega tranquilo y encuentra rápidamente la información esencial.</p></div></div><div className="max-w-7xl mx-auto px-4 py-12">{grupos.map(g=><div key={g} className="mb-12"><h2 className="text-2xl font-black">{g}</h2><div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5">{GUIA_TEMAS.filter(x=>x.grupo===g).map(x=><button key={x.id} onClick={()=>x.sec?onNavegar(x.sec):x.legacy!==undefined?onArticulo(ARTICULOS_CONSEJOS[x.legacy]):(seoNavigate(`/guia/${seoSlug(GUIA_INFO[x.id]?.titulo||x.titulo||x.id)}`),setTema(x.id))} className="text-left bg-white border border-slate-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition">{x.imagen?<div className="w-full aspect-[8/3] bg-slate-100 overflow-hidden"><img src={x.imagen} alt={x.titulo} className="w-full h-full object-cover" loading="lazy"/></div>:null}<div className="p-5"><h3 className="font-black text-lg">{x.titulo}</h3><p className="text-xs text-slate-500 mt-2">{x.resumen}</p><span className="block text-teal-700 text-[10px] font-black uppercase mt-4">Abrir →</span></div></button>)}</div></div>)}</div></section>;
 }
 
 const CONSEJOS_NUEVOS = [
@@ -17915,7 +17939,6 @@ function Master4SpecialGuides({go}){
 
 function Master4LegacyDataHub({kind,go}){
  const [q,setQ]=useState('');
- const [selected,setSelected]=useState(null);
  const configs={
   playas:{title:'Playas reales del Master 3',icon:'🏖️',data:PLAYAS_DETALLADAS_DATA,back:'master4_descubre'},
   centros:{title:'Centros culturales',icon:'🎨',data:CENTROS_CULTURALES_DATA,back:'master4_patrimonio'},
@@ -17938,6 +17961,12 @@ function Master4LegacyDataHub({kind,go}){
  const history=x=>val(x,['historia','history']);
  const category=x=>val(x,['categoria','category','tipo']);
  const arr=Array.isArray(c.data)?c.data:[];
+ const seoPrefixMap={playas:'playas',noche:'vida-nocturna',ferias:'compras/ferias',mercados:'compras/mercados',shoppings:'compras/shoppings'};
+ const seoPrefix=seoPrefixMap[kind]||null;
+ const findFromRoute=()=>{if(!seoPrefix)return null;const r=seoCleanPath(location.pathname),m=r.match(new RegExp('^/'+seoPrefix+'/([^/]+)$'));if(!m)return null;return arr.find(x=>seoSlug(name(x))===m[1]||seoSlug(val(x,['id','slug']))===m[1])||null;};
+ const [selected,setSelected]=useState(()=>findFromRoute());
+ useEffect(()=>{if(!seoPrefix)return;const sync=()=>setSelected(findFromRoute());addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[kind]);
+ useEffect(()=>{if(selected&&seoPrefix)seoLocalMeta(seoPrefix,selected);},[selected,kind]);
  const shown=arr.filter(x=>(name(x)+' '+desc(x)+' '+category(x)).toLowerCase().includes(q.toLowerCase()));
  if(selected){
   const x=selected;
@@ -17946,7 +17975,7 @@ function Master4LegacyDataHub({kind,go}){
    ['🕐','Horarios',hours(x)],['💰','Precio / entrada',price(x)]
   ].filter(z=>z[2]);
   return <div className="min-h-screen bg-[#f7f7f4] pb-24">
-   <header className="max-w-5xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>setSelected(null)} className="text-xs font-black">← {c.title.toUpperCase()}</button>
+   <header className="max-w-5xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>{if(seoPrefix)seoNavigate('/'+seoPrefix);setSelected(null)}} className="text-xs font-black">← {c.title.toUpperCase()}</button>
     <div className="mt-5 rounded-[2rem] bg-slate-950 text-white overflow-hidden">
      <div className="relative min-h-[280px] bg-slate-800">{image(x)?<img src={image(x)} alt={name(x)} className="absolute inset-0 w-full h-full object-cover"/>:<div className="absolute inset-0 grid place-items-center"><div className="text-center"><span className="text-6xl">{c.icon}</span><small className="block mt-3 text-white/40 font-black">FOTO PENDIENTE</small></div></div>}<div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"/><div className="absolute bottom-0 p-6 sm:p-8"><span className="text-[10px] font-black text-amber-300">{category(x)||c.title}</span><h1 className="text-3xl sm:text-5xl font-black mt-1">{name(x)}</h1></div></div>
     </div>
@@ -17960,7 +17989,7 @@ function Master4LegacyDataHub({kind,go}){
  }
  return <div className="min-h-screen bg-[#f7f7f4] pb-24">
   <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>go(c.back)} className="text-xs font-black">← VOLVER</button><div className="mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10"><span className="text-[10px] font-black text-amber-300">{c.icon} CATÁLOGO REAL</span><h1 className="text-4xl sm:text-6xl font-black mt-2">{c.title}</h1><p className="text-sm text-white/70 mt-3">{arr.length} registros conectados directamente a sus datos existentes.</p><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Buscar…" className="mt-6 w-full max-w-xl rounded-2xl bg-white text-slate-900 px-5 py-4 text-sm"/></div></header>
-  <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6"><div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">{shown.map((x,i)=><button key={val(x,['id','slug'])||i} onClick={()=>setSelected(x)} className="rounded-[1.7rem] bg-white border overflow-hidden text-left min-h-52 flex flex-col">{image(x)?<div className="h-32 overflow-hidden"><img src={image(x)} alt={name(x)} className="w-full h-full object-cover"/></div>:<div className="h-24 bg-slate-100 grid place-items-center text-3xl">{c.icon}</div>}<div className="p-5 mt-auto"><span className="text-[9px] font-black text-emerald-700">{category(x)||'ERNESTINHO 4.0'}</span><h2 className="text-lg font-black mt-1">{name(x)||'Registro sin título'}</h2><p className="text-xs text-slate-500 mt-2 line-clamp-2">{String(desc(x)||address(x)||'Abre para ver la información disponible.')}</p><span className="inline-block mt-4 text-[10px] font-black">ABRIR FICHA →</span></div></button>)}</div></main>
+  <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6"><div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">{shown.map((x,i)=><button key={val(x,['id','slug'])||i} onClick={()=>{if(seoPrefix)seoNavigate(`/${seoPrefix}/${seoSlug(name(x))}`);setSelected(x)}} className="rounded-[1.7rem] bg-white border overflow-hidden text-left min-h-52 flex flex-col">{image(x)?<div className="h-32 overflow-hidden"><img src={image(x)} alt={name(x)} className="w-full h-full object-cover"/></div>:<div className="h-24 bg-slate-100 grid place-items-center text-3xl">{c.icon}</div>}<div className="p-5 mt-auto"><span className="text-[9px] font-black text-emerald-700">{category(x)||'ERNESTINHO 4.0'}</span><h2 className="text-lg font-black mt-1">{name(x)||'Registro sin título'}</h2><p className="text-xs text-slate-500 mt-2 line-clamp-2">{String(desc(x)||address(x)||'Abre para ver la información disponible.')}</p><span className="inline-block mt-4 text-[10px] font-black">ABRIR FICHA →</span></div></button>)}</div></main>
  </div>;
 }
 
@@ -18382,6 +18411,7 @@ function Master4CatalogPage({kind,go}){
   }[kind]||null;
   if(!cfg)return null;
   const visible=cfg.cards.filter(c=>(filter==='Todos'||c[3]===filter)&&(!query||(`${c[0]} ${c[1]}`).toLowerCase().includes(query.toLowerCase())));
+  const openCatalogCard=(card)=>{if(kind==='playas'&&String(card[4]).startsWith('playa-')){const target=PLAYAS_DETALLADAS_DATA.find(x=>seoSlug(x.nombre).includes(seoSlug(card[0]))||seoSlug(x.id)===seoSlug(String(card[4]).replace('playa-','')));if(target){seoNavigate(`/playas/${seoSlug(target.nombre)}`);go('master4_playas_real');return;}}go(card[4]);};
   return <div className="min-h-screen bg-[#f7f7f4] pb-24">
     <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
       <button onClick={()=>go('master4_descubre')} className="text-xs font-black">← CONOCER RÍO</button>
@@ -18405,12 +18435,12 @@ function Master4CatalogPage({kind,go}){
           </button>
           {expanded===c[0]&&<div className="border-t p-5 bg-slate-50">
             <div className="grid grid-cols-2 gap-2 text-xs">
-              <button onClick={()=>go(c[4])} className="rounded-xl bg-white border p-3 font-black text-left">📖 Historia / ficha</button>
-              <button onClick={()=>go(c[4])} className="rounded-xl bg-white border p-3 font-black text-left">📍 Cómo llegar</button>
-              <button onClick={()=>go(c[4])} className="rounded-xl bg-white border p-3 font-black text-left">💡 Dica Ernestinho</button>
-              <button onClick={()=>go(c[4])} className="rounded-xl bg-white border p-3 font-black text-left">♡ Guardar</button>
+              <button onClick={()=>openCatalogCard(c)} className="rounded-xl bg-white border p-3 font-black text-left">📖 Historia / ficha</button>
+              <button onClick={()=>openCatalogCard(c)} className="rounded-xl bg-white border p-3 font-black text-left">📍 Cómo llegar</button>
+              <button onClick={()=>openCatalogCard(c)} className="rounded-xl bg-white border p-3 font-black text-left">💡 Dica Ernestinho</button>
+              <button onClick={()=>openCatalogCard(c)} className="rounded-xl bg-white border p-3 font-black text-left">♡ Guardar</button>
             </div>
-            <button onClick={()=>go(c[4])} className="mt-3 w-full rounded-xl bg-slate-950 text-white p-3 text-xs font-black">ABRIR INFORMACIÓN COMPLETA →</button>
+            <button onClick={()=>openCatalogCard(c)} className="mt-3 w-full rounded-xl bg-slate-950 text-white p-3 text-xs font-black">ABRIR INFORMACIÓN COMPLETA →</button>
           </div>}
         </article>)}
       </div>
@@ -18959,22 +18989,24 @@ const OTROS_EVENTOS_RIO = [
 const EventoTabla = ({headers, rows}) => <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white"><table className="w-full min-w-[720px] text-sm"><thead className="bg-slate-900 text-white"><tr>{headers.map(h=><th key={h} className="text-left px-4 py-3 font-black">{h}</th>)}</tr></thead><tbody>{rows.map((row,i)=><tr key={i} className="border-t border-slate-100 odd:bg-white even:bg-slate-50">{row.map((cell,j)=><td key={j} className="px-4 py-3 align-top">{cell}</td>)}</tr>)}</tbody></table></div>;
 
 function GrandesEventosPage({onBack}) {
-  const [seleccionado,setSeleccionado]=useState(null);
+  const [seleccionado,setSeleccionado]=useState(()=>{const m=seoCleanPath(location.pathname).match(/^\/eventos\/([^/]+)$/);return m?GRANDES_EVENTOS.find(e=>seoSlug(e.nombre)===m[1]||seoSlug(e.id)===m[1])||null:null;});
   const [filtro,setFiltro]=useState('Todos');
   const [diaRock,setDiaRock]=useState('Todos');
   useEffect(()=>{ window.scrollTo({top:0,left:0,behavior:'auto'}); },[seleccionado]);
+  useEffect(()=>{const sync=()=>{const m=seoCleanPath(location.pathname).match(/^\/eventos\/([^/]+)$/);setSeleccionado(m?GRANDES_EVENTOS.find(e=>seoSlug(e.nombre)===m[1]||seoSlug(e.id)===m[1])||null:null);};addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);
+  useEffect(()=>{if(seleccionado)seoLocalMeta('eventos',seleccionado);else seoSetMeta({path:'/eventos',title:'Eventos en Río de Janeiro | Ernestinho Carioca',description:'Carnaval, Réveillon, Rock in Rio y otros grandes eventos de Río de Janeiro.'});},[seleccionado]);
   const tipos=['Todos',...new Set(GRANDES_EVENTOS.map(e=>e.tipo))];
   const visibles=GRANDES_EVENTOS.filter(e=>filtro==='Todos'||e.tipo===filtro);
   if(!seleccionado) return <section className="min-h-screen bg-slate-950 text-white pb-20">
     <div className="relative h-[28rem] overflow-hidden"><img src="https://reveillon.rio/wp-content/uploads/2025/01/08-Reveillon-2025-Palco-Copacabana-Foto-Alexandre-Macieira-IMGL9073.jpg" alt="Réveillon de Copacabana, uno de los grandes eventos de Río" className="w-full h-full object-cover opacity-60"/><div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent"/><div className="absolute inset-x-0 bottom-0 max-w-7xl mx-auto px-5 sm:px-8 pb-12"><span className="text-amber-300 text-xs font-black uppercase tracking-[.25em]">Planifica antes de que la ciudad se llene</span><h1 className="text-4xl sm:text-7xl font-black mt-3">Grandes eventos de Río</h1><p className="max-w-3xl text-base sm:text-xl text-slate-200 mt-4">Carnaval, Réveillon, festivales y conciertos capaces de transformar por completo la ciudad. Fechas, entradas, transporte, historia y consejos reales para no improvisar.</p></div></div>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-10"><div className="bg-amber-300 text-slate-950 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-4 md:items-center"><span className="text-4xl">⚠️</span><div><h2 className="text-xl font-black">En estas fechas Río funciona de otra manera</h2><p className="mt-1 text-sm sm:text-base">Alojamientos y entradas se agotan, suben las tarifas y cambian tránsito y transporte. Revisa siempre la fecha de actualización y la fuente oficial.</p></div></div>
       <div className="flex gap-2 overflow-x-auto no-scrollbar py-8">{tipos.map(t=><button key={t} onClick={()=>setFiltro(t)} className={`shrink-0 px-5 py-3 rounded-full text-sm font-black ${filtro===t?'bg-teal-500 text-white':'bg-white/10 text-slate-200 hover:bg-white/20'}`}>{t}</button>)}</div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">{visibles.map(e=><article key={e.id} className="group bg-white text-slate-900 rounded-[2rem] overflow-hidden shadow-xl flex flex-col"><button onClick={()=>setSeleccionado(e)} className="relative aspect-[4/3] overflow-hidden text-left"><img src={e.miniatura} alt={`${e.nombre} en Río de Janeiro`} className="w-full h-full object-cover group-hover:scale-105 transition duration-500"/><div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"/><span className="absolute top-4 left-4 bg-white/95 text-slate-950 rounded-full px-3 py-1 text-xs font-black">{e.estado}</span><h2 className="absolute bottom-5 left-5 right-5 text-2xl font-black text-white">{e.icon} {e.nombre}</h2></button><div className="p-6 flex-1 flex flex-col"><p className="text-xs font-black text-teal-700 uppercase">{e.mes} · {e.tipo} · {e.gratis?'Gratuito':'Con entrada'}</p><p className="text-sm text-slate-600 mt-3 flex-1">{e.resumen}</p><button onClick={()=>setSeleccionado(e)} className="mt-5 bg-slate-900 text-white rounded-xl py-3 font-black">Ver guía completa →</button></div></article>)}</div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">{visibles.map(e=><article key={e.id} className="group bg-white text-slate-900 rounded-[2rem] overflow-hidden shadow-xl flex flex-col"><button onClick={()=>{seoNavigate(`/eventos/${seoSlug(e.nombre)}`);setSeleccionado(e)}} className="relative aspect-[4/3] overflow-hidden text-left"><img src={e.miniatura} alt={`${e.nombre} en Río de Janeiro`} className="w-full h-full object-cover group-hover:scale-105 transition duration-500"/><div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"/><span className="absolute top-4 left-4 bg-white/95 text-slate-950 rounded-full px-3 py-1 text-xs font-black">{e.estado}</span><h2 className="absolute bottom-5 left-5 right-5 text-2xl font-black text-white">{e.icon} {e.nombre}</h2></button><div className="p-6 flex-1 flex flex-col"><p className="text-xs font-black text-teal-700 uppercase">{e.mes} · {e.tipo} · {e.gratis?'Gratuito':'Con entrada'}</p><p className="text-sm text-slate-600 mt-3 flex-1">{e.resumen}</p><button onClick={()=>{seoNavigate(`/eventos/${seoSlug(e.nombre)}`);setSeleccionado(e)}} className="mt-5 bg-slate-900 text-white rounded-xl py-3 font-black">Ver guía completa →</button></div></article>)}</div>
       <div className="mt-14"><h2 className="text-3xl font-black">Calendario anual</h2><p className="text-slate-400 mt-2 mb-6">Las fechas exactas se publican únicamente cuando existe confirmación oficial.</p><EventoTabla headers={['Mes','Evento','Tipo','Lugar','Acceso']} rows={OTROS_EVENTOS_RIO}/></div>
     </div></section>;
   const e=seleccionado;
   const rockRows=e.artistas?(diaRock==='Todos'?e.artistas:e.artistas.filter(x=>x[0]===diaRock)):[];
-  return <article className="min-h-screen bg-slate-50 pb-24"><div className="relative h-[26rem] sm:h-[34rem] overflow-hidden"><img src={e.hero} alt={`${e.nombre} en Río de Janeiro`} className="w-full h-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/10"/><button onClick={()=>setSeleccionado(null)} className="absolute top-5 left-5 bg-white text-slate-900 rounded-full px-5 py-3 text-sm font-black shadow-xl">← Grandes eventos</button><div className="absolute inset-x-0 bottom-0 max-w-6xl mx-auto px-5 sm:px-8 pb-9 text-white"><span className="inline-block bg-amber-300 text-slate-950 rounded-full px-4 py-1 text-xs font-black">{e.estado}</span><h1 className="text-4xl sm:text-6xl font-black mt-4">{e.icon} {e.nombre}</h1><p className="text-lg text-slate-200 mt-3 max-w-3xl">{e.resumen}</p></div></div>
+  return <article className="min-h-screen bg-slate-50 pb-24"><div className="relative h-[26rem] sm:h-[34rem] overflow-hidden"><img src={e.hero} alt={`${e.nombre} en Río de Janeiro`} className="w-full h-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/10"/><button onClick={()=>{seoNavigate('/eventos');setSeleccionado(null)}} className="absolute top-5 left-5 bg-white text-slate-900 rounded-full px-5 py-3 text-sm font-black shadow-xl">← Grandes eventos</button><div className="absolute inset-x-0 bottom-0 max-w-6xl mx-auto px-5 sm:px-8 pb-9 text-white"><span className="inline-block bg-amber-300 text-slate-950 rounded-full px-4 py-1 text-xs font-black">{e.estado}</span><h1 className="text-4xl sm:text-6xl font-black mt-4">{e.icon} {e.nombre}</h1><p className="text-lg text-slate-200 mt-3 max-w-3xl">{e.resumen}</p></div></div>
     <div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="grid sm:grid-cols-3 gap-3 -mt-1 py-8">{[['📅',e.fecha],['📍',e.lugar],[e.gratis?'🟢':'🎟️',e.gratis?'Evento gratuito':'Requiere entrada']].map(([i,t])=><div key={t} className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 flex gap-3"><span className="text-2xl">{i}</span><strong className="text-sm">{t}</strong></div>)}</div>
       <p className="text-lg leading-relaxed text-slate-700 max-w-4xl">{e.intro}</p>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 my-8">{e.destacados.map(x=><div key={x} className="bg-slate-900 text-white rounded-2xl p-5 text-sm font-bold">✓ {x}</div>)}</div>
@@ -18990,27 +19022,41 @@ function GrandesEventosPage({onBack}) {
       <section className="py-7 grid md:grid-cols-2 gap-5"><div className="bg-white border rounded-3xl p-7"><h2 className="text-2xl font-black">Seguridad y familias</h2><ul className="mt-4 space-y-3 text-slate-700">{e.seguridad.map(x=><li key={x}>• {x}</li>)}</ul></div><div className="bg-amber-100 rounded-3xl p-7"><h2 className="text-2xl font-black">Dónde alojarse</h2><p className="mt-4 leading-relaxed">{e.alojamiento}</p></div></section>
       {e.id==='reveillon'&&<section className="my-8 bg-gradient-to-br from-teal-950 to-emerald-700 text-white rounded-[2rem] p-7 sm:p-10"><span className="text-amber-300 font-black text-xs uppercase tracking-widest">Fin de año en Copacabana</span><h2 className="text-3xl sm:text-4xl font-black mt-3">¿Todavía no reservaste tu alojamiento?</h2><p className="mt-4 max-w-3xl text-emerald-50">Durante el Réveillon las calles cierran y los apartamentos mejor ubicados se agotan con mucha anticipación. Puedo ayudarte a consultar opciones disponibles cerca de la playa.</p><a href="https://wa.me/5521969946938?text=Hola%20Ernestinho%2C%20estoy%20planificando%20mi%20viaje%20para%20el%20R%C3%A9veillon%20de%20R%C3%ADo%20y%20quiero%20consultar%20apartamentos%20disponibles%20en%20Copacabana.%20Somos%3A%20____%20Desde%3A%20____%20Hasta%3A%20____" target="_blank" rel="noopener noreferrer" className="inline-flex mt-6 bg-amber-300 text-slate-950 font-black rounded-full px-6 py-4">Consultar apartamentos por WhatsApp</a></section>}
       <section className="py-7"><h2 className="text-2xl font-black mb-4">Fuentes oficiales y actualización</h2><div className="flex flex-wrap gap-3">{e.fuentes.map(([n,u])=><a key={u} href={u} target="_blank" rel="noopener noreferrer" className="bg-white border border-slate-200 rounded-full px-5 py-3 font-black text-sm text-teal-700">{n} ↗</a>)}</div><p className="text-xs text-slate-500 mt-5">Última actualización editorial: 4 de septiembre de 2026. Horarios, accesos, precios y programación pueden cambiar.</p></section>
-      <div className="mt-5 flex flex-col sm:flex-row gap-3"><button onClick={()=>setSeleccionado(null)} className="bg-slate-900 text-white rounded-full px-6 py-4 font-black">← Volver a todos los eventos</button><a href={`https://wa.me/5521969946938?text=${encodeURIComponent(`Hola Ernestinho, quiero información para organizar mi viaje durante ${e.nombre}.`)}`} target="_blank" rel="noopener noreferrer" className="bg-emerald-500 text-slate-950 rounded-full px-6 py-4 font-black text-center">Hablar con Ernestinho</a></div>
+      <div className="mt-5 flex flex-col sm:flex-row gap-3"><button onClick={()=>{seoNavigate('/eventos');setSeleccionado(null)}} className="bg-slate-900 text-white rounded-full px-6 py-4 font-black">← Volver a todos los eventos</button><a href={`https://wa.me/5521969946938?text=${encodeURIComponent(`Hola Ernestinho, quiero información para organizar mi viaje durante ${e.nombre}.`)}`} target="_blank" rel="noopener noreferrer" className="bg-emerald-500 text-slate-950 rounded-full px-6 py-4 font-black text-center">Hablar con Ernestinho</a></div>
     </div></article>;
 }
 
+
+// ===== SEO ROUTER ERNESTINHO =====
+function seoSlug(v){return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/&/g,' y ').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');}
+const SEO_ROUTES={inicio:'/',que_hacer:'/que-hacer',atracciones:'/atracciones',museos:'/museos',master4_museos:'/museos',centros_culturales:'/centros-culturales',iglesias:'/iglesias',fuertes_fortalezas:'/fuertes-fortalezas',teatros:'/teatros',espacios_literarios:'/espacios-literarios',playas:'/playas',master4_playas:'/playas',naturaleza:'/naturaleza',master4_naturaleza:'/naturaleza',aventura:'/aventura',fotografia:'/fotografia',familia:'/familia',gastronomia:'/gastronomia',master4_gastronomia:'/gastronomia',nocturna:'/vida-nocturna',compras:'/compras',barrios:'/barrios',master4_barrios:'/barrios',hospedaje:'/hospedaje',transportes:'/transportes',master4_transportes:'/transportes',transporte_publico:'/transportes/transporte-publico',transporte_metro:'/transportes/metro',transporte_uber:'/transportes/uber',transporte_bicicletas:'/transportes/bicicletas',transporte_privado:'/transportes/traslados',guia:'/guia',consejos:'/consejos',master4_consejos:'/consejos',pix:'/guia/pix',grandes_eventos:'/eventos',experiencias:'/experiencias',master4_experiencias:'/experiencias',copa_para_mi:'/copacabana',cafe:'/cafe-ernestinho',privacidad:'/privacidad',master4_descubre:'/descubre-rio',master4_live_rio:'/rio-en-vivo',master4_tv:'/tv',master4_patrimonio:'/patrimonio',master4_ocio:'/ocio',master4_viaje:'/prepara-tu-viaje',master4_para_mi:'/para-mi',master4_sos:'/sos',master4_lugares:'/lugares',master4_place_cristo:'/lugares/cristo-redentor',master4_place_pao:'/lugares/pao-de-acucar',master4_place_amanha:'/lugares/museu-do-amanha',master4_place_aquario:'/lugares/aquario',master4_place_buzios:'/lugares/buzios',master4_place_catete:'/lugares/palacio-do-catete',master4_place_forte:'/lugares/forte-de-copacabana',master4_place_gabinete:'/lugares/real-gabinete-portugues',master4_place_ipanema:'/lugares/ipanema',master4_place_jardim:'/lugares/jardim-botanico',master4_place_lage:'/lugares/parque-lage',master4_place_lapa:'/lugares/lapa',master4_place_mam:'/lugares/mam-rio',master4_place_mar:'/lugares/mar',master4_place_maracana:'/lugares/maracana',master4_place_musal:'/lugares/musal',master4_place_pedra:'/lugares/pedra-bonita',master4_place_santa:'/lugares/santa-teresa',master4_place_selaron:'/lugares/escadaria-selaron',master4_place_tijuca:'/lugares/floresta-da-tijuca'};
+const SEO_PREFERRED={'/':'inicio','/museos':'museos','/playas':'playas','/naturaleza':'naturaleza','/gastronomia':'gastronomia','/barrios':'barrios','/transportes':'transportes','/consejos':'consejos','/experiencias':'experiencias','/vida-nocturna':'nocturna','/compras/ferias':'master4_ferias_real','/compras/mercados':'master4_mercados_real','/compras/shoppings':'master4_shoppings_real'};
+function seoExpState(x){if(!x)return'experiencias';if(x.id==='exp-1')return'full_day_rio';if(x.id==='exp-2')return'buzios';if(x.id==='exp-3')return'detalle_exp-3';if(x.id==='exp-4')return'detalle_exp-4';if(x.id==='exp-5')return'detalle_exp-5';return`actividad_${x.id}`;}
+function seoExpFromState(s){return[...EXPERIENCIAS_DATA,...ACTIVIDADES_NUEVAS].find(x=>seoExpState(x)===s)||null;}
+function seoPathForSection(s){const x=seoExpFromState(s);return x?`/experiencias/${seoSlug(x.titulo)}`:(SEO_ROUTES[s]||null);}
+function seoCleanPath(v){let r=decodeURIComponent(String(v||'/')).replace(/\/+$/,'')||'/';return r.startsWith('/')?r:'/'+r;}
+function seoResolveRoute(pathname){const r=seoCleanPath(pathname),base={seccion:'inicio',museoId:null,barrio:null,restaurante:null,articulo:null,temaGuia:null};let m;if(r==='/')return base;if((m=r.match(/^\/museos\/([^/]+)$/))){const x=MUSEOS_DATA.find(v=>seoSlug(v.nombre)===m[1]);if(x)return{...base,seccion:'museos',museoId:x.id};}if((m=r.match(/^\/barrios\/([^/]+)$/))){const x=BARRIOS_DATA.find(v=>seoSlug(v.nombre)===m[1]||seoSlug(v.id)===m[1]);if(x)return x.id==='copacabana'?{...base,seccion:'copa_para_mi'}:{...base,seccion:'barrios',barrio:x};}if((m=r.match(/^\/gastronomia\/([^/]+)$/))){const x=GASTRONOMIA_DATA.find(v=>seoSlug(v.nombre)===m[1]);if(x)return{...base,seccion:'gastronomia',restaurante:x};}if((m=r.match(/^\/articulos\/([^/]+)$/))){const x=ARTICULOS_CONSEJOS.find(v=>seoSlug(v.titulo)===m[1]||seoSlug(v.id)===m[1]);if(x)return{...base,seccion:'articulo_detalle',articulo:x};}if((m=r.match(/^\/guia\/([^/]+)$/))&&m[1]!=='pix'){const id=Object.keys(GUIA_INFO).find(k=>seoSlug(GUIA_INFO[k]?.titulo||k)===m[1]||seoSlug(k)===m[1]);if(id)return{...base,seccion:'guia',temaGuia:id};}if((m=r.match(/^\/experiencias\/([^/]+)$/))){const x=[...EXPERIENCIAS_DATA,...ACTIVIDADES_NUEVAS].find(v=>seoSlug(v.titulo)===m[1]||seoSlug(v.id)===m[1]);if(x)return{...base,seccion:seoExpState(x)};}const localParents=[['compras/ferias','master4_ferias_real'],['compras/mercados','master4_mercados_real'],['compras/shoppings','master4_shoppings_real'],['vida-nocturna','master4_noche_real'],['playas','master4_playas_real'],['centros-culturales','centros_culturales'],['espacios-literarios','espacios_literarios'],['teatros','teatros'],['iglesias','iglesias'],['fuertes-fortalezas','fuertes_fortalezas'],['eventos','grandes_eventos']];const lp=localParents.find(([pre])=>r.startsWith('/'+pre+'/'));if(lp)return{...base,seccion:lp[1]};if(SEO_PREFERRED[r])return{...base,seccion:SEO_PREFERRED[r]};const s=Object.keys(SEO_ROUTES).find(k=>SEO_ROUTES[k]===r);return s?{...base,seccion:s}:base;}
+function seoCurrentPath(s,museoId,barrio,restaurante,articulo,tema){const current=seoCleanPath(window.location.pathname);if(s==='museos'){const x=MUSEOS_DATA.find(v=>v.id===museoId);return x&&current.startsWith('/museos/')?`/museos/${seoSlug(x.nombre)}`:'/museos';}if(s==='barrios'&&barrio)return`/barrios/${seoSlug(barrio.nombre||barrio.id)}`;if(s==='gastronomia'&&restaurante)return`/gastronomia/${seoSlug(restaurante.nombre)}`;if(s==='articulo_detalle'&&articulo)return`/articulos/${seoSlug(articulo.titulo||articulo.id)}`;if(s==='guia'&&tema&&GUIA_INFO[tema])return`/guia/${seoSlug(GUIA_INFO[tema].titulo||tema)}`;return seoPathForSection(s)||'/';}
+function seoInitialItemId(prefix,data,defaultId){const r=seoCleanPath(location.pathname),m=r.match(new RegExp('^/'+prefix+'/([^/]+)$'));if(!m)return defaultId;const x=data.find(v=>seoSlug(v.nombre)===m[1]||seoSlug(v.id)===m[1]);return x?x.id:defaultId;}
+function seoLocalMeta(prefix,item){if(!item)return;seoSetMeta({path:`/${prefix}/${seoSlug(item.nombre)}`,title:`${item.nombre} en Río de Janeiro | Ernestinho Carioca`,description:item.descripcion||item.resumen||item.subtitulo||item.destaque||item.consejo||item.categoria||`Guía de ${item.nombre} en Río de Janeiro.`});}
+function seoNavigate(path,mode='push'){const r=seoCleanPath(path);if(seoCleanPath(window.location.pathname)===r)return;(mode==='replace'?history.replaceState:history.pushState).call(history,{seo:true},'',r);}
+function seoSetMeta(o){const path=o.path||'/',url='https://www.ernestinhocarioca.com.br'+path,title=o.title||'Ernestinho Carioca | Guía completa de Río de Janeiro',desc=o.description||'Descubre Río de Janeiro con Ernestinho Carioca: lugares, experiencias, consejos y rutas para organizar tu viaje.';document.title=title;const meta=(sel,key,val)=>{let e=document.head.querySelector(sel);if(!e){e=document.createElement('meta');const n=sel.match(/name="([^"]+)/),p=sel.match(/property="([^"]+)/);if(n)e.name=n[1];if(p)e.setAttribute('property',p[1]);document.head.appendChild(e);}e.setAttribute(key,val);};meta('meta[name="description"]','content',desc);meta('meta[name="robots"]','content',o.indexable===false?'noindex, follow':'index, follow');meta('meta[property="og:title"]','content',title);meta('meta[property="og:description"]','content',desc);meta('meta[property="og:url"]','content',url);let c=document.head.querySelector('link[rel="canonical"]');if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c);}c.href=url;}
+function seoMetaFor(s,museoId,barrio,restaurante,articulo,tema){const path=seoCurrentPath(s,museoId,barrio,restaurante,articulo,tema),simple={museos:['Museos de Río de Janeiro','Guía de museos de Río con historia, horarios, valores, mapas y consejos.'],playas:['Playas de Río de Janeiro','Descubre las playas de Río de Janeiro y cómo disfrutarlas.'],gastronomia:['Dónde comer en Río de Janeiro','Restaurantes, botecos, cafés y sabores recomendados en Río.'],barrios:['Barrios de Río de Janeiro','Guía de barrios de Río para entender qué ver, hacer y combinar.'],guia:['Guía de Río de Janeiro','Información práctica para preparar y disfrutar tu viaje a Río.'],consejos:['Consejos para viajar a Río de Janeiro','Consejos prácticos y respuestas para organizar tu viaje.'],experiencias:['Tours y experiencias en Río de Janeiro','Tours, excursiones y experiencias para vivir Río con Ernestinho.'],grandes_eventos:['Eventos en Río de Janeiro','Carnaval, Réveillon, festivales y grandes eventos de Río.'],transportes:['Cómo moverse en Río de Janeiro','Metro, Uber, buses, bicicletas y traslados en Río.'],atracciones:['Atracciones de Río de Janeiro','Museos, iglesias, fortalezas y lugares para conocer Río.'],que_hacer:['Qué hacer en Río de Janeiro','Ideas, lugares y experiencias para descubrir Río.'],inicio:['Ernestinho Carioca | Guía completa de Río de Janeiro','Descubre Río de Janeiro con Ernestinho Carioca: atracciones, playas, museos, gastronomía, transporte, consejos y experiencias.']};if(s==='museos'&&path.startsWith('/museos/')){const x=MUSEOS_DATA.find(v=>v.id===museoId);if(x)return{path,title:`${x.nombre} en Río de Janeiro | Ernestinho Carioca`,description:x.descripcion||x.subtitulo};}if(s==='barrios'&&barrio)return{path,title:`${barrio.nombre} en Río de Janeiro | Ernestinho Carioca`,description:barrio.desc||barrio.lema};if(s==='gastronomia'&&restaurante)return{path,title:`${restaurante.nombre} en Río de Janeiro | Ernestinho Carioca`,description:restaurante.destaque};if(s==='articulo_detalle'&&articulo)return{path,title:`${articulo.titulo} | Ernestinho Carioca`,description:articulo.resumen};if(s==='guia'&&tema&&GUIA_INFO[tema]){const x=GUIA_INFO[tema];return{path,title:`${x.titulo} | Ernestinho Carioca`,description:x.intro};}const exp=seoExpFromState(s);if(exp)return{path,title:`${exp.titulo} en Río de Janeiro | Ernestinho Carioca`,description:exp.descripcion||exp.intro};const a=simple[s];return a?{path,title:a[0].includes('Ernestinho')?a[0]:`${a[0]} | Ernestinho Carioca`,description:a[1]}:{path,indexable:!!SEO_ROUTES[s]};}
+// ===== FIN SEO ROUTER =====
+
 function AppErnestinho() {
-  const [seccionActual, setSeccionActualBase] = useState('inicio');
+  const rutaSeoInicial=seoResolveRoute(window.location.pathname);
+  const [seccionActual, setSeccionActualBase]=useState(rutaSeoInicial.seccion);
   const [historialSecciones, setHistorialSecciones] = useState([]);
-  const [temaGuia, setTemaGuia] = useState(null);
+  const [temaGuia, setTemaGuia] = useState(rutaSeoInicial.temaGuia||null);
   const [consejoSeleccionado, setConsejoSeleccionado] = useState(null);
   const [modoTransportePublico, setModoTransportePublico] = useState(null);
-  const [restauranteSeleccionado, setRestauranteSeleccionado] = useState(null);
-  const [barrioSeleccionado, setBarrioSeleccionado] = useState(null);
+  const [restauranteSeleccionado, setRestauranteSeleccionado] = useState(rutaSeoInicial.restaurante||null);
+  const [barrioSeleccionado, setBarrioSeleccionado] = useState(rutaSeoInicial.barrio||null);
   const setSeccionActual = (destino) => {
-    if (typeof destino !== 'string') return;
-    if (destino === seccionActual) {
-      if (destino === 'guia' && temaGuia) setTemaGuia(null);
-      return;
-    }
-    if (destino === 'guia') setTemaGuia(null);
-    setHistorialSecciones(prev => [...prev, seccionActual].slice(-50));
-    setSeccionActualBase(destino);
+    if(typeof destino!=='string')return;
+    if(destino===seccionActual){if(destino==='guia'&&temaGuia)setTemaGuia(null);const r=seoPathForSection(destino);if(r)seoNavigate(r);return;}
+    if(destino==='guia')setTemaGuia(null);const r=seoPathForSection(destino);if(r)seoNavigate(r);setHistorialSecciones(prev=>[...prev,seccionActual].slice(-50));setSeccionActualBase(destino);
   };
   const volverUnaVista = () => {
     if (seccionActual === 'guia' && temaGuia) {
@@ -19037,12 +19083,15 @@ function AppErnestinho() {
     setHistorialSecciones(prev => prev.slice(0,-1));
     setSeccionActualBase(anterior);
   };
-  const [museoSeleccionado, setMuseoSeleccionado] = useState('mhn');
+  const [museoSeleccionado, setMuseoSeleccionado] = useState(rutaSeoInicial.museoId||'mhn');
   const [selectorMuseosAbierto, setSelectorMuseosAbierto] = useState(false);
 const [busquedaMuseo, setBusquedaMuseo] = useState('');
-  const [categoriaCompras, setCategoriaCompras] = useState('shoppings');
+const [categoriaCompras, setCategoriaCompras] = useState('shoppings');
   const [menuAbierto, setMenuAbierto] = useState(false);
-  const [articuloSeleccionado, setArticuloSeleccionado] = useState(null);
+  const [articuloSeleccionado, setArticuloSeleccionado] = useState(rutaSeoInicial.articulo||null);
+  useEffect(()=>{const aplicar=()=>{const x=seoResolveRoute(location.pathname);window.__seoPop=true;setSeccionActualBase(x.seccion);setMuseoSeleccionado(x.museoId||'mhn');setBarrioSeleccionado(x.barrio||null);setRestauranteSeleccionado(x.restaurante||null);setArticuloSeleccionado(x.articulo||null);setTemaGuia(x.temaGuia||null);requestAnimationFrame(()=>window.__seoPop=false);};addEventListener('popstate',aplicar);return()=>removeEventListener('popstate',aplicar);},[]);
+  useEffect(()=>{const path=seoCurrentPath(seccionActual,museoSeleccionado,barrioSeleccionado,restauranteSeleccionado,articuloSeleccionado,temaGuia);if(!window.__seoPop&&path&&seoCleanPath(location.pathname)!==seoCleanPath(path))seoNavigate(path,'replace');seoSetMeta(seoMetaFor(seccionActual,museoSeleccionado,barrioSeleccionado,restauranteSeleccionado,articuloSeleccionado,temaGuia));},[seccionActual,museoSeleccionado,barrioSeleccionado,restauranteSeleccionado,articuloSeleccionado,temaGuia]);
+
 
   const [modalReservaOpen, setModalReservaOpen] = useState(false);
   const [expParaReservar, setExpParaReservar] = useState(null);
@@ -19075,10 +19124,7 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
     setModalReservaOpen(true);
   };
 
-  const verArticulo = (art) => {
-    setArticuloSeleccionado(art);
-    setSeccionActual('articulo_detalle');
-  };
+  const verArticulo = (art) => {if(art)seoNavigate(`/articulos/${seoSlug(art.titulo||art.id)}`);setArticuloSeleccionado(art);setSeccionActualBase('articulo_detalle');};
 
   const enviarReservaWhatsApp = (e) => {
     e.preventDefault();
@@ -22911,11 +22957,7 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
               <button
   type="button"
   key={museo.id}
-  onClick={() => {
-    setMuseoSeleccionado(museo.id);
-    setSelectorMuseosAbierto(false);
-    setBusquedaMuseo('');
-  }}
+  onClick={() => {seoNavigate(`/museos/${seoSlug(museo.nombre)}`);setMuseoSeleccionado(museo.id);setSelectorMuseosAbierto(false);setBusquedaMuseo('');}}
   className={`rounded-2xl overflow-hidden text-xs sm:text-sm font-bold leading-snug transition-all border ${
   museoSeleccionado === museo.id
     ? 'bg-slate-900 text-white border-slate-900 shadow-md scale-[1.02]'
@@ -23821,7 +23863,7 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
               <><CopacabanaMasterSystems go={setSeccionActual} /><CopacabanaMaster3Editorial /><CopacabanaParaMi /></>
             )}
 
-            {seccionActual === 'barrios' && (barrioSeleccionado ? <Master3NeighborhoodDetail barrio={barrioSeleccionado} onBack={()=>setBarrioSeleccionado(null)} /> : (
+            {seccionActual === 'barrios' && (barrioSeleccionado ? <Master3NeighborhoodDetail barrio={barrioSeleccionado} onBack={()=>{seoNavigate('/barrios');setBarrioSeleccionado(null)}} /> : (
               <section className="py-12 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">
                   <div className="text-center max-w-3xl mx-auto mb-12">
@@ -23860,7 +23902,7 @@ const [busquedaMuseo, setBusquedaMuseo] = useState('');
                           </div>
                           <div className="mt-4 text-[10px] text-slate-500"><strong>Combina con:</strong> {barrio.combina.join(' · ')}</div>
                           <button
-                            onClick={() => barrio.id==='copacabana' ? setSeccionActual('copa_para_mi') : setBarrioSeleccionado(barrio)}
+                            onClick={() => {if(barrio.id==='copacabana'){seoNavigate('/copacabana');setSeccionActual('copa_para_mi')}else{seoNavigate(`/barrios/${seoSlug(barrio.nombre||barrio.id)}`);setBarrioSeleccionado(barrio)}}}
                             className="mt-auto pt-5 text-teal-600 font-black text-xs uppercase hover:underline flex items-center gap-1"
                           >
                             <span>{barrio.id==='copacabana' ? 'Abrir Copacabana maestra' : `Explorar ${barrio.nombre}`}</span>
