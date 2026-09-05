@@ -1,11 +1,283 @@
 {
   "rewrites": [
     {
+      "source": "/articulos",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/atracciones",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/aventura",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/barrios",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/cafe-ernestinho",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/centros-culturales",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/compras",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/consejos",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/copacabana",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/descubre-rio",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/espacios-literarios",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/eventos",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/experiencias",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/familia",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/fotografia",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/fuertes-fortalezas",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/gastronomia",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/guia",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/hospedaje",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/iglesias",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/lugares",
+      "destination": "/index.html"
+    },
+    {
       "source": "/museos",
       "destination": "/index.html"
     },
     {
+      "source": "/naturaleza",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ocio",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/para-mi",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/patrimonio",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/playas",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/prepara-tu-viaje",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/que-hacer",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/rio-en-vivo",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/sos",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/teatros",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/transportes",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/tv",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/vida-nocturna",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/articulos/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/atracciones/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/aventura/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/barrios/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/cafe-ernestinho/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/centros-culturales/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/compras/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/consejos/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/copacabana/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/descubre-rio/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/espacios-literarios/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/eventos/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/experiencias/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/familia/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/fotografia/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/fuertes-fortalezas/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/gastronomia/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/guia/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/hospedaje/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/iglesias/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/lugares/:path*",
+      "destination": "/index.html"
+    },
+    {
       "source": "/museos/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/naturaleza/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/ocio/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/para-mi/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/patrimonio/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/playas/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/prepara-tu-viaje/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/que-hacer/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/rio-en-vivo/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/sos/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/teatros/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/transportes/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/tv/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/vida-nocturna/:path*",
       "destination": "/index.html"
     }
   ]
