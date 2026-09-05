@@ -35,6 +35,7 @@ carn="""  {
   },
 """
 sub(r"  \{\n    id: 'carnaval-experience',[\s\S]*?\n  \},\n\n  \{\n    id: 'ilha-fiscal',",carn+"\n  {\n    id: 'ilha-fiscal',")
+
 football="""  {
     id:'partidos-maracana', titulo:'Vivir un partido de fútbol en Río', categoria:'Fútbol en vivo', precio:'Consultar según partido', duracion:'Entre 5 y 7 horas según partido y logística', grupo:'Cupos limitados · sujeto al calendario oficial', encuentro:'Zona de hospedaje o punto confirmado al reservar', miniatura:'https://res.cloudinary.com/qa301cbc/image/upload/v1788447586/e6.jpg', instagram:'https://www.instagram.com/p/DWM2wL0xryM/',
     intro:'El fútbol carioca no se entiende mirando solamente el estadio vacío. Esta experiencia está pensada para vivir un día de partido con acompañamiento, contexto y logística organizada, desde la previa hasta el regreso.',
@@ -44,6 +45,7 @@ football="""  {
   },
 """
 sub(r"  \{\n    id:'partidos-maracana',[\s\S]*?\n  \},\n  \{\n    id:'pedra-gavea',",football+"  {\n    id:'pedra-gavea',")
+
 utility="""
 const COPA_UTIL_SERVICES = [
  {cat:'🛒 Supermercados',items:[['Zona Sul · Bolívar','Av. Nossa Sra. de Copacabana, 936','24 horas','https://www.google.com/maps/search/?api=1&query=Zona+Sul+Copacabana+Bolivar'],['Zona Sul · Siqueira Campos','Av. Nossa Sra. de Copacabana, 595','L–S 06:00–22:00 · D 07:00–20:00','https://www.google.com/maps/search/?api=1&query=Zona+Sul+Copacabana+Siqueira+Campos'],['Pão de Açúcar','Av. Nossa Sra. de Copacabana, 1162','07:00–22:00','https://www.google.com/maps/search/?api=1&query=Pao+de+Acucar+Copacabana+1162'],['Mundial','Rua Siqueira Campos, 71','aprox. 07:30–21:00','https://www.google.com/maps/search/?api=1&query=Supermercado+Mundial+Siqueira+Campos+71']]},
@@ -56,32 +58,49 @@ const COPA_UTIL_SERVICES = [
 ];
 function CopacabanaUtil(){ const [q,setQ]=useState('Todos'); const cats=['Todos',...COPA_UTIL_SERVICES.map(x=>x.cat)]; const shown=q==='Todos'?COPA_UTIL_SERVICES:COPA_UTIL_SERVICES.filter(x=>x.cat===q); return <div className="mt-6 rounded-[2rem] bg-white border border-slate-100 shadow-sm p-6 sm:p-8"><span className="text-[10px] font-black tracking-widest text-cyan-700">📍 ESTOY EN COPACABANA Y NECESITO…</span><h3 className="text-2xl sm:text-3xl font-black mt-2">La parte práctica del barrio</h3><p className="text-sm text-slate-600 mt-2">Supermercado, farmacia, lavandería, cajero, policía, baño o veterinaria sin perder tiempo buscando. No incluimos tiendas de chip: la guía ofrecerá eSIM.</p><div className="flex gap-2 overflow-x-auto py-4">{cats.map(c=><button key={c} onClick={()=>setQ(c)} className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-black ${q===c?'bg-cyan-700 text-white':'bg-slate-100'}`}>{c}</button>)}</div><div className="grid md:grid-cols-2 gap-4">{shown.map(g=><article key={g.cat} className="rounded-2xl bg-slate-50 p-5"><h4 className="font-black">{g.cat}</h4><div className="space-y-3 mt-3">{g.items.map(([n,a,h,m])=><div key={n} className="bg-white rounded-xl p-3 border"><strong className="text-sm">{n}</strong><p className="text-[11px] text-slate-500 mt-1">{a}</p><p className="text-[11px] font-bold text-slate-700 mt-1">🕐 {h}</p><a href={m} target="_blank" rel="noopener noreferrer" className="inline-block text-[10px] font-black text-cyan-700 mt-2">ABRIR MAPA ↗</a></div>)}</div></article>)}</div><p className="text-[10px] text-slate-400 mt-4">Los horarios pueden cambiar. Confirma antes de desplazarte, especialmente de noche, domingos y feriados.</p></div> }
 """
+
+# Clean up a duplicate block left by a previous partial run.
+first=s.find('const COPA_UTIL_SERVICES = [')
+second=s.find('const COPA_UTIL_SERVICES = [', first+1) if first>=0 else -1
+if second>=0:
+    s=s[:first]+s[second:]
+
 needle="function CopacabanaMasterSystems({go}) {"
 if needle not in s: raise SystemExit('CopacabanaMasterSystems anchor missing')
-s=s.replace(needle,utility+'\n'+needle,1)
-# Insert utility panel at the end of CopacabanaMasterSystems without relying on surrounding components.
-start=s.find('function CopacabanaMasterSystems({go}) {')
+if 'const COPA_UTIL_SERVICES = [' not in s:
+    s=s.replace(needle,utility+'\n'+needle,1)
+
+# Ensure exactly one utility panel at the end of CopacabanaMasterSystems.
+start=s.find(needle)
 end=s.find('\n}\n',start)
 if start<0 or end<0: raise SystemExit('CopacabanaMasterSystems bounds missing')
 block=s[start:end]
-pos=block.rfind('</section>')
-if pos<0: raise SystemExit('CopacabanaMasterSystems closing section missing')
-block=block[:pos]+'    <CopacabanaUtil />\n  '+block[pos:]
+while block.count('<CopacabanaUtil />')>1:
+    block=block.replace('<CopacabanaUtil />','',1)
+if '<CopacabanaUtil />' not in block:
+    pos=block.rfind('</section>')
+    if pos<0: raise SystemExit('CopacabanaMasterSystems closing section missing')
+    block=block[:pos]+'    <CopacabanaUtil />\n  '+block[pos:]
 s=s[:start]+block+s[end:]
+
 # Make existing month-by-month content visible in main navigation.
-nav_anchor="{ id: 'guia', label: 'Guía"
-pos=s.find(nav_anchor)
-if pos>=0:
-    line_end=s.find('\n',pos)
-    s=s[:line_end+1]+"      { id: 'rio_mes_a_mes', label: 'Mes a mes', icon: 'calendar-days' },\n"+s[line_end+1:]
+if "id: 'rio_mes_a_mes'" not in s:
+    nav_anchor="{ id: 'guia', label: 'Guía"
+    pos=s.find(nav_anchor)
+    if pos>=0:
+        line_end=s.find('\n',pos)
+        s=s[:line_end+1]+"      { id: 'rio_mes_a_mes', label: 'Mes a mes', icon: 'calendar-days' },\n"+s[line_end+1:]
+
 # Ensure section routing exposes existing Rio 365 component when it exists.
 route_anchor="case 'grandes_eventos':"
 if route_anchor in s and "case 'rio_mes_a_mes':" not in s:
     s=s.replace(route_anchor,"case 'rio_mes_a_mes': return <Rio365 go={go} />;\n      "+route_anchor,1)
+
 # Live sources: point existing client requests at same-origin parsers.
 s=s.replace("const INEA_ENDPOINT = null;", "const INEA_ENDPOINT = '/api/inea-balneabilidade';")
 s=s.replace("const MARINHA_ENDPOINT = null;", "const MARINHA_ENDPOINT = '/api/marinha-ressaca';")
 s=s.replace("Fuente oficial · lectura automática pendiente", "Fuente oficial · lectura automática")
 s=s.replace("No pude actualizar INEA. Mantengo el estado como desconocido.", "No pude confirmar el boletín de INEA ahora. Mantengo el estado como desconocido para no mostrar información insegura.")
+
 p.write_text(s,encoding='utf-8')
 print('patched',len(s))
