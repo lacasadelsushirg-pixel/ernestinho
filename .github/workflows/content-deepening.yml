@@ -42,8 +42,16 @@ jobs:
           assert '/api/marinha-ressaca' in s, 'CHM endpoint missing'
           assert 'Vivir un partido de fútbol en Río' in s, 'Football deepening missing'
           assert 'partnerUrl' in s and 'COMPRAR CON 5% DE DESCUENTO' in s, 'Carnaval partner CTA data missing'
+          assert 'https://ingressos.carnavalexperience.com.br?ac=UUV6C5E3SX' in s, 'Carnaval partner link missing'
           print('structural validation passed')
           PY
+      - name: Package index for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: index-review
+          path: index.html
+          if-no-files-found: error
+          retention-days: 7
       - name: Commit generated index
         run: |
           git config user.name 'github-actions[bot]'
