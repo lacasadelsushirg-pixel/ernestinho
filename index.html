@@ -8513,7 +8513,7 @@ const FUERTES_DATA = [
 function SeccionEspaciosLiterarios() {
 
   const [espacioSeleccionado, setEspacioSeleccionado] =
-    useState('real-gabinete');
+    useState(()=>seoInitialItemId('espacios-literarios',ESPACIOS_LITERARIOS_DATA,'real-gabinete'));
 
   const [selectorLiterarioAbierto, setSelectorLiterarioAbierto] =
     useState(false);
@@ -8524,6 +8524,9 @@ function SeccionEspaciosLiterarios() {
   const espacioActual = ESPACIOS_LITERARIOS_DATA.find(
     (espacio) => espacio.id === espacioSeleccionado
   );
+
+  useEffect(()=>{const sync=()=>setEspacioSeleccionado(seoInitialItemId('espacios-literarios',ESPACIOS_LITERARIOS_DATA,'real-gabinete'));addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);
+  useEffect(()=>{seoLocalMeta('espacios-literarios',espacioActual);},[espacioSeleccionado]);
 
   const espaciosFiltrados = ESPACIOS_LITERARIOS_DATA.filter(
     (espacio) =>
@@ -8627,6 +8630,7 @@ function SeccionEspaciosLiterarios() {
                       type="button"
                       key={espacio.id}
                       onClick={() => {
+                        seoNavigate(`/espacios-literarios/${seoSlug(espacio.nombre)}`);
                         setEspacioSeleccionado(espacio.id);
                         setSelectorLiterarioAbierto(false);
                         setBusquedaLiteraria('');
@@ -8984,7 +8988,7 @@ function SeccionEspaciosLiterarios() {
 function SeccionCentrosCulturales() {
 
   const [centroSeleccionado, setCentroSeleccionado] =
-    useState('espaco-marinha');
+    useState(()=>seoInitialItemId('centros-culturales',CENTROS_CULTURALES_DATA,'espaco-marinha'));
 
   const [selectorCentrosAbierto, setSelectorCentrosAbierto] =
     useState(false);
@@ -8995,6 +8999,9 @@ function SeccionCentrosCulturales() {
   const centroActual = CENTROS_CULTURALES_DATA.find(
     (centro) => centro.id === centroSeleccionado
   );
+
+  useEffect(()=>{const sync=()=>setCentroSeleccionado(seoInitialItemId('centros-culturales',CENTROS_CULTURALES_DATA,'espaco-marinha'));addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);
+  useEffect(()=>{seoLocalMeta('centros-culturales',centroActual);},[centroSeleccionado]);
 
   const centrosFiltrados = CENTROS_CULTURALES_DATA.filter(
     (centro) =>
@@ -9094,6 +9101,7 @@ function SeccionCentrosCulturales() {
                       type="button"
                       key={centro.id}
                       onClick={() => {
+                        seoNavigate(`/centros-culturales/${seoSlug(centro.nombre)}`);
                         setCentroSeleccionado(centro.id);
                         setSelectorCentrosAbierto(false);
                         setBusquedaCentro('');
@@ -9413,7 +9421,7 @@ function SeccionCentrosCulturales() {
 function SeccionTeatros() {
 
   const [teatroSeleccionado, setTeatroSeleccionado] =
-    useState('theatro-municipal');
+    useState(()=>seoInitialItemId('teatros',TEATROS_DATA,'theatro-municipal'));
 
   const [selectorTeatrosAbierto, setSelectorTeatrosAbierto] =
     useState(false);
@@ -9424,6 +9432,9 @@ function SeccionTeatros() {
   const teatroActual = TEATROS_DATA.find(
     (teatro) => teatro.id === teatroSeleccionado
   );
+
+  useEffect(()=>{const sync=()=>setTeatroSeleccionado(seoInitialItemId('teatros',TEATROS_DATA,'theatro-municipal'));addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);
+  useEffect(()=>{seoLocalMeta('teatros',teatroActual);},[teatroSeleccionado]);
 
   const teatrosFiltrados = TEATROS_DATA.filter(
     (teatro) =>
@@ -9523,6 +9534,7 @@ function SeccionTeatros() {
                       type="button"
                       key={teatro.id}
                       onClick={() => {
+                        seoNavigate(`/teatros/${seoSlug(teatro.nombre)}`);
                         setTeatroSeleccionado(teatro.id);
                         setSelectorTeatrosAbierto(false);
                         setBusquedaTeatro('');
@@ -9855,7 +9867,7 @@ function SeccionTeatros() {
 function SeccionIglesias() {
 
   const [iglesiaSeleccionada, setIglesiaSeleccionada] =
-    useState('catedral-metropolitana');
+    useState(()=>seoInitialItemId('iglesias',IGLESIAS_DATA,'catedral-metropolitana'));
 
   const [selectorIglesiasAbierto, setSelectorIglesiasAbierto] =
     useState(false);
@@ -9866,6 +9878,9 @@ function SeccionIglesias() {
   const iglesiaActual = IGLESIAS_DATA.find(
     (iglesia) => iglesia.id === iglesiaSeleccionada
   );
+
+  useEffect(()=>{const sync=()=>setIglesiaSeleccionada(seoInitialItemId('iglesias',IGLESIAS_DATA,'catedral-metropolitana'));addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);
+  useEffect(()=>{seoLocalMeta('iglesias',iglesiaActual);},[iglesiaSeleccionada]);
 
   const iglesiasFiltradas = IGLESIAS_DATA.filter(
     (iglesia) =>
@@ -9978,6 +9993,7 @@ function SeccionIglesias() {
                       type="button"
                       key={iglesia.id}
                       onClick={() => {
+                        seoNavigate(`/iglesias/${seoSlug(iglesia.nombre)}`);
                         setIglesiaSeleccionada(iglesia.id);
                         setSelectorIglesiasAbierto(false);
                         setBusquedaIglesia('');
@@ -10258,7 +10274,7 @@ function SeccionIglesias() {
 function SeccionFuertesFortalezas() {
 
   const [fuerteSeleccionado, setFuerteSeleccionado] =
-    useState('forte-copacabana');
+    useState(()=>seoInitialItemId('fuertes-fortalezas',FUERTES_DATA,'forte-copacabana'));
 
   const [selectorFuertesAbierto, setSelectorFuertesAbierto] =
     useState(false);
@@ -10269,6 +10285,9 @@ function SeccionFuertesFortalezas() {
   const fuerteActual = FUERTES_DATA.find(
     (fuerte) => fuerte.id === fuerteSeleccionado
   );
+
+  useEffect(()=>{const sync=()=>setFuerteSeleccionado(seoInitialItemId('fuertes-fortalezas',FUERTES_DATA,'forte-copacabana'));addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);
+  useEffect(()=>{seoLocalMeta('fuertes-fortalezas',fuerteActual);},[fuerteSeleccionado]);
 
   const fuertesFiltrados = FUERTES_DATA.filter(
     (fuerte) =>
@@ -10387,6 +10406,7 @@ function SeccionFuertesFortalezas() {
                       type="button"
                       key={fuerte.id}
                       onClick={() => {
+                        seoNavigate(`/fuertes-fortalezas/${seoSlug(fuerte.nombre)}`);
                         setFuerteSeleccionado(fuerte.id);
                         setSelectorFuertesAbierto(false);
                         setBusquedaFuerte('');
@@ -18963,22 +18983,24 @@ const OTROS_EVENTOS_RIO = [
 const EventoTabla = ({headers, rows}) => <div className="overflow-x-auto rounded-2xl border border-slate-200 bg-white"><table className="w-full min-w-[720px] text-sm"><thead className="bg-slate-900 text-white"><tr>{headers.map(h=><th key={h} className="text-left px-4 py-3 font-black">{h}</th>)}</tr></thead><tbody>{rows.map((row,i)=><tr key={i} className="border-t border-slate-100 odd:bg-white even:bg-slate-50">{row.map((cell,j)=><td key={j} className="px-4 py-3 align-top">{cell}</td>)}</tr>)}</tbody></table></div>;
 
 function GrandesEventosPage({onBack}) {
-  const [seleccionado,setSeleccionado]=useState(null);
+  const [seleccionado,setSeleccionado]=useState(()=>{const m=seoCleanPath(location.pathname).match(/^\/eventos\/([^/]+)$/);return m?GRANDES_EVENTOS.find(e=>seoSlug(e.nombre)===m[1]||seoSlug(e.id)===m[1])||null:null;});
   const [filtro,setFiltro]=useState('Todos');
   const [diaRock,setDiaRock]=useState('Todos');
   useEffect(()=>{ window.scrollTo({top:0,left:0,behavior:'auto'}); },[seleccionado]);
+  useEffect(()=>{const sync=()=>{const m=seoCleanPath(location.pathname).match(/^\/eventos\/([^/]+)$/);setSeleccionado(m?GRANDES_EVENTOS.find(e=>seoSlug(e.nombre)===m[1]||seoSlug(e.id)===m[1])||null:null);};addEventListener('popstate',sync);return()=>removeEventListener('popstate',sync);},[]);
+  useEffect(()=>{if(seleccionado)seoLocalMeta('eventos',seleccionado);else seoSetMeta({path:'/eventos',title:'Eventos en Río de Janeiro | Ernestinho Carioca',description:'Carnaval, Réveillon, Rock in Rio y otros grandes eventos de Río de Janeiro.'});},[seleccionado]);
   const tipos=['Todos',...new Set(GRANDES_EVENTOS.map(e=>e.tipo))];
   const visibles=GRANDES_EVENTOS.filter(e=>filtro==='Todos'||e.tipo===filtro);
   if(!seleccionado) return <section className="min-h-screen bg-slate-950 text-white pb-20">
     <div className="relative h-[28rem] overflow-hidden"><img src="https://reveillon.rio/wp-content/uploads/2025/01/08-Reveillon-2025-Palco-Copacabana-Foto-Alexandre-Macieira-IMGL9073.jpg" alt="Réveillon de Copacabana, uno de los grandes eventos de Río" className="w-full h-full object-cover opacity-60"/><div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent"/><div className="absolute inset-x-0 bottom-0 max-w-7xl mx-auto px-5 sm:px-8 pb-12"><span className="text-amber-300 text-xs font-black uppercase tracking-[.25em]">Planifica antes de que la ciudad se llene</span><h1 className="text-4xl sm:text-7xl font-black mt-3">Grandes eventos de Río</h1><p className="max-w-3xl text-base sm:text-xl text-slate-200 mt-4">Carnaval, Réveillon, festivales y conciertos capaces de transformar por completo la ciudad. Fechas, entradas, transporte, historia y consejos reales para no improvisar.</p></div></div>
     <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-10"><div className="bg-amber-300 text-slate-950 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-4 md:items-center"><span className="text-4xl">⚠️</span><div><h2 className="text-xl font-black">En estas fechas Río funciona de otra manera</h2><p className="mt-1 text-sm sm:text-base">Alojamientos y entradas se agotan, suben las tarifas y cambian tránsito y transporte. Revisa siempre la fecha de actualización y la fuente oficial.</p></div></div>
       <div className="flex gap-2 overflow-x-auto no-scrollbar py-8">{tipos.map(t=><button key={t} onClick={()=>setFiltro(t)} className={`shrink-0 px-5 py-3 rounded-full text-sm font-black ${filtro===t?'bg-teal-500 text-white':'bg-white/10 text-slate-200 hover:bg-white/20'}`}>{t}</button>)}</div>
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">{visibles.map(e=><article key={e.id} className="group bg-white text-slate-900 rounded-[2rem] overflow-hidden shadow-xl flex flex-col"><button onClick={()=>setSeleccionado(e)} className="relative aspect-[4/3] overflow-hidden text-left"><img src={e.miniatura} alt={`${e.nombre} en Río de Janeiro`} className="w-full h-full object-cover group-hover:scale-105 transition duration-500"/><div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"/><span className="absolute top-4 left-4 bg-white/95 text-slate-950 rounded-full px-3 py-1 text-xs font-black">{e.estado}</span><h2 className="absolute bottom-5 left-5 right-5 text-2xl font-black text-white">{e.icon} {e.nombre}</h2></button><div className="p-6 flex-1 flex flex-col"><p className="text-xs font-black text-teal-700 uppercase">{e.mes} · {e.tipo} · {e.gratis?'Gratuito':'Con entrada'}</p><p className="text-sm text-slate-600 mt-3 flex-1">{e.resumen}</p><button onClick={()=>setSeleccionado(e)} className="mt-5 bg-slate-900 text-white rounded-xl py-3 font-black">Ver guía completa →</button></div></article>)}</div>
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">{visibles.map(e=><article key={e.id} className="group bg-white text-slate-900 rounded-[2rem] overflow-hidden shadow-xl flex flex-col"><button onClick={()=>{seoNavigate(`/eventos/${seoSlug(e.nombre)}`);setSeleccionado(e)}} className="relative aspect-[4/3] overflow-hidden text-left"><img src={e.miniatura} alt={`${e.nombre} en Río de Janeiro`} className="w-full h-full object-cover group-hover:scale-105 transition duration-500"/><div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"/><span className="absolute top-4 left-4 bg-white/95 text-slate-950 rounded-full px-3 py-1 text-xs font-black">{e.estado}</span><h2 className="absolute bottom-5 left-5 right-5 text-2xl font-black text-white">{e.icon} {e.nombre}</h2></button><div className="p-6 flex-1 flex flex-col"><p className="text-xs font-black text-teal-700 uppercase">{e.mes} · {e.tipo} · {e.gratis?'Gratuito':'Con entrada'}</p><p className="text-sm text-slate-600 mt-3 flex-1">{e.resumen}</p><button onClick={()=>{seoNavigate(`/eventos/${seoSlug(e.nombre)}`);setSeleccionado(e)}} className="mt-5 bg-slate-900 text-white rounded-xl py-3 font-black">Ver guía completa →</button></div></article>)}</div>
       <div className="mt-14"><h2 className="text-3xl font-black">Calendario anual</h2><p className="text-slate-400 mt-2 mb-6">Las fechas exactas se publican únicamente cuando existe confirmación oficial.</p><EventoTabla headers={['Mes','Evento','Tipo','Lugar','Acceso']} rows={OTROS_EVENTOS_RIO}/></div>
     </div></section>;
   const e=seleccionado;
   const rockRows=e.artistas?(diaRock==='Todos'?e.artistas:e.artistas.filter(x=>x[0]===diaRock)):[];
-  return <article className="min-h-screen bg-slate-50 pb-24"><div className="relative h-[26rem] sm:h-[34rem] overflow-hidden"><img src={e.hero} alt={`${e.nombre} en Río de Janeiro`} className="w-full h-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/10"/><button onClick={()=>setSeleccionado(null)} className="absolute top-5 left-5 bg-white text-slate-900 rounded-full px-5 py-3 text-sm font-black shadow-xl">← Grandes eventos</button><div className="absolute inset-x-0 bottom-0 max-w-6xl mx-auto px-5 sm:px-8 pb-9 text-white"><span className="inline-block bg-amber-300 text-slate-950 rounded-full px-4 py-1 text-xs font-black">{e.estado}</span><h1 className="text-4xl sm:text-6xl font-black mt-4">{e.icon} {e.nombre}</h1><p className="text-lg text-slate-200 mt-3 max-w-3xl">{e.resumen}</p></div></div>
+  return <article className="min-h-screen bg-slate-50 pb-24"><div className="relative h-[26rem] sm:h-[34rem] overflow-hidden"><img src={e.hero} alt={`${e.nombre} en Río de Janeiro`} className="w-full h-full object-cover"/><div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-black/10"/><button onClick={()=>{seoNavigate('/eventos');setSeleccionado(null)}} className="absolute top-5 left-5 bg-white text-slate-900 rounded-full px-5 py-3 text-sm font-black shadow-xl">← Grandes eventos</button><div className="absolute inset-x-0 bottom-0 max-w-6xl mx-auto px-5 sm:px-8 pb-9 text-white"><span className="inline-block bg-amber-300 text-slate-950 rounded-full px-4 py-1 text-xs font-black">{e.estado}</span><h1 className="text-4xl sm:text-6xl font-black mt-4">{e.icon} {e.nombre}</h1><p className="text-lg text-slate-200 mt-3 max-w-3xl">{e.resumen}</p></div></div>
     <div className="max-w-6xl mx-auto px-4 sm:px-6"><div className="grid sm:grid-cols-3 gap-3 -mt-1 py-8">{[['📅',e.fecha],['📍',e.lugar],[e.gratis?'🟢':'🎟️',e.gratis?'Evento gratuito':'Requiere entrada']].map(([i,t])=><div key={t} className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 flex gap-3"><span className="text-2xl">{i}</span><strong className="text-sm">{t}</strong></div>)}</div>
       <p className="text-lg leading-relaxed text-slate-700 max-w-4xl">{e.intro}</p>
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 my-8">{e.destacados.map(x=><div key={x} className="bg-slate-900 text-white rounded-2xl p-5 text-sm font-bold">✓ {x}</div>)}</div>
@@ -18994,7 +19016,7 @@ function GrandesEventosPage({onBack}) {
       <section className="py-7 grid md:grid-cols-2 gap-5"><div className="bg-white border rounded-3xl p-7"><h2 className="text-2xl font-black">Seguridad y familias</h2><ul className="mt-4 space-y-3 text-slate-700">{e.seguridad.map(x=><li key={x}>• {x}</li>)}</ul></div><div className="bg-amber-100 rounded-3xl p-7"><h2 className="text-2xl font-black">Dónde alojarse</h2><p className="mt-4 leading-relaxed">{e.alojamiento}</p></div></section>
       {e.id==='reveillon'&&<section className="my-8 bg-gradient-to-br from-teal-950 to-emerald-700 text-white rounded-[2rem] p-7 sm:p-10"><span className="text-amber-300 font-black text-xs uppercase tracking-widest">Fin de año en Copacabana</span><h2 className="text-3xl sm:text-4xl font-black mt-3">¿Todavía no reservaste tu alojamiento?</h2><p className="mt-4 max-w-3xl text-emerald-50">Durante el Réveillon las calles cierran y los apartamentos mejor ubicados se agotan con mucha anticipación. Puedo ayudarte a consultar opciones disponibles cerca de la playa.</p><a href="https://wa.me/5521969946938?text=Hola%20Ernestinho%2C%20estoy%20planificando%20mi%20viaje%20para%20el%20R%C3%A9veillon%20de%20R%C3%ADo%20y%20quiero%20consultar%20apartamentos%20disponibles%20en%20Copacabana.%20Somos%3A%20____%20Desde%3A%20____%20Hasta%3A%20____" target="_blank" rel="noopener noreferrer" className="inline-flex mt-6 bg-amber-300 text-slate-950 font-black rounded-full px-6 py-4">Consultar apartamentos por WhatsApp</a></section>}
       <section className="py-7"><h2 className="text-2xl font-black mb-4">Fuentes oficiales y actualización</h2><div className="flex flex-wrap gap-3">{e.fuentes.map(([n,u])=><a key={u} href={u} target="_blank" rel="noopener noreferrer" className="bg-white border border-slate-200 rounded-full px-5 py-3 font-black text-sm text-teal-700">{n} ↗</a>)}</div><p className="text-xs text-slate-500 mt-5">Última actualización editorial: 4 de septiembre de 2026. Horarios, accesos, precios y programación pueden cambiar.</p></section>
-      <div className="mt-5 flex flex-col sm:flex-row gap-3"><button onClick={()=>setSeleccionado(null)} className="bg-slate-900 text-white rounded-full px-6 py-4 font-black">← Volver a todos los eventos</button><a href={`https://wa.me/5521969946938?text=${encodeURIComponent(`Hola Ernestinho, quiero información para organizar mi viaje durante ${e.nombre}.`)}`} target="_blank" rel="noopener noreferrer" className="bg-emerald-500 text-slate-950 rounded-full px-6 py-4 font-black text-center">Hablar con Ernestinho</a></div>
+      <div className="mt-5 flex flex-col sm:flex-row gap-3"><button onClick={()=>{seoNavigate('/eventos');setSeleccionado(null)}} className="bg-slate-900 text-white rounded-full px-6 py-4 font-black">← Volver a todos los eventos</button><a href={`https://wa.me/5521969946938?text=${encodeURIComponent(`Hola Ernestinho, quiero información para organizar mi viaje durante ${e.nombre}.`)}`} target="_blank" rel="noopener noreferrer" className="bg-emerald-500 text-slate-950 rounded-full px-6 py-4 font-black text-center">Hablar con Ernestinho</a></div>
     </div></article>;
 }
 
@@ -19007,8 +19029,10 @@ function seoExpState(x){if(!x)return'experiencias';if(x.id==='exp-1')return'full
 function seoExpFromState(s){return[...EXPERIENCIAS_DATA,...ACTIVIDADES_NUEVAS].find(x=>seoExpState(x)===s)||null;}
 function seoPathForSection(s){const x=seoExpFromState(s);return x?`/experiencias/${seoSlug(x.titulo)}`:(SEO_ROUTES[s]||null);}
 function seoCleanPath(v){let r=decodeURIComponent(String(v||'/')).replace(/\/+$/,'')||'/';return r.startsWith('/')?r:'/'+r;}
-function seoResolveRoute(pathname){const r=seoCleanPath(pathname),base={seccion:'inicio',museoId:null,barrio:null,restaurante:null,articulo:null,temaGuia:null};let m;if(r==='/')return base;if((m=r.match(/^\/museos\/([^/]+)$/))){const x=MUSEOS_DATA.find(v=>seoSlug(v.nombre)===m[1]);if(x)return{...base,seccion:'museos',museoId:x.id};}if((m=r.match(/^\/barrios\/([^/]+)$/))){const x=BARRIOS_DATA.find(v=>seoSlug(v.nombre)===m[1]||seoSlug(v.id)===m[1]);if(x)return x.id==='copacabana'?{...base,seccion:'copa_para_mi'}:{...base,seccion:'barrios',barrio:x};}if((m=r.match(/^\/gastronomia\/([^/]+)$/))){const x=GASTRONOMIA_DATA.find(v=>seoSlug(v.nombre)===m[1]);if(x)return{...base,seccion:'gastronomia',restaurante:x};}if((m=r.match(/^\/articulos\/([^/]+)$/))){const x=ARTICULOS_CONSEJOS.find(v=>seoSlug(v.titulo)===m[1]||seoSlug(v.id)===m[1]);if(x)return{...base,seccion:'articulo_detalle',articulo:x};}if((m=r.match(/^\/guia\/([^/]+)$/))&&m[1]!=='pix'){const id=Object.keys(GUIA_INFO).find(k=>seoSlug(GUIA_INFO[k]?.titulo||k)===m[1]||seoSlug(k)===m[1]);if(id)return{...base,seccion:'guia',temaGuia:id};}if((m=r.match(/^\/experiencias\/([^/]+)$/))){const x=[...EXPERIENCIAS_DATA,...ACTIVIDADES_NUEVAS].find(v=>seoSlug(v.titulo)===m[1]||seoSlug(v.id)===m[1]);if(x)return{...base,seccion:seoExpState(x)};}if(SEO_PREFERRED[r])return{...base,seccion:SEO_PREFERRED[r]};const s=Object.keys(SEO_ROUTES).find(k=>SEO_ROUTES[k]===r);return s?{...base,seccion:s}:base;}
+function seoResolveRoute(pathname){const r=seoCleanPath(pathname),base={seccion:'inicio',museoId:null,barrio:null,restaurante:null,articulo:null,temaGuia:null};let m;if(r==='/')return base;if((m=r.match(/^\/museos\/([^/]+)$/))){const x=MUSEOS_DATA.find(v=>seoSlug(v.nombre)===m[1]);if(x)return{...base,seccion:'museos',museoId:x.id};}if((m=r.match(/^\/barrios\/([^/]+)$/))){const x=BARRIOS_DATA.find(v=>seoSlug(v.nombre)===m[1]||seoSlug(v.id)===m[1]);if(x)return x.id==='copacabana'?{...base,seccion:'copa_para_mi'}:{...base,seccion:'barrios',barrio:x};}if((m=r.match(/^\/gastronomia\/([^/]+)$/))){const x=GASTRONOMIA_DATA.find(v=>seoSlug(v.nombre)===m[1]);if(x)return{...base,seccion:'gastronomia',restaurante:x};}if((m=r.match(/^\/articulos\/([^/]+)$/))){const x=ARTICULOS_CONSEJOS.find(v=>seoSlug(v.titulo)===m[1]||seoSlug(v.id)===m[1]);if(x)return{...base,seccion:'articulo_detalle',articulo:x};}if((m=r.match(/^\/guia\/([^/]+)$/))&&m[1]!=='pix'){const id=Object.keys(GUIA_INFO).find(k=>seoSlug(GUIA_INFO[k]?.titulo||k)===m[1]||seoSlug(k)===m[1]);if(id)return{...base,seccion:'guia',temaGuia:id};}if((m=r.match(/^\/experiencias\/([^/]+)$/))){const x=[...EXPERIENCIAS_DATA,...ACTIVIDADES_NUEVAS].find(v=>seoSlug(v.titulo)===m[1]||seoSlug(v.id)===m[1]);if(x)return{...base,seccion:seoExpState(x)};}const localParents=[['centros-culturales','centros_culturales'],['espacios-literarios','espacios_literarios'],['teatros','teatros'],['iglesias','iglesias'],['fuertes-fortalezas','fuertes_fortalezas'],['eventos','grandes_eventos']];const lp=localParents.find(([pre])=>r.startsWith('/'+pre+'/'));if(lp)return{...base,seccion:lp[1]};if(SEO_PREFERRED[r])return{...base,seccion:SEO_PREFERRED[r]};const s=Object.keys(SEO_ROUTES).find(k=>SEO_ROUTES[k]===r);return s?{...base,seccion:s}:base;}
 function seoCurrentPath(s,museoId,barrio,restaurante,articulo,tema){const current=seoCleanPath(window.location.pathname);if(s==='museos'){const x=MUSEOS_DATA.find(v=>v.id===museoId);return x&&current.startsWith('/museos/')?`/museos/${seoSlug(x.nombre)}`:'/museos';}if(s==='barrios'&&barrio)return`/barrios/${seoSlug(barrio.nombre||barrio.id)}`;if(s==='gastronomia'&&restaurante)return`/gastronomia/${seoSlug(restaurante.nombre)}`;if(s==='articulo_detalle'&&articulo)return`/articulos/${seoSlug(articulo.titulo||articulo.id)}`;if(s==='guia'&&tema&&GUIA_INFO[tema])return`/guia/${seoSlug(GUIA_INFO[tema].titulo||tema)}`;return seoPathForSection(s)||'/';}
+function seoInitialItemId(prefix,data,defaultId){const r=seoCleanPath(location.pathname),m=r.match(new RegExp('^/'+prefix+'/([^/]+)$'));if(!m)return defaultId;const x=data.find(v=>seoSlug(v.nombre)===m[1]||seoSlug(v.id)===m[1]);return x?x.id:defaultId;}
+function seoLocalMeta(prefix,item){if(!item)return;seoSetMeta({path:`/${prefix}/${seoSlug(item.nombre)}`,title:`${item.nombre} en Río de Janeiro | Ernestinho Carioca`,description:item.descripcion||item.resumen||item.subtitulo||item.categoria||`Guía de ${item.nombre} en Río de Janeiro.`});}
 function seoNavigate(path,mode='push'){const r=seoCleanPath(path);if(seoCleanPath(window.location.pathname)===r)return;(mode==='replace'?history.replaceState:history.pushState).call(history,{seo:true},'',r);}
 function seoSetMeta(o){const path=o.path||'/',url='https://www.ernestinhocarioca.com.br'+path,title=o.title||'Ernestinho Carioca | Guía completa de Río de Janeiro',desc=o.description||'Descubre Río de Janeiro con Ernestinho Carioca: lugares, experiencias, consejos y rutas para organizar tu viaje.';document.title=title;const meta=(sel,key,val)=>{let e=document.head.querySelector(sel);if(!e){e=document.createElement('meta');const n=sel.match(/name="([^"]+)/),p=sel.match(/property="([^"]+)/);if(n)e.name=n[1];if(p)e.setAttribute('property',p[1]);document.head.appendChild(e);}e.setAttribute(key,val);};meta('meta[name="description"]','content',desc);meta('meta[name="robots"]','content',o.indexable===false?'noindex, follow':'index, follow');meta('meta[property="og:title"]','content',title);meta('meta[property="og:description"]','content',desc);meta('meta[property="og:url"]','content',url);let c=document.head.querySelector('link[rel="canonical"]');if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c);}c.href=url;}
 function seoMetaFor(s,museoId,barrio,restaurante,articulo,tema){const path=seoCurrentPath(s,museoId,barrio,restaurante,articulo,tema),simple={museos:['Museos de Río de Janeiro','Guía de museos de Río con historia, horarios, valores, mapas y consejos.'],playas:['Playas de Río de Janeiro','Descubre las playas de Río de Janeiro y cómo disfrutarlas.'],gastronomia:['Dónde comer en Río de Janeiro','Restaurantes, botecos, cafés y sabores recomendados en Río.'],barrios:['Barrios de Río de Janeiro','Guía de barrios de Río para entender qué ver, hacer y combinar.'],guia:['Guía de Río de Janeiro','Información práctica para preparar y disfrutar tu viaje a Río.'],consejos:['Consejos para viajar a Río de Janeiro','Consejos prácticos y respuestas para organizar tu viaje.'],experiencias:['Tours y experiencias en Río de Janeiro','Tours, excursiones y experiencias para vivir Río con Ernestinho.'],grandes_eventos:['Eventos en Río de Janeiro','Carnaval, Réveillon, festivales y grandes eventos de Río.'],transportes:['Cómo moverse en Río de Janeiro','Metro, Uber, buses, bicicletas y traslados en Río.'],atracciones:['Atracciones de Río de Janeiro','Museos, iglesias, fortalezas y lugares para conocer Río.'],que_hacer:['Qué hacer en Río de Janeiro','Ideas, lugares y experiencias para descubrir Río.'],inicio:['Ernestinho Carioca | Guía completa de Río de Janeiro','Descubre Río de Janeiro con Ernestinho Carioca: atracciones, playas, museos, gastronomía, transporte, consejos y experiencias.']};if(s==='museos'&&path.startsWith('/museos/')){const x=MUSEOS_DATA.find(v=>v.id===museoId);if(x)return{path,title:`${x.nombre} en Río de Janeiro | Ernestinho Carioca`,description:x.descripcion||x.subtitulo};}if(s==='barrios'&&barrio)return{path,title:`${barrio.nombre} en Río de Janeiro | Ernestinho Carioca`,description:barrio.desc||barrio.lema};if(s==='gastronomia'&&restaurante)return{path,title:`${restaurante.nombre} en Río de Janeiro | Ernestinho Carioca`,description:restaurante.destaque};if(s==='articulo_detalle'&&articulo)return{path,title:`${articulo.titulo} | Ernestinho Carioca`,description:articulo.resumen};if(s==='guia'&&tema&&GUIA_INFO[tema]){const x=GUIA_INFO[tema];return{path,title:`${x.titulo} | Ernestinho Carioca`,description:x.intro};}const exp=seoExpFromState(s);if(exp)return{path,title:`${exp.titulo} en Río de Janeiro | Ernestinho Carioca`,description:exp.descripcion||exp.intro};const a=simple[s];return a?{path,title:a[0].includes('Ernestinho')?a[0]:`${a[0]} | Ernestinho Carioca`,description:a[1]}:{path,indexable:!!SEO_ROUTES[s]};}
