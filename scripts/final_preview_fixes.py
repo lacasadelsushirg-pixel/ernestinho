@@ -4,37 +4,33 @@ import re
 p = Path('index.html')
 s = p.read_text(encoding='utf-8')
 
-# Río mes a mes: use the existing month planner already present in the site.
+# The application already has a real Río mes a mes destination wired to the
+# existing month planner. A previous preview patch added a second nav item;
+# remove only that duplicate and preserve the site's native navigation/renderer.
 planner = 'Master3MonthWeatherPlanner'
 if f'function {planner}' not in s:
     raise SystemExit(f'{planner} component missing')
 
-# Remove only a main-nav item created by our preview patch. Preserve all other
-# internal rio_mes_a_mes content already present in the application.
 s = re.sub(
     r"^[ \t]*\{\s*id\s*:\s*['\"]rio_mes_a_mes['\"]\s*,\s*label\s*:\s*['\"]Mes a mes['\"]\s*,\s*icon\s*:\s*['\"]calendar-days['\"]\s*\},?\s*\n",
     '', s, flags=re.M
 )
-month_nav = "      { id: 'rio_mes_a_mes', label: 'Mes a mes', icon: 'calendar-days' },\n"
 
-# Locate the Guía nav item regardless of whitespace or quote style.
-nav_match = re.search(r"^[ \t]*\{[^\n{}]*\bid\s*:\s*['\"]guia['\"][^\n{}]*\}\s*,?\s*$", s, flags=re.M | re.I)
-if not nav_match:
-    raise SystemExit('Main Guía navigation item missing')
-insert_at = nav_match.end()
-if insert_at < len(s) and s[insert_at] == '\n':
-    insert_at += 1
-else:
-    month_nav = '\n' + month_nav
-s = s[:insert_at] + month_nav + s[insert_at:]
+native_nav = re.findall(
+    r"\{\s*id\s*:\s*['\"]rio_mes_a_mes['\"]\s*,\s*label\s*:\s*['\"]Mes a mes['\"]\s*\}",
+    s
+)
+if len(native_nav) != 1:
+    raise SystemExit(f'Expected one native Mes a mes nav item, found {len(native_nav)}')
 
-# Remove any preview route produced previously and expose the real existing planner.
+native_render = "{seccionActual === 'rio_mes_a_mes' && <Master3MonthWeatherPlanner />}"
+if native_render not in s:
+    raise SystemExit('Native Río mes a mes renderer missing')
+
+# Remove any stale switch-route line from an earlier experimental patch if it
+# exists. This SPA uses conditional rendering, not a switch route here.
 s = re.sub(r"\s*case\s+['\"]rio_mes_a_mes['\"]\s*:\s*return\s*<Rio365(?:\s+go=\{go\})?\s*/>;", '', s)
 s = re.sub(r"\s*case\s+['\"]rio_mes_a_mes['\"]\s*:\s*return\s*<Master3MonthWeatherPlanner\s*/>;", '', s)
-route_match = re.search(r"case\s+['\"]grandes_eventos['\"]\s*:", s)
-if not route_match:
-    raise SystemExit('grandes_eventos route anchor missing')
-s = s[:route_match.start()] + "case 'rio_mes_a_mes': return <Master3MonthWeatherPlanner />;\n      " + s[route_match.start():]
 
 # Keep the official live parsers wired to same-origin endpoints, regardless of
 # whether the older frontend declared null constants or config objects.
