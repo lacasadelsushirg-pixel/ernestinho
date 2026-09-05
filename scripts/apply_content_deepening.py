@@ -27,11 +27,11 @@ carn="""  {
     accesibilidad:'La organización informa accesibilidad para sillas de ruedas y cochecitos de bebé. Personas con sensibilidad a olores fuertes o problemas respiratorios deben consultar antes de comprar por el uso de productos químicos industriales en el barracón.',
     comoLlegar:'La estación VLT Cidade do Samba queda frente a la entrada principal. En app de transporte busca Carnaval Experience o Cidade do Samba. El estacionamiento de Rua Rivadávia Corrêa, 60 es pago y no es operado por Carnaval Experience.',
     consejoErnestinho:'Ven con calzado cerrado y participa de verdad: ponte la fantasía y prueba la clase de samba. Las fotografías de preparativos pueden tener restricciones; sigue siempre las indicaciones del guía.',
-    aviso:'🎭 SOCIO OFICIAL · 5% DE DESCUENTO comprando por el enlace de Ernestinho. El descuento se aplica mediante el enlace de socio; si el sistema solicita cupón, usa FC5QUN. Cancelación gratuita hasta 48 h antes según las condiciones publicadas por Carnaval Experience.',
+    aviso:'🎭 SOCIO OFICIAL · 5% DE DESCUENTO comprando por el enlace de Ernestinho. El descuento se aplica mediante el enlace de socio; si el sistema solicita cupón, usa FC5QUN.',
     servicioErnestinho:true,
     mensajeWhatsApp:'Hola Ernestinho, quiero reservar Carnaval Experience con el 5% de descuento de socio oficial. Envíame las opciones y horarios disponibles.',
     miniatura:'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3083', fotoPrincipal:'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3055', fotoMedia:'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3125',
-    mapa:'https://www.google.com/maps?q=Carnaval+Experience+Cidade+do+Samba+Rio+de+Janeiro&output=embed', partnerUrl:'https://ingressos.carnavalexperience.com.br?ac=UUV6C5E3SX', partnerLabel:'COMPRAR CON 5% DE DESCUENTO', fuenteOficial:'https://ingressos.carnavalexperience.com.br/tour-regular'
+    mapa:'https://www.google.com/maps?q=Carnaval+Experience+Cidade+do+Samba+Rio+de+Janeiro&output=embed', partnerUrl:'https://ingressos.carnavalexperience.com.br?ac=UUV6C5E3SX', partnerLabel:'COMPRAR CON 5% DE DESCUENTO'
   },
 """
 sub(r"  \{\n    id: 'carnaval-experience',[\s\S]*?\n  \},\n\n  \{\n    id: 'ilha-fiscal',",carn+"\n  {\n    id: 'ilha-fiscal',")
@@ -50,29 +50,38 @@ const COPA_UTIL_SERVICES = [
  {cat:'💊 Farmacias',items:[['Droga Raia 24 h','Av. Nossa Sra. de Copacabana, 734','24 horas','https://www.google.com/maps/search/?api=1&query=Droga+Raia+Copacabana+734'],['Drogaria Venancio','Av. Nossa Sra. de Copacabana, 528','aprox. 07:00–23:00','https://www.google.com/maps/search/?api=1&query=Drogaria+Venancio+Copacabana+528'],['Drogarias Pacheco','Av. Nossa Sra. de Copacabana, 1004','aprox. 07:00–22:00','https://www.google.com/maps/search/?api=1&query=Drogarias+Pacheco+Copacabana+1004']]},
  {cat:'🧺 Lavanderias',items:[['5àSec Copacabana','Rua Barata Ribeiro, 379','L–S · confirmar horario del día','https://www.google.com/maps/search/?api=1&query=5asec+Copacabana+Barata+Ribeiro+379'],['OMO Lavanderia','Rua Barata Ribeiro, 424','L–V 08:00–18:00 · S 09:00–13:00','https://www.google.com/maps/search/?api=1&query=OMO+Lavanderia+Copacabana+Barata+Ribeiro+424']]},
  {cat:'🏧 Cajeros',items:[['Banco24Horas · Metrô Cantagalo','Rua Xavier da Silveira, 97','según funcionamiento de la estación','https://www.google.com/maps/search/?api=1&query=Banco+24+Horas+Metro+Cantagalo'],['Banco24Horas · Barata Ribeiro','Rua Barata Ribeiro, 502','confirmar acceso del local','https://www.google.com/maps/search/?api=1&query=Banco+24+Horas+Barata+Ribeiro+502']]},
- {cat:'👮 Policía',items:[['12ª DP · Copacabana','Rua Hilário de Gouveia, 102','Delegacia de Polícia Civil','https://www.google.com/maps/search/?api=1&query=12+DP+Copacabana+Hilario+de+Gouveia+102'],['13ª DP · Ipanema / extremo sur de Copa','Av. Nossa Sra. de Copacabana, 1260','Delegacia de Polícia Civil','https://www.google.com/maps/search/?api=1&query=13+DP+Copacabana+1260']]},
- {cat:'🚻 Baños públicos',items:[['Postos de Salvamento de la orla','Orla de Copacabana','La red municipal incluye baños en la orla y postos; disponibilidad puede variar','https://www.google.com/maps/search/?api=1&query=Posto+de+Salvamento+Copacabana']]},
- {cat:'🐶 Veterinarias',items:[['HV Clínica Veterinária','Rua Barata Ribeiro, 672','atención 24 h informada por la unidad','https://www.google.com/maps/search/?api=1&query=HV+Clinica+Veterinaria+Copacabana+Barata+Ribeiro+672'],['Cãopacabana','Rua Barata Ribeiro, 740','atención 24 h informada','https://www.google.com/maps/search/?api=1&query=Caopacabana+Barata+Ribeiro+740'],['CAMEV Copacabana','Rua Barão de Ipanema, 32','aprox. 09:00–18:00','https://www.google.com/maps/search/?api=1&query=CAMEV+Copacabana+Barão+de+Ipanema+32']]}
+ {cat:'👮 Policía',items:[['12ª DP · Copacabana','Rua Hilário de Gouveia, 102','Delegacia de Polícia Civil','https://www.google.com/maps/search/?api=1&query=12+DP+Copacabana+Hilario+de+Gouveia+102'],['13ª DP · extremo sur de Copa','Av. Nossa Sra. de Copacabana, 1260','Delegacia de Polícia Civil','https://www.google.com/maps/search/?api=1&query=13+DP+Copacabana+1260']]},
+ {cat:'🚻 Baños públicos',items:[['Postos de Salvamento de la orla','Orla de Copacabana','Disponibilidad y horarios pueden variar','https://www.google.com/maps/search/?api=1&query=Posto+de+Salvamento+Copacabana']]},
+ {cat:'🐶 Veterinarias',items:[['HV Clínica Veterinária','Rua Barata Ribeiro, 672','confirmar horario antes de ir','https://www.google.com/maps/search/?api=1&query=HV+Clinica+Veterinaria+Copacabana+Barata+Ribeiro+672'],['Cãopacabana','Rua Barata Ribeiro, 740','confirmar horario antes de ir','https://www.google.com/maps/search/?api=1&query=Caopacabana+Barata+Ribeiro+740'],['CAMEV Copacabana','Rua Barão de Ipanema, 32','confirmar horario antes de ir','https://www.google.com/maps/search/?api=1&query=CAMEV+Copacabana+Barão+de+Ipanema+32']]}
 ];
-function CopacabanaUtil(){ const [q,setQ]=useState('Todos'); const cats=['Todos',...COPA_UTIL_SERVICES.map(x=>x.cat)]; const shown=q==='Todos'?COPA_UTIL_SERVICES:COPA_UTIL_SERVICES.filter(x=>x.cat===q); return <div className="mt-6 rounded-[2rem] bg-white border border-slate-100 shadow-sm p-6 sm:p-8"><span className="text-[10px] font-black tracking-widest text-cyan-700">📍 ESTOY EN COPACABANA Y NECESITO…</span><h3 className="text-2xl sm:text-3xl font-black mt-2">La parte práctica del barrio</h3><p className="text-sm text-slate-600 mt-2">Supermercado, farmacia, lavandería, cajero, policía, baño o veterinaria sin perder tiempo buscando. No incluimos tiendas de chip: la guía ofrecerá eSIM.</p><div className="flex gap-2 overflow-x-auto py-4">{cats.map(c=><button key={c} onClick={()=>setQ(c)} className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-black ${q===c?'bg-cyan-700 text-white':'bg-slate-100'}`}>{c}</button>)}</div><div className="grid md:grid-cols-2 gap-4">{shown.map(g=><article key={g.cat} className="rounded-2xl bg-slate-50 p-5"><h4 className="font-black">{g.cat}</h4><div className="space-y-3 mt-3">{g.items.map(([n,a,h,m])=><div key={n} className="bg-white rounded-xl p-3 border"><strong className="text-sm">{n}</strong><p className="text-[11px] text-slate-500 mt-1">{a}</p><p className="text-[11px] font-bold text-slate-700 mt-1">🕐 {h}</p><a href={m} target="_blank" rel="noopener noreferrer" className="inline-block text-[10px] font-black text-cyan-700 mt-2">ABRIR MAPA ↗</a></div>)}</div></article>)}</div><p className="text-[10px] text-slate-400 mt-4">Horarios operativos pueden cambiar. Para urgencias, confirma el servicio antes de desplazarte.</p></div> }
+function CopacabanaUtil(){ const [q,setQ]=useState('Todos'); const cats=['Todos',...COPA_UTIL_SERVICES.map(x=>x.cat)]; const shown=q==='Todos'?COPA_UTIL_SERVICES:COPA_UTIL_SERVICES.filter(x=>x.cat===q); return <div className="mt-6 rounded-[2rem] bg-white border border-slate-100 shadow-sm p-6 sm:p-8"><span className="text-[10px] font-black tracking-widest text-cyan-700">📍 ESTOY EN COPACABANA Y NECESITO…</span><h3 className="text-2xl sm:text-3xl font-black mt-2">La parte práctica del barrio</h3><p className="text-sm text-slate-600 mt-2">Supermercado, farmacia, lavandería, cajero, policía, baño o veterinaria sin perder tiempo buscando. No incluimos tiendas de chip: la guía ofrecerá eSIM.</p><div className="flex gap-2 overflow-x-auto py-4">{cats.map(c=><button key={c} onClick={()=>setQ(c)} className={`whitespace-nowrap rounded-full px-4 py-2 text-xs font-black ${q===c?'bg-cyan-700 text-white':'bg-slate-100'}`}>{c}</button>)}</div><div className="grid md:grid-cols-2 gap-4">{shown.map(g=><article key={g.cat} className="rounded-2xl bg-slate-50 p-5"><h4 className="font-black">{g.cat}</h4><div className="space-y-3 mt-3">{g.items.map(([n,a,h,m])=><div key={n} className="bg-white rounded-xl p-3 border"><strong className="text-sm">{n}</strong><p className="text-[11px] text-slate-500 mt-1">{a}</p><p className="text-[11px] font-bold text-slate-700 mt-1">🕐 {h}</p><a href={m} target="_blank" rel="noopener noreferrer" className="inline-block text-[10px] font-black text-cyan-700 mt-2">ABRIR MAPA ↗</a></div>)}</div></article>)}</div><p className="text-[10px] text-slate-400 mt-4">Los horarios pueden cambiar. Confirma antes de desplazarte, especialmente de noche, domingos y feriados.</p></div> }
 """
 needle="function CopacabanaMasterSystems({go}) {"
 if needle not in s: raise SystemExit('CopacabanaMasterSystems anchor missing')
 s=s.replace(needle,utility+'\n'+needle,1)
-needle2="      </div>\n    </div>\n  </section>\n}\n\n\nconst MASTER3_RIO_PROFILES"
-repl2="      </div>\n    </div>\n    <CopacabanaUtil />\n  </section>\n}\n\n\nconst MASTER3_RIO_PROFILES"
-if needle2 not in s: raise SystemExit('Copacabana utility insertion anchor missing')
-s=s.replace(needle2,repl2,1)
-nav="{ id: 'guia', label: 'Guía de Río' },"
-if nav not in s: raise SystemExit('nav anchor missing')
-s=s.replace(nav,nav+"\n                  { id: 'rio_mes_a_mes', label: 'Mes a mes' },",1)
-render="            {seccionActual === 'copa_para_mi' && (\n              <><CopacabanaMasterSystems go={setSeccionActual} /><CopacabanaMaster3Editorial /><CopacabanaParaMi /></>\n            )}"
-if render not in s: raise SystemExit('render anchor missing')
-s=s.replace(render,render+"\n\n            {seccionActual === 'rio_mes_a_mes' && <Master3MonthWeatherPlanner />}",1)
-old='<div className="rounded-2xl bg-white p-4 border border-sky-100"><strong className="text-sm">⚓ Marinha / CHM</strong><p className="text-[11px] text-slate-600 mt-1">Avisos de ressaca y mal tiempo.</p><span className="text-[10px] font-black text-amber-700">Fuente oficial · lectura automática pendiente</span></div>'
-new='''<div className="rounded-2xl bg-white p-4 border border-sky-100"><div className="flex items-start justify-between gap-2"><strong className="text-sm">⚓ Marinha / CHM</strong><button onClick={refreshSea} className="text-[10px] font-black text-sky-700">↻ Actualizar</button></div><p className="text-[11px] text-slate-600 mt-1">Avisos oficiales de ressaca y mal tiempo con relevancia para la costa de Río.</p>{seaLive.status==='ready'&&seaLive.data?<div className="mt-2"><p className={`text-sm font-black ${seaLive.data.ressaca?'text-rose-700':'text-emerald-700'}`}>{seaLive.data.ressaca?'⚠ Aviso de ressaca relevante':'✓ Sin aviso de ressaca relevante detectado'}</p><p className="text-[10px] text-slate-500 mt-1">{seaLive.data.summary||'Consulta CHM realizada.'}</p><p className="text-[10px] font-black text-emerald-700 mt-1">✓ CHM · lectura automática</p></div>:seaLive.status==='error'?<p className="text-[11px] text-rose-700 mt-2">No pude actualizar Marinha/CHM. Mantengo el estado como desconocido.</p>:<p className="text-[11px] text-slate-500 mt-2">Consultando avisos oficiales…</p>}</div>'''
-if old not in s: raise SystemExit('Marinha card anchor missing')
-s=s.replace(old,new,1)
-s=s.replace('INEA ahora se lee automáticamente desde sus datos brutos XLSX; Marinha continúa pendiente de lectura automática.','INEA se consulta desde sus datos oficiales y Marinha/CHM desde los avisos oficiales de mau tempo. Si una fuente falla, el estado vuelve a desconocido.',1)
+# Insert utility panel at the end of CopacabanaMasterSystems without relying on surrounding components.
+start=s.find('function CopacabanaMasterSystems({go}) {')
+end=s.find('\n}\n',start)
+if start<0 or end<0: raise SystemExit('CopacabanaMasterSystems bounds missing')
+block=s[start:end]
+pos=block.rfind('</section>')
+if pos<0: raise SystemExit('CopacabanaMasterSystems closing section missing')
+block=block[:pos]+'    <CopacabanaUtil />\n  '+block[pos:]
+s=s[:start]+block+s[end:]
+# Make existing month-by-month content visible in main navigation.
+nav_anchor="{ id: 'guia', label: 'Guía"
+pos=s.find(nav_anchor)
+if pos>=0:
+    line_end=s.find('\n',pos)
+    s=s[:line_end+1]+"      { id: 'rio_mes_a_mes', label: 'Mes a mes', icon: 'calendar-days' },\n"+s[line_end+1:]
+# Ensure section routing exposes existing Rio 365 component when it exists.
+route_anchor="case 'grandes_eventos':"
+if route_anchor in s and "case 'rio_mes_a_mes':" not in s:
+    s=s.replace(route_anchor,"case 'rio_mes_a_mes': return <Rio365 go={go} />;\n      "+route_anchor,1)
+# Live sources: point existing client requests at same-origin parsers.
+s=s.replace("const INEA_ENDPOINT = null;", "const INEA_ENDPOINT = '/api/inea-balneabilidade';")
+s=s.replace("const MARINHA_ENDPOINT = null;", "const MARINHA_ENDPOINT = '/api/marinha-ressaca';")
+s=s.replace("Fuente oficial · lectura automática pendiente", "Fuente oficial · lectura automática")
+s=s.replace("No pude actualizar INEA. Mantengo el estado como desconocido.", "No pude confirmar el boletín de INEA ahora. Mantengo el estado como desconocido para no mostrar información insegura.")
 p.write_text(s,encoding='utf-8')
-print('Content deepening applied',len(s))
+print('patched',len(s))
