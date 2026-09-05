@@ -1,4 +1,4 @@
-name: SEO Museos Pilot
+name: SEO Ernestinho Full Pilot
 
 on:
   push:
@@ -11,31 +11,171 @@ permissions:
   contents: write
 
 jobs:
-  patch:
+  seo:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           ref: seo-museos-piloto
-      - name: Patch Museos card navigation directly
+      - name: Apply SEO SPA router
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('index.html')
-          text = p.read_text(encoding='utf-8')
-          old = "onClick={() => setSeccionActual('museos')}"
-          new = "onClick={() => { if (window.location.pathname !== '/museos') window.history.pushState({ seccion: 'museos' }, '', '/museos'); setSeccionActual('museos'); }}"
-          count = text.count(old)
-          if count != 1:
-              raise SystemExit(f'Esperaba 1 botón Museos y encontré {count}; aborto seguro')
-          text = text.replace(old, new, 1)
-          p.write_text(text, encoding='utf-8')
+          import re, unicodedata, html, json
+          p=Path('index.html'); text=p.read_text(encoding='utf-8')
+
+          # Remove the earlier Museos-only pilot so one coherent router owns navigation.
+          text=re.sub(r"\n\s*useEffect\(\(\) => \{\s*const sincronizarRuta = \(\) => \{.*?\}, \[\]\);\s*", "\n", text, count=1, flags=re.S)
+          text=re.sub(r"\n\s*useEffect\(\(\) => \{\s*if \(seccionActual === 'museos'.*?\}, \[seccionActual\]\);\s*", "\n", text, count=1, flags=re.S)
+          text=text.replace("onClick={() => { if (window.location.pathname !== '/museos') window.history.pushState({ seccion: 'museos' }, '', '/museos'); setSeccionActual('museos'); }}","onClick={() => setSeccionActual('museos')}",1)
+
+          helper=r'''
+          // ===== SEO ROUTER ERNESTINHO =====
+          function seoSlug(v){return String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/&/g,' y ').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');}
+          const SEO_ROUTES={
+            inicio:'/',que_hacer:'/que-hacer',atracciones:'/atracciones',museos:'/museos',master4_museos:'/museos',centros_culturales:'/centros-culturales',iglesias:'/iglesias',fuertes_fortalezas:'/fuertes-fortalezas',teatros:'/teatros',espacios_literarios:'/espacios-literarios',
+            playas:'/playas',master4_playas:'/playas',naturaleza:'/naturaleza',master4_naturaleza:'/naturaleza',aventura:'/aventura',fotografia:'/fotografia',familia:'/familia',gastronomia:'/gastronomia',master4_gastronomia:'/gastronomia',nocturna:'/vida-nocturna',compras:'/compras',barrios:'/barrios',master4_barrios:'/barrios',hospedaje:'/hospedaje',
+            transportes:'/transportes',master4_transportes:'/transportes',transporte_publico:'/transportes/transporte-publico',transporte_metro:'/transportes/metro',transporte_uber:'/transportes/uber',transporte_bicicletas:'/transportes/bicicletas',transporte_privado:'/transportes/traslados',
+            guia:'/guia',consejos:'/consejos',master4_consejos:'/consejos',pix:'/guia/pix',grandes_eventos:'/eventos',experiencias:'/experiencias',master4_experiencias:'/experiencias',copa_para_mi:'/copacabana',cafe:'/cafe-ernestinho',privacidad:'/privacidad',
+            master4_descubre:'/descubre-rio',master4_live_rio:'/rio-en-vivo',master4_tv:'/tv',master4_patrimonio:'/patrimonio',master4_ocio:'/ocio',master4_viaje:'/prepara-tu-viaje',master4_para_mi:'/para-mi',master4_sos:'/sos',master4_lugares:'/lugares',
+            master4_place_cristo:'/lugares/cristo-redentor',master4_place_pao:'/lugares/pao-de-acucar',master4_place_amanha:'/lugares/museu-do-amanha',master4_place_aquario:'/lugares/aquario',master4_place_buzios:'/lugares/buzios',master4_place_catete:'/lugares/palacio-do-catete',master4_place_forte:'/lugares/forte-de-copacabana',master4_place_gabinete:'/lugares/real-gabinete-portugues',master4_place_ipanema:'/lugares/ipanema',master4_place_jardim:'/lugares/jardim-botanico',master4_place_lage:'/lugares/parque-lage',master4_place_lapa:'/lugares/lapa',master4_place_mam:'/lugares/mam-rio',master4_place_mar:'/lugares/mar',master4_place_maracana:'/lugares/maracana',master4_place_musal:'/lugares/musal',master4_place_pedra:'/lugares/pedra-bonita',master4_place_santa:'/lugares/santa-teresa',master4_place_selaron:'/lugares/escadaria-selaron',master4_place_tijuca:'/lugares/floresta-da-tijuca'
+          };
+          const SEO_PREFERRED={'/':'inicio','/museos':'museos','/playas':'playas','/naturaleza':'naturaleza','/gastronomia':'gastronomia','/barrios':'barrios','/transportes':'transportes','/consejos':'consejos','/experiencias':'experiencias'};
+          function seoExpState(x){if(!x)return'experiencias';if(x.id==='exp-1')return'full_day_rio';if(x.id==='exp-2')return'buzios';if(x.id==='exp-3')return'detalle_exp-3';if(x.id==='exp-4')return'detalle_exp-4';if(x.id==='exp-5')return'detalle_exp-5';return`actividad_${x.id}`;}
+          function seoExpFromState(s){return[...EXPERIENCIAS_DATA,...ACTIVIDADES_NUEVAS].find(x=>seoExpState(x)===s)||null;}
+          function seoPathForSection(s){const x=seoExpFromState(s);return x?`/experiencias/${seoSlug(x.titulo)}`:(SEO_ROUTES[s]||null);}
+          function seoCleanPath(v){let r=decodeURIComponent(String(v||'/')).replace(/\/+$/,'')||'/';return r.startsWith('/')?r:'/'+r;}
+          function seoResolveRoute(pathname){
+            const r=seoCleanPath(pathname),base={seccion:'inicio',museoId:null,barrio:null,restaurante:null,articulo:null,temaGuia:null};let m;
+            if(r==='/')return base;
+            if((m=r.match(/^\/museos\/([^/]+)$/))){const x=MUSEOS_DATA.find(v=>seoSlug(v.nombre)===m[1]);if(x)return{...base,seccion:'museos',museoId:x.id};}
+            if((m=r.match(/^\/barrios\/([^/]+)$/))){const x=BARRIOS_DATA.find(v=>seoSlug(v.nombre)===m[1]||seoSlug(v.id)===m[1]);if(x)return x.id==='copacabana'?{...base,seccion:'copa_para_mi'}:{...base,seccion:'barrios',barrio:x};}
+            if((m=r.match(/^\/gastronomia\/([^/]+)$/))){const x=GASTRONOMIA_DATA.find(v=>seoSlug(v.nombre)===m[1]);if(x)return{...base,seccion:'gastronomia',restaurante:x};}
+            if((m=r.match(/^\/articulos\/([^/]+)$/))){const x=ARTICULOS_CONSEJOS.find(v=>seoSlug(v.titulo)===m[1]||seoSlug(v.id)===m[1]);if(x)return{...base,seccion:'articulo_detalle',articulo:x};}
+            if((m=r.match(/^\/guia\/([^/]+)$/))&&m[1]!=='pix'){const id=Object.keys(GUIA_INFO).find(k=>seoSlug(GUIA_INFO[k]?.titulo||k)===m[1]||seoSlug(k)===m[1]);if(id)return{...base,seccion:'guia',temaGuia:id};}
+            if((m=r.match(/^\/experiencias\/([^/]+)$/))){const x=[...EXPERIENCIAS_DATA,...ACTIVIDADES_NUEVAS].find(v=>seoSlug(v.titulo)===m[1]||seoSlug(v.id)===m[1]);if(x)return{...base,seccion:seoExpState(x)};}
+            if(SEO_PREFERRED[r])return{...base,seccion:SEO_PREFERRED[r]};
+            const s=Object.keys(SEO_ROUTES).find(k=>SEO_ROUTES[k]===r);return s?{...base,seccion:s}:base;
+          }
+          function seoCurrentPath(s,museoId,barrio,restaurante,articulo,tema){
+            const current=seoCleanPath(window.location.pathname);
+            if(s==='museos'){const x=MUSEOS_DATA.find(v=>v.id===museoId);return x&&current.startsWith('/museos/')?`/museos/${seoSlug(x.nombre)}`:'/museos';}
+            if(s==='barrios'&&barrio)return`/barrios/${seoSlug(barrio.nombre||barrio.id)}`;
+            if(s==='gastronomia'&&restaurante)return`/gastronomia/${seoSlug(restaurante.nombre)}`;
+            if(s==='articulo_detalle'&&articulo)return`/articulos/${seoSlug(articulo.titulo||articulo.id)}`;
+            if(s==='guia'&&tema&&GUIA_INFO[tema])return`/guia/${seoSlug(GUIA_INFO[tema].titulo||tema)}`;
+            return seoPathForSection(s)||'/';
+          }
+          function seoNavigate(path,mode='push'){const r=seoCleanPath(path);if(seoCleanPath(window.location.pathname)===r)return;(mode==='replace'?history.replaceState:history.pushState).call(history,{seo:true},'',r);}
+          function seoSetMeta(o){
+            const path=o.path||'/',url='https://www.ernestinhocarioca.com.br'+path,title=o.title||'Ernestinho Carioca | Guía completa de Río de Janeiro',desc=o.description||'Descubre Río de Janeiro con Ernestinho Carioca: lugares, experiencias, consejos y rutas para organizar tu viaje.';document.title=title;
+            const meta=(sel,key,val)=>{let e=document.head.querySelector(sel);if(!e){e=document.createElement('meta');const n=sel.match(/name="([^"]+)/),p=sel.match(/property="([^"]+)/);if(n)e.name=n[1];if(p)e.setAttribute('property',p[1]);document.head.appendChild(e);}e.setAttribute(key,val);};
+            meta('meta[name="description"]','content',desc);meta('meta[name="robots"]','content',o.indexable===false?'noindex, follow':'index, follow');meta('meta[property="og:title"]','content',title);meta('meta[property="og:description"]','content',desc);meta('meta[property="og:url"]','content',url);
+            let c=document.head.querySelector('link[rel="canonical"]');if(!c){c=document.createElement('link');c.rel='canonical';document.head.appendChild(c);}c.href=url;
+          }
+          function seoMetaFor(s,museoId,barrio,restaurante,articulo,tema){
+            const path=seoCurrentPath(s,museoId,barrio,restaurante,articulo,tema),simple={museos:['Museos de Río de Janeiro','Guía de museos de Río con historia, horarios, valores, mapas y consejos.'],playas:['Playas de Río de Janeiro','Descubre las playas de Río de Janeiro y cómo disfrutarlas.'],gastronomia:['Dónde comer en Río de Janeiro','Restaurantes, botecos, cafés y sabores recomendados en Río.'],barrios:['Barrios de Río de Janeiro','Guía de barrios de Río para entender qué ver, hacer y combinar.'],guia:['Guía de Río de Janeiro','Información práctica para preparar y disfrutar tu viaje a Río.'],consejos:['Consejos para viajar a Río de Janeiro','Consejos prácticos y respuestas para organizar tu viaje.'],experiencias:['Tours y experiencias en Río de Janeiro','Tours, excursiones y experiencias para vivir Río con Ernestinho.'],grandes_eventos:['Eventos en Río de Janeiro','Carnaval, Réveillon, festivales y grandes eventos de Río.'],transportes:['Cómo moverse en Río de Janeiro','Metro, Uber, buses, bicicletas y traslados en Río.'],atracciones:['Atracciones de Río de Janeiro','Museos, iglesias, fortalezas y lugares para conocer Río.'],que_hacer:['Qué hacer en Río de Janeiro','Ideas, lugares y experiencias para descubrir Río.'],inicio:['Ernestinho Carioca | Guía completa de Río de Janeiro','Descubre Río de Janeiro con Ernestinho Carioca: atracciones, playas, museos, gastronomía, transporte, consejos y experiencias.']};
+            if(s==='museos'&&path.startsWith('/museos/')){const x=MUSEOS_DATA.find(v=>v.id===museoId);if(x)return{path,title:`${x.nombre} en Río de Janeiro | Ernestinho Carioca`,description:x.descripcion||x.subtitulo};}
+            if(s==='barrios'&&barrio)return{path,title:`${barrio.nombre} en Río de Janeiro | Ernestinho Carioca`,description:barrio.desc||barrio.lema};
+            if(s==='gastronomia'&&restaurante)return{path,title:`${restaurante.nombre} en Río de Janeiro | Ernestinho Carioca`,description:restaurante.destaque};
+            if(s==='articulo_detalle'&&articulo)return{path,title:`${articulo.titulo} | Ernestinho Carioca`,description:articulo.resumen};
+            if(s==='guia'&&tema&&GUIA_INFO[tema]){const x=GUIA_INFO[tema];return{path,title:`${x.titulo} | Ernestinho Carioca`,description:x.intro};}
+            const exp=seoExpFromState(s);if(exp)return{path,title:`${exp.titulo} en Río de Janeiro | Ernestinho Carioca`,description:exp.descripcion||exp.intro};
+            const a=simple[s];return a?{path,title:a[0].includes('Ernestinho')?a[0]:`${a[0]} | Ernestinho Carioca`,description:a[1]}:{path,indexable:!!SEO_ROUTES[s]};
+          }
+          // ===== FIN SEO ROUTER =====
+          '''
+          helper='\n'.join(line[10:] if line.startswith('          ') else line for line in helper.splitlines())+'\n'
+          if '// ===== SEO ROUTER ERNESTINHO =====' not in text:
+            text=text.replace('function AppErnestinho() {',helper+'\nfunction AppErnestinho() {',1)
+
+          # Initial route and direct-detail hydration.
+          text=re.sub(r"\s*const rutaInicial = window\.location\.pathname\.replace\(/\\/\+\$/, ''\) \|\| '/';\s*\n\s*const \[seccionActual, setSeccionActualBase\] = useState\(rutaInicial === '/museos' \? 'museos' : 'inicio'\);","\n  const rutaSeoInicial=seoResolveRoute(window.location.pathname);\n  const [seccionActual, setSeccionActualBase]=useState(rutaSeoInicial.seccion);",text,count=1)
+          text=text.replace("  const [seccionActual, setSeccionActualBase] = useState('inicio');","  const rutaSeoInicial=seoResolveRoute(window.location.pathname);\n  const [seccionActual, setSeccionActualBase]=useState(rutaSeoInicial.seccion);",1)
+          text=text.replace("const [temaGuia, setTemaGuia] = useState(null);","const [temaGuia, setTemaGuia] = useState(rutaSeoInicial.temaGuia||null);",1)
+          text=text.replace("const [restauranteSeleccionado, setRestauranteSeleccionado] = useState(null);","const [restauranteSeleccionado, setRestauranteSeleccionado] = useState(rutaSeoInicial.restaurante||null);",1)
+          text=text.replace("const [barrioSeleccionado, setBarrioSeleccionado] = useState(null);","const [barrioSeleccionado, setBarrioSeleccionado] = useState(rutaSeoInicial.barrio||null);",1)
+          text=text.replace("const [museoSeleccionado, setMuseoSeleccionado] = useState('mhn');","const [museoSeleccionado, setMuseoSeleccionado] = useState(rutaSeoInicial.museoId||'mhn');",1)
+          text=text.replace("const [articuloSeleccionado, setArticuloSeleccionado] = useState(null);","const [articuloSeleccionado, setArticuloSeleccionado] = useState(rutaSeoInicial.articulo||null);",1)
+
+          # Generic navigation updates URL without full reload.
+          patt=r"  const setSeccionActual = \(destino\) => \{.*?\n  \};\n  const volverUnaVista"
+          repl="""  const setSeccionActual = (destino) => {\n    if(typeof destino!=='string')return;\n    if(destino===seccionActual){if(destino==='guia'&&temaGuia)setTemaGuia(null);const r=seoPathForSection(destino);if(r)seoNavigate(r);return;}\n    if(destino==='guia')setTemaGuia(null);\n    const r=seoPathForSection(destino);if(r)seoNavigate(r);\n    setHistorialSecciones(prev=>[...prev,seccionActual].slice(-50));\n    setSeccionActualBase(destino);\n  };\n  const volverUnaVista"""
+          text,n=re.subn(patt,repl,text,count=1,flags=re.S)
+          if n!=1: raise SystemExit('No pude reemplazar navegación principal')
+
+          # Browser back/forward + canonical/title/meta synchronization.
+          anchor="  const [articuloSeleccionado, setArticuloSeleccionado] = useState(rutaSeoInicial.articulo||null);"
+          sync=r'''
+
+            useEffect(()=>{
+              const aplicar=()=>{const x=seoResolveRoute(location.pathname);window.__seoPop=true;setSeccionActualBase(x.seccion);setMuseoSeleccionado(x.museoId||'mhn');setBarrioSeleccionado(x.barrio||null);setRestauranteSeleccionado(x.restaurante||null);setArticuloSeleccionado(x.articulo||null);setTemaGuia(x.temaGuia||null);requestAnimationFrame(()=>window.__seoPop=false);};
+              addEventListener('popstate',aplicar);return()=>removeEventListener('popstate',aplicar);
+            },[]);
+            useEffect(()=>{const path=seoCurrentPath(seccionActual,museoSeleccionado,barrioSeleccionado,restauranteSeleccionado,articuloSeleccionado,temaGuia);if(!window.__seoPop&&path&&seoCleanPath(location.pathname)!==seoCleanPath(path))seoNavigate(path,'replace');seoSetMeta(seoMetaFor(seccionActual,museoSeleccionado,barrioSeleccionado,restauranteSeleccionado,articuloSeleccionado,temaGuia));},[seccionActual,museoSeleccionado,barrioSeleccionado,restauranteSeleccionado,articuloSeleccionado,temaGuia]);
+          '''
+          sync='\n'.join(line[10:] if line.startswith('          ') else line for line in sync.splitlines())
+          if 'window.__seoPop=true' not in text:
+            if anchor not in text: raise SystemExit('No encontré ancla para sincronización SEO')
+            text=text.replace(anchor,anchor+sync,1)
+
+          # Detail URLs: museum, articles, guide, gastronomy, neighborhoods.
+          text=text.replace("""  const verArticulo = (art) => {\n    setArticuloSeleccionado(art);\n    setSeccionActual('articulo_detalle');\n  };""","""  const verArticulo = (art) => {\n    if(art)seoNavigate(`/articulos/${seoSlug(art.titulo||art.id)}`);\n    setArticuloSeleccionado(art);setSeccionActualBase('articulo_detalle');\n  };""",1)
+          text=text.replace("""onClick={() => {\n    setMuseoSeleccionado(museo.id);\n    setSelectorMuseosAbierto(false);\n    setBusquedaMuseo('');\n  }}""","""onClick={() => {\n    seoNavigate(`/museos/${seoSlug(museo.nombre)}`);\n    setMuseoSeleccionado(museo.id);setSelectorMuseosAbierto(false);setBusquedaMuseo('');\n  }}""",1)
+          text=text.replace("<button onClick={() => setSeleccionado(item)} className=\"mt-5 w-full","<button onClick={() => {seoNavigate(`/gastronomia/${seoSlug(item.nombre)}`);setSeleccionado(item)}} className=\"mt-5 w-full",1)
+          text=text.replace("onClick={() => setSeleccionado(null)} className=\"absolute top-4 right-4","onClick={() => {seoNavigate('/gastronomia');setSeleccionado(null)}} className=\"absolute top-4 right-4",1)
+          text=text.replace("onClick={() => barrio.id==='copacabana' ? setSeccionActual('copa_para_mi') : setBarrioSeleccionado(barrio)}","onClick={() => {if(barrio.id==='copacabana'){seoNavigate('/copacabana');setSeccionActual('copa_para_mi')}else{seoNavigate(`/barrios/${seoSlug(barrio.nombre||barrio.id)}`);setBarrioSeleccionado(barrio)}}}",1)
+          text=text.replace("onBack={()=>setBarrioSeleccionado(null)}","onBack={()=>{seoNavigate('/barrios');setBarrioSeleccionado(null)}}",1)
+          text=text.replace("<button onClick={()=>setTema(null)} className=\"font-black text-teal-700\">← Volver a Guía de Río</button>","<button onClick={()=>{seoNavigate('/guia');setTema(null)}} className=\"font-black text-teal-700\">← Volver a Guía de Río</button>",1)
+          text=text.replace("onClick={()=>x.sec?onNavegar(x.sec):x.legacy!==undefined?onArticulo(ARTICULOS_CONSEJOS[x.legacy]):setTema(x.id)}","onClick={()=>x.sec?onNavegar(x.sec):x.legacy!==undefined?onArticulo(ARTICULOS_CONSEJOS[x.legacy]):(seoNavigate(`/guia/${seoSlug(GUIA_INFO[x.id]?.titulo||x.titulo||x.id)}`),setTema(x.id))}",1)
+
+          # Static canonical + OG URL + schema identity.
+          if '<link rel="canonical"' not in text:text=text.replace('<meta name="robots" content="index, follow">','<meta name="robots" content="index, follow">\n  <link rel="canonical" href="https://www.ernestinhocarioca.com.br/">',1)
+          if '<meta property="og:url"' not in text:text=text.replace('<meta property="og:type" content="website">','<meta property="og:type" content="website">\n  <meta property="og:url" content="https://www.ernestinhocarioca.com.br/">',1)
+          if '"@type":"TravelAgency"' not in text:
+            schema='\n  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","url":"https://www.ernestinhocarioca.com.br/","name":"Ernestinho Carioca","inLanguage":"es"},{"@type":"TravelAgency","name":"Ernestinho Carioca","url":"https://www.ernestinhocarioca.com.br/","areaServed":"Rio de Janeiro, Brasil"}]}</script>\n'
+            text=text.replace('</head>',schema+'</head>',1)
+
+          p.write_text(text,encoding='utf-8')
+
+          # Build sitemap from actual source data, without inventing content.
+          def slug(v):
+            v=unicodedata.normalize('NFD',str(v or ''));v=''.join(c for c in v if unicodedata.category(c)!='Mn').lower().replace('&',' y ');return re.sub(r'^-+|-+$','',re.sub(r'[^a-z0-9]+','-',v))
+          def block(a,b):
+            i=text.find(a);j=text.find(b,i+len(a));return text[i:j] if i>=0 and j>=0 else ''
+          def vals(s,f):return re.findall(r"\b"+re.escape(f)+r"\s*:\s*['\"]([^'\"\n]+)['\"]",s)
+          urls={'/','/que-hacer','/atracciones','/museos','/centros-culturales','/iglesias','/fuertes-fortalezas','/teatros','/espacios-literarios','/playas','/naturaleza','/aventura','/fotografia','/familia','/gastronomia','/vida-nocturna','/compras','/barrios','/hospedaje','/transportes','/transportes/transporte-publico','/transportes/metro','/transportes/uber','/transportes/bicicletas','/transportes/traslados','/guia','/guia/pix','/consejos','/eventos','/experiencias','/copacabana','/cafe-ernestinho','/descubre-rio','/rio-en-vivo','/tv','/patrimonio','/ocio','/prepara-tu-viaje','/para-mi','/sos','/lugares'}
+          for n in vals(block('const MUSEOS_DATA = [','const ARTICULOS_CONSEJOS'),'nombre'):urls.add('/museos/'+slug(n))
+          for n in vals(block('const BARRIOS_DATA = [','const MASTER3_NEIGHBORHOOD_BLUEPRINT'),'nombre'):
+            if not slug(n).startswith('copacabana'):urls.add('/barrios/'+slug(n))
+          for t in vals(block('const EXPERIENCIAS_DATA = [','const ACTIVIDADES_NUEVAS'),'titulo')+vals(block('const ACTIVIDADES_NUEVAS = [','const ARTICULOS_CONSEJOS'),'titulo'):urls.add('/experiencias/'+slug(t))
+          for t in vals(block('const ARTICULOS_CONSEJOS = [','const CAFE_PRODUCTOS'),'titulo'):urls.add('/articulos/'+slug(t))
+          for n in vals(block('const GASTRONOMIA_DATA = [','const ZONAS_GASTRONOMICAS'),'nombre'):urls.add('/gastronomia/'+slug(n))
+          for t in vals(block('const GUIA_INFO=','function GuiaRioCompleta'),'titulo'):urls.add('/guia/'+slug(t))
+          places=['cristo-redentor','pao-de-acucar','museu-do-amanha','aquario','buzios','palacio-do-catete','forte-de-copacabana','real-gabinete-portugues','ipanema','jardim-botanico','parque-lage','lapa','mam-rio','mar','maracana','musal','pedra-bonita','santa-teresa','escadaria-selaron','floresta-da-tijuca']
+          urls.update('/lugares/'+x for x in places)
+          base='https://www.ernestinhocarioca.com.br';rows=[]
+          for u in sorted(urls,key=lambda x:(x.count('/'),x)):
+            pr='1.0' if u=='/' else ('0.9' if u.count('/')==1 else '0.8');rows.append(f'  <url>\n    <loc>{html.escape(base+u)}</loc>\n    <lastmod>2026-09-05</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>{pr}</priority>\n  </url>')
+          Path('sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+'\n'.join(rows)+'\n</urlset>\n',encoding='utf-8')
+          Path('robots.txt').write_text('User-agent: *\nAllow: /\n\nSitemap: https://www.ernestinhocarioca.com.br/sitemap.xml\n',encoding='utf-8')
+          prefixes=sorted({u.split('/')[1] for u in urls if u!='/'})
+          rewrites=[{'source':'/'+x,'destination':'/index.html'} for x in prefixes]+[{'source':'/'+x+'/:path*','destination':'/index.html'} for x in prefixes]
+          Path('vercel.json').write_text(json.dumps({'rewrites':rewrites},indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
+          print('SEO URLs:',len(urls),'rewrites:',len(rewrites))
           PY
-      - name: Commit direct navigation fix
+      - name: Sanity checks
+        run: |
+          grep -q 'SEO ROUTER ERNESTINHO' index.html
+          grep -q 'rel="canonical"' index.html
+          grep -q '/museos/' sitemap.xml
+          grep -q '/experiencias/' sitemap.xml
+          python -m json.tool vercel.json >/dev/null
+      - name: Commit full SEO pilot
         run: |
           if git diff --quiet; then exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html
-          git commit -m "Patch Museos card navigation directly"
+          git add index.html sitemap.xml robots.txt vercel.json
+          git commit -m "Build complete SEO routing framework"
           git push origin seo-museos-piloto
