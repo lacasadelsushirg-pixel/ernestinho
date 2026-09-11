@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/spa.js": {
-      "includeFiles": ["index.html", "sitemap.xml"]
+      "includeFiles": "{index.html,sitemap.xml}"
     }
   },
   "routes": [
