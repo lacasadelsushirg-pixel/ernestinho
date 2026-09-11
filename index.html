@@ -19621,7 +19621,11 @@ function seoResolveRoute(pathname) {
 }
 
 function seoCurrentPath(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId) {
-  if (section === 'consejos' && (consejoId?.id || consejoId) === 'recorridos-cuenta') return '/recorrido-centro';
+  if (section === 'consejos' && (consejoId?.id || consejoId) === 'recorridos-cuenta') {
+    const actual = seoCleanPath(window.location.pathname);
+    if (actual === '/quiero' || actual === '/ruta-centro' || actual === '/recorrido-centro') return actual;
+    return '/quiero';
+  }
   if (section === 'museos' && museoId) {
     const museo = MUSEOS_DATA.find(x => x.id === museoId);
     const actual = seoCleanPath(window.location.pathname);
@@ -19670,7 +19674,11 @@ function seoSetMeta({title, description, path, indexable=true, image}) {
 
 function seoMetaFor(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId) {
   const path = seoCurrentPath(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId);
-  if (section === 'consejos' && (consejoId?.id || consejoId) === 'recorridos-cuenta') return { path:'/recorrido-centro', title:'Del mar a la historia: recorrido por el Centro de Río | Ernestinho Carioca', description:'Recorrido para hacer por tu cuenta desde la Zona Portuaria hasta el Centro de Río: AquaRio, Yup Star, Mural Etnias, Museu do Amanhã, São Bento, Confeitaria Colombo y Real Gabinete.', image:'https://res.cloudinary.com/qa301cbc/image/upload/v1788817390/1B0B6A7E-B0F2-49B0-A263-26D4A3FF3CE3.png' };
+  if (section === 'consejos' && (consejoId?.id || consejoId) === 'recorridos-cuenta') {
+    const actual = seoCleanPath(window.location.pathname);
+    const rutaSocial = (actual === '/quiero' || actual === '/ruta-centro' || actual === '/recorrido-centro') ? actual : '/quiero';
+    return { path:rutaSocial, title:'Del mar a la historia: recorrido por el Centro de Río | Ernestinho Carioca', description:'Recorrido para hacer por tu cuenta desde la Zona Portuaria hasta el Centro de Río: AquaRio, Yup Star, Mural Etnias, Museu do Amanhã, São Bento, Confeitaria Colombo y Real Gabinete.', image:'https://res.cloudinary.com/qa301cbc/image/upload/v1788817390/1B0B6A7E-B0F2-49B0-A263-26D4A3FF3CE3.png' };
+  }
   if (section === 'museos' && museoId && path.startsWith('/museos/')) {
     const x = MUSEOS_DATA.find(v => v.id === museoId);
     if (x) return { path, title:`${x.nombre} en Río de Janeiro | Ernestinho Carioca`, description:x.descripcion || x.subtitulo };
