@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const zlib = require('zlib');
 
 const ROOT = process.cwd();
 const GA_ID = 'G-QE1X83D419';
@@ -71,29 +72,79 @@ function applySeo(html, seo) {
   out = out.replace(/<link\s+[^>]*rel=["']canonical["'][^>]*>/ig, '');
   out = out.replace(/<meta\s+[^>]*name=["']description["'][^>]*>/ig, '');
   out = out.replace(/<meta\s+[^>]*name=["']robots["'][^>]*>/ig, '');
+  out = out.replace(/<meta\s+[^>]*property=["']og:(?:title|description|url)["'][^>]*>/ig, '');
   const tags = `\n<link rel="canonical" href="${escapeAttr(seo.canonical)}">\n<meta name="description" content="${escapeAttr(seo.description)}">\n<meta name="robots" content="index, follow">\n<meta property="og:title" content="${escapeAttr(seo.title)}">\n<meta property="og:description" content="${escapeAttr(seo.description)}">\n<meta property="og:url" content="${escapeAttr(seo.canonical)}">${analyticsTags()}`;
   return out.replace(/<\/head>/i, `${tags}\n</head>`);
+}
+
+function normalizePath(raw) {
+  let pathname = raw || '/';
+  try { pathname = decodeURIComponent(pathname); } catch (_) {}
+  if (!pathname.startsWith('/')) pathname = '/' + pathname;
+  if (pathname.length > 1) pathname = pathname.replace(/\/$/, '');
+  return pathname;
+}
+
+function originalPath(req) {
+  const q = req.query && req.query.path;
+  if (typeof q === 'string' && q) return normalizePath(q);
+  if (Array.isArray(q) && q[0]) return normalizePath(q[0]);
+  const u = new URL(req.url, 'https://www.ernestinhocarioca.com.br');
+  return normalizePath(u.pathname);
+}
+
+function sendCompressedHtml(req, res, html) {
+  const plain = Buffer.from(html, 'utf8');
+  const accept = String((req.headers && req.headers['accept-encoding']) || '');
+  res.setHeader('Vary', 'Accept-Encoding');
+
+  if (/\bbr\b/i.test(accept)) {
+    const body = zlib.brotliCompressSync(plain, {
+      params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 5 }
+    });
+    res.setHeader('Content-Encoding', 'br');
+    res.setHeader('Content-Length', String(body.length));
+    if (req.method === 'HEAD') return res.end();
+    return res.end(body);
+  }
+
+  if (/\bgzip\b/i.test(accept)) {
+    const body = zlib.gzipSync(plain, { level: 6 });
+    res.setHeader('Content-Encoding', 'gzip');
+    res.setHeader('Content-Length', String(body.length));
+    if (req.method === 'HEAD') return res.end();
+    return res.end(body);
+  }
+
+  // Fallback for clients that do not advertise compression.
+  // Search engines and modern browsers advertise gzip/br; keeping this
+  // fallback preserves HTTP compatibility for uncommon clients.
+  res.setHeader('Content-Length', String(plain.length));
+  if (req.method === 'HEAD') return res.end();
+  return res.end(plain);
 }
 
 module.exports = (req, res) => {
   try {
     load();
-    const u = new URL(req.url, 'https://www.ernestinhocarioca.com.br');
-    let pathname = decodeURIComponent(u.pathname);
-    if (pathname.length > 1) pathname = pathname.replace(/\/$/, '');
+    const pathname = originalPath(req);
 
     if (!validPaths.has(pathname)) {
       res.statusCode = 404;
       res.setHeader('Content-Type', 'text/html; charset=utf-8');
       res.setHeader('X-Robots-Tag', 'noindex, nofollow');
-      return res.end('<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>Página no encontrada | Ernestinho Carioca</title></head><body><h1>Página no encontrada</h1><p><a href="/">Volver a Ernestinho Carioca</a></p></body></html>');
+      const notFound = '<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>Página no encontrada | Ernestinho Carioca</title></head><body><h1>Página no encontrada</h1><p><a href="/">Volver a Ernestinho Carioca</a></p></body></html>';
+      if (req.method === 'HEAD') return res.end();
+      return res.end(notFound);
     }
 
     const seo = seoFor(pathname);
+    const html = applySeo(indexHtml, seo);
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.setHeader('Cache-Control', 'public, max-age=0, s-maxage=300, stale-while-revalidate=86400');
-    return res.end(applySeo(indexHtml, seo));
+    res.setHeader('X-Ernestinho-Route', pathname);
+    return sendCompressedHtml(req, res, html);
   } catch (err) {
     console.error(err);
     res.statusCode = 500;
