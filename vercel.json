@@ -1,7 +1,11 @@
 {
-  "rewrites": [
-    { "source": "/quiero", "destination": "/index.html" },
-    { "source": "/ruta-centro", "destination": "/index.html" },
-    { "source": "/recorrido-centro", "destination": "/index.html" }
+  "functions": {
+    "api/spa.js": {
+      "includeFiles": ["index.html", "sitemap.xml"]
+    }
+  },
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/api/spa.js" }
   ]
 }
