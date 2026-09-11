@@ -1,13 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "functions": {
-    "api/spa.js": {
-      "includeFiles": "{index.html,sitemap.xml}"
-    }
-  },
-  "routes": [
-    { "src": "^/$", "dest": "/api/spa?path=/" },
-    { "handle": "filesystem" },
-    { "src": "^/(.*)$", "dest": "/api/spa?path=/$1" }
-  ]
+  "buildCommand": "node scripts/build-static.js",
+  "outputDirectory": "dist",
+  "cleanUrls": true,
+  "trailingSlash": false
 }
