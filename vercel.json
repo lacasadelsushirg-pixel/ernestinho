@@ -6,8 +6,8 @@
     }
   },
   "routes": [
-    { "src": "/", "dest": "/api/spa" },
+    { "src": "^/$", "dest": "/api/spa?path=/" },
     { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/api/spa" }
+    { "src": "^/(.*)$", "dest": "/api/spa?path=/$1" }
   ]
 }
