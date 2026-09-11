@@ -5,7 +5,9 @@
       "includeFiles": "{index.html,sitemap.xml}"
     }
   },
-  "rewrites": [
-    { "source": "/:path*", "destination": "/api/spa" }
+  "routes": [
+    { "src": "/", "dest": "/api/spa" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "dest": "/api/spa" }
   ]
 }
