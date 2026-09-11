@@ -1,11 +1,11 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "functions": {
     "api/spa.js": {
       "includeFiles": "{index.html,sitemap.xml}"
     }
   },
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/api/spa" }
+  "rewrites": [
+    { "source": "/:path*", "destination": "/api/spa" }
   ]
 }
