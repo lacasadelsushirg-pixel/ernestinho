@@ -9,6 +9,8 @@ const GA_ID = 'G-QE1X83D419';
 
 // Apply the router/indexability correction that was validated against all 498 sitemap routes.
 require('./apply-seo-router-fix.js');
+// Apply the final systemic corrections before extracting/compiling the application.
+require('./apply-final-seo-fixes.js');
 
 const MAIN_TITLES = {
   '/transportes': 'Cómo moverse por Río de Janeiro | Ernestinho Carioca',
