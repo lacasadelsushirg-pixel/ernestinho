@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const esbuild = require('esbuild');
 
 const ROOT = process.cwd();
 const OUT = path.join(ROOT, 'dist');
@@ -20,35 +21,26 @@ const MAIN_TITLES = {
 };
 
 function escapeAttr(value) {
-  return String(value)
-    .replace(/&/g, '&amp;')
-    .replace(/"/g, '&quot;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
+  return String(value).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 }
-
 function humanize(segment) {
   let value = segment || '';
   try { value = decodeURIComponent(value); } catch (_) {}
   return value.replace(/[-_]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
 }
-
 function normalizeRoute(route) {
   let value = route || '/';
   if (!value.startsWith('/')) value = '/' + value;
   if (value.length > 1) value = value.replace(/\/$/, '');
   return value;
 }
-
 function seoFor(route) {
   const clean = normalizeRoute(route);
-  if (clean === '/') {
-    return {
-      title: 'Ernestinho Carioca | Guía completa de Río de Janeiro',
-      description: 'Guía de Río de Janeiro en español con playas, barrios, transporte, cultura, gastronomía, consejos y experiencias.',
-      canonical: DOMAIN + '/'
-    };
-  }
+  if (clean === '/') return {
+    title: 'Ernestinho Carioca | Guía completa de Río de Janeiro',
+    description: 'Guía de Río de Janeiro en español con playas, barrios, transporte, cultura, gastronomía, consejos y experiencias.',
+    canonical: DOMAIN + '/'
+  };
   const parts = clean.split('/').filter(Boolean);
   const leaf = humanize(parts[parts.length - 1]);
   const section = parts.length > 1 ? humanize(parts[0]) : '';
@@ -58,11 +50,9 @@ function seoFor(route) {
     canonical: DOMAIN + clean
   };
 }
-
 function analyticsTags() {
-  return `\n<!-- Google Analytics 4 -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>\n<script>\nwindow.dataLayer=window.dataLayer||[];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js',new Date());\ngtag('config','${GA_ID}',{send_page_view:true});\n(function(){\n  var last=location.pathname+location.search;\n  function track(){\n    var current=location.pathname+location.search;\n    if(current===last)return;\n    last=current;\n    gtag('event','page_view',{page_title:document.title,page_location:location.href,page_path:current});\n  }\n  var push=history.pushState;\n  history.pushState=function(){var r=push.apply(this,arguments);setTimeout(track,0);return r;};\n  var replace=history.replaceState;\n  history.replaceState=function(){var r=replace.apply(this,arguments);setTimeout(track,0);return r;};\n  addEventListener('popstate',function(){setTimeout(track,0);});\n})();\n</script>`;
+  return `\n<!-- Google Analytics 4 -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>\n<script>\nwindow.dataLayer=window.dataLayer||[];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js',new Date());\ngtag('config','${GA_ID}',{send_page_view:true});\n(function(){var last=location.pathname+location.search;function track(){var current=location.pathname+location.search;if(current===last)return;last=current;gtag('event','page_view',{page_title:document.title,page_location:location.href,page_path:current});}var push=history.pushState;history.pushState=function(){var r=push.apply(this,arguments);setTimeout(track,0);return r;};var replace=history.replaceState;history.replaceState=function(){var r=replace.apply(this,arguments);setTimeout(track,0);return r;};addEventListener('popstate',function(){setTimeout(track,0);});})();\n</script>`;
 }
-
 function injectSeo(shell, route) {
   const seo = seoFor(route);
   let out = shell;
@@ -74,14 +64,11 @@ function injectSeo(shell, route) {
   const tags = `\n<link rel="canonical" href="${escapeAttr(seo.canonical)}">\n<meta name="description" content="${escapeAttr(seo.description)}">\n<meta name="robots" content="index, follow">\n<meta property="og:title" content="${escapeAttr(seo.title)}">\n<meta property="og:description" content="${escapeAttr(seo.description)}">\n<meta property="og:url" content="${escapeAttr(seo.canonical)}">${analyticsTags()}`;
   return out.replace(/<\/head>/i, `${tags}\n</head>`);
 }
-
 function routeToFile(route) {
   const clean = normalizeRoute(route);
   if (clean === '/') return path.join(OUT, 'index.html');
-  const relative = clean.replace(/^\//, '');
-  return path.join(OUT, relative + '.html');
+  return path.join(OUT, clean.replace(/^\//, '') + '.html');
 }
-
 function copyIfExists(name) {
   const src = path.join(ROOT, name);
   if (fs.existsSync(src)) fs.copyFileSync(src, path.join(OUT, name));
@@ -99,9 +86,19 @@ const end = source.indexOf('</script>', codeStart);
 if (end === -1) throw new Error('No se encontró el cierre del script principal en index.html');
 
 const appCode = source.slice(codeStart, end);
-const shell = source.slice(0, start) + '<script type="text/babel" src="/app.jsx"></script>' + source.slice(end + '</script>'.length);
+const compiled = esbuild.transformSync(appCode, {
+  loader: 'jsx',
+  target: 'es2018',
+  minify: true,
+  jsxFactory: 'React.createElement',
+  jsxFragment: 'React.Fragment',
+  legalComments: 'none'
+}).code;
 
-fs.writeFileSync(path.join(OUT, 'app.jsx'), appCode, 'utf8');
+let shell = source.slice(0, start) + '<script src="/app.js"></script>' + source.slice(end + '</script>'.length);
+// Babel ya no se necesita en el navegador: el JSX se compila una sola vez durante el build.
+shell = shell.replace(/\s*<script\s+src=["']https:\/\/unpkg\.com\/@babel\/standalone\/babel\.min\.js["']><\/script>/i, '');
+fs.writeFileSync(path.join(OUT, 'app.js'), compiled, 'utf8');
 
 const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
 const routes = new Set(['/','/quiero','/ruta-centro','/recorrido-centro']);
@@ -114,7 +111,6 @@ for (const route of routes) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, injectSeo(shell, route), 'utf8');
 }
-
 copyIfExists('robots.txt');
 copyIfExists('sitemap.xml');
 copyIfExists('google9b0defc9c5a5ee7e.html');
@@ -122,4 +118,4 @@ copyIfExists('google9b0defc9c5a5ee7e.html');
 const notFound = '<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>Página no encontrada | Ernestinho Carioca</title></head><body><h1>Página no encontrada</h1><p><a href="/">Volver a Ernestinho Carioca</a></p></body></html>';
 fs.writeFileSync(path.join(OUT, '404.html'), notFound, 'utf8');
 
-console.log(`Static build complete: ${routes.size} routes, shared app.jsx ${(Buffer.byteLength(appCode) / 1024 / 1024).toFixed(2)} MB`);
+console.log(`Static build complete: ${routes.size} routes, compiled app.js ${(Buffer.byteLength(compiled) / 1024 / 1024).toFixed(2)} MB (source ${(Buffer.byteLength(appCode) / 1024 / 1024).toFixed(2)} MB)`);
