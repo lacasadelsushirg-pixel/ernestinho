@@ -1,0 +1,55 @@
+name: Final source diagnostics
+on:
+  push:
+    branches: [final-seo-audit-20260912]
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install
+        run: |
+          npm install
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Extract source diagnostics and reproduce failing routes unminified
+        run: |
+          cat > source-diagnostics.js <<'NODE'
+          const fs=require('fs'),path=require('path'),http=require('http'),esbuild=require('esbuild');
+          const {chromium}=require('playwright');
+          const src=fs.readFileSync('index.html','utf8');
+          const out={generatedAt:new Date().toISOString(),snippets:{},occurrences:{},runtime:{}};
+          function excerpts(label,patterns,radius=5000){const arr=[];for(const pat of patterns){let start=0;while(true){const i=src.indexOf(pat,start);if(i<0)break;arr.push({pattern:pat,index:i,text:src.slice(Math.max(0,i-radius),Math.min(src.length,i+pat.length+radius))});start=i+pat.length;if(arr.length>=12)break;}}out.snippets[label]=arr;}
+          excerpts('gastronomy',['function SeccionGastronomia','selectedRestaurante','setSelectedRestaurante','rutaSeoInicial.restaurante','seccionActual === \'gastronomia\'','seccionActual === "gastronomia"'],12000);
+          excerpts('mee_momo',["'mee'",'"mee"',"'momo'",'"momo"','MEE','Momo'],5000);
+          excerpts('whatsapp',['TU_LINK_WHATSAPP'],4000);
+          excerpts('routing',['function seoResolveRoute','function seoCurrentPath','/gastronomia/([^/]+)'],8000);
+          excerpts('app_init',['function App','const rutaSeoInicial','seoResolveRoute(window.location.pathname)'],10000);
+          out.occurrences={selectedRestaurante:(src.match(/selectedRestaurante/g)||[]).length,TU_LINK_WHATSAPP:(src.match(/TU_LINK_WHATSAPP/g)||[]).length,mee:(src.match(/\bmee\b/gi)||[]).length,momo:(src.match(/\bmomo\b/gi)||[]).length};
+          const m=src.match(/<script\s+type=["']text\/babel["'][^>]*>([\s\S]*?)<\/script>/i);if(!m)throw new Error('inline JSX missing');
+          let code=m[1];
+          // Apply exactly the build-time fixes in memory, without modifying checkout files.
+          const seoFix=require('./scripts/apply-seo-router-fix.js');
+          // require above patches index.html on disk; reload patched source then apply deep entity selection.
+          require('./scripts/apply-deep-entity-selection-fix.js');
+          const patched=fs.readFileSync('index.html','utf8');const mm=patched.match(/<script\s+type=["']text\/babel["'][^>]*>([\s\S]*?)<\/script>/i);code=mm[1];
+          const transformed=esbuild.transformSync(code,{loader:'jsx',target:'es2018',minify:false,sourcemap:'inline',sourcefile:'index-inline.jsx',jsxFactory:'React.createElement',jsxFragment:'React.Fragment'}).code;
+          fs.mkdirSync('diag-dist',{recursive:true});fs.writeFileSync('diag-dist/app.js',transformed);
+          let shell=patched.replace(mm[0],'<script src="/app.js"></script>').replace(/<script[^>]+@babel\/standalone[^>]*><\/script>/i,'');fs.writeFileSync('diag-dist/index.html',shell);
+          const server=http.createServer((req,res)=>{const u=new URL(req.url,'http://x');if(u.pathname==='/app.js'){res.setHeader('content-type','application/javascript');return res.end(transformed)}res.setHeader('content-type','text/html');res.end(shell)});
+          async function run(){await new Promise(r=>server.listen(4191,'127.0.0.1',r));const browser=await chromium.launch({headless:true});for(const route of ['/gastronomia/mee','/gastronomia/momo','/gastronomia/lasai','/gastronomia/abencoado']){const p=await browser.newPage();const errors=[];p.on('pageerror',e=>errors.push({message:e.message,stack:e.stack}));let nav=null;try{await p.goto('http://127.0.0.1:4191'+route,{waitUntil:'domcontentloaded',timeout:20000});await p.waitForTimeout(700)}catch(e){nav=String(e)}const d=await p.evaluate(()=>({path:location.pathname,title:document.title,text:(document.body?.innerText||'').slice(0,1000),h1:[...document.querySelectorAll('h1')].map(x=>x.innerText),images:document.images.length,canonical:document.querySelector('link[rel=canonical]')?.href||''})).catch(()=>({}));out.runtime[route]={nav,errors,...d};await p.close();}await browser.close();server.close();fs.writeFileSync('final-source-diagnostics.json',JSON.stringify(out,null,2));fs.writeFileSync('final-source-diagnostics.txt',Object.entries(out.snippets).map(([k,v])=>'===== '+k+' =====\n'+v.map(x=>`\n--- ${x.pattern} @ ${x.index} ---\n${x.text}`).join('\n')).join('\n\n')+'\n\n===== RUNTIME =====\n'+JSON.stringify(out.runtime,null,2));console.log(JSON.stringify({occurrences:out.occurrences,runtime:out.runtime},null,2));}
+          run().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+          node source-diagnostics.js
+      - uses: actions/upload-artifact@v4
+        with:
+          name: final-source-diagnostics
+          path: |
+            final-source-diagnostics.json
+            final-source-diagnostics.txt
