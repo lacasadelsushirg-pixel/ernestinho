@@ -5,6 +5,7 @@ const ROOT = process.cwd();
 const DIST = path.join(ROOT, 'dist');
 const DOMAIN = 'https://www.ernestinhocarioca.com.br';
 const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
+const source = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1].trim());
 const urls = locs.filter(u => u.startsWith(DOMAIN));
 const paths = urls.map(u => {
@@ -21,6 +22,19 @@ function outputFile(route) {
 function count(re, s) { return (s.match(re) || []).length; }
 function extract(re, s) { const m = s.match(re); return m ? m[1] : null; }
 
+// Routes whose hydration is explicitly understood by the current SEO router.
+// Exact values are extracted from SEO_SECTION_ROUTES; these include top-level pages,
+// transport detail routes and several /lugares/* routes.
+const routeMapBlock = extract(/const SEO_SECTION_ROUTES\s*=\s*\{([\s\S]*?)\n\};/, source) || '';
+const exactClientRoutes = new Set([...routeMapBlock.matchAll(/["'](\/[^"']*)["']/g)].map(m => m[1]));
+exactClientRoutes.add('/recorrido-centro');
+exactClientRoutes.add('/ruta-centro');
+exactClientRoutes.add('/quiero');
+const dynamicClientPrefixes = ['/museos/','/barrios/','/gastronomia/','/articulos/','/guia/','/experiencias/'];
+function clientRouterPatternSupported(route) {
+  return exactClientRoutes.has(route) || dynamicClientPrefixes.some(p => route.startsWith(p) && route.slice(p.length) && !route.slice(p.length).includes('/'));
+}
+
 const errors = [];
 const rows = [];
 for (const route of unique) {
@@ -28,7 +42,7 @@ for (const route of unique) {
   const rel = path.relative(ROOT, file);
   if (!fs.existsSync(file)) {
     errors.push({ route, code:'MISSING_FILE', detail: rel });
-    rows.push({route,file:rel,status:'ERROR'});
+    rows.push({route,file:rel,status:'ERROR',clientRouterPattern:false});
     continue;
   }
   const html = fs.readFileSync(file,'utf8');
@@ -53,10 +67,15 @@ for (const route of unique) {
     ['ROOT_PRESENT', /id=["']ernestinho-carioca-root["']/i.test(html), 'missing root']
   ];
   for (const [code,ok,detail] of checks) if (!ok) errors.push({route,code,detail});
-  rows.push({route,file:rel,status:checks.every(x=>x[1])?'OK':'ERROR',bytes:Buffer.byteLength(html)});
+  rows.push({route,file:rel,status:checks.every(x=>x[1])?'OK':'ERROR',bytes:Buffer.byteLength(html),clientRouterPattern:clientRouterPatternSupported(route)});
 }
 
 const categoryCounts = unique.reduce((acc,p)=>{
+  const key = p === '/' ? '/' : '/' + p.split('/').filter(Boolean)[0];
+  acc[key] = (acc[key]||0)+1; return acc;
+},{});
+const unsupportedClientRoutes = rows.filter(r => !r.clientRouterPattern).map(r => r.route);
+const unsupportedByCategory = unsupportedClientRoutes.reduce((acc,p)=>{
   const key = p === '/' ? '/' : '/' + p.split('/').filter(Boolean)[0];
   acc[key] = (acc[key]||0)+1; return acc;
 },{});
@@ -71,6 +90,10 @@ const report = {
   distAppExists: fs.existsSync(path.join(DIST,'app.jsx')),
   dist404Exists: fs.existsSync(path.join(DIST,'404.html')),
   categoryCounts,
+  clientRouterPatternSupportedCount: rows.length - unsupportedClientRoutes.length,
+  clientRouterPatternUnsupportedCount: unsupportedClientRoutes.length,
+  unsupportedByCategory,
+  unsupportedClientRoutes,
   errors,
   rows
 };
@@ -79,12 +102,14 @@ console.log(JSON.stringify({
   sitemapLocCount:report.sitemapLocCount,
   uniquePathCount:report.uniquePathCount,
   duplicatePathCount:report.duplicatePathCount,
-  errors:errors.length,
-  categories:Object.keys(categoryCounts).length,
+  staticErrors:errors.length,
+  clientRouterPatternSupportedCount:report.clientRouterPatternSupportedCount,
+  clientRouterPatternUnsupportedCount:report.clientRouterPatternUnsupportedCount,
+  unsupportedByCategory,
   app:report.distAppExists,
   notFound:report.dist404Exists
 },null,2));
 if (errors.length) {
-  console.error('SEO audit errors:', errors.slice(0,50));
+  console.error('SEO static audit errors:', errors.slice(0,50));
   process.exitCode=1;
 }
