@@ -19613,6 +19613,17 @@ function seoResolveRoute(pathname) {
     if (exp) return { ...result, seccion:seoExperienceState(exp) };
   }
 
+  const seoDeepRoots = [
+    'centros-culturales','espacios-literarios','eventos','experiencias',
+    'fuertes-fortalezas','iglesias','teatros','playas','vida-nocturna','compras'
+  ];
+  const seoDeepRoot = seoDeepRoots.find(prefix => ruta.startsWith('/' + prefix + '/'));
+  if (seoDeepRoot) {
+    const rootPath = '/' + seoDeepRoot;
+    const deepSection = SEO_ROUTE_PREFERRED_SECTION[rootPath] || Object.keys(SEO_SECTION_ROUTES).find(key => SEO_SECTION_ROUTES[key] === rootPath);
+    if (deepSection) return { ...result, seccion:deepSection };
+  }
+
   const preferred = SEO_ROUTE_PREFERRED_SECTION[ruta];
   if (preferred) return { ...result, seccion:preferred };
   const section = Object.keys(SEO_SECTION_ROUTES).find(key => SEO_SECTION_ROUTES[key] === ruta);
@@ -19621,6 +19632,17 @@ function seoResolveRoute(pathname) {
 }
 
 function seoCurrentPath(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId) {
+  const seoActualDeep = seoCleanPath(window.location.pathname);
+  const seoDeepRootsCurrent = [
+    'centros-culturales','espacios-literarios','eventos','experiencias',
+    'fuertes-fortalezas','iglesias','teatros','playas','vida-nocturna','compras'
+  ];
+  const seoDeepRootCurrent = seoDeepRootsCurrent.find(prefix => seoActualDeep.startsWith('/' + prefix + '/'));
+  if (seoDeepRootCurrent) {
+    const rootPath = '/' + seoDeepRootCurrent;
+    const expectedSection = SEO_ROUTE_PREFERRED_SECTION[rootPath] || Object.keys(SEO_SECTION_ROUTES).find(key => SEO_SECTION_ROUTES[key] === rootPath);
+    if (expectedSection && expectedSection === section) return seoActualDeep;
+  }
   if (section === 'consejos' && (consejoId?.id || consejoId) === 'recorridos-cuenta') {
     const actual = seoCleanPath(window.location.pathname);
     if (actual === '/quiero' || actual === '/ruta-centro' || actual === '/recorrido-centro') return actual;
