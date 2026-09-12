@@ -1,0 +1,146 @@
+===== BROWSER / =====
+status=200
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+content-length: 13434
+bytes=13434
+<title>Ernestinho Carioca | Guía completa de Río de Janeiro</title>
+<link rel="canonical" href="https://www.ernestinhocarioca.com.br/">
+<meta name="robots" content="index, follow">
+appjs=yes
+
+===== BROWSER /transportes =====
+status=200
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+content-length: 13478
+bytes=13478
+<title>Cómo moverse por Río de Janeiro | Ernestinho Carioca</title>
+<link rel="canonical" href="https://www.ernestinhocarioca.com.br/transportes">
+<meta name="robots" content="index, follow">
+appjs=yes
+
+===== BROWSER /copacabana =====
+status=200
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+content-length: 13502
+bytes=13502
+<title>Guía de Copacabana: qué ver, playa y consejos | Ernestinho Carioca</title>
+<link rel="canonical" href="https://www.ernestinhocarioca.com.br/copacabana">
+<meta name="robots" content="index, follow">
+appjs=yes
+
+===== BROWSER /gastronomia/lasai =====
+status=200
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+content-length: 13454
+bytes=13454
+<title>Lasai — Gastronomia | Ernestinho Carioca</title>
+<link rel="canonical" href="https://www.ernestinhocarioca.com.br/gastronomia/lasai">
+<meta name="robots" content="index, follow">
+appjs=yes
+
+===== BROWSER /experiencias/rapel =====
+status=200
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+content-length: 13458
+bytes=13458
+<title>Rapel — Experiencias | Ernestinho Carioca</title>
+<link rel="canonical" href="https://www.ernestinhocarioca.com.br/experiencias/rapel">
+<meta name="robots" content="index, follow">
+appjs=yes
+
+===== BROWSER /esto-no-existe-ernestinho-12345 =====
+status=404
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+content-length: 270
+bytes=270
+<title>Página no encontrada | Ernestinho Carioca</title>
+<meta name="robots" content="noindex,nofollow">
+appjs=no
+
+===== BROWSER /app.js =====
+status=200
+cache-control: public, max-age=0, must-revalidate
+content-type: application/javascript; charset=utf-8
+content-length: 6129025
+bytes=6129025
+appjs=no
+
+===== GOOGLEBOT / =====
+status=200
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+content-length: 13434
+bytes=13434
+<title>Ernestinho Carioca | Guía completa de Río de Janeiro</title>
+<link rel="canonical" href="https://www.ernestinhocarioca.com.br/">
+<meta name="robots" content="index, follow">
+appjs=yes
+
+===== GOOGLEBOT /transportes =====
+status=200
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+content-length: 13478
+bytes=13478
+<title>Cómo moverse por Río de Janeiro | Ernestinho Carioca</title>
+<link rel="canonical" href="https://www.ernestinhocarioca.com.br/transportes">
+<meta name="robots" content="index, follow">
+appjs=yes
+
+===== GOOGLEBOT /copacabana =====
+status=200
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+content-length: 13502
+bytes=13502
+<title>Guía de Copacabana: qué ver, playa y consejos | Ernestinho Carioca</title>
+<link rel="canonical" href="https://www.ernestinhocarioca.com.br/copacabana">
+<meta name="robots" content="index, follow">
+appjs=yes
+
+===== GOOGLEBOT /gastronomia/lasai =====
+status=200
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+content-length: 13454
+bytes=13454
+<title>Lasai — Gastronomia | Ernestinho Carioca</title>
+<link rel="canonical" href="https://www.ernestinhocarioca.com.br/gastronomia/lasai">
+<meta name="robots" content="index, follow">
+appjs=yes
+
+===== GOOGLEBOT /experiencias/rapel =====
+status=200
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+content-length: 13458
+bytes=13458
+<title>Rapel — Experiencias | Ernestinho Carioca</title>
+<link rel="canonical" href="https://www.ernestinhocarioca.com.br/experiencias/rapel">
+<meta name="robots" content="index, follow">
+appjs=yes
+
+===== GOOGLEBOT /esto-no-existe-ernestinho-12345 =====
+status=404
+cache-control: public, max-age=0, must-revalidate
+content-type: text/html; charset=utf-8
+content-length: 270
+bytes=270
+<title>Página no encontrada | Ernestinho Carioca</title>
+<meta name="robots" content="noindex,nofollow">
+appjs=no
+
+===== GOOGLEBOT /app.js =====
+status=200
+cache-control: public, max-age=0, must-revalidate
+content-type: application/javascript; charset=utf-8
+content-length: 6129025
+bytes=6129025
+appjs=no
+
