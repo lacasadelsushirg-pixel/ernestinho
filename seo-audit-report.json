@@ -1,0 +1,3039 @@
+{
+  "generatedAt": "2026-09-12T11:44:49.274Z",
+  "sitemapLocCount": 498,
+  "sameDomainCount": 498,
+  "uniquePathCount": 498,
+  "duplicatePathCount": 0,
+  "invalidDomainCount": 0,
+  "distAppExists": true,
+  "dist404Exists": true,
+  "categoryCounts": {
+    "/": 1,
+    "/atracciones": 1,
+    "/aventura": 1,
+    "/barrios": 9,
+    "/cafe-ernestinho": 1,
+    "/centros-culturales": 16,
+    "/compras": 29,
+    "/consejos": 1,
+    "/copacabana": 1,
+    "/descubre-rio": 1,
+    "/espacios-literarios": 18,
+    "/eventos": 7,
+    "/experiencias": 21,
+    "/familia": 1,
+    "/fotografia": 1,
+    "/fuertes-fortalezas": 12,
+    "/gastronomia": 184,
+    "/guia": 2,
+    "/hospedaje": 1,
+    "/iglesias": 31,
+    "/lugares": 21,
+    "/museos": 29,
+    "/naturaleza": 1,
+    "/ocio": 1,
+    "/para-mi": 1,
+    "/patrimonio": 1,
+    "/playas": 16,
+    "/prepara-tu-viaje": 1,
+    "/que-hacer": 1,
+    "/rio-en-vivo": 1,
+    "/sos": 1,
+    "/teatros": 23,
+    "/transportes": 6,
+    "/tv": 1,
+    "/vida-nocturna": 50,
+    "/articulos": 5
+  },
+  "errors": [],
+  "rows": [
+    {
+      "route": "/",
+      "file": "dist/index.html",
+      "status": "OK",
+      "bytes": 13573
+    },
+    {
+      "route": "/atracciones",
+      "file": "dist/atracciones.html",
+      "status": "OK",
+      "bytes": 13573
+    },
+    {
+      "route": "/aventura",
+      "file": "dist/aventura.html",
+      "status": "OK",
+      "bytes": 13555
+    },
+    {
+      "route": "/barrios",
+      "file": "dist/barrios.html",
+      "status": "OK",
+      "bytes": 13587
+    },
+    {
+      "route": "/cafe-ernestinho",
+      "file": "dist/cafe-ernestinho.html",
+      "status": "OK",
+      "bytes": 13597
+    },
+    {
+      "route": "/centros-culturales",
+      "file": "dist/centros-culturales.html",
+      "status": "OK",
+      "bytes": 13615
+    },
+    {
+      "route": "/compras",
+      "file": "dist/compras.html",
+      "status": "OK",
+      "bytes": 13549
+    },
+    {
+      "route": "/consejos",
+      "file": "dist/consejos.html",
+      "status": "OK",
+      "bytes": 13555
+    },
+    {
+      "route": "/copacabana",
+      "file": "dist/copacabana.html",
+      "status": "OK",
+      "bytes": 13641
+    },
+    {
+      "route": "/descubre-rio",
+      "file": "dist/descubre-rio.html",
+      "status": "OK",
+      "bytes": 13579
+    },
+    {
+      "route": "/espacios-literarios",
+      "file": "dist/espacios-literarios.html",
+      "status": "OK",
+      "bytes": 13621
+    },
+    {
+      "route": "/eventos",
+      "file": "dist/eventos.html",
+      "status": "OK",
+      "bytes": 13549
+    },
+    {
+      "route": "/experiencias",
+      "file": "dist/experiencias.html",
+      "status": "OK",
+      "bytes": 13617
+    },
+    {
+      "route": "/familia",
+      "file": "dist/familia.html",
+      "status": "OK",
+      "bytes": 13549
+    },
+    {
+      "route": "/fotografia",
+      "file": "dist/fotografia.html",
+      "status": "OK",
+      "bytes": 13567
+    },
+    {
+      "route": "/fuertes-fortalezas",
+      "file": "dist/fuertes-fortalezas.html",
+      "status": "OK",
+      "bytes": 13615
+    },
+    {
+      "route": "/gastronomia",
+      "file": "dist/gastronomia.html",
+      "status": "OK",
+      "bytes": 13613
+    },
+    {
+      "route": "/guia",
+      "file": "dist/guia.html",
+      "status": "OK",
+      "bytes": 13531
+    },
+    {
+      "route": "/hospedaje",
+      "file": "dist/hospedaje.html",
+      "status": "OK",
+      "bytes": 13561
+    },
+    {
+      "route": "/iglesias",
+      "file": "dist/iglesias.html",
+      "status": "OK",
+      "bytes": 13555
+    },
+    {
+      "route": "/lugares",
+      "file": "dist/lugares.html",
+      "status": "OK",
+      "bytes": 13549
+    },
+    {
+      "route": "/museos",
+      "file": "dist/museos.html",
+      "status": "OK",
+      "bytes": 13581
+    },
+    {
+      "route": "/naturaleza",
+      "file": "dist/naturaleza.html",
+      "status": "OK",
+      "bytes": 13567
+    },
+    {
+      "route": "/ocio",
+      "file": "dist/ocio.html",
+      "status": "OK",
+      "bytes": 13531
+    },
+    {
+      "route": "/para-mi",
+      "file": "dist/para-mi.html",
+      "status": "OK",
+      "bytes": 13549
+    },
+    {
+      "route": "/patrimonio",
+      "file": "dist/patrimonio.html",
+      "status": "OK",
+      "bytes": 13567
+    },
+    {
+      "route": "/playas",
+      "file": "dist/playas.html",
+      "status": "OK",
+      "bytes": 13581
+    },
+    {
+      "route": "/prepara-tu-viaje",
+      "file": "dist/prepara-tu-viaje.html",
+      "status": "OK",
+      "bytes": 13639
+    },
+    {
+      "route": "/que-hacer",
+      "file": "dist/que-hacer.html",
+      "status": "OK",
+      "bytes": 13561
+    },
+    {
+      "route": "/rio-en-vivo",
+      "file": "dist/rio-en-vivo.html",
+      "status": "OK",
+      "bytes": 13573
+    },
+    {
+      "route": "/sos",
+      "file": "dist/sos.html",
+      "status": "OK",
+      "bytes": 13525
+    },
+    {
+      "route": "/teatros",
+      "file": "dist/teatros.html",
+      "status": "OK",
+      "bytes": 13549
+    },
+    {
+      "route": "/transportes",
+      "file": "dist/transportes.html",
+      "status": "OK",
+      "bytes": 13617
+    },
+    {
+      "route": "/tv",
+      "file": "dist/tv.html",
+      "status": "OK",
+      "bytes": 13519
+    },
+    {
+      "route": "/vida-nocturna",
+      "file": "dist/vida-nocturna.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/articulos/20-errores-que-debes-evitar-si-o-si-en-rio-de-janeiro",
+      "file": "dist/articulos/20-errores-que-debes-evitar-si-o-si-en-rio-de-janeiro.html",
+      "status": "OK",
+      "bytes": 13873
+    },
+    {
+      "route": "/articulos/electricidad-y-adaptadores-en-brasil-enchufes-y-voltaje",
+      "file": "dist/articulos/electricidad-y-adaptadores-en-brasil-enchufes-y-voltaje.html",
+      "status": "OK",
+      "bytes": 13885
+    },
+    {
+      "route": "/articulos/preparando-las-maletas-para-rio-clima-ropa-e-imprevistos",
+      "file": "dist/articulos/preparando-las-maletas-para-rio-clima-ropa-e-imprevistos.html",
+      "status": "OK",
+      "bytes": 13891
+    },
+    {
+      "route": "/articulos/viajar-a-brasil-fiebre-amarilla-y-salud",
+      "file": "dist/articulos/viajar-a-brasil-fiebre-amarilla-y-salud.html",
+      "status": "OK",
+      "bytes": 13789
+    },
+    {
+      "route": "/articulos/visado-requisitos-de-entrada-y-aduana-en-brasil",
+      "file": "dist/articulos/visado-requisitos-de-entrada-y-aduana-en-brasil.html",
+      "status": "OK",
+      "bytes": 13837
+    },
+    {
+      "route": "/barrios/barra-recreio-zona-oeste",
+      "file": "dist/barrios/barra-recreio-zona-oeste.html",
+      "status": "OK",
+      "bytes": 13691
+    },
+    {
+      "route": "/barrios/botafogo-humaita-urca",
+      "file": "dist/barrios/botafogo-humaita-urca.html",
+      "status": "OK",
+      "bytes": 13673
+    },
+    {
+      "route": "/barrios/centro-praca-maua",
+      "file": "dist/barrios/centro-praca-maua.html",
+      "status": "OK",
+      "bytes": 13649
+    },
+    {
+      "route": "/barrios/flamengo-catete-gloria",
+      "file": "dist/barrios/flamengo-catete-gloria.html",
+      "status": "OK",
+      "bytes": 13679
+    },
+    {
+      "route": "/barrios/gavea-jardim-botanico-lagoa",
+      "file": "dist/barrios/gavea-jardim-botanico-lagoa.html",
+      "status": "OK",
+      "bytes": 13709
+    },
+    {
+      "route": "/barrios/ipanema-y-leblon",
+      "file": "dist/barrios/ipanema-y-leblon.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/barrios/santa-teresa-lapa",
+      "file": "dist/barrios/santa-teresa-lapa.html",
+      "status": "OK",
+      "bytes": 13649
+    },
+    {
+      "route": "/barrios/zona-norte",
+      "file": "dist/barrios/zona-norte.html",
+      "status": "OK",
+      "bytes": 13607
+    },
+    {
+      "route": "/centros-culturales/caixa-cultural-rio-de-janeiro",
+      "file": "dist/centros-culturales/caixa-cultural-rio-de-janeiro.html",
+      "status": "OK",
+      "bytes": 13765
+    },
+    {
+      "route": "/centros-culturales/casa-franca-brasil",
+      "file": "dist/centros-culturales/casa-franca-brasil.html",
+      "status": "OK",
+      "bytes": 13699
+    },
+    {
+      "route": "/centros-culturales/centro-cultural-acao-da-cidadania",
+      "file": "dist/centros-culturales/centro-cultural-acao-da-cidadania.html",
+      "status": "OK",
+      "bytes": 13789
+    },
+    {
+      "route": "/centros-culturales/centro-cultural-banco-do-brasil-ccbb",
+      "file": "dist/centros-culturales/centro-cultural-banco-do-brasil-ccbb.html",
+      "status": "OK",
+      "bytes": 13807
+    },
+    {
+      "route": "/centros-culturales/centro-cultural-correios",
+      "file": "dist/centros-culturales/centro-cultural-correios.html",
+      "status": "OK",
+      "bytes": 13735
+    },
+    {
+      "route": "/centros-culturales/centro-cultural-jose-bonifacio",
+      "file": "dist/centros-culturales/centro-cultural-jose-bonifacio.html",
+      "status": "OK",
+      "bytes": 13771
+    },
+    {
+      "route": "/centros-culturales/centro-cultural-justica-federal",
+      "file": "dist/centros-culturales/centro-cultural-justica-federal.html",
+      "status": "OK",
+      "bytes": 13777
+    },
+    {
+      "route": "/centros-culturales/centro-municipal-de-arte-helio-oiticica",
+      "file": "dist/centros-culturales/centro-municipal-de-arte-helio-oiticica.html",
+      "status": "OK",
+      "bytes": 13825
+    },
+    {
+      "route": "/centros-culturales/espaco-cultural-bndes",
+      "file": "dist/centros-culturales/espaco-cultural-bndes.html",
+      "status": "OK",
+      "bytes": 13717
+    },
+    {
+      "route": "/centros-culturales/espaco-cultural-da-marinha",
+      "file": "dist/centros-culturales/espaco-cultural-da-marinha.html",
+      "status": "OK",
+      "bytes": 13747
+    },
+    {
+      "route": "/centros-culturales/instituto-dos-pretos-novos",
+      "file": "dist/centros-culturales/instituto-dos-pretos-novos.html",
+      "status": "OK",
+      "bytes": 13747
+    },
+    {
+      "route": "/centros-culturales/observatorio-do-valongo",
+      "file": "dist/centros-culturales/observatorio-do-valongo.html",
+      "status": "OK",
+      "bytes": 13729
+    },
+    {
+      "route": "/centros-culturales/paco-imperial",
+      "file": "dist/centros-culturales/paco-imperial.html",
+      "status": "OK",
+      "bytes": 13669
+    },
+    {
+      "route": "/centros-culturales/sala-cecilia-meireles",
+      "file": "dist/centros-culturales/sala-cecilia-meireles.html",
+      "status": "OK",
+      "bytes": 13717
+    },
+    {
+      "route": "/centros-culturales/sociedade-brasileira-de-belas-artes",
+      "file": "dist/centros-culturales/sociedade-brasileira-de-belas-artes.html",
+      "status": "OK",
+      "bytes": 13801
+    },
+    {
+      "route": "/espacios-literarios/academia-brasileira-de-letras",
+      "file": "dist/espacios-literarios/academia-brasileira-de-letras.html",
+      "status": "OK",
+      "bytes": 13769
+    },
+    {
+      "route": "/espacios-literarios/bibliomaison",
+      "file": "dist/espacios-literarios/bibliomaison.html",
+      "status": "OK",
+      "bytes": 13667
+    },
+    {
+      "route": "/espacios-literarios/biblioteca-do-ccbb-rio",
+      "file": "dist/espacios-literarios/biblioteca-do-ccbb-rio.html",
+      "status": "OK",
+      "bytes": 13727
+    },
+    {
+      "route": "/espacios-literarios/biblioteca-do-centro-cultural-justica-federal",
+      "file": "dist/espacios-literarios/biblioteca-do-centro-cultural-justica-federal.html",
+      "status": "OK",
+      "bytes": 13865
+    },
+    {
+      "route": "/espacios-literarios/biblioteca-do-instituto-moreira-salles",
+      "file": "dist/espacios-literarios/biblioteca-do-instituto-moreira-salles.html",
+      "status": "OK",
+      "bytes": 13823
+    },
+    {
+      "route": "/espacios-literarios/biblioteca-do-mam-rio",
+      "file": "dist/espacios-literarios/biblioteca-do-mam-rio.html",
+      "status": "OK",
+      "bytes": 13721
+    },
+    {
+      "route": "/espacios-literarios/biblioteca-nacional",
+      "file": "dist/espacios-literarios/biblioteca-nacional.html",
+      "status": "OK",
+      "bytes": 13709
+    },
+    {
+      "route": "/espacios-literarios/biblioteca-parque-da-rocinha",
+      "file": "dist/espacios-literarios/biblioteca-parque-da-rocinha.html",
+      "status": "OK",
+      "bytes": 13763
+    },
+    {
+      "route": "/espacios-literarios/biblioteca-parque-de-manguinhos",
+      "file": "dist/espacios-literarios/biblioteca-parque-de-manguinhos.html",
+      "status": "OK",
+      "bytes": 13781
+    },
+    {
+      "route": "/espacios-literarios/biblioteca-parque-estadual",
+      "file": "dist/espacios-literarios/biblioteca-parque-estadual.html",
+      "status": "OK",
+      "bytes": 13751
+    },
+    {
+      "route": "/espacios-literarios/casa-da-leitura",
+      "file": "dist/espacios-literarios/casa-da-leitura.html",
+      "status": "OK",
+      "bytes": 13685
+    },
+    {
+      "route": "/espacios-literarios/fundacao-casa-de-rui-barbosa",
+      "file": "dist/espacios-literarios/fundacao-casa-de-rui-barbosa.html",
+      "status": "OK",
+      "bytes": 13763
+    },
+    {
+      "route": "/espacios-literarios/livraria-argumento",
+      "file": "dist/espacios-literarios/livraria-argumento.html",
+      "status": "OK",
+      "bytes": 13703
+    },
+    {
+      "route": "/espacios-literarios/livraria-da-travessa-ipanema",
+      "file": "dist/espacios-literarios/livraria-da-travessa-ipanema.html",
+      "status": "OK",
+      "bytes": 13763
+    },
+    {
+      "route": "/espacios-literarios/livraria-leonardo-da-vinci",
+      "file": "dist/espacios-literarios/livraria-leonardo-da-vinci.html",
+      "status": "OK",
+      "bytes": 13751
+    },
+    {
+      "route": "/espacios-literarios/midiateca-do-crab",
+      "file": "dist/espacios-literarios/midiateca-do-crab.html",
+      "status": "OK",
+      "bytes": 13697
+    },
+    {
+      "route": "/espacios-literarios/real-gabinete-portugues-de-leitura",
+      "file": "dist/espacios-literarios/real-gabinete-portugues-de-leitura.html",
+      "status": "OK",
+      "bytes": 13799
+    },
+    {
+      "route": "/eventos/carnaval-de-rio",
+      "file": "dist/eventos/carnaval-de-rio.html",
+      "status": "OK",
+      "bytes": 13669
+    },
+    {
+      "route": "/eventos/maratona-do-rio",
+      "file": "dist/eventos/maratona-do-rio.html",
+      "status": "OK",
+      "bytes": 13637
+    },
+    {
+      "route": "/eventos/reveillon-de-copacabana",
+      "file": "dist/eventos/reveillon-de-copacabana.html",
+      "status": "OK",
+      "bytes": 13685
+    },
+    {
+      "route": "/eventos/rio-open",
+      "file": "dist/eventos/rio-open.html",
+      "status": "OK",
+      "bytes": 13595
+    },
+    {
+      "route": "/eventos/rock-in-rio",
+      "file": "dist/eventos/rock-in-rio.html",
+      "status": "OK",
+      "bytes": 13613
+    },
+    {
+      "route": "/eventos/todo-mundo-no-rio",
+      "file": "dist/eventos/todo-mundo-no-rio.html",
+      "status": "OK",
+      "bytes": 13649
+    },
+    {
+      "route": "/experiencias/angra-dos-reis",
+      "file": "dist/experiencias/angra-dos-reis.html",
+      "status": "OK",
+      "bytes": 13651
+    },
+    {
+      "route": "/experiencias/aquario-boulevard-olimpico",
+      "file": "dist/experiencias/aquario-boulevard-olimpico.html",
+      "status": "OK",
+      "bytes": 13723
+    },
+    {
+      "route": "/experiencias/arraial-do-cabo",
+      "file": "dist/experiencias/arraial-do-cabo.html",
+      "status": "OK",
+      "bytes": 13657
+    },
+    {
+      "route": "/experiencias/buzios-tour-en-goleta",
+      "file": "dist/experiencias/buzios-tour-en-goleta.html",
+      "status": "OK",
+      "bytes": 13693
+    },
+    {
+      "route": "/experiencias/cristo-city-tour",
+      "file": "dist/experiencias/cristo-city-tour.html",
+      "status": "OK",
+      "bytes": 13663
+    },
+    {
+      "route": "/experiencias/favela-rocinha",
+      "file": "dist/experiencias/favela-rocinha.html",
+      "status": "OK",
+      "bytes": 13651
+    },
+    {
+      "route": "/experiencias/full-day-rio",
+      "file": "dist/experiencias/full-day-rio.html",
+      "status": "OK",
+      "bytes": 13639
+    },
+    {
+      "route": "/experiencias/lancha-privada",
+      "file": "dist/experiencias/lancha-privada.html",
+      "status": "OK",
+      "bytes": 13651
+    },
+    {
+      "route": "/experiencias/maracana-experience",
+      "file": "dist/experiencias/maracana-experience.html",
+      "status": "OK",
+      "bytes": 13681
+    },
+    {
+      "route": "/experiencias/morro-dois-irmaos",
+      "file": "dist/experiencias/morro-dois-irmaos.html",
+      "status": "OK",
+      "bytes": 13669
+    },
+    {
+      "route": "/experiencias/parasail-en-rio",
+      "file": "dist/experiencias/parasail-en-rio.html",
+      "status": "OK",
+      "bytes": 13657
+    },
+    {
+      "route": "/experiencias/partidos-en-el-maracana",
+      "file": "dist/experiencias/partidos-en-el-maracana.html",
+      "status": "OK",
+      "bytes": 13705
+    },
+    {
+      "route": "/experiencias/pedra-bonita",
+      "file": "dist/experiencias/pedra-bonita.html",
+      "status": "OK",
+      "bytes": 13639
+    },
+    {
+      "route": "/experiencias/pedra-do-telegrafo",
+      "file": "dist/experiencias/pedra-do-telegrafo.html",
+      "status": "OK",
+      "bytes": 13675
+    },
+    {
+      "route": "/experiencias/petropolis-ciudad-imperial",
+      "file": "dist/experiencias/petropolis-ciudad-imperial.html",
+      "status": "OK",
+      "bytes": 13723
+    },
+    {
+      "route": "/experiencias/rapel",
+      "file": "dist/experiencias/rapel.html",
+      "status": "OK",
+      "bytes": 13597
+    },
+    {
+      "route": "/experiencias/salto-en-paracaidas",
+      "file": "dist/experiencias/salto-en-paracaidas.html",
+      "status": "OK",
+      "bytes": 13681
+    },
+    {
+      "route": "/experiencias/trekking-pedra-da-gavea",
+      "file": "dist/experiencias/trekking-pedra-da-gavea.html",
+      "status": "OK",
+      "bytes": 13705
+    },
+    {
+      "route": "/experiencias/vuela-en-helicoptero",
+      "file": "dist/experiencias/vuela-en-helicoptero.html",
+      "status": "OK",
+      "bytes": 13687
+    },
+    {
+      "route": "/experiencias/vuelo-en-parapente",
+      "file": "dist/experiencias/vuelo-en-parapente.html",
+      "status": "OK",
+      "bytes": 13675
+    },
+    {
+      "route": "/fuertes-fortalezas/fortaleza-da-conceicao",
+      "file": "dist/fuertes-fortalezas/fortaleza-da-conceicao.html",
+      "status": "OK",
+      "bytes": 13723
+    },
+    {
+      "route": "/fuertes-fortalezas/fortaleza-de-santa-cruz-da-barra",
+      "file": "dist/fuertes-fortalezas/fortaleza-de-santa-cruz-da-barra.html",
+      "status": "OK",
+      "bytes": 13783
+    },
+    {
+      "route": "/fuertes-fortalezas/fortaleza-de-sao-joao",
+      "file": "dist/fuertes-fortalezas/fortaleza-de-sao-joao.html",
+      "status": "OK",
+      "bytes": 13717
+    },
+    {
+      "route": "/fuertes-fortalezas/forte-barao-do-rio-branco",
+      "file": "dist/fuertes-fortalezas/forte-barao-do-rio-branco.html",
+      "status": "OK",
+      "bytes": 13741
+    },
+    {
+      "route": "/fuertes-fortalezas/forte-de-copacabana",
+      "file": "dist/fuertes-fortalezas/forte-de-copacabana.html",
+      "status": "OK",
+      "bytes": 13705
+    },
+    {
+      "route": "/fuertes-fortalezas/forte-de-sao-luiz",
+      "file": "dist/fuertes-fortalezas/forte-de-sao-luiz.html",
+      "status": "OK",
+      "bytes": 13693
+    },
+    {
+      "route": "/fuertes-fortalezas/forte-do-gragoata",
+      "file": "dist/fuertes-fortalezas/forte-do-gragoata.html",
+      "status": "OK",
+      "bytes": 13693
+    },
+    {
+      "route": "/fuertes-fortalezas/forte-do-imbui",
+      "file": "dist/fuertes-fortalezas/forte-do-imbui.html",
+      "status": "OK",
+      "bytes": 13675
+    },
+    {
+      "route": "/fuertes-fortalezas/forte-do-pico",
+      "file": "dist/fuertes-fortalezas/forte-do-pico.html",
+      "status": "OK",
+      "bytes": 13669
+    },
+    {
+      "route": "/fuertes-fortalezas/forte-duque-de-caxias",
+      "file": "dist/fuertes-fortalezas/forte-duque-de-caxias.html",
+      "status": "OK",
+      "bytes": 13717
+    },
+    {
+      "route": "/fuertes-fortalezas/forte-tamandare-da-laje",
+      "file": "dist/fuertes-fortalezas/forte-tamandare-da-laje.html",
+      "status": "OK",
+      "bytes": 13729
+    },
+    {
+      "route": "/gastronomia/abencoado",
+      "file": "dist/gastronomia/abencoado.html",
+      "status": "OK",
+      "bytes": 13617
+    },
+    {
+      "route": "/gastronomia/aconchego-carioca",
+      "file": "dist/gastronomia/aconchego-carioca.html",
+      "status": "OK",
+      "bytes": 13665
+    },
+    {
+      "route": "/gastronomia/adega-da-velha",
+      "file": "dist/gastronomia/adega-da-velha.html",
+      "status": "OK",
+      "bytes": 13647
+    },
+    {
+      "route": "/gastronomia/adega-perola",
+      "file": "dist/gastronomia/adega-perola.html",
+      "status": "OK",
+      "bytes": 13635
+    },
+    {
+      "route": "/gastronomia/aipo-y-aipim-centro",
+      "file": "dist/gastronomia/aipo-y-aipim-centro.html",
+      "status": "OK",
+      "bytes": 13677
+    },
+    {
+      "route": "/gastronomia/alfaia",
+      "file": "dist/gastronomia/alfaia.html",
+      "status": "OK",
+      "bytes": 13599
+    },
+    {
+      "route": "/gastronomia/alloro-al-miramar",
+      "file": "dist/gastronomia/alloro-al-miramar.html",
+      "status": "OK",
+      "bytes": 13665
+    },
+    {
+      "route": "/gastronomia/amendoeira",
+      "file": "dist/gastronomia/amendoeira.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/amir",
+      "file": "dist/gastronomia/amir.html",
+      "status": "OK",
+      "bytes": 13587
+    },
+    {
+      "route": "/gastronomia/angu-do-gomes",
+      "file": "dist/gastronomia/angu-do-gomes.html",
+      "status": "OK",
+      "bytes": 13641
+    },
+    {
+      "route": "/gastronomia/aprazivel",
+      "file": "dist/gastronomia/aprazivel.html",
+      "status": "OK",
+      "bytes": 13617
+    },
+    {
+      "route": "/gastronomia/arab",
+      "file": "dist/gastronomia/arab.html",
+      "status": "OK",
+      "bytes": 13587
+    },
+    {
+      "route": "/gastronomia/armazem-sao-thiago",
+      "file": "dist/gastronomia/armazem-sao-thiago.html",
+      "status": "OK",
+      "bytes": 13671
+    },
+    {
+      "route": "/gastronomia/arp-bar",
+      "file": "dist/gastronomia/arp-bar.html",
+      "status": "OK",
+      "bytes": 13605
+    },
+    {
+      "route": "/gastronomia/assador",
+      "file": "dist/gastronomia/assador.html",
+      "status": "OK",
+      "bytes": 13605
+    },
+    {
+      "route": "/gastronomia/babbo-osteria",
+      "file": "dist/gastronomia/babbo-osteria.html",
+      "status": "OK",
+      "bytes": 13641
+    },
+    {
+      "route": "/gastronomia/bafo-da-prainha",
+      "file": "dist/gastronomia/bafo-da-prainha.html",
+      "status": "OK",
+      "bytes": 13653
+    },
+    {
+      "route": "/gastronomia/bar-astor",
+      "file": "dist/gastronomia/bar-astor.html",
+      "status": "OK",
+      "bytes": 13617
+    },
+    {
+      "route": "/gastronomia/bar-da-frente",
+      "file": "dist/gastronomia/bar-da-frente.html",
+      "status": "OK",
+      "bytes": 13641
+    },
+    {
+      "route": "/gastronomia/bar-da-gema",
+      "file": "dist/gastronomia/bar-da-gema.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/bar-da-portuguesa",
+      "file": "dist/gastronomia/bar-da-portuguesa.html",
+      "status": "OK",
+      "bytes": 13665
+    },
+    {
+      "route": "/gastronomia/bar-do-mineiro",
+      "file": "dist/gastronomia/bar-do-mineiro.html",
+      "status": "OK",
+      "bytes": 13647
+    },
+    {
+      "route": "/gastronomia/bar-do-momo",
+      "file": "dist/gastronomia/bar-do-momo.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/bar-do-omar",
+      "file": "dist/gastronomia/bar-do-omar.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/bar-luiz",
+      "file": "dist/gastronomia/bar-luiz.html",
+      "status": "OK",
+      "bytes": 13611
+    },
+    {
+      "route": "/gastronomia/bar-madrid",
+      "file": "dist/gastronomia/bar-madrid.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/bar-urca",
+      "file": "dist/gastronomia/bar-urca.html",
+      "status": "OK",
+      "bytes": 13611
+    },
+    {
+      "route": "/gastronomia/basha",
+      "file": "dist/gastronomia/basha.html",
+      "status": "OK",
+      "bytes": 13593
+    },
+    {
+      "route": "/gastronomia/bb-lanches",
+      "file": "dist/gastronomia/bb-lanches.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/bira-de-guaratiba",
+      "file": "dist/gastronomia/bira-de-guaratiba.html",
+      "status": "OK",
+      "bytes": 13665
+    },
+    {
+      "route": "/gastronomia/boa-praca",
+      "file": "dist/gastronomia/boa-praca.html",
+      "status": "OK",
+      "bytes": 13617
+    },
+    {
+      "route": "/gastronomia/boteco-belmonte-copacabana",
+      "file": "dist/gastronomia/boteco-belmonte-copacabana.html",
+      "status": "OK",
+      "bytes": 13719
+    },
+    {
+      "route": "/gastronomia/boteco-belmonte-ipanema",
+      "file": "dist/gastronomia/boteco-belmonte-ipanema.html",
+      "status": "OK",
+      "bytes": 13701
+    },
+    {
+      "route": "/gastronomia/bracarense",
+      "file": "dist/gastronomia/bracarense.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/brota",
+      "file": "dist/gastronomia/brota.html",
+      "status": "OK",
+      "bytes": 13593
+    },
+    {
+      "route": "/gastronomia/cabanna",
+      "file": "dist/gastronomia/cabanna.html",
+      "status": "OK",
+      "bytes": 13605
+    },
+    {
+      "route": "/gastronomia/cachambeer",
+      "file": "dist/gastronomia/cachambeer.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/cafe-do-alto",
+      "file": "dist/gastronomia/cafe-do-alto.html",
+      "status": "OK",
+      "bytes": 13635
+    },
+    {
+      "route": "/gastronomia/cafe-lamas",
+      "file": "dist/gastronomia/cafe-lamas.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/cais-do-oriente",
+      "file": "dist/gastronomia/cais-do-oriente.html",
+      "status": "OK",
+      "bytes": 13653
+    },
+    {
+      "route": "/gastronomia/cantinho-legal-da-tia-penha",
+      "file": "dist/gastronomia/cantinho-legal-da-tia-penha.html",
+      "status": "OK",
+      "bytes": 13725
+    },
+    {
+      "route": "/gastronomia/canton",
+      "file": "dist/gastronomia/canton.html",
+      "status": "OK",
+      "bytes": 13599
+    },
+    {
+      "route": "/gastronomia/carretao-copacabana",
+      "file": "dist/gastronomia/carretao-copacabana.html",
+      "status": "OK",
+      "bytes": 13677
+    },
+    {
+      "route": "/gastronomia/carretao-ipanema-classic-grill",
+      "file": "dist/gastronomia/carretao-ipanema-classic-grill.html",
+      "status": "OK",
+      "bytes": 13743
+    },
+    {
+      "route": "/gastronomia/carretao-lido",
+      "file": "dist/gastronomia/carretao-lido.html",
+      "status": "OK",
+      "bytes": 13641
+    },
+    {
+      "route": "/gastronomia/casa-201",
+      "file": "dist/gastronomia/casa-201.html",
+      "status": "OK",
+      "bytes": 13611
+    },
+    {
+      "route": "/gastronomia/casa-cave",
+      "file": "dist/gastronomia/casa-cave.html",
+      "status": "OK",
+      "bytes": 13617
+    },
+    {
+      "route": "/gastronomia/casa-da-feijoada",
+      "file": "dist/gastronomia/casa-da-feijoada.html",
+      "status": "OK",
+      "bytes": 13659
+    },
+    {
+      "route": "/gastronomia/casa-do-sardo",
+      "file": "dist/gastronomia/casa-do-sardo.html",
+      "status": "OK",
+      "bytes": 13641
+    },
+    {
+      "route": "/gastronomia/casa-mohamed",
+      "file": "dist/gastronomia/casa-mohamed.html",
+      "status": "OK",
+      "bytes": 13635
+    },
+    {
+      "route": "/gastronomia/casa-momus",
+      "file": "dist/gastronomia/casa-momus.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/casa-porto",
+      "file": "dist/gastronomia/casa-porto.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/cavalo-marinho",
+      "file": "dist/gastronomia/cavalo-marinho.html",
+      "status": "OK",
+      "bytes": 13647
+    },
+    {
+      "route": "/gastronomia/cervantes",
+      "file": "dist/gastronomia/cervantes.html",
+      "status": "OK",
+      "bytes": 13617
+    },
+    {
+      "route": "/gastronomia/chez-claude",
+      "file": "dist/gastronomia/chez-claude.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/churrascaria-palace",
+      "file": "dist/gastronomia/churrascaria-palace.html",
+      "status": "OK",
+      "bytes": 13677
+    },
+    {
+      "route": "/gastronomia/churrasqueira-rio",
+      "file": "dist/gastronomia/churrasqueira-rio.html",
+      "status": "OK",
+      "bytes": 13665
+    },
+    {
+      "route": "/gastronomia/classico-beach-club-barra",
+      "file": "dist/gastronomia/classico-beach-club-barra.html",
+      "status": "OK",
+      "bytes": 13713
+    },
+    {
+      "route": "/gastronomia/classico-beach-club-leme",
+      "file": "dist/gastronomia/classico-beach-club-leme.html",
+      "status": "OK",
+      "bytes": 13707
+    },
+    {
+      "route": "/gastronomia/classico-beach-club-urca",
+      "file": "dist/gastronomia/classico-beach-club-urca.html",
+      "status": "OK",
+      "bytes": 13707
+    },
+    {
+      "route": "/gastronomia/coisa-de-carioca",
+      "file": "dist/gastronomia/coisa-de-carioca.html",
+      "status": "OK",
+      "bytes": 13659
+    },
+    {
+      "route": "/gastronomia/coisas-de-bamba",
+      "file": "dist/gastronomia/coisas-de-bamba.html",
+      "status": "OK",
+      "bytes": 13653
+    },
+    {
+      "route": "/gastronomia/confeitaria-colombo",
+      "file": "dist/gastronomia/confeitaria-colombo.html",
+      "status": "OK",
+      "bytes": 13677
+    },
+    {
+      "route": "/gastronomia/confeitaria-colombo-do-forte",
+      "file": "dist/gastronomia/confeitaria-colombo-do-forte.html",
+      "status": "OK",
+      "bytes": 13731
+    },
+    {
+      "route": "/gastronomia/confeitaria-manon",
+      "file": "dist/gastronomia/confeitaria-manon.html",
+      "status": "OK",
+      "bytes": 13665
+    },
+    {
+      "route": "/gastronomia/corrientes-348",
+      "file": "dist/gastronomia/corrientes-348.html",
+      "status": "OK",
+      "bytes": 13647
+    },
+    {
+      "route": "/gastronomia/cosmopolita",
+      "file": "dist/gastronomia/cosmopolita.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/ct-boucherie",
+      "file": "dist/gastronomia/ct-boucherie.html",
+      "status": "OK",
+      "bytes": 13635
+    },
+    {
+      "route": "/gastronomia/curto-cafe",
+      "file": "dist/gastronomia/curto-cafe.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/deck-buffet",
+      "file": "dist/gastronomia/deck-buffet.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/delirio-tropical",
+      "file": "dist/gastronomia/delirio-tropical.html",
+      "status": "OK",
+      "bytes": 13659
+    },
+    {
+      "route": "/gastronomia/delirio-tropical-centro",
+      "file": "dist/gastronomia/delirio-tropical-centro.html",
+      "status": "OK",
+      "bytes": 13701
+    },
+    {
+      "route": "/gastronomia/don-camillo",
+      "file": "dist/gastronomia/don-camillo.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/don-pascual",
+      "file": "dist/gastronomia/don-pascual.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/dumare",
+      "file": "dist/gastronomia/dumare.html",
+      "status": "OK",
+      "bytes": 13599
+    },
+    {
+      "route": "/gastronomia/eclipse",
+      "file": "dist/gastronomia/eclipse.html",
+      "status": "OK",
+      "bytes": 13605
+    },
+    {
+      "route": "/gastronomia/elena",
+      "file": "dist/gastronomia/elena.html",
+      "status": "OK",
+      "bytes": 13593
+    },
+    {
+      "route": "/gastronomia/escama",
+      "file": "dist/gastronomia/escama.html",
+      "status": "OK",
+      "bytes": 13599
+    },
+    {
+      "route": "/gastronomia/espaco-7zero6",
+      "file": "dist/gastronomia/espaco-7zero6.html",
+      "status": "OK",
+      "bytes": 13641
+    },
+    {
+      "route": "/gastronomia/espetto-carioca-quiosque",
+      "file": "dist/gastronomia/espetto-carioca-quiosque.html",
+      "status": "OK",
+      "bytes": 13707
+    },
+    {
+      "route": "/gastronomia/esquimo",
+      "file": "dist/gastronomia/esquimo.html",
+      "status": "OK",
+      "bytes": 13605
+    },
+    {
+      "route": "/gastronomia/explorer-bar",
+      "file": "dist/gastronomia/explorer-bar.html",
+      "status": "OK",
+      "bytes": 13635
+    },
+    {
+      "route": "/gastronomia/fazendola-centro",
+      "file": "dist/gastronomia/fazendola-centro.html",
+      "status": "OK",
+      "bytes": 13659
+    },
+    {
+      "route": "/gastronomia/feira-de-sao-cristovao",
+      "file": "dist/gastronomia/feira-de-sao-cristovao.html",
+      "status": "OK",
+      "bytes": 13695
+    },
+    {
+      "route": "/gastronomia/ferro-e-farinha",
+      "file": "dist/gastronomia/ferro-e-farinha.html",
+      "status": "OK",
+      "bytes": 13653
+    },
+    {
+      "route": "/gastronomia/fiorino",
+      "file": "dist/gastronomia/fiorino.html",
+      "status": "OK",
+      "bytes": 13605
+    },
+    {
+      "route": "/gastronomia/flor-do-ceu",
+      "file": "dist/gastronomia/flor-do-ceu.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/fogo-de-chao-botafogo",
+      "file": "dist/gastronomia/fogo-de-chao-botafogo.html",
+      "status": "OK",
+      "bytes": 13689
+    },
+    {
+      "route": "/gastronomia/frontera-ipanema",
+      "file": "dist/gastronomia/frontera-ipanema.html",
+      "status": "OK",
+      "bytes": 13659
+    },
+    {
+      "route": "/gastronomia/galeto-liceu",
+      "file": "dist/gastronomia/galeto-liceu.html",
+      "status": "OK",
+      "bytes": 13635
+    },
+    {
+      "route": "/gastronomia/galeto-sat-s",
+      "file": "dist/gastronomia/galeto-sat-s.html",
+      "status": "OK",
+      "bytes": 13635
+    },
+    {
+      "route": "/gastronomia/garota-de-ipanema",
+      "file": "dist/gastronomia/garota-de-ipanema.html",
+      "status": "OK",
+      "bytes": 13665
+    },
+    {
+      "route": "/gastronomia/ginga",
+      "file": "dist/gastronomia/ginga.html",
+      "status": "OK",
+      "bytes": 13593
+    },
+    {
+      "route": "/gastronomia/giuseppe-mar",
+      "file": "dist/gastronomia/giuseppe-mar.html",
+      "status": "OK",
+      "bytes": 13635
+    },
+    {
+      "route": "/gastronomia/gruta-da-tijuca",
+      "file": "dist/gastronomia/gruta-da-tijuca.html",
+      "status": "OK",
+      "bytes": 13653
+    },
+    {
+      "route": "/gastronomia/guacamole-cocina-mexicana",
+      "file": "dist/gastronomia/guacamole-cocina-mexicana.html",
+      "status": "OK",
+      "bytes": 13713
+    },
+    {
+      "route": "/gastronomia/gurume",
+      "file": "dist/gastronomia/gurume.html",
+      "status": "OK",
+      "bytes": 13599
+    },
+    {
+      "route": "/gastronomia/haru-sushi-bar",
+      "file": "dist/gastronomia/haru-sushi-bar.html",
+      "status": "OK",
+      "bytes": 13647
+    },
+    {
+      "route": "/gastronomia/hollandaise",
+      "file": "dist/gastronomia/hollandaise.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/imaculada-bar-e-restaurante",
+      "file": "dist/gastronomia/imaculada-bar-e-restaurante.html",
+      "status": "OK",
+      "bytes": 13725
+    },
+    {
+      "route": "/gastronomia/iraja-redux",
+      "file": "dist/gastronomia/iraja-redux.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/joaquina",
+      "file": "dist/gastronomia/joaquina.html",
+      "status": "OK",
+      "bytes": 13611
+    },
+    {
+      "route": "/gastronomia/jobi",
+      "file": "dist/gastronomia/jobi.html",
+      "status": "OK",
+      "bytes": 13587
+    },
+    {
+      "route": "/gastronomia/jojo-bistro",
+      "file": "dist/gastronomia/jojo-bistro.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/k08",
+      "file": "dist/gastronomia/k08.html",
+      "status": "OK",
+      "bytes": 13581
+    },
+    {
+      "route": "/gastronomia/kilograma-centro",
+      "file": "dist/gastronomia/kilograma-centro.html",
+      "status": "OK",
+      "bytes": 13659
+    },
+    {
+      "route": "/gastronomia/koral",
+      "file": "dist/gastronomia/koral.html",
+      "status": "OK",
+      "bytes": 13593
+    },
+    {
+      "route": "/gastronomia/kurt",
+      "file": "dist/gastronomia/kurt.html",
+      "status": "OK",
+      "bytes": 13587
+    },
+    {
+      "route": "/gastronomia/la-bicyclette",
+      "file": "dist/gastronomia/la-bicyclette.html",
+      "status": "OK",
+      "bytes": 13641
+    },
+    {
+      "route": "/gastronomia/la-fiorentina",
+      "file": "dist/gastronomia/la-fiorentina.html",
+      "status": "OK",
+      "bytes": 13641
+    },
+    {
+      "route": "/gastronomia/labuta-bar",
+      "file": "dist/gastronomia/labuta-bar.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/labuta-mar",
+      "file": "dist/gastronomia/labuta-mar.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/lasai",
+      "file": "dist/gastronomia/lasai.html",
+      "status": "OK",
+      "bytes": 13593
+    },
+    {
+      "route": "/gastronomia/lilia",
+      "file": "dist/gastronomia/lilia.html",
+      "status": "OK",
+      "bytes": 13593
+    },
+    {
+      "route": "/gastronomia/majorica",
+      "file": "dist/gastronomia/majorica.html",
+      "status": "OK",
+      "bytes": 13611
+    },
+    {
+      "route": "/gastronomia/margutta",
+      "file": "dist/gastronomia/margutta.html",
+      "status": "OK",
+      "bytes": 13611
+    },
+    {
+      "route": "/gastronomia/marius-degustare",
+      "file": "dist/gastronomia/marius-degustare.html",
+      "status": "OK",
+      "bytes": 13659
+    },
+    {
+      "route": "/gastronomia/maska",
+      "file": "dist/gastronomia/maska.html",
+      "status": "OK",
+      "bytes": 13593
+    },
+    {
+      "route": "/gastronomia/mee",
+      "file": "dist/gastronomia/mee.html",
+      "status": "OK",
+      "bytes": 13581
+    },
+    {
+      "route": "/gastronomia/mocellin-steak",
+      "file": "dist/gastronomia/mocellin-steak.html",
+      "status": "OK",
+      "bytes": 13647
+    },
+    {
+      "route": "/gastronomia/mosteiro",
+      "file": "dist/gastronomia/mosteiro.html",
+      "status": "OK",
+      "bytes": 13611
+    },
+    {
+      "route": "/gastronomia/naga",
+      "file": "dist/gastronomia/naga.html",
+      "status": "OK",
+      "bytes": 13587
+    },
+    {
+      "route": "/gastronomia/nido-ristorante",
+      "file": "dist/gastronomia/nido-ristorante.html",
+      "status": "OK",
+      "bytes": 13653
+    },
+    {
+      "route": "/gastronomia/nino-cucina",
+      "file": "dist/gastronomia/nino-cucina.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/noa",
+      "file": "dist/gastronomia/noa.html",
+      "status": "OK",
+      "bytes": 13581
+    },
+    {
+      "route": "/gastronomia/nova-capela",
+      "file": "dist/gastronomia/nova-capela.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/ocya-ilha-primeira",
+      "file": "dist/gastronomia/ocya-ilha-primeira.html",
+      "status": "OK",
+      "bytes": 13671
+    },
+    {
+      "route": "/gastronomia/ocya-leblon",
+      "file": "dist/gastronomia/ocya-leblon.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/oficina-do-peixe",
+      "file": "dist/gastronomia/oficina-do-peixe.html",
+      "status": "OK",
+      "bytes": 13659
+    },
+    {
+      "route": "/gastronomia/oro",
+      "file": "dist/gastronomia/oro.html",
+      "status": "OK",
+      "bytes": 13581
+    },
+    {
+      "route": "/gastronomia/oteque",
+      "file": "dist/gastronomia/oteque.html",
+      "status": "OK",
+      "bytes": 13599
+    },
+    {
+      "route": "/gastronomia/otto-restaurante",
+      "file": "dist/gastronomia/otto-restaurante.html",
+      "status": "OK",
+      "bytes": 13659
+    },
+    {
+      "route": "/gastronomia/pavao-azul",
+      "file": "dist/gastronomia/pavao-azul.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/pergula",
+      "file": "dist/gastronomia/pergula.html",
+      "status": "OK",
+      "bytes": 13605
+    },
+    {
+      "route": "/gastronomia/pescados-na-brasa",
+      "file": "dist/gastronomia/pescados-na-brasa.html",
+      "status": "OK",
+      "bytes": 13665
+    },
+    {
+      "route": "/gastronomia/pesqueiro",
+      "file": "dist/gastronomia/pesqueiro.html",
+      "status": "OK",
+      "bytes": 13617
+    },
+    {
+      "route": "/gastronomia/pilograma-prime-grill",
+      "file": "dist/gastronomia/pilograma-prime-grill.html",
+      "status": "OK",
+      "bytes": 13689
+    },
+    {
+      "route": "/gastronomia/plage-cafe",
+      "file": "dist/gastronomia/plage-cafe.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/pobre-juan",
+      "file": "dist/gastronomia/pobre-juan.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/point-de-grumari",
+      "file": "dist/gastronomia/point-de-grumari.html",
+      "status": "OK",
+      "bytes": 13659
+    },
+    {
+      "route": "/gastronomia/polis-sucos",
+      "file": "dist/gastronomia/polis-sucos.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/polvo-marisqueria",
+      "file": "dist/gastronomia/polvo-marisqueria.html",
+      "status": "OK",
+      "bytes": 13665
+    },
+    {
+      "route": "/gastronomia/praia-skol",
+      "file": "dist/gastronomia/praia-skol.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/prana-vegetariano",
+      "file": "dist/gastronomia/prana-vegetariano.html",
+      "status": "OK",
+      "bytes": 13665
+    },
+    {
+      "route": "/gastronomia/proa-cozinha-bar",
+      "file": "dist/gastronomia/proa-cozinha-bar.html",
+      "status": "OK",
+      "bytes": 13659
+    },
+    {
+      "route": "/gastronomia/quartinho",
+      "file": "dist/gastronomia/quartinho.html",
+      "status": "OK",
+      "bytes": 13617
+    },
+    {
+      "route": "/gastronomia/quiteria",
+      "file": "dist/gastronomia/quiteria.html",
+      "status": "OK",
+      "bytes": 13611
+    },
+    {
+      "route": "/gastronomia/rainer-s",
+      "file": "dist/gastronomia/rainer-s.html",
+      "status": "OK",
+      "bytes": 13611
+    },
+    {
+      "route": "/gastronomia/rampinha",
+      "file": "dist/gastronomia/rampinha.html",
+      "status": "OK",
+      "bytes": 13611
+    },
+    {
+      "route": "/gastronomia/reino-vegetal",
+      "file": "dist/gastronomia/reino-vegetal.html",
+      "status": "OK",
+      "bytes": 13641
+    },
+    {
+      "route": "/gastronomia/rio-scenarium",
+      "file": "dist/gastronomia/rio-scenarium.html",
+      "status": "OK",
+      "bytes": 13641
+    },
+    {
+      "route": "/gastronomia/ristorante-hotel-cipriani",
+      "file": "dist/gastronomia/ristorante-hotel-cipriani.html",
+      "status": "OK",
+      "bytes": 13713
+    },
+    {
+      "route": "/gastronomia/rotisseria-sirio-libanesa",
+      "file": "dist/gastronomia/rotisseria-sirio-libanesa.html",
+      "status": "OK",
+      "bytes": 13713
+    },
+    {
+      "route": "/gastronomia/rufino-parrilla",
+      "file": "dist/gastronomia/rufino-parrilla.html",
+      "status": "OK",
+      "bytes": 13653
+    },
+    {
+      "route": "/gastronomia/ryu-restaurante",
+      "file": "dist/gastronomia/ryu-restaurante.html",
+      "status": "OK",
+      "bytes": 13653
+    },
+    {
+      "route": "/gastronomia/sabor-das-aguas",
+      "file": "dist/gastronomia/sabor-das-aguas.html",
+      "status": "OK",
+      "bytes": 13653
+    },
+    {
+      "route": "/gastronomia/samba-social-clube",
+      "file": "dist/gastronomia/samba-social-clube.html",
+      "status": "OK",
+      "bytes": 13671
+    },
+    {
+      "route": "/gastronomia/satyricon",
+      "file": "dist/gastronomia/satyricon.html",
+      "status": "OK",
+      "bytes": 13617
+    },
+    {
+      "route": "/gastronomia/sel-d-ipanema",
+      "file": "dist/gastronomia/sel-d-ipanema.html",
+      "status": "OK",
+      "bytes": 13641
+    },
+    {
+      "route": "/gastronomia/shiso",
+      "file": "dist/gastronomia/shiso.html",
+      "status": "OK",
+      "bytes": 13593
+    },
+    {
+      "route": "/gastronomia/skunna",
+      "file": "dist/gastronomia/skunna.html",
+      "status": "OK",
+      "bytes": 13599
+    },
+    {
+      "route": "/gastronomia/spesso",
+      "file": "dist/gastronomia/spesso.html",
+      "status": "OK",
+      "bytes": 13599
+    },
+    {
+      "route": "/gastronomia/spicy-fish",
+      "file": "dist/gastronomia/spicy-fish.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/gastronomia/stalos",
+      "file": "dist/gastronomia/stalos.html",
+      "status": "OK",
+      "bytes": 13599
+    },
+    {
+      "route": "/gastronomia/stambul-copacabana",
+      "file": "dist/gastronomia/stambul-copacabana.html",
+      "status": "OK",
+      "bytes": 13671
+    },
+    {
+      "route": "/gastronomia/sud-o-passaro-verde",
+      "file": "dist/gastronomia/sud-o-passaro-verde.html",
+      "status": "OK",
+      "bytes": 13677
+    },
+    {
+      "route": "/gastronomia/sushi-da-praca",
+      "file": "dist/gastronomia/sushi-da-praca.html",
+      "status": "OK",
+      "bytes": 13647
+    },
+    {
+      "route": "/gastronomia/sushi-leblon",
+      "file": "dist/gastronomia/sushi-leblon.html",
+      "status": "OK",
+      "bytes": 13635
+    },
+    {
+      "route": "/gastronomia/tacaca-do-norte",
+      "file": "dist/gastronomia/tacaca-do-norte.html",
+      "status": "OK",
+      "bytes": 13653
+    },
+    {
+      "route": "/gastronomia/talho-capixaba",
+      "file": "dist/gastronomia/talho-capixaba.html",
+      "status": "OK",
+      "bytes": 13647
+    },
+    {
+      "route": "/gastronomia/tempeh",
+      "file": "dist/gastronomia/tempeh.html",
+      "status": "OK",
+      "bytes": 13599
+    },
+    {
+      "route": "/gastronomia/temperarte-bolivar",
+      "file": "dist/gastronomia/temperarte-bolivar.html",
+      "status": "OK",
+      "bytes": 13671
+    },
+    {
+      "route": "/gastronomia/temperarte-posto-6",
+      "file": "dist/gastronomia/temperarte-posto-6.html",
+      "status": "OK",
+      "bytes": 13671
+    },
+    {
+      "route": "/gastronomia/terra-brasilis",
+      "file": "dist/gastronomia/terra-brasilis.html",
+      "status": "OK",
+      "bytes": 13647
+    },
+    {
+      "route": "/gastronomia/teva",
+      "file": "dist/gastronomia/teva.html",
+      "status": "OK",
+      "bytes": 13587
+    },
+    {
+      "route": "/gastronomia/tia-palmira",
+      "file": "dist/gastronomia/tia-palmira.html",
+      "status": "OK",
+      "bytes": 13629
+    },
+    {
+      "route": "/gastronomia/toca-da-traira",
+      "file": "dist/gastronomia/toca-da-traira.html",
+      "status": "OK",
+      "bytes": 13647
+    },
+    {
+      "route": "/gastronomia/umai",
+      "file": "dist/gastronomia/umai.html",
+      "status": "OK",
+      "bytes": 13587
+    },
+    {
+      "route": "/gastronomia/venga",
+      "file": "dist/gastronomia/venga.html",
+      "status": "OK",
+      "bytes": 13593
+    },
+    {
+      "route": "/gastronomia/xian",
+      "file": "dist/gastronomia/xian.html",
+      "status": "OK",
+      "bytes": 13587
+    },
+    {
+      "route": "/gastronomia/xodozin",
+      "file": "dist/gastronomia/xodozin.html",
+      "status": "OK",
+      "bytes": 13605
+    },
+    {
+      "route": "/gastronomia/yusha",
+      "file": "dist/gastronomia/yusha.html",
+      "status": "OK",
+      "bytes": 13593
+    },
+    {
+      "route": "/gastronomia/zaza-bistro-tropical",
+      "file": "dist/gastronomia/zaza-bistro-tropical.html",
+      "status": "OK",
+      "bytes": 13683
+    },
+    {
+      "route": "/guia/pix",
+      "file": "dist/guia/pix.html",
+      "status": "OK",
+      "bytes": 13553
+    },
+    {
+      "route": "/iglesias/basilica-santuario-de-nossa-senhora-da-penha",
+      "file": "dist/iglesias/basilica-santuario-de-nossa-senhora-da-penha.html",
+      "status": "OK",
+      "bytes": 13815
+    },
+    {
+      "route": "/iglesias/capela-mayrink",
+      "file": "dist/iglesias/capela-mayrink.html",
+      "status": "OK",
+      "bytes": 13635
+    },
+    {
+      "route": "/iglesias/catedral-metropolitana-de-sao-sebastiao",
+      "file": "dist/iglesias/catedral-metropolitana-de-sao-sebastiao.html",
+      "status": "OK",
+      "bytes": 13785
+    },
+    {
+      "route": "/iglesias/convento-e-igreja-de-santo-antonio",
+      "file": "dist/iglesias/convento-e-igreja-de-santo-antonio.html",
+      "status": "OK",
+      "bytes": 13755
+    },
+    {
+      "route": "/iglesias/igreja-da-ordem-terceira-de-sao-francisco-da-penitencia",
+      "file": "dist/iglesias/igreja-da-ordem-terceira-de-sao-francisco-da-penitencia.html",
+      "status": "OK",
+      "bytes": 13881
+    },
+    {
+      "route": "/iglesias/igreja-da-ordem-terceira-do-carmo",
+      "file": "dist/iglesias/igreja-da-ordem-terceira-do-carmo.html",
+      "status": "OK",
+      "bytes": 13749
+    },
+    {
+      "route": "/iglesias/igreja-de-nossa-senhora-da-candelaria",
+      "file": "dist/iglesias/igreja-de-nossa-senhora-da-candelaria.html",
+      "status": "OK",
+      "bytes": 13773
+    },
+    {
+      "route": "/iglesias/igreja-de-nossa-senhora-da-conceicao-e-boa-morte",
+      "file": "dist/iglesias/igreja-de-nossa-senhora-da-conceicao-e-boa-morte.html",
+      "status": "OK",
+      "bytes": 13839
+    },
+    {
+      "route": "/iglesias/igreja-de-nossa-senhora-da-gloria-do-outeiro",
+      "file": "dist/iglesias/igreja-de-nossa-senhora-da-gloria-do-outeiro.html",
+      "status": "OK",
+      "bytes": 13815
+    },
+    {
+      "route": "/iglesias/igreja-de-nossa-senhora-da-lampadosa",
+      "file": "dist/iglesias/igreja-de-nossa-senhora-da-lampadosa.html",
+      "status": "OK",
+      "bytes": 13767
+    },
+    {
+      "route": "/iglesias/igreja-de-nossa-senhora-da-lapa-dos-mercadores",
+      "file": "dist/iglesias/igreja-de-nossa-senhora-da-lapa-dos-mercadores.html",
+      "status": "OK",
+      "bytes": 13827
+    },
+    {
+      "route": "/iglesias/igreja-de-nossa-senhora-da-paz",
+      "file": "dist/iglesias/igreja-de-nossa-senhora-da-paz.html",
+      "status": "OK",
+      "bytes": 13731
+    },
+    {
+      "route": "/iglesias/igreja-de-nossa-senhora-da-penna",
+      "file": "dist/iglesias/igreja-de-nossa-senhora-da-penna.html",
+      "status": "OK",
+      "bytes": 13743
+    },
+    {
+      "route": "/iglesias/igreja-de-nossa-senhora-da-saude",
+      "file": "dist/iglesias/igreja-de-nossa-senhora-da-saude.html",
+      "status": "OK",
+      "bytes": 13743
+    },
+    {
+      "route": "/iglesias/igreja-de-nossa-senhora-do-bonsucesso",
+      "file": "dist/iglesias/igreja-de-nossa-senhora-do-bonsucesso.html",
+      "status": "OK",
+      "bytes": 13773
+    },
+    {
+      "route": "/iglesias/igreja-de-nossa-senhora-do-carmo-da-antiga-se",
+      "file": "dist/iglesias/igreja-de-nossa-senhora-do-carmo-da-antiga-se.html",
+      "status": "OK",
+      "bytes": 13821
+    },
+    {
+      "route": "/iglesias/igreja-de-nossa-senhora-do-rosario-e-sao-benedito-dos-homens-pretos",
+      "file": "dist/iglesias/igreja-de-nossa-senhora-do-rosario-e-sao-benedito-dos-homens-pretos.html",
+      "status": "OK",
+      "bytes": 13953
+    },
+    {
+      "route": "/iglesias/igreja-de-santa-cruz-dos-militares",
+      "file": "dist/iglesias/igreja-de-santa-cruz-dos-militares.html",
+      "status": "OK",
+      "bytes": 13755
+    },
+    {
+      "route": "/iglesias/igreja-de-santa-luzia",
+      "file": "dist/iglesias/igreja-de-santa-luzia.html",
+      "status": "OK",
+      "bytes": 13677
+    },
+    {
+      "route": "/iglesias/igreja-de-santa-rita-de-cassia",
+      "file": "dist/iglesias/igreja-de-santa-rita-de-cassia.html",
+      "status": "OK",
+      "bytes": 13731
+    },
+    {
+      "route": "/iglesias/igreja-de-sao-francisco-da-prainha",
+      "file": "dist/iglesias/igreja-de-sao-francisco-da-prainha.html",
+      "status": "OK",
+      "bytes": 13755
+    },
+    {
+      "route": "/iglesias/igreja-de-sao-francisco-de-paula",
+      "file": "dist/iglesias/igreja-de-sao-francisco-de-paula.html",
+      "status": "OK",
+      "bytes": 13743
+    },
+    {
+      "route": "/iglesias/igreja-nossa-senhora-do-brasil",
+      "file": "dist/iglesias/igreja-nossa-senhora-do-brasil.html",
+      "status": "OK",
+      "bytes": 13731
+    },
+    {
+      "route": "/iglesias/mosteiro-de-sao-bento",
+      "file": "dist/iglesias/mosteiro-de-sao-bento.html",
+      "status": "OK",
+      "bytes": 13677
+    },
+    {
+      "route": "/iglesias/paroquia-nossa-senhora-de-copacabana",
+      "file": "dist/iglesias/paroquia-nossa-senhora-de-copacabana.html",
+      "status": "OK",
+      "bytes": 13767
+    },
+    {
+      "route": "/iglesias/paroquia-santa-margarida-maria",
+      "file": "dist/iglesias/paroquia-santa-margarida-maria.html",
+      "status": "OK",
+      "bytes": 13731
+    },
+    {
+      "route": "/iglesias/paroquia-sao-jose-da-lagoa",
+      "file": "dist/iglesias/paroquia-sao-jose-da-lagoa.html",
+      "status": "OK",
+      "bytes": 13707
+    },
+    {
+      "route": "/iglesias/paroquia-sao-judas-tadeu",
+      "file": "dist/iglesias/paroquia-sao-judas-tadeu.html",
+      "status": "OK",
+      "bytes": 13695
+    },
+    {
+      "route": "/iglesias/paroquia-sao-sebastiao-dos-frades-capuchinhos",
+      "file": "dist/iglesias/paroquia-sao-sebastiao-dos-frades-capuchinhos.html",
+      "status": "OK",
+      "bytes": 13821
+    },
+    {
+      "route": "/iglesias/santuario-de-nossa-senhora-de-fatima",
+      "file": "dist/iglesias/santuario-de-nossa-senhora-de-fatima.html",
+      "status": "OK",
+      "bytes": 13767
+    },
+    {
+      "route": "/lugares/aquario",
+      "file": "dist/lugares/aquario.html",
+      "status": "OK",
+      "bytes": 13589
+    },
+    {
+      "route": "/lugares/buzios",
+      "file": "dist/lugares/buzios.html",
+      "status": "OK",
+      "bytes": 13583
+    },
+    {
+      "route": "/lugares/cristo-redentor",
+      "file": "dist/lugares/cristo-redentor.html",
+      "status": "OK",
+      "bytes": 13637
+    },
+    {
+      "route": "/lugares/escadaria-selaron",
+      "file": "dist/lugares/escadaria-selaron.html",
+      "status": "OK",
+      "bytes": 13649
+    },
+    {
+      "route": "/lugares/floresta-da-tijuca",
+      "file": "dist/lugares/floresta-da-tijuca.html",
+      "status": "OK",
+      "bytes": 13655
+    },
+    {
+      "route": "/lugares/forte-de-copacabana",
+      "file": "dist/lugares/forte-de-copacabana.html",
+      "status": "OK",
+      "bytes": 13661
+    },
+    {
+      "route": "/lugares/ipanema",
+      "file": "dist/lugares/ipanema.html",
+      "status": "OK",
+      "bytes": 13589
+    },
+    {
+      "route": "/lugares/jardim-botanico",
+      "file": "dist/lugares/jardim-botanico.html",
+      "status": "OK",
+      "bytes": 13637
+    },
+    {
+      "route": "/lugares/lapa",
+      "file": "dist/lugares/lapa.html",
+      "status": "OK",
+      "bytes": 13571
+    },
+    {
+      "route": "/lugares/mam-rio",
+      "file": "dist/lugares/mam-rio.html",
+      "status": "OK",
+      "bytes": 13589
+    },
+    {
+      "route": "/lugares/mar",
+      "file": "dist/lugares/mar.html",
+      "status": "OK",
+      "bytes": 13565
+    },
+    {
+      "route": "/lugares/maracana",
+      "file": "dist/lugares/maracana.html",
+      "status": "OK",
+      "bytes": 13595
+    },
+    {
+      "route": "/lugares/musal",
+      "file": "dist/lugares/musal.html",
+      "status": "OK",
+      "bytes": 13577
+    },
+    {
+      "route": "/lugares/museu-do-amanha",
+      "file": "dist/lugares/museu-do-amanha.html",
+      "status": "OK",
+      "bytes": 13637
+    },
+    {
+      "route": "/lugares/palacio-do-catete",
+      "file": "dist/lugares/palacio-do-catete.html",
+      "status": "OK",
+      "bytes": 13649
+    },
+    {
+      "route": "/lugares/pao-de-acucar",
+      "file": "dist/lugares/pao-de-acucar.html",
+      "status": "OK",
+      "bytes": 13625
+    },
+    {
+      "route": "/lugares/parque-lage",
+      "file": "dist/lugares/parque-lage.html",
+      "status": "OK",
+      "bytes": 13613
+    },
+    {
+      "route": "/lugares/pedra-bonita",
+      "file": "dist/lugares/pedra-bonita.html",
+      "status": "OK",
+      "bytes": 13619
+    },
+    {
+      "route": "/lugares/real-gabinete-portugues",
+      "file": "dist/lugares/real-gabinete-portugues.html",
+      "status": "OK",
+      "bytes": 13685
+    },
+    {
+      "route": "/lugares/santa-teresa",
+      "file": "dist/lugares/santa-teresa.html",
+      "status": "OK",
+      "bytes": 13619
+    },
+    {
+      "route": "/museos/casa-historica-de-deodoro",
+      "file": "dist/museos/casa-historica-de-deodoro.html",
+      "status": "OK",
+      "bytes": 13693
+    },
+    {
+      "route": "/museos/instituto-historico-e-geografico-brasileiro-ihgb",
+      "file": "dist/museos/instituto-historico-e-geografico-brasileiro-ihgb.html",
+      "status": "OK",
+      "bytes": 13831
+    },
+    {
+      "route": "/museos/museu-aeroespacial-musal",
+      "file": "dist/museos/museu-aeroespacial-musal.html",
+      "status": "OK",
+      "bytes": 13687
+    },
+    {
+      "route": "/museos/museu-arquidiocesano-de-arte-sacra-maas",
+      "file": "dist/museos/museu-arquidiocesano-de-arte-sacra-maas.html",
+      "status": "OK",
+      "bytes": 13777
+    },
+    {
+      "route": "/museos/museu-casa-de-benjamin-constant",
+      "file": "dist/museos/museu-casa-de-benjamin-constant.html",
+      "status": "OK",
+      "bytes": 13729
+    },
+    {
+      "route": "/museos/museu-chacara-do-ceu",
+      "file": "dist/museos/museu-chacara-do-ceu.html",
+      "status": "OK",
+      "bytes": 13663
+    },
+    {
+      "route": "/museos/museu-da-historia-e-da-cultura-afro-brasileira-muhcab",
+      "file": "dist/museos/museu-da-historia-e-da-cultura-afro-brasileira-muhcab.html",
+      "status": "OK",
+      "bytes": 13861
+    },
+    {
+      "route": "/museos/museu-da-republica-palacio-do-catete",
+      "file": "dist/museos/museu-da-republica-palacio-do-catete.html",
+      "status": "OK",
+      "bytes": 13759
+    },
+    {
+      "route": "/museos/museu-da-vida-fiocruz",
+      "file": "dist/museos/museu-da-vida-fiocruz.html",
+      "status": "OK",
+      "bytes": 13669
+    },
+    {
+      "route": "/museos/museu-de-arqueologia-de-itaipu",
+      "file": "dist/museos/museu-de-arqueologia-de-itaipu.html",
+      "status": "OK",
+      "bytes": 13723
+    },
+    {
+      "route": "/museos/museu-de-arte-contemporanea-de-niteroi-mac",
+      "file": "dist/museos/museu-de-arte-contemporanea-de-niteroi-mac.html",
+      "status": "OK",
+      "bytes": 13795
+    },
+    {
+      "route": "/museos/museu-de-arte-do-rio-mar",
+      "file": "dist/museos/museu-de-arte-do-rio-mar.html",
+      "status": "OK",
+      "bytes": 13687
+    },
+    {
+      "route": "/museos/museu-de-arte-moderna-do-rio-de-janeiro-mam-rio",
+      "file": "dist/museos/museu-de-arte-moderna-do-rio-de-janeiro-mam-rio.html",
+      "status": "OK",
+      "bytes": 13825
+    },
+    {
+      "route": "/museos/museu-de-astronomia-e-ciencias-afins-mast",
+      "file": "dist/museos/museu-de-astronomia-e-ciencias-afins-mast.html",
+      "status": "OK",
+      "bytes": 13789
+    },
+    {
+      "route": "/museos/museu-de-folclore-edison-carneiro",
+      "file": "dist/museos/museu-de-folclore-edison-carneiro.html",
+      "status": "OK",
+      "bytes": 13741
+    },
+    {
+      "route": "/museos/museu-do-acude",
+      "file": "dist/museos/museu-do-acude.html",
+      "status": "OK",
+      "bytes": 13627
+    },
+    {
+      "route": "/museos/museu-do-amanha",
+      "file": "dist/museos/museu-do-amanha.html",
+      "status": "OK",
+      "bytes": 13633
+    },
+    {
+      "route": "/museos/museu-do-pontal",
+      "file": "dist/museos/museu-do-pontal.html",
+      "status": "OK",
+      "bytes": 13633
+    },
+    {
+      "route": "/museos/museu-do-samba",
+      "file": "dist/museos/museu-do-samba.html",
+      "status": "OK",
+      "bytes": 13627
+    },
+    {
+      "route": "/museos/museu-flamengo",
+      "file": "dist/museos/museu-flamengo.html",
+      "status": "OK",
+      "bytes": 13627
+    },
+    {
+      "route": "/museos/museu-historico-da-cidade-do-rio-de-janeiro",
+      "file": "dist/museos/museu-historico-da-cidade-do-rio-de-janeiro.html",
+      "status": "OK",
+      "bytes": 13801
+    },
+    {
+      "route": "/museos/museu-historico-nacional",
+      "file": "dist/museos/museu-historico-nacional.html",
+      "status": "OK",
+      "bytes": 13687
+    },
+    {
+      "route": "/museos/museu-light-da-energia",
+      "file": "dist/museos/museu-light-da-energia.html",
+      "status": "OK",
+      "bytes": 13675
+    },
+    {
+      "route": "/museos/museu-nacional-de-belas-artes-mnba",
+      "file": "dist/museos/museu-nacional-de-belas-artes-mnba.html",
+      "status": "OK",
+      "bytes": 13747
+    },
+    {
+      "route": "/museos/museu-nacional-dos-povos-indigenas",
+      "file": "dist/museos/museu-nacional-dos-povos-indigenas.html",
+      "status": "OK",
+      "bytes": 13747
+    },
+    {
+      "route": "/museos/museu-nacional-ufrj",
+      "file": "dist/museos/museu-nacional-ufrj.html",
+      "status": "OK",
+      "bytes": 13657
+    },
+    {
+      "route": "/museos/museu-naval",
+      "file": "dist/museos/museu-naval.html",
+      "status": "OK",
+      "bytes": 13609
+    },
+    {
+      "route": "/museos/museu-villa-lobos",
+      "file": "dist/museos/museu-villa-lobos.html",
+      "status": "OK",
+      "bytes": 13645
+    },
+    {
+      "route": "/teatros/casa-de-cultura-laura-alvim",
+      "file": "dist/teatros/casa-de-cultura-laura-alvim.html",
+      "status": "OK",
+      "bytes": 13709
+    },
+    {
+      "route": "/teatros/ecovilla-ri-happy",
+      "file": "dist/teatros/ecovilla-ri-happy.html",
+      "status": "OK",
+      "bytes": 13649
+    },
+    {
+      "route": "/teatros/imperator-centro-cultural-joao-nogueira",
+      "file": "dist/teatros/imperator-centro-cultural-joao-nogueira.html",
+      "status": "OK",
+      "bytes": 13781
+    },
+    {
+      "route": "/teatros/teatro-dos-quatro",
+      "file": "dist/teatros/teatro-dos-quatro.html",
+      "status": "OK",
+      "bytes": 13649
+    },
+    {
+      "route": "/teatros/teatro-dulcina",
+      "file": "dist/teatros/teatro-dulcina.html",
+      "status": "OK",
+      "bytes": 13631
+    },
+    {
+      "route": "/teatros/teatro-fernanda-montenegro",
+      "file": "dist/teatros/teatro-fernanda-montenegro.html",
+      "status": "OK",
+      "bytes": 13703
+    },
+    {
+      "route": "/teatros/teatro-glauce-rocha",
+      "file": "dist/teatros/teatro-glauce-rocha.html",
+      "status": "OK",
+      "bytes": 13661
+    },
+    {
+      "route": "/teatros/teatro-ipanema",
+      "file": "dist/teatros/teatro-ipanema.html",
+      "status": "OK",
+      "bytes": 13631
+    },
+    {
+      "route": "/teatros/teatro-joao-caetano",
+      "file": "dist/teatros/teatro-joao-caetano.html",
+      "status": "OK",
+      "bytes": 13661
+    },
+    {
+      "route": "/teatros/teatro-maison-de-france",
+      "file": "dist/teatros/teatro-maison-de-france.html",
+      "status": "OK",
+      "bytes": 13685
+    },
+    {
+      "route": "/teatros/teatro-miguel-falabella",
+      "file": "dist/teatros/teatro-miguel-falabella.html",
+      "status": "OK",
+      "bytes": 13685
+    },
+    {
+      "route": "/teatros/teatro-multiplan",
+      "file": "dist/teatros/teatro-multiplan.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/teatros/teatro-municipal-armando-gonzaga",
+      "file": "dist/teatros/teatro-municipal-armando-gonzaga.html",
+      "status": "OK",
+      "bytes": 13739
+    },
+    {
+      "route": "/teatros/teatro-municipal-arthur-azevedo",
+      "file": "dist/teatros/teatro-municipal-arthur-azevedo.html",
+      "status": "OK",
+      "bytes": 13733
+    },
+    {
+      "route": "/teatros/teatro-municipal-cacilda-becker",
+      "file": "dist/teatros/teatro-municipal-cacilda-becker.html",
+      "status": "OK",
+      "bytes": 13733
+    },
+    {
+      "route": "/teatros/teatro-municipal-carlos-gomes",
+      "file": "dist/teatros/teatro-municipal-carlos-gomes.html",
+      "status": "OK",
+      "bytes": 13721
+    },
+    {
+      "route": "/teatros/teatro-municipal-ziembinski",
+      "file": "dist/teatros/teatro-municipal-ziembinski.html",
+      "status": "OK",
+      "bytes": 13709
+    },
+    {
+      "route": "/teatros/teatro-riachuelo-rio",
+      "file": "dist/teatros/teatro-riachuelo-rio.html",
+      "status": "OK",
+      "bytes": 13667
+    },
+    {
+      "route": "/teatros/teatro-rival-petrobras",
+      "file": "dist/teatros/teatro-rival-petrobras.html",
+      "status": "OK",
+      "bytes": 13679
+    },
+    {
+      "route": "/teatros/teatro-sesc-ginastico",
+      "file": "dist/teatros/teatro-sesc-ginastico.html",
+      "status": "OK",
+      "bytes": 13673
+    },
+    {
+      "route": "/teatros/teatro-sesc-tijuca",
+      "file": "dist/teatros/teatro-sesc-tijuca.html",
+      "status": "OK",
+      "bytes": 13655
+    },
+    {
+      "route": "/teatros/theatro-municipal-do-rio-de-janeiro",
+      "file": "dist/teatros/theatro-municipal-do-rio-de-janeiro.html",
+      "status": "OK",
+      "bytes": 13757
+    },
+    {
+      "route": "/transportes/bicicletas",
+      "file": "dist/transportes/bicicletas.html",
+      "status": "OK",
+      "bytes": 13623
+    },
+    {
+      "route": "/transportes/metro",
+      "file": "dist/transportes/metro.html",
+      "status": "OK",
+      "bytes": 13593
+    },
+    {
+      "route": "/transportes/transporte-publico",
+      "file": "dist/transportes/transporte-publico.html",
+      "status": "OK",
+      "bytes": 13671
+    },
+    {
+      "route": "/transportes/traslados",
+      "file": "dist/transportes/traslados.html",
+      "status": "OK",
+      "bytes": 13617
+    },
+    {
+      "route": "/transportes/uber",
+      "file": "dist/transportes/uber.html",
+      "status": "OK",
+      "bytes": 13587
+    },
+    {
+      "route": "/playas/playa-de-abrico",
+      "file": "dist/playas/playa-de-abrico.html",
+      "status": "OK",
+      "bytes": 13633
+    },
+    {
+      "route": "/playas/playa-de-arpoador",
+      "file": "dist/playas/playa-de-arpoador.html",
+      "status": "OK",
+      "bytes": 13645
+    },
+    {
+      "route": "/playas/playa-de-botafogo",
+      "file": "dist/playas/playa-de-botafogo.html",
+      "status": "OK",
+      "bytes": 13645
+    },
+    {
+      "route": "/playas/playa-de-copacabana",
+      "file": "dist/playas/playa-de-copacabana.html",
+      "status": "OK",
+      "bytes": 13657
+    },
+    {
+      "route": "/playas/playa-de-ipanema",
+      "file": "dist/playas/playa-de-ipanema.html",
+      "status": "OK",
+      "bytes": 13639
+    },
+    {
+      "route": "/playas/playa-de-joatinga",
+      "file": "dist/playas/playa-de-joatinga.html",
+      "status": "OK",
+      "bytes": 13645
+    },
+    {
+      "route": "/playas/playa-de-leblon",
+      "file": "dist/playas/playa-de-leblon.html",
+      "status": "OK",
+      "bytes": 13633
+    },
+    {
+      "route": "/playas/playa-de-leme",
+      "file": "dist/playas/playa-de-leme.html",
+      "status": "OK",
+      "bytes": 13621
+    },
+    {
+      "route": "/playas/playa-de-recreio-dos-bandeirantes",
+      "file": "dist/playas/playa-de-recreio-dos-bandeirantes.html",
+      "status": "OK",
+      "bytes": 13741
+    },
+    {
+      "route": "/playas/playa-de-sao-conrado",
+      "file": "dist/playas/playa-de-sao-conrado.html",
+      "status": "OK",
+      "bytes": 13663
+    },
+    {
+      "route": "/playas/praia-da-reserva",
+      "file": "dist/playas/praia-da-reserva.html",
+      "status": "OK",
+      "bytes": 13639
+    },
+    {
+      "route": "/playas/praia-do-diabo-playa-del-diablo",
+      "file": "dist/playas/praia-do-diabo-playa-del-diablo.html",
+      "status": "OK",
+      "bytes": 13729
+    },
+    {
+      "route": "/playas/praia-dos-amores-barra",
+      "file": "dist/playas/praia-dos-amores-barra.html",
+      "status": "OK",
+      "bytes": 13675
+    },
+    {
+      "route": "/playas/praia-vermelha",
+      "file": "dist/playas/praia-vermelha.html",
+      "status": "OK",
+      "bytes": 13627
+    },
+    {
+      "route": "/playas/prainha-do-vidigal",
+      "file": "dist/playas/prainha-do-vidigal.html",
+      "status": "OK",
+      "bytes": 13651
+    },
+    {
+      "route": "/vida-nocturna/all-in",
+      "file": "dist/vida-nocturna/all-in.html",
+      "status": "OK",
+      "bytes": 13607
+    },
+    {
+      "route": "/vida-nocturna/armazem-senado",
+      "file": "dist/vida-nocturna/armazem-senado.html",
+      "status": "OK",
+      "bytes": 13655
+    },
+    {
+      "route": "/vida-nocturna/bafo-da-prainha",
+      "file": "dist/vida-nocturna/bafo-da-prainha.html",
+      "status": "OK",
+      "bytes": 13661
+    },
+    {
+      "route": "/vida-nocturna/bar-astor",
+      "file": "dist/vida-nocturna/bar-astor.html",
+      "status": "OK",
+      "bytes": 13625
+    },
+    {
+      "route": "/vida-nocturna/bar-bukowski",
+      "file": "dist/vida-nocturna/bar-bukowski.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/vida-nocturna/bar-da-cachaca",
+      "file": "dist/vida-nocturna/bar-da-cachaca.html",
+      "status": "OK",
+      "bytes": 13655
+    },
+    {
+      "route": "/vida-nocturna/bar-de-fogo-de-chao",
+      "file": "dist/vida-nocturna/bar-de-fogo-de-chao.html",
+      "status": "OK",
+      "bytes": 13685
+    },
+    {
+      "route": "/vida-nocturna/bar-do-omar",
+      "file": "dist/vida-nocturna/bar-do-omar.html",
+      "status": "OK",
+      "bytes": 13637
+    },
+    {
+      "route": "/vida-nocturna/bar-do-zeca-pagodinho",
+      "file": "dist/vida-nocturna/bar-do-zeca-pagodinho.html",
+      "status": "OK",
+      "bytes": 13697
+    },
+    {
+      "route": "/vida-nocturna/beco-das-garrafas",
+      "file": "dist/vida-nocturna/beco-das-garrafas.html",
+      "status": "OK",
+      "bytes": 13673
+    },
+    {
+      "route": "/vida-nocturna/beco-do-rato",
+      "file": "dist/vida-nocturna/beco-do-rato.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/vida-nocturna/bip-bip",
+      "file": "dist/vida-nocturna/bip-bip.html",
+      "status": "OK",
+      "bytes": 13613
+    },
+    {
+      "route": "/vida-nocturna/blue-note-rio",
+      "file": "dist/vida-nocturna/blue-note-rio.html",
+      "status": "OK",
+      "bytes": 13649
+    },
+    {
+      "route": "/vida-nocturna/boa-praca",
+      "file": "dist/vida-nocturna/boa-praca.html",
+      "status": "OK",
+      "bytes": 13625
+    },
+    {
+      "route": "/vida-nocturna/bosque-bar",
+      "file": "dist/vida-nocturna/bosque-bar.html",
+      "status": "OK",
+      "bytes": 13631
+    },
+    {
+      "route": "/vida-nocturna/brewteco-botafogo",
+      "file": "dist/vida-nocturna/brewteco-botafogo.html",
+      "status": "OK",
+      "bytes": 13673
+    },
+    {
+      "route": "/vida-nocturna/cacique-de-ramos",
+      "file": "dist/vida-nocturna/cacique-de-ramos.html",
+      "status": "OK",
+      "bytes": 13667
+    },
+    {
+      "route": "/vida-nocturna/canastra-bar",
+      "file": "dist/vida-nocturna/canastra-bar.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/vida-nocturna/carioca-da-gema",
+      "file": "dist/vida-nocturna/carioca-da-gema.html",
+      "status": "OK",
+      "bytes": 13661
+    },
+    {
+      "route": "/vida-nocturna/circo-voador",
+      "file": "dist/vida-nocturna/circo-voador.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/vida-nocturna/comuna",
+      "file": "dist/vida-nocturna/comuna.html",
+      "status": "OK",
+      "bytes": 13607
+    },
+    {
+      "route": "/vida-nocturna/coordenadas-bar",
+      "file": "dist/vida-nocturna/coordenadas-bar.html",
+      "status": "OK",
+      "bytes": 13661
+    },
+    {
+      "route": "/vida-nocturna/feira-de-sao-cristovao",
+      "file": "dist/vida-nocturna/feira-de-sao-cristovao.html",
+      "status": "OK",
+      "bytes": 13703
+    },
+    {
+      "route": "/vida-nocturna/fundicao-progresso",
+      "file": "dist/vida-nocturna/fundicao-progresso.html",
+      "status": "OK",
+      "bytes": 13679
+    },
+    {
+      "route": "/vida-nocturna/galeria-cafe",
+      "file": "dist/vida-nocturna/galeria-cafe.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/vida-nocturna/isabel-lounge",
+      "file": "dist/vida-nocturna/isabel-lounge.html",
+      "status": "OK",
+      "bytes": 13649
+    },
+    {
+      "route": "/vida-nocturna/jobi",
+      "file": "dist/vida-nocturna/jobi.html",
+      "status": "OK",
+      "bytes": 13595
+    },
+    {
+      "route": "/vida-nocturna/lapa-40-graus",
+      "file": "dist/vida-nocturna/lapa-40-graus.html",
+      "status": "OK",
+      "bytes": 13649
+    },
+    {
+      "route": "/vida-nocturna/leviano-bar",
+      "file": "dist/vida-nocturna/leviano-bar.html",
+      "status": "OK",
+      "bytes": 13637
+    },
+    {
+      "route": "/vida-nocturna/macuna",
+      "file": "dist/vida-nocturna/macuna.html",
+      "status": "OK",
+      "bytes": 13607
+    },
+    {
+      "route": "/vida-nocturna/moonlounge-rooftop",
+      "file": "dist/vida-nocturna/moonlounge-rooftop.html",
+      "status": "OK",
+      "bytes": 13679
+    },
+    {
+      "route": "/vida-nocturna/nosso",
+      "file": "dist/vida-nocturna/nosso.html",
+      "status": "OK",
+      "bytes": 13601
+    },
+    {
+      "route": "/vida-nocturna/ocya-ilha-primeira",
+      "file": "dist/vida-nocturna/ocya-ilha-primeira.html",
+      "status": "OK",
+      "bytes": 13679
+    },
+    {
+      "route": "/vida-nocturna/pedra-do-sal",
+      "file": "dist/vida-nocturna/pedra-do-sal.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/vida-nocturna/pink-flamingo",
+      "file": "dist/vida-nocturna/pink-flamingo.html",
+      "status": "OK",
+      "bytes": 13649
+    },
+    {
+      "route": "/vida-nocturna/portelao",
+      "file": "dist/vida-nocturna/portelao.html",
+      "status": "OK",
+      "bytes": 13619
+    },
+    {
+      "route": "/vida-nocturna/quadra-da-mangueira",
+      "file": "dist/vida-nocturna/quadra-da-mangueira.html",
+      "status": "OK",
+      "bytes": 13685
+    },
+    {
+      "route": "/vida-nocturna/quadra-do-salgueiro",
+      "file": "dist/vida-nocturna/quadra-do-salgueiro.html",
+      "status": "OK",
+      "bytes": 13685
+    },
+    {
+      "route": "/vida-nocturna/quartinho",
+      "file": "dist/vida-nocturna/quartinho.html",
+      "status": "OK",
+      "bytes": 13625
+    },
+    {
+      "route": "/vida-nocturna/renascenca-clube",
+      "file": "dist/vida-nocturna/renascenca-clube.html",
+      "status": "OK",
+      "bytes": 13667
+    },
+    {
+      "route": "/vida-nocturna/rio-scenarium",
+      "file": "dist/vida-nocturna/rio-scenarium.html",
+      "status": "OK",
+      "bytes": 13649
+    },
+    {
+      "route": "/vida-nocturna/rooftop-lapa",
+      "file": "dist/vida-nocturna/rooftop-lapa.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/vida-nocturna/sacadura-154",
+      "file": "dist/vida-nocturna/sacadura-154.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/vida-nocturna/trapiche-gamboa",
+      "file": "dist/vida-nocturna/trapiche-gamboa.html",
+      "status": "OK",
+      "bytes": 13661
+    },
+    {
+      "route": "/vida-nocturna/vaca-atolada",
+      "file": "dist/vida-nocturna/vaca-atolada.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/vida-nocturna/vitrinni-lounge",
+      "file": "dist/vida-nocturna/vitrinni-lounge.html",
+      "status": "OK",
+      "bytes": 13661
+    },
+    {
+      "route": "/vida-nocturna/vogue-square",
+      "file": "dist/vida-nocturna/vogue-square.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/vida-nocturna/xepa",
+      "file": "dist/vida-nocturna/xepa.html",
+      "status": "OK",
+      "bytes": 13595
+    },
+    {
+      "route": "/vida-nocturna/yoo2-rooftop",
+      "file": "dist/vida-nocturna/yoo2-rooftop.html",
+      "status": "OK",
+      "bytes": 13643
+    },
+    {
+      "route": "/compras/ferias/babilonia-feira-hype",
+      "file": "dist/compras/ferias/babilonia-feira-hype.html",
+      "status": "OK",
+      "bytes": 13681
+    },
+    {
+      "route": "/compras/ferias/feira-da-providencia",
+      "file": "dist/compras/ferias/feira-da-providencia.html",
+      "status": "OK",
+      "bytes": 13681
+    },
+    {
+      "route": "/compras/ferias/feira-das-yabas",
+      "file": "dist/compras/ferias/feira-das-yabas.html",
+      "status": "OK",
+      "bytes": 13651
+    },
+    {
+      "route": "/compras/ferias/feira-de-antiguidades-da-praca-xv",
+      "file": "dist/compras/ferias/feira-de-antiguidades-da-praca-xv.html",
+      "status": "OK",
+      "bytes": 13759
+    },
+    {
+      "route": "/compras/ferias/feira-do-rio-antigo-lavradio",
+      "file": "dist/compras/ferias/feira-do-rio-antigo-lavradio.html",
+      "status": "OK",
+      "bytes": 13729
+    },
+    {
+      "route": "/compras/ferias/feira-hippie-de-ipanema",
+      "file": "dist/compras/ferias/feira-hippie-de-ipanema.html",
+      "status": "OK",
+      "bytes": 13699
+    },
+    {
+      "route": "/compras/ferias/feira-livre-da-gloria",
+      "file": "dist/compras/ferias/feira-livre-da-gloria.html",
+      "status": "OK",
+      "bytes": 13687
+    },
+    {
+      "route": "/compras/ferias/feira-noturna-de-copacabana",
+      "file": "dist/compras/ferias/feira-noturna-de-copacabana.html",
+      "status": "OK",
+      "bytes": 13723
+    },
+    {
+      "route": "/compras/ferias/feira-organica-da-gloria",
+      "file": "dist/compras/ferias/feira-organica-da-gloria.html",
+      "status": "OK",
+      "bytes": 13705
+    },
+    {
+      "route": "/compras/ferias/feirarte-de-copacabana-praca-do-lido",
+      "file": "dist/compras/ferias/feirarte-de-copacabana-praca-do-lido.html",
+      "status": "OK",
+      "bytes": 13777
+    },
+    {
+      "route": "/compras/mercados/cadeg-mercado-municipal-do-rio",
+      "file": "dist/compras/mercados/cadeg-mercado-municipal-do-rio.html",
+      "status": "OK",
+      "bytes": 13745
+    },
+    {
+      "route": "/compras/mercados/centro-luiz-gonzaga-de-tradicoes-nordestinas",
+      "file": "dist/compras/mercados/centro-luiz-gonzaga-de-tradicoes-nordestinas.html",
+      "status": "OK",
+      "bytes": 13829
+    },
+    {
+      "route": "/compras/mercados/mercadao-de-madureira",
+      "file": "dist/compras/mercados/mercadao-de-madureira.html",
+      "status": "OK",
+      "bytes": 13691
+    },
+    {
+      "route": "/compras/mercados/mercado-de-sao-pedro",
+      "file": "dist/compras/mercados/mercado-de-sao-pedro.html",
+      "status": "OK",
+      "bytes": 13685
+    },
+    {
+      "route": "/compras/mercados/mercado-popular-da-uruguaiana",
+      "file": "dist/compras/mercados/mercado-popular-da-uruguaiana.html",
+      "status": "OK",
+      "bytes": 13739
+    },
+    {
+      "route": "/compras/mercados/saara",
+      "file": "dist/compras/mercados/saara.html",
+      "status": "OK",
+      "bytes": 13595
+    },
+    {
+      "route": "/compras/shoppings/barrashopping",
+      "file": "dist/compras/shoppings/barrashopping.html",
+      "status": "OK",
+      "bytes": 13645
+    },
+    {
+      "route": "/compras/shoppings/botafogo-praia-shopping",
+      "file": "dist/compras/shoppings/botafogo-praia-shopping.html",
+      "status": "OK",
+      "bytes": 13705
+    },
+    {
+      "route": "/compras/shoppings/downtown",
+      "file": "dist/compras/shoppings/downtown.html",
+      "status": "OK",
+      "bytes": 13615
+    },
+    {
+      "route": "/compras/shoppings/fashion-mall",
+      "file": "dist/compras/shoppings/fashion-mall.html",
+      "status": "OK",
+      "bytes": 13639
+    },
+    {
+      "route": "/compras/shoppings/norteshopping",
+      "file": "dist/compras/shoppings/norteshopping.html",
+      "status": "OK",
+      "bytes": 13645
+    },
+    {
+      "route": "/compras/shoppings/parkjacarepagua",
+      "file": "dist/compras/shoppings/parkjacarepagua.html",
+      "status": "OK",
+      "bytes": 13657
+    },
+    {
+      "route": "/compras/shoppings/shopping-leblon",
+      "file": "dist/compras/shoppings/shopping-leblon.html",
+      "status": "OK",
+      "bytes": 13657
+    },
+    {
+      "route": "/compras/shoppings/shopping-metropolitano-barra",
+      "file": "dist/compras/shoppings/shopping-metropolitano-barra.html",
+      "status": "OK",
+      "bytes": 13735
+    },
+    {
+      "route": "/compras/shoppings/shopping-nova-america",
+      "file": "dist/compras/shoppings/shopping-nova-america.html",
+      "status": "OK",
+      "bytes": 13693
+    },
+    {
+      "route": "/compras/shoppings/shopping-riosul",
+      "file": "dist/compras/shoppings/shopping-riosul.html",
+      "status": "OK",
+      "bytes": 13657
+    },
+    {
+      "route": "/compras/shoppings/shopping-tijuca",
+      "file": "dist/compras/shoppings/shopping-tijuca.html",
+      "status": "OK",
+      "bytes": 13657
+    },
+    {
+      "route": "/compras/shoppings/villagemall",
+      "file": "dist/compras/shoppings/villagemall.html",
+      "status": "OK",
+      "bytes": 13633
+    }
+  ]
+}
