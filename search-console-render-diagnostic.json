@@ -3,8 +3,8 @@
     "route": "/transportes",
     "status": 200,
     "navError": null,
-    "domContentLoadedMs": 1131,
-    "networkIdleMs": 1722,
+    "domContentLoadedMs": 865,
+    "networkIdleMs": 1454,
     "reqs": 21,
     "bytes": 4721051,
     "failed": [
@@ -13,7 +13,7 @@
         "error": "net::ERR_BLOCKED_BY_ORB"
       },
       {
-        "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-QE1X83D419&gtm=45je69a0h2v9263256555za200zd9263256555&_p=1789216545906&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=222432139.1789216546&frm=0&ngs=1&pscdl=noapi&rcb=6&sr=412x915&uaa=arm&uab=64&uafvl=Chromium%3B140.0.7339.16%7CNot%253DA%253FBrand%3B24.0.0.0%7CHeadlessChrome%3B140.0.7339.16&uam=&uamb=0&uap=Android&uapv=6.0.1&uaw=0&ul=en-us%40posix&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789216546&sct=1&seg=0&dl=https%3A%2F%2Fwww.ernestinhocarioca.com.br%2Ftransportes&dt=C%C3%B3mo%20moverse%20en%20R%C3%ADo%20de%20Janeiro%20%7C%20Ernestinho%20Carioca&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=1190",
+        "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-QE1X83D419&gtm=45je6992v9263256555za200zd9263256555&_p=1789216702198&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=358556597.1789216702&frm=0&ngs=1&pscdl=noapi&rcb=0&sr=412x915&uaa=arm&uab=64&uafvl=Chromium%3B140.0.7339.16%7CNot%253DA%253FBrand%3B24.0.0.0%7CHeadlessChrome%3B140.0.7339.16&uam=&uamb=0&uap=Android&uapv=6.0.1&uaw=0&ul=en-us%40posix&_s=1&tag_exp=115616985~115938465~115938468~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789216702&sct=1&seg=0&dl=https%3A%2F%2Fwww.ernestinhocarioca.com.br%2Ftransportes&dt=C%C3%B3mo%20moverse%20en%20R%C3%ADo%20de%20Janeiro%20%7C%20Ernestinho%20Carioca&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=910",
         "error": "net::ERR_ABORTED"
       }
     ],
@@ -42,13 +42,13 @@
     "route": "/copacabana",
     "status": 200,
     "navError": null,
-    "domContentLoadedMs": 837,
-    "networkIdleMs": 1761,
+    "domContentLoadedMs": 741,
+    "networkIdleMs": 1344,
     "reqs": 18,
-    "bytes": 581164,
+    "bytes": 581163,
     "failed": [
       {
-        "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-QE1X83D419&gtm=45je6992v9263256555za200zd9263256555xf1&_p=1789216548756&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1017136096.1789216549&frm=0&ngs=1&pscdl=noapi&rcb=0&sr=412x915&uaa=arm&uab=64&uafvl=Chromium%3B140.0.7339.16%7CNot%253DA%253FBrand%3B24.0.0.0%7CHeadlessChrome%3B140.0.7339.16&uam=&uamb=0&uap=Android&uapv=6.0.1&uaw=0&ul=en-us%40posix&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153~120912439&sid=1789216549&sct=1&seg=0&dl=https%3A%2F%2Fwww.ernestinhocarioca.com.br%2Fcopacabana&dt=Copacabana%20%7C%20Gu%C3%ADa%20de%20Ernestinho%20Carioca&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=885",
+        "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-QE1X83D419&gtm=45je6992v9263256555za200zd9263256555&_p=1789216704983&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1972008620.1789216705&frm=0&ngs=1&pscdl=noapi&rcb=5&sr=412x915&uaa=arm&uab=64&uafvl=Chromium%3B140.0.7339.16%7CNot%253DA%253FBrand%3B24.0.0.0%7CHeadlessChrome%3B140.0.7339.16&uam=&uamb=0&uap=Android&uapv=6.0.1&uaw=0&ul=en-us%40posix&_s=1&tag_exp=115616986~115938466~115938468~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789216705&sct=1&seg=0&dl=https%3A%2F%2Fwww.ernestinhocarioca.com.br%2Fcopacabana&dt=Copacabana%20%7C%20Gu%C3%ADa%20de%20Ernestinho%20Carioca&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=817",
         "error": "net::ERR_ABORTED"
       }
     ],
@@ -80,13 +80,13 @@
     "route": "/gastronomia/lasai",
     "status": 200,
     "navError": null,
-    "domContentLoadedMs": 967,
-    "networkIdleMs": 1543,
+    "domContentLoadedMs": 888,
+    "networkIdleMs": 1454,
     "reqs": 24,
-    "bytes": 4014382,
+    "bytes": 4014381,
     "failed": [
       {
-        "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-QE1X83D419&gtm=45je6992v9263256555za200zd9263256555&_p=1789216551981&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1751327347.1789216553&frm=0&ngs=1&pscdl=noapi&rcb=7&sr=412x915&uaa=arm&uab=64&uafvl=Chromium%3B140.0.7339.16%7CNot%253DA%253FBrand%3B24.0.0.0%7CHeadlessChrome%3B140.0.7339.16&uam=&uamb=0&uap=Android&uapv=6.0.1&uaw=0&ul=en-us%40posix&_s=1&tag_exp=115938466~115938468~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789216552&sct=1&seg=0&dl=https%3A%2F%2Fwww.ernestinhocarioca.com.br%2Fgastronomia%2Flasai&dt=Lasai%20en%20R%C3%ADo%20de%20Janeiro%20%7C%20Ernestinho%20Carioca&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=1006",
+        "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-QE1X83D419&gtm=45je6992v9263256555za200zd9263256555&_p=1789216707851&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=189119016.1789216708&frm=0&ngs=1&pscdl=noapi&rcb=3&sr=412x915&uaa=arm&uab=64&uafvl=Chromium%3B140.0.7339.16%7CNot%253DA%253FBrand%3B24.0.0.0%7CHeadlessChrome%3B140.0.7339.16&uam=&uamb=0&uap=Android&uapv=6.0.1&uaw=0&ul=en-us%40posix&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789216708&sct=1&seg=0&dl=https%3A%2F%2Fwww.ernestinhocarioca.com.br%2Fgastronomia%2Flasai&dt=Lasai%20en%20R%C3%ADo%20de%20Janeiro%20%7C%20Ernestinho%20Carioca&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=926",
         "error": "net::ERR_ABORTED"
       }
     ],
