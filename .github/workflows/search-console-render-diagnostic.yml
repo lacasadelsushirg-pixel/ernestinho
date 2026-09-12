@@ -1,0 +1,73 @@
+name: Search Console render diagnostic
+on:
+  push:
+    branches: [seo-audit-20260912]
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install --no-save playwright@1.55.0
+      - run: npx playwright install --with-deps chromium
+      - name: Compare live rendering for controls and Lasai
+        run: |
+          cat > /tmp/diag.js <<'JS'
+          const { chromium } = require('playwright');
+          const fs = require('fs');
+          (async()=>{
+            const browser=await chromium.launch({headless:true});
+            const routes=['/transportes','/copacabana','/gastronomia/lasai'];
+            const out=[];
+            for(const route of routes){
+              const context=await browser.newContext({
+                userAgent:'Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)',
+                viewport:{width:412,height:915},
+                javaScriptEnabled:true
+              });
+              const page=await context.newPage();
+              const failed=[]; const consoleErrors=[]; let reqs=0; let bytes=0;
+              page.on('request',()=>reqs++);
+              page.on('requestfailed',r=>failed.push({url:r.url(),error:r.failure()?.errorText||''}));
+              page.on('console',m=>{if(m.type()==='error')consoleErrors.push(m.text())});
+              page.on('response',async r=>{try{const h=await r.allHeaders(); const n=parseInt(h['content-length']||'0',10); if(Number.isFinite(n))bytes+=n;}catch{}});
+              const t0=Date.now();
+              let status=null, navError=null;
+              try{const resp=await page.goto('https://www.ernestinhocarioca.com.br'+route,{waitUntil:'domcontentloaded',timeout:30000});status=resp&&resp.status();}catch(e){navError=String(e)}
+              const domContentLoadedMs=Date.now()-t0;
+              let networkIdleMs=null;
+              try{await page.waitForLoadState('networkidle',{timeout:15000});networkIdleMs=Date.now()-t0;}catch{}
+              await page.waitForTimeout(1500);
+              const result=await page.evaluate(()=>({
+                path:location.pathname,
+                title:document.title,
+                canonical:document.querySelector('link[rel="canonical"]')?.href||'',
+                robots:document.querySelector('meta[name="robots"]')?.content||'',
+                textLength:(document.body?.innerText||'').length,
+                htmlLength:document.documentElement.outerHTML.length,
+                rootText:(document.querySelector('#root')?.innerText||'').slice(0,300),
+                images:[...document.images].length,
+                completeImages:[...document.images].filter(i=>i.complete).length,
+                scripts:[...document.scripts].map(s=>s.src).filter(Boolean)
+              }));
+              out.push({route,status,navError,domContentLoadedMs,networkIdleMs,reqs,bytes,failed:failed.slice(0,50),consoleErrors:consoleErrors.slice(0,50),...result});
+              await context.close();
+            }
+            await browser.close();
+            fs.writeFileSync('search-console-render-diagnostic.json',JSON.stringify(out,null,2));
+            console.log(JSON.stringify(out,null,2));
+          })();
+          JS
+          node /tmp/diag.js
+      - name: Commit diagnostic report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add search-console-render-diagnostic.json
+          git diff --cached --quiet || git commit -m "chore: refresh Search Console render diagnostic"
+          git push
