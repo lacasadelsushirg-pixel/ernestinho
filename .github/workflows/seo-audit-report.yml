@@ -15,6 +15,8 @@ jobs:
           node-version: '20'
       - name: Apply targeted SEO router fix
         run: node scripts/apply-seo-router-fix.js
+      - name: Select direct deep entities before catalog render
+        run: node scripts/apply-deep-entity-selection-fix.js
       - name: Install build dependency
         run: npm install
       - name: Build static site
@@ -32,7 +34,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html seo-audit-report.json seo-browser-audit.json
-          git diff --cached --quiet || git commit -m "test: apply SEO router fix and refresh audits"
+          git diff --cached --quiet || git commit -m "test: apply SEO router fixes and refresh audits"
           git push
       - name: Enforce zero static build errors
         run: node -e "const r=require('./seo-audit-report.json'); if(r.errors.length){ console.error(r.errors.slice(0,100)); process.exit(1) }"
