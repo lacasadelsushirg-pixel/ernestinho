@@ -1,11 +1,12 @@
 {
-  "generatedAt": "2026-09-12T11:47:53.913Z",
+  "generatedAt": "2026-09-12T11:54:46.111Z",
   "sitemapLocCount": 498,
   "sameDomainCount": 498,
   "uniquePathCount": 498,
   "duplicatePathCount": 0,
   "invalidDomainCount": 0,
   "distAppExists": true,
+  "appBytes": 6127968,
   "dist404Exists": true,
   "categoryCounts": {
     "/": 1,
@@ -257,3488 +258,2990 @@
   "rows": [
     {
       "route": "/",
-      "file": "dist/index.html",
       "status": "OK",
-      "bytes": 13573,
+      "bytes": 13434,
       "clientRouterPattern": true
     },
     {
       "route": "/atracciones",
-      "file": "dist/atracciones.html",
       "status": "OK",
-      "bytes": 13573,
+      "bytes": 13434,
       "clientRouterPattern": true
     },
     {
       "route": "/aventura",
-      "file": "dist/aventura.html",
       "status": "OK",
-      "bytes": 13555,
+      "bytes": 13416,
       "clientRouterPattern": true
     },
     {
       "route": "/barrios",
-      "file": "dist/barrios.html",
       "status": "OK",
-      "bytes": 13587,
+      "bytes": 13448,
       "clientRouterPattern": true
     },
     {
       "route": "/cafe-ernestinho",
-      "file": "dist/cafe-ernestinho.html",
       "status": "OK",
-      "bytes": 13597,
+      "bytes": 13458,
       "clientRouterPattern": true
     },
     {
       "route": "/centros-culturales",
-      "file": "dist/centros-culturales.html",
       "status": "OK",
-      "bytes": 13615,
+      "bytes": 13476,
       "clientRouterPattern": true
     },
     {
       "route": "/compras",
-      "file": "dist/compras.html",
       "status": "OK",
-      "bytes": 13549,
+      "bytes": 13410,
       "clientRouterPattern": true
     },
     {
       "route": "/consejos",
-      "file": "dist/consejos.html",
       "status": "OK",
-      "bytes": 13555,
+      "bytes": 13416,
       "clientRouterPattern": true
     },
     {
       "route": "/copacabana",
-      "file": "dist/copacabana.html",
       "status": "OK",
-      "bytes": 13641,
+      "bytes": 13502,
       "clientRouterPattern": true
     },
     {
       "route": "/descubre-rio",
-      "file": "dist/descubre-rio.html",
       "status": "OK",
-      "bytes": 13579,
+      "bytes": 13440,
       "clientRouterPattern": true
     },
     {
       "route": "/espacios-literarios",
-      "file": "dist/espacios-literarios.html",
       "status": "OK",
-      "bytes": 13621,
+      "bytes": 13482,
       "clientRouterPattern": true
     },
     {
       "route": "/eventos",
-      "file": "dist/eventos.html",
       "status": "OK",
-      "bytes": 13549,
+      "bytes": 13410,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias",
-      "file": "dist/experiencias.html",
       "status": "OK",
-      "bytes": 13617,
+      "bytes": 13478,
       "clientRouterPattern": true
     },
     {
       "route": "/familia",
-      "file": "dist/familia.html",
       "status": "OK",
-      "bytes": 13549,
+      "bytes": 13410,
       "clientRouterPattern": true
     },
     {
       "route": "/fotografia",
-      "file": "dist/fotografia.html",
       "status": "OK",
-      "bytes": 13567,
+      "bytes": 13428,
       "clientRouterPattern": true
     },
     {
       "route": "/fuertes-fortalezas",
-      "file": "dist/fuertes-fortalezas.html",
       "status": "OK",
-      "bytes": 13615,
+      "bytes": 13476,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia",
-      "file": "dist/gastronomia.html",
       "status": "OK",
-      "bytes": 13613,
+      "bytes": 13474,
       "clientRouterPattern": true
     },
     {
       "route": "/guia",
-      "file": "dist/guia.html",
       "status": "OK",
-      "bytes": 13531,
+      "bytes": 13392,
       "clientRouterPattern": true
     },
     {
       "route": "/hospedaje",
-      "file": "dist/hospedaje.html",
       "status": "OK",
-      "bytes": 13561,
+      "bytes": 13422,
       "clientRouterPattern": true
     },
     {
       "route": "/iglesias",
-      "file": "dist/iglesias.html",
       "status": "OK",
-      "bytes": 13555,
+      "bytes": 13416,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares",
-      "file": "dist/lugares.html",
       "status": "OK",
-      "bytes": 13549,
+      "bytes": 13410,
       "clientRouterPattern": true
     },
     {
       "route": "/museos",
-      "file": "dist/museos.html",
       "status": "OK",
-      "bytes": 13581,
+      "bytes": 13442,
       "clientRouterPattern": true
     },
     {
       "route": "/naturaleza",
-      "file": "dist/naturaleza.html",
       "status": "OK",
-      "bytes": 13567,
+      "bytes": 13428,
       "clientRouterPattern": true
     },
     {
       "route": "/ocio",
-      "file": "dist/ocio.html",
       "status": "OK",
-      "bytes": 13531,
+      "bytes": 13392,
       "clientRouterPattern": true
     },
     {
       "route": "/para-mi",
-      "file": "dist/para-mi.html",
       "status": "OK",
-      "bytes": 13549,
+      "bytes": 13410,
       "clientRouterPattern": true
     },
     {
       "route": "/patrimonio",
-      "file": "dist/patrimonio.html",
       "status": "OK",
-      "bytes": 13567,
+      "bytes": 13428,
       "clientRouterPattern": true
     },
     {
       "route": "/playas",
-      "file": "dist/playas.html",
       "status": "OK",
-      "bytes": 13581,
+      "bytes": 13442,
       "clientRouterPattern": true
     },
     {
       "route": "/prepara-tu-viaje",
-      "file": "dist/prepara-tu-viaje.html",
       "status": "OK",
-      "bytes": 13639,
+      "bytes": 13500,
       "clientRouterPattern": true
     },
     {
       "route": "/que-hacer",
-      "file": "dist/que-hacer.html",
       "status": "OK",
-      "bytes": 13561,
+      "bytes": 13422,
       "clientRouterPattern": true
     },
     {
       "route": "/rio-en-vivo",
-      "file": "dist/rio-en-vivo.html",
       "status": "OK",
-      "bytes": 13573,
+      "bytes": 13434,
       "clientRouterPattern": true
     },
     {
       "route": "/sos",
-      "file": "dist/sos.html",
       "status": "OK",
-      "bytes": 13525,
+      "bytes": 13386,
       "clientRouterPattern": true
     },
     {
       "route": "/teatros",
-      "file": "dist/teatros.html",
       "status": "OK",
-      "bytes": 13549,
+      "bytes": 13410,
       "clientRouterPattern": true
     },
     {
       "route": "/transportes",
-      "file": "dist/transportes.html",
       "status": "OK",
-      "bytes": 13617,
+      "bytes": 13478,
       "clientRouterPattern": true
     },
     {
       "route": "/tv",
-      "file": "dist/tv.html",
       "status": "OK",
-      "bytes": 13519,
+      "bytes": 13380,
       "clientRouterPattern": true
     },
     {
       "route": "/vida-nocturna",
-      "file": "dist/vida-nocturna.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/articulos/20-errores-que-debes-evitar-si-o-si-en-rio-de-janeiro",
-      "file": "dist/articulos/20-errores-que-debes-evitar-si-o-si-en-rio-de-janeiro.html",
       "status": "OK",
-      "bytes": 13873,
+      "bytes": 13734,
       "clientRouterPattern": true
     },
     {
       "route": "/articulos/electricidad-y-adaptadores-en-brasil-enchufes-y-voltaje",
-      "file": "dist/articulos/electricidad-y-adaptadores-en-brasil-enchufes-y-voltaje.html",
       "status": "OK",
-      "bytes": 13885,
+      "bytes": 13746,
       "clientRouterPattern": true
     },
     {
       "route": "/articulos/preparando-las-maletas-para-rio-clima-ropa-e-imprevistos",
-      "file": "dist/articulos/preparando-las-maletas-para-rio-clima-ropa-e-imprevistos.html",
       "status": "OK",
-      "bytes": 13891,
+      "bytes": 13752,
       "clientRouterPattern": true
     },
     {
       "route": "/articulos/viajar-a-brasil-fiebre-amarilla-y-salud",
-      "file": "dist/articulos/viajar-a-brasil-fiebre-amarilla-y-salud.html",
       "status": "OK",
-      "bytes": 13789,
+      "bytes": 13650,
       "clientRouterPattern": true
     },
     {
       "route": "/articulos/visado-requisitos-de-entrada-y-aduana-en-brasil",
-      "file": "dist/articulos/visado-requisitos-de-entrada-y-aduana-en-brasil.html",
       "status": "OK",
-      "bytes": 13837,
+      "bytes": 13698,
       "clientRouterPattern": true
     },
     {
       "route": "/barrios/barra-recreio-zona-oeste",
-      "file": "dist/barrios/barra-recreio-zona-oeste.html",
       "status": "OK",
-      "bytes": 13691,
+      "bytes": 13552,
       "clientRouterPattern": true
     },
     {
       "route": "/barrios/botafogo-humaita-urca",
-      "file": "dist/barrios/botafogo-humaita-urca.html",
       "status": "OK",
-      "bytes": 13673,
+      "bytes": 13534,
       "clientRouterPattern": true
     },
     {
       "route": "/barrios/centro-praca-maua",
-      "file": "dist/barrios/centro-praca-maua.html",
       "status": "OK",
-      "bytes": 13649,
+      "bytes": 13510,
       "clientRouterPattern": true
     },
     {
       "route": "/barrios/flamengo-catete-gloria",
-      "file": "dist/barrios/flamengo-catete-gloria.html",
       "status": "OK",
-      "bytes": 13679,
+      "bytes": 13540,
       "clientRouterPattern": true
     },
     {
       "route": "/barrios/gavea-jardim-botanico-lagoa",
-      "file": "dist/barrios/gavea-jardim-botanico-lagoa.html",
       "status": "OK",
-      "bytes": 13709,
+      "bytes": 13570,
       "clientRouterPattern": true
     },
     {
       "route": "/barrios/ipanema-y-leblon",
-      "file": "dist/barrios/ipanema-y-leblon.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": true
     },
     {
       "route": "/barrios/santa-teresa-lapa",
-      "file": "dist/barrios/santa-teresa-lapa.html",
       "status": "OK",
-      "bytes": 13649,
+      "bytes": 13510,
       "clientRouterPattern": true
     },
     {
       "route": "/barrios/zona-norte",
-      "file": "dist/barrios/zona-norte.html",
       "status": "OK",
-      "bytes": 13607,
+      "bytes": 13468,
       "clientRouterPattern": true
     },
     {
       "route": "/centros-culturales/caixa-cultural-rio-de-janeiro",
-      "file": "dist/centros-culturales/caixa-cultural-rio-de-janeiro.html",
       "status": "OK",
-      "bytes": 13765,
+      "bytes": 13626,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/casa-franca-brasil",
-      "file": "dist/centros-culturales/casa-franca-brasil.html",
       "status": "OK",
-      "bytes": 13699,
+      "bytes": 13560,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/centro-cultural-acao-da-cidadania",
-      "file": "dist/centros-culturales/centro-cultural-acao-da-cidadania.html",
       "status": "OK",
-      "bytes": 13789,
+      "bytes": 13650,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/centro-cultural-banco-do-brasil-ccbb",
-      "file": "dist/centros-culturales/centro-cultural-banco-do-brasil-ccbb.html",
       "status": "OK",
-      "bytes": 13807,
+      "bytes": 13668,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/centro-cultural-correios",
-      "file": "dist/centros-culturales/centro-cultural-correios.html",
       "status": "OK",
-      "bytes": 13735,
+      "bytes": 13596,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/centro-cultural-jose-bonifacio",
-      "file": "dist/centros-culturales/centro-cultural-jose-bonifacio.html",
       "status": "OK",
-      "bytes": 13771,
+      "bytes": 13632,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/centro-cultural-justica-federal",
-      "file": "dist/centros-culturales/centro-cultural-justica-federal.html",
       "status": "OK",
-      "bytes": 13777,
+      "bytes": 13638,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/centro-municipal-de-arte-helio-oiticica",
-      "file": "dist/centros-culturales/centro-municipal-de-arte-helio-oiticica.html",
       "status": "OK",
-      "bytes": 13825,
+      "bytes": 13686,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/espaco-cultural-bndes",
-      "file": "dist/centros-culturales/espaco-cultural-bndes.html",
       "status": "OK",
-      "bytes": 13717,
+      "bytes": 13578,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/espaco-cultural-da-marinha",
-      "file": "dist/centros-culturales/espaco-cultural-da-marinha.html",
       "status": "OK",
-      "bytes": 13747,
+      "bytes": 13608,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/instituto-dos-pretos-novos",
-      "file": "dist/centros-culturales/instituto-dos-pretos-novos.html",
       "status": "OK",
-      "bytes": 13747,
+      "bytes": 13608,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/observatorio-do-valongo",
-      "file": "dist/centros-culturales/observatorio-do-valongo.html",
       "status": "OK",
-      "bytes": 13729,
+      "bytes": 13590,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/paco-imperial",
-      "file": "dist/centros-culturales/paco-imperial.html",
       "status": "OK",
-      "bytes": 13669,
+      "bytes": 13530,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/sala-cecilia-meireles",
-      "file": "dist/centros-culturales/sala-cecilia-meireles.html",
       "status": "OK",
-      "bytes": 13717,
+      "bytes": 13578,
       "clientRouterPattern": false
     },
     {
       "route": "/centros-culturales/sociedade-brasileira-de-belas-artes",
-      "file": "dist/centros-culturales/sociedade-brasileira-de-belas-artes.html",
       "status": "OK",
-      "bytes": 13801,
+      "bytes": 13662,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/academia-brasileira-de-letras",
-      "file": "dist/espacios-literarios/academia-brasileira-de-letras.html",
       "status": "OK",
-      "bytes": 13769,
+      "bytes": 13630,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/bibliomaison",
-      "file": "dist/espacios-literarios/bibliomaison.html",
       "status": "OK",
-      "bytes": 13667,
+      "bytes": 13528,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/biblioteca-do-ccbb-rio",
-      "file": "dist/espacios-literarios/biblioteca-do-ccbb-rio.html",
       "status": "OK",
-      "bytes": 13727,
+      "bytes": 13588,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/biblioteca-do-centro-cultural-justica-federal",
-      "file": "dist/espacios-literarios/biblioteca-do-centro-cultural-justica-federal.html",
       "status": "OK",
-      "bytes": 13865,
+      "bytes": 13726,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/biblioteca-do-instituto-moreira-salles",
-      "file": "dist/espacios-literarios/biblioteca-do-instituto-moreira-salles.html",
       "status": "OK",
-      "bytes": 13823,
+      "bytes": 13684,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/biblioteca-do-mam-rio",
-      "file": "dist/espacios-literarios/biblioteca-do-mam-rio.html",
       "status": "OK",
-      "bytes": 13721,
+      "bytes": 13582,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/biblioteca-nacional",
-      "file": "dist/espacios-literarios/biblioteca-nacional.html",
       "status": "OK",
-      "bytes": 13709,
+      "bytes": 13570,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/biblioteca-parque-da-rocinha",
-      "file": "dist/espacios-literarios/biblioteca-parque-da-rocinha.html",
       "status": "OK",
-      "bytes": 13763,
+      "bytes": 13624,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/biblioteca-parque-de-manguinhos",
-      "file": "dist/espacios-literarios/biblioteca-parque-de-manguinhos.html",
       "status": "OK",
-      "bytes": 13781,
+      "bytes": 13642,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/biblioteca-parque-estadual",
-      "file": "dist/espacios-literarios/biblioteca-parque-estadual.html",
       "status": "OK",
-      "bytes": 13751,
+      "bytes": 13612,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/casa-da-leitura",
-      "file": "dist/espacios-literarios/casa-da-leitura.html",
       "status": "OK",
-      "bytes": 13685,
+      "bytes": 13546,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/fundacao-casa-de-rui-barbosa",
-      "file": "dist/espacios-literarios/fundacao-casa-de-rui-barbosa.html",
       "status": "OK",
-      "bytes": 13763,
+      "bytes": 13624,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/livraria-argumento",
-      "file": "dist/espacios-literarios/livraria-argumento.html",
       "status": "OK",
-      "bytes": 13703,
+      "bytes": 13564,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/livraria-da-travessa-ipanema",
-      "file": "dist/espacios-literarios/livraria-da-travessa-ipanema.html",
       "status": "OK",
-      "bytes": 13763,
+      "bytes": 13624,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/livraria-leonardo-da-vinci",
-      "file": "dist/espacios-literarios/livraria-leonardo-da-vinci.html",
       "status": "OK",
-      "bytes": 13751,
+      "bytes": 13612,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/midiateca-do-crab",
-      "file": "dist/espacios-literarios/midiateca-do-crab.html",
       "status": "OK",
-      "bytes": 13697,
+      "bytes": 13558,
       "clientRouterPattern": false
     },
     {
       "route": "/espacios-literarios/real-gabinete-portugues-de-leitura",
-      "file": "dist/espacios-literarios/real-gabinete-portugues-de-leitura.html",
       "status": "OK",
-      "bytes": 13799,
+      "bytes": 13660,
       "clientRouterPattern": false
     },
     {
       "route": "/eventos/carnaval-de-rio",
-      "file": "dist/eventos/carnaval-de-rio.html",
       "status": "OK",
-      "bytes": 13669,
+      "bytes": 13530,
       "clientRouterPattern": false
     },
     {
       "route": "/eventos/maratona-do-rio",
-      "file": "dist/eventos/maratona-do-rio.html",
       "status": "OK",
-      "bytes": 13637,
+      "bytes": 13498,
       "clientRouterPattern": false
     },
     {
       "route": "/eventos/reveillon-de-copacabana",
-      "file": "dist/eventos/reveillon-de-copacabana.html",
       "status": "OK",
-      "bytes": 13685,
+      "bytes": 13546,
       "clientRouterPattern": false
     },
     {
       "route": "/eventos/rio-open",
-      "file": "dist/eventos/rio-open.html",
       "status": "OK",
-      "bytes": 13595,
+      "bytes": 13456,
       "clientRouterPattern": false
     },
     {
       "route": "/eventos/rock-in-rio",
-      "file": "dist/eventos/rock-in-rio.html",
       "status": "OK",
-      "bytes": 13613,
+      "bytes": 13474,
       "clientRouterPattern": false
     },
     {
       "route": "/eventos/todo-mundo-no-rio",
-      "file": "dist/eventos/todo-mundo-no-rio.html",
       "status": "OK",
-      "bytes": 13649,
+      "bytes": 13510,
       "clientRouterPattern": false
     },
     {
       "route": "/experiencias/angra-dos-reis",
-      "file": "dist/experiencias/angra-dos-reis.html",
       "status": "OK",
-      "bytes": 13651,
+      "bytes": 13512,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/aquario-boulevard-olimpico",
-      "file": "dist/experiencias/aquario-boulevard-olimpico.html",
       "status": "OK",
-      "bytes": 13723,
+      "bytes": 13584,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/arraial-do-cabo",
-      "file": "dist/experiencias/arraial-do-cabo.html",
       "status": "OK",
-      "bytes": 13657,
+      "bytes": 13518,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/buzios-tour-en-goleta",
-      "file": "dist/experiencias/buzios-tour-en-goleta.html",
       "status": "OK",
-      "bytes": 13693,
+      "bytes": 13554,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/cristo-city-tour",
-      "file": "dist/experiencias/cristo-city-tour.html",
       "status": "OK",
-      "bytes": 13663,
+      "bytes": 13524,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/favela-rocinha",
-      "file": "dist/experiencias/favela-rocinha.html",
       "status": "OK",
-      "bytes": 13651,
+      "bytes": 13512,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/full-day-rio",
-      "file": "dist/experiencias/full-day-rio.html",
       "status": "OK",
-      "bytes": 13639,
+      "bytes": 13500,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/lancha-privada",
-      "file": "dist/experiencias/lancha-privada.html",
       "status": "OK",
-      "bytes": 13651,
+      "bytes": 13512,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/maracana-experience",
-      "file": "dist/experiencias/maracana-experience.html",
       "status": "OK",
-      "bytes": 13681,
+      "bytes": 13542,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/morro-dois-irmaos",
-      "file": "dist/experiencias/morro-dois-irmaos.html",
       "status": "OK",
-      "bytes": 13669,
+      "bytes": 13530,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/parasail-en-rio",
-      "file": "dist/experiencias/parasail-en-rio.html",
       "status": "OK",
-      "bytes": 13657,
+      "bytes": 13518,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/partidos-en-el-maracana",
-      "file": "dist/experiencias/partidos-en-el-maracana.html",
       "status": "OK",
-      "bytes": 13705,
+      "bytes": 13566,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/pedra-bonita",
-      "file": "dist/experiencias/pedra-bonita.html",
       "status": "OK",
-      "bytes": 13639,
+      "bytes": 13500,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/pedra-do-telegrafo",
-      "file": "dist/experiencias/pedra-do-telegrafo.html",
       "status": "OK",
-      "bytes": 13675,
+      "bytes": 13536,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/petropolis-ciudad-imperial",
-      "file": "dist/experiencias/petropolis-ciudad-imperial.html",
       "status": "OK",
-      "bytes": 13723,
+      "bytes": 13584,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/rapel",
-      "file": "dist/experiencias/rapel.html",
       "status": "OK",
-      "bytes": 13597,
+      "bytes": 13458,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/salto-en-paracaidas",
-      "file": "dist/experiencias/salto-en-paracaidas.html",
       "status": "OK",
-      "bytes": 13681,
+      "bytes": 13542,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/trekking-pedra-da-gavea",
-      "file": "dist/experiencias/trekking-pedra-da-gavea.html",
       "status": "OK",
-      "bytes": 13705,
+      "bytes": 13566,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/vuela-en-helicoptero",
-      "file": "dist/experiencias/vuela-en-helicoptero.html",
       "status": "OK",
-      "bytes": 13687,
+      "bytes": 13548,
       "clientRouterPattern": true
     },
     {
       "route": "/experiencias/vuelo-en-parapente",
-      "file": "dist/experiencias/vuelo-en-parapente.html",
       "status": "OK",
-      "bytes": 13675,
+      "bytes": 13536,
       "clientRouterPattern": true
     },
     {
       "route": "/fuertes-fortalezas/fortaleza-da-conceicao",
-      "file": "dist/fuertes-fortalezas/fortaleza-da-conceicao.html",
       "status": "OK",
-      "bytes": 13723,
+      "bytes": 13584,
       "clientRouterPattern": false
     },
     {
       "route": "/fuertes-fortalezas/fortaleza-de-santa-cruz-da-barra",
-      "file": "dist/fuertes-fortalezas/fortaleza-de-santa-cruz-da-barra.html",
       "status": "OK",
-      "bytes": 13783,
+      "bytes": 13644,
       "clientRouterPattern": false
     },
     {
       "route": "/fuertes-fortalezas/fortaleza-de-sao-joao",
-      "file": "dist/fuertes-fortalezas/fortaleza-de-sao-joao.html",
       "status": "OK",
-      "bytes": 13717,
+      "bytes": 13578,
       "clientRouterPattern": false
     },
     {
       "route": "/fuertes-fortalezas/forte-barao-do-rio-branco",
-      "file": "dist/fuertes-fortalezas/forte-barao-do-rio-branco.html",
       "status": "OK",
-      "bytes": 13741,
+      "bytes": 13602,
       "clientRouterPattern": false
     },
     {
       "route": "/fuertes-fortalezas/forte-de-copacabana",
-      "file": "dist/fuertes-fortalezas/forte-de-copacabana.html",
       "status": "OK",
-      "bytes": 13705,
+      "bytes": 13566,
       "clientRouterPattern": false
     },
     {
       "route": "/fuertes-fortalezas/forte-de-sao-luiz",
-      "file": "dist/fuertes-fortalezas/forte-de-sao-luiz.html",
       "status": "OK",
-      "bytes": 13693,
+      "bytes": 13554,
       "clientRouterPattern": false
     },
     {
       "route": "/fuertes-fortalezas/forte-do-gragoata",
-      "file": "dist/fuertes-fortalezas/forte-do-gragoata.html",
       "status": "OK",
-      "bytes": 13693,
+      "bytes": 13554,
       "clientRouterPattern": false
     },
     {
       "route": "/fuertes-fortalezas/forte-do-imbui",
-      "file": "dist/fuertes-fortalezas/forte-do-imbui.html",
       "status": "OK",
-      "bytes": 13675,
+      "bytes": 13536,
       "clientRouterPattern": false
     },
     {
       "route": "/fuertes-fortalezas/forte-do-pico",
-      "file": "dist/fuertes-fortalezas/forte-do-pico.html",
       "status": "OK",
-      "bytes": 13669,
+      "bytes": 13530,
       "clientRouterPattern": false
     },
     {
       "route": "/fuertes-fortalezas/forte-duque-de-caxias",
-      "file": "dist/fuertes-fortalezas/forte-duque-de-caxias.html",
       "status": "OK",
-      "bytes": 13717,
+      "bytes": 13578,
       "clientRouterPattern": false
     },
     {
       "route": "/fuertes-fortalezas/forte-tamandare-da-laje",
-      "file": "dist/fuertes-fortalezas/forte-tamandare-da-laje.html",
       "status": "OK",
-      "bytes": 13729,
+      "bytes": 13590,
       "clientRouterPattern": false
     },
     {
       "route": "/gastronomia/abencoado",
-      "file": "dist/gastronomia/abencoado.html",
       "status": "OK",
-      "bytes": 13617,
+      "bytes": 13478,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/aconchego-carioca",
-      "file": "dist/gastronomia/aconchego-carioca.html",
       "status": "OK",
-      "bytes": 13665,
+      "bytes": 13526,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/adega-da-velha",
-      "file": "dist/gastronomia/adega-da-velha.html",
       "status": "OK",
-      "bytes": 13647,
+      "bytes": 13508,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/adega-perola",
-      "file": "dist/gastronomia/adega-perola.html",
       "status": "OK",
-      "bytes": 13635,
+      "bytes": 13496,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/aipo-y-aipim-centro",
-      "file": "dist/gastronomia/aipo-y-aipim-centro.html",
       "status": "OK",
-      "bytes": 13677,
+      "bytes": 13538,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/alfaia",
-      "file": "dist/gastronomia/alfaia.html",
       "status": "OK",
-      "bytes": 13599,
+      "bytes": 13460,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/alloro-al-miramar",
-      "file": "dist/gastronomia/alloro-al-miramar.html",
       "status": "OK",
-      "bytes": 13665,
+      "bytes": 13526,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/amendoeira",
-      "file": "dist/gastronomia/amendoeira.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/amir",
-      "file": "dist/gastronomia/amir.html",
       "status": "OK",
-      "bytes": 13587,
+      "bytes": 13448,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/angu-do-gomes",
-      "file": "dist/gastronomia/angu-do-gomes.html",
       "status": "OK",
-      "bytes": 13641,
+      "bytes": 13502,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/aprazivel",
-      "file": "dist/gastronomia/aprazivel.html",
       "status": "OK",
-      "bytes": 13617,
+      "bytes": 13478,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/arab",
-      "file": "dist/gastronomia/arab.html",
       "status": "OK",
-      "bytes": 13587,
+      "bytes": 13448,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/armazem-sao-thiago",
-      "file": "dist/gastronomia/armazem-sao-thiago.html",
       "status": "OK",
-      "bytes": 13671,
+      "bytes": 13532,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/arp-bar",
-      "file": "dist/gastronomia/arp-bar.html",
       "status": "OK",
-      "bytes": 13605,
+      "bytes": 13466,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/assador",
-      "file": "dist/gastronomia/assador.html",
       "status": "OK",
-      "bytes": 13605,
+      "bytes": 13466,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/babbo-osteria",
-      "file": "dist/gastronomia/babbo-osteria.html",
       "status": "OK",
-      "bytes": 13641,
+      "bytes": 13502,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bafo-da-prainha",
-      "file": "dist/gastronomia/bafo-da-prainha.html",
       "status": "OK",
-      "bytes": 13653,
+      "bytes": 13514,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bar-astor",
-      "file": "dist/gastronomia/bar-astor.html",
       "status": "OK",
-      "bytes": 13617,
+      "bytes": 13478,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bar-da-frente",
-      "file": "dist/gastronomia/bar-da-frente.html",
       "status": "OK",
-      "bytes": 13641,
+      "bytes": 13502,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bar-da-gema",
-      "file": "dist/gastronomia/bar-da-gema.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bar-da-portuguesa",
-      "file": "dist/gastronomia/bar-da-portuguesa.html",
       "status": "OK",
-      "bytes": 13665,
+      "bytes": 13526,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bar-do-mineiro",
-      "file": "dist/gastronomia/bar-do-mineiro.html",
       "status": "OK",
-      "bytes": 13647,
+      "bytes": 13508,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bar-do-momo",
-      "file": "dist/gastronomia/bar-do-momo.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bar-do-omar",
-      "file": "dist/gastronomia/bar-do-omar.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bar-luiz",
-      "file": "dist/gastronomia/bar-luiz.html",
       "status": "OK",
-      "bytes": 13611,
+      "bytes": 13472,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bar-madrid",
-      "file": "dist/gastronomia/bar-madrid.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bar-urca",
-      "file": "dist/gastronomia/bar-urca.html",
       "status": "OK",
-      "bytes": 13611,
+      "bytes": 13472,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/basha",
-      "file": "dist/gastronomia/basha.html",
       "status": "OK",
-      "bytes": 13593,
+      "bytes": 13454,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bb-lanches",
-      "file": "dist/gastronomia/bb-lanches.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bira-de-guaratiba",
-      "file": "dist/gastronomia/bira-de-guaratiba.html",
       "status": "OK",
-      "bytes": 13665,
+      "bytes": 13526,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/boa-praca",
-      "file": "dist/gastronomia/boa-praca.html",
       "status": "OK",
-      "bytes": 13617,
+      "bytes": 13478,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/boteco-belmonte-copacabana",
-      "file": "dist/gastronomia/boteco-belmonte-copacabana.html",
       "status": "OK",
-      "bytes": 13719,
+      "bytes": 13580,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/boteco-belmonte-ipanema",
-      "file": "dist/gastronomia/boteco-belmonte-ipanema.html",
       "status": "OK",
-      "bytes": 13701,
+      "bytes": 13562,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/bracarense",
-      "file": "dist/gastronomia/bracarense.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/brota",
-      "file": "dist/gastronomia/brota.html",
       "status": "OK",
-      "bytes": 13593,
+      "bytes": 13454,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/cabanna",
-      "file": "dist/gastronomia/cabanna.html",
       "status": "OK",
-      "bytes": 13605,
+      "bytes": 13466,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/cachambeer",
-      "file": "dist/gastronomia/cachambeer.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/cafe-do-alto",
-      "file": "dist/gastronomia/cafe-do-alto.html",
       "status": "OK",
-      "bytes": 13635,
+      "bytes": 13496,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/cafe-lamas",
-      "file": "dist/gastronomia/cafe-lamas.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/cais-do-oriente",
-      "file": "dist/gastronomia/cais-do-oriente.html",
       "status": "OK",
-      "bytes": 13653,
+      "bytes": 13514,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/cantinho-legal-da-tia-penha",
-      "file": "dist/gastronomia/cantinho-legal-da-tia-penha.html",
       "status": "OK",
-      "bytes": 13725,
+      "bytes": 13586,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/canton",
-      "file": "dist/gastronomia/canton.html",
       "status": "OK",
-      "bytes": 13599,
+      "bytes": 13460,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/carretao-copacabana",
-      "file": "dist/gastronomia/carretao-copacabana.html",
       "status": "OK",
-      "bytes": 13677,
+      "bytes": 13538,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/carretao-ipanema-classic-grill",
-      "file": "dist/gastronomia/carretao-ipanema-classic-grill.html",
       "status": "OK",
-      "bytes": 13743,
+      "bytes": 13604,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/carretao-lido",
-      "file": "dist/gastronomia/carretao-lido.html",
       "status": "OK",
-      "bytes": 13641,
+      "bytes": 13502,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/casa-201",
-      "file": "dist/gastronomia/casa-201.html",
       "status": "OK",
-      "bytes": 13611,
+      "bytes": 13472,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/casa-cave",
-      "file": "dist/gastronomia/casa-cave.html",
       "status": "OK",
-      "bytes": 13617,
+      "bytes": 13478,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/casa-da-feijoada",
-      "file": "dist/gastronomia/casa-da-feijoada.html",
       "status": "OK",
-      "bytes": 13659,
+      "bytes": 13520,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/casa-do-sardo",
-      "file": "dist/gastronomia/casa-do-sardo.html",
       "status": "OK",
-      "bytes": 13641,
+      "bytes": 13502,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/casa-mohamed",
-      "file": "dist/gastronomia/casa-mohamed.html",
       "status": "OK",
-      "bytes": 13635,
+      "bytes": 13496,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/casa-momus",
-      "file": "dist/gastronomia/casa-momus.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/casa-porto",
-      "file": "dist/gastronomia/casa-porto.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/cavalo-marinho",
-      "file": "dist/gastronomia/cavalo-marinho.html",
       "status": "OK",
-      "bytes": 13647,
+      "bytes": 13508,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/cervantes",
-      "file": "dist/gastronomia/cervantes.html",
       "status": "OK",
-      "bytes": 13617,
+      "bytes": 13478,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/chez-claude",
-      "file": "dist/gastronomia/chez-claude.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/churrascaria-palace",
-      "file": "dist/gastronomia/churrascaria-palace.html",
       "status": "OK",
-      "bytes": 13677,
+      "bytes": 13538,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/churrasqueira-rio",
-      "file": "dist/gastronomia/churrasqueira-rio.html",
       "status": "OK",
-      "bytes": 13665,
+      "bytes": 13526,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/classico-beach-club-barra",
-      "file": "dist/gastronomia/classico-beach-club-barra.html",
       "status": "OK",
-      "bytes": 13713,
+      "bytes": 13574,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/classico-beach-club-leme",
-      "file": "dist/gastronomia/classico-beach-club-leme.html",
       "status": "OK",
-      "bytes": 13707,
+      "bytes": 13568,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/classico-beach-club-urca",
-      "file": "dist/gastronomia/classico-beach-club-urca.html",
       "status": "OK",
-      "bytes": 13707,
+      "bytes": 13568,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/coisa-de-carioca",
-      "file": "dist/gastronomia/coisa-de-carioca.html",
       "status": "OK",
-      "bytes": 13659,
+      "bytes": 13520,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/coisas-de-bamba",
-      "file": "dist/gastronomia/coisas-de-bamba.html",
       "status": "OK",
-      "bytes": 13653,
+      "bytes": 13514,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/confeitaria-colombo",
-      "file": "dist/gastronomia/confeitaria-colombo.html",
       "status": "OK",
-      "bytes": 13677,
+      "bytes": 13538,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/confeitaria-colombo-do-forte",
-      "file": "dist/gastronomia/confeitaria-colombo-do-forte.html",
       "status": "OK",
-      "bytes": 13731,
+      "bytes": 13592,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/confeitaria-manon",
-      "file": "dist/gastronomia/confeitaria-manon.html",
       "status": "OK",
-      "bytes": 13665,
+      "bytes": 13526,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/corrientes-348",
-      "file": "dist/gastronomia/corrientes-348.html",
       "status": "OK",
-      "bytes": 13647,
+      "bytes": 13508,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/cosmopolita",
-      "file": "dist/gastronomia/cosmopolita.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/ct-boucherie",
-      "file": "dist/gastronomia/ct-boucherie.html",
       "status": "OK",
-      "bytes": 13635,
+      "bytes": 13496,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/curto-cafe",
-      "file": "dist/gastronomia/curto-cafe.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/deck-buffet",
-      "file": "dist/gastronomia/deck-buffet.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/delirio-tropical",
-      "file": "dist/gastronomia/delirio-tropical.html",
       "status": "OK",
-      "bytes": 13659,
+      "bytes": 13520,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/delirio-tropical-centro",
-      "file": "dist/gastronomia/delirio-tropical-centro.html",
       "status": "OK",
-      "bytes": 13701,
+      "bytes": 13562,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/don-camillo",
-      "file": "dist/gastronomia/don-camillo.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/don-pascual",
-      "file": "dist/gastronomia/don-pascual.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/dumare",
-      "file": "dist/gastronomia/dumare.html",
       "status": "OK",
-      "bytes": 13599,
+      "bytes": 13460,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/eclipse",
-      "file": "dist/gastronomia/eclipse.html",
       "status": "OK",
-      "bytes": 13605,
+      "bytes": 13466,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/elena",
-      "file": "dist/gastronomia/elena.html",
       "status": "OK",
-      "bytes": 13593,
+      "bytes": 13454,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/escama",
-      "file": "dist/gastronomia/escama.html",
       "status": "OK",
-      "bytes": 13599,
+      "bytes": 13460,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/espaco-7zero6",
-      "file": "dist/gastronomia/espaco-7zero6.html",
       "status": "OK",
-      "bytes": 13641,
+      "bytes": 13502,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/espetto-carioca-quiosque",
-      "file": "dist/gastronomia/espetto-carioca-quiosque.html",
       "status": "OK",
-      "bytes": 13707,
+      "bytes": 13568,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/esquimo",
-      "file": "dist/gastronomia/esquimo.html",
       "status": "OK",
-      "bytes": 13605,
+      "bytes": 13466,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/explorer-bar",
-      "file": "dist/gastronomia/explorer-bar.html",
       "status": "OK",
-      "bytes": 13635,
+      "bytes": 13496,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/fazendola-centro",
-      "file": "dist/gastronomia/fazendola-centro.html",
       "status": "OK",
-      "bytes": 13659,
+      "bytes": 13520,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/feira-de-sao-cristovao",
-      "file": "dist/gastronomia/feira-de-sao-cristovao.html",
       "status": "OK",
-      "bytes": 13695,
+      "bytes": 13556,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/ferro-e-farinha",
-      "file": "dist/gastronomia/ferro-e-farinha.html",
       "status": "OK",
-      "bytes": 13653,
+      "bytes": 13514,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/fiorino",
-      "file": "dist/gastronomia/fiorino.html",
       "status": "OK",
-      "bytes": 13605,
+      "bytes": 13466,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/flor-do-ceu",
-      "file": "dist/gastronomia/flor-do-ceu.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/fogo-de-chao-botafogo",
-      "file": "dist/gastronomia/fogo-de-chao-botafogo.html",
       "status": "OK",
-      "bytes": 13689,
+      "bytes": 13550,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/frontera-ipanema",
-      "file": "dist/gastronomia/frontera-ipanema.html",
       "status": "OK",
-      "bytes": 13659,
+      "bytes": 13520,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/galeto-liceu",
-      "file": "dist/gastronomia/galeto-liceu.html",
       "status": "OK",
-      "bytes": 13635,
+      "bytes": 13496,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/galeto-sat-s",
-      "file": "dist/gastronomia/galeto-sat-s.html",
       "status": "OK",
-      "bytes": 13635,
+      "bytes": 13496,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/garota-de-ipanema",
-      "file": "dist/gastronomia/garota-de-ipanema.html",
       "status": "OK",
-      "bytes": 13665,
+      "bytes": 13526,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/ginga",
-      "file": "dist/gastronomia/ginga.html",
       "status": "OK",
-      "bytes": 13593,
+      "bytes": 13454,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/giuseppe-mar",
-      "file": "dist/gastronomia/giuseppe-mar.html",
       "status": "OK",
-      "bytes": 13635,
+      "bytes": 13496,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/gruta-da-tijuca",
-      "file": "dist/gastronomia/gruta-da-tijuca.html",
       "status": "OK",
-      "bytes": 13653,
+      "bytes": 13514,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/guacamole-cocina-mexicana",
-      "file": "dist/gastronomia/guacamole-cocina-mexicana.html",
       "status": "OK",
-      "bytes": 13713,
+      "bytes": 13574,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/gurume",
-      "file": "dist/gastronomia/gurume.html",
       "status": "OK",
-      "bytes": 13599,
+      "bytes": 13460,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/haru-sushi-bar",
-      "file": "dist/gastronomia/haru-sushi-bar.html",
       "status": "OK",
-      "bytes": 13647,
+      "bytes": 13508,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/hollandaise",
-      "file": "dist/gastronomia/hollandaise.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/imaculada-bar-e-restaurante",
-      "file": "dist/gastronomia/imaculada-bar-e-restaurante.html",
       "status": "OK",
-      "bytes": 13725,
+      "bytes": 13586,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/iraja-redux",
-      "file": "dist/gastronomia/iraja-redux.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/joaquina",
-      "file": "dist/gastronomia/joaquina.html",
       "status": "OK",
-      "bytes": 13611,
+      "bytes": 13472,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/jobi",
-      "file": "dist/gastronomia/jobi.html",
       "status": "OK",
-      "bytes": 13587,
+      "bytes": 13448,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/jojo-bistro",
-      "file": "dist/gastronomia/jojo-bistro.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/k08",
-      "file": "dist/gastronomia/k08.html",
       "status": "OK",
-      "bytes": 13581,
+      "bytes": 13442,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/kilograma-centro",
-      "file": "dist/gastronomia/kilograma-centro.html",
       "status": "OK",
-      "bytes": 13659,
+      "bytes": 13520,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/koral",
-      "file": "dist/gastronomia/koral.html",
       "status": "OK",
-      "bytes": 13593,
+      "bytes": 13454,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/kurt",
-      "file": "dist/gastronomia/kurt.html",
       "status": "OK",
-      "bytes": 13587,
+      "bytes": 13448,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/la-bicyclette",
-      "file": "dist/gastronomia/la-bicyclette.html",
       "status": "OK",
-      "bytes": 13641,
+      "bytes": 13502,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/la-fiorentina",
-      "file": "dist/gastronomia/la-fiorentina.html",
       "status": "OK",
-      "bytes": 13641,
+      "bytes": 13502,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/labuta-bar",
-      "file": "dist/gastronomia/labuta-bar.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/labuta-mar",
-      "file": "dist/gastronomia/labuta-mar.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/lasai",
-      "file": "dist/gastronomia/lasai.html",
       "status": "OK",
-      "bytes": 13593,
+      "bytes": 13454,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/lilia",
-      "file": "dist/gastronomia/lilia.html",
       "status": "OK",
-      "bytes": 13593,
+      "bytes": 13454,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/majorica",
-      "file": "dist/gastronomia/majorica.html",
       "status": "OK",
-      "bytes": 13611,
+      "bytes": 13472,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/margutta",
-      "file": "dist/gastronomia/margutta.html",
       "status": "OK",
-      "bytes": 13611,
+      "bytes": 13472,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/marius-degustare",
-      "file": "dist/gastronomia/marius-degustare.html",
       "status": "OK",
-      "bytes": 13659,
+      "bytes": 13520,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/maska",
-      "file": "dist/gastronomia/maska.html",
       "status": "OK",
-      "bytes": 13593,
+      "bytes": 13454,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/mee",
-      "file": "dist/gastronomia/mee.html",
       "status": "OK",
-      "bytes": 13581,
+      "bytes": 13442,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/mocellin-steak",
-      "file": "dist/gastronomia/mocellin-steak.html",
       "status": "OK",
-      "bytes": 13647,
+      "bytes": 13508,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/mosteiro",
-      "file": "dist/gastronomia/mosteiro.html",
       "status": "OK",
-      "bytes": 13611,
+      "bytes": 13472,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/naga",
-      "file": "dist/gastronomia/naga.html",
       "status": "OK",
-      "bytes": 13587,
+      "bytes": 13448,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/nido-ristorante",
-      "file": "dist/gastronomia/nido-ristorante.html",
       "status": "OK",
-      "bytes": 13653,
+      "bytes": 13514,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/nino-cucina",
-      "file": "dist/gastronomia/nino-cucina.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/noa",
-      "file": "dist/gastronomia/noa.html",
       "status": "OK",
-      "bytes": 13581,
+      "bytes": 13442,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/nova-capela",
-      "file": "dist/gastronomia/nova-capela.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/ocya-ilha-primeira",
-      "file": "dist/gastronomia/ocya-ilha-primeira.html",
       "status": "OK",
-      "bytes": 13671,
+      "bytes": 13532,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/ocya-leblon",
-      "file": "dist/gastronomia/ocya-leblon.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/oficina-do-peixe",
-      "file": "dist/gastronomia/oficina-do-peixe.html",
       "status": "OK",
-      "bytes": 13659,
+      "bytes": 13520,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/oro",
-      "file": "dist/gastronomia/oro.html",
       "status": "OK",
-      "bytes": 13581,
+      "bytes": 13442,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/oteque",
-      "file": "dist/gastronomia/oteque.html",
       "status": "OK",
-      "bytes": 13599,
+      "bytes": 13460,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/otto-restaurante",
-      "file": "dist/gastronomia/otto-restaurante.html",
       "status": "OK",
-      "bytes": 13659,
+      "bytes": 13520,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/pavao-azul",
-      "file": "dist/gastronomia/pavao-azul.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/pergula",
-      "file": "dist/gastronomia/pergula.html",
       "status": "OK",
-      "bytes": 13605,
+      "bytes": 13466,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/pescados-na-brasa",
-      "file": "dist/gastronomia/pescados-na-brasa.html",
       "status": "OK",
-      "bytes": 13665,
+      "bytes": 13526,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/pesqueiro",
-      "file": "dist/gastronomia/pesqueiro.html",
       "status": "OK",
-      "bytes": 13617,
+      "bytes": 13478,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/pilograma-prime-grill",
-      "file": "dist/gastronomia/pilograma-prime-grill.html",
       "status": "OK",
-      "bytes": 13689,
+      "bytes": 13550,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/plage-cafe",
-      "file": "dist/gastronomia/plage-cafe.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/pobre-juan",
-      "file": "dist/gastronomia/pobre-juan.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/point-de-grumari",
-      "file": "dist/gastronomia/point-de-grumari.html",
       "status": "OK",
-      "bytes": 13659,
+      "bytes": 13520,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/polis-sucos",
-      "file": "dist/gastronomia/polis-sucos.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/polvo-marisqueria",
-      "file": "dist/gastronomia/polvo-marisqueria.html",
       "status": "OK",
-      "bytes": 13665,
+      "bytes": 13526,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/praia-skol",
-      "file": "dist/gastronomia/praia-skol.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/prana-vegetariano",
-      "file": "dist/gastronomia/prana-vegetariano.html",
       "status": "OK",
-      "bytes": 13665,
+      "bytes": 13526,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/proa-cozinha-bar",
-      "file": "dist/gastronomia/proa-cozinha-bar.html",
       "status": "OK",
-      "bytes": 13659,
+      "bytes": 13520,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/quartinho",
-      "file": "dist/gastronomia/quartinho.html",
       "status": "OK",
-      "bytes": 13617,
+      "bytes": 13478,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/quiteria",
-      "file": "dist/gastronomia/quiteria.html",
       "status": "OK",
-      "bytes": 13611,
+      "bytes": 13472,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/rainer-s",
-      "file": "dist/gastronomia/rainer-s.html",
       "status": "OK",
-      "bytes": 13611,
+      "bytes": 13472,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/rampinha",
-      "file": "dist/gastronomia/rampinha.html",
       "status": "OK",
-      "bytes": 13611,
+      "bytes": 13472,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/reino-vegetal",
-      "file": "dist/gastronomia/reino-vegetal.html",
       "status": "OK",
-      "bytes": 13641,
+      "bytes": 13502,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/rio-scenarium",
-      "file": "dist/gastronomia/rio-scenarium.html",
       "status": "OK",
-      "bytes": 13641,
+      "bytes": 13502,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/ristorante-hotel-cipriani",
-      "file": "dist/gastronomia/ristorante-hotel-cipriani.html",
       "status": "OK",
-      "bytes": 13713,
+      "bytes": 13574,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/rotisseria-sirio-libanesa",
-      "file": "dist/gastronomia/rotisseria-sirio-libanesa.html",
       "status": "OK",
-      "bytes": 13713,
+      "bytes": 13574,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/rufino-parrilla",
-      "file": "dist/gastronomia/rufino-parrilla.html",
       "status": "OK",
-      "bytes": 13653,
+      "bytes": 13514,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/ryu-restaurante",
-      "file": "dist/gastronomia/ryu-restaurante.html",
       "status": "OK",
-      "bytes": 13653,
+      "bytes": 13514,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/sabor-das-aguas",
-      "file": "dist/gastronomia/sabor-das-aguas.html",
       "status": "OK",
-      "bytes": 13653,
+      "bytes": 13514,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/samba-social-clube",
-      "file": "dist/gastronomia/samba-social-clube.html",
       "status": "OK",
-      "bytes": 13671,
+      "bytes": 13532,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/satyricon",
-      "file": "dist/gastronomia/satyricon.html",
       "status": "OK",
-      "bytes": 13617,
+      "bytes": 13478,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/sel-d-ipanema",
-      "file": "dist/gastronomia/sel-d-ipanema.html",
       "status": "OK",
-      "bytes": 13641,
+      "bytes": 13502,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/shiso",
-      "file": "dist/gastronomia/shiso.html",
       "status": "OK",
-      "bytes": 13593,
+      "bytes": 13454,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/skunna",
-      "file": "dist/gastronomia/skunna.html",
       "status": "OK",
-      "bytes": 13599,
+      "bytes": 13460,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/spesso",
-      "file": "dist/gastronomia/spesso.html",
       "status": "OK",
-      "bytes": 13599,
+      "bytes": 13460,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/spicy-fish",
-      "file": "dist/gastronomia/spicy-fish.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/stalos",
-      "file": "dist/gastronomia/stalos.html",
       "status": "OK",
-      "bytes": 13599,
+      "bytes": 13460,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/stambul-copacabana",
-      "file": "dist/gastronomia/stambul-copacabana.html",
       "status": "OK",
-      "bytes": 13671,
+      "bytes": 13532,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/sud-o-passaro-verde",
-      "file": "dist/gastronomia/sud-o-passaro-verde.html",
       "status": "OK",
-      "bytes": 13677,
+      "bytes": 13538,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/sushi-da-praca",
-      "file": "dist/gastronomia/sushi-da-praca.html",
       "status": "OK",
-      "bytes": 13647,
+      "bytes": 13508,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/sushi-leblon",
-      "file": "dist/gastronomia/sushi-leblon.html",
       "status": "OK",
-      "bytes": 13635,
+      "bytes": 13496,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/tacaca-do-norte",
-      "file": "dist/gastronomia/tacaca-do-norte.html",
       "status": "OK",
-      "bytes": 13653,
+      "bytes": 13514,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/talho-capixaba",
-      "file": "dist/gastronomia/talho-capixaba.html",
       "status": "OK",
-      "bytes": 13647,
+      "bytes": 13508,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/tempeh",
-      "file": "dist/gastronomia/tempeh.html",
       "status": "OK",
-      "bytes": 13599,
+      "bytes": 13460,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/temperarte-bolivar",
-      "file": "dist/gastronomia/temperarte-bolivar.html",
       "status": "OK",
-      "bytes": 13671,
+      "bytes": 13532,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/temperarte-posto-6",
-      "file": "dist/gastronomia/temperarte-posto-6.html",
       "status": "OK",
-      "bytes": 13671,
+      "bytes": 13532,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/terra-brasilis",
-      "file": "dist/gastronomia/terra-brasilis.html",
       "status": "OK",
-      "bytes": 13647,
+      "bytes": 13508,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/teva",
-      "file": "dist/gastronomia/teva.html",
       "status": "OK",
-      "bytes": 13587,
+      "bytes": 13448,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/tia-palmira",
-      "file": "dist/gastronomia/tia-palmira.html",
       "status": "OK",
-      "bytes": 13629,
+      "bytes": 13490,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/toca-da-traira",
-      "file": "dist/gastronomia/toca-da-traira.html",
       "status": "OK",
-      "bytes": 13647,
+      "bytes": 13508,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/umai",
-      "file": "dist/gastronomia/umai.html",
       "status": "OK",
-      "bytes": 13587,
+      "bytes": 13448,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/venga",
-      "file": "dist/gastronomia/venga.html",
       "status": "OK",
-      "bytes": 13593,
+      "bytes": 13454,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/xian",
-      "file": "dist/gastronomia/xian.html",
       "status": "OK",
-      "bytes": 13587,
+      "bytes": 13448,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/xodozin",
-      "file": "dist/gastronomia/xodozin.html",
       "status": "OK",
-      "bytes": 13605,
+      "bytes": 13466,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/yusha",
-      "file": "dist/gastronomia/yusha.html",
       "status": "OK",
-      "bytes": 13593,
+      "bytes": 13454,
       "clientRouterPattern": true
     },
     {
       "route": "/gastronomia/zaza-bistro-tropical",
-      "file": "dist/gastronomia/zaza-bistro-tropical.html",
       "status": "OK",
-      "bytes": 13683,
+      "bytes": 13544,
       "clientRouterPattern": true
     },
     {
       "route": "/guia/pix",
-      "file": "dist/guia/pix.html",
       "status": "OK",
-      "bytes": 13553,
+      "bytes": 13414,
       "clientRouterPattern": true
     },
     {
       "route": "/iglesias/basilica-santuario-de-nossa-senhora-da-penha",
-      "file": "dist/iglesias/basilica-santuario-de-nossa-senhora-da-penha.html",
       "status": "OK",
-      "bytes": 13815,
+      "bytes": 13676,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/capela-mayrink",
-      "file": "dist/iglesias/capela-mayrink.html",
       "status": "OK",
-      "bytes": 13635,
+      "bytes": 13496,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/catedral-metropolitana-de-sao-sebastiao",
-      "file": "dist/iglesias/catedral-metropolitana-de-sao-sebastiao.html",
       "status": "OK",
-      "bytes": 13785,
+      "bytes": 13646,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/convento-e-igreja-de-santo-antonio",
-      "file": "dist/iglesias/convento-e-igreja-de-santo-antonio.html",
       "status": "OK",
-      "bytes": 13755,
+      "bytes": 13616,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-da-ordem-terceira-de-sao-francisco-da-penitencia",
-      "file": "dist/iglesias/igreja-da-ordem-terceira-de-sao-francisco-da-penitencia.html",
       "status": "OK",
-      "bytes": 13881,
+      "bytes": 13742,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-da-ordem-terceira-do-carmo",
-      "file": "dist/iglesias/igreja-da-ordem-terceira-do-carmo.html",
       "status": "OK",
-      "bytes": 13749,
+      "bytes": 13610,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-nossa-senhora-da-candelaria",
-      "file": "dist/iglesias/igreja-de-nossa-senhora-da-candelaria.html",
       "status": "OK",
-      "bytes": 13773,
+      "bytes": 13634,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-nossa-senhora-da-conceicao-e-boa-morte",
-      "file": "dist/iglesias/igreja-de-nossa-senhora-da-conceicao-e-boa-morte.html",
       "status": "OK",
-      "bytes": 13839,
+      "bytes": 13700,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-nossa-senhora-da-gloria-do-outeiro",
-      "file": "dist/iglesias/igreja-de-nossa-senhora-da-gloria-do-outeiro.html",
       "status": "OK",
-      "bytes": 13815,
+      "bytes": 13676,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-nossa-senhora-da-lampadosa",
-      "file": "dist/iglesias/igreja-de-nossa-senhora-da-lampadosa.html",
       "status": "OK",
-      "bytes": 13767,
+      "bytes": 13628,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-nossa-senhora-da-lapa-dos-mercadores",
-      "file": "dist/iglesias/igreja-de-nossa-senhora-da-lapa-dos-mercadores.html",
       "status": "OK",
-      "bytes": 13827,
+      "bytes": 13688,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-nossa-senhora-da-paz",
-      "file": "dist/iglesias/igreja-de-nossa-senhora-da-paz.html",
       "status": "OK",
-      "bytes": 13731,
+      "bytes": 13592,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-nossa-senhora-da-penna",
-      "file": "dist/iglesias/igreja-de-nossa-senhora-da-penna.html",
       "status": "OK",
-      "bytes": 13743,
+      "bytes": 13604,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-nossa-senhora-da-saude",
-      "file": "dist/iglesias/igreja-de-nossa-senhora-da-saude.html",
       "status": "OK",
-      "bytes": 13743,
+      "bytes": 13604,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-nossa-senhora-do-bonsucesso",
-      "file": "dist/iglesias/igreja-de-nossa-senhora-do-bonsucesso.html",
       "status": "OK",
-      "bytes": 13773,
+      "bytes": 13634,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-nossa-senhora-do-carmo-da-antiga-se",
-      "file": "dist/iglesias/igreja-de-nossa-senhora-do-carmo-da-antiga-se.html",
       "status": "OK",
-      "bytes": 13821,
+      "bytes": 13682,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-nossa-senhora-do-rosario-e-sao-benedito-dos-homens-pretos",
-      "file": "dist/iglesias/igreja-de-nossa-senhora-do-rosario-e-sao-benedito-dos-homens-pretos.html",
       "status": "OK",
-      "bytes": 13953,
+      "bytes": 13814,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-santa-cruz-dos-militares",
-      "file": "dist/iglesias/igreja-de-santa-cruz-dos-militares.html",
       "status": "OK",
-      "bytes": 13755,
+      "bytes": 13616,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-santa-luzia",
-      "file": "dist/iglesias/igreja-de-santa-luzia.html",
       "status": "OK",
-      "bytes": 13677,
+      "bytes": 13538,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-santa-rita-de-cassia",
-      "file": "dist/iglesias/igreja-de-santa-rita-de-cassia.html",
       "status": "OK",
-      "bytes": 13731,
+      "bytes": 13592,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-sao-francisco-da-prainha",
-      "file": "dist/iglesias/igreja-de-sao-francisco-da-prainha.html",
       "status": "OK",
-      "bytes": 13755,
+      "bytes": 13616,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-de-sao-francisco-de-paula",
-      "file": "dist/iglesias/igreja-de-sao-francisco-de-paula.html",
       "status": "OK",
-      "bytes": 13743,
+      "bytes": 13604,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/igreja-nossa-senhora-do-brasil",
-      "file": "dist/iglesias/igreja-nossa-senhora-do-brasil.html",
       "status": "OK",
-      "bytes": 13731,
+      "bytes": 13592,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/mosteiro-de-sao-bento",
-      "file": "dist/iglesias/mosteiro-de-sao-bento.html",
       "status": "OK",
-      "bytes": 13677,
+      "bytes": 13538,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/paroquia-nossa-senhora-de-copacabana",
-      "file": "dist/iglesias/paroquia-nossa-senhora-de-copacabana.html",
       "status": "OK",
-      "bytes": 13767,
+      "bytes": 13628,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/paroquia-santa-margarida-maria",
-      "file": "dist/iglesias/paroquia-santa-margarida-maria.html",
       "status": "OK",
-      "bytes": 13731,
+      "bytes": 13592,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/paroquia-sao-jose-da-lagoa",
-      "file": "dist/iglesias/paroquia-sao-jose-da-lagoa.html",
       "status": "OK",
-      "bytes": 13707,
+      "bytes": 13568,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/paroquia-sao-judas-tadeu",
-      "file": "dist/iglesias/paroquia-sao-judas-tadeu.html",
       "status": "OK",
-      "bytes": 13695,
+      "bytes": 13556,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/paroquia-sao-sebastiao-dos-frades-capuchinhos",
-      "file": "dist/iglesias/paroquia-sao-sebastiao-dos-frades-capuchinhos.html",
       "status": "OK",
-      "bytes": 13821,
+      "bytes": 13682,
       "clientRouterPattern": false
     },
     {
       "route": "/iglesias/santuario-de-nossa-senhora-de-fatima",
-      "file": "dist/iglesias/santuario-de-nossa-senhora-de-fatima.html",
       "status": "OK",
-      "bytes": 13767,
+      "bytes": 13628,
       "clientRouterPattern": false
     },
     {
       "route": "/lugares/aquario",
-      "file": "dist/lugares/aquario.html",
       "status": "OK",
-      "bytes": 13589,
+      "bytes": 13450,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/buzios",
-      "file": "dist/lugares/buzios.html",
       "status": "OK",
-      "bytes": 13583,
+      "bytes": 13444,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/cristo-redentor",
-      "file": "dist/lugares/cristo-redentor.html",
       "status": "OK",
-      "bytes": 13637,
+      "bytes": 13498,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/escadaria-selaron",
-      "file": "dist/lugares/escadaria-selaron.html",
       "status": "OK",
-      "bytes": 13649,
+      "bytes": 13510,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/floresta-da-tijuca",
-      "file": "dist/lugares/floresta-da-tijuca.html",
       "status": "OK",
-      "bytes": 13655,
+      "bytes": 13516,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/forte-de-copacabana",
-      "file": "dist/lugares/forte-de-copacabana.html",
       "status": "OK",
-      "bytes": 13661,
+      "bytes": 13522,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/ipanema",
-      "file": "dist/lugares/ipanema.html",
       "status": "OK",
-      "bytes": 13589,
+      "bytes": 13450,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/jardim-botanico",
-      "file": "dist/lugares/jardim-botanico.html",
       "status": "OK",
-      "bytes": 13637,
+      "bytes": 13498,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/lapa",
-      "file": "dist/lugares/lapa.html",
       "status": "OK",
-      "bytes": 13571,
+      "bytes": 13432,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/mam-rio",
-      "file": "dist/lugares/mam-rio.html",
       "status": "OK",
-      "bytes": 13589,
+      "bytes": 13450,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/mar",
-      "file": "dist/lugares/mar.html",
       "status": "OK",
-      "bytes": 13565,
+      "bytes": 13426,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/maracana",
-      "file": "dist/lugares/maracana.html",
       "status": "OK",
-      "bytes": 13595,
+      "bytes": 13456,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/musal",
-      "file": "dist/lugares/musal.html",
       "status": "OK",
-      "bytes": 13577,
+      "bytes": 13438,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/museu-do-amanha",
-      "file": "dist/lugares/museu-do-amanha.html",
       "status": "OK",
-      "bytes": 13637,
+      "bytes": 13498,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/palacio-do-catete",
-      "file": "dist/lugares/palacio-do-catete.html",
       "status": "OK",
-      "bytes": 13649,
+      "bytes": 13510,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/pao-de-acucar",
-      "file": "dist/lugares/pao-de-acucar.html",
       "status": "OK",
-      "bytes": 13625,
+      "bytes": 13486,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/parque-lage",
-      "file": "dist/lugares/parque-lage.html",
       "status": "OK",
-      "bytes": 13613,
+      "bytes": 13474,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/pedra-bonita",
-      "file": "dist/lugares/pedra-bonita.html",
       "status": "OK",
-      "bytes": 13619,
+      "bytes": 13480,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/real-gabinete-portugues",
-      "file": "dist/lugares/real-gabinete-portugues.html",
       "status": "OK",
-      "bytes": 13685,
+      "bytes": 13546,
       "clientRouterPattern": true
     },
     {
       "route": "/lugares/santa-teresa",
-      "file": "dist/lugares/santa-teresa.html",
       "status": "OK",
-      "bytes": 13619,
+      "bytes": 13480,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/casa-historica-de-deodoro",
-      "file": "dist/museos/casa-historica-de-deodoro.html",
       "status": "OK",
-      "bytes": 13693,
+      "bytes": 13554,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/instituto-historico-e-geografico-brasileiro-ihgb",
-      "file": "dist/museos/instituto-historico-e-geografico-brasileiro-ihgb.html",
       "status": "OK",
-      "bytes": 13831,
+      "bytes": 13692,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-aeroespacial-musal",
-      "file": "dist/museos/museu-aeroespacial-musal.html",
       "status": "OK",
-      "bytes": 13687,
+      "bytes": 13548,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-arquidiocesano-de-arte-sacra-maas",
-      "file": "dist/museos/museu-arquidiocesano-de-arte-sacra-maas.html",
       "status": "OK",
-      "bytes": 13777,
+      "bytes": 13638,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-casa-de-benjamin-constant",
-      "file": "dist/museos/museu-casa-de-benjamin-constant.html",
       "status": "OK",
-      "bytes": 13729,
+      "bytes": 13590,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-chacara-do-ceu",
-      "file": "dist/museos/museu-chacara-do-ceu.html",
       "status": "OK",
-      "bytes": 13663,
+      "bytes": 13524,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-da-historia-e-da-cultura-afro-brasileira-muhcab",
-      "file": "dist/museos/museu-da-historia-e-da-cultura-afro-brasileira-muhcab.html",
       "status": "OK",
-      "bytes": 13861,
+      "bytes": 13722,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-da-republica-palacio-do-catete",
-      "file": "dist/museos/museu-da-republica-palacio-do-catete.html",
       "status": "OK",
-      "bytes": 13759,
+      "bytes": 13620,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-da-vida-fiocruz",
-      "file": "dist/museos/museu-da-vida-fiocruz.html",
       "status": "OK",
-      "bytes": 13669,
+      "bytes": 13530,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-de-arqueologia-de-itaipu",
-      "file": "dist/museos/museu-de-arqueologia-de-itaipu.html",
       "status": "OK",
-      "bytes": 13723,
+      "bytes": 13584,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-de-arte-contemporanea-de-niteroi-mac",
-      "file": "dist/museos/museu-de-arte-contemporanea-de-niteroi-mac.html",
       "status": "OK",
-      "bytes": 13795,
+      "bytes": 13656,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-de-arte-do-rio-mar",
-      "file": "dist/museos/museu-de-arte-do-rio-mar.html",
       "status": "OK",
-      "bytes": 13687,
+      "bytes": 13548,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-de-arte-moderna-do-rio-de-janeiro-mam-rio",
-      "file": "dist/museos/museu-de-arte-moderna-do-rio-de-janeiro-mam-rio.html",
       "status": "OK",
-      "bytes": 13825,
+      "bytes": 13686,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-de-astronomia-e-ciencias-afins-mast",
-      "file": "dist/museos/museu-de-astronomia-e-ciencias-afins-mast.html",
       "status": "OK",
-      "bytes": 13789,
+      "bytes": 13650,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-de-folclore-edison-carneiro",
-      "file": "dist/museos/museu-de-folclore-edison-carneiro.html",
       "status": "OK",
-      "bytes": 13741,
+      "bytes": 13602,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-do-acude",
-      "file": "dist/museos/museu-do-acude.html",
       "status": "OK",
-      "bytes": 13627,
+      "bytes": 13488,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-do-amanha",
-      "file": "dist/museos/museu-do-amanha.html",
       "status": "OK",
-      "bytes": 13633,
+      "bytes": 13494,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-do-pontal",
-      "file": "dist/museos/museu-do-pontal.html",
       "status": "OK",
-      "bytes": 13633,
+      "bytes": 13494,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-do-samba",
-      "file": "dist/museos/museu-do-samba.html",
       "status": "OK",
-      "bytes": 13627,
+      "bytes": 13488,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-flamengo",
-      "file": "dist/museos/museu-flamengo.html",
       "status": "OK",
-      "bytes": 13627,
+      "bytes": 13488,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-historico-da-cidade-do-rio-de-janeiro",
-      "file": "dist/museos/museu-historico-da-cidade-do-rio-de-janeiro.html",
       "status": "OK",
-      "bytes": 13801,
+      "bytes": 13662,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-historico-nacional",
-      "file": "dist/museos/museu-historico-nacional.html",
       "status": "OK",
-      "bytes": 13687,
+      "bytes": 13548,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-light-da-energia",
-      "file": "dist/museos/museu-light-da-energia.html",
       "status": "OK",
-      "bytes": 13675,
+      "bytes": 13536,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-nacional-de-belas-artes-mnba",
-      "file": "dist/museos/museu-nacional-de-belas-artes-mnba.html",
       "status": "OK",
-      "bytes": 13747,
+      "bytes": 13608,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-nacional-dos-povos-indigenas",
-      "file": "dist/museos/museu-nacional-dos-povos-indigenas.html",
       "status": "OK",
-      "bytes": 13747,
+      "bytes": 13608,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-nacional-ufrj",
-      "file": "dist/museos/museu-nacional-ufrj.html",
       "status": "OK",
-      "bytes": 13657,
+      "bytes": 13518,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-naval",
-      "file": "dist/museos/museu-naval.html",
       "status": "OK",
-      "bytes": 13609,
+      "bytes": 13470,
       "clientRouterPattern": true
     },
     {
       "route": "/museos/museu-villa-lobos",
-      "file": "dist/museos/museu-villa-lobos.html",
       "status": "OK",
-      "bytes": 13645,
+      "bytes": 13506,
       "clientRouterPattern": true
     },
     {
       "route": "/teatros/casa-de-cultura-laura-alvim",
-      "file": "dist/teatros/casa-de-cultura-laura-alvim.html",
       "status": "OK",
-      "bytes": 13709,
+      "bytes": 13570,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/ecovilla-ri-happy",
-      "file": "dist/teatros/ecovilla-ri-happy.html",
       "status": "OK",
-      "bytes": 13649,
+      "bytes": 13510,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/imperator-centro-cultural-joao-nogueira",
-      "file": "dist/teatros/imperator-centro-cultural-joao-nogueira.html",
       "status": "OK",
-      "bytes": 13781,
+      "bytes": 13642,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-dos-quatro",
-      "file": "dist/teatros/teatro-dos-quatro.html",
       "status": "OK",
-      "bytes": 13649,
+      "bytes": 13510,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-dulcina",
-      "file": "dist/teatros/teatro-dulcina.html",
       "status": "OK",
-      "bytes": 13631,
+      "bytes": 13492,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-fernanda-montenegro",
-      "file": "dist/teatros/teatro-fernanda-montenegro.html",
       "status": "OK",
-      "bytes": 13703,
+      "bytes": 13564,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-glauce-rocha",
-      "file": "dist/teatros/teatro-glauce-rocha.html",
       "status": "OK",
-      "bytes": 13661,
+      "bytes": 13522,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-ipanema",
-      "file": "dist/teatros/teatro-ipanema.html",
       "status": "OK",
-      "bytes": 13631,
+      "bytes": 13492,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-joao-caetano",
-      "file": "dist/teatros/teatro-joao-caetano.html",
       "status": "OK",
-      "bytes": 13661,
+      "bytes": 13522,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-maison-de-france",
-      "file": "dist/teatros/teatro-maison-de-france.html",
       "status": "OK",
-      "bytes": 13685,
+      "bytes": 13546,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-miguel-falabella",
-      "file": "dist/teatros/teatro-miguel-falabella.html",
       "status": "OK",
-      "bytes": 13685,
+      "bytes": 13546,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-multiplan",
-      "file": "dist/teatros/teatro-multiplan.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-municipal-armando-gonzaga",
-      "file": "dist/teatros/teatro-municipal-armando-gonzaga.html",
       "status": "OK",
-      "bytes": 13739,
+      "bytes": 13600,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-municipal-arthur-azevedo",
-      "file": "dist/teatros/teatro-municipal-arthur-azevedo.html",
       "status": "OK",
-      "bytes": 13733,
+      "bytes": 13594,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-municipal-cacilda-becker",
-      "file": "dist/teatros/teatro-municipal-cacilda-becker.html",
       "status": "OK",
-      "bytes": 13733,
+      "bytes": 13594,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-municipal-carlos-gomes",
-      "file": "dist/teatros/teatro-municipal-carlos-gomes.html",
       "status": "OK",
-      "bytes": 13721,
+      "bytes": 13582,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-municipal-ziembinski",
-      "file": "dist/teatros/teatro-municipal-ziembinski.html",
       "status": "OK",
-      "bytes": 13709,
+      "bytes": 13570,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-riachuelo-rio",
-      "file": "dist/teatros/teatro-riachuelo-rio.html",
       "status": "OK",
-      "bytes": 13667,
+      "bytes": 13528,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-rival-petrobras",
-      "file": "dist/teatros/teatro-rival-petrobras.html",
       "status": "OK",
-      "bytes": 13679,
+      "bytes": 13540,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-sesc-ginastico",
-      "file": "dist/teatros/teatro-sesc-ginastico.html",
       "status": "OK",
-      "bytes": 13673,
+      "bytes": 13534,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/teatro-sesc-tijuca",
-      "file": "dist/teatros/teatro-sesc-tijuca.html",
       "status": "OK",
-      "bytes": 13655,
+      "bytes": 13516,
       "clientRouterPattern": false
     },
     {
       "route": "/teatros/theatro-municipal-do-rio-de-janeiro",
-      "file": "dist/teatros/theatro-municipal-do-rio-de-janeiro.html",
       "status": "OK",
-      "bytes": 13757,
+      "bytes": 13618,
       "clientRouterPattern": false
     },
     {
       "route": "/transportes/bicicletas",
-      "file": "dist/transportes/bicicletas.html",
       "status": "OK",
-      "bytes": 13623,
+      "bytes": 13484,
       "clientRouterPattern": true
     },
     {
       "route": "/transportes/metro",
-      "file": "dist/transportes/metro.html",
       "status": "OK",
-      "bytes": 13593,
+      "bytes": 13454,
       "clientRouterPattern": true
     },
     {
       "route": "/transportes/transporte-publico",
-      "file": "dist/transportes/transporte-publico.html",
       "status": "OK",
-      "bytes": 13671,
+      "bytes": 13532,
       "clientRouterPattern": true
     },
     {
       "route": "/transportes/traslados",
-      "file": "dist/transportes/traslados.html",
       "status": "OK",
-      "bytes": 13617,
+      "bytes": 13478,
       "clientRouterPattern": true
     },
     {
       "route": "/transportes/uber",
-      "file": "dist/transportes/uber.html",
       "status": "OK",
-      "bytes": 13587,
+      "bytes": 13448,
       "clientRouterPattern": true
     },
     {
       "route": "/playas/playa-de-abrico",
-      "file": "dist/playas/playa-de-abrico.html",
       "status": "OK",
-      "bytes": 13633,
+      "bytes": 13494,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/playa-de-arpoador",
-      "file": "dist/playas/playa-de-arpoador.html",
       "status": "OK",
-      "bytes": 13645,
+      "bytes": 13506,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/playa-de-botafogo",
-      "file": "dist/playas/playa-de-botafogo.html",
       "status": "OK",
-      "bytes": 13645,
+      "bytes": 13506,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/playa-de-copacabana",
-      "file": "dist/playas/playa-de-copacabana.html",
       "status": "OK",
-      "bytes": 13657,
+      "bytes": 13518,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/playa-de-ipanema",
-      "file": "dist/playas/playa-de-ipanema.html",
       "status": "OK",
-      "bytes": 13639,
+      "bytes": 13500,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/playa-de-joatinga",
-      "file": "dist/playas/playa-de-joatinga.html",
       "status": "OK",
-      "bytes": 13645,
+      "bytes": 13506,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/playa-de-leblon",
-      "file": "dist/playas/playa-de-leblon.html",
       "status": "OK",
-      "bytes": 13633,
+      "bytes": 13494,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/playa-de-leme",
-      "file": "dist/playas/playa-de-leme.html",
       "status": "OK",
-      "bytes": 13621,
+      "bytes": 13482,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/playa-de-recreio-dos-bandeirantes",
-      "file": "dist/playas/playa-de-recreio-dos-bandeirantes.html",
       "status": "OK",
-      "bytes": 13741,
+      "bytes": 13602,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/playa-de-sao-conrado",
-      "file": "dist/playas/playa-de-sao-conrado.html",
       "status": "OK",
-      "bytes": 13663,
+      "bytes": 13524,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/praia-da-reserva",
-      "file": "dist/playas/praia-da-reserva.html",
       "status": "OK",
-      "bytes": 13639,
+      "bytes": 13500,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/praia-do-diabo-playa-del-diablo",
-      "file": "dist/playas/praia-do-diabo-playa-del-diablo.html",
       "status": "OK",
-      "bytes": 13729,
+      "bytes": 13590,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/praia-dos-amores-barra",
-      "file": "dist/playas/praia-dos-amores-barra.html",
       "status": "OK",
-      "bytes": 13675,
+      "bytes": 13536,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/praia-vermelha",
-      "file": "dist/playas/praia-vermelha.html",
       "status": "OK",
-      "bytes": 13627,
+      "bytes": 13488,
       "clientRouterPattern": false
     },
     {
       "route": "/playas/prainha-do-vidigal",
-      "file": "dist/playas/prainha-do-vidigal.html",
       "status": "OK",
-      "bytes": 13651,
+      "bytes": 13512,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/all-in",
-      "file": "dist/vida-nocturna/all-in.html",
       "status": "OK",
-      "bytes": 13607,
+      "bytes": 13468,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/armazem-senado",
-      "file": "dist/vida-nocturna/armazem-senado.html",
       "status": "OK",
-      "bytes": 13655,
+      "bytes": 13516,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/bafo-da-prainha",
-      "file": "dist/vida-nocturna/bafo-da-prainha.html",
       "status": "OK",
-      "bytes": 13661,
+      "bytes": 13522,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/bar-astor",
-      "file": "dist/vida-nocturna/bar-astor.html",
       "status": "OK",
-      "bytes": 13625,
+      "bytes": 13486,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/bar-bukowski",
-      "file": "dist/vida-nocturna/bar-bukowski.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/bar-da-cachaca",
-      "file": "dist/vida-nocturna/bar-da-cachaca.html",
       "status": "OK",
-      "bytes": 13655,
+      "bytes": 13516,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/bar-de-fogo-de-chao",
-      "file": "dist/vida-nocturna/bar-de-fogo-de-chao.html",
       "status": "OK",
-      "bytes": 13685,
+      "bytes": 13546,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/bar-do-omar",
-      "file": "dist/vida-nocturna/bar-do-omar.html",
       "status": "OK",
-      "bytes": 13637,
+      "bytes": 13498,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/bar-do-zeca-pagodinho",
-      "file": "dist/vida-nocturna/bar-do-zeca-pagodinho.html",
       "status": "OK",
-      "bytes": 13697,
+      "bytes": 13558,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/beco-das-garrafas",
-      "file": "dist/vida-nocturna/beco-das-garrafas.html",
       "status": "OK",
-      "bytes": 13673,
+      "bytes": 13534,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/beco-do-rato",
-      "file": "dist/vida-nocturna/beco-do-rato.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/bip-bip",
-      "file": "dist/vida-nocturna/bip-bip.html",
       "status": "OK",
-      "bytes": 13613,
+      "bytes": 13474,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/blue-note-rio",
-      "file": "dist/vida-nocturna/blue-note-rio.html",
       "status": "OK",
-      "bytes": 13649,
+      "bytes": 13510,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/boa-praca",
-      "file": "dist/vida-nocturna/boa-praca.html",
       "status": "OK",
-      "bytes": 13625,
+      "bytes": 13486,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/bosque-bar",
-      "file": "dist/vida-nocturna/bosque-bar.html",
       "status": "OK",
-      "bytes": 13631,
+      "bytes": 13492,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/brewteco-botafogo",
-      "file": "dist/vida-nocturna/brewteco-botafogo.html",
       "status": "OK",
-      "bytes": 13673,
+      "bytes": 13534,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/cacique-de-ramos",
-      "file": "dist/vida-nocturna/cacique-de-ramos.html",
       "status": "OK",
-      "bytes": 13667,
+      "bytes": 13528,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/canastra-bar",
-      "file": "dist/vida-nocturna/canastra-bar.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/carioca-da-gema",
-      "file": "dist/vida-nocturna/carioca-da-gema.html",
       "status": "OK",
-      "bytes": 13661,
+      "bytes": 13522,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/circo-voador",
-      "file": "dist/vida-nocturna/circo-voador.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/comuna",
-      "file": "dist/vida-nocturna/comuna.html",
       "status": "OK",
-      "bytes": 13607,
+      "bytes": 13468,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/coordenadas-bar",
-      "file": "dist/vida-nocturna/coordenadas-bar.html",
       "status": "OK",
-      "bytes": 13661,
+      "bytes": 13522,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/feira-de-sao-cristovao",
-      "file": "dist/vida-nocturna/feira-de-sao-cristovao.html",
       "status": "OK",
-      "bytes": 13703,
+      "bytes": 13564,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/fundicao-progresso",
-      "file": "dist/vida-nocturna/fundicao-progresso.html",
       "status": "OK",
-      "bytes": 13679,
+      "bytes": 13540,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/galeria-cafe",
-      "file": "dist/vida-nocturna/galeria-cafe.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/isabel-lounge",
-      "file": "dist/vida-nocturna/isabel-lounge.html",
       "status": "OK",
-      "bytes": 13649,
+      "bytes": 13510,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/jobi",
-      "file": "dist/vida-nocturna/jobi.html",
       "status": "OK",
-      "bytes": 13595,
+      "bytes": 13456,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/lapa-40-graus",
-      "file": "dist/vida-nocturna/lapa-40-graus.html",
       "status": "OK",
-      "bytes": 13649,
+      "bytes": 13510,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/leviano-bar",
-      "file": "dist/vida-nocturna/leviano-bar.html",
       "status": "OK",
-      "bytes": 13637,
+      "bytes": 13498,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/macuna",
-      "file": "dist/vida-nocturna/macuna.html",
       "status": "OK",
-      "bytes": 13607,
+      "bytes": 13468,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/moonlounge-rooftop",
-      "file": "dist/vida-nocturna/moonlounge-rooftop.html",
       "status": "OK",
-      "bytes": 13679,
+      "bytes": 13540,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/nosso",
-      "file": "dist/vida-nocturna/nosso.html",
       "status": "OK",
-      "bytes": 13601,
+      "bytes": 13462,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/ocya-ilha-primeira",
-      "file": "dist/vida-nocturna/ocya-ilha-primeira.html",
       "status": "OK",
-      "bytes": 13679,
+      "bytes": 13540,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/pedra-do-sal",
-      "file": "dist/vida-nocturna/pedra-do-sal.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/pink-flamingo",
-      "file": "dist/vida-nocturna/pink-flamingo.html",
       "status": "OK",
-      "bytes": 13649,
+      "bytes": 13510,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/portelao",
-      "file": "dist/vida-nocturna/portelao.html",
       "status": "OK",
-      "bytes": 13619,
+      "bytes": 13480,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/quadra-da-mangueira",
-      "file": "dist/vida-nocturna/quadra-da-mangueira.html",
       "status": "OK",
-      "bytes": 13685,
+      "bytes": 13546,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/quadra-do-salgueiro",
-      "file": "dist/vida-nocturna/quadra-do-salgueiro.html",
       "status": "OK",
-      "bytes": 13685,
+      "bytes": 13546,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/quartinho",
-      "file": "dist/vida-nocturna/quartinho.html",
       "status": "OK",
-      "bytes": 13625,
+      "bytes": 13486,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/renascenca-clube",
-      "file": "dist/vida-nocturna/renascenca-clube.html",
       "status": "OK",
-      "bytes": 13667,
+      "bytes": 13528,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/rio-scenarium",
-      "file": "dist/vida-nocturna/rio-scenarium.html",
       "status": "OK",
-      "bytes": 13649,
+      "bytes": 13510,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/rooftop-lapa",
-      "file": "dist/vida-nocturna/rooftop-lapa.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/sacadura-154",
-      "file": "dist/vida-nocturna/sacadura-154.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/trapiche-gamboa",
-      "file": "dist/vida-nocturna/trapiche-gamboa.html",
       "status": "OK",
-      "bytes": 13661,
+      "bytes": 13522,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/vaca-atolada",
-      "file": "dist/vida-nocturna/vaca-atolada.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/vitrinni-lounge",
-      "file": "dist/vida-nocturna/vitrinni-lounge.html",
       "status": "OK",
-      "bytes": 13661,
+      "bytes": 13522,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/vogue-square",
-      "file": "dist/vida-nocturna/vogue-square.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/xepa",
-      "file": "dist/vida-nocturna/xepa.html",
       "status": "OK",
-      "bytes": 13595,
+      "bytes": 13456,
       "clientRouterPattern": false
     },
     {
       "route": "/vida-nocturna/yoo2-rooftop",
-      "file": "dist/vida-nocturna/yoo2-rooftop.html",
       "status": "OK",
-      "bytes": 13643,
+      "bytes": 13504,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/ferias/babilonia-feira-hype",
-      "file": "dist/compras/ferias/babilonia-feira-hype.html",
       "status": "OK",
-      "bytes": 13681,
+      "bytes": 13542,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/ferias/feira-da-providencia",
-      "file": "dist/compras/ferias/feira-da-providencia.html",
       "status": "OK",
-      "bytes": 13681,
+      "bytes": 13542,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/ferias/feira-das-yabas",
-      "file": "dist/compras/ferias/feira-das-yabas.html",
       "status": "OK",
-      "bytes": 13651,
+      "bytes": 13512,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/ferias/feira-de-antiguidades-da-praca-xv",
-      "file": "dist/compras/ferias/feira-de-antiguidades-da-praca-xv.html",
       "status": "OK",
-      "bytes": 13759,
+      "bytes": 13620,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/ferias/feira-do-rio-antigo-lavradio",
-      "file": "dist/compras/ferias/feira-do-rio-antigo-lavradio.html",
       "status": "OK",
-      "bytes": 13729,
+      "bytes": 13590,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/ferias/feira-hippie-de-ipanema",
-      "file": "dist/compras/ferias/feira-hippie-de-ipanema.html",
       "status": "OK",
-      "bytes": 13699,
+      "bytes": 13560,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/ferias/feira-livre-da-gloria",
-      "file": "dist/compras/ferias/feira-livre-da-gloria.html",
       "status": "OK",
-      "bytes": 13687,
+      "bytes": 13548,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/ferias/feira-noturna-de-copacabana",
-      "file": "dist/compras/ferias/feira-noturna-de-copacabana.html",
       "status": "OK",
-      "bytes": 13723,
+      "bytes": 13584,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/ferias/feira-organica-da-gloria",
-      "file": "dist/compras/ferias/feira-organica-da-gloria.html",
       "status": "OK",
-      "bytes": 13705,
+      "bytes": 13566,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/ferias/feirarte-de-copacabana-praca-do-lido",
-      "file": "dist/compras/ferias/feirarte-de-copacabana-praca-do-lido.html",
       "status": "OK",
-      "bytes": 13777,
+      "bytes": 13638,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/mercados/cadeg-mercado-municipal-do-rio",
-      "file": "dist/compras/mercados/cadeg-mercado-municipal-do-rio.html",
       "status": "OK",
-      "bytes": 13745,
+      "bytes": 13606,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/mercados/centro-luiz-gonzaga-de-tradicoes-nordestinas",
-      "file": "dist/compras/mercados/centro-luiz-gonzaga-de-tradicoes-nordestinas.html",
       "status": "OK",
-      "bytes": 13829,
+      "bytes": 13690,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/mercados/mercadao-de-madureira",
-      "file": "dist/compras/mercados/mercadao-de-madureira.html",
       "status": "OK",
-      "bytes": 13691,
+      "bytes": 13552,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/mercados/mercado-de-sao-pedro",
-      "file": "dist/compras/mercados/mercado-de-sao-pedro.html",
       "status": "OK",
-      "bytes": 13685,
+      "bytes": 13546,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/mercados/mercado-popular-da-uruguaiana",
-      "file": "dist/compras/mercados/mercado-popular-da-uruguaiana.html",
       "status": "OK",
-      "bytes": 13739,
+      "bytes": 13600,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/mercados/saara",
-      "file": "dist/compras/mercados/saara.html",
       "status": "OK",
-      "bytes": 13595,
+      "bytes": 13456,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/shoppings/barrashopping",
-      "file": "dist/compras/shoppings/barrashopping.html",
       "status": "OK",
-      "bytes": 13645,
+      "bytes": 13506,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/shoppings/botafogo-praia-shopping",
-      "file": "dist/compras/shoppings/botafogo-praia-shopping.html",
       "status": "OK",
-      "bytes": 13705,
+      "bytes": 13566,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/shoppings/downtown",
-      "file": "dist/compras/shoppings/downtown.html",
       "status": "OK",
-      "bytes": 13615,
+      "bytes": 13476,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/shoppings/fashion-mall",
-      "file": "dist/compras/shoppings/fashion-mall.html",
       "status": "OK",
-      "bytes": 13639,
+      "bytes": 13500,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/shoppings/norteshopping",
-      "file": "dist/compras/shoppings/norteshopping.html",
       "status": "OK",
-      "bytes": 13645,
+      "bytes": 13506,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/shoppings/parkjacarepagua",
-      "file": "dist/compras/shoppings/parkjacarepagua.html",
       "status": "OK",
-      "bytes": 13657,
+      "bytes": 13518,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/shoppings/shopping-leblon",
-      "file": "dist/compras/shoppings/shopping-leblon.html",
       "status": "OK",
-      "bytes": 13657,
+      "bytes": 13518,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/shoppings/shopping-metropolitano-barra",
-      "file": "dist/compras/shoppings/shopping-metropolitano-barra.html",
       "status": "OK",
-      "bytes": 13735,
+      "bytes": 13596,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/shoppings/shopping-nova-america",
-      "file": "dist/compras/shoppings/shopping-nova-america.html",
       "status": "OK",
-      "bytes": 13693,
+      "bytes": 13554,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/shoppings/shopping-riosul",
-      "file": "dist/compras/shoppings/shopping-riosul.html",
       "status": "OK",
-      "bytes": 13657,
+      "bytes": 13518,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/shoppings/shopping-tijuca",
-      "file": "dist/compras/shoppings/shopping-tijuca.html",
       "status": "OK",
-      "bytes": 13657,
+      "bytes": 13518,
       "clientRouterPattern": false
     },
     {
       "route": "/compras/shoppings/villagemall",
-      "file": "dist/compras/shoppings/villagemall.html",
       "status": "OK",
-      "bytes": 13633,
+      "bytes": 13494,
       "clientRouterPattern": false
     }
   ]
