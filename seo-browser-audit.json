@@ -1,154 +1,21 @@
 {
-  "generatedAt": "2026-09-12T11:56:04.110Z",
+  "generatedAt": "2026-09-12T12:00:02.103Z",
   "total": 498,
-  "ok": 266,
-  "failed": 232,
+  "ok": 303,
+  "failed": 195,
   "failedByCategory": {
-    "/cafe-ernestinho": 1,
-    "/descubre-rio": 1,
-    "/espacios-literarios": 18,
-    "/lugares": 21,
-    "/ocio": 1,
-    "/para-mi": 1,
-    "/patrimonio": 1,
-    "/prepara-tu-viaje": 1,
-    "/rio-en-vivo": 1,
-    "/sos": 1,
-    "/tv": 1,
     "/centros-culturales": 15,
+    "/espacios-literarios": 17,
     "/eventos": 6,
     "/experiencias": 2,
     "/fuertes-fortalezas": 11,
-    "/guia": 1,
     "/iglesias": 30,
     "/teatros": 22,
-    "/transportes": 5,
     "/playas": 15,
     "/vida-nocturna": 49,
     "/compras": 28
   },
   "failures": [
-    {
-      "route": "/cafe-ernestinho",
-      "finalPath": "/cafe-ernestinho",
-      "canonical": "https://www.ernestinhocarioca.com.br/cafe-ernestinho",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/descubre-rio",
-      "finalPath": "/descubre-rio",
-      "canonical": "https://www.ernestinhocarioca.com.br/descubre-rio",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/espacios-literarios",
-      "finalPath": "/espacios-literarios",
-      "canonical": "https://www.ernestinhocarioca.com.br/espacios-literarios",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares",
-      "finalPath": "/lugares",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/ocio",
-      "finalPath": "/ocio",
-      "canonical": "https://www.ernestinhocarioca.com.br/ocio",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/para-mi",
-      "finalPath": "/para-mi",
-      "canonical": "https://www.ernestinhocarioca.com.br/para-mi",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/patrimonio",
-      "finalPath": "/patrimonio",
-      "canonical": "https://www.ernestinhocarioca.com.br/patrimonio",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/prepara-tu-viaje",
-      "finalPath": "/prepara-tu-viaje",
-      "canonical": "https://www.ernestinhocarioca.com.br/prepara-tu-viaje",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/rio-en-vivo",
-      "finalPath": "/rio-en-vivo",
-      "canonical": "https://www.ernestinhocarioca.com.br/rio-en-vivo",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/sos",
-      "finalPath": "/sos",
-      "canonical": "https://www.ernestinhocarioca.com.br/sos",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/tv",
-      "finalPath": "/tv",
-      "canonical": "https://www.ernestinhocarioca.com.br/tv",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
     {
       "route": "/centros-culturales/caixa-cultural-rio-de-janeiro",
       "finalPath": "/",
@@ -711,17 +578,6 @@
       "ok": false
     },
     {
-      "route": "/guia/pix",
-      "finalPath": "/guia/pix",
-      "canonical": "https://www.ernestinhocarioca.com.br/guia/pix",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
       "route": "/iglesias/basilica-santuario-de-nossa-senhora-da-penha",
       "finalPath": "/",
       "canonical": "https://www.ernestinhocarioca.com.br/",
@@ -1052,226 +908,6 @@
       "ok": false
     },
     {
-      "route": "/lugares/aquario",
-      "finalPath": "/lugares/aquario",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/aquario",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/buzios",
-      "finalPath": "/lugares/buzios",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/buzios",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/cristo-redentor",
-      "finalPath": "/lugares/cristo-redentor",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/cristo-redentor",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/escadaria-selaron",
-      "finalPath": "/lugares/escadaria-selaron",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/escadaria-selaron",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/floresta-da-tijuca",
-      "finalPath": "/lugares/floresta-da-tijuca",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/floresta-da-tijuca",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/forte-de-copacabana",
-      "finalPath": "/lugares/forte-de-copacabana",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/forte-de-copacabana",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/ipanema",
-      "finalPath": "/lugares/ipanema",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/ipanema",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/jardim-botanico",
-      "finalPath": "/lugares/jardim-botanico",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/jardim-botanico",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/lapa",
-      "finalPath": "/lugares/lapa",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/lapa",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/mam-rio",
-      "finalPath": "/lugares/mam-rio",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/mam-rio",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/mar",
-      "finalPath": "/lugares/mar",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/mar",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/maracana",
-      "finalPath": "/lugares/maracana",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/maracana",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/musal",
-      "finalPath": "/lugares/musal",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/musal",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/museu-do-amanha",
-      "finalPath": "/lugares/museu-do-amanha",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/museu-do-amanha",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/palacio-do-catete",
-      "finalPath": "/lugares/palacio-do-catete",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/palacio-do-catete",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/pao-de-acucar",
-      "finalPath": "/lugares/pao-de-acucar",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/pao-de-acucar",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/parque-lage",
-      "finalPath": "/lugares/parque-lage",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/parque-lage",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/pedra-bonita",
-      "finalPath": "/lugares/pedra-bonita",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/pedra-bonita",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/real-gabinete-portugues",
-      "finalPath": "/lugares/real-gabinete-portugues",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/real-gabinete-portugues",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/lugares/santa-teresa",
-      "finalPath": "/lugares/santa-teresa",
-      "canonical": "https://www.ernestinhocarioca.com.br/lugares/santa-teresa",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
       "route": "/teatros/casa-de-cultura-laura-alvim",
       "finalPath": "/",
       "canonical": "https://www.ernestinhocarioca.com.br/",
@@ -1508,61 +1144,6 @@
       "canonical": "https://www.ernestinhocarioca.com.br/",
       "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
       "robots": "index, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/transportes/bicicletas",
-      "finalPath": "/transportes/bicicletas",
-      "canonical": "https://www.ernestinhocarioca.com.br/transportes/bicicletas",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/transportes/metro",
-      "finalPath": "/transportes/metro",
-      "canonical": "https://www.ernestinhocarioca.com.br/transportes/metro",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/transportes/transporte-publico",
-      "finalPath": "/transportes/transporte-publico",
-      "canonical": "https://www.ernestinhocarioca.com.br/transportes/transporte-publico",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/transportes/traslados",
-      "finalPath": "/transportes/traslados",
-      "canonical": "https://www.ernestinhocarioca.com.br/transportes/traslados",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    },
-    {
-      "route": "/transportes/uber",
-      "finalPath": "/transportes/uber",
-      "canonical": "https://www.ernestinhocarioca.com.br/transportes/uber",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
@@ -2630,12 +2211,12 @@
       "route": "/cafe-ernestinho",
       "finalPath": "/cafe-ernestinho",
       "canonical": "https://www.ernestinhocarioca.com.br/cafe-ernestinho",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Cafe Ernestinho | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/centros-culturales",
@@ -2685,23 +2266,23 @@
       "route": "/descubre-rio",
       "finalPath": "/descubre-rio",
       "canonical": "https://www.ernestinhocarioca.com.br/descubre-rio",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Descubre Rio | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/espacios-literarios",
       "finalPath": "/espacios-literarios",
       "canonical": "https://www.ernestinhocarioca.com.br/espacios-literarios",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Espacios Literarios | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/eventos",
@@ -2806,12 +2387,12 @@
       "route": "/lugares",
       "finalPath": "/lugares",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Lugares | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/museos",
@@ -2839,34 +2420,34 @@
       "route": "/ocio",
       "finalPath": "/ocio",
       "canonical": "https://www.ernestinhocarioca.com.br/ocio",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Ocio | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/para-mi",
       "finalPath": "/para-mi",
       "canonical": "https://www.ernestinhocarioca.com.br/para-mi",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Para Mi | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/patrimonio",
       "finalPath": "/patrimonio",
       "canonical": "https://www.ernestinhocarioca.com.br/patrimonio",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Patrimonio | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/playas",
@@ -2883,12 +2464,12 @@
       "route": "/prepara-tu-viaje",
       "finalPath": "/prepara-tu-viaje",
       "canonical": "https://www.ernestinhocarioca.com.br/prepara-tu-viaje",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Prepara Tu Viaje | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/que-hacer",
@@ -2905,23 +2486,23 @@
       "route": "/rio-en-vivo",
       "finalPath": "/rio-en-vivo",
       "canonical": "https://www.ernestinhocarioca.com.br/rio-en-vivo",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Rio En Vivo | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/sos",
       "finalPath": "/sos",
       "canonical": "https://www.ernestinhocarioca.com.br/sos",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Sos | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/teatros",
@@ -2949,12 +2530,12 @@
       "route": "/tv",
       "finalPath": "/tv",
       "canonical": "https://www.ernestinhocarioca.com.br/tv",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Tv | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/vida-nocturna",
@@ -5886,12 +5467,12 @@
       "route": "/guia/pix",
       "finalPath": "/guia/pix",
       "canonical": "https://www.ernestinhocarioca.com.br/guia/pix",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Pix | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/iglesias/basilica-santuario-de-nossa-senhora-da-penha",
@@ -6227,221 +5808,221 @@
       "route": "/lugares/aquario",
       "finalPath": "/lugares/aquario",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/aquario",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Aquario | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/buzios",
       "finalPath": "/lugares/buzios",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/buzios",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Buzios | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/cristo-redentor",
       "finalPath": "/lugares/cristo-redentor",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/cristo-redentor",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Cristo Redentor | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/escadaria-selaron",
       "finalPath": "/lugares/escadaria-selaron",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/escadaria-selaron",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Escadaria Selaron | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/floresta-da-tijuca",
       "finalPath": "/lugares/floresta-da-tijuca",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/floresta-da-tijuca",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Floresta Da Tijuca | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/forte-de-copacabana",
       "finalPath": "/lugares/forte-de-copacabana",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/forte-de-copacabana",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Forte De Copacabana | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/ipanema",
       "finalPath": "/lugares/ipanema",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/ipanema",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Ipanema | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/jardim-botanico",
       "finalPath": "/lugares/jardim-botanico",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/jardim-botanico",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Jardim Botanico | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/lapa",
       "finalPath": "/lugares/lapa",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/lapa",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Lapa | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/mam-rio",
       "finalPath": "/lugares/mam-rio",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/mam-rio",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Mam Rio | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/mar",
       "finalPath": "/lugares/mar",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/mar",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Mar | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/maracana",
       "finalPath": "/lugares/maracana",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/maracana",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Maracana | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/musal",
       "finalPath": "/lugares/musal",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/musal",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Musal | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/museu-do-amanha",
       "finalPath": "/lugares/museu-do-amanha",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/museu-do-amanha",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Museu Do Amanha | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/palacio-do-catete",
       "finalPath": "/lugares/palacio-do-catete",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/palacio-do-catete",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Palacio Do Catete | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/pao-de-acucar",
       "finalPath": "/lugares/pao-de-acucar",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/pao-de-acucar",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Pao De Acucar | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/parque-lage",
       "finalPath": "/lugares/parque-lage",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/parque-lage",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Parque Lage | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/pedra-bonita",
       "finalPath": "/lugares/pedra-bonita",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/pedra-bonita",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Pedra Bonita | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/real-gabinete-portugues",
       "finalPath": "/lugares/real-gabinete-portugues",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/real-gabinete-portugues",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Real Gabinete Portugues | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/lugares/santa-teresa",
       "finalPath": "/lugares/santa-teresa",
       "canonical": "https://www.ernestinhocarioca.com.br/lugares/santa-teresa",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Santa Teresa | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/museos/casa-historica-de-deodoro",
@@ -6997,56 +6578,56 @@
       "route": "/transportes/bicicletas",
       "finalPath": "/transportes/bicicletas",
       "canonical": "https://www.ernestinhocarioca.com.br/transportes/bicicletas",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Bicicletas | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/transportes/metro",
       "finalPath": "/transportes/metro",
       "canonical": "https://www.ernestinhocarioca.com.br/transportes/metro",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Metro | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/transportes/transporte-publico",
       "finalPath": "/transportes/transporte-publico",
       "canonical": "https://www.ernestinhocarioca.com.br/transportes/transporte-publico",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Transporte Publico | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/transportes/traslados",
       "finalPath": "/transportes/traslados",
       "canonical": "https://www.ernestinhocarioca.com.br/transportes/traslados",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Traslados | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/transportes/uber",
       "finalPath": "/transportes/uber",
       "canonical": "https://www.ernestinhocarioca.com.br/transportes/uber",
-      "title": "Ernestinho Carioca | Guía completa de Río de Janeiro",
-      "robots": "noindex, follow",
+      "title": "Uber | Ernestinho Carioca",
+      "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/playas/playa-de-abrico",
