@@ -1,0 +1,114 @@
+[
+  {
+    "route": "/transportes",
+    "status": 200,
+    "navError": null,
+    "domContentLoadedMs": 1131,
+    "networkIdleMs": 1722,
+    "reqs": 21,
+    "bytes": 4721051,
+    "failed": [
+      {
+        "url": "https://www-motoristasdeaplicativos-com-br.translate.goog/wp-content/uploads/2020/02/uber-rj-768x403.jpg?_x_tr_sl=pt&_x_tr_tl=es&_x_tr_hl=es-419&_x_tr_pto=sc",
+        "error": "net::ERR_BLOCKED_BY_ORB"
+      },
+      {
+        "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-QE1X83D419&gtm=45je69a0h2v9263256555za200zd9263256555&_p=1789216545906&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=222432139.1789216546&frm=0&ngs=1&pscdl=noapi&rcb=6&sr=412x915&uaa=arm&uab=64&uafvl=Chromium%3B140.0.7339.16%7CNot%253DA%253FBrand%3B24.0.0.0%7CHeadlessChrome%3B140.0.7339.16&uam=&uamb=0&uap=Android&uapv=6.0.1&uaw=0&ul=en-us%40posix&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153&sid=1789216546&sct=1&seg=0&dl=https%3A%2F%2Fwww.ernestinhocarioca.com.br%2Ftransportes&dt=C%C3%B3mo%20moverse%20en%20R%C3%ADo%20de%20Janeiro%20%7C%20Ernestinho%20Carioca&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=1190",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "consoleErrors": [],
+    "path": "/transportes",
+    "title": "Cómo moverse en Río de Janeiro | Ernestinho Carioca",
+    "canonical": "https://www.ernestinhocarioca.com.br/transportes",
+    "robots": "index, follow",
+    "textLength": 2008,
+    "htmlLength": 48408,
+    "rootText": "",
+    "images": 8,
+    "completeImages": 8,
+    "scripts": [
+      "https://cdn.tailwindcss.com/",
+      "https://unpkg.com/react@18/umd/react.production.min.js",
+      "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js",
+      "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js",
+      "https://unpkg.com/lucide@latest",
+      "https://www.googletagmanager.com/gtag/js?id=G-QE1X83D419",
+      "https://www.ernestinhocarioca.com.br/app.js",
+      "https://www.instagram.com/embed.js"
+    ]
+  },
+  {
+    "route": "/copacabana",
+    "status": 200,
+    "navError": null,
+    "domContentLoadedMs": 837,
+    "networkIdleMs": 1761,
+    "reqs": 18,
+    "bytes": 581164,
+    "failed": [
+      {
+        "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-QE1X83D419&gtm=45je6992v9263256555za200zd9263256555xf1&_p=1789216548756&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1017136096.1789216549&frm=0&ngs=1&pscdl=noapi&rcb=0&sr=412x915&uaa=arm&uab=64&uafvl=Chromium%3B140.0.7339.16%7CNot%253DA%253FBrand%3B24.0.0.0%7CHeadlessChrome%3B140.0.7339.16&uam=&uamb=0&uap=Android&uapv=6.0.1&uaw=0&ul=en-us%40posix&_s=1&tag_exp=115938465~115938469~118897920~118897930~120213116~120385423~120469145~120469153~120912439&sid=1789216549&sct=1&seg=0&dl=https%3A%2F%2Fwww.ernestinhocarioca.com.br%2Fcopacabana&dt=Copacabana%20%7C%20Gu%C3%ADa%20de%20Ernestinho%20Carioca&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=885",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "consoleErrors": [
+      "Failed to load resource: the server responded with a status of 404 ()",
+      "Failed to load resource: the server responded with a status of 404 ()"
+    ],
+    "path": "/copacabana",
+    "title": "Copacabana | Guía de Ernestinho Carioca",
+    "canonical": "https://www.ernestinhocarioca.com.br/copacabana",
+    "robots": "index, follow",
+    "textLength": 13146,
+    "htmlLength": 100891,
+    "rootText": "",
+    "images": 2,
+    "completeImages": 2,
+    "scripts": [
+      "https://cdn.tailwindcss.com/",
+      "https://unpkg.com/react@18/umd/react.production.min.js",
+      "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js",
+      "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js",
+      "https://unpkg.com/lucide@latest",
+      "https://www.googletagmanager.com/gtag/js?id=G-QE1X83D419",
+      "https://www.ernestinhocarioca.com.br/app.js",
+      "https://www.instagram.com/embed.js"
+    ]
+  },
+  {
+    "route": "/gastronomia/lasai",
+    "status": 200,
+    "navError": null,
+    "domContentLoadedMs": 967,
+    "networkIdleMs": 1543,
+    "reqs": 24,
+    "bytes": 4014382,
+    "failed": [
+      {
+        "url": "https://www.google-analytics.com/g/collect?v=2&tid=G-QE1X83D419&gtm=45je6992v9263256555za200zd9263256555&_p=1789216551981&gcd=13l3l3l3l1l1&npa=0&dma=0&are=1&cid=1751327347.1789216553&frm=0&ngs=1&pscdl=noapi&rcb=7&sr=412x915&uaa=arm&uab=64&uafvl=Chromium%3B140.0.7339.16%7CNot%253DA%253FBrand%3B24.0.0.0%7CHeadlessChrome%3B140.0.7339.16&uam=&uamb=0&uap=Android&uapv=6.0.1&uaw=0&ul=en-us%40posix&_s=1&tag_exp=115938466~115938468~118897920~118897930~120213116~120385422~120469145~120469153&sid=1789216552&sct=1&seg=0&dl=https%3A%2F%2Fwww.ernestinhocarioca.com.br%2Fgastronomia%2Flasai&dt=Lasai%20en%20R%C3%ADo%20de%20Janeiro%20%7C%20Ernestinho%20Carioca&en=page_view&_fv=1&_nsi=1&_ss=1&_ee=1&tfd=1006",
+        "error": "net::ERR_ABORTED"
+      }
+    ],
+    "consoleErrors": [],
+    "path": "/gastronomia/lasai",
+    "title": "Lasai en Río de Janeiro | Ernestinho Carioca",
+    "canonical": "https://www.ernestinhocarioca.com.br/gastronomia/lasai",
+    "robots": "index, follow",
+    "textLength": 30153,
+    "htmlLength": 327447,
+    "rootText": "",
+    "images": 187,
+    "completeImages": 12,
+    "scripts": [
+      "https://cdn.tailwindcss.com/",
+      "https://unpkg.com/react@18/umd/react.production.min.js",
+      "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js",
+      "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js",
+      "https://unpkg.com/lucide@latest",
+      "https://www.googletagmanager.com/gtag/js?id=G-QE1X83D419",
+      "https://www.ernestinhocarioca.com.br/app.js",
+      "https://www.instagram.com/embed.js"
+    ]
+  }
+]
