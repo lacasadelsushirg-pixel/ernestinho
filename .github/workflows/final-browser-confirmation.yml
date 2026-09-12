@@ -1,0 +1,44 @@
+name: Final browser confirmation
+on:
+  push:
+    branches: [final-seo-audit-20260912]
+permissions:
+  contents: read
+jobs:
+  confirm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install
+        run: |
+          npm install
+          npm install --no-save playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Clean build
+        run: |
+          rm -rf dist
+          node scripts/apply-deep-entity-selection-fix.js
+          node scripts/build-static.js
+      - name: Independent 498-route Chromium confirmation
+        run: |
+          cat > final-browser-confirmation.js <<'NODE'
+          const fs=require('fs'),path=require('path'),http=require('http');
+          const {chromium}=require('playwright');
+          const DOMAIN='https://www.ernestinhocarioca.com.br',OUT=path.join(process.cwd(),'dist');
+          const sitemap=fs.readFileSync('sitemap.xml','utf8');
+          const routes=[...sitemap.matchAll(/<loc>https:\/\/www\.ernestinhocarioca\.com\.br([^<]*)<\/loc>/g)].map(m=>{let r=m[1]||'/';if(r.length>1)r=r.replace(/\/$/,'');return r||'/'});
+          const fileFor=r=>r==='/'?path.join(OUT,'index.html'):path.join(OUT,r.replace(/^\//,'')+'.html');
+          const server=http.createServer((req,res)=>{const u=new URL(req.url,'http://x'),p=decodeURIComponent(u.pathname);let f;if(p==='/app.js')f=path.join(OUT,'app.js');else f=fileFor(p);if(fs.existsSync(f)){res.statusCode=200;res.setHeader('content-type',f.endsWith('.js')?'application/javascript':'text/html');return res.end(fs.readFileSync(f))}res.statusCode=404;res.setHeader('content-type','text/html');res.end(fs.readFileSync(path.join(OUT,'404.html')))});
+          (async()=>{await new Promise(r=>server.listen(4188,'127.0.0.1',r));const browser=await chromium.launch({headless:true});let cursor=0;const results=[];const workers=Array.from({length:8},async()=>{while(true){const i=cursor++;if(i>=routes.length)break;const route=routes[i];const p=await browser.newPage({viewport:{width:412,height:915}});const errors=[];p.on('pageerror',e=>errors.push(String(e)));await p.route('**/*',async rt=>{const req=rt.request(),url=req.url(),type=req.resourceType();if(['image','font','media'].includes(type))return rt.fulfill({status:204,body:''});if(url.startsWith('http://127.0.0.1:4188')||/unpkg\.com\/react|unpkg\.com\/react-dom/.test(url))return rt.continue();if(type==='script'&&(url.includes('googletagmanager')||url.includes('xlsx')||url.includes('lucide')||url.includes('tailwindcss')))return rt.fulfill({status:204,body:''});return rt.continue();});let nav=null;try{await p.goto('http://127.0.0.1:4188'+route,{waitUntil:'domcontentloaded',timeout:20000});await p.waitForTimeout(250)}catch(e){nav=String(e)}const d=await p.evaluate(()=>({pathname:location.pathname,title:document.title,canonical:document.querySelector('link[rel=canonical]')?.href||'',robots:document.querySelector('meta[name=robots]')?.content||'',textLength:(document.body?.innerText||'').trim().length,h1:[...document.querySelectorAll('h1')].map(x=>x.innerText.trim()).filter(Boolean).slice(0,3),images:document.images.length})).catch(()=>({}));const ok=!nav&&!errors.length&&d.pathname===route&&d.canonical===DOMAIN+(route==='/'?'/':route)&&/index\s*,?\s*follow/i.test(d.robots||'')&&d.textLength>0;results.push({route,ok,nav,pageErrors:errors,...d});await p.close();}});await Promise.all(workers);await browser.close();server.close();results.sort((a,b)=>a.route.localeCompare(b.route));const failures=results.filter(x=>!x.ok);const lasai=results.find(x=>x.route==='/gastronomia/lasai');const exp1=results.find(x=>x.route==='/experiencias/buzios-tour-en-goleta');const exp2=results.find(x=>x.route==='/experiencias/full-day-rio');const report={generatedAt:new Date().toISOString(),total:results.length,ok:results.length-failures.length,failed:failures.length,failures,lasai,experienceControls:[exp1,exp2]};fs.writeFileSync('final-browser-confirmation.json',JSON.stringify(report,null,2));console.log(JSON.stringify(report,null,2));if(failures.length)process.exitCode=1;})().catch(e=>{console.error(e);process.exit(1)});
+          NODE
+          node final-browser-confirmation.js
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: final-browser-confirmation
+          path: final-browser-confirmation.json
+          if-no-files-found: error
