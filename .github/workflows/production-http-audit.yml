@@ -1,7 +1,8 @@
 name: Production HTTP audit
 on:
   push:
-    branches: [seo-audit-20260912]
+    branches:
+      - seo-audit-20260912
 permissions:
   contents: write
 jobs:
@@ -10,53 +11,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Check production with browser and Googlebot user agents
+      - name: Check production with browser and Googlebot
         shell: bash
         run: |
           set -u
-          BASE='https://www.ernestinhocarioca.com.br'
-          OUT='production-http-audit.txt'
+          BASE="https://www.ernestinhocarioca.com.br"
+          OUT="production-http-audit.txt"
           : > "$OUT"
-          check() {
-            path="$1"
-            ua="$2"
-            label="$3"
-            url="$BASE$path"
-            echo "===== $label $path =====" >> "$OUT"
-            curl -sS -L --max-time 30 -A "$ua" -D /tmp/h.$$ -o /tmp/b.$$ "$url" || true
-            status=$(awk 'toupper($1) ~ /^HTTP\// {code=$2} END{print code}' /tmp/h.$$)
-            echo "status=${status:-curl_error}" >> "$OUT"
-            grep -iE '^(content-type|content-length|content-encoding|cache-control|x-vercel-|location):' /tmp/h.$$ | tail -20 >> "$OUT" || true
-            echo "bytes=$(wc -c < /tmp/b.$$ 2>/dev/null || echo 0)" >> "$OUT"
-            python3 - "$OUT" /tmp/b.$$ <<'PY'
-import re,sys
-out,body=sys.argv[1:]
-try:
-    s=open(body,'rb').read(600000).decode('utf-8','ignore')
-except Exception:
-    s=''
-def one(p):
-    m=re.search(p,s,re.I|re.S)
-    return re.sub(r'\s+',' ',m.group(1)).strip() if m else ''
-with open(out,'a',encoding='utf-8') as f:
-    f.write('title='+one(r'<title[^>]*>(.*?)</title>')+'\n')
-    f.write('canonical='+one(r'<link[^>]+rel=["\']canonical["\'][^>]+href=["\']([^"\']+)')+'\n')
-    if not one(r'<link[^>]+rel=["\']canonical["\'][^>]+href=["\']([^"\']+)'):
-        f.write('canonical='+one(r'<link[^>]+href=["\']([^"\']+)["\'][^>]+rel=["\']canonical["\']')+'\n')
-    f.write('robots='+one(r'<meta[^>]+name=["\']robots["\'][^>]+content=["\']([^"\']+)')+'\n')
-    f.write('appjs='+('yes' if '/app.js' in s else 'no')+'\n')
-PY
-            echo >> "$OUT"
-            rm -f /tmp/h.$$ /tmp/b.$$
-          }
-          BROWSER='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/152 Safari/537.36'
-          GOOGLEBOT='Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
-          for p in '/' '/transportes' '/copacabana' '/gastronomia/lasai' '/experiencias/rapel' '/esto-no-existe-ernestinho-12345' '/app.js'; do
-            check "$p" "$BROWSER" 'BROWSER'
-            check "$p" "$GOOGLEBOT" 'GOOGLEBOT'
+          BROWSER="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/152 Safari/537.36"
+          GOOGLEBOT="Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5X Build/MMB29P) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Mobile Safari/537.36 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+          for UA_LABEL in BROWSER GOOGLEBOT; do
+            if [ "$UA_LABEL" = "BROWSER" ]; then UA="$BROWSER"; else UA="$GOOGLEBOT"; fi
+            for P in / /transportes /copacabana /gastronomia/lasai /experiencias/rapel /esto-no-existe-ernestinho-12345 /app.js; do
+              echo "===== $UA_LABEL $P =====" >> "$OUT"
+              curl -sS -L --max-time 30 -A "$UA" -D /tmp/headers -o /tmp/body "$BASE$P" || true
+              STATUS=$(awk 'toupper($1) ~ /^HTTP\// {code=$2} END{print code}' /tmp/headers 2>/dev/null)
+              echo "status=${STATUS:-curl_error}" >> "$OUT"
+              grep -iE '^(content-type|content-length|content-encoding|cache-control|x-vercel-|location):' /tmp/headers | tail -20 >> "$OUT" || true
+              echo "bytes=$(wc -c < /tmp/body 2>/dev/null || echo 0)" >> "$OUT"
+              grep -ioE '<title[^>]*>[^<]*</title>' /tmp/body | head -1 >> "$OUT" || true
+              grep -ioE '<link[^>]+rel=["'"'']canonical["'"''][^>]*>' /tmp/body | head -1 >> "$OUT" || true
+              grep -ioE '<meta[^>]+name=["'"'']robots["'"''][^>]*>' /tmp/body | head -1 >> "$OUT" || true
+              if grep -q '/app.js' /tmp/body; then echo 'appjs=yes' >> "$OUT"; else echo 'appjs=no' >> "$OUT"; fi
+              echo >> "$OUT"
+            done
           done
           cat "$OUT"
       - name: Commit production report
+        shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
