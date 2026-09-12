@@ -13,6 +13,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
+      - name: Apply targeted SEO router fix
+        run: node scripts/apply-seo-router-fix.js
       - name: Install build dependency
         run: npm install
       - name: Build static site
@@ -25,12 +27,12 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Audit every sitemap route in Chromium
         run: node scripts/audit-browser.js || true
-      - name: Commit reports
+      - name: Commit patched index and reports
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add seo-audit-report.json seo-browser-audit.json
-          git diff --cached --quiet || git commit -m "chore: update SEO audit reports"
+          git add index.html seo-audit-report.json seo-browser-audit.json
+          git diff --cached --quiet || git commit -m "test: apply SEO router fix and refresh audits"
           git push
       - name: Enforce zero static build errors
         run: node -e "const r=require('./seo-audit-report.json'); if(r.errors.length){ console.error(r.errors.slice(0,100)); process.exit(1) }"
