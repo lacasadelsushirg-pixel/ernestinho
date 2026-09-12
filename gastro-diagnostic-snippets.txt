@@ -1,0 +1,1773 @@
+
+
+===== function Master4LegacyDataHub @ 2739937 =====
+-slate-400 mt-1">{neighborhood(x)}</p>}<span className="text-[9px] font-black mt-3">ABRIR →</span></button>)}</div></main></div>;
+}
+
+function Master4SpecialGuides({go}){
+ const [tab,setTab]=useState('familia');
+ const configs={
+  familia:{icon:'👨‍👩‍👧',title:'Río en familia',data:FAMILIA_DATA},
+  literatura:{icon:'📚',title:'Río literario',data:ESPACIOS_LITERARIOS_DATA},
+  consejos:{icon:'💡',title:'20 consejos para Río',data:LISTA_20_CONSEJOS}
+ };
+ const c=configs[tab]; const arr=Array.isArray(c.data)?c.data:[];
+ const val=(x,keys)=>{for(const k of keys){const v=x&&x[k];if(v!==undefined&&v!==null&&String(v).trim())return v}return ''};
+ const title=x=>typeof x==='string'?x:val(x,['titulo','title','nombre','name','consejo','texto'])||'Consejo';
+ const text=x=>typeof x==='string'?'':val(x,['descripcion','description','texto','detalle','contenido','respuesta','subtitulo']);
+ return <div className="min-h-screen bg-[#f7f7f4] pb-24"><header className="max-w-7xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>go('inicio')} className="text-xs font-black">← INICIO</button><div className="mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10"><span className="text-[10px] font-black text-amber-300">📚 GUÍAS ESPECIALES</span><h1 className="text-4xl sm:text-6xl font-black mt-2">Guías especiales para entender Río mejor.</h1><p className="text-sm text-white/70 mt-3">Consejos prácticos, Río en familia y contenidos especiales reunidos aquí, sin mezclarlo con las categorías principales.</p></div><div className="flex gap-2 overflow-x-auto py-5">{Object.entries(configs).map(([k,v])=><button key={k} onClick={()=>setTab(k)} className={`whitespace-nowrap rounded-full border px-4 py-3 text-xs font-black ${tab===k?'bg-slate-950 text-white':'bg-white'}`}>{v.icon} {v.title}</button>)}</div></header>
+ <main className="max-w-5xl mx-auto px-4 sm:px-6"><div className="mb-5"><span className="text-4xl">{c.icon}</span><h2 className="text-3xl font-black mt-2">{c.title}</h2><p className="text-xs text-slate-500 mt-1">{arr.length} contenidos disponibles</p></div><div className="space-y-2">{arr.map((x,i)=><details key={i} className="rounded-[1.5rem] bg-white border p-5"><summary className="list-none cursor-pointer flex gap-3"><span className="text-xs font-black text-emerald-700">{String(i+1).padStart(2,'0')}</span><b className="flex-1">{title(x)}</b><span>＋</span></summary>{text(x)&&<p className="text-sm text-slate-600 leading-relaxed mt-4">{text(x)}</p>}</details>)}</div></main></div>;
+}
+
+function Master4LegacyDataHub({kind,go}){
+ const [q,setQ]=useState('');
+ const [selected,setSelected]=useState(null);
+ const configs={
+  playas:{title:'Playas reales del Master 3',icon:'🏖️',data:PLAYAS_DETALLADAS_DATA,back:'master4_descubre'},
+  centros:{title:'Centros culturales',icon:'🎨',data:CENTROS_CULTURALES_DATA,back:'master4_patrimonio'},
+  teatros:{title:'Teatros',icon:'🎭',data:TEATROS_DATA,back:'master4_patrimonio'},
+  iglesias:{title:'Iglesias y patrimonio religioso',icon:'⛪',data:IGLESIAS_DATA,back:'master4_patrimonio'},
+  gastronomia:{title:'Gastronomía real del Master 3',icon:'🍽️',data:GASTRONOMIA_DATA,back:'master4_gastronomia'},
+  noche:{title:'Vida nocturna',icon:'🎵',data:VIDA_NOCTURNA_DATA,back:'master4_ocio'},
+  ferias:{title:'Ferias y compras',icon:'🛍️',data:FEIRAS_COMPRAS_DATA,back:'master4_ocio'},
+  mercados:{title:'Mercados',icon:'🧺',data:MERCADOS_COMPRAS_DATA,back:'master4_ocio'},
+  shoppings:{title:'Shoppings',icon:'🏬',data:SHOPPINGS_DATA,back:'master4_ocio'}
+ };
+ const c=configs[kind];
+ const val=(x,keys)=>{for(const k of keys){if(x&&x[k]!==undefined&&x[k]!==null&&String(x[k]).trim())return x[k]}return ''};
+ const name=x=>val(x,['nombre','name','titulo','title']);
+ const desc=x=>val(x,['descripcion','description','resumen','summary','subtitulo','texto','detalle']);
+ const image=x=>val(x,['imagen','image','foto','img','miniatura','thumbnail','capa']);
+ const address=x=>val(x,['direccion','endereco','address','ubicacion','local']);
+ const hours=x=>val(x,['horario','horarios','hours','funcionamento']);
+ const price=x=>val(x,['valor','precio','preco','price']);
+ const history=x=>val(x,['historia','history']);
+ const category=x=>val(x,['categoria','category','tipo']);
+ const arr=Array.isArray(c.data)?c.data:[];
+ const shown=arr.filter(x=>(name(x)+' '+desc(x)+' '+category(x)).toLowerCase().includes(q.toLowerCase()));
+ if(selected){
+  const x=selected;
+  const blocks=[
+   ['⭐','Lo esencial',desc(x)],['📖','Historia',history(x)],['📍','Dirección / ubicación',address(x)],
+   ['🕐','Horarios',hours(x)],['💰','Precio / entrada',price(x)]
+  ].filter(z=>z[2]);
+  return <div className="min-h-screen bg-[#f7f7f4] pb-24">
+   <header className="max-w-5xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>setSelected(null)} className="text-xs font-black">← {c.title.toUpperCase()}</button>
+    <div className="mt-5 rounded-[2rem] bg-slate-950 text-white overflow-hidden">
+     <div className="relative min-h-[280px] bg-slate-800">{image(x)?<img src={image(x)} alt={name(x)} className="absolute inset-0 w-full h-full object-cover"/>:<div className="absolute inset-0 grid place-items-center"><div className="text-center"><span className="text-6xl">{c.icon}</span><small className="block mt-3 text-white/40 font-black">FOTO PENDIENTE</small></div></div>}<div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"/><div className="absolute bottom-0 p-6 sm:p-8"><span className="text-[10px] font-black text-amber-300">{category(x)||c.title}</span><h1 className="text-3xl sm:text-5xl font-black mt-1">{name(x)}</h1></div></div>
+    </div>
+   </header>
+   <main className="max-w-5xl mx-auto px-4 sm:px-6 py-5">
+    <div className="rounded-[1.6rem] bg-emerald-100 p-5"><span className="text-[10px] font-black text-emerald-900">MASTER 3 → MASTER 4</span><p className="text-sm font-bold mt-2">La ficha muestra solamente campos que ya existen en el registro original. Los campos ausentes permanecen ausentes.</p></div>
+    <div className="mt-4 space-y-2">{blocks.length?blocks.map((z,i)=><details key={z[1]} open={i===0} className="rounded-[1.5rem] bg-white border p-5"><summary className="list-none cursor-pointer flex gap-4"><span>{z[0]}</span><b className="flex-1">{z[1]}</b><span>＋</span></summary><p className="text-sm text-slate-600 leading-relaxed mt-4">{String(z[2])}</p></details>):<div className="rounded-2xl bg-white border p-5 text-sm text-slate-500">Este registro todavía no tiene texto descriptivo estructurado en su objeto original.</div>}</div>
+    <div className="flex flex-wrap gap-2 mt-5"><button className="rounded-full border bg-white px-5 py-3 text-xs font-black">♡ MI RÍO</button><button onClick={()=>go('master4_para_mi')} className="rounded-full bg-slate-950 text-white px-5 py-3 text-xs font-black">🔄 CAMBIÓ MI PLAN</button></div>
+   </main>
+  </div>
+ }
+ return <div className="min-h-screen bg-[#f7f7f4] pb-24">
+  <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>go(c.back)} className="text-xs font-black">← VOLVER</button><div className="mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10"><span className="text-[10px] font-black text-amber-300">{c.icon} CATÁLOGO REAL</span><h1 className="text-4xl sm:text-6xl font-black mt-2">{c.title}</h1><p className="text-sm text-white/70 mt-3">{arr.length} registros conectados directamente a sus datos existentes.</p><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Buscar…" className="mt-6 w-full max-w-xl rounded-2xl bg-white text-slate-900 px-5 py-4 text-sm"/></div></header>
+  <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6"><div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">{shown.map((x,i)=><button key={val(x,['id','slug'])||i} onClick={()=>setSelected(x)} className="rounded-[1.7rem] bg-white border overflow-hidden text-left min-h-52 flex flex-col">{image(x)?<div className="h-32 overflow-hidden"><img src={image(x)} alt={name(x)} className="w-full h-full object-cover"/></div>:<div className="h-24 bg-slate-100 grid place-items-center text-3xl">{c.icon}</div>}<div className="p-5 mt-auto"><span className="text-[9px] font-black text-emerald-700">{category(x)||'ERNESTINHO 4.0'}</span><h2 className="text-lg font-black mt-1">{name(x)||'Registro sin título'}</h2><p className="text-xs text-slate-500 mt-2 line-clamp-2">{String(desc(x)||address(x)||'Abre para ver la información disponible.')}</p><span className="inline-block mt-4 text-[10px] font-black">ABRIR FICHA →</span></div></button>)}</div></main>
+ </div>;
+}
+
+function Master4MuseumsReal({go}){
+ const [q,setQ]=useState('');
+ const [cat,setCat]=useState('Todos');
+ const [selected,setSelected]=useState(null);
+ const museoOriginal=x=>(MUSEOS_DATA||[]).find(m=>m.id===x.id)||{};
+ const imagenMuseo=x=>x.imagen||museoOriginal(x).miniatura||museoOriginal(x).fotoPrincipal||museoOriginal(x).fotoMedia||'';
+ const cats=['Todos',...Array.from(new Set(MASTER4_MUSEOS_REAL.map(x=>x.categoria).filter(Boolean)))];
+ const shown=MASTER4_MUSEOS_REAL.filter(x=>(cat==='Todos'||x.categoria===cat)&&(!q||(x.nombre+' '+x.subtitulo+' '+x.descripcion).toLowerCase().includes(q.toLowerCase())));
+ if(selected){
+   const x=selected;
+   const sections=[
+    ['resumen','⭐','Lo esencial',x.descripcion],
+    ['historia','📖','Su historia',x.historia],
+    ['llegar','📍','Dirección',x.direccion],
+    ['horario','🕐','Horario',x.horario],
+    ['valor','💰','Entradas / valor',x.valor]
+   ].filter(z=>z[3]);
+   return <div className="min-h-screen bg-[#f7f7f4] pb-24">
+    <header className="max-w-5xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>setSelected(null)} className="text-xs font-black">← MUSEOS</button>
+     <div className="mt-5 rounded-[2rem] bg-slate-950 text-white overflow-hidden">
+      <div className="relative min-h-[280px] bg-slate-800">{imagenMuseo(x)?<img src={imagenMuseo(x)} alt={x.nombre} className="absolute inset-0 w-full h-full object-cover"/>:<div className="absolute inset-0 grid place-items-center text-6xl">🏛️</div>}<div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div><div className="absolute bottom-0 p-6 sm:p-8"><span className="text-[10px] font-black text-amber-300">{x.categoria||'MUSEO'}</span><h1 className="text-3xl sm:text-5xl font-black mt-1">{x.nombre}</h1><p className="text-sm text-white/75 mt-2">{x.subtitulo}</p></div></div>
+     </div>
+    </header>
+    <main className="max-w-5xl mx-auto px-4 sm:px-6 py-5">
+     <div className="rounded-[1.7rem] bg-amber-100 p-5"><span className="text-[10px] font-black text-amber-900">FUENTE DEL CONTENIDO</span><p className="text-sm font-bold mt-2">Esta ficha 4.0 está alimentada directamente por la información que ya estaba escrita en Master 3; no se agregó información externa en esta migración.</p></div>
+     <div className="mt-4 space-y-2">{sections.map((z,i)=><details key={z[0]} open={i===0} className="rounded-[1.5rem] bg-white border p-5"><summary className="cursor-pointer list-none flex gap-4 items-center"><span className="text-xl">{z[1]}</span><b className="flex-1">{z[2]}</b><span>＋</span></summary><p className="text-sm leading-relaxed text-slate-600 mt-4">{z[3]}</p></details>)}</div>
+     <div className="mt-5 flex gap-2 flex-wrap"><button className="rounded-full border bg-white px-5 py-3 text-xs font-black">♡ MI RÍO</button><button onClick={()=>go('master4_para_mi')} className="rounded-full bg-slate-950 text-white px-5 py-3 text-xs font-black">🔄 CAMBIÓ MI PLAN</button></div>
+    </main>
+   </div>
+ 
+
+===== GASTRONOMIA_DATA @ 53872 =====
+','Ipanema',['quiosque','mariscos','vista'],'$$$$','Quiosque sofisticado con lounge frente al mar; bonito, pero con precios orientados al turismo.',false,'https://static.wixstatic.com/media/16875c_83422e122bf1483085ab94214a2e5c98~mv2.jpg/v1/fill/w_679%2Ch_424%2Cal_c/16875c_83422e122bf1483085ab94214a2e5c98~mv2.jpg'),
+
+      g('kilograma-centro','Kilograma Centro','centro','Centro',['buffet','economico','carioca'],'$','Buffet por kilo, parrilla y platos cotidianos en Rua do Riachuelo.',true),
+      g('pilograma-centro','Pilograma Prime Grill','centro','Centro',['buffet','economico','carioca'],'$','Red tradicional del Centro con varias unidades, buffet por kilo, ensaladas, platos calientes y carnes preparadas en la parrilla.',true),
+      g('tempeh-centro','Tempeh','centro','Centro',['buffet','vegetariana','economico'],'$','Buffet vegetariano por peso con preparaciones caseras en el Centro.'),
+      g('reino-vegetal','Reino Vegetal','centro','Centro',['buffet','vegetariana','economico'],'$','Comida vegetariana sencilla y variada para un almuerzo económico.'),
+      g('aipo-centro','Aipo & Aipim Centro','centro','Centro',['buffet','economico','carioca'],'$','Buffet por kilo con ensaladas, platos calientes, carnes y postres.'),
+      g('delirio-centro','Delírio Tropical Centro','centro','Centro',['buffet','vegetariana','economico'],'$$','Ensaladas y platos ligeros para una comida rápida durante el recorrido por el Centro.'),
+      g('fazendola-centro','Fazendola Centro','centro','Centro',['buffet','economico','carioca'],'$','Buffet y comida brasileña de servicio rápido para el horario de almuerzo.')
+    ];
+
+    const FOTOS_GASTRONOMIA = [
+      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=80&w=1000',
+      'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&q=80&w=1000',
+      'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?auto=format&fit=crop&q=80&w=1000',
+      'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&q=80&w=1000',
+      'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&q=80&w=1000',
+      'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&q=80&w=1000',
+      'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1000',
+      'https://images.unsplash.com/photo-1531988042231-d39a9cc12a9a?auto=format&fit=crop&q=80&w=1000'
+    ];
+
+    const GASTRONOMIA_DATA = [...GASTRONOMIA_BASE, ...GASTRONOMIA_EXTRA].map((item, index) => ({
+      ...item,
+      img: item.img || FOTOS_GASTRONOMIA[index % FOTOS_GASTRONOMIA.length],
+      mapa: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.nombre + ' ' + item.barrio + ' Rio de Janeiro')}`,
+      horario: 'Los horarios pueden cambiar. Confirma el día de tu visita en el mapa oficial.'
+    }));
+
+    const DIAS_NOCHE = ['Todos','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado','Domingo'];
+    const TIPOS_NOCHE = ['Todos','Samba','Pagode','Música en vivo','Discoteca','Rooftop','Boteco','LGBTQIA+','Conciertos','Cultura'];
+    const n = (id,nombre,zona,barrio,tipo,dias,precio,destaque,recomendado=false) => ({id,nombre,zona,barrio,tipo,dias,precio,destaque,recomendado});
+    const VIDA_NOCTURNA_DATA = [
+      n('pedra-sal','Pedra do Sal','Centro y Zona Portuaria','Saúde','Samba',['Lunes','Viernes'],'$','Roda de samba al aire libre en uno de los lugares fundamentales de la Pequeña África.',true),
+      n('scenarium-noite','Rio Scenarium','Centro y Lapa','Lapa','Samba',['Miércoles','Jueves','Viernes','Sábado'],'$$$','Música brasileña, restaurante y varios ambientes decorados con antigüedades.',true),
+      n('carioca-gema','Carioca da Gema','Centro y Lapa','Lapa','Samba',['Martes','Miércoles','Jueves','Viernes','Sábado'],'$$','Casa tradicional para escuchar samba y MPB en vivo.'),
+      n('beco-rato','Beco do Rato','Centro y Lapa','Lapa','Samba',['Martes','Miércoles','Jueves','Viernes','Sábado'],'$$','Rodas de samba, petiscos y ambiente bohemio.'),
+      n('trapiche','Trapiche Gamboa','Centro y Zona Portuaria','Gamboa','Samba',['Viernes','Sábado'],'$$','Samba de raíz dentro de un casarón histórico.'),
+      n('bafo-noite','Bafo da Prainha','Centro y Zona Portuaria','Saúde','Samba',['Viernes','Sábado','Domingo'],'$$','Samba, gastronomía y encuentros culturales en la Praça da Harmonia.'),
+      n('sacadura','Sacadura 154','Centro y Zona Portuaria','Saúde','Música en vivo',['Viernes','Sábado'],'$$','Programación musical y fiestas en un gran espacio de la zona portuaria.'),
+      n('leviano','Leviano Bar','Centro y Lapa','Lapa','Música en vivo',['Miércoles','Jueves','Viernes','Sábado'],'$$','Bandas, baile y coctelería en un sobrado frente a los Arcos.'),
+      n('lapa40','Lapa 40 Graus','Centro y Lapa','Lapa','Discoteca',['Jueves','Viernes','Sábado'],'$$','Música brasileña, pista de baile y varios pisos.'),
+      n('circo','Circo Voador','Centro y Lapa','Lapa','Conciertos',['Viernes','Sábado'],'$$','Uno de los escenarios más emblemáticos para conciertos en Río.',true),
+      n('fundicao','Fundição Progresso','Centro y Lapa','Lapa','Conciertos',['Jueves','Viernes','Sábado'],'$$','Grandes shows, fiestas y eventos culturales junto a los Arcos da Lapa.'),
+      n('selina-lapa','Rooftop Lapa','Centro y Lapa','Lapa','Rooftop',['Jueves','Viernes','Sábado'],'$$','Terraza, música y vista de los Arcos; confirmar la programación vigente.'),
+      n('bar-cachaca','Bar da Cachaça','Centro y Lapa','Lapa','Boteco',['Todos'],'$','Punto informal para probar cachaças y vivir la calle de Lapa.'),
+      n('vaca-atolada','Vaca Atolada','Centro y Lapa','Lapa','Samba',['Viernes','Sábado'],'$','Samba informal, cerveza y cocina de boteco.'),
+      n('armazem-senado','Armazém Senado','Centro y Lapa','Centro','Samba',['Sábado'],'$','Roda de samba diurna que se extiende hacia la noche según la agenda.'),
+      n('bar-omar-noite','Bar do Omar','Centro y Zona Portuaria','Santo Cristo','Cultura',['Jueves','Viernes','Sábado','Domingo'],'$$','Eventos, samba, gastronomía y vista de la región portuaria.'),
+
+      n('quartinho-noite','Quartinho','Botafogo','Botafogo','Boteco',['Martes','Miércoles','Jueves','Viernes','Sábado'],'$$','Bar creativo y concurrido para comenzar o terminar la noche.'),
+      n('xepa','Xepa','Botafogo','Botafogo','Boteco',['Martes','Miércoles','Jueves','Viernes','Sábado'],'$$','Mesas en la calle, comida, tragos y clima joven.'),
+      n('bukowski','Bar Bukowski','Botafogo','Botafogo','Discoteca',['Viernes','Sábado'],'$$','Rock en una antigua casona con pistas y espacios al aire libre.'),
+      n('coordenadas','Coordenadas Bar','Botafogo','Botafogo','Música en vivo',['Miércoles','Jueves','Viernes','Sábado'],'$$','Bandas, pista y programación musical variada.'),
+      n('macuna','Macuna','Botafogo','Botafogo','Discoteca',['Jueves','Viernes','Sábado'],'$$','Fiestas y música electrónica en una casa de Botafogo.'),
+      n('comuna','Comuna','Botafogo','Botafogo','Cultura',['Miércoles','Jueves','Viernes','Sábado'],'$$','Encuentros culturales, DJs y gastronomía alternativa; revisar agenda.'),
+      n('brewteco','Brewteco Botafogo','Botafogo','Botafogo','Boteco',['Todos'],'$$','Cervezas artesanales y ambiente informal.'),
+      n('yoo2','Yoo2 Rooftop','Botafogo','Botafogo','Rooftop',['Todos'],'$$$','Cócteles con vista panorámica del Pan de Azúcar.',true),
+      n('fogo-chao-bar','Bar de Fogo de Chão','Botafogo','Botafogo','Rooftop',['Todos'],'$$$','Happy hour y bebidas frente a la enseada.'),
+
+      n('bip-bip','Bip Bip','Copacabana y Leme','Copacabana','Samba',['Lunes','Martes','Miércoles','Jueves','Domingo'],'$','Pequeño templo de la música carioca donde el público escucha con respeto.',true),
+      n('blue-note','Blue Note Rio','Copacabana y Leme','Copacabana','Música en vivo',['Martes','Miércoles','Jueves','Viernes','Sábado'],'$$$','Jazz, MPB y grandes artistas; programación mediante entradas.'),
+      n('isabel-lounge','Isabel Lounge','Copacabana y Leme','Copacabana','Rooftop',['Todos'],'$$$','Terraza del Hilton con vista de Leme y Copacabana.'),
+      n('moonlounge','Moonlounge Rooftop','Copacabana y Leme','Copacabana','Rooftop',['Todos'],'$$$','Bar de hotel con piscina y vista de la orla.'),
+      n('beco-garrafas','Beco das Garrafas','Copacabana y Leme','Copacabana','Música en vivo',['Miércoles','Jueves','Viernes','Sábado'],'$$','Dirección histórica vinculada a la bossa nova; consultar shows.'),
+      n('galeria-cafe','Galeria Café','Ipanema y Leblon','Ipanema','LGBTQIA+',['Jueves','Viernes','Sábado'],'$$','Bar, galería y fiestas LGBTQIA+ con diferentes temáticas.'),
+      n('pink-flamingo','Pink Flamingo','Copacabana y Leme','Copacabana','LGBTQIA+',['Miércoles','Jueves','Viernes','Sábado','Domingo'],'$$','Discoteca LGBTQIA+ con shows y música pop.'),
+      n('canastra','Canastra Bar','Ipanema y Leblon','Ipanema','Boteco',['Martes','Miércoles','Jueves','Viernes','Sábado'],'$$','Vinos, comida y movimiento en la Praça General Osório.'),
+      n('nosso','Nosso','Ipanema y Leblon','Ipanema','Boteco',['Martes','Miércoles','Jueves','Viernes','Sábado'],'$$$','Gastronomía y coctelería en varios pisos.'),
+      n('astor-noite','Bar Astor','Ipanema y Leblon','Ipanema','Boteco',['Todos'],'$$$','Happy hour y cócteles mirando el mar de Arpoador.'),
+      n('boa-praca-noite','Boa Praça','Ipanema y Leblon','Ipanema','Música en vivo',['Miércoles','Jueves','Viernes','Sábado','Domingo'],'$$$','Bar abierto y concurrido con música y mesas en la plaza.'),
+      n('jobi-noite','Jobi','Ipanema y Leblon','Leblon','Boteco',['Todos'],'$$','Clásico punto de la bohemia leblonense hasta tarde.'),
+
+      n('renascenca','Renascença Clube','Zona Norte','Andaraí','Samba',['Lunes','Domingo'],'$','Casa histórica de cultura negra y samba; consultar las rodas programadas.',true),
+      n('feira-noite','Feira de São Cristóvão','Zona Norte','São Cristóvão','Cultura',['Viernes','Sábado','Domingo'],'$','Forró, comida nordestina y espectáculos durante el fin de semana.',true),
+      n('cacique','Cacique de Ramos','Zona Norte','Olaria','Samba',['Domingo'],'$','Territorio histórico del samba y el pagode; verificar eventos.'),
+      n('quadra-mangueira','Quadra da Mangueira','Zona Norte','Mangueira','Samba',['Viernes','Sábado'],'$$','Ensayos y eventos de una de las escuelas más emblemáticas.'),
+      n('quadra-salgueiro','Quadra do Salgueiro','Zona Norte','Andaraí','Samba',['Sábado'],'$$','Ensayos, feijoadas y noches de samba según el calendario.'),
+      n('portela','Portelão','Zona Norte','Madureira','Samba',['Viernes','Sábado'],'$$','Eventos y ensayos de Portela en Madureira.'),
+
+      n('vitrinni','Vitrinni Lounge','Barra y Recreio','Barra da Tijuca','Discoteca',['Jueves','Viernes','Sábado'],'$$$','Lounge y discoteca con programación de DJs y fiestas.'),
+      n('all-in','All In','Barra y Recreio','Barra da Tijuca','Música en vivo',['Miércoles','Jueves','Viernes','Sábado'],'$$','Bar, bandas y noches temáticas en Jardim Oceânico.'),
+      n('bosque-bar','Bosque Bar','Barra y Recreio','Barra da Tijuca','Discoteca',['Jueves','Viernes','Sábado'],'$$$','Fiestas al aire libre y DJs en el complejo del Jockey; confirmar local y agenda.'),
+      n('zeca-vogue','Bar do Zeca Pagodinho','Barra y Recreio','Barra da Tijuca','Pagode',['Miércoles','Jueves','Viernes','Sábado','Domingo'],'$$$','Pagode, samba y cocina brasileña en Vogue Square.'),
+      n('vogue-square','Vogue Squ
+
+===== GASTRONOMIA_DATA @ 713832 =====
+idadActual.servicioErnestinho && (
+              <div className="bg-teal-700 text-white rounded-3xl p-6 sm:p-8 mb-8">
+
+                <p className="text-xs uppercase tracking-widest text-teal-200 font-black mb-2">
+                  Servicio de Ernestinho
+                </p>
+
+                <h2 className="text-2xl font-black mb-3">
+                  Consulta disponibilidad y modalidades
+                </h2>
+
+                <p className="text-teal-50 text-sm sm:text-base mb-6">
+                  Escríbeme para conocer horarios, valores, servicio compartido
+                  y opciones privadas con transporte y guía.
+                </p>
+
+                <a
+                  href={`https://wa.me/5521969946938?text=${encodeURIComponent(
+                    actividadActual.mensajeWhatsApp
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-xs sm:text-sm uppercase tracking-wide px-6 py-4 rounded-xl transition-all shadow-md"
+                >
+                  RESERVAR CON ERNESTINHO
+                </a>
+
+              </div>
+            )}
+
+
+            {/* MAPA */}
+            <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm mb-10">
+
+              <div className="p-6">
+
+                <p className="text-xs uppercase tracking-widest text-teal-600 font-black mb-2">
+                  Ubicación
+                </p>
+
+                <h2 className="text-2xl font-black text-slate-900">
+                  Mapa de Google
+                </h2>
+
+              </div>
+
+              <div className="w-full h-[350px] sm:h-[450px]">
+
+                <iframe
+                  src={actividadActual.mapa}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Mapa de ${actividadActual.nombre}`}
+                ></iframe>
+
+              </div>
+
+            </div>
+
+          </div>
+        )}
+
+      </div>
+
+    </section>
+  );
+}   
+function GastronomiaCompleta({ onVolver, seleccionado, setSeleccionado }) {
+  const [zona, setZona] = useState('todas');
+  const [tipo, setTipo] = useState('todos');
+  const [busqueda, setBusqueda] = useState('');
+
+  const resultados = GASTRONOMIA_DATA.filter(item => {
+    const coincideZona = zona === 'todas' || item.zona === zona;
+    const coincideTipo = tipo === 'todos' || item.tipos.includes(tipo);
+    const texto = `${item.nombre} ${item.barrio} ${item.destaque}`.toLowerCase();
+    return coincideZona && coincideTipo && texto.includes(busqueda.toLowerCase().trim());
+  });
+
+  return (
+    <section className="min-h-screen bg-slate-50 pb-20">
+      <div className="relative bg-slate-950 text-white overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=85&w=1800"
+          alt="Mesa con sabores de Río de Janeiro"
+          className="absolute inset-0 w-full h-full object-cover opacity-35"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/30"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+          <button onClick={onVolver} className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-white/80 hover:text-amber-400">← Volver a Qué hacer</button>
+          <span className="block text-amber-400 text-xs font-black uppercase tracking-[0.25em] mb-3">Sabores desde mi mirada</span>
+          <h1 className="text-4xl sm:text-6xl font-black uppercase leading-none max-w-4xl">Dónde comer en Río de Janeiro</h1>
+          <p className="mt-6 max-w-2xl text-slate-200 text-base sm:text-lg leading-relaxed">Botecos, rodizios, cafés históricos, cocina de autor y mesas frente al mar. Busca por zona o por tipo de comida y descubre qué vale la pena pedir.</p>
+          <div className="mt-7 flex flex-wrap gap-3 text-xs font-bold">
+            <span className="bg-white/10 border border-white/20 px-4 py-2 rounded-full">{GASTRONOMIA_DATA.length} lugares seleccionados</span>
+            <span className="bg-amber-400 text-slate-950 px-4 py-2 rounded-full">⭐ Recomendados por Ernestinho</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 -mt-6 relative z-10">
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-5 sm:p-7">
+          <label className="text-xs font-black uppercase tracking-wider text-slate-500">¿Qué quieres comer?</label>
+          <div className="mt-2 relative">
+            <span className="absolute left-4 top-3.5">🔎</span>
+            <input value={busqueda} onChange={e => setBusqueda(e.target.value)} placeholder="Busca restaurante, barrio o especialidad" className="w-full border border-slate-200 rounded-2xl py-3 pl-11 pr-4 text-sm outline-none focus:border-teal-500" />
+          </div>
+
+          <div className="mt-5">
+            <span className="text-xs font-black uppercase tracking-wider text-slate-500">Zona</span>
+            <div className="flex gap-2 overflow-x-auto no-scrollbar mt-2 pb-1">
+              {ZONAS_GASTRONOMICAS.map(op => <button key={op.id} onClick={() => setZona(op.id)} className={`shrink-0 px-4 py-2 rounded-full text-xs font-bold border transition ${zona === op.id ? 'bg-teal-600 text-white border-teal-600' : 'bg-white text-slate-600 border-slate-200 hover:border-teal-400'}`}>{op.nombre}</button>)}
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <span className="text-xs font-black uppercase tracking-wider text-slate-500">Tipo de comida</span>
+            <div className="flex gap-2 overflow-x-auto no-scrollbar mt-2 pb-1">
+              {TIPOS_GASTRONOMICOS.map(op => <button key={op.id} onClick={() => setTipo(op.id)} className={`shrink-0 px-4 py-2 rounded-full text-xs font-bold border transition ${tipo === op.id ? 'bg-amber-400 text-slate-950 border-amber-400' : 'bg-white text-slate-600 border-slate-200 hover:border-amber-400'}`}>{op.nombre}</button>)}
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          {resultados.map(item => (
+            <article key={item.id} className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition group flex flex-col">
+              <div className="h-52 overflow-hidden relative">
+                <img src={item.img} alt={item.nombre} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent"></div>
+                <span className="absolute top-4 right-4 bg-white/95 text-slate-900 px-3 py-1 rounded-full text-xs font-black shadow">{item.precio}</span>
+                {item.recomendado && <span className="absolute top-4 left-4 bg-amber-400 text-slate-950 px-3 py-1 rounded-full text-[10px] font-black uppercase">⭐ Ernestinho</span>}
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-amber-300">{item.barrio}</p>
+                  <h2 className="text-xl font-black leading-tight">{item.nombre}</h2>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col flex-1">
+                <p className="text-sm text-slate-600 leading-relaxed flex-1">{item.destaque}</p>
+                <div className="flex flex-wrap gap-1.5 mt-4">{item.tipos.slice(0,3).map(t => <span key={t} className="bg-slate-100 text-slate-600 rounded-full px-2.5 py-1 text-[10px] font-bold">{TIPOS_GASTRONOMICOS.find(x => x.id === t)?.nombre}</span>)}</div>
+                <button onClick={() => { seoNavigate(`/gastronomia/${seoSlug(item.nombre)}`); setSeleccionado(item); }} className="mt-5 w-full bg-slate-900 hover:bg-teal-700 text-white rounded-xl py-3 text-xs font-black uppercase transition">Ver información y mapa</button>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {resultados.length === 0 && <div className="text-center bg-white rounded-3xl p-12 mt-10 border border-slate-100"><div className="text-5xl mb-4">🍽️</div><h2 className="font-black text-xl">No encontramos coincidencias</h2><p className="text-sm text-slate-500 mt-2">Prueba otra zona, categoría o palabra.</p></div>}
+
+        <div className="mt-14 grid md:grid-cols-3 gap-5">
+          {[['$','Económico','Comida rápida, botecos y platos sencillos.'],['$$–$$$','Precio medio','La mayoría de restaurantes y experiencias informales.'],['$$$$','Especial','Alta cocina, rodizios premium o celebraciones.']].map(([simbolo,titulo,texto]) => <div key={titulo} className="bg-white border border-slate-100 rounded-2xl p-5"><span className="text-teal-600 font-black text-xl">{simbolo}</span><h3 className="font-black mt-2">{titulo}</h3><p className="text-xs text-slate-500 mt-1">{texto}</p></div>)}
+        </div>
+
+        <div className="mt-12 bg-gradient-to-br from-amber-400 to-amber-300 rounded-3xl p-7 sm:p-10 text-slate-950">
+          <span className="text-xs uppercase tracking-widest font-black">Consejo de Ernestinho</span>
+          <h2 className="text-2xl sm:text-3xl font-black mt-2">Horarios, menús y precios pueden cambiar</h2>
+          <p className="mt-3 text-sm sm:text-base max-w-3xl">Antes de desplazarte, abre el mapa de la ficha para comprobar el horario del día, las reservas y la unidad correcta. En Río algunos restaurantes cierran un día de la semana o cambian el servicio entre almuerzo y cena.</p>
+        </div>
+      </div>
+
+      {seleccionado && (
+        <div className="fixed inset-0 z-[70] bg-slate-950/80 backdrop-blur-sm p-4 flex items-center justify-center" onClick={() => { seoNavigate('/gastronomia'); setSeleccionado(null); }}>
+          <div className="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
+            <div className="h-56 relative"><img src={seleccionado.img} alt={seleccionado.nombre} className="w-full h-full object-cover"/><button onClick={() => { seoNavigate('/gastronomia'); setSeleccionado(null); }} className="absolute top-4 right-4 bg-white w-10 h-10 rounded-full font-black shadow">✕</button></div>
+            <div className="p-6 sm:p-8">
+              <div className="flex justify-between gap-4"><div><span className="text-teal-600 text-xs font-black uppercase">{seleccionado.barrio}</span><h2 className="text-2xl font-black mt-1">{seleccionado.nombre}</h2></div><span className="font-black">{seleccionado.precio}</span></div>
+              <p className="text-slate-600 text-sm leading-relaxed mt-4">{seleccionado.destaque}</p>
+              <div className="mt-5 bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-950">🕐 {seleccionado.horario}</div>
+              <div className="grid sm:grid-cols-2 gap-3 mt-5">
+                <a href={seleccionado.mapa} target="_blank" rel="noopener noreferrer" className="bg-teal-600 hover:bg-teal-700 text-white rounded-xl py-3 text-center text-xs font-black uppercase">Abrir mapa</a>
+                <a href={`https://wa.me/552196
+
+===== GASTRONOMIA_DATA @ 715610 =====
+ <iframe
+                  src={actividadActual.mapa}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`Mapa de ${actividadActual.nombre}`}
+                ></iframe>
+
+              </div>
+
+            </div>
+
+          </div>
+        )}
+
+      </div>
+
+    </section>
+  );
+}   
+function GastronomiaCompleta({ onVolver, seleccionado, setSeleccionado }) {
+  const [zona, setZona] = useState('todas');
+  const [tipo, setTipo] = useState('todos');
+  const [busqueda, setBusqueda] = useState('');
+
+  const resultados = GASTRONOMIA_DATA.filter(item => {
+    const coincideZona = zona === 'todas' || item.zona === zona;
+    const coincideTipo = tipo === 'todos' || item.tipos.includes(tipo);
+    const texto = `${item.nombre} ${item.barrio} ${item.destaque}`.toLowerCase();
+    return coincideZona && coincideTipo && texto.includes(busqueda.toLowerCase().trim());
+  });
+
+  return (
+    <section className="min-h-screen bg-slate-50 pb-20">
+      <div className="relative bg-slate-950 text-white overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&q=85&w=1800"
+          alt="Mesa con sabores de Río de Janeiro"
+          className="absolute inset-0 w-full h-full object-cover opacity-35"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/30"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
+          <button onClick={onVolver} className="mb-8 inline-flex items-center gap-2 text-sm font-bold text-white/80 hover:text-amber-400">← Volver a Qué hacer</button>
+          <span className="block text-amber-400 text-xs font-black uppercase tracking-[0.25em] mb-3">Sabores desde mi mirada</span>
+          <h1 className="text-4xl sm:text-6xl font-black uppercase leading-none max-w-4xl">Dónde comer en Río de Janeiro</h1>
+          <p className="mt-6 max-w-2xl text-slate-200 text-base sm:text-lg leading-relaxed">Botecos, rodizios, cafés históricos, cocina de autor y mesas frente al mar. Busca por zona o por tipo de comida y descubre qué vale la pena pedir.</p>
+          <div className="mt-7 flex flex-wrap gap-3 text-xs font-bold">
+            <span className="bg-white/10 border border-white/20 px-4 py-2 rounded-full">{GASTRONOMIA_DATA.length} lugares seleccionados</span>
+            <span className="bg-amber-400 text-slate-950 px-4 py-2 rounded-full">⭐ Recomendados por Ernestinho</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 -mt-6 relative z-10">
+        <div className="bg-white rounded-3xl shadow-xl border border-slate-100 p-5 sm:p-7">
+          <label className="text-xs font-black uppercase tracking-wider text-slate-500">¿Qué quieres comer?</label>
+          <div className="mt-2 relative">
+            <span className="absolute left-4 top-3.5">🔎</span>
+            <input value={busqueda} onChange={e => setBusqueda(e.target.value)} placeholder="Busca restaurante, barrio o especialidad" className="w-full border border-slate-200 rounded-2xl py-3 pl-11 pr-4 text-sm outline-none focus:border-teal-500" />
+          </div>
+
+          <div className="mt-5">
+            <span className="text-xs font-black uppercase tracking-wider text-slate-500">Zona</span>
+            <div className="flex gap-2 overflow-x-auto no-scrollbar mt-2 pb-1">
+              {ZONAS_GASTRONOMICAS.map(op => <button key={op.id} onClick={() => setZona(op.id)} className={`shrink-0 px-4 py-2 rounded-full text-xs font-bold border transition ${zona === op.id ? 'bg-teal-600 text-white border-teal-600' : 'bg-white text-slate-600 border-slate-200 hover:border-teal-400'}`}>{op.nombre}</button>)}
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <span className="text-xs font-black uppercase tracking-wider text-slate-500">Tipo de comida</span>
+            <div className="flex gap-2 overflow-x-auto no-scrollbar mt-2 pb-1">
+              {TIPOS_GASTRONOMICOS.map(op => <button key={op.id} onClick={() => setTipo(op.id)} className={`shrink-0 px-4 py-2 rounded-full text-xs font-bold border transition ${tipo === op.id ? 'bg-amber-400 text-slate-950 border-amber-400' : 'bg-white text-slate-600 border-slate-200 hover:border-amber-400'}`}>{op.nombre}</button>)}
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          {resultados.map(item => (
+            <article key={item.id} className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition group flex flex-col">
+              <div className="h-52 overflow-hidden relative">
+                <img src={item.img} alt={item.nombre} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent"></div>
+                <span className="absolute top-4 right-4 bg-white/95 text-slate-900 px-3 py-1 rounded-full text-xs font-black shadow">{item.precio}</span>
+                {item.recomendado && <span className="absolute top-4 left-4 bg-amber-400 text-slate-950 px-3 py-1 rounded-full text-[10px] font-black uppercase">⭐ Ernestinho</span>}
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <p className="text-[10px] font-bold uppercase tracking-wider text-amber-300">{item.barrio}</p>
+                  <h2 className="text-xl font-black leading-tight">{item.nombre}</h2>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col flex-1">
+                <p className="text-sm text-slate-600 leading-relaxed flex-1">{item.destaque}</p>
+                <div className="flex flex-wrap gap-1.5 mt-4">{item.tipos.slice(0,3).map(t => <span key={t} className="bg-slate-100 text-slate-600 rounded-full px-2.5 py-1 text-[10px] font-bold">{TIPOS_GASTRONOMICOS.find(x => x.id === t)?.nombre}</span>)}</div>
+                <button onClick={() => { seoNavigate(`/gastronomia/${seoSlug(item.nombre)}`); setSeleccionado(item); }} className="mt-5 w-full bg-slate-900 hover:bg-teal-700 text-white rounded-xl py-3 text-xs font-black uppercase transition">Ver información y mapa</button>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {resultados.length === 0 && <div className="text-center bg-white rounded-3xl p-12 mt-10 border border-slate-100"><div className="text-5xl mb-4">🍽️</div><h2 className="font-black text-xl">No encontramos coincidencias</h2><p className="text-sm text-slate-500 mt-2">Prueba otra zona, categoría o palabra.</p></div>}
+
+        <div className="mt-14 grid md:grid-cols-3 gap-5">
+          {[['$','Económico','Comida rápida, botecos y platos sencillos.'],['$$–$$$','Precio medio','La mayoría de restaurantes y experiencias informales.'],['$$$$','Especial','Alta cocina, rodizios premium o celebraciones.']].map(([simbolo,titulo,texto]) => <div key={titulo} className="bg-white border border-slate-100 rounded-2xl p-5"><span className="text-teal-600 font-black text-xl">{simbolo}</span><h3 className="font-black mt-2">{titulo}</h3><p className="text-xs text-slate-500 mt-1">{texto}</p></div>)}
+        </div>
+
+        <div className="mt-12 bg-gradient-to-br from-amber-400 to-amber-300 rounded-3xl p-7 sm:p-10 text-slate-950">
+          <span className="text-xs uppercase tracking-widest font-black">Consejo de Ernestinho</span>
+          <h2 className="text-2xl sm:text-3xl font-black mt-2">Horarios, menús y precios pueden cambiar</h2>
+          <p className="mt-3 text-sm sm:text-base max-w-3xl">Antes de desplazarte, abre el mapa de la ficha para comprobar el horario del día, las reservas y la unidad correcta. En Río algunos restaurantes cierran un día de la semana o cambian el servicio entre almuerzo y cena.</p>
+        </div>
+      </div>
+
+      {seleccionado && (
+        <div className="fixed inset-0 z-[70] bg-slate-950/80 backdrop-blur-sm p-4 flex items-center justify-center" onClick={() => { seoNavigate('/gastronomia'); setSeleccionado(null); }}>
+          <div className="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl" onClick={e => e.stopPropagation()}>
+            <div className="h-56 relative"><img src={seleccionado.img} alt={seleccionado.nombre} className="w-full h-full object-cover"/><button onClick={() => { seoNavigate('/gastronomia'); setSeleccionado(null); }} className="absolute top-4 right-4 bg-white w-10 h-10 rounded-full font-black shadow">✕</button></div>
+            <div className="p-6 sm:p-8">
+              <div className="flex justify-between gap-4"><div><span className="text-teal-600 text-xs font-black uppercase">{seleccionado.barrio}</span><h2 className="text-2xl font-black mt-1">{seleccionado.nombre}</h2></div><span className="font-black">{seleccionado.precio}</span></div>
+              <p className="text-slate-600 text-sm leading-relaxed mt-4">{seleccionado.destaque}</p>
+              <div className="mt-5 bg-amber-50 border border-amber-200 rounded-2xl p-4 text-xs text-amber-950">🕐 {seleccionado.horario}</div>
+              <div className="grid sm:grid-cols-2 gap-3 mt-5">
+                <a href={seleccionado.mapa} target="_blank" rel="noopener noreferrer" className="bg-teal-600 hover:bg-teal-700 text-white rounded-xl py-3 text-center text-xs font-black uppercase">Abrir mapa</a>
+                <a href={`https://wa.me/5521969946938?text=${encodeURIComponent('Hola Ernestinho, vi ' + seleccionado.nombre + ' en tu guía gastronómica y quiero una recomendación.')}`} target="_blank" rel="noopener noreferrer" className="bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl py-3 text-center text-xs font-black uppercase">Consultar a Ernestinho</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
+
+function VidaNocturnaCompleta({ onVolver }) {
+  const [dia,setDia]=useState('Todos');
+  const [tipo,setTipo]=useState('Todos');
+  const [zona,setZona]=useState('Todas');
+  const zonas=['Todas',...new Set(VIDA_NOCTURNA_CON_FOTOS.map(x=>x.zona))];
+  const lista=VIDA_NOCTURNA_CON_FOTOS.filter(x=>(dia==='Todos'||x.dias.includes(dia))&&(tipo==='Todos'||x.tipo===tipo)&&(zona==='Todas'||x.zona===zona));
+  return <section className="min-h-screen bg-slate-950 text-white pb-20">
+    <div className="relative overflow-hidden"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=85&w=1800" className="absolute inset-0 w-full h-full object-cover opacity-35" alt="Vida nocturna de Río"/><div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-purple-950/90 to-slate-950/30"></div><div className="relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24"><button onClick={onVolver} className="text-white/80 hover:text-fuchsia-300 font-bold text-sm">← Volver a Qué hacer</button><span className="block mt-10 text-fuchsia-300 text-xs font-black uppercase tracking-[.25em]">Río después del atardecer</span><h1 className="text-4xl sm:text-6xl font-black uppercase mt-3">Vida nocturna</h1><p className="max-w-2xl mt-5 text-slate-200">Samba, pagode, conciertos, rooftops y fiestas organizados por día, estilo y z
+
+===== GASTRONOMIA_DATA @ 2740547 =====
+ring(v).trim())return v}return ''};
+ const title=x=>typeof x==='string'?x:val(x,['titulo','title','nombre','name','consejo','texto'])||'Consejo';
+ const text=x=>typeof x==='string'?'':val(x,['descripcion','description','texto','detalle','contenido','respuesta','subtitulo']);
+ return <div className="min-h-screen bg-[#f7f7f4] pb-24"><header className="max-w-7xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>go('inicio')} className="text-xs font-black">← INICIO</button><div className="mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10"><span className="text-[10px] font-black text-amber-300">📚 GUÍAS ESPECIALES</span><h1 className="text-4xl sm:text-6xl font-black mt-2">Guías especiales para entender Río mejor.</h1><p className="text-sm text-white/70 mt-3">Consejos prácticos, Río en familia y contenidos especiales reunidos aquí, sin mezclarlo con las categorías principales.</p></div><div className="flex gap-2 overflow-x-auto py-5">{Object.entries(configs).map(([k,v])=><button key={k} onClick={()=>setTab(k)} className={`whitespace-nowrap rounded-full border px-4 py-3 text-xs font-black ${tab===k?'bg-slate-950 text-white':'bg-white'}`}>{v.icon} {v.title}</button>)}</div></header>
+ <main className="max-w-5xl mx-auto px-4 sm:px-6"><div className="mb-5"><span className="text-4xl">{c.icon}</span><h2 className="text-3xl font-black mt-2">{c.title}</h2><p className="text-xs text-slate-500 mt-1">{arr.length} contenidos disponibles</p></div><div className="space-y-2">{arr.map((x,i)=><details key={i} className="rounded-[1.5rem] bg-white border p-5"><summary className="list-none cursor-pointer flex gap-3"><span className="text-xs font-black text-emerald-700">{String(i+1).padStart(2,'0')}</span><b className="flex-1">{title(x)}</b><span>＋</span></summary>{text(x)&&<p className="text-sm text-slate-600 leading-relaxed mt-4">{text(x)}</p>}</details>)}</div></main></div>;
+}
+
+function Master4LegacyDataHub({kind,go}){
+ const [q,setQ]=useState('');
+ const [selected,setSelected]=useState(null);
+ const configs={
+  playas:{title:'Playas reales del Master 3',icon:'🏖️',data:PLAYAS_DETALLADAS_DATA,back:'master4_descubre'},
+  centros:{title:'Centros culturales',icon:'🎨',data:CENTROS_CULTURALES_DATA,back:'master4_patrimonio'},
+  teatros:{title:'Teatros',icon:'🎭',data:TEATROS_DATA,back:'master4_patrimonio'},
+  iglesias:{title:'Iglesias y patrimonio religioso',icon:'⛪',data:IGLESIAS_DATA,back:'master4_patrimonio'},
+  gastronomia:{title:'Gastronomía real del Master 3',icon:'🍽️',data:GASTRONOMIA_DATA,back:'master4_gastronomia'},
+  noche:{title:'Vida nocturna',icon:'🎵',data:VIDA_NOCTURNA_DATA,back:'master4_ocio'},
+  ferias:{title:'Ferias y compras',icon:'🛍️',data:FEIRAS_COMPRAS_DATA,back:'master4_ocio'},
+  mercados:{title:'Mercados',icon:'🧺',data:MERCADOS_COMPRAS_DATA,back:'master4_ocio'},
+  shoppings:{title:'Shoppings',icon:'🏬',data:SHOPPINGS_DATA,back:'master4_ocio'}
+ };
+ const c=configs[kind];
+ const val=(x,keys)=>{for(const k of keys){if(x&&x[k]!==undefined&&x[k]!==null&&String(x[k]).trim())return x[k]}return ''};
+ const name=x=>val(x,['nombre','name','titulo','title']);
+ const desc=x=>val(x,['descripcion','description','resumen','summary','subtitulo','texto','detalle']);
+ const image=x=>val(x,['imagen','image','foto','img','miniatura','thumbnail','capa']);
+ const address=x=>val(x,['direccion','endereco','address','ubicacion','local']);
+ const hours=x=>val(x,['horario','horarios','hours','funcionamento']);
+ const price=x=>val(x,['valor','precio','preco','price']);
+ const history=x=>val(x,['historia','history']);
+ const category=x=>val(x,['categoria','category','tipo']);
+ const arr=Array.isArray(c.data)?c.data:[];
+ const shown=arr.filter(x=>(name(x)+' '+desc(x)+' '+category(x)).toLowerCase().includes(q.toLowerCase()));
+ if(selected){
+  const x=selected;
+  const blocks=[
+   ['⭐','Lo esencial',desc(x)],['📖','Historia',history(x)],['📍','Dirección / ubicación',address(x)],
+   ['🕐','Horarios',hours(x)],['💰','Precio / entrada',price(x)]
+  ].filter(z=>z[2]);
+  return <div className="min-h-screen bg-[#f7f7f4] pb-24">
+   <header className="max-w-5xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>setSelected(null)} className="text-xs font-black">← {c.title.toUpperCase()}</button>
+    <div className="mt-5 rounded-[2rem] bg-slate-950 text-white overflow-hidden">
+     <div className="relative min-h-[280px] bg-slate-800">{image(x)?<img src={image(x)} alt={name(x)} className="absolute inset-0 w-full h-full object-cover"/>:<div className="absolute inset-0 grid place-items-center"><div className="text-center"><span className="text-6xl">{c.icon}</span><small className="block mt-3 text-white/40 font-black">FOTO PENDIENTE</small></div></div>}<div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent"/><div className="absolute bottom-0 p-6 sm:p-8"><span className="text-[10px] font-black text-amber-300">{category(x)||c.title}</span><h1 className="text-3xl sm:text-5xl font-black mt-1">{name(x)}</h1></div></div>
+    </div>
+   </header>
+   <main className="max-w-5xl mx-auto px-4 sm:px-6 py-5">
+    <div className="rounded-[1.6rem] bg-emerald-100 p-5"><span className="text-[10px] font-black text-emerald-900">MASTER 3 → MASTER 4</span><p className="text-sm font-bold mt-2">La ficha muestra solamente campos que ya existen en el registro original. Los campos ausentes permanecen ausentes.</p></div>
+    <div className="mt-4 space-y-2">{blocks.length?blocks.map((z,i)=><details key={z[1]} open={i===0} className="rounded-[1.5rem] bg-white border p-5"><summary className="list-none cursor-pointer flex gap-4"><span>{z[0]}</span><b className="flex-1">{z[1]}</b><span>＋</span></summary><p className="text-sm text-slate-600 leading-relaxed mt-4">{String(z[2])}</p></details>):<div className="rounded-2xl bg-white border p-5 text-sm text-slate-500">Este registro todavía no tiene texto descriptivo estructurado en su objeto original.</div>}</div>
+    <div className="flex flex-wrap gap-2 mt-5"><button className="rounded-full border bg-white px-5 py-3 text-xs font-black">♡ MI RÍO</button><button onClick={()=>go('master4_para_mi')} className="rounded-full bg-slate-950 text-white px-5 py-3 text-xs font-black">🔄 CAMBIÓ MI PLAN</button></div>
+   </main>
+  </div>
+ }
+ return <div className="min-h-screen bg-[#f7f7f4] pb-24">
+  <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>go(c.back)} className="text-xs font-black">← VOLVER</button><div className="mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10"><span className="text-[10px] font-black text-amber-300">{c.icon} CATÁLOGO REAL</span><h1 className="text-4xl sm:text-6xl font-black mt-2">{c.title}</h1><p className="text-sm text-white/70 mt-3">{arr.length} registros conectados directamente a sus datos existentes.</p><input value={q} onChange={e=>setQ(e.target.value)} placeholder="Buscar…" className="mt-6 w-full max-w-xl rounded-2xl bg-white text-slate-900 px-5 py-4 text-sm"/></div></header>
+  <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6"><div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">{shown.map((x,i)=><button key={val(x,['id','slug'])||i} onClick={()=>setSelected(x)} className="rounded-[1.7rem] bg-white border overflow-hidden text-left min-h-52 flex flex-col">{image(x)?<div className="h-32 overflow-hidden"><img src={image(x)} alt={name(x)} className="w-full h-full object-cover"/></div>:<div className="h-24 bg-slate-100 grid place-items-center text-3xl">{c.icon}</div>}<div className="p-5 mt-auto"><span className="text-[9px] font-black text-emerald-700">{category(x)||'ERNESTINHO 4.0'}</span><h2 className="text-lg font-black mt-1">{name(x)||'Registro sin título'}</h2><p className="text-xs text-slate-500 mt-2 line-clamp-2">{String(desc(x)||address(x)||'Abre para ver la información disponible.')}</p><span className="inline-block mt-4 text-[10px] font-black">ABRIR FICHA →</span></div></button>)}</div></main>
+ </div>;
+}
+
+function Master4MuseumsReal({go}){
+ const [q,setQ]=useState('');
+ const [cat,setCat]=useState('Todos');
+ const [selected,setSelected]=useState(null);
+ const museoOriginal=x=>(MUSEOS_DATA||[]).find(m=>m.id===x.id)||{};
+ const imagenMuseo=x=>x.imagen||museoOriginal(x).miniatura||museoOriginal(x).fotoPrincipal||museoOriginal(x).fotoMedia||'';
+ const cats=['Todos',...Array.from(new Set(MASTER4_MUSEOS_REAL.map(x=>x.categoria).filter(Boolean)))];
+ const shown=MASTER4_MUSEOS_REAL.filter(x=>(cat==='Todos'||x.categoria===cat)&&(!q||(x.nombre+' '+x.subtitulo+' '+x.descripcion).toLowerCase().includes(q.toLowerCase())));
+ if(selected){
+   const x=selected;
+   const sections=[
+    ['resumen','⭐','Lo esencial',x.descripcion],
+    ['historia','📖','Su historia',x.historia],
+    ['llegar','📍','Dirección',x.direccion],
+    ['horario','🕐','Horario',x.horario],
+    ['valor','💰','Entradas / valor',x.valor]
+   ].filter(z=>z[3]);
+   return <div className="min-h-screen bg-[#f7f7f4] pb-24">
+    <header className="max-w-5xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>setSelected(null)} className="text-xs font-black">← MUSEOS</button>
+     <div className="mt-5 rounded-[2rem] bg-slate-950 text-white overflow-hidden">
+      <div className="relative min-h-[280px] bg-slate-800">{imagenMuseo(x)?<img src={imagenMuseo(x)} alt={x.nombre} className="absolute inset-0 w-full h-full object-cover"/>:<div className="absolute inset-0 grid place-items-center text-6xl">🏛️</div>}<div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div><div className="absolute bottom-0 p-6 sm:p-8"><span className="text-[10px] font-black text-amber-300">{x.categoria||'MUSEO'}</span><h1 className="text-3xl sm:text-5xl font-black mt-1">{x.nombre}</h1><p className="text-sm text-white/75 mt-2">{x.subtitulo}</p></div></div>
+     </div>
+    </header>
+    <main className="max-w-5xl mx-auto px-4 sm:px-6 py-5">
+     <div className="rounded-[1.7rem] bg-amber-100 p-5"><span className="text-[10px] font-black text-amber-900">FUENTE DEL CONTENIDO</span><p className="text-sm font-bold mt-2">Esta ficha 4.0 está alimentada directamente por la información que ya estaba escrita en Master 3; no se agregó información externa en esta migración.</p></div>
+     <div className="mt-4 space-y-2">{sections.map((z,i)=><details key={z[0]} open={i===0} className="rounded-[1.5rem] bg-white border p-5"><summary className="cursor-pointer list-none flex gap-4 items-center"><span className="text-xl">{z[1]}</span><b className="flex-1">{z[2]}</b><span>＋</span></summary><p className="text-sm leading-relaxed text-slate-600 mt-4">{z[3]}</p></details>)}</div>
+     <div className="mt-5 flex gap-2 flex-wrap"><button className="rounded-full border bg-white px-5 py-3 text-xs font-black">♡ MI RÍO</button><button onClick={()=>go('master4_para_mi')} className="rounded-full bg-slate-950 text-white px-5 py-3 text-xs font-black">🔄 CAMBIÓ MI PLAN</button></div>
+    </main>
+   </div>
+ }
+ return <div className="min-h-screen bg-[#f7f7f4] pb-24">
+  <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-6"><button onClick={()=>go('master4_descubre')} className="text-xs font-black">← CONOCER RÍO</button><div className="mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10"><span className="text-[10px] font-black text-amber-300">🏛️ MUSEOS · MASTER 3 → 4.0</span><h1 className="text-4xl sm:text-6xl font-black mt-2">28 fichas reales, una nueva forma de explorarlas.</h1><p className="text-sm text-white/70 mt-3">Aquí ya no estamos creando ejemplos: estas fichas salen directamente del catálogo 
+
+===== GASTRONOMIA_DATA @ 2804153 =====
+iv className="relative aspect-[4/3] bg-slate-200 overflow-hidden"><img src={exp.imagen||exp.miniatura} alt={exp.titulo} className="w-full h-full object-cover"/><span className="absolute top-3 right-3 bg-amber-300 text-slate-950 rounded-full px-3 py-2 text-[10px] font-black">{exp.precio||'CONSULTAR'}</span></div><div className="p-5 flex flex-col flex-1"><h3 className="text-xl font-black">{exp.titulo}</h3><p className="text-xs text-slate-500 mt-2 leading-relaxed">{exp.descripcion||exp.intro}</p>{exp.id==='rio-samba-tour'&&<span className="mt-3 inline-flex self-start rounded-full bg-emerald-100 text-emerald-800 px-3 py-1 text-[9px] font-black">AFILIADO OFICIAL</span>}{exp.id==='carnaval-experience'&&<span className="mt-3 inline-flex self-start rounded-full bg-fuchsia-100 text-fuchsia-800 px-3 py-1 text-[9px] font-black">SOCIO OFICIAL · 5% DESCUENTO</span>}<button onClick={()=>ver(exp)} className="mt-auto pt-4"><span className="block w-full rounded-xl bg-slate-950 text-white py-3 text-xs font-black">{exp.url?'COMPRAR / VER →':exp.extra?'CONSULTAR →':'VER EXPERIENCIA →'}</span></button></div></article>)}</div></section>)}</main></div>;
+}
+
+function Master4CopacabanaFood({go}){
+ const [q,setQ]=useState('');
+ const [cat,setCat]=useState('Todos');
+ const [posto,setPosto]=useState('Todos');
+ const cats=['Todos','Brasileña','Buffet','Boteco','Churrascaria','Italiana','Japonesa','Café','Panadería','Vegana','Mariscos','Pizza','Açaí','Árabe','Peruana','Hotel','Quiosco'];
+ const norm=x=>(x||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+ const matchesCat=(r,c)=>{if(c==='Todos')return true;const z=norm(r.categoria+' '+r.descripcion);const m={Brasileña:['brasil','mineira','nordest'],Buffet:['buffet','self-service','quilo'],Boteco:['boteco','bar'],Churrascaria:['churrasc','rodizio','parrilla'],Italiana:['italiana','pizza','past'],Japonesa:['japonesa','sushi','nikkei','omakase'],Café:['cafe','confeitaria','brunch'],Panadería:['panader','padaria','bakery'],Vegana:['vegan','vegetar'],Mariscos:['marisco','pescado','ceviche'],Pizza:['pizza'],Açaí:['acai','jugos'],Árabe:['arabe','liban'],Peruana:['peru','ceviche','nikkei'],Hotel:['hotel','rooftop'],Quiosco:['quiosco']};return (m[c]||[norm(c)]).some(k=>z.includes(k))};
+ const filtered=COPACABANA_RESTAURANTES_40.filter(r=>(cat==='Todos'||matchesCat(r,cat))&&(posto==='Todos'||r.posto===posto)&&norm(r.nombre+' '+r.categoria+' '+r.direccion+' '+r.descripcion).includes(norm(q)));
+ const legacyImg=r=>{try{const hit=(GASTRONOMIA_DATA||[]).find(x=>norm(x.nombre||x.name||'').includes(norm(r.nombre).split(' - ')[0])||norm(r.nombre).includes(norm(x.nombre||x.name||'')));return hit&&(hit.imagen||hit.image||hit.foto||hit.img)||''}catch(e){return ''}};
+ return <div className="min-h-screen bg-[#f7f7f4] pb-24">
+  <header className="max-w-7xl mx-auto px-4 sm:px-6 pt-6">
+   <button onClick={()=>go('master4_gastronomia')} className="text-xs font-black">← GASTRONOMÍA</button>
+   <div className="mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10 overflow-hidden relative">
+    <span className="text-[10px] font-black text-amber-300">🍽️ COPACABANA · GUÍA ERNESTINHO</span>
+    <h1 className="text-4xl sm:text-6xl font-black mt-2 max-w-4xl">Comer en Copacabana</h1>
+    <p className="text-sm sm:text-base text-white/70 mt-3 max-w-2xl">Una base enorme para elegir según tus ganas, presupuesto y zona. Desde un PF de barrio hasta una cena frente al mar.</p>
+    <div className="mt-6 inline-flex rounded-full bg-white/10 px-4 py-2 text-xs font-black">{COPACABANA_RESTAURANTES_40.length} lugares cargados en esta versión</div>
+   </div>
+  </header>
+  <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
+   <div className="sticky top-0 z-20 bg-[#f7f7f4]/95 backdrop-blur py-3 -mx-1 px-1">
+    <input value={q} onChange={e=>setQ(e.target.value)} placeholder="Buscar restaurante, comida o calle…" className="w-full rounded-2xl border bg-white px-5 py-4 text-sm outline-none focus:ring-2 focus:ring-emerald-500"/>
+    <div className="flex gap-2 overflow-x-auto mt-3 pb-1" style={{scrollbarWidth:'none'}}>{cats.map(x=><button key={x} onClick={()=>setCat(x)} className={`whitespace-nowrap rounded-full px-4 py-2 text-[10px] font-black border ${cat===x?'bg-slate-950 text-white border-slate-950':'bg-white text-slate-700'}`}>{x}</button>)}</div>
+    <div className="flex gap-2 overflow-x-auto mt-2 pb-1" style={{scrollbarWidth:'none'}}>{['Todos','Posto 2','Posto 3','Posto 4','Posto 5','Posto 6'].map(x=><button key={x} onClick={()=>setPosto(x)} className={`whitespace-nowrap rounded-full px-4 py-2 text-[10px] font-black ${posto===x?'bg-emerald-700 text-white':'bg-emerald-50 text-emerald-800'}`}>{x}</button>)}</div>
+   </div>
+   <div className="flex items-center justify-between mt-3 mb-4"><p className="text-xs font-bold text-slate-500">Mostrando {filtered.length} lugares</p><button onClick={()=>{setQ('');setCat('Todos');setPosto('Todos')}} className="text-[10px] font-black">LIMPIAR FILTROS</button></div>
+   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    {filtered.map(r=>{const img=legacyImg(r);return <article key={r.id} className="rounded-[1.7rem] bg-white border overflow-hidden shadow-sm">
+      {img?<img src={img} alt={r.nombre} className="w-full aspect-[4/3] object-cover"/>:<div className="aspect-[4/3] bg-gradient-to-br from-amber-100 via-orange-50 to-emerald-50 grid place-items-center"><div className="text-center px-6"><div className="text-5xl">🍽️</div><span className="block mt-3 text-[9px] font-black text-slate-500">FOTO PENDIENTE</span></div></div>}
+      <div className="p-5"><div className="flex items-start gap-3"><div className="flex-1"><span className="text-[9px] font-black text-emerald-700 uppercase">{r.categoria}</span><h2 className="text-xl font-black mt-1 leading-tight">{r.nombre}</h2></div><span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-black">{r.precio}</span></div>
+       <p className="text-xs text-slate-500 mt-2">📍 {r.direccion}</p><p className="text-xs font-bold text-slate-600 mt-1">{r.posto!=='Todos'?r.posto+' · ':''}Copacabana</p><p className="text-sm text-slate-700 mt-3">{r.descripcion}</p>
+       <div className="grid grid-cols-2 gap-2 mt-4"><a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.nombre+' '+r.direccion+' Rio de Janeiro')}`} target="_blank" rel="noopener noreferrer" className="rounded-xl bg-slate-950 text-white text-center px-3 py-3 text-[10px] font-black">📍 VER EN MAPA</a><button onClick={()=>{try{const k='ernestinho-mi-rio-v3';const a=JSON.parse(localStorage.getItem(k)||'[]');if(!a.some(x=>x.id===r.id)){a.push({id:r.id,name:r.nombre,type:'gastronomia',zone:'Copacabana'});localStorage.setItem(k,JSON.stringify(a));}alert('Guardado en Mi Río ❤️')}catch(e){}}} className="rounded-xl border px-3 py-3 text-[10px] font-black">♡ MI RÍO</button></div>
+      </div></article>})}
+   </div>
+   {!filtered.length&&<div className="rounded-[2rem] bg-white border p-10 text-center"><div className="text-4xl">🔎</div><h3 className="text-xl font-black mt-3">No encontré coincidencias</h3><p className="text-sm text-slate-500 mt-2">Prueba otra categoría, Posto o palabra.</p></div>}
+   <div className="mt-8 rounded-[2rem] bg-amber-100 p-6 sm:p-8"><span className="text-[10px] font-black text-amber-900">👋 NOTA DE ERNESTINHO</span><h3 className="text-2xl font-black mt-2">Una guía grande, pero fácil de usar.</h3><p className="text-sm text-slate-700 mt-2">Los horarios, precios y operaciones pueden cambiar. Por eso esta sección prioriza descubrir por tipo y zona; antes de salir, confirma el dato operativo del día.</p></div>
+  </main>
+ </div>
+}
+
+function Master4LifePage({kind,go}){
+  const [open,setOpen]=useState(null);
+  const configs={
+    gastronomia:{icon:'🍽️',eyebrow:'COMER EN RÍO',title:'¿Qué tienes ganas de comer?',intro:'Primero resolvemos tu momento. Después puedes entrar al catálogo completo de restaurantes.',chips:['Cerca de mí','Barato','Carioca','Vista al mar','Boteco','Café'],sections:[
+      ['ahora','🍽️','Tengo hambre ahora','Tres opciones útiles antes que una lista interminable.'],
+      ['entender','🇧🇷','Entender el menú','PF, executivo, comercial, por quilo, livre y rodízio explicados fácil.'],
+      ['boteco','🍺','Vivir un boteco','Qué pedir, cómo funciona y por qué es parte de la cultura carioca.'],
+      ['clasicos','⭐','Clásicos de Río','Lugares históricos y experiencias gastronómicas que vale la pena conocer.'],
+      ['cafe','☕','Café y desayuno','Padarias, cafeterías y cómo empieza el día en Río.'],
+      ['presupuesto','💰','Comer según presupuesto','Opciones económicas, medias y especiales sin confundir precio con calidad.']
+    ]},
+    transportes:{icon:'🚇',eyebrow:'MOVERTE POR RÍO',title:'Llegar sin complicarte también es parte del viaje.',intro:'Elige según dónde estás, a dónde vas, horario, equipaje y compañía.',chips:['Metro','Uber / 99','Bus','VLT','Bici','Aeropuerto'],sections:[
+      ['metro','🚇','Metro','La opción más simple para muchos desplazamientos en Zona Sul y Centro.'],
+      ['apps','🚕','Uber y apps','Cuándo convienen y qué considerar según horario y punto de recogida.'],
+      ['publico','🚌','Buses y transporte público','La lógica útil sin llenarte de líneas que pueden cambiar.'],
+      ['bici','🚲','Bicicleta','Para paseos y desplazamientos cortos cuando la ruta acompaña.'],
+      ['aeropuerto','✈️','Aeropuertos','GIG y SDU necesitan estrategias distintas.'],
+      ['privado','🚐','Traslado Ernestinho','Aeropuerto, hotel y viajes privados cuando quieres resolverlo de antemano.']
+    ]},
+    consejos:{icon:'💡',eyebrow:'PRIMERA VEZ EN RÍO',title:'Lo que me gustaría que supieras antes de llegar.',intro:'Consejos cortos primero. Explicación completa solamente cuando la necesitas.',chips:['Dinero','Seguridad','Clima','Idioma','Costumbres','Familia'],sections:[
+      ['barrios','🗺️','Río se entiende por barrios','No planifiques como si toda la ciudad estuviera a diez minutos.'],
+      ['tiempo','⏱️','No llenes todos los días','Tráfico, calor y distancias pueden cambiar completamente un itinerario.'],
+      ['dinero','💳','Dinero, tarjetas y Pix','Qué opciones encontrará un visitante y cómo prepararse.'],
+      ['seguridad','🛡️','Seguridad con contexto','Decisiones prácticas según lugar y momento, sin convertir Río en una lista de miedos.'],
+      ['clima','☀️','Calor, lluvia y playa','Tu mejor plan puede cambiar; la guía debe ayudarte a adaptarlo.'],
+      ['costumbres','🇧🇷','Entender a los cariocas','Palabras, horarios, costumbres y pequeñas diferencias que facilitan el viaje.'],
+      ['familia','👨‍👩‍👧','Viajar con niños y familia','Ritmo, documentos, calor, distancias y actividades compatibles.'],
+      ['enchufes','🔌','Detalles que evitan problemas','Tomadas, internet, agua, propinas y otras dudas frecuentes.']
+    ]}
+  };
+  const detalles={
+    ahora:{texto:'Si estás en Copacabana, usa nuestro buscador por comida, precio y Posto. Si estás en otro barrio, entra al catálogo de gastronomía y filtra por zona. La idea es resolver dónde comer sin cruzar Río por una recomendación.',cta:'BUSCAR DÓNDE COMER →',ruta:'master4_copacabana_comer'},
+    entender:{texto:'PF o prato feito suele ser un plato individual completo; executivo/comercial es un menú de almuerzo; por quilo se cobra por el peso; buffet livre tiene precio fijo; rodízio significa servicio continuo de carnes, pizza, sushi u otros productos. Pregunta siempre qué incluye bebidas, postre y servicio
+
+===== GASTRONOMIA_DATA @ 3450577 =====
+ares/mar',
+  master4_place_maracana: '/lugares/maracana',
+  master4_place_musal: '/lugares/musal',
+  master4_place_pedra: '/lugares/pedra-bonita',
+  master4_place_santa: '/lugares/santa-teresa',
+  master4_place_selaron: '/lugares/escadaria-selaron',
+  master4_place_tijuca: '/lugares/floresta-da-tijuca'
+};
+
+const SEO_ROUTE_PREFERRED_SECTION = {
+  '/': 'inicio',
+  '/museos': 'museos',
+  '/playas': 'playas',
+  '/naturaleza': 'naturaleza',
+  '/gastronomia': 'gastronomia',
+  '/barrios': 'barrios',
+  '/transportes': 'transportes',
+  '/consejos': 'consejos',
+  '/experiencias': 'experiencias'
+};
+
+function seoExperienceState(exp) {
+  if (!exp) return 'experiencias';
+  if (exp.id === 'exp-1') return 'full_day_rio';
+  if (exp.id === 'exp-2') return 'buzios';
+  if (exp.id === 'exp-3') return 'detalle_exp-3';
+  if (exp.id === 'exp-4') return 'detalle_exp-4';
+  if (exp.id === 'exp-5') return 'detalle_exp-5';
+  return `actividad_${exp.id}`;
+}
+
+function seoExperienceFromState(section) {
+  const all = [
+    ...EXPERIENCIAS_DATA,
+    ...ACTIVIDADES_NUEVAS
+  ];
+  return all.find(exp => seoExperienceState(exp) === section) || null;
+}
+
+function seoPathForSection(section) {
+  const exp = seoExperienceFromState(section);
+  if (exp) return `/experiencias/${seoSlug(exp.titulo)}`;
+  return SEO_SECTION_ROUTES[section] || null;
+}
+
+function seoCleanPath(pathname) {
+  let ruta = decodeURIComponent(String(pathname || '/')).replace(/\/+$/, '') || '/';
+  if (!ruta.startsWith('/')) ruta = '/' + ruta;
+  return ruta;
+}
+
+function seoResolveRoute(pathname) {
+  const ruta = seoCleanPath(pathname);
+  const result = { seccion: 'inicio', museoId: null, barrio: null, restaurante: null, articulo: null, temaGuia: null, consejoId: null };
+  if (ruta === '/') return result;
+  if (ruta === '/recorrido-centro' || ruta === '/quiero' || ruta === '/ruta-centro') return { ...result, seccion:'consejos', consejoId:'recorridos-cuenta' };
+
+  let m = ruta.match(/^\/museos\/([^/]+)$/);
+  if (m) {
+    const museo = MUSEOS_DATA.find(x => seoSlug(x.nombre) === m[1]);
+    if (museo) return { ...result, seccion:'museos', museoId:museo.id };
+  }
+  m = ruta.match(/^\/barrios\/([^/]+)$/);
+  if (m) {
+    const barrio = BARRIOS_DATA.find(x => seoSlug(x.nombre) === m[1] || seoSlug(x.id) === m[1]);
+    if (barrio) return barrio.id === 'copacabana'
+      ? { ...result, seccion:'copa_para_mi' }
+      : { ...result, seccion:'barrios', barrio };
+  }
+  m = ruta.match(/^\/gastronomia\/([^/]+)$/);
+  if (m) {
+    const restaurante = GASTRONOMIA_DATA.find(x => seoSlug(x.nombre) === m[1]);
+    if (restaurante) return { ...result, seccion:'gastronomia', restaurante };
+  }
+  m = ruta.match(/^\/articulos\/([^/]+)$/);
+  if (m) {
+    const articulo = ARTICULOS_CONSEJOS.find(x => seoSlug(x.titulo) === m[1] || seoSlug(x.id) === m[1]);
+    if (articulo) return { ...result, seccion:'articulo_detalle', articulo };
+  }
+  m = ruta.match(/^\/guia\/([^/]+)$/);
+  if (m && m[1] !== 'pix') {
+    const temaId = Object.keys(GUIA_INFO).find(id => seoSlug(GUIA_INFO[id]?.titulo || id) === m[1] || seoSlug(id) === m[1]);
+    if (temaId) return { ...result, seccion:'guia', temaGuia:temaId };
+  }
+  m = ruta.match(/^\/experiencias\/([^/]+)$/);
+  if (m) {
+    const all = [...EXPERIENCIAS_DATA, ...ACTIVIDADES_NUEVAS];
+    const exp = all.find(x => seoSlug(x.titulo) === m[1] || seoSlug(x.id) === m[1]);
+    if (exp) return { ...result, seccion:seoExperienceState(exp) };
+  }
+
+  const seoDeepRoots = [
+    'centros-culturales','espacios-literarios','eventos','experiencias',
+    'fuertes-fortalezas','iglesias','teatros','playas','vida-nocturna','compras'
+  ];
+  const seoDeepRoot = seoDeepRoots.find(prefix => ruta.startsWith('/' + prefix + '/'));
+  if (seoDeepRoot) {
+    const rootPath = '/' + seoDeepRoot;
+    const deepSection = SEO_ROUTE_PREFERRED_SECTION[rootPath] || Object.keys(SEO_SECTION_ROUTES).find(key => SEO_SECTION_ROUTES[key] === rootPath);
+    if (deepSection) return { ...result, seccion:deepSection };
+  }
+
+  const preferred = SEO_ROUTE_PREFERRED_SECTION[ruta];
+  if (preferred) return { ...result, seccion:preferred };
+  const section = Object.keys(SEO_SECTION_ROUTES).find(key => SEO_SECTION_ROUTES[key] === ruta);
+  if (section) return { ...result, seccion:section };
+  return result;
+}
+
+function seoCurrentPath(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId) {
+  const seoActualDeep = seoCleanPath(window.location.pathname);
+  if (seoActualDeep === '/experiencias/rapel') return seoActualDeep;
+  const seoDeepRootsCurrent = [
+    'centros-culturales','espacios-literarios','eventos','experiencias',
+    'fuertes-fortalezas','iglesias','teatros','playas','vida-nocturna','compras'
+  ];
+  const seoDeepRootCurrent = seoDeepRootsCurrent.find(prefix => seoActualDeep.startsWith('/' + prefix + '/'));
+  if (seoDeepRootCurrent) {
+    const rootPath = '/' + seoDeepRootCurrent;
+    const expectedSection = SEO_ROUTE_PREFERRED_SECTION[rootPath] || Object.keys(SEO_SECTION_ROUTES).find(key => SEO_SECTION_ROUTES[key] === rootPath);
+    if (expectedSection && expectedSection === section) return seoActualDeep;
+  }
+  if (section === 'consejos' && (consejoId?.id || consejoId) === 'recorridos-cuenta') {
+    const actual = seoCleanPath(window.location.pathname);
+    if (actual === '/quiero' || actual === '/ruta-centro' || actual === '/recorrido-centro') return actual;
+    return '/quiero';
+  }
+  if (section === 'museos' && museoId) {
+    const museo = MUSEOS_DATA.find(x => x.id === museoId);
+    const actual = seoCleanPath(window.location.pathname);
+    if (museo && actual.startsWith('/museos/')) return `/museos/${seoSlug(museo.nombre)}`;
+    return '/museos';
+  }
+  if (section === 'barrios' && barrio) return `/barrios/${seoSlug(barrio.nombre || barrio.id)}`;
+  if (section === 'gastronomia' && restaurante) return `/gastronomia/${seoSlug(restaurante.nombre)}`;
+  if (section === 'articulo_detalle' && articulo) return `/articulos/${seoSlug(articulo.titulo || articulo.id)}`;
+  if (section === 'guia' && temaGuia && GUIA_INFO[temaGuia]) return `/guia/${seoSlug(GUIA_INFO[temaGuia].titulo || temaGuia)}`;
+  return seoPathForSection(section) || '/';
+}
+
+function seoNavigate(path, mode='push') {
+  const ruta = seoCleanPath(path);
+  if (seoCleanPath(window.location.pathname) === ruta) return;
+  if (mode === 'replace') window.history.replaceState({ seo:true }, '', ruta);
+  else window.history.pushState({ seo:true }, '', ruta);
+}
+
+function seoSetMeta({title, description, path, indexable=true, image}) {
+  const site = 'https://www.ernestinhocarioca.com.br';
+  const canonicalUrl = site + (path || '/');
+  document.title = title || 'Ernestinho Carioca | Guía completa de Río de Janeiro';
+  const setMeta = (selector, attr, value) => {
+    let el = document.head.querySelector(selector);
+    if (!el) {
+      el = document.createElement('meta');
+      if (selector.includes('property=')) el.setAttribute('property', selector.match(/property="([^"]+)"/)?.[1] || '');
+      else el.setAttribute('name', selector.match(/name="([^"]+)"/)?.[1] || '');
+      document.head.appendChild(el);
+    }
+    el.setAttribute(attr, value);
+  };
+  setMeta('meta[name="description"]', 'content', description || 'Descubre Río de Janeiro con Ernestinho Carioca: lugares, experiencias, consejos y rutas para organizar tu viaje.');
+  setMeta('meta[name="robots"]', 'content', indexable ? 'index, follow' : 'noindex, follow');
+  setMeta('meta[property="og:title"]', 'content', document.title);
+  setMeta('meta[property="og:description"]', 'content', description || 'Guía práctica de Río de Janeiro por Ernestinho Carioca.');
+  setMeta('meta[property="og:url"]', 'content', canonicalUrl);
+  setMeta('meta[property="og:type"]', 'content', 'website');
+  if (image) setMeta('meta[property="og:image"]', 'content', image);
+  let canonical = document.head.querySelector('link[rel="canonical"]');
+  if (!canonical) { canonical = document.createElement('link'); canonical.rel = 'canonical'; document.head.appendChild(canonical); }
+  canonical.href = canonicalUrl;
+}
+
+function seoMetaFor(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId) {
+  const path = seoCurrentPath(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId);
+  if (section === 'consejos' && (consejoId?.id || consejoId) === 'recorridos-cuenta') {
+    const actual = seoCleanPath(window.location.pathname);
+    const rutaSocial = (actual === '/quiero' || actual === '/ruta-centro' || actual === '/recorrido-centro') ? actual : '/quiero';
+    return { path:rutaSocial, title:'Del mar a la historia: recorrido por el Centro de Río | Ernestinho Carioca', description:'Recorrido para hacer por tu cuenta desde la Zona Portuaria hasta el Centro de Río: AquaRio, Yup Star, Mural Etnias, Museu do Amanhã, São Bento, Confeitaria Colombo y Real Gabinete.', image:'https://res.cloudinary.com/qa301cbc/image/upload/v1788817390/1B0B6A7E-B0F2-49B0-A263-26D4A3FF3CE3.png' };
+  }
+  if (section === 'museos' && museoId && path.startsWith('/museos/')) {
+    const x = MUSEOS_DATA.find(v => v.id === museoId);
+    if (x) return { path, title:`${x.nombre} en Río de Janeiro | Ernestinho Carioca`, description:x.descripcion || x.subtitulo };
+  }
+  if (section === 'barrios' && barrio) return { path, title:`${barrio.nombre} en Río de Janeiro | Ernestinho Carioca`, description:barrio.desc || barrio.lema };
+  if (section === 'gastronomia' && restaurante) return { path, title:`${restaurante.nombre} en Río de Janeiro | Ernestinho Carioca`, description:restaurante.destaque };
+  if (section === 'articulo_detalle' && articulo) return { path, title:`${articulo.titulo} | Ernestinho Carioca`, description:articulo.resumen };
+  if (section === 'guia' && temaGuia && GUIA_INFO[temaGuia]) {
+    const x=GUIA_INFO[temaGuia]; return { path, title:`${x.titulo} | Ernestinho Carioca`, description:x.intro };
+  }
+  const exp = seoExperienceFromState(section);
+  if (exp) return { path, title:`${exp.titulo} en Río de Janeiro | Ernestinho Carioca`, description:exp.descripcion || exp.intro };
+  const labels = {
+    inicio:['Ernestinho Carioca | Guía completa de Río de Janeiro','Descubre Río de Janeiro con Ernestinho Carioca: atracciones, playas, museos, gastronomía, transporte, consejos y experiencias.'],
+    que_hacer:['Qué hacer en Río de Janeiro | Ernestinho Carioca','Ideas, lugares y experiencias para descubrir qué hacer en Río de Janeiro.'],
+    atracciones:['Atracciones de Río de Janeiro | Ernestinho Carioca','Museos, iglesias, fortalezas, cultura y atracciones para conocer Río de Janeiro.'],
+    museos:['Museos de Río de Janeiro | Ernestinho Carioca','Guía de museos de Río de Janeiro con historia, horarios, valores, mapas y consejos.'],
+    playas:['Playas de Río de Janeiro | Ernestinho Carioca','Descubre las playas de Río de Janeiro, cómo llegar y qué esperar en cada una.'],
+    naturaleza:['Naturaleza y senderos en Río | Ernestinho Carioca','Senderos, miradores y naturaleza para vivir el lado verde de Río de Janeiro.'],
+    gastronomia:['Dónde comer en Río de Janeiro | Ernestinho Carioca','Restaurantes, botecos, cafés y sabores recomendados en Río de Janeiro.'],
+    nocturna:['Vida nocturna en Río de Janeiro | Ernestinho Carioca','Samba, bares, música y opciones para disfrutar la noche carioca.'],
+    barrios:['Barrios de Río de Janeiro | Ernestinho Carioca','Guía de barrios de Río de Janeiro para entender qué ver, hacer y combinar en cada zona.'],
+    guia:['Guía de Río de Janeiro | Ernestinho Carioca','Información práctica para p
+
+===== GASTRONOMIA_DATA @ 5838010 =====
+()) translateNode(n);
+      translateAttrs(root); root.querySelectorAll('[placeholder],[title],[aria-label],[alt]').forEach(translateAttrs);
+    };
+    // Apply immediately and keep a callable hook for route/detail changes.
+    window.__ernestinhoApplyLanguage = walk;
+    window.__ernestinhoNormCache = {pt:null,en:null};
+    walk();
+
+    // React often reuses the same DOM nodes and only changes nodeValue.
+    // childList alone does NOT catch those updates, so characterData is essential.
+    let rafTranslate = null;
+    const scheduleWalk = () => {
+      if (rafTranslate) cancelAnimationFrame(rafTranslate);
+      rafTranslate = requestAnimationFrame(() => {
+        rafTranslate = null;
+        walk();
+      });
+    };
+    const obs=new MutationObserver(scheduleWalk);
+    obs.observe(root,{
+      childList:true,
+      subtree:true,
+      characterData:true,
+      attributes:true,
+      attributeFilter:['placeholder','title','aria-label','alt']
+    });
+
+    // A second pass catches content mounted by nested components in the next frame.
+    const t1=setTimeout(scheduleWalk,0);
+    const t2=setTimeout(scheduleWalk,80);
+
+    return ()=>{
+      obs.disconnect();
+      if (rafTranslate) cancelAnimationFrame(rafTranslate);
+      clearTimeout(t1); clearTimeout(t2);
+      if (window.__ernestinhoApplyLanguage === walk) delete window.__ernestinhoApplyLanguage;
+    };
+  },[lang]);
+  const [articuloSeleccionado, setArticuloSeleccionado] = useState(rutaSeoInicial.articulo || null);
+
+  // Reapply the selected language whenever navigation or a deep detail changes.
+  // This fixes sections that React updates by reusing text nodes instead of adding new nodes.
+  useEffect(() => {
+    const run = () => {
+      if (typeof window.__ernestinhoApplyLanguage === 'function') {
+        window.__ernestinhoApplyLanguage();
+      }
+    };
+    const r1=requestAnimationFrame(run);
+    const t1=setTimeout(run,40);
+    const t2=setTimeout(run,140);
+    return () => {
+      cancelAnimationFrame(r1);
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  },[
+    lang,
+    seccionActual,
+    temaGuia,
+    consejoSeleccionado,
+    modoTransportePublico,
+    restauranteSeleccionado,
+    barrioSeleccionado,
+    museoSeleccionado,
+    articuloSeleccionado
+  ]);
+  const [detalleRuta, setDetalleRuta] = useState(null);
+  const abrirDetalleRuta = (sec,id) => {
+    setDetalleRuta({sec,id});
+    if (sec === 'museos') setMuseoSeleccionado(id);
+    if (sec === 'gastronomia') setRestauranteSeleccionado(GASTRONOMIA_DATA.find(x=>x.id===id) || null);
+    const rutaDestino = seoPathForSection(sec); if (rutaDestino) seoNavigate(rutaDestino);
+    setHistorialSecciones(prev => [...prev, seccionActual].slice(-50));
+    setSeccionActualBase(sec);
+  };
+
+  useEffect(() => {
+    const aplicarRuta = () => {
+      const resolved = seoResolveRoute(window.location.pathname);
+      window.__ernestinhoSeoPop = true;
+      setSeccionActualBase(resolved.seccion);
+      setMuseoSeleccionado(resolved.museoId || 'mhn');
+      setBarrioSeleccionado(resolved.barrio || null);
+      setRestauranteSeleccionado(resolved.restaurante || null);
+      setArticuloSeleccionado(resolved.articulo || null);
+      setTemaGuia(resolved.temaGuia || null);
+      setConsejoSeleccionado(resolved.consejoId ? (CONSEJOS_NUEVOS.find(x=>x.id===resolved.consejoId) || null) : null);
+      window.requestAnimationFrame(() => { window.__ernestinhoSeoPop = false; });
+    };
+    window.addEventListener('popstate', aplicarRuta);
+    return () => window.removeEventListener('popstate', aplicarRuta);
+  }, []);
+
+  useEffect(() => {
+    const path = seoCurrentPath(seccionActual, museoSeleccionado, barrioSeleccionado, restauranteSeleccionado, articuloSeleccionado, temaGuia, consejoSeleccionado);
+    if (!window.__ernestinhoSeoPop && path && seoCleanPath(window.location.pathname) !== seoCleanPath(path)) {
+      seoNavigate(path, 'replace');
+    }
+    const meta = seoMetaFor(seccionActual, museoSeleccionado, barrioSeleccionado, restauranteSeleccionado, articuloSeleccionado, temaGuia, consejoSeleccionado);
+    seoSetMeta(meta);
+  }, [seccionActual, museoSeleccionado, barrioSeleccionado, restauranteSeleccionado, articuloSeleccionado, temaGuia, consejoSeleccionado]);
+
+
+  const [modalReservaOpen, setModalReservaOpen] = useState(false);
+  const [expParaReservar, setExpParaReservar] = useState(null);
+
+  const [reservaDatos, setReservaDatos] = useState({
+    fecha: '',
+    personas: 2,
+    nombre: '',
+    email: '',
+    telefono: ''
+  });
+
+  useEffect(() => {
+    const subirAlInicio = () => {
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    };
+    subirAlInicio();
+    const siguienteCuadro = window.requestAnimationFrame(subirAlInicio);
+
+    if (window.lucide) {
+      window.lucide.createIcons();
+    }
+    return () => window.cancelAnimationFrame(siguienteCuadro);
+  }, [seccionActual, articuloSeleccionado, temaGuia, consejoSeleccionado, modoTransportePublico, restauranteSeleccionado, modalReservaOpen]);
+
+  const abrirReserva = (exp) => {
+    setExpParaReservar(exp);
+    setModalReservaOpen(true);
+  };
+
+  const verArticulo = (art) => {
+    if (art) seoNavigate(`/articulos/${seoSlug(art.titulo || art.id)}`);
+    setArticuloSeleccionado(art);
+    setSeccionActualBase('articulo_detalle');
+  };
+
+  const enviarReservaWhatsApp = (e) => {
+    e.preventDefault();
+
+    const tituloReserva = expParaReservar?.titulo || 'Tour';
+    const tituloLocalizado = lang === 'es'
+      ? tituloReserva
+      : (GLOBAL_UI_TRANSLATIONS[lang]?.[tituloReserva] || tituloReserva);
+
+    const msg = lang === 'pt'
+      ? `Olá, Ernestinho! Gostaria de consultar uma reserva:
+*Experiência:* ${tituloLocalizado}
+*Data estimada:* ${reservaDatos.fecha || 'A definir'}
+*Pessoas:* ${reservaDatos.personas}
+*Nome:* ${reservaDatos.nombre}
+*E-mail:* ${reservaDatos.email}
+*Telefone:* ${reservaDatos.telefono}`
+      : lang === 'en'
+      ? `Hi Ernestinho! I would like to ask about a booking:
+*Experience:* ${tituloLocalizado}
+*Estimated date:* ${reservaDatos.fecha || 'To be confirmed'}
+*People:* ${reservaDatos.personas}
+*Name:* ${reservaDatos.nombre}
+*Email:* ${reservaDatos.email}
+*Phone:* ${reservaDatos.telefono}`
+      : `Hola Ernestinho! Quisiera consultar la reserva para:
+*Experiencia:* ${tituloReserva}
+*Fecha estimada:* ${reservaDatos.fecha || 'Por definir'}
+*Personas:* ${reservaDatos.personas}
+*Nombre:* ${reservaDatos.nombre}
+*Email:* ${reservaDatos.email}
+*Teléfono:* ${reservaDatos.telefono}`;
+
+    window.open(
+      `https://wa.me/5521969946938?text=${encodeURIComponent(msg)}`,
+      '_blank'
+    );
+
+    setModalReservaOpen(false);
+  };
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col selection:bg-amber-300 selection:text-amber-950">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{/* BOTÓN UNIVERSAL PARA VOLVER */}
+{seccionActual !== 'inicio' && (
+
+  <button
+    type="button"
+    onClick={volverUnaVista}
+    className="fixed left-4 sm:left-6 bottom-5 z-50 inline-flex items-center gap-2 bg-white hover:bg-slate-900 text-slate-800 hover:text-white border border-slate-200 shadow-xl px-4 sm:px-5 py-3 rounded-full font-black text-xs uppercase tracking-wide transition-all"
+  >
+    <span className="text-lg leading-none">←</span>
+
+    <span>
+      {ui.back}
+    </span>
+  </button>
+
+)}
+      {/* CABECERA & NAVEGACIÓN */}
+          <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm transition-all">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+              
+              {/* LOGO CON IMAGEN OFICIAL */}
+              <button 
+                onClick={() => { setSeccionActual('inicio'); setArticuloSeleccionado(null); }} 
+                className="flex items-center gap-3 text-left group"
+              >
+                <div className="w-11 h-11 rounded-full bg-gradient-to-br from-emerald-500 via-teal-500 to-amber-400 p-0.5 shadow-md group-hover:scale-105 transition-transform overflow-hidden flex items-center justify-center bg-white">
+                  <img 
+                    src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/89161BC4-595E-455D-8211-87277AC58B53" 
+                    alt="Logo Ernestinho Carioca" 
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                </div>
+                <div>
+                  <span className="text-[15px] sm:text-2xl font-black tracking-tight text-slate-900 uppercase block leading-none whitespace-nowrap">
+                    Ernestinho <span className="text-teal-600">Carioca</span>
+                  </span>
+                  <span className="hidden sm:block text-[10px] sm:text-xs text-slate-500 font-medium tracking-wider uppercase mt-0.5">
+                    {ui.tagline}
+                  </span>
+                </div>
+              </button>
+
+              {/* MENÚ DE ESCRITORIO REORGANIZADO */}
+              <nav className="hidden xl:flex items-center gap-1 text-sm font-semibold text-slate-700">
+                {[
+                  { id: 'copa_para_mi', label: '❤️ Para mí' },
+                  { id: 'guia', label: 'Guía de Río' },
+                  { id: 'rio_mes_a_mes', label: 'Mes a mes' },
+                  { id: 'master4_experiencias', label: 'Experiencias' },
+                  { id: 'grandes_eventos', label: 'Eventos' },
+                  { id: 'transportes', label: 'Transportes' },
+                  { id: 'que_hacer', label: 'Qué Hacer' },
+                  { id: 'consejos', label: 'Consejos' },
+                  { id: 'playas', label: 'Playas' },
+                  { id: 'compras', label: 'Compras' },
+                  { id: 'barrios', label: 'Barrios' },
+                  { id: 'hospedaje', label: 'Hospedaje' },
+                  { id: 'cafe', label: 'Café Rio' },
+                ].map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => { setSeccionActual(item.id); setArticuloSeleccionado(null); }}
+                    className={`px-3 py-2 rounded-full transition-all ${
+                      seccionActual === item.id 
+                        ? 'bg-teal-50 text-teal-700 font-bold' 
+                        : 'hover:bg-slate-100 text-slate-600'
+                    }`}
+                  >
+                    {ui.nav[item.id] || item.label}
+                  </button>
+                ))}
+              </nav>
+
+              {/* REDES + WHATSAPP + MENÚ */}
+              <div className="flex items-center gap-2 sm:gap-3">
+                <div className="xl:hidden flex items-center gap-1">
+                  <a href="https://www.instagram.com/ernestinhocarioca/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Ernestinho Carioca" className="w-9 h-9 flex items-center justify-center" title="Instagram">
+                    <svg viewBox="0 0 24 24" className="w-8 h-8" aria-hidden="true"><defs><radialGradient id="igGradient" cx="30%" cy="107%" r="120%"><stop offset="0%" stopColor="#ffd600"/><stop offset="35%" stopColor="#ff7a00"/><stop offset="62%" stopColor="#ff0169"/><stop offset="100%" stopColor="#d300c5"/></radialGradient></defs><rect x="1" y="1" width="22" height="22" rx="6" fill="url(#igGradient)"/><circle cx="12" cy="12" r="4.6" fill="none" stroke="white" strokeWidth="1.8"/><circle cx="17.5" cy="6.5" r="1.15" fill="white"
+
+===== seccionActual === 'master4_gastronomia_real' @ 5857087 =====
+={lang} />}
+            {seccionActual === 'master4_gastronomia' && <Master4LifePage kind="gastronomia" go={setSeccionActual} />}
+            {seccionActual === 'master4_copacabana_comer' && <Master4CopacabanaFood go={setSeccionActual} />}
+            {seccionActual === 'master4_transportes' && <Master4LifePage kind="transportes" go={setSeccionActual} />}
+            {seccionActual === 'master4_consejos' && <Master4LifePage kind="consejos" go={setSeccionActual} />}
+            {seccionActual === 'master4_patrimonio' && <Master4MoreRio kind="patrimonio" go={setSeccionActual} />}
+            {seccionActual === 'master4_ocio' && <Master4MoreRio kind="ocio" go={setSeccionActual} />}
+            {seccionActual === 'master4_viaje' && <Master4MoreRio kind="viaje" go={setSeccionActual} />}
+            {seccionActual === 'master4_experiencias' && <Master4Experiences go={setSeccionActual} />}
+            {seccionActual === 'partner_rio_samba' && <PartnerOfficialExperience type="rio-samba" go={setSeccionActual} />}
+            {seccionActual === 'partner_carnaval' && <PartnerOfficialExperience type="carnaval" go={setSeccionActual} />}
+            {seccionActual === 'master4_para_mi' && <Master4SituationEngine go={setSeccionActual} />}
+            {seccionActual === 'master4_sos' && <Master4SOS go={setSeccionActual} />}
+            {seccionActual === 'master4_place_forte' && <Master4Place place="forte-copacabana" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_lage' && <Master4Place place="parque-lage-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_amanha' && <Master4Place place="museu-amanha-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_ipanema' && <Master4Place place="ipanema-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_lugares' && <Master4MassBrowser go={setSeccionActual} />}
+            {seccionActual === 'master4_museos_real' && <Master4MuseumsReal go={setSeccionActual} />}
+            {seccionActual === 'master4_playas_real' && <Master4LegacyDataHub kind="playas" go={setSeccionActual} />}
+            {seccionActual === 'master4_centros_real' && <Master4LegacyDataHub kind="centros" go={setSeccionActual} />}
+            {seccionActual === 'master4_teatros_real' && <Master4LegacyDataHub kind="teatros" go={setSeccionActual} />}
+            {seccionActual === 'master4_iglesias_real' && <Master4LegacyDataHub kind="iglesias" go={setSeccionActual} />}
+            {seccionActual === 'master4_gastronomia_real' && <Master4LegacyDataHub kind="gastronomia" go={setSeccionActual} />}
+            {seccionActual === 'master4_noche_real' && <Master4LegacyDataHub kind="noche" go={setSeccionActual} />}
+            {seccionActual === 'master4_ferias_real' && <Master4LegacyDataHub kind="ferias" go={setSeccionActual} />}
+            {seccionActual === 'master4_mercados_real' && <Master4LegacyDataHub kind="mercados" go={setSeccionActual} />}
+            {seccionActual === 'master4_shoppings_real' && <Master4LegacyDataHub kind="shoppings" go={setSeccionActual} />}
+            {seccionActual === 'master4_city_registry' && <Master4CityRegistry go={setSeccionActual} />}
+            {seccionActual === 'master4_guias_especiales' && <Master4SpecialGuides go={setSeccionActual} />}
+            {seccionActual === 'master4_smart_rio' && <Master4SmartRio go={setSeccionActual} />}
+            {seccionActual === 'master4_prepara' && <Master4PrepareTrip go={setSeccionActual} />}
+            {seccionActual === 'master4_mi_rio' && <Master4MyRio go={setSeccionActual} />}
+            {seccionActual === 'master4_planner' && <Master4Planner go={setSeccionActual} />}
+            {seccionActual === 'master4_route_audit' && <Master4RouteAudit go={setSeccionActual} />}
+            {seccionActual === 'master4_restante' && <Master4RemainingContent go={setSeccionActual} />}
+            {seccionActual === 'master4_coverage' && <Master4CoverageDashboard go={setSeccionActual} />}
+            {seccionActual === 'grandes_eventos' && <GrandesEventosPage onBack={volverUnaVista} />}
+            {seccionActual === 'master4_trust' && <Master4TrustCenter go={setSeccionActual} />}
+            {seccionActual === 'master4_city_brain' && <Master4CityBrain go={setSeccionActual} />}
+            {seccionActual === 'master4_final' && <Master4FinalReadiness go={setSeccionActual} />}
+            {seccionActual === 'master4_place_cristo' && <Master4Place place="cristo-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_pao' && <Master4Place place="pao-acucar-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_jardim' && <Master4Place place="jardim-botanico-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_tijuca' && <Master4Place place="floresta-tijuca-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_pedra' && <Master4Place place="pedra-bonita-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_mar' && <Master4Place place="mar-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_mam' && <Master4Place place="mam-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_catete' && <Master4Place place="catete-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_musal' && <Master4Place place="aerospacial-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_santa' && <Master4Place place="santa-teresa-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_lapa' && <Master4Place place="lapa-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_aquario' && <Master4Place place="aqua-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_maracana' && <Master4Place place="maracana-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_gabinete' && <Master4Place place="real-gabinete-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_selaron' && <Master4Place place="selaron-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_buzios' && <Master4Place place="buzios-40" go={setSeccionActual} />}
+
+            {/* INICIO LEGACY · MASTER 3.0 PRESERVADO, NO BORRADO */}
+            {seccionActual === 'inicio_legacy' && (
+          <div>
+          <section className="relative min-h-[85vh] flex items-center justify-center bg-slate-900 text-white overflow-hidden">
+                  <img
+                    src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3058"
+                    alt="Río de Janeiro Vista Panorámica"
+                    className="absolute inset-0 w-full h-full object-cover opacity-50 scale-105 transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent" />
+                  
+                  <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-20">
+                    <span className="inline-flex items-center gap-2 bg-amber-400/90 text-slate-950 text-xs sm:text-sm font-black tracking-widest uppercase py-1.5 px-4 rounded-full mb-6 shadow-lg">
+                      <Icon name="sun" className="w-4 h-4" fill="#0f172a" />
+                      Experiencia Local & Auténtica
+                    </span>
+                    
+                    <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight uppercase leading-tight drop-shadow-md mb-6">
+                      Ernestinho <span className="text-amber-400">Carioca</span>
+                    </h1>
+                    
+                    <p className="text-2xl sm:text-3xl font-light text-slate-100 italic mb-6 tracking-wide">
+                      “Río de Janeiro desde mi mirada.”
+                    </p>
+                    
+                    <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-200 mb-10 leading-relaxed font-normal">
+                      Consejos reales, lugares secretos, experiencias memorables y todo lo que necesitas para descubrir Río de Janeiro como alguien que verdaderamente conoce la ciudad.
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                      <button
+                        onClick={() => setSeccionActual('que_hacer')}
+                        className="w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm tracking-wider uppercase py-4 px-8 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center justify-center gap-2"
+                      >
+                        <Icon name="compass" className="w-5 h-5" />
+                        Explorar Río
+                      </button>
+                      <button
+                        onClick={() => setSeccionActual('master4_experiencias')}
+                        className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm tracking-wider uppercase py-4 px-8 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center justify-center gap-2"
+                      >
+                        <Icon name="star" className="w-5 h-5" />
+                        Viaja Conmigo
+                      </button>
+                    </div>
+                  </div>
+                </section>
+                {/* REEL DE INSTAGRAM */}
+                <section className="py-12 sm:py-16 bg-white">
+                  <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
+                    <div className="text-center mb-8">
+                      <span className="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">
+                        🎬 Río desde mi mirada
+                      </span>
+
+                      <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
+                        Mira un poco de Río conmigo
+                      </h2>
+
+                      <p className="text-slate-500 text-sm mt-2">
+                        Un pequeño vistazo de lo que puedes vivir en la Cidade Maravilhosa.
+                      </p>
+                    </div>
+
+                    <div className="flex justify-center">
+                      <div className="w-full max-w-[500px] rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50">
+
+                        <blockquote
+                          className="instagram-media"
+                          data-instgrm-permalink="https://www.instagram.com/p/Da8vZlhxsqO/"
+                          data-instgrm-version="14"
+                          style={{
+                            background: "#FFF",
+                            border: 0,
+                            borderRadius: "3px",
+                            boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+                            margin: "1px",
+                            maxWidth: "540px",
+                            minWidth: "326px",
+                            padding: 0,
+                            width: "calc(100% - 2px)"
+                          }}
+                        >
+                          <div style={{ padding: "16px" }}>
+                            <a
+                              href="https://www.instagram.com/p/Da8vZlhxsqO/"
+                              t
+
+===== kind="gastronomia" @ 5854672 =====
+'TRANSPORTES', icon: 'bus' },
+                  { id: 'que_hacer', label: 'QUÉ HACER', icon: 'map-pin' },
+                  { id: 'consejos', label: 'CONSEJOS', icon: 'lightbulb' },
+                  { id: 'playas', label: 'PLAYAS', icon: 'anchor' },
+                  { id: 'compras', label: 'COMPRAS', icon: 'shopping-bag' },
+                  { id: 'barrios', label: 'BARRIOS', icon: 'navigation' },
+                  { id: 'hospedaje', label: 'HOSPEDAJE', icon: 'heart' },
+                  { id: 'cafe', label: 'CAFÉ RIO', icon: 'coffee' },
+                ].map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => {
+                      setSeccionActual(item.id);
+                      setArticuloSeleccionado(null);
+                      setMenuAbierto(false);
+                    }}
+                    className={`w-full text-left px-4 py-3 rounded-xl flex items-center gap-3 font-bold text-sm tracking-wide transition-colors ${
+                      seccionActual === item.id 
+                        ? 'bg-teal-600 text-white shadow-md' 
+                        : 'text-slate-700 hover:bg-slate-100'
+                    }`}
+                  >
+                    <Icon name={item.icon} className="w-5 h-5" />
+                    {ui.nav[item.id] || item.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </header>
+
+          {/* CONTENIDO PRINCIPAL DINÁMICO */}
+          <main className="flex-1 min-h-0 overflow-visible">
+
+            {/* INICIO · MASTER 4.0 */}
+            {seccionActual === 'inicio' && <Master4Home go={setSeccionActual} onReserve={abrirReserva} lang={lang} />}
+            {seccionActual === 'master4_descubre' && <Master4DiscoverRio go={setSeccionActual} />}
+            {seccionActual === 'master4_live_rio' && <Master4LiveRio go={setSeccionActual} />}
+            {seccionActual === 'master4_tv' && <Master4TV go={setSeccionActual} />}
+            {seccionActual === 'master4_playas' && <Master4CatalogPage kind="playas" go={setSeccionActual} />}
+            {seccionActual === 'master4_museos' && <Master4CatalogPage kind="museos" go={setSeccionActual} />}
+            {seccionActual === 'master4_naturaleza' && <Master4CatalogPage kind="naturaleza" go={setSeccionActual} />}
+            {seccionActual === 'master4_barrios' && <Master4Barrios go={setSeccionActual} lang={lang} />}
+            {seccionActual === 'master4_gastronomia' && <Master4LifePage kind="gastronomia" go={setSeccionActual} />}
+            {seccionActual === 'master4_copacabana_comer' && <Master4CopacabanaFood go={setSeccionActual} />}
+            {seccionActual === 'master4_transportes' && <Master4LifePage kind="transportes" go={setSeccionActual} />}
+            {seccionActual === 'master4_consejos' && <Master4LifePage kind="consejos" go={setSeccionActual} />}
+            {seccionActual === 'master4_patrimonio' && <Master4MoreRio kind="patrimonio" go={setSeccionActual} />}
+            {seccionActual === 'master4_ocio' && <Master4MoreRio kind="ocio" go={setSeccionActual} />}
+            {seccionActual === 'master4_viaje' && <Master4MoreRio kind="viaje" go={setSeccionActual} />}
+            {seccionActual === 'master4_experiencias' && <Master4Experiences go={setSeccionActual} />}
+            {seccionActual === 'partner_rio_samba' && <PartnerOfficialExperience type="rio-samba" go={setSeccionActual} />}
+            {seccionActual === 'partner_carnaval' && <PartnerOfficialExperience type="carnaval" go={setSeccionActual} />}
+            {seccionActual === 'master4_para_mi' && <Master4SituationEngine go={setSeccionActual} />}
+            {seccionActual === 'master4_sos' && <Master4SOS go={setSeccionActual} />}
+            {seccionActual === 'master4_place_forte' && <Master4Place place="forte-copacabana" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_lage' && <Master4Place place="parque-lage-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_amanha' && <Master4Place place="museu-amanha-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_ipanema' && <Master4Place place="ipanema-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_lugares' && <Master4MassBrowser go={setSeccionActual} />}
+            {seccionActual === 'master4_museos_real' && <Master4MuseumsReal go={setSeccionActual} />}
+            {seccionActual === 'master4_playas_real' && <Master4LegacyDataHub kind="playas" go={setSeccionActual} />}
+            {seccionActual === 'master4_centros_real' && <Master4LegacyDataHub kind="centros" go={setSeccionActual} />}
+            {seccionActual === 'master4_teatros_real' && <Master4LegacyDataHub kind="teatros" go={setSeccionActual} />}
+            {seccionActual === 'master4_iglesias_real' && <Master4LegacyDataHub kind="iglesias" go={setSeccionActual} />}
+            {seccionActual === 'master4_gastronomia_real' && <Master4LegacyDataHub kind="gastronomia" go={setSeccionActual} />}
+            {seccionActual === 'master4_noche_real' && <Master4LegacyDataHub kind="noche" go={setSeccionActual} />}
+            {seccionActual === 'master4_ferias_real' && <Master4LegacyDataHub kind="ferias" go={setSeccionActual} />}
+            {seccionActual === 'master4_mercados_real' && <Master4LegacyDataHub kind="mercados" go={setSeccionActual} />}
+            {seccionActual === 'master4_shoppings_real' && <Master4LegacyDataHub kind="shoppings" go={setSeccionActual} />}
+            {seccionActual === 'master4_city_registry' && <Master4CityRegistry go={setSeccionActual} />}
+            {seccionActual === 'master4_guias_especiales' && <Master4SpecialGuides go={setSeccionActual} />}
+            {seccionActual === 'master4_smart_rio' && <Master4SmartRio go={setSeccionActual} />}
+            {seccionActual === 'master4_prepara' && <Master4PrepareTrip go={setSeccionActual} />}
+            {seccionActual === 'master4_mi_rio' && <Master4MyRio go={setSeccionActual} />}
+            {seccionActual === 'master4_planner' && <Master4Planner go={setSeccionActual} />}
+            {seccionActual === 'master4_route_audit' && <Master4RouteAudit go={setSeccionActual} />}
+            {seccionActual === 'master4_restante' && <Master4RemainingContent go={setSeccionActual} />}
+            {seccionActual === 'master4_coverage' && <Master4CoverageDashboard go={setSeccionActual} />}
+            {seccionActual === 'grandes_eventos' && <GrandesEventosPage onBack={volverUnaVista} />}
+            {seccionActual === 'master4_trust' && <Master4TrustCenter go={setSeccionActual} />}
+            {seccionActual === 'master4_city_brain' && <Master4CityBrain go={setSeccionActual} />}
+            {seccionActual === 'master4_final' && <Master4FinalReadiness go={setSeccionActual} />}
+            {seccionActual === 'master4_place_cristo' && <Master4Place place="cristo-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_pao' && <Master4Place place="pao-acucar-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_jardim' && <Master4Place place="jardim-botanico-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_tijuca' && <Master4Place place="floresta-tijuca-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_pedra' && <Master4Place place="pedra-bonita-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_mar' && <Master4Place place="mar-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_mam' && <Master4Place place="mam-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_catete' && <Master4Place place="catete-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_musal' && <Master4Place place="aerospacial-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_santa' && <Master4Place place="santa-teresa-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_lapa' && <Master4Place place="lapa-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_aquario' && <Master4Place place="aqua-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_maracana' && <Master4Place place="maracana-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_gabinete' && <Master4Place place="real-gabinete-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_selaron' && <Master4Place place="selaron-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_buzios' && <Master4Place place="buzios-40" go={setSeccionActual} />}
+
+            {/* INICIO LEGACY · MASTER 3.0 PRESERVADO, NO BORRADO */}
+            {seccionActual === 'inicio_legacy' && (
+          <div>
+          <section className="relative min-h-[85vh] flex items-center justify-center bg-slate-900 text-white overflow-hidden">
+                  <img
+                    src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3058"
+                    alt="Río de Janeiro Vista Panorámica"
+                    className="absolute inset-0 w-full h-full object-cover opacity-50 scale-105 transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent" />
+                  
+                  <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-20">
+                    <span className="inline-flex items-center gap-2 bg-amber-400/90 text-slate-950 text-xs sm:text-sm font-black tracking-widest uppercase py-1.5 px-4 rounded-full mb-6 shadow-lg">
+                      <Icon name="sun" className="w-4 h-4" fill="#0f172a" />
+                      Experiencia Local & Auténtica
+                    </span>
+                    
+                    <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight uppercase leading-tight drop-shadow-md mb-6">
+                      Ernestinho <span className="text-amber-400">Carioca</span>
+                    </h1>
+                    
+                    <p className="text-2xl sm:text-3xl font-light text-slate-100 italic mb-6 tracking-wide">
+                      “Río de Janeiro desde mi mirada.”
+                    </p>
+                    
+                    <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-200 mb-10 leading-relaxed font-normal">
+                      Consejos reales, lugares secretos, experiencias memorables y todo lo que necesitas para descubrir Río de Janeiro como alguien que verdaderamente conoce la ciudad.
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                      <button
+                        onClick={() => setSeccionActual('que_hacer')}
+                        className="w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm tracking-wider uppercase py-4 px-8 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center justify-center gap-2"
+                      >
+                        <Icon name="compass" className="w-5 h-5" />
+                        Explorar Río
+                      </button>
+                      <button
+                        onClick={() => setSeccionActual('master4_experiencias')}
+                        className="w-full sm:w-auto bg
+
+===== kind="gastronomia" @ 5857157 =====
+aster4LifePage kind="gastronomia" go={setSeccionActual} />}
+            {seccionActual === 'master4_copacabana_comer' && <Master4CopacabanaFood go={setSeccionActual} />}
+            {seccionActual === 'master4_transportes' && <Master4LifePage kind="transportes" go={setSeccionActual} />}
+            {seccionActual === 'master4_consejos' && <Master4LifePage kind="consejos" go={setSeccionActual} />}
+            {seccionActual === 'master4_patrimonio' && <Master4MoreRio kind="patrimonio" go={setSeccionActual} />}
+            {seccionActual === 'master4_ocio' && <Master4MoreRio kind="ocio" go={setSeccionActual} />}
+            {seccionActual === 'master4_viaje' && <Master4MoreRio kind="viaje" go={setSeccionActual} />}
+            {seccionActual === 'master4_experiencias' && <Master4Experiences go={setSeccionActual} />}
+            {seccionActual === 'partner_rio_samba' && <PartnerOfficialExperience type="rio-samba" go={setSeccionActual} />}
+            {seccionActual === 'partner_carnaval' && <PartnerOfficialExperience type="carnaval" go={setSeccionActual} />}
+            {seccionActual === 'master4_para_mi' && <Master4SituationEngine go={setSeccionActual} />}
+            {seccionActual === 'master4_sos' && <Master4SOS go={setSeccionActual} />}
+            {seccionActual === 'master4_place_forte' && <Master4Place place="forte-copacabana" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_lage' && <Master4Place place="parque-lage-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_amanha' && <Master4Place place="museu-amanha-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_ipanema' && <Master4Place place="ipanema-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_lugares' && <Master4MassBrowser go={setSeccionActual} />}
+            {seccionActual === 'master4_museos_real' && <Master4MuseumsReal go={setSeccionActual} />}
+            {seccionActual === 'master4_playas_real' && <Master4LegacyDataHub kind="playas" go={setSeccionActual} />}
+            {seccionActual === 'master4_centros_real' && <Master4LegacyDataHub kind="centros" go={setSeccionActual} />}
+            {seccionActual === 'master4_teatros_real' && <Master4LegacyDataHub kind="teatros" go={setSeccionActual} />}
+            {seccionActual === 'master4_iglesias_real' && <Master4LegacyDataHub kind="iglesias" go={setSeccionActual} />}
+            {seccionActual === 'master4_gastronomia_real' && <Master4LegacyDataHub kind="gastronomia" go={setSeccionActual} />}
+            {seccionActual === 'master4_noche_real' && <Master4LegacyDataHub kind="noche" go={setSeccionActual} />}
+            {seccionActual === 'master4_ferias_real' && <Master4LegacyDataHub kind="ferias" go={setSeccionActual} />}
+            {seccionActual === 'master4_mercados_real' && <Master4LegacyDataHub kind="mercados" go={setSeccionActual} />}
+            {seccionActual === 'master4_shoppings_real' && <Master4LegacyDataHub kind="shoppings" go={setSeccionActual} />}
+            {seccionActual === 'master4_city_registry' && <Master4CityRegistry go={setSeccionActual} />}
+            {seccionActual === 'master4_guias_especiales' && <Master4SpecialGuides go={setSeccionActual} />}
+            {seccionActual === 'master4_smart_rio' && <Master4SmartRio go={setSeccionActual} />}
+            {seccionActual === 'master4_prepara' && <Master4PrepareTrip go={setSeccionActual} />}
+            {seccionActual === 'master4_mi_rio' && <Master4MyRio go={setSeccionActual} />}
+            {seccionActual === 'master4_planner' && <Master4Planner go={setSeccionActual} />}
+            {seccionActual === 'master4_route_audit' && <Master4RouteAudit go={setSeccionActual} />}
+            {seccionActual === 'master4_restante' && <Master4RemainingContent go={setSeccionActual} />}
+            {seccionActual === 'master4_coverage' && <Master4CoverageDashboard go={setSeccionActual} />}
+            {seccionActual === 'grandes_eventos' && <GrandesEventosPage onBack={volverUnaVista} />}
+            {seccionActual === 'master4_trust' && <Master4TrustCenter go={setSeccionActual} />}
+            {seccionActual === 'master4_city_brain' && <Master4CityBrain go={setSeccionActual} />}
+            {seccionActual === 'master4_final' && <Master4FinalReadiness go={setSeccionActual} />}
+            {seccionActual === 'master4_place_cristo' && <Master4Place place="cristo-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_pao' && <Master4Place place="pao-acucar-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_jardim' && <Master4Place place="jardim-botanico-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_tijuca' && <Master4Place place="floresta-tijuca-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_pedra' && <Master4Place place="pedra-bonita-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_mar' && <Master4Place place="mar-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_mam' && <Master4Place place="mam-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_catete' && <Master4Place place="catete-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_musal' && <Master4Place place="aerospacial-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_santa' && <Master4Place place="santa-teresa-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_lapa' && <Master4Place place="lapa-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_aquario' && <Master4Place place="aqua-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_maracana' && <Master4Place place="maracana-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_gabinete' && <Master4Place place="real-gabinete-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_selaron' && <Master4Place place="selaron-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_buzios' && <Master4Place place="buzios-40" go={setSeccionActual} />}
+
+            {/* INICIO LEGACY · MASTER 3.0 PRESERVADO, NO BORRADO */}
+            {seccionActual === 'inicio_legacy' && (
+          <div>
+          <section className="relative min-h-[85vh] flex items-center justify-center bg-slate-900 text-white overflow-hidden">
+                  <img
+                    src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3058"
+                    alt="Río de Janeiro Vista Panorámica"
+                    className="absolute inset-0 w-full h-full object-cover opacity-50 scale-105 transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent" />
+                  
+                  <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-20">
+                    <span className="inline-flex items-center gap-2 bg-amber-400/90 text-slate-950 text-xs sm:text-sm font-black tracking-widest uppercase py-1.5 px-4 rounded-full mb-6 shadow-lg">
+                      <Icon name="sun" className="w-4 h-4" fill="#0f172a" />
+                      Experiencia Local & Auténtica
+                    </span>
+                    
+                    <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight uppercase leading-tight drop-shadow-md mb-6">
+                      Ernestinho <span className="text-amber-400">Carioca</span>
+                    </h1>
+                    
+                    <p className="text-2xl sm:text-3xl font-light text-slate-100 italic mb-6 tracking-wide">
+                      “Río de Janeiro desde mi mirada.”
+                    </p>
+                    
+                    <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-200 mb-10 leading-relaxed font-normal">
+                      Consejos reales, lugares secretos, experiencias memorables y todo lo que necesitas para descubrir Río de Janeiro como alguien que verdaderamente conoce la ciudad.
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                      <button
+                        onClick={() => setSeccionActual('que_hacer')}
+                        className="w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm tracking-wider uppercase py-4 px-8 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center justify-center gap-2"
+                      >
+                        <Icon name="compass" className="w-5 h-5" />
+                        Explorar Río
+                      </button>
+                      <button
+                        onClick={() => setSeccionActual('master4_experiencias')}
+                        className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm tracking-wider uppercase py-4 px-8 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center justify-center gap-2"
+                      >
+                        <Icon name="star" className="w-5 h-5" />
+                        Viaja Conmigo
+                      </button>
+                    </div>
+                  </div>
+                </section>
+                {/* REEL DE INSTAGRAM */}
+                <section className="py-12 sm:py-16 bg-white">
+                  <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
+                    <div className="text-center mb-8">
+                      <span className="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">
+                        🎬 Río desde mi mirada
+                      </span>
+
+                      <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
+                        Mira un poco de Río conmigo
+                      </h2>
+
+                      <p className="text-slate-500 text-sm mt-2">
+                        Un pequeño vistazo de lo que puedes vivir en la Cidade Maravilhosa.
+                      </p>
+                    </div>
+
+                    <div className="flex justify-center">
+                      <div className="w-full max-w-[500px] rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50">
+
+                        <blockquote
+                          className="instagram-media"
+                          data-instgrm-permalink="https://www.instagram.com/p/Da8vZlhxsqO/"
+                          data-instgrm-version="14"
+                          style={{
+                            background: "#FFF",
+                            border: 0,
+                            borderRadius: "3px",
+                            boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+                            margin: "1px",
+                            maxWidth: "540px",
+                            minWidth: "326px",
+                            padding: 0,
+                            width: "calc(100% - 2px)"
+                          }}
+                        >
+                          <div style={{ padding: "16px" }}>
+                            <a
+                              href="https://www.instagram.com/p/Da8vZlhxsqO/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+
+===== gastronomia_real @ 5857114 =====
+ccionActual === 'master4_gastronomia' && <Master4LifePage kind="gastronomia" go={setSeccionActual} />}
+            {seccionActual === 'master4_copacabana_comer' && <Master4CopacabanaFood go={setSeccionActual} />}
+            {seccionActual === 'master4_transportes' && <Master4LifePage kind="transportes" go={setSeccionActual} />}
+            {seccionActual === 'master4_consejos' && <Master4LifePage kind="consejos" go={setSeccionActual} />}
+            {seccionActual === 'master4_patrimonio' && <Master4MoreRio kind="patrimonio" go={setSeccionActual} />}
+            {seccionActual === 'master4_ocio' && <Master4MoreRio kind="ocio" go={setSeccionActual} />}
+            {seccionActual === 'master4_viaje' && <Master4MoreRio kind="viaje" go={setSeccionActual} />}
+            {seccionActual === 'master4_experiencias' && <Master4Experiences go={setSeccionActual} />}
+            {seccionActual === 'partner_rio_samba' && <PartnerOfficialExperience type="rio-samba" go={setSeccionActual} />}
+            {seccionActual === 'partner_carnaval' && <PartnerOfficialExperience type="carnaval" go={setSeccionActual} />}
+            {seccionActual === 'master4_para_mi' && <Master4SituationEngine go={setSeccionActual} />}
+            {seccionActual === 'master4_sos' && <Master4SOS go={setSeccionActual} />}
+            {seccionActual === 'master4_place_forte' && <Master4Place place="forte-copacabana" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_lage' && <Master4Place place="parque-lage-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_amanha' && <Master4Place place="museu-amanha-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_ipanema' && <Master4Place place="ipanema-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_lugares' && <Master4MassBrowser go={setSeccionActual} />}
+            {seccionActual === 'master4_museos_real' && <Master4MuseumsReal go={setSeccionActual} />}
+            {seccionActual === 'master4_playas_real' && <Master4LegacyDataHub kind="playas" go={setSeccionActual} />}
+            {seccionActual === 'master4_centros_real' && <Master4LegacyDataHub kind="centros" go={setSeccionActual} />}
+            {seccionActual === 'master4_teatros_real' && <Master4LegacyDataHub kind="teatros" go={setSeccionActual} />}
+            {seccionActual === 'master4_iglesias_real' && <Master4LegacyDataHub kind="iglesias" go={setSeccionActual} />}
+            {seccionActual === 'master4_gastronomia_real' && <Master4LegacyDataHub kind="gastronomia" go={setSeccionActual} />}
+            {seccionActual === 'master4_noche_real' && <Master4LegacyDataHub kind="noche" go={setSeccionActual} />}
+            {seccionActual === 'master4_ferias_real' && <Master4LegacyDataHub kind="ferias" go={setSeccionActual} />}
+            {seccionActual === 'master4_mercados_real' && <Master4LegacyDataHub kind="mercados" go={setSeccionActual} />}
+            {seccionActual === 'master4_shoppings_real' && <Master4LegacyDataHub kind="shoppings" go={setSeccionActual} />}
+            {seccionActual === 'master4_city_registry' && <Master4CityRegistry go={setSeccionActual} />}
+            {seccionActual === 'master4_guias_especiales' && <Master4SpecialGuides go={setSeccionActual} />}
+            {seccionActual === 'master4_smart_rio' && <Master4SmartRio go={setSeccionActual} />}
+            {seccionActual === 'master4_prepara' && <Master4PrepareTrip go={setSeccionActual} />}
+            {seccionActual === 'master4_mi_rio' && <Master4MyRio go={setSeccionActual} />}
+            {seccionActual === 'master4_planner' && <Master4Planner go={setSeccionActual} />}
+            {seccionActual === 'master4_route_audit' && <Master4RouteAudit go={setSeccionActual} />}
+            {seccionActual === 'master4_restante' && <Master4RemainingContent go={setSeccionActual} />}
+            {seccionActual === 'master4_coverage' && <Master4CoverageDashboard go={setSeccionActual} />}
+            {seccionActual === 'grandes_eventos' && <GrandesEventosPage onBack={volverUnaVista} />}
+            {seccionActual === 'master4_trust' && <Master4TrustCenter go={setSeccionActual} />}
+            {seccionActual === 'master4_city_brain' && <Master4CityBrain go={setSeccionActual} />}
+            {seccionActual === 'master4_final' && <Master4FinalReadiness go={setSeccionActual} />}
+            {seccionActual === 'master4_place_cristo' && <Master4Place place="cristo-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_pao' && <Master4Place place="pao-acucar-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_jardim' && <Master4Place place="jardim-botanico-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_tijuca' && <Master4Place place="floresta-tijuca-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_pedra' && <Master4Place place="pedra-bonita-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_mar' && <Master4Place place="mar-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_mam' && <Master4Place place="mam-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_catete' && <Master4Place place="catete-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_musal' && <Master4Place place="aerospacial-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_santa' && <Master4Place place="santa-teresa-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_lapa' && <Master4Place place="lapa-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_aquario' && <Master4Place place="aqua-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_maracana' && <Master4Place place="maracana-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_gabinete' && <Master4Place place="real-gabinete-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_selaron' && <Master4Place place="selaron-40" go={setSeccionActual} />}
+            {seccionActual === 'master4_place_buzios' && <Master4Place place="buzios-40" go={setSeccionActual} />}
+
+            {/* INICIO LEGACY · MASTER 3.0 PRESERVADO, NO BORRADO */}
+            {seccionActual === 'inicio_legacy' && (
+          <div>
+          <section className="relative min-h-[85vh] flex items-center justify-center bg-slate-900 text-white overflow-hidden">
+                  <img
+                    src="https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3058"
+                    alt="Río de Janeiro Vista Panorámica"
+                    className="absolute inset-0 w-full h-full object-cover opacity-50 scale-105 transition-transform duration-1000"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/40 to-transparent" />
+                  
+                  <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center py-20">
+                    <span className="inline-flex items-center gap-2 bg-amber-400/90 text-slate-950 text-xs sm:text-sm font-black tracking-widest uppercase py-1.5 px-4 rounded-full mb-6 shadow-lg">
+                      <Icon name="sun" className="w-4 h-4" fill="#0f172a" />
+                      Experiencia Local & Auténtica
+                    </span>
+                    
+                    <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight uppercase leading-tight drop-shadow-md mb-6">
+                      Ernestinho <span className="text-amber-400">Carioca</span>
+                    </h1>
+                    
+                    <p className="text-2xl sm:text-3xl font-light text-slate-100 italic mb-6 tracking-wide">
+                      “Río de Janeiro desde mi mirada.”
+                    </p>
+                    
+                    <p className="max-w-2xl mx-auto text-base sm:text-lg text-slate-200 mb-10 leading-relaxed font-normal">
+                      Consejos reales, lugares secretos, experiencias memorables y todo lo que necesitas para descubrir Río de Janeiro como alguien que verdaderamente conoce la ciudad.
+                    </p>
+                    
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+                      <button
+                        onClick={() => setSeccionActual('que_hacer')}
+                        className="w-full sm:w-auto bg-amber-400 hover:bg-amber-300 text-slate-950 font-black text-sm tracking-wider uppercase py-4 px-8 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center justify-center gap-2"
+                      >
+                        <Icon name="compass" className="w-5 h-5" />
+                        Explorar Río
+                      </button>
+                      <button
+                        onClick={() => setSeccionActual('master4_experiencias')}
+                        className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm tracking-wider uppercase py-4 px-8 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center justify-center gap-2"
+                      >
+                        <Icon name="star" className="w-5 h-5" />
+                        Viaja Conmigo
+                      </button>
+                    </div>
+                  </div>
+                </section>
+                {/* REEL DE INSTAGRAM */}
+                <section className="py-12 sm:py-16 bg-white">
+                  <div className="max-w-6xl mx-auto px-4 sm:px-6">
+
+                    <div className="text-center mb-8">
+                      <span className="text-teal-600 font-bold text-xs uppercase tracking-widest block mb-2">
+                        🎬 Río desde mi mirada
+                      </span>
+
+                      <h2 className="text-3xl sm:text-4xl font-black text-slate-900">
+                        Mira un poco de Río conmigo
+                      </h2>
+
+                      <p className="text-slate-500 text-sm mt-2">
+                        Un pequeño vistazo de lo que puedes vivir en la Cidade Maravilhosa.
+                      </p>
+                    </div>
+
+                    <div className="flex justify-center">
+                      <div className="w-full max-w-[500px] rounded-3xl overflow-hidden shadow-xl border border-slate-100 bg-slate-50">
+
+                        <blockquote
+                          className="instagram-media"
+                          data-instgrm-permalink="https://www.instagram.com/p/Da8vZlhxsqO/"
+                          data-instgrm-version="14"
+                          style={{
+                            background: "#FFF",
+                            border: 0,
+                            borderRadius: "3px",
+                            boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+                            margin: "1px",
+                            maxWidth: "540px",
+                            minWidth: "326px",
+                            padding: 0,
+                            width: "calc(100% - 2px)"
+                          }}
+                        >
+                          <div style={{ padding: "16px" }}>
+                            <a
+                              href="https://www.instagram.com/p/Da8vZlhxsqO/"
+                              target="_blank"
+            
