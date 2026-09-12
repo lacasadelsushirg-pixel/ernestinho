@@ -17,7 +17,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - name: Compare live rendering for controls and Lasai
         run: |
-          cat > /tmp/diag.js <<'JS'
+          cat > diag-search-console.js <<'JS'
           const { chromium } = require('playwright');
           const fs = require('fs');
           (async()=>{
@@ -63,7 +63,7 @@ jobs:
             console.log(JSON.stringify(out,null,2));
           })();
           JS
-          node /tmp/diag.js
+          node diag-search-console.js
       - name: Commit diagnostic report
         run: |
           git config user.name "github-actions[bot]"
