@@ -1,7 +1,1 @@
-{
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "node scripts/apply-deep-entity-selection-fix.js && node scripts/build-static.js",
-  "outputDirectory": "dist",
-  "cleanUrls": true,
-  "trailingSlash": false
-}
+{"$schema":"https://openapi.vercel.sh/vercel.json","buildCommand":"node scripts/build-static.js","outputDirectory":"dist","cleanUrls":true,"trailingSlash":false}
