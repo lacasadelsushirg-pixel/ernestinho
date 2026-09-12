@@ -16,10 +16,14 @@ if (!s.includes('const seoDeepRoots =')) {
 // 2) When React hydrates one of those deep routes, keep the browser URL/canonical
 // instead of collapsing it back to the category root or homepage.
 const currentAnchor = "function seoCurrentPath(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId) {";
-const currentInsert = `${currentAnchor}\n  const seoActualDeep = seoCleanPath(window.location.pathname);\n  const seoDeepRootsCurrent = ${deepRootsCode};\n  const seoDeepRootCurrent = seoDeepRootsCurrent.find(prefix => seoActualDeep.startsWith('/' + prefix + '/'));\n  if (seoDeepRootCurrent) {\n    const rootPath = '/' + seoDeepRootCurrent;\n    const expectedSection = SEO_ROUTE_PREFERRED_SECTION[rootPath] || Object.keys(SEO_SECTION_ROUTES).find(key => SEO_SECTION_ROUTES[key] === rootPath);\n    if (expectedSection && expectedSection === section) return seoActualDeep;\n  }`;
-if (!s.includes('const seoActualDeep = seoCleanPath(window.location.pathname);')) {
-  if (!s.includes(currentAnchor)) throw new Error('Expected seoCurrentPath anchor not found');
-  s = s.replace(currentAnchor, currentInsert);
+const currentInsert = `${currentAnchor}\n  const seoActualDeep = seoCleanPath(window.location.pathname);\n  if (seoActualDeep === '/experiencias/rapel') return seoActualDeep;\n  const seoDeepRootsCurrent = ${deepRootsCode};\n  const seoDeepRootCurrent = seoDeepRootsCurrent.find(prefix => seoActualDeep.startsWith('/' + prefix + '/'));\n  if (seoDeepRootCurrent) {\n    const rootPath = '/' + seoDeepRootCurrent;\n    const expectedSection = SEO_ROUTE_PREFERRED_SECTION[rootPath] || Object.keys(SEO_SECTION_ROUTES).find(key => SEO_SECTION_ROUTES[key] === rootPath);\n    if (expectedSection && expectedSection === section) return seoActualDeep;\n  }`;
+if (!s.includes("seoActualDeep === '/experiencias/rapel'")) {
+  if (s.includes('const seoActualDeep = seoCleanPath(window.location.pathname);')) {
+    s = s.replace('  const seoActualDeep = seoCleanPath(window.location.pathname);', "  const seoActualDeep = seoCleanPath(window.location.pathname);\n  if (seoActualDeep === '/experiencias/rapel') return seoActualDeep;");
+  } else {
+    if (!s.includes(currentAnchor)) throw new Error('Expected seoCurrentPath anchor not found');
+    s = s.replace(currentAnchor, currentInsert);
+  }
 }
 
 // 3) All files emitted by the static build are valid public URLs. If a route reaches
