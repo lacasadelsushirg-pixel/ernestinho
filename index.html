@@ -19633,6 +19633,7 @@ function seoResolveRoute(pathname) {
 
 function seoCurrentPath(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId) {
   const seoActualDeep = seoCleanPath(window.location.pathname);
+  if (seoActualDeep === '/experiencias/rapel') return seoActualDeep;
   const seoDeepRootsCurrent = [
     'centros-culturales','espacios-literarios','eventos','experiencias',
     'fuertes-fortalezas','iglesias','teatros','playas','vida-nocturna','compras'

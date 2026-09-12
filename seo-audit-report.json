@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-12T12:15:37.723Z",
+  "generatedAt": "2026-09-12T12:18:18.141Z",
   "sitemapLocCount": 498,
   "sameDomainCount": 498,
   "uniquePathCount": 498,
   "duplicatePathCount": 0,
   "invalidDomainCount": 0,
   "distAppExists": true,
-  "appBytes": 6128981,
+  "appBytes": 6129025,
   "dist404Exists": true,
   "categoryCounts": {
     "/": 1,

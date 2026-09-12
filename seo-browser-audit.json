@@ -1,24 +1,10 @@
 {
-  "generatedAt": "2026-09-12T12:16:58.613Z",
+  "generatedAt": "2026-09-12T12:19:37.689Z",
   "total": 498,
-  "ok": 497,
-  "failed": 1,
-  "failedByCategory": {
-    "/experiencias": 1
-  },
-  "failures": [
-    {
-      "route": "/experiencias/rapel",
-      "finalPath": "/experiencias/rapel-con-ernestinho",
-      "canonical": "https://www.ernestinhocarioca.com.br/experiencias/rapel-con-ernestinho",
-      "title": "Rapel con Ernestinho en Río de Janeiro | Ernestinho Carioca",
-      "robots": "index, follow",
-      "rootHasText": true,
-      "navError": null,
-      "pageErrors": [],
-      "ok": false
-    }
-  ],
+  "ok": 498,
+  "failed": 0,
+  "failedByCategory": {},
+  "failures": [],
   "results": [
     {
       "route": "/",
@@ -1133,14 +1119,14 @@
     },
     {
       "route": "/experiencias/rapel",
-      "finalPath": "/experiencias/rapel-con-ernestinho",
-      "canonical": "https://www.ernestinhocarioca.com.br/experiencias/rapel-con-ernestinho",
+      "finalPath": "/experiencias/rapel",
+      "canonical": "https://www.ernestinhocarioca.com.br/experiencias/rapel",
       "title": "Rapel con Ernestinho en Río de Janeiro | Ernestinho Carioca",
       "robots": "index, follow",
       "rootHasText": true,
       "navError": null,
       "pageErrors": [],
-      "ok": false
+      "ok": true
     },
     {
       "route": "/experiencias/salto-en-paracaidas",
