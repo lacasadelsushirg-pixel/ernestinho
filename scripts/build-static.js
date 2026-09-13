@@ -8,7 +8,7 @@ const DOMAIN = 'https://www.ernestinhocarioca.com.br';
 const GA_ID = 'G-QE1X83D419';
 
 // Apply the router/indexability correction that was validated against all 498 sitemap routes.
-require('./apply-seo-router-fix.js');
+
 
 const MAIN_TITLES = {
   '/transportes': 'Cómo moverse por Río de Janeiro | Ernestinho Carioca',
