@@ -10055,90 +10055,59 @@ function CopacabanaUtil() {
 function CopacabanaMasterSystems({ go }) {
     const [active, setActive] = useState('descubre');
     const current = COPA_MASTER_SYSTEMS.find(x => x.id === active) || COPA_MASTER_SYSTEMS[0];
-    const jump = (id) => {
-        if (id === 'comer' && go)
-            go('gastronomia');
-        else if (id === 'organiza' && go)
-            go('transportes');
-        else if (id === 'sos' && go)
-            go('consejos');
-        else if (id === 'parami' && go)
-            go('copa_para_mi');
-        else
-            setActive(id);
+    const copaImages = {
+        descubre: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788448793/COPACABANA.jpg',
+        hacer: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788390184/forte_copa.jpg',
+        comer: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788393689/confeitaria-colombo_copa.jpg',
+        organiza: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788957880/calzadao_de_copacanana_0001.jpg',
+        parati: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788448793/COPACABANA.jpg',
+        momento: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788385260/arpoador_fotos.jpg',
+        rutas: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788957880/calzadao_de_copacanana_0001.jpg',
+        sos: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788390184/forte_copa.jpg',
+        parami: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788448793/COPACABANA.jpg'
     };
-    return React.createElement("section", { className: "max-w-7xl mx-auto px-4 sm:px-6 py-10" },
-        React.createElement("div", { className: "rounded-[2rem] bg-white border border-slate-100 shadow-sm overflow-hidden" },
-            React.createElement("div", { className: "p-6 sm:p-8 bg-gradient-to-r from-cyan-950 via-slate-950 to-violet-950 text-white" },
-                React.createElement("span", { className: "text-[10px] font-black uppercase tracking-[.25em] text-cyan-300" }, "COPACABANA \u00B7 SISTEMA MAESTRO"),
-                React.createElement("h2", { className: "text-3xl sm:text-5xl font-black mt-2" }, "Nueve formas de usar el mismo barrio"),
-                React.createElement("p", { className: "text-sm text-slate-300 mt-3 max-w-3xl" }, "No son nueve p\u00E1ginas desconectadas. Son nueve maneras de consultar los mismos lugares, datos y contextos sin duplicar informaci\u00F3n.")),
-            React.createElement("div", { className: "grid lg:grid-cols-[320px_1fr]" },
-                React.createElement("div", { className: "p-4 sm:p-5 border-r border-slate-100 bg-slate-50" },
-                    React.createElement("div", { className: "grid sm:grid-cols-3 lg:grid-cols-1 gap-2" }, COPA_MASTER_SYSTEMS.map(x => React.createElement("button", { key: x.id, onClick: () => jump(x.id), className: `text-left rounded-2xl p-3 border transition ${active === x.id ? 'bg-white border-cyan-200 shadow-sm' : 'bg-transparent border-transparent hover:bg-white'}` },
-                        React.createElement("span", { className: "mr-2" }, x.icon),
-                        React.createElement("strong", { className: "text-xs" }, x.title))))),
-                React.createElement("div", { className: "p-6 sm:p-8" },
-                    React.createElement("span", { className: "text-3xl" }, current.icon),
-                    React.createElement("h3", { className: "text-3xl font-black mt-2" }, current.title),
-                    React.createElement("p", { className: "font-bold text-cyan-800 mt-1" }, current.subtitle),
-                    React.createElement("p", { className: "text-sm text-slate-600 mt-4 max-w-3xl leading-relaxed" }, current.body),
-                    React.createElement("div", { className: "flex flex-wrap gap-2 mt-5" }, current.actions.map(v => React.createElement("span", { key: v, className: "rounded-full bg-slate-100 px-3 py-1.5 text-xs font-bold" }, v))),
-                    active === 'momento' && React.createElement("div", { className: "mt-7 grid sm:grid-cols-2 lg:grid-cols-3 gap-3" }, MASTER3_SITUATIONS.slice(0, 6).map(([i, t, d]) => React.createElement("div", { key: t, className: "rounded-2xl bg-amber-50 border border-amber-100 p-4" },
-                        React.createElement("span", null, i),
-                        React.createElement("strong", { className: "block text-sm mt-1" }, t),
-                        React.createElement("p", { className: "text-xs text-slate-500 mt-2" }, d)))),
-                    active === 'sos' && React.createElement("div", { className: "mt-7 grid md:grid-cols-2 gap-3" }, COPA_SOS_GUIDES.map(g => React.createElement("article", { key: g.title, className: "rounded-2xl border p-5" },
-                        React.createElement("h4", { className: "font-black" }, g.title),
-                        React.createElement("ol", { className: "mt-3 space-y-2" }, g.steps.map((x, i) => React.createElement("li", { key: i, className: "text-xs text-slate-600" },
-                            React.createElement("strong", null,
-                                i + 1,
-                                "."),
-                            " ",
-                            x)))))),
-                    active === 'parami' && React.createElement("div", { className: "mt-7 rounded-3xl bg-violet-50 border border-violet-100 p-5" },
-                        React.createElement("span", { className: "text-[10px] font-black uppercase tracking-widest text-violet-700" }, "Respuesta del motor"),
-                        React.createElement("div", { className: "grid md:grid-cols-3 gap-3 mt-3" }, [
-                            ['⭐', 'YO HARÍA ESTO', 'La opción con mejor encaje para tu contexto.'],
-                            ['👍', 'OTRA BUENA OPCIÓN', 'Muy compatible, pero por una razón distinta.'],
-                            ['🔄', 'ALGO DIFERENTE', 'Una alternativa compatible para cambiar el tipo de experiencia.']
-                        ].map(([i, t, d]) => React.createElement("div", { key: t, className: "rounded-2xl bg-white p-4" },
-                            React.createElement("span", null, i),
-                            React.createElement("strong", { className: "block text-xs mt-1" }, t),
-                            React.createElement("p", { className: "text-[11px] text-slate-500 mt-1" }, d)))))))),
-        React.createElement("div", { className: "mt-6 rounded-3xl bg-slate-900 text-white p-6 sm:p-8" },
-            React.createElement("span", { className: "text-[10px] font-black uppercase tracking-widest text-amber-300" }, "\uD83D\uDCCD ESTOY EN COPACABANA AHORA"),
-            React.createElement("h3", { className: "text-2xl font-black mt-1" }, "Necesidades r\u00E1pidas"),
-            React.createElement("div", { className: "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 mt-5" }, COPA_QUICK_NOW.map(([i, t]) => React.createElement("button", { key: t, onClick: () => go && go(t.includes('Comer') ? 'gastronomia' : t.includes('Farmacia') ? 'copa_para_mi' : t.includes('Supermercado') ? 'copa_para_mi' : t.includes('alojamiento') ? 'copa_para_mi' : 'copa_para_mi'), className: "rounded-2xl bg-white/10 hover:bg-white/15 p-3 text-left" },
-                React.createElement("span", null, i),
-                React.createElement("span", { className: "block text-[11px] font-bold mt-1" }, t))))),
-        React.createElement(CopacabanaUtil, null));
+    const jump = (id) => {
+        if (id === 'comer' && go) go('gastronomia');
+        else if (id === 'organiza' && go) go('transportes');
+        else if (id === 'sos' && go) go('consejos');
+        else if (id === 'parami' && go) go('copa_para_mi');
+        else setActive(id);
+    };
+    return React.createElement("section", { className: "bg-[#071313] text-white min-h-screen pb-16" },
+        React.createElement("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-5 sm:pt-8" },
+            React.createElement("div", { className: "relative rounded-[1.8rem] sm:rounded-[2.2rem] overflow-hidden min-h-[300px] sm:min-h-[420px] shadow-2xl border border-white/10" },
+                React.createElement("img", { src: "https://res.cloudinary.com/qa301cbc/image/upload/v1788448793/COPACABANA.jpg", alt: "Copacabana, Rio de Janeiro", className: "absolute inset-0 w-full h-full object-cover" }),
+                React.createElement("div", { className: "absolute inset-0 bg-gradient-to-t from-black via-black/55 to-black/10" }),
+                React.createElement("div", { className: "relative z-10 min-h-[300px] sm:min-h-[420px] flex flex-col justify-end p-6 sm:p-10" },
+                    React.createElement("span", { className: "text-[10px] sm:text-xs font-black uppercase tracking-[.24em] text-amber-300" }, "COPACABANA · GUÍA ERNESTINHO"),
+                    React.createElement("h2", { className: "text-4xl sm:text-6xl font-black mt-2 max-w-4xl leading-[.95]" }, "Un barrio, muchas maneras de vivirlo"),
+                    React.createElement("p", { className: "text-sm sm:text-base text-white/80 mt-4 max-w-2xl leading-relaxed" }, "No quiero mostrarte solamente qué visitar. Quiero ayudarte a entender Copacabana, comer bien, resolver lo que necesites y descubrir qué hacer según el momento de tu viaje."))),
+            React.createElement("div", { className: "mt-7" },
+                React.createElement("div", { className: "flex items-end justify-between gap-4 mb-4" },
+                    React.createElement("div", null,
+                        React.createElement("span", { className: "text-[10px] font-black uppercase tracking-[.2em] text-amber-300" }, "EXPLORA A TU MANERA"),
+                        React.createElement("h3", { className: "text-2xl sm:text-3xl font-black mt-1" }, "¿Qué necesitas de Copacabana?"))),
+                React.createElement("div", { className: "grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3" }, COPA_MASTER_SYSTEMS.map(x => React.createElement("button", { key: x.id, onClick: () => jump(x.id), className: `group relative aspect-[4/3] sm:aspect-[5/4] overflow-hidden rounded-2xl text-left border transition ${active === x.id ? 'border-amber-300 ring-2 ring-amber-300/30' : 'border-white/10 hover:border-white/30'}` },
+                    React.createElement("img", { src: copaImages[x.id] || copaImages.descubre, alt: x.title, className: "absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105", loading: "lazy" }),
+                    React.createElement("div", { className: "absolute inset-0 bg-gradient-to-t from-black via-black/45 to-transparent" }),
+                    React.createElement("div", { className: "absolute inset-x-0 bottom-0 p-3 sm:p-4" },
+                        React.createElement("span", { className: "text-lg sm:text-xl" }, x.icon),
+                        React.createElement("strong", { className: "block text-[12px] sm:text-sm leading-tight mt-1 text-white" }, x.title))))),
+                React.createElement("div", { className: "mt-6 rounded-[1.8rem] bg-[#102424] border border-white/10 overflow-hidden shadow-xl" },
+                    React.createElement("div", { className: "grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]" },
+                        React.createElement("div", { className: "relative min-h-[210px] sm:min-h-[300px]" },
+                            React.createElement("img", { src: copaImages[current.id] || copaImages.descubre, alt: current.title, className: "absolute inset-0 w-full h-full object-cover" }),
+                            React.createElement("div", { className: "absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" }),
+                            React.createElement("div", { className: "absolute left-5 bottom-5 right-5" },
+                                React.createElement("span", { className: "text-3xl" }, current.icon),
+                                React.createElement("h3", { className: "text-3xl sm:text-4xl font-black mt-1" }, current.title))),
+                        React.createElement("div", { className: "p-5 sm:p-8" },
+                            React.createElement("p", { className: "font-black text-amber-300 text-base sm:text-lg" }, current.subtitle),
+                            React.createElement("p", { className: "text-sm text-white/70 mt-3 max-w-3xl leading-relaxed" }, current.body),
+                            React.createElement("div", { className: "flex flex-wrap gap-2 mt-5" }, current.actions.map(v => React.createElement("span", { key: v, className: "rounded-full bg-white/10 border border-white/10 px-3 py-2 text-[10px] sm:text-xs font-bold" }, v))),
+                            active === 'momento' && React.createElement("div", { className: "mt-7 grid grid-cols-2 lg:grid-cols-3 gap-3" }, MASTER3_SITUATIONS.slice(0, 6).map(([i, t, d]) => React.createElement("div", { key: t, className: "rounded-2xl bg-white/5 border border-white/10 p-3" }, React.createElement("span", null, i), React.createElement("strong", { className: "block text-xs mt-1" }, t), React.createElement("p", { className: "hidden sm:block text-[10px] text-white/50 mt-2" }, d)))),
+                            active === 'sos' && React.createElement("div", { className: "mt-7 grid md:grid-cols-2 gap-3" }, COPA_SOS_GUIDES.map(g => React.createElement("article", { key: g.title, className: "rounded-2xl bg-red-950/30 border border-red-300/10 p-4" }, React.createElement("strong", { className: "text-sm" }, g.title), React.createElement("ol", { className: "mt-2 text-xs text-white/60 space-y-1" }, g.steps.map((s, i) => React.createElement("li", { key: s }, `${i + 1}. ${s}`))))))))))));
 }
-const MASTER3_RIO_PROFILES = [
-    ['👶', 'Bebé', 'Sombra, baño, cambios, siesta, distancias cortas y aire acondicionado.'],
-    ['👨‍👩‍👧', 'Familia', 'Equilibrar adultos y niños sin convertir el viaje en una agenda imposible.'],
-    ['🧑‍🎓', 'Adolescentes', 'Deporte, fotos, comida, compras, música y experiencias participativas.'],
-    ['👵', 'Mayores', 'Ritmo y movilidad se preguntan; nunca se deducen únicamente de la edad.'],
-    ['❤️', 'Pareja', 'Paisaje, gastronomía, intimidad y experiencias según presupuesto.'],
-    ['🧍', 'Solo', 'Flexibilidad, contexto de regreso y oportunidades para vivir la ciudad a tu ritmo.'],
-    ['🏳️‍🌈', 'LGBTQ+', 'Filtro transversal de contexto y ambiente, no una ciudad paralela.'],
-    ['♿', 'Movilidad reducida', 'Accesibilidad granular y verificada; desconocido nunca significa accesible.'],
-    ['🐶', 'Mascota', 'Política real del lugar, espacios exteriores y logística como restricciones.']
-];
-const MASTER3_MONTHS = [
-    ['ENE', 'Verano + vacaciones', 'Calor, playa, blocos iniciales y alta demanda.'],
-    ['FEB', 'Carnaval / verano', 'La ciudad puede cambiar completamente según las fechas del Carnaval.'],
-    ['MAR', 'Fin del verano', 'Calor todavía presente y transición después del Carnaval.'],
-    ['ABR', 'Otoño carioca', 'Buen mes para combinar exteriores, ciudad y caminatas.'],
-    ['MAY', 'Temperaturas más suaves', 'Más comodidad para rutas urbanas y naturaleza.'],
-    ['JUN', 'Invierno carioca', 'Días agradables, noches más frescas y agenda cultural.'],
-    ['JUL', 'Vacaciones escolares', 'Más movimiento familiar y necesidad de reservar algunas experiencias.'],
-    ['AGO', 'Invierno seco variable', 'Buen período para actividades urbanas y vistas cuando el tiempo acompaña.'],
-    ['SEP', 'Primavera comienza', 'Temperatura variable y regreso progresivo del calor.'],
-    ['OCT', 'Primavera', 'Más días cálidos; conviene mantener plan de lluvia.'],
-    ['NOV', 'Camino al verano', 'Calor, eventos y aumento del uso de playas.'],
-    ['DIC', 'Réveillon + verano', 'Copacabana cambia de escala; logística y reservas pasan a ser parte del viaje.']
-];
 function RioParaTiMaster3() {
     return React.createElement("section", { className: "max-w-7xl mx-auto px-4 sm:px-6 py-10" },
         React.createElement("div", { className: "grid lg:grid-cols-[.9fr_1.1fr] gap-5" },
@@ -17637,10 +17606,10 @@ function Master4Home({ go, onReserve, lang = 'es' }) {
                     React.createElement("p", { className: "text-sm text-white/50 mt-1" }, H.exploreSub))),
             React.createElement("div", { className: "grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4" }, quickCards.map(x => React.createElement("button", { key: x[0], onClick: () => go(x[2]), className: "group relative aspect-[2/1] sm:aspect-[16/9] lg:aspect-auto lg:min-h-[190px] overflow-hidden rounded-[1.15rem] sm:rounded-[1.8rem] text-left shadow-sm bg-slate-950 border border-white/10" },
                 React.createElement("img", { src: x[3], alt: x[0], className: "absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" }),
-                React.createElement("div", { className: "absolute inset-x-0 bottom-0 p-3 sm:p-4 text-white flex justify-end" },
-                    React.createElement("div", { className: "max-w-[76%] text-right", style: { textShadow: '0 1px 2px rgba(0,0,0,.95), 0 2px 5px rgba(0,0,0,.75)' } },
-                        React.createElement("b", { className: "block text-[15px] sm:text-xl leading-tight font-black" }, x[0]),
-                        React.createElement("span", { className: "text-[10px] sm:text-xs text-white font-semibold" }, x[1]))))))),
+                React.createElement("div", { className: "absolute inset-x-0 bottom-0 p-2.5 sm:p-4 text-white flex justify-end" },
+                    React.createElement("div", { className: "max-w-[92%] sm:max-w-[76%] text-right", style: { textShadow: '0 1px 2px rgba(0,0,0,.95), 0 2px 5px rgba(0,0,0,.75)' } },
+                        React.createElement("b", { className: "block text-[12px] sm:text-xl leading-[1.05] font-black" }, x[0]),
+                        React.createElement("span", { className: "hidden sm:block text-xs text-white font-semibold" }, x[1]))))))),
         React.createElement("section", { className: "max-w-7xl mx-auto px-4 sm:px-6 pb-10" },
             React.createElement("button", { onClick: () => go('recorridos_ernestinho'), className: "w-full min-h-[190px] rounded-[1.8rem] sm:rounded-[2.2rem] bg-slate-950 text-white p-8 text-center shadow-xl flex flex-col items-center justify-center" },
                 React.createElement("h2", { className: "text-3xl sm:text-5xl font-black" }, lang === 'pt' ? 'ROTEIROS ERNESTINHO' : lang === 'en' ? 'ERNESTINHO ROUTES' : 'RECORRIDOS ERNESTINHO'),
@@ -17655,24 +17624,19 @@ function Master4Home({ go, onReserve, lang = 'es' }) {
                         React.createElement("h2", { className: "text-3xl sm:text-5xl font-black mt-3 leading-[.98] tracking-tight" }, H.featuredTitle),
                         React.createElement("p", { className: "text-xs sm:text-base text-white/65 mt-3 max-w-2xl" }, H.featuredSub)),
                     React.createElement("button", { onClick: () => go('master4_experiencias'), className: "hidden sm:inline-flex relative z-10 shrink-0 rounded-full border border-amber-300/35 bg-black/25 px-4 py-2 text-[10px] font-black text-amber-200 hover:bg-amber-300 hover:text-black transition" }, H.featuredAll)),
-                React.createElement("div", { className: "grid grid-cols-[36px_minmax(0,1fr)_36px] sm:grid-cols-[40px_minmax(0,1fr)_40px] items-center gap-2 sm:gap-3" },
-                    React.createElement("button", { type: "button", onClick: e => { e.preventDefault(); e.stopPropagation(); moveFeatured(-1); }, "aria-label": "Anterior", title: "Anterior", style: { touchAction: 'manipulation' }, className: "relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-amber-300/80 bg-[#11161b] text-amber-300 text-2xl leading-none shadow-lg hover:bg-amber-300 hover:text-black active:scale-95 transition flex items-center justify-center cursor-pointer" }, '‹'),
-                    React.createElement("div", { ref: featuredRailRef, onScroll: trackFeatured, className: "min-w-0 flex gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-2 pr-[15%] sm:pr-16" }, featured.map((exp, index) => React.createElement("article", { key: exp.id, className: "group relative min-w-[84%] sm:min-w-[300px] lg:min-w-[260px] xl:min-w-[270px] aspect-[3/4] snap-start overflow-hidden rounded-[1.35rem] border border-amber-300/70 bg-[#0b0d0d] text-white shadow-[0_18px_38px_rgba(0,0,0,.42)]" },
+                React.createElement("div", { className: "relative w-full" },
+                    React.createElement("div", { ref: featuredRailRef, onScroll: trackFeatured, className: "w-full min-w-0 flex gap-3 overflow-x-auto no-scrollbar snap-x snap-mandatory scroll-smooth pb-2 px-1" }, featured.map((exp, index) => React.createElement("article", { key: exp.id, className: "group relative min-w-[88%] sm:min-w-[300px] lg:min-w-[260px] xl:min-w-[270px] aspect-[4/5] sm:aspect-[3/4] snap-start overflow-hidden rounded-[1.35rem] border border-amber-300/70 bg-[#0b0d0d] text-white shadow-[0_18px_38px_rgba(0,0,0,.42)]" },
                         React.createElement("img", { src: exp.imagen, alt: exp.titulo, loading: "lazy", decoding: "async", className: "absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" }),
-                        React.createElement("div", { className: "absolute inset-0 bg-gradient-to-t from-black via-black/35 via-55% to-black/5" }),
+                        React.createElement("div", { className: "absolute inset-0 bg-gradient-to-t from-black/95 via-black/15 via-45% to-black/10" }),
                         React.createElement("div", { className: "absolute inset-x-0 top-0 p-3 flex items-start justify-between gap-2" },
                             React.createElement("span", { className: "rounded-full bg-amber-300 text-slate-950 px-3 py-2 text-[9px] sm:text-[10px] font-black shadow-lg" }, H.featuredTags[index]),
                             React.createElement("span", { className: "rounded-full bg-amber-300 text-slate-950 px-3 py-2 text-[10px] sm:text-xs font-black shadow-lg text-right" }, exp.precio)),
                         React.createElement("div", { className: "absolute inset-x-0 bottom-0 p-4 sm:p-5" },
                             React.createElement("h3", { className: "text-2xl sm:text-[26px] font-black leading-[1.02] drop-shadow-lg" }, exp.titulo),
-                            React.createElement("div", { className: "mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-[10px] sm:text-[11px] font-bold text-white/90" },
-                                React.createElement("span", { className: "inline-flex items-center gap-1.5" }, React.createElement("span", { className: "text-base" }, '◷'), exp.duracion),
-                                React.createElement("span", { className: "inline-flex items-center gap-1.5" }, React.createElement("span", { className: "text-sm text-amber-300" }, '●'), H.departure)),
-                            React.createElement("p", { className: "text-[11px] sm:text-xs text-white/75 mt-3 leading-relaxed line-clamp-2" }, exp.descripcion),
-                            React.createElement("div", { className: "grid grid-cols-[1fr_1.08fr] gap-2 mt-4" },
-                                React.createElement("button", { onClick: () => go('master4_experiencias'), className: "rounded-xl border border-amber-300/90 bg-black/35 text-white py-3 text-[9px] sm:text-[10px] font-black hover:bg-amber-300 hover:text-black transition" }, H.details),
-                                React.createElement("button", { onClick: () => onReserve ? onReserve(exp) : whatsapp(), className: "rounded-xl bg-emerald-500 text-white py-3 text-[9px] sm:text-[10px] font-black shadow-[0_8px_20px_rgba(16,185,129,.28)] hover:bg-emerald-400 transition inline-flex items-center justify-center gap-1.5" }, React.createElement("span", { className: "text-sm" }, '◉'), H.reserve))))))),
-                    React.createElement("button", { type: "button", onClick: e => { e.preventDefault(); e.stopPropagation(); moveFeatured(1); }, "aria-label": "Siguiente", title: "Siguiente", style: { touchAction: 'manipulation' }, className: "relative z-10 w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-amber-300/80 bg-[#11161b] text-amber-300 text-2xl leading-none shadow-lg hover:bg-amber-300 hover:text-black active:scale-95 transition flex items-center justify-center cursor-pointer" }, '›')),
+                            React.createElement("div", { className: "grid grid-cols-2 gap-2 mt-4" },
+                                React.createElement("button", { onClick: () => go('master4_experiencias'), className: "min-h-[48px] rounded-xl border-2 border-amber-300 bg-black/85 text-white px-2 py-3 text-[11px] sm:text-[10px] leading-tight font-black tracking-wide hover:bg-amber-300 hover:text-black transition flex items-center justify-center text-center" }, H.details),
+                                React.createElement("button", { onClick: () => onReserve ? onReserve(exp) : whatsapp(), className: "min-h-[48px] rounded-xl bg-emerald-500 text-white px-2 py-3 text-[11px] sm:text-[10px] leading-tight font-black tracking-wide shadow-[0_8px_20px_rgba(16,185,129,.28)] hover:bg-emerald-400 transition inline-flex items-center justify-center gap-1.5 text-center" }, React.createElement("span", { className: "text-sm" }, '◉'), H.reserve))))))),
+                    null),
                 React.createElement("div", { className: "mt-4 flex items-center justify-center gap-2" }, featured.map((exp, index) => React.createElement("button", { key: exp.id, type: "button", onClick: () => {
                     const rail = featuredRailRef.current;
                     const card = rail && rail.querySelector('article');
@@ -19439,9 +19403,9 @@ function AppErnestinho(){
         setModalReservaOpen(false);
     };
     return (React.createElement("div", { className: "min-h-screen bg-slate-50 text-slate-800 font-sans flex flex-col selection:bg-amber-300 selection:text-amber-950" },
-        seccionActual !== 'inicio' && (React.createElement("button", { type: "button", onClick: volverUnaVista, className: "fixed left-4 sm:left-6 bottom-5 z-50 inline-flex items-center gap-2 bg-white hover:bg-slate-900 text-slate-800 hover:text-white border border-slate-200 shadow-xl px-4 sm:px-5 py-3 rounded-full font-black text-xs uppercase tracking-wide transition-all" },
+        seccionActual !== 'inicio' && (React.createElement("button", { type: "button", onClick: volverUnaVista, "aria-label": ui.back, className: "fixed left-4 sm:left-6 bottom-5 z-50 inline-flex items-center justify-center gap-2 bg-white/95 hover:bg-slate-900 text-slate-800 hover:text-white border border-slate-200 shadow-lg w-11 h-11 sm:w-auto sm:h-auto sm:px-5 sm:py-3 rounded-full font-black text-xs uppercase tracking-wide transition-all backdrop-blur" },
             React.createElement("span", { className: "text-lg leading-none" }, "\u2190"),
-            React.createElement("span", null, ui.back))),
+            React.createElement("span", { className: "hidden sm:inline" }, ui.back))),
         React.createElement("header", { className: "sticky top-0 z-40 bg-black/95 backdrop-blur-md border-b border-amber-300/20 shadow-sm transition-all text-white" },
             React.createElement("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" },
                 React.createElement("button", { onClick: () => { setSeccionActual('inicio'); setArticuloSeleccionado(null); }, className: "flex items-center gap-3 text-left group" },
@@ -19725,17 +19689,17 @@ function AppErnestinho(){
                         React.createElement("h1", { className: "text-3xl sm:text-5xl font-black text-slate-900 tracking-tight mb-5" }, "Cuando quieras pasar de descubrir R\u00EDo a vivirlo."),
                         React.createElement("p", { className: "text-slate-600 text-base leading-relaxed" }, "Vive R\u00EDo de la mano de un equipo apasionado por mostrarte lo mejor de la Ciudad Maravillosa. Junto a mi equipo de gu\u00EDas y operadores locales, te ayudamos a transformar el viaje en experiencias que realmente vas a recordar."),
                         React.createElement("p", { className: "text-slate-500 text-sm mt-3" }, "Aqu\u00ED s\u00ED quiero que las fotograf\u00EDas hablen. Las miniaturas que ya trabajamos siguen siendo protagonistas.")),
-                    React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-8" }, EXPERIENCIAS_DATA.map((exp) => (React.createElement("div", { key: exp.id, className: "bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 flex flex-col sm:flex-row shadow-sm hover:shadow-md transition-all" },
-                        React.createElement("div", { className: "sm:w-2/5 h-56 sm:h-auto relative" },
+                    React.createElement("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8" }, EXPERIENCIAS_DATA.map((exp) => (React.createElement("div", { key: exp.id, className: "bg-slate-50 rounded-3xl overflow-hidden border border-slate-100 flex flex-col sm:flex-row shadow-sm hover:shadow-md transition-all" },
+                        React.createElement("div", { className: "sm:w-2/5 aspect-[16/10] sm:aspect-auto sm:min-h-[260px] relative" },
                             React.createElement("img", { src: exp.imagen, alt: exp.titulo, className: "w-full h-full object-cover" })),
-                        React.createElement("div", { className: "sm:w-3/5 p-6 flex flex-col justify-between" },
+                        React.createElement("div", { className: "sm:w-3/5 p-4 sm:p-6 flex flex-col justify-between" },
                             React.createElement("div", null,
                                 React.createElement("div", { className: "flex justify-between items-center mb-2" },
                                     React.createElement("span", { className: "text-xs font-bold text-teal-600 uppercase" }, "\u2605 Tour Guiado"),
                                     React.createElement("span", { className: "text-xs font-black bg-amber-400 px-2.5 py-1 rounded-md text-slate-950" }, exp.precio)),
                                 React.createElement("h3", { className: "text-xl font-bold text-slate-900 mb-2" }, exp.titulo),
-                                React.createElement("p", { className: "text-slate-600 text-xs leading-relaxed mb-4" }, exp.descripcion),
-                                React.createElement("div", { className: "text-[11px] text-slate-500 space-y-1 mb-6" },
+                                React.createElement("p", { className: "hidden sm:block text-slate-600 text-xs leading-relaxed mb-4" }, exp.descripcion),
+                                React.createElement("div", { className: "hidden sm:block text-[11px] text-slate-500 space-y-1 mb-6" },
                                     React.createElement("p", null,
                                         "\u23F1\uFE0F Duraci\u00F3n: ",
                                         exp.duracion),
