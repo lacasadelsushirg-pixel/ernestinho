@@ -18753,7 +18753,25 @@ function GastronomiaAfinada({ onVolver, initialSel = null }) {
             shown.length === 0 && React.createElement('div', { className: 'max-w-3xl mx-auto px-4 text-center py-14' }, React.createElement('h2', { className: 'text-2xl font-black' }, 'No encontramos coincidencias'), React.createElement('p', { className: 'text-slate-400 mt-2' }, 'Prueba otra palabra o limpia la búsqueda.')))
             : React.createElement('div', { className: 'max-w-5xl mx-auto px-4 sm:px-6 py-8' },
                 React.createElement('button', { onClick: () => { seoNavigate('/gastronomia'); setSel(null); }, className: 'mb-5 rounded-full bg-amber-400 text-slate-950 px-5 py-3 font-black' }, '← Volver a Gastronomía'),
-                React.createElement('div', { onClick: (ev) => { const a = ev.target && ev.target.closest ? ev.target.closest('a[href="index.html"], a[href="./index.html"]') : null; if (a) { ev.preventDefault(); setSel(null); window.scrollTo({ top: 0, behavior: 'smooth' }); } }, dangerouslySetInnerHTML: { __html: GASTRONOMIA_NUEVAS_HTML[sel] } })));
+                React.createElement('div', { onClick: (ev) => {
+                    const el = ev.target && ev.target.closest ? ev.target.closest('a,button') : null;
+                    if (!el) return;
+                    const href = (el.getAttribute('href') || '').trim().toLowerCase();
+                    const txt = (el.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+                    const isGastroBack = href === 'index.html' || href === './index.html' || href === '/gastronomia' || href === '#' ||
+                        txt.includes('volver a gastronom') || txt.includes('regresar a gastronom') ||
+                        txt.includes('volver a la vista anterior') || txt.includes('voltar à gastronom') ||
+                        txt.includes('voltar a gastronom') || txt.includes('voltar para gastronom') ||
+                        txt.includes('voltar à vista anterior') || txt.includes('back to gastronomy') ||
+                        txt.includes('back to previous view');
+                    if (isGastroBack) {
+                        ev.preventDefault();
+                        ev.stopPropagation();
+                        seoNavigate('/gastronomia');
+                        setSel(null);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                }, dangerouslySetInnerHTML: { __html: GASTRONOMIA_NUEVAS_HTML[sel] } })));
 }
 function cafeRioWhatsApp(producto, precio, idioma = 'es', coleccion = false) {
     const nombres = {
