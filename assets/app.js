@@ -18555,7 +18555,8 @@ function seoSetSchema(meta, path) {
     node.textContent = JSON.stringify(seoSchemaFor(meta, path));
 }
 
-function seoSetMeta({ title, description, path, indexable = true, image }) {
+function seoSetMeta(meta) {
+    const { title, description, path, indexable = true, image } = meta || {};
     const site = 'https://www.ernestinhocarioca.com.br';
     const canonicalUrl = site + (path || '/');
     document.title = title || 'Ernestinho Carioca | Guía completa de Río de Janeiro';
