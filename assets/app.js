@@ -13312,7 +13312,7 @@ function Master4RemainingContent({ go }) {
     const switchSection = k => { setSection(k); setDataset(Object.keys(groups[k].sets)[0]); setQ(''); };
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83E\uDDE9 COBERTURA MASTER 3 \u2192 4.0"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Todo lo dem\u00E1s tambi\u00E9n entra."),
@@ -16848,7 +16848,7 @@ function Master4LifePage({ kind, go }) {
         return null;
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" },
                     c.icon,
@@ -17717,51 +17717,21 @@ function Master4Home({ go, onReserve, lang = 'es' }) {
     // V31.47 · PORTADA SIMPLE — catálogo principal visible sin depender del menú de 3 puntos.
     // Es una prueba reversible: no elimina ningún módulo ni cambia sus datos.
     const exploreCards = [
-        { route:'atracciones', icon:'★',
-          es:['Atracciones','Museos, cultura e historia'], pt:['Atrações','Museus, cultura e história'], en:['Attractions','Museums, culture and history'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_1.png' },
-        { route:'master4_gastronomia', icon:'●',
-          es:['Gastronomía','Dónde comer en Río'], pt:['Gastronomia','Onde comer no Rio'], en:['Food & dining','Where to eat in Rio'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_2.png' },
-        { route:'master4_playas', icon:'☀',
-          es:['Playas','Sol, mar y naturaleza'], pt:['Praias','Sol, mar e natureza'], en:['Beaches','Sun, sea and nature'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_3.png' },
-        { route:'familia', icon:'♥',
-          es:['Familia','Planes para todas las edades'], pt:['Família','Programas para todas as idades'], en:['Family','Plans for every age'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_4.png' },
-        { route:'naturaleza', icon:'⌁',
-          es:['Naturaleza & Trilhas','Montañas, bosque y senderos'], pt:['Natureza & Trilhas','Montanhas, floresta e trilhas'], en:['Nature & Trails','Mountains, forest and trails'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_5.png' },
-        { route:'master4_experiencias', icon:'✦',
-          es:['Experiencias','Tours y actividades'], pt:['Experiências','Passeios e atividades'], en:['Experiences','Tours and activities'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_6.png' },
-        { route:'grandes_eventos', icon:'♪',
-          es:['Eventos','Carnaval, conciertos y agenda'], pt:['Eventos','Carnaval, shows e agenda'], en:['Events','Carnival, concerts and calendar'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_7.png' },
-        { route:'nocturna', icon:'♫',
-          es:['Vida nocturna','Samba, bares y noches cariocas'], pt:['Vida noturna','Samba, bares e noites cariocas'], en:['Nightlife','Samba, bars and Rio nights'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_8.png' },
-        { route:'barrios', icon:'⌖',
-          es:['Barrios','Descubre Río zona por zona'], pt:['Bairros','Descubra o Rio região por região'], en:['Neighborhoods','Discover Rio area by area'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_9.png' },
-        { route:'compras', icon:'▣',
-          es:['Compras','Shoppings, ferias y mercados'], pt:['Compras','Shoppings, feiras e mercados'], en:['Shopping','Malls, fairs and markets'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_10.png' },
-        { route:'hospedaje', icon:'⌂',
-          es:['Hospedaje','Tu lugar para quedarte en Río'], pt:['Hospedagem','Seu lugar para ficar no Rio'], en:['Accommodation','Your place to stay in Rio'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_11.png' },
-        { route:'fotografia', icon:'◉',
-          es:['Fotografía','Los mejores lugares y horarios'], pt:['Fotografia','Os melhores lugares e horários'], en:['Photography','The best places and times'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_12.png' },
-        { route:'master4_transportes', icon:'→',
-          es:['Transportes','Muévete por la ciudad'], pt:['Transportes','Mova-se pela cidade'], en:['Transport','Get around the city'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_13.png' },
-        { route:'guia', icon:'✓',
-          es:['Guía para mi viaje','Todo antes y durante tu viaje'], pt:['Guia para minha viagem','Tudo antes e durante a viagem'], en:['Trip guide','Everything before and during your trip'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_14.png' },
-        { route:'consejos', icon:'★',
-          es:['Consejos','Tips reales para entender y disfrutar Río'], pt:['Dicas','Dicas reais para entender e aproveitar o Rio'], en:['Tips','Practical tips to understand and enjoy Rio'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789954657/portada_home_nuevo_consejo.png' }
+        { route:'guia', icon:'✓', es:['Guía para mi viaje','Todo antes y durante tu viaje'], pt:['Guia para minha viagem','Tudo antes e durante a viagem'], en:['Trip guide','Everything before and during your trip'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_1.png' },
+        { route:'master4_transportes', icon:'→', es:['Transportes','Muévete por la ciudad'], pt:['Transportes','Mova-se pela cidade'], en:['Transport','Get around the city'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_2.png' },
+        { route:'hospedaje', icon:'⌂', es:['Hospedaje','Tu lugar para quedarte en Río'], pt:['Hospedagem','Seu lugar para ficar no Rio'], en:['Accommodation','Your place to stay in Rio'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_3.png' },
+        { route:'fotografia', icon:'◉', es:['Fotografía','Los mejores lugares y horarios'], pt:['Fotografia','Os melhores lugares e horários'], en:['Photography','The best places and times'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_4.png' },
+        { route:'compras', icon:'▣', es:['Compras','Shoppings, ferias y mercados'], pt:['Compras','Shoppings, feiras e mercados'], en:['Shopping','Malls, fairs and markets'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_5.png' },
+        { route:'barrios', icon:'⌖', es:['Barrios','Descubre Río zona por zona'], pt:['Bairros','Descubra o Rio região por região'], en:['Neighborhoods','Discover Rio area by area'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_6.png' },
+        { route:'grandes_eventos', icon:'♪', es:['Eventos','Carnaval, conciertos y agenda'], pt:['Eventos','Carnaval, shows e agenda'], en:['Events','Carnival, concerts and calendar'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_7.png' },
+        { route:'master4_experiencias', icon:'✦', es:['Experiencias','Tours y actividades'], pt:['Experiências','Passeios e atividades'], en:['Experiences','Tours and activities'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_8.png' },
+        { route:'master4_playas', icon:'☀', es:['Playas','Sol, mar y naturaleza'], pt:['Praias','Sol, mar e natureza'], en:['Beaches','Sun, sea and nature'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_9.png' },
+        { route:'nocturna', icon:'♫', es:['Vida nocturna','Samba, bares y noches cariocas'], pt:['Vida noturna','Samba, bares e noites cariocas'], en:['Nightlife','Samba, bars and Rio nights'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_10.png' },
+        { route:'master4_gastronomia', icon:'●', es:['Gastronomía','Dónde comer en Río'], pt:['Gastronomia','Onde comer no Rio'], en:['Food & dining','Where to eat in Rio'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_11.png' },
+        { route:'atracciones', icon:'★', es:['Atracciones','Museos, cultura e historia'], pt:['Atrações','Museus, cultura e história'], en:['Attractions','Museums, culture and history'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_12.png' },
+        { route:'familia', icon:'♥', es:['Familia','Planes para todas las edades'], pt:['Família','Programas para todas as idades'], en:['Family','Plans for every age'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_13.png' },
+        { route:'cafe', icon:'☕', es:['Café Rio','Cafés y desayunos'], pt:['Café Rio','Cafés e cafés da manhã'], en:['Rio Coffee','Coffee and breakfast'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_14.png' },
+        { route:'consejos', icon:'★', es:['Consejos','Tips reales para entender y disfrutar Río'], pt:['Dicas','Dicas reais para entender e aproveitar o Rio'], en:['Tips','Practical tips to understand and enjoy Rio'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789954657/portada_home_nuevo_consejo.png' }
     ].map(c => {
         const copy = c[lang] || c.es;
         return {...c, title:copy[0], sub:copy[1]};
@@ -18556,7 +18526,7 @@ function seoSetSchema(meta, path) {
 }
 
 function seoSetMeta(meta) {
-    const { title, description, path, indexable = true, image } = meta || {};
+    const { title, description, path, indexable = true, image } = meta;
     const site = 'https://www.ernestinhocarioca.com.br';
     const canonicalUrl = site + (path || '/');
     document.title = title || 'Ernestinho Carioca | Guía completa de Río de Janeiro';
