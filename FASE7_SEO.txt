@@ -1,0 +1,21 @@
+ERNESTINHO CARIOCA — FASE 7 SEO · MUSEOS Y ARTÍCULOS
+
+Base: Fase 6.
+
+MUSEOS
+- El catálogo real de Museos ahora usa <a href="/museos/slug">.
+- Clic normal conserva navegación SPA y selección actual.
+- Clic modificado conserva comportamiento nativo del enlace.
+- El router ya resolvía /museos/:slug y el estado inicial museoSeleccionado.
+- Museos detectados en MUSEOS_DATA: 28.
+
+ARTÍCULOS / CONSEJOS LEGACY
+- El CTA 'Leer artículo completo' ahora usa <a href="/articulos/slug">.
+- Conserva verArticulo() para la experiencia SPA.
+- El router ya resolvía /articulos/:slug y carga articuloSeleccionado.
+
+No se modificó diseño ni contenido editorial.
+No se publicó nada.
+Sintaxis de todos los JavaScript: OK.
+
+Barrios, Guía y Experiencias se dejaron intactos en esta fase porque usan renderizadores/estados distintos y se auditarán antes de aplicar el patrón.

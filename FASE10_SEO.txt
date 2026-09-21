@@ -1,0 +1,16 @@
+ERNESTINHO CARIOCA — FASE 10 SEO · METADATOS Y CANONICAL DINÁMICOS
+
+- Se auditó el sistema existente seoSetMeta/seoMetaFor antes de modificarlo.
+- Canonical dinámico continúa usando https://www.ernestinhocarioca.com.br + ruta.
+- Se añadió resolución directa de metadata por URL para las 16 fichas reales de Barrios.
+- Se añadió resolución directa para las 173 fichas nuevas de Gastronomía.
+- Museos, Guía, Artículos y Experiencias mantienen sus metadata individuales ya existentes.
+- Open Graph ahora diferencia home (website) de páginas internas (article).
+- Se añadieron Twitter card/title/description/image.
+- Se elimina og:image/twitter:image antiguo cuando una ruta no aporta imagen, evitando arrastrar una imagen de otra página.
+- seoNavigate emite un evento interno para refrescar metadata/canonical al cambiar URL.
+- popstate también refresca metadata directa.
+- Barrios dentro del iframe ahora puede actualizar canonical/title/description al cambiar /barrios/slug.
+- Barrios SEO incluidos: 16.
+- Sintaxis de todos los JavaScript: OK.
+- No publicado.

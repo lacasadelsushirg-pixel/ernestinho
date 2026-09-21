@@ -1,0 +1,14 @@
+ERNESTINHO CARIOCA — FASE 6 SEO · DEEP LINKS GASTRONOMÍA
+
+- Corregido el componente realmente renderizado: GastronomiaAfinada.
+- Sus tarjetas ahora son <a href="/gastronomia/slug"> reales.
+- Clic normal mantiene navegación SPA; clic modificado conserva enlace nativo.
+- seoResolveRoute resuelve primero el catálogo nuevo de 173 fichas.
+- Una entrada directa /gastronomia/:slug inicializa la ficha correspondiente.
+- Volver restaura /gastronomia.
+- Tarjetas: 173
+- Slugs únicos: 173
+- Slugs duplicados: 0
+- Sintaxis de todos los JS: OK.
+- Diseño y contenido editorial: sin cambios.
+- No publicado.

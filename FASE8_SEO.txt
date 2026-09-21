@@ -1,0 +1,10 @@
+ERNESTINHO CARIOCA — FASE 8 SEO · GUÍA Y EXPERIENCIAS
+
+- Guía: las tarjetas que abren GUIA_INFO son enlaces reales /guia/slug. Las tarjetas sec/legacy conservan su navegación.
+- Experiencias: "Ver Experiencia" usa /experiencias/slug y conserva la navegación SPA.
+- Actividades nuevas: "Ver actividad" usa /experiencias/slug y conserva actividad_*.
+- Tours principales: 5.
+- Actividades nuevas detectadas: 15.
+- Barrios no se tocó: el módulo activo es un iframe/srcDoc y necesita una fase específica.
+- Sin cambios visuales/editoriales. No publicado.
+- Sintaxis de todos los JavaScript: OK.
