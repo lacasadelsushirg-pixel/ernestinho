@@ -7528,7 +7528,7 @@ function GuiaTransportePublico({ onVolver, onMetro, modo, setModo }) {
     return React.createElement("section", { className: "min-h-screen bg-slate-50 pb-20" },
         React.createElement("div", { className: "bg-slate-950 text-white" },
             React.createElement("div", { className: "max-w-7xl mx-auto px-4 py-14" },
-                React.createElement("button", { onClick: onVolver, className: "text-white/70 font-bold" }, T("← Volver a Guía de Río")),
+                React.createElement("button", { onClick: onVolver, className: "text-white/70 font-bold" }, "← Volver a Guía de Río"),
                 React.createElement("span", { className: "block text-amber-400 text-xs font-black uppercase tracking-widest mt-9" }, "Moverse sin perderse"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "TRANSPORTE EN R\u00CDO"),
                 React.createElement("p", { className: "max-w-3xl text-slate-300 mt-4" }, "Elige el sistema seg\u00FAn tu destino, horario, equipaje y cantidad de personas. Las tarifas pueden cambiar: comprueba siempre el canal oficial."))),
@@ -13368,7 +13368,7 @@ function Master4FinalReadiness({ go }) {
     ];
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-6xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83C\uDFC1 CANDIDATO FINAL LOCAL"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "La migraci\u00F3n grande est\u00E1 hecha."),
@@ -13393,7 +13393,7 @@ function Master4TrustCenter({ go }) {
     gates.forEach(x => (x.issues || []).forEach(i => issueCount[i] = (issueCount[i] || 0) + 1));
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-5xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83D\uDEE1\uFE0F CONFIANZA Y DATOS DIN\u00C1MICOS"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "La gu\u00EDa tambi\u00E9n sabe cu\u00E1ndo no afirmar algo."),
@@ -13455,7 +13455,7 @@ function Master4CoverageDashboard({ go }) {
     ];
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-5xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83D\uDCCA COBERTURA DEL PROYECTO"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Qu\u00E9 est\u00E1 conectado y qu\u00E9 sigue pendiente."),
@@ -13510,7 +13510,7 @@ function Master4Planner({ go }) {
     const plans = chosen.map((z, i) => ({ day: i + 1, zone: z.z, items: z.arr.slice(0, perDay) }));
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83D\uDDD3\uFE0F PLANIFICADOR POR ZONAS"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Menos cruzar R\u00EDo. M\u00E1s vivirlo."),
@@ -13576,7 +13576,7 @@ function Master4RouteAudit({ go }) {
     ];
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-5xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83D\uDD0E CONTROL DE MIGRACI\u00D3N"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Qu\u00E9 ya es 4.0 y qu\u00E9 todav\u00EDa falta."),
@@ -13600,7 +13600,7 @@ function Master4PrepareTrip({ go }) {
     ];
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24 overflow-x-hidden" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\u2708\uFE0F PREPARO MI VIAJE"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Llega a R\u00EDo con lo importante resuelto."),
@@ -14356,7 +14356,7 @@ function Master4SmartRioV3({ go }) {
     const foodOnly = ctx.intents.some(x => ['coffee', 'breakfast', 'food', 'sushi', 'sandwich', 'chilean'].includes(x)) && !ctx.intents.some(x => ['walk', 'shopping', 'family', 'nature', 'beach'].includes(x));
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\u2728 \u00BFQU\u00C9 HAGO HOY? \u00B7 AQU\u00CD \u00B7 AHORA V3"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Dime qu\u00E9 quieres hacer. Yo cruzo la intenci\u00F3n con R\u00EDo."),
@@ -15719,7 +15719,7 @@ function Master4SmartRioLegacy({ go }) {
     const image = p => { var _a, _b; return ((_a = p.media) === null || _a === void 0 ? void 0 : _a.thumbnail) || ((_b = p.media) === null || _b === void 0 ? void 0 : _b.mainPhoto) || ''; };
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10 overflow-hidden" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\u2728 \u00BFQU\u00C9 HAGO HOY?"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "AQU\u00CD \u00B7 AHORA"),
@@ -15868,7 +15868,7 @@ function Master4MyRio({ go }) {
     catch (e) { } };
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-5xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-rose-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-rose-200" }, "\u2764\uFE0F MI R\u00CDO"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Tu colecci\u00F3n, sin cuenta."),
@@ -15989,7 +15989,7 @@ function Master4SpecialGuides({ go }) {
     const text = x => typeof x === 'string' ? '' : val(x, ['descripcion', 'description', 'texto', 'detalle', 'contenido', 'respuesta', 'subtitulo']);
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83D\uDCDA GU\u00CDAS ESPECIALES"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Gu\u00EDas especiales para entender R\u00EDo mejor."),
@@ -16286,7 +16286,7 @@ function Master4SituationEngine({ go }) {
     const r = recommendation();
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\u2764\uFE0F R\u00CDO PARA M\u00CD"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Dime c\u00F3mo est\u00E1s viajando. Yo te ayudo a ordenar R\u00EDo."),
@@ -16323,7 +16323,7 @@ function Master4SOS({ go }) {
     };
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-red-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-red-200" }, "\uD83C\uDD98 ERNESTINHO SOS"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Algo sali\u00F3 mal. Busca primero la situaci\u00F3n."),
@@ -17026,7 +17026,7 @@ function Master4DiscoverRio({ go }) {
     ];
     return React.createElement("div", { className: "bg-[#f7f7f4] min-h-screen pb-24" },
         React.createElement("section", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10 overflow-hidden relative" },
                 React.createElement("div", { className: "absolute -right-12 -top-12 w-52 h-52 bg-emerald-400/20 rounded-full blur-2xl" }),
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300 tracking-widest" }, "\uD83C\uDF34 DESCUBRE R\u00CDO"),
@@ -17718,7 +17718,7 @@ function Master4Home({ go, onReserve, lang = 'es' }) {
     // Es una prueba reversible: no elimina ningún módulo ni cambia sus datos.
     const exploreCards = [
         { route:'guia', icon:'✓', es:['Guía para mi viaje','Todo antes y durante tu viaje'], pt:['Guia para minha viagem','Tudo antes e durante a viagem'], en:['Trip guide','Everything before and during your trip'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_1.png' },
-        { route:'master4_transportes', icon:'→', es:['Transportes','Muévete por la ciudad'], pt:['Transportes','Mova-se pela cidade'], en:['Transport','Get around the city'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_2.png' },
+        { route:'transportes', icon:'→', es:['Transportes','Muévete por la ciudad'], pt:['Transportes','Mova-se pela cidade'], en:['Transport','Get around the city'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_2.png' },
         { route:'hospedaje', icon:'⌂', es:['Hospedaje','Tu lugar para quedarte en Río'], pt:['Hospedagem','Seu lugar para ficar no Rio'], en:['Accommodation','Your place to stay in Rio'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_3.png' },
         { route:'fotografia', icon:'◉', es:['Fotografía','Los mejores lugares y horarios'], pt:['Fotografia','Os melhores lugares e horários'], en:['Photography','The best places and times'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_4.png' },
         { route:'compras', icon:'▣', es:['Compras','Shoppings, ferias y mercados'], pt:['Compras','Shoppings, feiras e mercados'], en:['Shopping','Malls, fairs and markets'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_5.png' },
@@ -17727,7 +17727,7 @@ function Master4Home({ go, onReserve, lang = 'es' }) {
         { route:'master4_experiencias', icon:'✦', es:['Experiencias','Tours y actividades'], pt:['Experiências','Passeios e atividades'], en:['Experiences','Tours and activities'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_8.png' },
         { route:'master4_playas', icon:'☀', es:['Playas','Sol, mar y naturaleza'], pt:['Praias','Sol, mar e natureza'], en:['Beaches','Sun, sea and nature'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_9.png' },
         { route:'nocturna', icon:'♫', es:['Vida nocturna','Samba, bares y noches cariocas'], pt:['Vida noturna','Samba, bares e noites cariocas'], en:['Nightlife','Samba, bars and Rio nights'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_10.png' },
-        { route:'master4_gastronomia', icon:'●', es:['Gastronomía','Dónde comer en Río'], pt:['Gastronomia','Onde comer no Rio'], en:['Food & dining','Where to eat in Rio'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_11.png' },
+        { route:'gastronomia', icon:'●', es:['Gastronomía','Dónde comer en Río'], pt:['Gastronomia','Onde comer no Rio'], en:['Food & dining','Where to eat in Rio'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_11.png' },
         { route:'atracciones', icon:'★', es:['Atracciones','Museos, cultura e historia'], pt:['Atrações','Museus, cultura e história'], en:['Attractions','Museums, culture and history'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_12.png' },
         { route:'familia', icon:'♥', es:['Familia','Planes para todas las edades'], pt:['Família','Programas para todas as idades'], en:['Family','Plans for every age'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_13.png' },
         { route:'cafe', icon:'☕', es:['Café Rio','Cafés y desayunos'], pt:['Café Rio','Cafés e cafés da manhã'], en:['Rio Coffee','Coffee and breakfast'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_14.png' },
@@ -18833,6 +18833,10 @@ function AppErnestinho(){
     const setSeccionActual = (destino) => {
         if (typeof destino !== 'string')
             return;
+        // 2026-09-21: los accesos antiguos Master4 de Gastronomía y Transportes
+        // deben abrir los módulos canónicos usados por el menú principal.
+        if (destino === 'master4_gastronomia') destino = 'gastronomia';
+        if (destino === 'master4_transportes') destino = 'transportes';
         if (destino === seccionActual) {
             if (destino === 'guia' && temaGuia)
                 setTemaGuia(null);
