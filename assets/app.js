@@ -1,6 +1,6 @@
 
 
-// COMPRAS_FICHAS is supplied by the existing site data layer; do not redeclare it here.
+// const COMPRAS_FICHAS externalizado en data-core.js
 
 var __compraOverlay=null;var __compraBlobUrl=null;function closeCompraFicha(){if(__compraOverlay){__compraOverlay.remove();__compraOverlay=null;}if(__compraBlobUrl){URL.revokeObjectURL(__compraBlobUrl);__compraBlobUrl=null;}if(window.location.hash==="#compras-ficha")history.replaceState(null,"",window.location.pathname+window.location.search);window.scrollTo(0,window.__comprasScrollY||0);}window.addEventListener("message",function(e){if(e&&e.data&&e.data.type==="ernestinho-close-compra")closeCompraFicha();});function openCompraFicha(file){var b=(window.COMPRAS_FICHAS&&window.COMPRAS_FICHAS.enc||{})[file];if(!b)return;window.__comprasScrollY=window.scrollY;var bin=atob(b);var bytes=new Uint8Array(bin.length);for(var i=0;i<bin.length;i++)bytes[i]=bin.charCodeAt(i);__compraBlobUrl=URL.createObjectURL(new Blob([bytes],{type:"text/html;charset=utf-8"}));__compraOverlay=document.createElement("div");__compraOverlay.id="ernestinhoCompraOverlay";__compraOverlay.style.cssText="position:fixed;inset:0;z-index:99999;background:#f8fafc;";var close=document.createElement("button");close.type="button";close.textContent="← VOLVER A COMPRAS";close.style.cssText="position:absolute;top:14px;left:14px;z-index:100001;background:#0b2528;color:#fff;border:0;border-radius:999px;padding:12px 16px;font:800 12px Arial;box-shadow:none!important;cursor:pointer;";close.onclick=closeCompraFicha;var frame=document.createElement("iframe");frame.title="Guía completa";frame.src=__compraBlobUrl;frame.style.cssText="width:100%;height:100%;border:0;background:#f8fafc;";frame.setAttribute("allowfullscreen","");__compraOverlay.appendChild(frame);__compraOverlay.appendChild(close);document.body.appendChild(__compraOverlay);history.replaceState({comprasFicha:true},"",window.location.pathname+window.location.search+"#compras-ficha");}
 function CompraCard(x){var image=React.createElement("div",{key:"img",className:"h-56 sm:h-64 overflow-hidden bg-slate-200"},React.createElement("img",{src:x.img,alt:x.name,className:"w-full h-full object-cover",loading:"lazy"}));var zone=React.createElement("div",{key:"z",className:"text-xs font-black uppercase tracking-widest text-teal-700"},x.zone);var name=React.createElement("h3",{key:"n",className:"text-2xl sm:text-3xl font-black text-slate-900 mt-2"},x.name);var desc=React.createElement("p",{key:"d",className:"text-slate-600 mt-2 leading-relaxed"},x.desc);var button=React.createElement("button",{key:"b",type:"button",onClick:function(){openCompraFicha(x.file)},className:"mt-5 inline-flex items-center justify-center bg-slate-950 hover:bg-teal-700 text-white font-black text-xs uppercase rounded-xl px-5 py-3 transition-colors"},"ABRIR GUÍA COMPLETA →");var body=React.createElement("div",{key:"body",className:"p-5 sm:p-6"},[zone,name,desc,button]);return React.createElement("article",{key:x.file,className:"bg-white rounded-3xl overflow-hidden border border-slate-200 "},[image,body]);}
@@ -2628,7 +2628,7 @@ function seoResolveRoute(pathname) {
     }
     m = ruta.match(/^\/gastronomia\/([^/]+)$/);
     if (m) {
-        const cardNueva = (typeof GASTRONOMIA_NUEVAS_CARDS !== 'undefined' ? GASTRONOMIA_NUEVAS_CARDS : []).find(x => seoSlug(x.title) === m[1] || seoSlug(x.id) === m[1]);
+        const cardNueva = (typeof window.GASTRONOMIA_NUEVAS_CARDS !== 'undefined' ? window.GASTRONOMIA_NUEVAS_CARDS : []).find(x => seoSlug(x.title) === m[1] || seoSlug(x.id) === m[1]);
         if (cardNueva)
             return { ...result, seccion: 'gastronomia', restaurante: { id: cardNueva.id, nombre: cardNueva.title, nueva: true } };
         const restaurante = GASTRONOMIA_DATA.find(x => seoSlug(x.nombre) === m[1]);
@@ -2758,7 +2758,7 @@ function seoMetaFromPath(path) {
     }
     m = ruta.match(/^\/gastronomia\/([^/]+)$/);
     if (m) {
-        const card = (typeof GASTRONOMIA_NUEVAS_CARDS !== 'undefined' ? GASTRONOMIA_NUEVAS_CARDS : []).find(x => seoSlug(x.title) === m[1] || seoSlug(x.id) === m[1]);
+        const card = (typeof window.GASTRONOMIA_NUEVAS_CARDS !== 'undefined' ? window.GASTRONOMIA_NUEVAS_CARDS : []).find(x => seoSlug(x.title) === m[1] || seoSlug(x.id) === m[1]);
         if (card) return { path:ruta, title:`${card.title} en Río de Janeiro | Ernestinho Carioca`, description:card.desc || card.descripcion || `Información, ambiente y consejos para conocer ${card.title} en Río de Janeiro.` };
     }
     return null;
@@ -2846,7 +2846,7 @@ catch (e) { }
 // Gastronomía externalizada en gastronomy-data.js
 const normalizarGastroNueva = (valor = '') => String(valor).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9$]+/g, ' ').trim();
 const textoVisibleGastroNueva = html => String(html || '').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;|&#160;/gi, ' ').replace(/&amp;/gi, '&').replace(/\s+/g, ' ');
-const GASTRONOMIA_INDICE_BUSQUEDA = new Map((window.GASTRONOMIA_NUEVAS_CARDS||[]).map(card => [card.id, normalizarGastroNueva(`${card.title} ${(card.tags || []).join(' ')} ${textoVisibleGastroNueva((window.GASTRONOMIA_NUEVAS_HTML||{})[card.id])}`)]));
+const GASTRONOMIA_INDICE_BUSQUEDA = new Map(window.GASTRONOMIA_NUEVAS_CARDS.map(card => [card.id, normalizarGastroNueva(`${card.title} ${(card.tags || []).join(' ')} ${textoVisibleGastroNueva(window.GASTRONOMIA_NUEVAS_HTML[card.id])}`)]));
 
 const intencionGastroNueva = consulta => {
     const q = normalizarGastroNueva(consulta);
@@ -5844,7 +5844,7 @@ const v6AppendUnique = (target, article) => {
     current.links = [...(current.links || []), ...official];
     current.v6 = { slugPropuesto: article.slug, metaDescription: article.meta, faqVisible: true, integradoSinDuplicar: true };
 };
-ERNESTINHO_V6_CONTENT.existing.forEach(entry => v6AppendUnique(entry.target, entry.article));
+window.ERNESTINHO_V6_CONTENT.existing.forEach(entry => v6AppendUnique(entry.target, entry.article));
 if (!GUIA_TEMAS.some(item => item.id === 'viajar-solo')) {
     GUIA_TEMAS.splice(1, 0, {
         id: 'viajar-solo',
@@ -5854,24 +5854,24 @@ if (!GUIA_TEMAS.some(item => item.id === 'viajar-solo')) {
     });
 }
 GUIA_INFO['viajar-solo'] = {
-    titulo: ERNESTINHO_V6_CONTENT.solo.title,
-    intro: ERNESTINHO_V6_CONTENT.solo.intro,
+    titulo: window.ERNESTINHO_V6_CONTENT.solo.title,
+    intro: window.ERNESTINHO_V6_CONTENT.solo.intro,
     hero: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788907305/portada_planificando_el_viaje.png',
     heroAlt: 'Planificar un viaje solo o sola a Río de Janeiro',
     consejo: 'Mi consejo es decidir antes dónde dormirás, cómo volverás por la noche y qué harás con tus pertenencias en la playa. Con esa base puedes disfrutar Río con más tranquilidad y libertad.',
-    items: v6AsItems(ERNESTINHO_V6_CONTENT.solo),
-    links: ERNESTINHO_V6_CONTENT.solo.sources.map((url, index) => [`Fuente oficial V6 ${index + 1}`, url]),
-    v6: { slugPropuesto: ERNESTINHO_V6_CONTENT.solo.slug, metaDescription: ERNESTINHO_V6_CONTENT.solo.meta, faqVisible: true }
+    items: v6AsItems(window.ERNESTINHO_V6_CONTENT.solo),
+    links: window.ERNESTINHO_V6_CONTENT.solo.sources.map((url, index) => [`Fuente oficial V6 ${index + 1}`, url]),
+    v6: { slugPropuesto: window.ERNESTINHO_V6_CONTENT.solo.slug, metaDescription: window.ERNESTINHO_V6_CONTENT.solo.meta, faqVisible: true }
 };
 /* V7 — Top 200 consolidado en capítulos editoriales */
 
-V7_CHAPTERS.forEach(entry => { const info = GUIA_INFO[entry.target]; if (!info)
+window.V7_CHAPTERS.forEach(entry => { const info = GUIA_INFO[entry.target]; if (!info)
     return; if (!(info.items || []).some(x => x[0] === entry.title))
     info.items = [...(info.items || []), [entry.title, entry.body]]; });
 Object.assign(GLOBAL_UI_TRANSLATIONS.pt,window.__EC_T35_105||{});
 Object.assign(GLOBAL_UI_TRANSLATIONS.en,window.__EC_T35_106||{});
 
-Object.entries(V7_SOURCE_LINKS).forEach(([target, links]) => { const info = GUIA_INFO[target]; if (!info)
+Object.entries(window.V7_SOURCE_LINKS).forEach(([target, links]) => { const info = GUIA_INFO[target]; if (!info)
     return; info.links = [...(info.links || [])]; links.forEach(link => { if (!info.links.some(x => x[1] === link[1]))
     info.links.push(link); }); });
 Object.assign(GLOBAL_UI_TRANSLATIONS.pt, { 'MOMENTO': 'MOMENTO', 'Ahora': 'Agora', 'Tarde': 'Tarde', 'Noche': 'Noite', 'Noche tarde': 'Noite avançada', '1 hora': '1 hora', '2 horas': '2 horas', 'Hoy completo': 'Dia inteiro', 'opciones compatibles para elegir.': 'opções compatíveis para escolher.', 'El orden cruza zona, interés, perfil, tiempo, momento del día y clima. Si llueve, las opciones exteriores quedan fuera; de noche no aparecen atracciones diurnas.': 'A ordem combina região, interesse, perfil, tempo, momento do dia e clima. Com chuva, opções externas ficam de fora; à noite, atrações diurnas não aparecem.' });
