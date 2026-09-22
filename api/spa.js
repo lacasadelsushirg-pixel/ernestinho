@@ -39,7 +39,16 @@ const MAIN_TITLES = {
   '/gastronomia': 'Gastronomía en Río de Janeiro | Ernestinho Carioca',
   '/experiencias': 'Experiencias en Río de Janeiro | Ernestinho Carioca',
   '/prepara-tu-viaje': 'Prepara tu viaje a Río de Janeiro | Ernestinho Carioca',
-  '/vida-nocturna': 'Vida nocturna en Río de Janeiro | Ernestinho Carioca'
+  '/vida-nocturna': 'Vida nocturna en Río de Janeiro | Ernestinho Carioca',
+  '/que-hacer': 'Qué hacer en Río de Janeiro | Ernestinho Carioca',
+  '/guia': 'Guía de viaje a Río de Janeiro | Ernestinho Carioca',
+  '/lugares': 'Lugares para conocer en Río de Janeiro | Ernestinho Carioca',
+  '/hospedaje': 'Dónde alojarse en Río de Janeiro | Ernestinho Carioca',
+  '/eventos': 'Eventos en Río de Janeiro | Ernestinho Carioca',
+  '/familia': 'Río de Janeiro con niños y familia | Ernestinho Carioca',
+  '/compras': 'Compras en Río de Janeiro | Ernestinho Carioca',
+  '/naturaleza': 'Naturaleza en Río de Janeiro | Ernestinho Carioca',
+  '/sos': 'Emergencias y ayuda en Río de Janeiro | Ernestinho Carioca'
 };
 
 function seoFor(urlPath) {
