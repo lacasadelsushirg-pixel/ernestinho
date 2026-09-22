@@ -116,20 +116,6 @@ function seoFallbackContent(pathname, seo) {
   return `<main id="ec-seo-fallback" class="ec-seo-fallback"><h1>${escapeAttr(leaf)}</h1><p>${escapeAttr(seo.description)}</p>${section ? `<p>${escapeAttr(section)} · Río de Janeiro</p>` : ''}<nav aria-label="Enlaces relacionados"><a href="${escapeAttr(SITE + '/')}">Guía de Río de Janeiro</a>${hubLink}</nav></main>`;
 }
 
-function crawlLinksFor(pathname) {
-  const parts = pathname.split('/').filter(Boolean);
-  const root = parts[0] || '';
-  const hubs = {
-    gastronomia: '/gastronomia', museos: '/museos', barrios: '/barrios',
-    experiencias: '/experiencias', lugares: '/que-hacer', guia: '/prepara-tu-viaje',
-    transportes: '/transportes', articulos: '/prepara-tu-viaje'
-  };
-  const links = [['/', 'Guía de Río de Janeiro']];
-  if (hubs[root] && hubs[root] !== pathname) links.push([hubs[root], humanize(root)]);
-  return links.map(([href,label]) => `<a href="${escapeAttr(href)}">${escapeAttr(label)}</a>`).join(' · ');
-}
-
-
 function ogTypeFor(pathname) {
   const root = pathname.split('/').filter(Boolean)[0] || '';
   return root === 'articulos' ? 'article' : 'website';
@@ -187,7 +173,6 @@ function applySeo(html, seo, pathname) {
   out = out.replace(/<meta\s+[^>]*property=["']og:(?:type|site_name|locale|title|description|url|image(?::(?:width|height|alt))?)["'][^>]*>/ig, '');
   out = out.replace(/<meta\s+[^>]*name=["']twitter:(?:card|title|description|image)["'][^>]*>/ig, '');
   out = out.replace(/<script\s+[^>]*id=["']ec-route-schema["'][^>]*>[\s\S]*?<\/script>/ig, '');
-  const crawlLinks = pathname === '/' ? '' : `<noscript><nav aria-label="Navegación relacionada">${crawlLinksFor(pathname)}</nav></noscript>`;
   const tags = `
 <link rel="canonical" href="${escapeAttr(seo.canonical)}">
 <meta name="description" content="${escapeAttr(seo.description)}">
@@ -205,7 +190,6 @@ function applySeo(html, seo, pathname) {
 <meta name="twitter:image" content="${escapeAttr(seo.image)}">\n<meta name="twitter:image:alt" content="${escapeAttr(seo.title)}">
 <script type="application/ld+json" id="ec-route-schema">${schemaFor(pathname,seo)}</script>${analyticsTags()}`;
   out = out.replace(/<\/head>/i, `${tags}\n</head>`);
-  if (crawlLinks) out = out.replace(/<body([^>]*)>/i, `<body$1>${crawlLinks}`);
   return out;
 }
 
