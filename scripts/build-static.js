@@ -109,7 +109,7 @@ if (start !== -1) {
 }
 
 const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
-const routes = new Set(['/','/quiero','/ruta-centro','/recorrido-centro']);
+const routes = new Set(['/']);
 const re = /<loc>https:\/\/www\.ernestinhocarioca\.com\.br([^<]*)<\/loc>/g;
 let match;
 while ((match = re.exec(sitemap))) routes.add(normalizeRoute(match[1] || '/'));
