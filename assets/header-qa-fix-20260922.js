@@ -56,10 +56,7 @@
     return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});
   }
   function mountQuiero(){
-    if(!['/quiero','/ruta-centro','/recorrido-centro'].includes(route())) return;
-    if(route()!=='/quiero'){
-      history.replaceState({},'', '/quiero'+location.search+location.hash);
-    }
+    if(route()!=='/quiero') return;
     if(document.getElementById('ec-quiero-route')) return;
     const root=document.getElementById('root')||document.querySelector('main')||document.body;
     if(!root) return;
