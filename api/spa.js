@@ -106,6 +106,11 @@ function seoFallbackContent(pathname, seo) {
   return `<main id="ec-seo-fallback" class="ec-seo-fallback"><h1>${escapeAttr(leaf)}</h1><p>${escapeAttr(seo.description)}</p>${section ? `<p>${escapeAttr(section)} · Río de Janeiro</p>` : ''}<nav aria-label="Enlaces relacionados"><a href="${escapeAttr(SITE + '/')}">Guía de Río de Janeiro</a>${hubLink}</nav></main>`;
 }
 
+function ogTypeFor(pathname) {
+  const root = pathname.split('/').filter(Boolean)[0] || '';
+  return root === 'articulos' ? 'article' : 'website';
+}
+
 function schemaFor(pathname, seo) {
   const parts = pathname.split('/').filter(Boolean);
   const leaf = parts.length ? humanize(parts[parts.length - 1]) : 'Ernestinho Carioca';
@@ -160,17 +165,17 @@ function applySeo(html, seo, pathname) {
 <link rel="canonical" href="${escapeAttr(seo.canonical)}">
 <meta name="description" content="${escapeAttr(seo.description)}">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<meta property="og:type" content="website">
+<meta property="og:type" content="${ogTypeFor(pathname)}">
 <meta property="og:site_name" content="Ernestinho Carioca">
 <meta property="og:locale" content="es_ES">
 <meta property="og:title" content="${escapeAttr(seo.title)}">
 <meta property="og:description" content="${escapeAttr(seo.description)}">
 <meta property="og:url" content="${escapeAttr(seo.canonical)}">
-<meta property="og:image" content="${escapeAttr(seo.image)}">
+<meta property="og:image" content="${escapeAttr(seo.image)}">\n<meta property="og:image:alt" content="${escapeAttr(seo.title)}">\n<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${escapeAttr(seo.title)}">
 <meta name="twitter:description" content="${escapeAttr(seo.description)}">
-<meta name="twitter:image" content="${escapeAttr(seo.image)}">
+<meta name="twitter:image" content="${escapeAttr(seo.image)}">\n<meta name="twitter:image:alt" content="${escapeAttr(seo.title)}">
 <script type="application/ld+json" id="ec-route-schema">${schemaFor(pathname,seo)}</script>${analyticsTags()}`;
   const fallbackStyle = '<style id="ec-seo-fallback-style">.ec-seo-fallback{padding:16px;max-width:1200px;margin:0 auto;font-family:system-ui,sans-serif}.ec-seo-fallback h1{font-size:1.5rem}.ec-seo-fallback nav{display:flex;gap:12px;flex-wrap:wrap}@media (scripting:enabled){.ec-seo-fallback{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}}</style>';
   out = out.replace(/<\/head>/i, `${tags}\n${fallbackStyle}\n</head>`);
