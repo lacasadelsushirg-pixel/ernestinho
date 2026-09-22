@@ -11,7 +11,7 @@ function load() {
   if (!indexHtml) indexHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
   if (!validPaths) {
     const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
-    validPaths = new Set(['/quiero', '/ruta-centro', '/recorrido-centro']);
+    validPaths = new Set(['/quiero']);
     const re = /<loc>https:\/\/www\.ernestinhocarioca\.com\.br([^<]*)<\/loc>/g;
     let m;
     while ((m = re.exec(sitemap))) {
@@ -127,7 +127,13 @@ function sendCompressedHtml(req, res, html) {
 module.exports = (req, res) => {
   try {
     load();
-    const pathname = originalPath(req);
+    let pathname = originalPath(req);
+    if (pathname === '/ruta-centro' || pathname === '/recorrido-centro') {
+      res.statusCode = 308;
+      res.setHeader('Location', '/quiero');
+      res.setHeader('Cache-Control', 'public, max-age=3600');
+      return res.end();
+    }
 
     if (!validPaths.has(pathname)) {
       res.statusCode = 404;
