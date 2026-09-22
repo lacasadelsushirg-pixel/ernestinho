@@ -93,29 +93,6 @@ function analyticsTags() {
   return `\n<!-- Google Analytics 4 -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>\n<script>\nwindow.dataLayer=window.dataLayer||[];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js',new Date());\ngtag('config','${GA_ID}',{send_page_view:true});\n(function(){\n  var last=location.pathname+location.search;\n  function track(){\n    var current=location.pathname+location.search;\n    if(current===last)return;\n    last=current;\n    gtag('event','page_view',{page_title:document.title,page_location:location.href,page_path:current});\n  }\n  var push=history.pushState;\n  history.pushState=function(){var r=push.apply(this,arguments);setTimeout(track,0);return r;};\n  var replace=history.replaceState;\n  history.replaceState=function(){var r=replace.apply(this,arguments);setTimeout(track,0);return r;};\n  addEventListener('popstate',function(){setTimeout(track,0);});\n})();\n</script>`;
 }
 
-function seoFallbackContent(pathname, seo) {
-  const parts = pathname.split('/').filter(Boolean);
-  if (!parts.length) return '';
-  const leaf = humanize(parts[parts.length - 1]);
-  const root = parts[0] || '';
-  const section = parts.length > 1 ? humanize(root) : '';
-  const hubs = {
-    gastronomia: ['/gastronomia','Gastronomía en Río de Janeiro'],
-    museos: ['/museos','Museos de Río de Janeiro'],
-    barrios: ['/barrios','Barrios de Río de Janeiro'],
-    experiencias: ['/experiencias','Experiencias en Río de Janeiro'],
-    lugares: ['/que-hacer','Qué hacer en Río de Janeiro'],
-    guia: ['/prepara-tu-viaje','Prepara tu viaje a Río de Janeiro'],
-    transportes: ['/transportes','Transporte en Río de Janeiro'],
-    articulos: ['/prepara-tu-viaje','Consejos para viajar a Río de Janeiro']
-  };
-  const hub = hubs[root];
-  const hubLink = hub && hub[0] !== pathname
-    ? `<a href="${escapeAttr(SITE + hub[0])}">${escapeAttr(hub[1])}</a>`
-    : '';
-  return `<main id="ec-seo-fallback" class="ec-seo-fallback"><h1>${escapeAttr(leaf)}</h1><p>${escapeAttr(seo.description)}</p>${section ? `<p>${escapeAttr(section)} · Río de Janeiro</p>` : ''}<nav aria-label="Enlaces relacionados"><a href="${escapeAttr(SITE + '/')}">Guía de Río de Janeiro</a>${hubLink}</nav></main>`;
-}
-
 function ogTypeFor(pathname) {
   const root = pathname.split('/').filter(Boolean)[0] || '';
   return root === 'articulos' ? 'article' : 'website';
