@@ -57,6 +57,9 @@
   }
   function mountQuiero(){
     if(!['/quiero','/ruta-centro','/recorrido-centro'].includes(route())) return;
+    if(route()!=='/quiero'){
+      history.replaceState({},'', '/quiero'+location.search+location.hash);
+    }
     if(document.getElementById('ec-quiero-route')) return;
     const root=document.getElementById('root')||document.querySelector('main')||document.body;
     if(!root) return;
@@ -95,6 +98,9 @@
       </div>`;
     root.replaceChildren(section);
     document.title='Recorrido por tu cuenta en Río | Ernestinho Carioca';
+    let canonical=document.querySelector('link[rel="canonical"]');
+    if(!canonical){ canonical=document.createElement('link'); canonical.rel='canonical'; document.head.appendChild(canonical); }
+    canonical.href='https://www.ernestinhocarioca.com.br/quiero';
     window.scrollTo(0,0);
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',mountQuiero,{once:true}); else mountQuiero();
