@@ -6350,28 +6350,6 @@ function VidaNocturnaCompleta({ onVolver }) {
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black uppercase mt-3" }, "Vida nocturna"),
                 React.createElement("p", { className: "max-w-2xl mt-5 text-slate-200" }, "Samba, pagode, conciertos, rooftops y fiestas organizados por d\u00EDa, estilo y zona. Revisa siempre la agenda antes de salir."))),
         React.createElement("div", { className: "max-w-7xl mx-auto px-4 sm:px-6 -mt-5 relative" },
-            React.createElement("div", { className: "grid md:grid-cols-2 xl:grid-cols-4 gap-3 mb-5" }, [
-                ['🥁','Quiero samba','Pedra do Sal, Lapa, casas de samba y quadras pueden ofrecer noches muy diferentes. La programación cambia: elige primero el ambiente y después confirma la agenda del día.'],
-                ['🍸','Quiero conversar','Botafogo, Ipanema, Leblon y Urca funcionan bien para una noche de bar, boteco, coctelería o vista sin necesidad de terminar en una discoteca.'],
-                ['💃','Quiero bailar','Lapa, Botafogo y Barra concentran fiestas y pistas de estilos distintos. Revisa evento, entrada, edad mínima y horario antes de desplazarte.'],
-                ['🌙','Quiero algo tranquilo','Una cena, un rooftop, la orla con movimiento o un bar de hotel pueden ser mejores que una fiesta si buscas disfrutar la noche sin madrugada.']
-            ].map(x => React.createElement("article", { key:x[1], className:"rounded-3xl border border-fuchsia-800/60 bg-slate-900 p-5" },
-                React.createElement("div", { className:"text-2xl" }, x[0]),
-                React.createElement("h2", { className:"font-black text-lg mt-3" }, x[1]),
-                React.createElement("p", { className:"text-sm text-slate-300 leading-relaxed mt-2" }, x[2])))),
-            React.createElement("div", { className:"grid lg:grid-cols-3 gap-4 mb-5" },
-                React.createElement("article", { className:"rounded-3xl bg-[#f7f3e8] text-slate-950 p-6" },
-                    React.createElement("span", { className:"text-[10px] font-black uppercase tracking-widest text-fuchsia-700" }, "Elige la zona"),
-                    React.createElement("h2", { className:"text-2xl font-black mt-2" }, "No existe una sola noche carioca"),
-                    React.createElement("p", { className:"text-sm leading-relaxed mt-3" }, "Lapa suele sentirse más intensa y callejera; Botafogo mezcla bares y público local; Ipanema y Leblon permiten una noche más gastronómica; Urca funciona para comenzar temprano; Zona Norte es fundamental para samba, pagode y cultura; Barra tiene distancias mayores y una noche más dependiente del transporte.")),
-                React.createElement("article", { className:"rounded-3xl bg-slate-900 border border-slate-800 p-6" },
-                    React.createElement("span", { className:"text-[10px] font-black uppercase tracking-widest text-fuchsia-300" }, "Antes de salir"),
-                    React.createElement("h2", { className:"text-2xl font-black mt-2" }, "Agenda, entrada y consumo"),
-                    React.createElement("p", { className:"text-sm text-slate-300 leading-relaxed mt-3" }, "Confirma si hay entrada, couvert artístico, consumición mínima, lista, reserva o venta anticipada. Una casa puede cambiar completamente de estilo según el evento de esa noche; no elijas solamente por el nombre del local.")),
-                React.createElement("article", { className:"rounded-3xl bg-slate-900 border border-slate-800 p-6" },
-                    React.createElement("span", { className:"text-[10px] font-black uppercase tracking-widest text-fuchsia-300" }, "Regreso"),
-                    React.createElement("h2", { className:"text-2xl font-black mt-2" }, "Piensa la vuelta antes de la primera bebida"),
-                    React.createElement("p", { className:"text-sm text-slate-300 leading-relaxed mt-3" }, "Guarda batería, internet y dirección del alojamiento. Si vuelves en aplicación o taxi, pide el vehículo desde un punto iluminado y con movimiento, comprueba matrícula y conductor y evita quedarte esperando solo en una calle vacía."))),
             React.createElement("div", { className: "bg-white text-slate-900 rounded-3xl p-5 sm:p-7  space-y-4" },
                 React.createElement("div", null,
                     React.createElement("span", { className: "text-[10px] uppercase font-black text-slate-500" }, "D\u00EDa"),
@@ -6402,13 +6380,7 @@ function VidaNocturnaCompleta({ onVolver }) {
                     React.createElement("a", { href: x.mapa, target: "_blank", rel: "noopener noreferrer", className: "block mt-5 text-center bg-white hover:bg-fuchsia-500 hover:text-white text-slate-950 rounded-xl py-3 text-xs font-black uppercase" }, "Mapa y agenda"))))),
             React.createElement("div", { className: "mt-12 bg-fuchsia-950/60 border border-fuchsia-800 rounded-3xl p-7" },
                 React.createElement("h2", { className: "text-xl font-black" }, "Antes de salir"),
-                React.createElement("p", { className: "text-sm text-fuchsia-100 mt-2 leading-relaxed" }, "Los días indicados son orientativos. Confirma la agenda oficial, entrada, edad mínima, horario, política de reserva y forma de pago. Si hay música en vivo, pregunta si existe couvert artístico; en fiestas, revisa si la entrada cambia por lote u horario."),
-                React.createElement("div", { className:"grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mt-5" }, [
-                    ['📱','Batería e internet','Sal con batería suficiente y conserva internet para pedir transporte y consultar el mapa.'],
-                    ['🚗','Regreso organizado','De madrugada, evita improvisar trayectos largos a pie. Pide transporte desde un lugar con movimiento.'],
-                    ['💳','Pago','Lleva más de un medio de pago y comprueba el valor antes de acercar la tarjeta o confirmar Pix.'],
-                    ['🪪','Documento','Algunos eventos y locales pueden solicitar identificación o aplicar restricciones de edad.']
-                ].map(x=>React.createElement("div",{key:x[1],className:"rounded-2xl bg-black/25 border border-fuchsia-700/50 p-4"},React.createElement("div",{className:"text-xl"},x[0]),React.createElement("h3",{className:"font-black mt-2"},x[1]),React.createElement("p",{className:"text-xs text-fuchsia-100/80 mt-1 leading-relaxed"},x[2])))))));
+                React.createElement("p", { className: "text-sm text-fuchsia-100 mt-2" }, "Los d\u00EDas indicados son orientativos. Confirma la agenda oficial, entrada, edad m\u00EDnima y horario. Para regresar de madrugada, solicita el transporte desde dentro del establecimiento y verifica matr\u00EDcula y conductor antes de subir."))));
 }
 function GuiaPix({ onVolver }) {
     const pasos = [
@@ -7556,7 +7528,7 @@ function GuiaTransportePublico({ onVolver, onMetro, modo, setModo }) {
     return React.createElement("section", { className: "min-h-screen bg-slate-50 pb-20" },
         React.createElement("div", { className: "bg-slate-950 text-white" },
             React.createElement("div", { className: "max-w-7xl mx-auto px-4 py-14" },
-                React.createElement("button", { onClick: onVolver, className: "text-white/70 font-bold" }, "← Volver a Guía de Río"),
+                React.createElement("button", { onClick: onVolver, className: "text-white/70 font-bold" }, T("← Volver a Guía de Río")),
                 React.createElement("span", { className: "block text-amber-400 text-xs font-black uppercase tracking-widest mt-9" }, "Moverse sin perderse"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "TRANSPORTE EN R\u00CDO"),
                 React.createElement("p", { className: "max-w-3xl text-slate-300 mt-4" }, "Elige el sistema seg\u00FAn tu destino, horario, equipaje y cantidad de personas. Las tarifas pueden cambiar: comprueba siempre el canal oficial."))),
@@ -13340,7 +13312,7 @@ function Master4RemainingContent({ go }) {
     const switchSection = k => { setSection(k); setDataset(Object.keys(groups[k].sets)[0]); setQ(''); };
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83E\uDDE9 COBERTURA MASTER 3 \u2192 4.0"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Todo lo dem\u00E1s tambi\u00E9n entra."),
@@ -13396,7 +13368,7 @@ function Master4FinalReadiness({ go }) {
     ];
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-6xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83C\uDFC1 CANDIDATO FINAL LOCAL"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "La migraci\u00F3n grande est\u00E1 hecha."),
@@ -13421,7 +13393,7 @@ function Master4TrustCenter({ go }) {
     gates.forEach(x => (x.issues || []).forEach(i => issueCount[i] = (issueCount[i] || 0) + 1));
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-5xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83D\uDEE1\uFE0F CONFIANZA Y DATOS DIN\u00C1MICOS"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "La gu\u00EDa tambi\u00E9n sabe cu\u00E1ndo no afirmar algo."),
@@ -13483,7 +13455,7 @@ function Master4CoverageDashboard({ go }) {
     ];
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-5xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83D\uDCCA COBERTURA DEL PROYECTO"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Qu\u00E9 est\u00E1 conectado y qu\u00E9 sigue pendiente."),
@@ -13538,7 +13510,7 @@ function Master4Planner({ go }) {
     const plans = chosen.map((z, i) => ({ day: i + 1, zone: z.z, items: z.arr.slice(0, perDay) }));
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83D\uDDD3\uFE0F PLANIFICADOR POR ZONAS"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Menos cruzar R\u00EDo. M\u00E1s vivirlo."),
@@ -13604,7 +13576,7 @@ function Master4RouteAudit({ go }) {
     ];
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-5xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83D\uDD0E CONTROL DE MIGRACI\u00D3N"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Qu\u00E9 ya es 4.0 y qu\u00E9 todav\u00EDa falta."),
@@ -13628,7 +13600,7 @@ function Master4PrepareTrip({ go }) {
     ];
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24 overflow-x-hidden" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\u2708\uFE0F PREPARO MI VIAJE"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Llega a R\u00EDo con lo importante resuelto."),
@@ -14384,7 +14356,7 @@ function Master4SmartRioV3({ go }) {
     const foodOnly = ctx.intents.some(x => ['coffee', 'breakfast', 'food', 'sushi', 'sandwich', 'chilean'].includes(x)) && !ctx.intents.some(x => ['walk', 'shopping', 'family', 'nature', 'beach'].includes(x));
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\u2728 \u00BFQU\u00C9 HAGO HOY? \u00B7 AQU\u00CD \u00B7 AHORA V3"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Dime qu\u00E9 quieres hacer. Yo cruzo la intenci\u00F3n con R\u00EDo."),
@@ -15747,7 +15719,7 @@ function Master4SmartRioLegacy({ go }) {
     const image = p => { var _a, _b; return ((_a = p.media) === null || _a === void 0 ? void 0 : _a.thumbnail) || ((_b = p.media) === null || _b === void 0 ? void 0 : _b.mainPhoto) || ''; };
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10 overflow-hidden" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\u2728 \u00BFQU\u00C9 HAGO HOY?"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "AQU\u00CD \u00B7 AHORA"),
@@ -15896,7 +15868,7 @@ function Master4MyRio({ go }) {
     catch (e) { } };
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-5xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-rose-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-rose-200" }, "\u2764\uFE0F MI R\u00CDO"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Tu colecci\u00F3n, sin cuenta."),
@@ -16017,7 +15989,7 @@ function Master4SpecialGuides({ go }) {
     const text = x => typeof x === 'string' ? '' : val(x, ['descripcion', 'description', 'texto', 'detalle', 'contenido', 'respuesta', 'subtitulo']);
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\uD83D\uDCDA GU\u00CDAS ESPECIALES"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Gu\u00EDas especiales para entender R\u00EDo mejor."),
@@ -16314,7 +16286,7 @@ function Master4SituationEngine({ go }) {
     const r = recommendation();
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" }, "\u2764\uFE0F R\u00CDO PARA M\u00CD"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Dime c\u00F3mo est\u00E1s viajando. Yo te ayudo a ordenar R\u00EDo."),
@@ -16351,7 +16323,7 @@ function Master4SOS({ go }) {
     };
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-red-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-red-200" }, "\uD83C\uDD98 ERNESTINHO SOS"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Algo sali\u00F3 mal. Busca primero la situaci\u00F3n."),
@@ -16876,7 +16848,7 @@ function Master4LifePage({ kind, go }) {
         return null;
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10" },
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300" },
                     c.icon,
@@ -17054,7 +17026,7 @@ function Master4DiscoverRio({ go }) {
     ];
     return React.createElement("div", { className: "bg-[#f7f7f4] min-h-screen pb-24" },
         React.createElement("section", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
-            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, "← INICIO"),
+            React.createElement("button", { onClick: () => go('inicio'), className: "text-xs font-black" }, T("← INICIO")),
             React.createElement("div", { className: "mt-5 rounded-[2rem] bg-slate-950 text-white p-7 sm:p-10 overflow-hidden relative" },
                 React.createElement("div", { className: "absolute -right-12 -top-12 w-52 h-52 bg-emerald-400/20 rounded-full blur-2xl" }),
                 React.createElement("span", { className: "text-[10px] font-black text-amber-300 tracking-widest" }, "\uD83C\uDF34 DESCUBRE R\u00CDO"),
@@ -17745,21 +17717,51 @@ function Master4Home({ go, onReserve, lang = 'es' }) {
     // V31.47 · PORTADA SIMPLE — catálogo principal visible sin depender del menú de 3 puntos.
     // Es una prueba reversible: no elimina ningún módulo ni cambia sus datos.
     const exploreCards = [
-        { route:'guia', icon:'✓', es:['Guía para mi viaje','Todo antes y durante tu viaje'], pt:['Guia para minha viagem','Tudo antes e durante a viagem'], en:['Trip guide','Everything before and during your trip'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_1.png' },
-        { route:'transportes', icon:'→', es:['Transportes','Muévete por la ciudad'], pt:['Transportes','Mova-se pela cidade'], en:['Transport','Get around the city'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_2.png' },
-        { route:'hospedaje', icon:'⌂', es:['Hospedaje','Tu lugar para quedarte en Río'], pt:['Hospedagem','Seu lugar para ficar no Rio'], en:['Accommodation','Your place to stay in Rio'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_3.png' },
-        { route:'fotografia', icon:'◉', es:['Fotografía','Los mejores lugares y horarios'], pt:['Fotografia','Os melhores lugares e horários'], en:['Photography','The best places and times'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_4.png' },
-        { route:'compras', icon:'▣', es:['Compras','Shoppings, ferias y mercados'], pt:['Compras','Shoppings, feiras e mercados'], en:['Shopping','Malls, fairs and markets'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_5.png' },
-        { route:'barrios', icon:'⌖', es:['Barrios','Descubre Río zona por zona'], pt:['Bairros','Descubra o Rio região por região'], en:['Neighborhoods','Discover Rio area by area'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_6.png' },
-        { route:'grandes_eventos', icon:'♪', es:['Eventos','Carnaval, conciertos y agenda'], pt:['Eventos','Carnaval, shows e agenda'], en:['Events','Carnival, concerts and calendar'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_7.png' },
-        { route:'master4_experiencias', icon:'✦', es:['Experiencias','Tours y actividades'], pt:['Experiências','Passeios e atividades'], en:['Experiences','Tours and activities'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_8.png' },
-        { route:'master4_playas', icon:'☀', es:['Playas','Sol, mar y naturaleza'], pt:['Praias','Sol, mar e natureza'], en:['Beaches','Sun, sea and nature'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_9.png' },
-        { route:'nocturna', icon:'♫', es:['Vida nocturna','Samba, bares y noches cariocas'], pt:['Vida noturna','Samba, bares e noites cariocas'], en:['Nightlife','Samba, bars and Rio nights'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_10.png' },
-        { route:'gastronomia', icon:'●', es:['Gastronomía','Dónde comer en Río'], pt:['Gastronomia','Onde comer no Rio'], en:['Food & dining','Where to eat in Rio'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_11.png' },
-        { route:'atracciones', icon:'★', es:['Atracciones','Museos, cultura e historia'], pt:['Atrações','Museus, cultura e história'], en:['Attractions','Museums, culture and history'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_12.png' },
-        { route:'familia', icon:'♥', es:['Familia','Planes para todas las edades'], pt:['Família','Programas para todas as idades'], en:['Family','Plans for every age'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_13.png' },
-        { route:'cafe', icon:'☕', es:['Café Rio','Cafés y desayunos'], pt:['Café Rio','Cafés e cafés da manhã'], en:['Rio Coffee','Coffee and breakfast'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_14.png' },
-        { route:'consejos', icon:'★', es:['Consejos','Tips reales para entender y disfrutar Río'], pt:['Dicas','Dicas reais para entender e aproveitar o Rio'], en:['Tips','Practical tips to understand and enjoy Rio'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789954657/portada_home_nuevo_consejo.png' }
+        { route:'atracciones', icon:'★',
+          es:['Atracciones','Museos, cultura e historia'], pt:['Atrações','Museus, cultura e história'], en:['Attractions','Museums, culture and history'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_1.png' },
+        { route:'master4_gastronomia', icon:'●',
+          es:['Gastronomía','Dónde comer en Río'], pt:['Gastronomia','Onde comer no Rio'], en:['Food & dining','Where to eat in Rio'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_2.png' },
+        { route:'master4_playas', icon:'☀',
+          es:['Playas','Sol, mar y naturaleza'], pt:['Praias','Sol, mar e natureza'], en:['Beaches','Sun, sea and nature'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_3.png' },
+        { route:'familia', icon:'♥',
+          es:['Familia','Planes para todas las edades'], pt:['Família','Programas para todas as idades'], en:['Family','Plans for every age'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_4.png' },
+        { route:'naturaleza', icon:'⌁',
+          es:['Naturaleza & Trilhas','Montañas, bosque y senderos'], pt:['Natureza & Trilhas','Montanhas, floresta e trilhas'], en:['Nature & Trails','Mountains, forest and trails'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_5.png' },
+        { route:'master4_experiencias', icon:'✦',
+          es:['Experiencias','Tours y actividades'], pt:['Experiências','Passeios e atividades'], en:['Experiences','Tours and activities'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_6.png' },
+        { route:'grandes_eventos', icon:'♪',
+          es:['Eventos','Carnaval, conciertos y agenda'], pt:['Eventos','Carnaval, shows e agenda'], en:['Events','Carnival, concerts and calendar'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_7.png' },
+        { route:'nocturna', icon:'♫',
+          es:['Vida nocturna','Samba, bares y noches cariocas'], pt:['Vida noturna','Samba, bares e noites cariocas'], en:['Nightlife','Samba, bars and Rio nights'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_8.png' },
+        { route:'barrios', icon:'⌖',
+          es:['Barrios','Descubre Río zona por zona'], pt:['Bairros','Descubra o Rio região por região'], en:['Neighborhoods','Discover Rio area by area'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_9.png' },
+        { route:'compras', icon:'▣',
+          es:['Compras','Shoppings, ferias y mercados'], pt:['Compras','Shoppings, feiras e mercados'], en:['Shopping','Malls, fairs and markets'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_10.png' },
+        { route:'hospedaje', icon:'⌂',
+          es:['Hospedaje','Tu lugar para quedarte en Río'], pt:['Hospedagem','Seu lugar para ficar no Rio'], en:['Accommodation','Your place to stay in Rio'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_11.png' },
+        { route:'fotografia', icon:'◉',
+          es:['Fotografía','Los mejores lugares y horarios'], pt:['Fotografia','Os melhores lugares e horários'], en:['Photography','The best places and times'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_12.png' },
+        { route:'master4_transportes', icon:'→',
+          es:['Transportes','Muévete por la ciudad'], pt:['Transportes','Mova-se pela cidade'], en:['Transport','Get around the city'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_13.png' },
+        { route:'guia', icon:'✓',
+          es:['Guía para mi viaje','Todo antes y durante tu viaje'], pt:['Guia para minha viagem','Tudo antes e durante a viagem'], en:['Trip guide','Everything before and during your trip'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_14.png' },
+        { route:'consejos', icon:'★',
+          es:['Consejos','Tips reales para entender y disfrutar Río'], pt:['Dicas','Dicas reais para entender e aproveitar o Rio'], en:['Tips','Practical tips to understand and enjoy Rio'],
+          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789954657/portada_home_nuevo_consejo.png' }
     ].map(c => {
         const copy = c[lang] || c.es;
         return {...c, title:copy[0], sub:copy[1]};
@@ -17793,16 +17795,16 @@ function Master4Home({ go, onReserve, lang = 'es' }) {
         React.createElement("section", { className: "relative overflow-hidden bg-black text-white min-h-[1180px] sm:min-h-[1380px] md:min-h-[820px] lg:min-h-[720px]" },
             React.createElement("img", { src: "https://res.cloudinary.com/qa301cbc/image/upload/v1789747716/ChatGPT_Image_18_sept_2026_01_07_48_p.m..png", alt: "Ernestinho Carioca mirando Río de Janeiro", loading: "eager", fetchPriority: "high", decoding: "async", className: "absolute md:hidden inset-x-0 top-0 h-auto w-full" }),
             React.createElement("img", { src: "https://res.cloudinary.com/qa301cbc/image/upload/v1789747716/ChatGPT_Image_18_sept_2026_01_07_35_p.m..png", alt: "Ernestinho Carioca mirando Río de Janeiro", loading: "eager", fetchPriority: "high", decoding: "async", className: "absolute hidden md:block left-1/2 top-0 h-auto w-full max-w-[1672px] -translate-x-1/2" }),
-            React.createElement("div", { className: "absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-transparent" }),
-            React.createElement("div", { className: "absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" }),
+            React.createElement("div", { className: "absolute inset-0 bg-gradient-to-r from-black/75 via-black/35 to-transparent" }),
+            React.createElement("div", { className: "absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" }),
             React.createElement("div", { className: "relative z-10 max-w-7xl mx-auto px-5 sm:px-8 pt-10 sm:pt-20 lg:pt-16 pb-8" },
                 React.createElement("div", { className: "max-w-xl lg:max-w-[560px]" },
                     React.createElement("span", { className: "inline-flex rounded-full border border-amber-300/35 bg-black/45 px-3 py-2 text-[10px] sm:text-xs font-black tracking-[.15em] backdrop-blur-sm" }, H.badge),
-                    React.createElement("h1", { className: "ec-home-hero-title mt-4 max-w-[52%] md:max-w-xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[.9] ", style:{textShadow:"0 2px 5px rgba(0,0,0,.48)"} },
+                    React.createElement("h1", { className: "ec-home-hero-title mt-4 max-w-[52%] md:max-w-xl text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[.9] ", style:{textShadow:"0 2px 2px rgba(0,0,0,.95),0 5px 16px rgba(0,0,0,.72),1px 0 0 rgba(0,0,0,.65),-1px 0 0 rgba(0,0,0,.65),0 1px 0 rgba(0,0,0,.65),0 -1px 0 rgba(0,0,0,.65)"} },
                         H.h1a,
                         React.createElement("br", null),
                         React.createElement("span", { className: "text-amber-300" }, H.h1b)),
-                    React.createElement("p", { className: "ec-home-hero-intro mt-5 max-w-[52%] md:max-w-lg text-sm sm:text-base md:text-xl text-white leading-relaxed font-semibold ", style:{textShadow:"0 2px 5px rgba(0,0,0,.42)"} }, H.intro),
+                    React.createElement("p", { className: "ec-home-hero-intro mt-5 max-w-[52%] md:max-w-lg text-sm sm:text-base md:text-xl text-white leading-relaxed font-semibold ", style:{textShadow:"0 2px 8px rgba(0,0,0,.95)"} }, H.intro),
                     React.createElement("div", { className: "mt-[180px] sm:mt-[420px] md:mt-6 max-w-2xl" },
                         React.createElement(Master4HomeSearch, { go: go, lang: lang, placeholder: H.search }))),
                 React.createElement("div", { className: "mt-7 grid grid-cols-1 lg:grid-cols-4 gap-3 sm:gap-4" },
@@ -18050,7 +18052,7 @@ function GrandesEventosPage({ onBack }) {
                     React.createElement("button", { onClick: () => setSeleccionado(e), className: "relative aspect-[4/3] overflow-hidden text-left" },
                         e.miniatura ? React.createElement("img", { src: e.miniatura, alt: `${e.nombre} en Río de Janeiro`, className: "w-full h-full object-cover group-hover:scale-105 transition duration-500" }) : React.createElement("div", { className: "w-full h-full bg-gradient-to-br from-red-800 via-emerald-900 to-slate-950 flex items-center justify-center" },
                             React.createElement("span", { className: "text-7xl" }, e.icon)),
-                        React.createElement("div", { className: "absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" }),
+                        React.createElement("div", { className: "absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" }),
                         React.createElement("span", { className: "absolute top-4 left-4 bg-white/95 text-slate-950 rounded-full px-3 py-1 text-xs font-black" }, e.estado),
                         React.createElement("h2", { className: "absolute bottom-5 left-5 right-5 text-2xl font-black text-white" },
                             e.icon,
@@ -18383,7 +18385,7 @@ function seoResolveRoute(pathname) {
     if (ruta === '/')
         return result;
     if (ruta === '/recorrido-centro' || ruta === '/quiero' || ruta === '/ruta-centro')
-        return { ...result, seccion: 'recorridos_ernestinho' };
+        return { ...result, seccion: 'consejos', consejoId: 'caminando' };
     let m = ruta.match(/^\/museos\/([^/]+)$/);
     if (m) {
         const museo = MUSEOS_DATA.find(x => seoSlug(x.nombre) === m[1]);
@@ -18554,7 +18556,7 @@ function seoSetSchema(meta, path) {
 }
 
 function seoSetMeta(meta) {
-    const { title, description, path, indexable = true, image } = meta;
+    const { title, description, path, indexable = true, image } = meta || {};
     const site = 'https://www.ernestinhocarioca.com.br';
     const canonicalUrl = site + (path || '/');
     document.title = title || 'Ernestinho Carioca | Guía completa de Río de Janeiro';
@@ -18781,25 +18783,7 @@ function GastronomiaAfinada({ onVolver, initialSel = null }) {
             shown.length === 0 && React.createElement('div', { className: 'max-w-3xl mx-auto px-4 text-center py-14' }, React.createElement('h2', { className: 'text-2xl font-black' }, 'No encontramos coincidencias'), React.createElement('p', { className: 'text-slate-400 mt-2' }, 'Prueba otra palabra o limpia la búsqueda.')))
             : React.createElement('div', { className: 'max-w-5xl mx-auto px-4 sm:px-6 py-8' },
                 React.createElement('button', { onClick: () => { seoNavigate('/gastronomia'); setSel(null); }, className: 'mb-5 rounded-full bg-amber-400 text-slate-950 px-5 py-3 font-black' }, '← Volver a Gastronomía'),
-                React.createElement('div', { onClick: (ev) => {
-                    const el = ev.target && ev.target.closest ? ev.target.closest('a,button') : null;
-                    if (!el) return;
-                    const href = (el.getAttribute('href') || '').trim().toLowerCase();
-                    const txt = (el.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
-                    const isGastroBack = href === 'index.html' || href === './index.html' || href === '/gastronomia' || href === '#' ||
-                        txt.includes('volver a gastronom') || txt.includes('regresar a gastronom') ||
-                        txt.includes('volver a la vista anterior') || txt.includes('voltar à gastronom') ||
-                        txt.includes('voltar a gastronom') || txt.includes('voltar para gastronom') ||
-                        txt.includes('voltar à vista anterior') || txt.includes('back to gastronomy') ||
-                        txt.includes('back to previous view');
-                    if (isGastroBack) {
-                        ev.preventDefault();
-                        ev.stopPropagation();
-                        seoNavigate('/gastronomia');
-                        setSel(null);
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                }, dangerouslySetInnerHTML: { __html: GASTRONOMIA_NUEVAS_HTML[sel] } })));
+                React.createElement('div', { onClick: (ev) => { const a = ev.target && ev.target.closest ? ev.target.closest('a[href="index.html"], a[href="./index.html"]') : null; if (a) { ev.preventDefault(); setSel(null); window.scrollTo({ top: 0, behavior: 'smooth' }); } }, dangerouslySetInnerHTML: { __html: GASTRONOMIA_NUEVAS_HTML[sel] } })));
 }
 function cafeRioWhatsApp(producto, precio, idioma = 'es', coleccion = false) {
     const nombres = {
@@ -18879,10 +18863,6 @@ function AppErnestinho(){
     const setSeccionActual = (destino) => {
         if (typeof destino !== 'string')
             return;
-        // 2026-09-21: los accesos antiguos Master4 de Gastronomía y Transportes
-        // deben abrir los módulos canónicos usados por el menú principal.
-        if (destino === 'master4_gastronomia') destino = 'gastronomia';
-        if (destino === 'master4_transportes') destino = 'transportes';
         if (destino === seccionActual) {
             if (destino === 'guia' && temaGuia)
                 setTemaGuia(null);
@@ -19752,8 +19732,13 @@ function AppErnestinho(){
         return () => window.cancelAnimationFrame(siguienteCuadro);
     }, [seccionActual, articuloSeleccionado, temaGuia, consejoSeleccionado, modoTransportePublico, restauranteSeleccionado, modalReservaOpen]);
     const abrirReserva = (exp) => {
-        setExpParaReservar(exp);
-        setModalReservaOpen(true);
+        const titulo = typeof exp === 'string' ? exp : ((exp && exp.titulo) || 'una experiencia en Río');
+        const msg = lang === 'pt'
+            ? `Olá, Ernestinho! Quero consultar/reservar: ${titulo}. Data: ____ Pessoas: ____`
+            : lang === 'en'
+                ? `Hi Ernestinho! I want to ask about/book: ${titulo}. Date: ____ People: ____`
+                : `Hola Ernestinho, quiero consultar/reservar: ${titulo}. Fecha: ____ Personas: ____`;
+        window.open(`https://wa.me/5521969946938?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
     };
     const verArticulo = (art) => {
         if (!art) return;
@@ -19810,17 +19795,13 @@ function AppErnestinho(){
                             React.createElement("span", { className: "text-amber-300" }, "Carioca")),
                         React.createElement("span", { className: "hidden sm:block text-[10px] sm:text-xs text-lime-400 font-semibold tracking-wider italic mt-0.5" }, ui.tagline))),
                 React.createElement("nav", { className: "hidden xl:flex items-center gap-1 text-sm font-semibold text-white/75" }, [
-                    { id: 'copa_para_mi', label: '❤️ Para mí' },
                     { id: 'guia', label: 'Guía de Río' },
-                    { id: 'rio_mes_a_mes', label: 'Mes a mes' },
                     { id: 'master4_experiencias', label: 'Experiencias' },
                     { id: 'grandes_eventos', label: 'Eventos' },
                     { id: 'transportes', label: 'Transportes' },
                     { id: 'que_hacer', label: 'Qué Hacer' },
-                    { id: 'consejos', label: 'Consejos' },
                     { id: 'playas', label: 'Playas' },
                     { id: 'compras', label: 'Compras' },
-                    { id: 'barrios', label: 'Barrios' },
                     { id: 'hospedaje', label: 'Hospedaje' },
                     { id: 'cafe', label: 'Café Rio' },
                 ].map((item) => (React.createElement("button", { key: item.id, onClick: () => { setSeccionActual(item.id); setArticuloSeleccionado(null); }, className: `px-3 py-2 rounded-full transition-all ${seccionActual === item.id
@@ -19865,16 +19846,13 @@ function AppErnestinho(){
                             React.createElement("span", null, label))))))),
             menuAbierto && (React.createElement("div", { className: "xl:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-1  animate-fadeIn" }, [
                 { id: 'inicio', label: 'INICIO', icon: 'sun' },
-                { id: 'copa_para_mi', label: '❤️ PARA MÍ', icon: 'heart' },
                 { id: 'guia', label: 'GUÍA DE RÍO', icon: 'compass' },
                 { id: 'master4_experiencias', label: 'EXPERIENCIAS', icon: 'star' },
                 { id: 'grandes_eventos', label: 'GRANDES EVENTOS', icon: 'calendar-days' },
                 { id: 'transportes', label: 'TRANSPORTES', icon: 'bus' },
                 { id: 'que_hacer', label: 'QUÉ HACER', icon: 'map-pin' },
-                { id: 'consejos', label: 'CONSEJOS', icon: 'lightbulb' },
                 { id: 'playas', label: 'PLAYAS', icon: 'anchor' },
                 { id: 'compras', label: 'COMPRAS', icon: 'shopping-bag' },
-                { id: 'barrios', label: 'BARRIOS', icon: 'navigation' },
                 { id: 'hospedaje', label: 'HOSPEDAJE', icon: 'heart' },
                 { id: 'cafe', label: 'CAFÉ RIO', icon: 'coffee' },
             ].map((item) => (React.createElement("button", { key: item.id, onClick: () => {
