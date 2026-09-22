@@ -1,15 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/quiero",
-      "destination": "/quiero/index.html"
-    },
-    {
-      "source": "/quiero/",
-      "destination": "/quiero/index.html"
-    },
-    {
-      "source": "/((?!assets/|quiero(?:/|$)|sitemap\\.xml$|robots\\.txt$).*)",
+      "source": "/((?!assets/|sitemap\\.xml$|robots\\.txt$|google9b0defc9c5a5ee7e\\.html$).*)",
       "destination": "/index.html"
     }
   ]
