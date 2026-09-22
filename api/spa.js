@@ -170,7 +170,7 @@ function applySeo(html, seo, pathname) {
   out = out.replace(/<link\s+[^>]*rel=["']canonical["'][^>]*>/ig, '');
   out = out.replace(/<meta\s+[^>]*name=["']description["'][^>]*>/ig, '');
   out = out.replace(/<meta\s+[^>]*name=["']robots["'][^>]*>/ig, '');
-  out = out.replace(/<meta\s+[^>]*property=["']og:(?:title|description|url|image)["'][^>]*>/ig, '');
+  out = out.replace(/<meta\s+[^>]*property=["']og:(?:type|site_name|locale|title|description|url|image(?::(?:width|height|alt))?)["'][^>]*>/ig, '');
   out = out.replace(/<meta\s+[^>]*name=["']twitter:(?:card|title|description|image)["'][^>]*>/ig, '');
   out = out.replace(/<script\s+[^>]*id=["']ec-route-schema["'][^>]*>[\s\S]*?<\/script>/ig, '');
   const tags = `
@@ -189,10 +189,7 @@ function applySeo(html, seo, pathname) {
 <meta name="twitter:description" content="${escapeAttr(seo.description)}">
 <meta name="twitter:image" content="${escapeAttr(seo.image)}">\n<meta name="twitter:image:alt" content="${escapeAttr(seo.title)}">
 <script type="application/ld+json" id="ec-route-schema">${schemaFor(pathname,seo)}</script>${analyticsTags()}`;
-  const fallbackStyle = '<style id="ec-seo-fallback-style">.ec-seo-fallback{padding:16px;max-width:1200px;margin:0 auto;font-family:system-ui,sans-serif}.ec-seo-fallback h1{font-size:1.5rem}.ec-seo-fallback nav{display:flex;gap:12px;flex-wrap:wrap}@media (scripting:enabled){.ec-seo-fallback{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}}</style>';
-  out = out.replace(/<\/head>/i, `${tags}\n${fallbackStyle}\n</head>`);
-  const fallback = seoFallbackContent(pathname, seo);
-  if (fallback) out = out.replace(/<body([^>]*)>/i, `<body$1>${fallback}`);
+  out = out.replace(/<\/head>/i, `${tags}\n</head>`);
   return out;
 }
 
