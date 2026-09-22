@@ -8,7 +8,7 @@
     /* Header final: quitar únicamente los accesos pedidos. */
     header.querySelectorAll('nav button, nav a, button, a').forEach(el=>{
       const t=norm(el.textContent);
-      if(t==='eventos'||t==='grandes eventos'||t==='playas') el.remove();
+      if(['para mi','❤️ para mi','mes a mes','consejos','barrios','eventos','grandes eventos','playas'].includes(t)) el.remove();
     });
 
     /* Mantener un único selector de idioma y hacerlo visible sin romper el header. */
