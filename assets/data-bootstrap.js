@@ -5,7 +5,7 @@ window.__ecLanguagePayloadPromise=null;
 window.__ecEnsureLanguagePayloads=function(){
  if(window.__EC_ALL_LANGUAGE_PAYLOADS_LOADED__)return Promise.resolve();
  if(window.__ecLanguagePayloadPromise)return window.__ecLanguagePayloadPromise;
- const files=['/assets/attr-translations.js?v=20260922','/assets/translations-app-payload.js?v=20260922','/assets/translations-app-payload-2.js?v=20260922','/assets/index-translations-extra.js?v=20260922-final','/assets/translations-heavy.js?v=20260922-lazy-v1'];
+ const files=['/assets/attr-translations.js?v=20260922','/assets/translations-app-payload.js?v=20260922','/assets/index-translations-extra.js?v=20260922-final'];
  window.__ecLanguagePayloadPromise=Promise.all(files.map(src=>new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.async=true;x.onload=ok;x.onerror=fail;document.head.appendChild(x)}))).then(()=>{window.__EC_ALL_LANGUAGE_PAYLOADS_LOADED__=true;});
  return window.__ecLanguagePayloadPromise;
 };
