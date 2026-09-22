@@ -221,6 +221,7 @@ function normalizePath(raw) {
   let pathname = raw || '/';
   try { pathname = decodeURIComponent(pathname); } catch (_) {}
   if (!pathname.startsWith('/')) pathname = '/' + pathname;
+  pathname = pathname.replace(/\/{2,}/g, '/');
   if (pathname.length > 1) pathname = pathname.replace(/\/$/, '');
   return pathname;
 }
