@@ -30,6 +30,30 @@
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
   <!-- Cargadores de dependencias para Systeme.io -->
+  
+<script id="ec-route-seo-v3183">
+(function(){
+  var base='https://www.ernestinhocarioca.com.br';
+  var path=(location.pathname||'/').replace(/\/$/,'')||'/';
+  if(path==='/') return;
+  var labels={gastronomia:'Gastronomía',museos:'Museos',guia:'Guía de Río',experiencias:'Experiencias',lugares:'Lugares',barrios:'Barrios',transportes:'Transportes',quiero:'Ruta Zona Portuaria y Centro'};
+  var parts=path.split('/').filter(Boolean), section=parts[0]||'', slug=parts[parts.length-1]||'';
+  function pretty(s){return decodeURIComponent(s||'').replace(/-/g,' ').replace(/\b\w/g,function(x){return x.toUpperCase()});}
+  var name=path==='/quiero'?'Ruta Zona Portuaria y Centro':pretty(slug);
+  var sec=labels[section]||pretty(section);
+  var title=(parts.length>1?name+' | '+sec:name)+' | Ernestinho Carioca';
+  var desc=path==='/quiero'?'Recorre por tu cuenta la Zona Portuaria y el Centro de Río de Janeiro con paradas, consejos y mapas de Ernestinho Carioca.':'Información de '+name+' en Río de Janeiro: datos prácticos, recomendaciones y guía de Ernestinho Carioca.';
+  document.title=title;
+  var md=document.querySelector('meta[name="description"]'); if(md) md.setAttribute('content',desc);
+  var can=document.querySelector('link[rel="canonical"]'); if(can) can.setAttribute('href',base+path);
+  var ogu=document.querySelector('meta[property="og:url"]'); if(ogu) ogu.setAttribute('content',base+path);
+  var ogt=document.querySelector('meta[property="og:title"]'); if(ogt) ogt.setAttribute('content',title);
+  var ogd=document.querySelector('meta[property="og:description"]'); if(ogd) ogd.setAttribute('content',desc);
+  var twt=document.querySelector('meta[name="twitter:title"]'); if(twt) twt.setAttribute('content',title);
+  var twd=document.querySelector('meta[name="twitter:description"]'); if(twd) twd.setAttribute('content',desc);
+})();
+</script>
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
