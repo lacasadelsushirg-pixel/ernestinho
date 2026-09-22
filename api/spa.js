@@ -83,6 +83,14 @@ function analyticsTags() {
   return `\n<!-- Google Analytics 4 -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>\n<script>\nwindow.dataLayer=window.dataLayer||[];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js',new Date());\ngtag('config','${GA_ID}',{send_page_view:true});\n(function(){\n  var last=location.pathname+location.search;\n  function track(){\n    var current=location.pathname+location.search;\n    if(current===last)return;\n    last=current;\n    gtag('event','page_view',{page_title:document.title,page_location:location.href,page_path:current});\n  }\n  var push=history.pushState;\n  history.pushState=function(){var r=push.apply(this,arguments);setTimeout(track,0);return r;};\n  var replace=history.replaceState;\n  history.replaceState=function(){var r=replace.apply(this,arguments);setTimeout(track,0);return r;};\n  addEventListener('popstate',function(){setTimeout(track,0);});\n})();\n</script>`;
 }
 
+function seoFallbackContent(pathname, seo) {
+  const parts = pathname.split('/').filter(Boolean);
+  if (!parts.length) return '';
+  const leaf = humanize(parts[parts.length - 1]);
+  const section = parts.length > 1 ? humanize(parts[0]) : '';
+  return `<main id="ec-seo-fallback" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><h1>${escapeAttr(leaf)}</h1><p>${escapeAttr(seo.description)}</p>${section ? `<p>${escapeAttr(section)} · Río de Janeiro</p>` : ''}<a href="${escapeAttr(SITE + '/')}">Guía de Río de Janeiro</a></main>`;
+}
+
 function schemaFor(pathname, seo) {
   const parts = pathname.split('/').filter(Boolean);
   const leaf = parts.length ? humanize(parts[parts.length - 1]) : 'Ernestinho Carioca';
@@ -149,7 +157,10 @@ function applySeo(html, seo, pathname) {
 <meta name="twitter:description" content="${escapeAttr(seo.description)}">
 <meta name="twitter:image" content="${escapeAttr(seo.image)}">
 <script type="application/ld+json" id="ec-route-schema">${schemaFor(pathname,seo)}</script>${analyticsTags()}`;
-  return out.replace(/<\/head>/i, `${tags}\n</head>`);
+  out = out.replace(/<\/head>/i, `${tags}\n</head>`);
+  const fallback = seoFallbackContent(pathname, seo);
+  if (fallback) out = out.replace(/<body([^>]*)>/i, `<body$1>${fallback}`);
+  return out;
 }
 
 function normalizePath(raw) {
