@@ -151,3 +151,34 @@
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scan,{once:true});else scan();
   const mo=new MutationObserver(scan);mo.observe(document.documentElement,{childList:true,subtree:true});setTimeout(()=>mo.disconnect(),20000);
 })();
+
+
+/* Menú de tres puntos · Chrome/Edge/mobile · 2026-09-22 */
+(function(){
+  function fix(){
+    document.querySelectorAll('button[aria-label="Abrir Menú"],button[aria-label="Abrir menu"],button[aria-label="Open menu"]').forEach(b=>{
+      b.classList.remove('xl:hidden','hidden');
+      b.style.display='inline-flex';
+      b.style.alignItems='center';
+      b.style.justifyContent='center';
+      b.style.flexShrink='0';
+      b.style.minWidth='44px';
+      b.style.minHeight='44px';
+      b.title='Más opciones';
+      const open=(b.getAttribute('aria-expanded')==='true');
+      if(!open && !b.dataset.ecDots){
+        b.innerHTML='<span aria-hidden="true" style="font-size:22px;font-weight:900;line-height:1;letter-spacing:2px">•••</span>';
+        b.dataset.ecDots='1';
+      }
+    });
+    document.querySelectorAll('header .xl\\:hidden').forEach(el=>{
+      if(el.querySelector && el.querySelector('button[aria-label="Abrir Menú"],button[aria-label="Abrir menu"],button[aria-label="Open menu"]')) return;
+      if(el.textContent && /INICIO|GUÍA DE RÍO|EXPERIENCIAS|TRANSPORTES|QUÉ HACER/i.test(el.textContent) && el.querySelector('button')){
+        el.classList.remove('xl:hidden');
+      }
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fix,{once:true});else fix();
+  const mo=new MutationObserver(fix);mo.observe(document.documentElement,{childList:true,subtree:true});
+  setTimeout(()=>{fix();mo.disconnect();},20000);
+})();
