@@ -47,6 +47,39 @@
   setTimeout(()=>{apply();mo.disconnect();},12000);
 })();
 
+/* QA global: WhatsApp + enlaces inseguros · 2026-09-22 */
+(function(){
+  const EC_WA='5521969946938';
+  function normalizeLinks(){
+    document.querySelectorAll('a[href]').forEach(a=>{
+      const raw=(a.getAttribute('href')||'').trim();
+      if(!raw) return;
+      if(/^javascript:/i.test(raw)){ a.removeAttribute('href'); return; }
+      if(/(?:wa\.me|api\.whatsapp\.com|whatsapp\.com\/send)/i.test(raw)){
+        try{
+          const u=new URL(raw,location.origin);
+          let digits='';
+          if(/wa\.me$/i.test(u.hostname)||/wa\.me/i.test(u.hostname)) digits=u.pathname.replace(/\D/g,'');
+          else digits=(u.searchParams.get('phone')||'').replace(/\D/g,'');
+          if(!digits || digits===EC_WA || /5521969946938$/.test(digits)){
+            const text=u.searchParams.get('text');
+            a.href='https://wa.me/'+EC_WA+(text?'?text='+encodeURIComponent(text):'');
+          }
+        }catch(_){}
+      }
+      if(a.target==='_blank'){
+        const rel=new Set((a.getAttribute('rel')||'').split(/\s+/).filter(Boolean));
+        rel.add('noopener'); rel.add('noreferrer');
+        a.setAttribute('rel',[...rel].join(' '));
+      }
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',normalizeLinks,{once:true}); else normalizeLinks();
+  const mo=new MutationObserver(()=>normalizeLinks());
+  mo.observe(document.documentElement,{subtree:true,childList:true});
+  setTimeout(()=>mo.disconnect(),15000);
+})();
+
 /* Ruta /quiero integrada en la SPA principal · 2026-09-22 */
 (function(){
   function route(){
