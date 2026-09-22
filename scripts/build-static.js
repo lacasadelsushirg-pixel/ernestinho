@@ -20,7 +20,7 @@ const MAIN_TITLES = {
   '/gastronomia': 'Gastronomía en Río de Janeiro | Ernestinho Carioca',
   '/experiencias': 'Experiencias en Río de Janeiro | Ernestinho Carioca',
   '/prepara-tu-viaje': 'Prepara tu viaje a Río de Janeiro | Ernestinho Carioca',
-  '/vida-nocturna': 'Vida nocturna en RÃ­o de Janeiro | Ernestinho Carioca'
+  '/vida-nocturna': 'Vida nocturna en Río de Janeiro | Ernestinho Carioca'
 };
 
 function escapeAttr(value) {
