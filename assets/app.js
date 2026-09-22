@@ -19732,13 +19732,8 @@ function AppErnestinho(){
         return () => window.cancelAnimationFrame(siguienteCuadro);
     }, [seccionActual, articuloSeleccionado, temaGuia, consejoSeleccionado, modoTransportePublico, restauranteSeleccionado, modalReservaOpen]);
     const abrirReserva = (exp) => {
-        const titulo = typeof exp === 'string' ? exp : ((exp && exp.titulo) || 'una experiencia en Río');
-        const msg = lang === 'pt'
-            ? `Olá, Ernestinho! Quero consultar/reservar: ${titulo}. Data: ____ Pessoas: ____`
-            : lang === 'en'
-                ? `Hi Ernestinho! I want to ask about/book: ${titulo}. Date: ____ People: ____`
-                : `Hola Ernestinho, quiero consultar/reservar: ${titulo}. Fecha: ____ Personas: ____`;
-        window.open(`https://wa.me/5521969946938?text=${encodeURIComponent(msg)}`, '_blank', 'noopener,noreferrer');
+        setExpParaReservar(exp);
+        setModalReservaOpen(true);
     };
     const verArticulo = (art) => {
         if (!art) return;
@@ -19795,16 +19790,20 @@ function AppErnestinho(){
                             React.createElement("span", { className: "text-amber-300" }, "Carioca")),
                         React.createElement("span", { className: "hidden sm:block text-[10px] sm:text-xs text-lime-400 font-semibold tracking-wider italic mt-0.5" }, ui.tagline))),
                 React.createElement("nav", { className: "hidden xl:flex items-center gap-1 text-sm font-semibold text-white/75" }, [
+                    { id: 'copa_para_mi', label: '❤️ Para mí' },
                     { id: 'guia', label: 'Guía de Río' },
+                    { id: 'rio_mes_a_mes', label: 'Mes a mes' },
                     { id: 'master4_experiencias', label: 'Experiencias' },
                     { id: 'grandes_eventos', label: 'Eventos' },
                     { id: 'transportes', label: 'Transportes' },
                     { id: 'que_hacer', label: 'Qué Hacer' },
+                    { id: 'consejos', label: 'Consejos' },
                     { id: 'playas', label: 'Playas' },
                     { id: 'compras', label: 'Compras' },
+                    { id: 'barrios', label: 'Barrios' },
                     { id: 'hospedaje', label: 'Hospedaje' },
                     { id: 'cafe', label: 'Café Rio' },
-                ].map((item) => (React.createElement("button", { key: item.id, onClick: () => { setSeccionActual(item.id); setArticuloSeleccionado(null); }, className: `px-3 py-2 rounded-full transition-all ${seccionActual === item.id
+                ].filter((item) => !['copa_para_mi','rio_mes_a_mes','consejos','barrios'].includes(item.id)).map((item) => (React.createElement("button", { key: item.id, onClick: () => { setSeccionActual(item.id); setArticuloSeleccionado(null); }, className: `px-3 py-2 rounded-full transition-all ${seccionActual === item.id
                         ? 'bg-teal-50 text-teal-700 font-bold'
                         : 'hover:bg-slate-100 text-slate-600'}` }, ui.nav[item.id] || item.label)))),
                 React.createElement("div", { className: "flex items-center gap-2 sm:gap-3" },
@@ -19846,16 +19845,19 @@ function AppErnestinho(){
                             React.createElement("span", null, label))))))),
             menuAbierto && (React.createElement("div", { className: "xl:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-1  animate-fadeIn" }, [
                 { id: 'inicio', label: 'INICIO', icon: 'sun' },
+                { id: 'copa_para_mi', label: '❤️ PARA MÍ', icon: 'heart' },
                 { id: 'guia', label: 'GUÍA DE RÍO', icon: 'compass' },
                 { id: 'master4_experiencias', label: 'EXPERIENCIAS', icon: 'star' },
                 { id: 'grandes_eventos', label: 'GRANDES EVENTOS', icon: 'calendar-days' },
                 { id: 'transportes', label: 'TRANSPORTES', icon: 'bus' },
                 { id: 'que_hacer', label: 'QUÉ HACER', icon: 'map-pin' },
+                { id: 'consejos', label: 'CONSEJOS', icon: 'lightbulb' },
                 { id: 'playas', label: 'PLAYAS', icon: 'anchor' },
                 { id: 'compras', label: 'COMPRAS', icon: 'shopping-bag' },
+                { id: 'barrios', label: 'BARRIOS', icon: 'navigation' },
                 { id: 'hospedaje', label: 'HOSPEDAJE', icon: 'heart' },
                 { id: 'cafe', label: 'CAFÉ RIO', icon: 'coffee' },
-            ].map((item) => (React.createElement("button", { key: item.id, onClick: () => {
+            ].filter((item) => !['copa_para_mi','rio_mes_a_mes','consejos','barrios'].includes(item.id)).map((item) => (React.createElement("button", { key: item.id, onClick: () => {
                     setSeccionActual(item.id);
                     setArticuloSeleccionado(null);
                     setMenuAbierto(false);
@@ -20462,7 +20464,7 @@ function AppErnestinho(){
                                         grupo: T('Consultar'),
                                         encuentro: T('Consultar')
                                     }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora")),
-                                React.createElement("a", { href: "TU_LINK_WHATSAPP", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
+                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho%2C%20quiero%20informaci%C3%B3n%20y%20reservar%20esta%20experiencia", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
             seccionActual === 'detalle_exp-4' && (React.createElement("section", { className: "py-12 sm:py-16 bg-slate-50" },
                 React.createElement("div", { className: "max-w-6xl mx-auto px-4 sm:px-6" },
                     React.createElement("button", { onClick: volverUnaVista, className: "inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors" }, T("\u2190 Volver a Experiencias")),
@@ -20550,7 +20552,7 @@ function AppErnestinho(){
                                         grupo: T('Consultar'),
                                         encuentro: 'Hoteles Zona Sul y Centro'
                                     }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora")),
-                                React.createElement("a", { href: "TU_LINK_WHATSAPP", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
+                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho%2C%20quiero%20informaci%C3%B3n%20y%20reservar%20esta%20experiencia", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
             seccionActual === 'detalle_exp-5' && (React.createElement("section", { className: "py-12 sm:py-16 bg-slate-50" },
                 React.createElement("div", { className: "max-w-6xl mx-auto px-4 sm:px-6" },
                     React.createElement("button", { onClick: volverUnaVista, className: "inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors" }, T("\u2190 Volver a Experiencias")),
@@ -20669,7 +20671,7 @@ function AppErnestinho(){
                                         grupo: T('Consultar'),
                                         encuentro: 'Hoteles Zona Sul y Centro'
                                     }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora")),
-                                React.createElement("a", { href: "TU_LINK_WHATSAPP", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
+                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho%2C%20quiero%20informaci%C3%B3n%20y%20reservar%20esta%20experiencia", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
             seccionActual === 'transportes' && (React.createElement("section", { className: "min-h-screen bg-white" },
                 React.createElement("div", { className: "relative h-[380px] overflow-hidden" },
                     React.createElement("img", { src: "https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3070", alt: "Transporte en R\u00EDo de Janeiro", className: "w-full h-full object-cover" }),
