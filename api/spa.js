@@ -252,6 +252,8 @@ module.exports = (req, res) => {
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.setHeader('Cache-Control', 'public, max-age=0, s-maxage=300, stale-while-revalidate=86400');
     res.setHeader('X-Ernestinho-Route', pathname);
+    res.setHeader('X-Robots-Tag', 'index, follow, max-image-preview:large');
+    res.setHeader('Link', '<' + seo.canonical + '>; rel="canonical"');
     return sendCompressedHtml(req, res, html);
   } catch (err) {
     console.error(err);
