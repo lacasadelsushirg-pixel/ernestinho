@@ -109,7 +109,26 @@ function seoFor(urlPath) {
     '/familia': 'Río de Janeiro con niños y familia: actividades, lugares y planes para disfrutar la ciudad con información práctica.',
     '/compras': 'Compras en Río de Janeiro: shoppings, ferias y mercados populares con información para elegir dónde comprar durante tu viaje.',
     '/naturaleza': 'Naturaleza en Río de Janeiro: parques, senderos, miradores y espacios al aire libre para descubrir el lado verde de la ciudad.',
-    '/sos': 'Ayuda y emergencias en Río de Janeiro: información práctica y contactos útiles para resolver situaciones durante tu viaje.'
+    '/sos': 'Ayuda y emergencias en Río de Janeiro: información práctica y contactos útiles para resolver situaciones durante tu viaje.',
+    '/atracciones': 'Atracciones de Río de Janeiro: lugares y experiencias para conocer la ciudad con información práctica para organizar tu visita.',
+    '/aventura': 'Aventura en Río de Janeiro: actividades al aire libre y experiencias para descubrir la ciudad desde otra perspectiva.',
+    '/cafe-ernestinho': 'Café Ernestinho: un espacio de la guía para descubrir recomendaciones, historias y experiencias de Río de Janeiro.',
+    '/centros-culturales': 'Centros culturales de Río de Janeiro: espacios de arte, historia y programación para sumar cultura a tu recorrido por la ciudad.',
+    '/consejos': 'Consejos para viajar a Río de Janeiro: información práctica para organizarte, evitar errores y disfrutar mejor la ciudad.',
+    '/descubre-rio': 'Descubre Río de Janeiro con lugares, barrios, cultura y experiencias para armar un recorrido según tu forma de viajar.',
+    '/espacios-literarios': 'Espacios literarios de Río de Janeiro: bibliotecas, cultura y lugares vinculados a los libros para descubrir en la ciudad.',
+    '/fotografia': 'Fotografía en Río de Janeiro: lugares, paisajes y experiencias para guardar imágenes especiales de tu viaje por la ciudad.',
+    '/fuertes-fortalezas': 'Fuertes y fortalezas de Río de Janeiro: historia, patrimonio, vistas e información práctica para organizar cada visita.',
+    '/hola-soy-ernestinho': 'Conoce a Ernestinho Carioca y la historia detrás de esta guía de Río de Janeiro creada desde la experiencia en la ciudad.',
+    '/iglesias': 'Iglesias de Río de Janeiro: arquitectura, historia, patrimonio y espacios religiosos para conocer durante tu recorrido.',
+    '/ocio': 'Planes de ocio en Río de Janeiro: ideas y lugares para disfrutar el tiempo libre y descubrir distintas caras de la ciudad.',
+    '/para-mi': 'Guarda y organiza tus lugares y planes favoritos de Río de Janeiro para tenerlos a mano durante tu viaje.',
+    '/patrimonio': 'Patrimonio de Río de Janeiro: lugares históricos, arquitectura y espacios culturales para entender mejor la historia de la ciudad.',
+    '/privacidad': 'Política de privacidad de Ernestinho Carioca e información sobre el tratamiento de datos al utilizar este sitio web.',
+    '/quiero': 'Recorrido por el centro y la zona portuaria de Río de Janeiro para hacerlo por tu cuenta, con paradas e información práctica.',
+    '/rio-en-vivo': 'Río de Janeiro en vivo: información y recursos para acompañar lo que ocurre en la ciudad y ayudarte a organizar tus planes.',
+    '/teatros': 'Teatros de Río de Janeiro: salas, cultura y espacios escénicos para descubrir la programación teatral de la ciudad.',
+    '/tv': 'TV Ernestinho: videos y contenidos para conocer Río de Janeiro, descubrir lugares y preparar mejor tu viaje.'
   };
   const description = hubDescriptions[clean] || sectionDescriptions[root] ||
     `Guía práctica de ${leaf} en Río de Janeiro: información, consejos y recomendaciones de Ernestinho Carioca para viajeros.`;
