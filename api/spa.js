@@ -152,10 +152,12 @@ function schemaFor(pathname, seo) {
     });
     graph.push({'@type':'BreadcrumbList','@id':seo.canonical+'#breadcrumb',itemListElement:items});
   }
-  if (parts[0] === 'gastronomia' && parts.length > 1) {
-    graph.push({'@type':'Restaurant','@id':seo.canonical+'#place',name:leaf,url:seo.canonical,image:seo.image});
-  } else if (['museos','lugares','barrios'].includes(parts[0]) && parts.length > 1) {
+  if (parts[0] === 'museos' && parts.length > 1) {
+    graph.push({'@type':'Museum','@id':seo.canonical+'#place',name:leaf,url:seo.canonical,image:seo.image});
+  } else if (parts[0] === 'lugares' && parts.length > 1) {
     graph.push({'@type':'TouristAttraction','@id':seo.canonical+'#place',name:leaf,url:seo.canonical,image:seo.image});
+  } else if (parts[0] === 'barrios' && parts.length > 1) {
+    graph.push({'@type':'Place','@id':seo.canonical+'#place',name:leaf,url:seo.canonical,image:seo.image});
   } else if (parts[0] === 'articulos' && parts.length > 1) {
     graph.push({'@type':'Article','@id':seo.canonical+'#article',headline:leaf,url:seo.canonical,inLanguage:'es'});
   }
