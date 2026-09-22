@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/ruta-centro",
+      "destination": "/quiero",
+      "permanent": true
+    },
+    {
+      "source": "/recorrido-centro",
+      "destination": "/quiero",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/((?!assets/|sitemap\\.xml$|robots\\.txt$|google9b0defc9c5a5ee7e\\.html$).*)",
