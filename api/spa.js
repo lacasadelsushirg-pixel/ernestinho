@@ -33,7 +33,6 @@ function humanize(segment) {
 const MAIN_TITLES = {
   '/transportes': 'Cómo moverse por Río de Janeiro | Ernestinho Carioca',
   '/copacabana': 'Guía de Copacabana: qué ver, playa y consejos | Ernestinho Carioca',
-  '/eventos/carnaval-de-rio': 'Carnaval de Río de Janeiro: guía completa | Ernestinho Carioca',
   '/playas': 'Playas de Río de Janeiro | Ernestinho Carioca',
   '/museos': 'Museos de Río de Janeiro | Ernestinho Carioca',
   '/barrios': 'Barrios de Río de Janeiro | Ernestinho Carioca',
