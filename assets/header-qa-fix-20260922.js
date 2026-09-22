@@ -97,3 +97,24 @@
     setTimeout(function(){ location.reload(); },80);
   },true);
 })();
+
+/* QUIERO residual language cleanup · 2026-09-22 */
+(function(){
+  if((location.pathname||'').replace(/\/+$/,'')!=='/quiero') return;
+  const labels={
+    pt:'VER VÍDEO NO INSTAGRAM ↗',
+    en:'VIEW VIDEO ON INSTAGRAM ↗'
+  };
+  function apply(){
+    const lang=(document.documentElement.lang||'es').slice(0,2).toLowerCase();
+    const replacement=labels[lang];
+    if(!replacement) return;
+    document.querySelectorAll('a,button').forEach(el=>{
+      if(/^(VER|VIEW) VIDEO EN INSTAGRAM ↗$/i.test((el.textContent||'').trim())) el.textContent=replacement;
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply,{once:true}); else apply();
+  const mo=new MutationObserver(apply);
+  mo.observe(document.documentElement,{childList:true,subtree:true});
+  setTimeout(()=>{apply();mo.disconnect();},15000);
+})();
