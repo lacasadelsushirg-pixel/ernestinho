@@ -7,10 +7,14 @@ function GastronomiaAfinada({ onVolver, initialSel = null }) {
     ];
     const consulta = normalizarGastroNueva(q);
     const intencion = intencionGastroNueva(q);
-    const shown = GASTRONOMIA_NUEVAS_CARDS.filter(card => {
+    const gastroCards = window.GASTRONOMIA_NUEVAS_CARDS || [];
+    const gastroHtml = window.GASTRONOMIA_NUEVAS_HTML || {};
+    const patrones = window.PATRONES_GASTRONOMIA || {};
+    const testPatron = (id, corpus) => { const p = patrones[id]; return p && typeof p.test === 'function' ? p.test(corpus) : corpus.includes(id || ''); };
+    const shown = gastroCards.filter(card => {
         const corpus = GASTRONOMIA_INDICE_BUSQUEDA.get(card.id) || '';
-        const coincidePlan = plan === 'todos' || PATRONES_GASTRONOMIA[plan].test(corpus);
-        const coincideConsulta = !consulta || (intencion ? PATRONES_GASTRONOMIA[intencion].test(corpus) : corpus.includes(consulta));
+        const coincidePlan = plan === 'todos' || testPatron(plan, corpus);
+        const coincideConsulta = !consulta || (intencion ? testPatron(intencion, corpus) : corpus.includes(consulta));
         return coincidePlan && coincideConsulta;
     });
     return React.createElement('section', { className: 'min-h-screen bg-slate-950 text-white pb-20' },
@@ -33,6 +37,6 @@ function GastronomiaAfinada({ onVolver, initialSel = null }) {
             shown.length === 0 && React.createElement('div', { className: 'max-w-3xl mx-auto px-4 text-center py-14' }, React.createElement('h2', { className: 'text-2xl font-black' }, 'No encontramos coincidencias'), React.createElement('p', { className: 'text-slate-400 mt-2' }, 'Prueba otra palabra o limpia la búsqueda.')))
             : React.createElement('div', { className: 'max-w-5xl mx-auto px-4 sm:px-6 py-8' },
                 React.createElement('button', { onClick: () => { seoNavigate('/gastronomia'); setSel(null); }, className: 'mb-5 rounded-full bg-amber-400 text-slate-950 px-5 py-3 font-black' }, '← Volver a Gastronomía'),
-                React.createElement('div', { onClick: (ev) => { const a = ev.target && ev.target.closest ? ev.target.closest('a[href="index.html"], a[href="./index.html"]') : null; if (a) { ev.preventDefault(); setSel(null); window.scrollTo({ top: 0, behavior: 'smooth' }); } }, dangerouslySetInnerHTML: { __html: GASTRONOMIA_NUEVAS_HTML[sel] } })));
+                React.createElement('div', { onClick: (ev) => { const a = ev.target && ev.target.closest ? ev.target.closest('a[href="index.html"], a[href="./index.html"]') : null; if (a) { ev.preventDefault(); setSel(null); window.scrollTo({ top: 0, behavior: 'smooth' }); } }, dangerouslySetInnerHTML: { __html: gastroHtml[sel] || '' } })));
 }
 window.GastronomiaAfinada=GastronomiaAfinada;
