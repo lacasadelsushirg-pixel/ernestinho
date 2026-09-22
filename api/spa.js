@@ -78,7 +78,7 @@ function seoFor(urlPath) {
   const description = sectionDescriptions[root] ||
     `Guía práctica de ${leaf} en Río de Janeiro: información, consejos y recomendaciones de Ernestinho Carioca para viajeros.`;
   return {
-    title: MAIN_TITLES[clean] || `${leaf}${section ? ` | ${sectionNames[root] || section} en Río de Janeiro` : ' | Río de Janeiro'} | Ernestinho Carioca`,
+    title: MAIN_TITLES[clean] || (parts.length > 1 ? `${leaf} | Río de Janeiro` : `${leaf} | Río de Janeiro | Ernestinho Carioca`),
     description,
     canonical: SITE + clean,
     image: DEFAULT_OG_IMAGE
