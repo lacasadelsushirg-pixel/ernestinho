@@ -10,11 +10,21 @@ window.__ecEnsureLanguagePayloads=function(){
  return window.__ecLanguagePayloadPromise;
 };
 (async()=>{
- const load=src=>new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.onload=ok;x.onerror=fail;document.head.appendChild(x)});
- await load('/assets/qh-i18n.js?v=20260922');
- const lang=localStorage.getItem('ernestinho-lang')||'es';
- if(lang!=='es')await window.__ecEnsureLanguagePayloads();
+ const load=src=>new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.async=true;x.onload=ok;x.onerror=()=>fail(new Error('No se pudo cargar '+src));document.head.appendChild(x)});
+ const ensureRuntime=async()=>{
+   if(!window.React)await load('https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js');
+   if(!window.ReactDOM)await load('https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js');
+   if(!window.React||!window.ReactDOM||typeof window.ReactDOM.createRoot!=='function')throw new Error('React runtime no disponible');
+ };
+ await ensureRuntime();
+ await load('/assets/qh-i18n.js?v=20260922').catch(e=>console.error('EC qh-i18n',e));
+ let lang='es';try{lang=localStorage.getItem('ernestinho-lang')||'es'}catch(e){}
+ if(lang!=='es')await window.__ecEnsureLanguagePayloads().catch(e=>console.error('EC translations preload',e));
  const urls=["/data/consejos-viaje.json","/data/cultura.json","/data/explorar.json","/data/guia.json","/data/naturaleza.json","/data/otros-datos-extra.json","/data/playas.json","/data/premium-recorridos-extra.json","/data/rio-contenido-extra.json","/data/rio-hoje.json","/data/transporte.json","/data/viaje-consejos-extra.json","/data/vida-nocturna.json","/data/gastronomia.json"];
  await Promise.all(urls.map(url=>window.__ecLoadData(url).catch(e=>{console.error('EC data load failed',url,e);return null})));
- const x=document.createElement('script');x.src='/assets/app.js?v=20260922-stable10';x.onerror=()=>console.error('EC app load failed');document.body.appendChild(x);
-})().catch(e=>console.error('EC bootstrap',e));
+ await load('/assets/app.js?v=20260922-runtimefix1');
+})().catch(e=>{
+ console.error('EC bootstrap',e);
+ const root=document.getElementById('ernestinho-carioca-root');
+ if(root&&!root.childNodes.length)root.innerHTML='<div style="min-height:70vh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:Arial,sans-serif;text-align:center"><div><strong>Estamos cargando la guía de Río.</strong><br><span style="font-size:14px">Actualiza esta página en unos segundos.</span></div></div>';
+});
