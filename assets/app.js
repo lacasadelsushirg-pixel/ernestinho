@@ -42,7 +42,7 @@ const FOTOS_GASTRONOMIA = [
     'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&q=80&w=1000',
     'https://images.unsplash.com/photo-1531988042231-d39a9cc12a9a?auto=format&fit=crop&q=80&w=1000'
 ];
-const GASTRONOMIA_DATA = [...GASTRONOMIA_BASE, ...GASTRONOMIA_EXTRA].map((item, index) => ({
+const GASTRONOMIA_DATA = [...(window.GASTRONOMIA_BASE||[]), ...(window.GASTRONOMIA_EXTRA||[])].map((item, index) => ({
     ...item,
     img: item.img || FOTOS_GASTRONOMIA[index % FOTOS_GASTRONOMIA.length],
     mapa: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.nombre + ' ' + item.barrio + ' Rio de Janeiro')}`,
