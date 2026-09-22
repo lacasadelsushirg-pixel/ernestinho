@@ -130,6 +130,7 @@ function crawlLinksFor(pathname) {
 }
 
 
+function ogTypeFor(pathname) {
   const root = pathname.split('/').filter(Boolean)[0] || '';
   return root === 'articulos' ? 'article' : 'website';
 }
