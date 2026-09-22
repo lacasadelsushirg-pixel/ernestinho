@@ -2357,7 +2357,7 @@ function v46TourMatch(tour,c){let score=0,reasons=[],rejected=[]; if(v46TourExcl
  if(v44Has(c,'heavyRain'))score-=45; else if(v44Has(c,'rain'))score-=15;
  if(v44Has(c,'free')||v44Has(c,'lowBudget'))score-=12;
  return{tour,score,rejected,reasons,timeFeasible:!c.availableMinutes||c.availableMinutes>=tour.duration}}
-function v46MatchTours(c){return SELF_GUIDED_TOURS_DATA.map(t=>v46TourMatch(t,c)).filter(x=>!x.rejected.length&&x.score>=45).sort((a,b)=>b.score-a.score)}
+function v46MatchTours(c){return (window.SELF_GUIDED_TOURS_DATA||[]).map(t=>v46TourMatch(t,c)).filter(x=>!x.rejected.length&&x.score>=45).sort((a,b)=>b.score-a.score)}
 // removed unreachable v46StopEntity
 
 function v46MakePlan(id,title,subtitle,names,duration,c,source='GENERATED'){
@@ -2375,7 +2375,7 @@ function buildMicroItinerary(context,candidates=[]){const c=context,t=v4N(c.raw|
 function v46PlanScore(plan,c){let score=55; if(plan.quality.timeFeasibility==='FAIL')return-999;if(plan.source==='CURATED_PORT_AREA'&&v46PortArea(c))score+=25;if(v46HistoryIntent(c))score+=10;if(v44Has(c,'heavyRain')&&plan.weatherCompatibility==='LOW')score-=60;if(v44Has(c,'lowWalk')&&plan.stops.length>3)score-=18;return score}
 function v46Decision(c,ranked){const plans=buildMicroItinerary(c,ranked.all).map(p=>({...p,score:v46PlanScore(p,c)})).filter(p=>p.score>=50).sort((a,b)=>b.score-a.score);const tours=v46MatchTours(c);return{plans,topPlan:plans[0]||null,tours,topTour:tours[0]||null}}
 
-window.__ERNESTINHO_SELF_GUIDED_TOURS__={version:'4.6',status:'ARCHITECTURE_READY',products:SELF_GUIDED_TOURS_DATA,resolveForContext:v46MatchTours};
+window.__ERNESTINHO_SELF_GUIDED_TOURS__={version:'4.6',status:'ARCHITECTURE_READY',get products(){return window.SELF_GUIDED_TOURS_DATA||[]},resolveForContext:function(c){return (window.SELF_GUIDED_TOURS_DATA||[]).map(t=>v46TourMatch(t,c)).filter(x=>!x.rejected.length&&x.score>=45).sort((a,b)=>b.score-a.score)}};
 window.__ERNESTINHO_PLAN_ENGINE__={version:'4.6',buildMicroItinerary,v46PlanScore,decide:v46Decision,inspect:q=>{const parsed=v44ParseQuery(q),context=v44Context(parsed,{}),ranked=rankPlans(context);return{parsed,context,ranked,decision:v46Decision(context,ranked)}}};
 window.__ERNESTINHO_V4_6_SELFTEST__={version:'4.6',status:'READY_ON_DEMAND',run:'v46SelfTest()'};
 /* ===== FIN V4.6 ENGINE ===== */
