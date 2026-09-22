@@ -143,7 +143,15 @@ function schemaFor(pathname, seo) {
       '@id': SITE + '/#website',
       url: SITE + '/',
       name: 'Ernestinho Carioca',
-      inLanguage: 'es'
+      inLanguage: 'es',
+      publisher: {'@id': SITE + '/#organization'}
+    },
+    {
+      '@type': 'Organization',
+      '@id': SITE + '/#organization',
+      name: 'Ernestinho Carioca',
+      url: SITE + '/',
+      logo: {'@type':'ImageObject','url':DEFAULT_OG_IMAGE}
     },
     {
       '@type': 'WebPage',
