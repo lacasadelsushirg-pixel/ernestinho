@@ -4,6 +4,8 @@ const zlib = require('zlib');
 
 const ROOT = process.cwd();
 const GA_ID = 'G-QE1X83D419';
+const SITE = 'https://www.ernestinhocarioca.com.br';
+const DEFAULT_OG_IMAGE = 'https://res.cloudinary.com/qa301cbc/image/upload/v1789747716/ChatGPT_Image_18_sept_2026_01_08_08_p.m..png';
 let indexHtml = null;
 let validPaths = null;
 
@@ -45,16 +47,31 @@ function seoFor(urlPath) {
   const clean = urlPath === '/' ? '/' : urlPath.replace(/\/$/, '');
   if (clean === '/') return {
     title: 'Ernestinho Carioca | Guía completa de Río de Janeiro',
-    description: 'Guía de Río de Janeiro en español con playas, barrios, transporte, cultura, gastronomía, consejos y experiencias.',
-    canonical: 'https://www.ernestinhocarioca.com.br/'
+    description: 'Guía de Río de Janeiro en español: qué hacer, barrios, playas, museos, restaurantes, transporte, consejos y experiencias para organizar tu viaje.',
+    canonical: SITE + '/',
+    image: DEFAULT_OG_IMAGE
   };
   const parts = clean.split('/').filter(Boolean);
   const leaf = humanize(parts[parts.length - 1]);
-  const section = parts.length > 1 ? humanize(parts[0]) : '';
+  const root = parts[0] || '';
+  const section = parts.length > 1 ? humanize(root) : '';
+  const sectionDescriptions = {
+    gastronomia: `${leaf}: información práctica, qué pedir, ambiente, cómo llegar y consejos para comer en Río de Janeiro con la guía de Ernestinho Carioca.`,
+    museos: `${leaf}: guía práctica con información para la visita, cómo llegar y qué combinar cerca en Río de Janeiro.`,
+    barrios: `${leaf}: guía del barrio con qué ver, cómo moverse, seguridad, transporte y recomendaciones para conocer Río de Janeiro.`,
+    experiencias: `${leaf}: guía de la experiencia, qué esperar, información práctica y consejos para disfrutar Río de Janeiro.`,
+    lugares: `${leaf}: qué ver, cómo llegar, información práctica y recomendaciones para incluirlo en tu viaje a Río de Janeiro.`,
+    guia: `${leaf}: información práctica y consejos actualizados para preparar tu viaje a Río de Janeiro.`,
+    transportes: `${leaf}: cómo usarlo, consejos prácticos y lo que necesitas saber para moverte por Río de Janeiro.`,
+    articulos: `${leaf}: guía y consejos de Ernestinho Carioca para preparar mejor tu viaje a Río de Janeiro.`
+  };
+  const description = sectionDescriptions[root] ||
+    `Guía práctica de ${leaf} en Río de Janeiro: información, consejos y recomendaciones de Ernestinho Carioca para viajeros.`;
   return {
     title: MAIN_TITLES[clean] || `${leaf}${section ? ` — ${section}` : ''} | Ernestinho Carioca`,
-    description: `Guía práctica de ${leaf} en Río de Janeiro: información, consejos y recomendaciones de Ernestinho Carioca para viajeros.`,
-    canonical: `https://www.ernestinhocarioca.com.br${clean}`
+    description,
+    canonical: SITE + clean,
+    image: DEFAULT_OG_IMAGE
   };
 }
 
@@ -66,14 +83,72 @@ function analyticsTags() {
   return `\n<!-- Google Analytics 4 -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=${GA_ID}"></script>\n<script>\nwindow.dataLayer=window.dataLayer||[];\nfunction gtag(){dataLayer.push(arguments);}\ngtag('js',new Date());\ngtag('config','${GA_ID}',{send_page_view:true});\n(function(){\n  var last=location.pathname+location.search;\n  function track(){\n    var current=location.pathname+location.search;\n    if(current===last)return;\n    last=current;\n    gtag('event','page_view',{page_title:document.title,page_location:location.href,page_path:current});\n  }\n  var push=history.pushState;\n  history.pushState=function(){var r=push.apply(this,arguments);setTimeout(track,0);return r;};\n  var replace=history.replaceState;\n  history.replaceState=function(){var r=replace.apply(this,arguments);setTimeout(track,0);return r;};\n  addEventListener('popstate',function(){setTimeout(track,0);});\n})();\n</script>`;
 }
 
-function applySeo(html, seo) {
+function schemaFor(pathname, seo) {
+  const parts = pathname.split('/').filter(Boolean);
+  const leaf = parts.length ? humanize(parts[parts.length - 1]) : 'Ernestinho Carioca';
+  const graph = [
+    {
+      '@type': 'WebSite',
+      '@id': SITE + '/#website',
+      url: SITE + '/',
+      name: 'Ernestinho Carioca',
+      inLanguage: 'es'
+    },
+    {
+      '@type': 'WebPage',
+      '@id': seo.canonical + '#webpage',
+      url: seo.canonical,
+      name: seo.title,
+      description: seo.description,
+      isPartOf: {'@id': SITE + '/#website'},
+      inLanguage: 'es',
+      primaryImageOfPage: {'@type':'ImageObject','url':seo.image}
+    }
+  ];
+  if (pathname !== '/') {
+    const items=[{'@type':'ListItem',position:1,name:'Inicio',item:SITE+'/'}];
+    let acc='';
+    parts.forEach((p,i)=>{
+      acc += '/' + p;
+      items.push({'@type':'ListItem',position:i+2,name:humanize(p),item:SITE+acc});
+    });
+    graph.push({'@type':'BreadcrumbList','@id':seo.canonical+'#breadcrumb',itemListElement:items});
+  }
+  if (parts[0] === 'gastronomia' && parts.length > 1) {
+    graph.push({'@type':'Restaurant','@id':seo.canonical+'#place',name:leaf,url:seo.canonical,image:seo.image});
+  } else if (['museos','lugares','barrios'].includes(parts[0]) && parts.length > 1) {
+    graph.push({'@type':'TouristAttraction','@id':seo.canonical+'#place',name:leaf,url:seo.canonical,image:seo.image});
+  } else if (parts[0] === 'articulos' && parts.length > 1) {
+    graph.push({'@type':'Article','@id':seo.canonical+'#article',headline:leaf,url:seo.canonical,inLanguage:'es'});
+  }
+  return JSON.stringify({'@context':'https://schema.org','@graph':graph}).replace(/</g,'\\u003c');
+}
+
+function applySeo(html, seo, pathname) {
   let out = html;
   out = out.replace(/<title>[\s\S]*?<\/title>/i, `<title>${escapeAttr(seo.title)}</title>`);
   out = out.replace(/<link\s+[^>]*rel=["']canonical["'][^>]*>/ig, '');
   out = out.replace(/<meta\s+[^>]*name=["']description["'][^>]*>/ig, '');
   out = out.replace(/<meta\s+[^>]*name=["']robots["'][^>]*>/ig, '');
-  out = out.replace(/<meta\s+[^>]*property=["']og:(?:title|description|url)["'][^>]*>/ig, '');
-  const tags = `\n<link rel="canonical" href="${escapeAttr(seo.canonical)}">\n<meta name="description" content="${escapeAttr(seo.description)}">\n<meta name="robots" content="index, follow">\n<meta property="og:title" content="${escapeAttr(seo.title)}">\n<meta property="og:description" content="${escapeAttr(seo.description)}">\n<meta property="og:url" content="${escapeAttr(seo.canonical)}">${analyticsTags()}`;
+  out = out.replace(/<meta\s+[^>]*property=["']og:(?:title|description|url|image)["'][^>]*>/ig, '');
+  out = out.replace(/<meta\s+[^>]*name=["']twitter:(?:card|title|description|image)["'][^>]*>/ig, '');
+  out = out.replace(/<script\s+[^>]*id=["']ec-route-schema["'][^>]*>[\s\S]*?<\/script>/ig, '');
+  const tags = `
+<link rel="canonical" href="${escapeAttr(seo.canonical)}">
+<meta name="description" content="${escapeAttr(seo.description)}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ernestinho Carioca">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="${escapeAttr(seo.title)}">
+<meta property="og:description" content="${escapeAttr(seo.description)}">
+<meta property="og:url" content="${escapeAttr(seo.canonical)}">
+<meta property="og:image" content="${escapeAttr(seo.image)}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${escapeAttr(seo.title)}">
+<meta name="twitter:description" content="${escapeAttr(seo.description)}">
+<meta name="twitter:image" content="${escapeAttr(seo.image)}">
+<script type="application/ld+json" id="ec-route-schema">${schemaFor(pathname,seo)}</script>${analyticsTags()}`;
   return out.replace(/<\/head>/i, `${tags}\n</head>`);
 }
 
@@ -145,7 +220,7 @@ module.exports = (req, res) => {
     }
 
     const seo = seoFor(pathname);
-    const html = applySeo(indexHtml, seo);
+    const html = applySeo(indexHtml, seo, pathname);
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/html; charset=utf-8');
     res.setHeader('Cache-Control', 'public, max-age=0, s-maxage=300, stale-while-revalidate=86400');
