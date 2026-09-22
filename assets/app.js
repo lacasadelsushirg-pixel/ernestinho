@@ -18908,7 +18908,7 @@ function AppErnestinho(){
     // Capa de seguridad multidioma: traduce también textos heredados escritos directamente en JSX.
     // Conserva siempre el español original para poder cambiar de idioma sin contaminar el DOM.
     useEffect(() => {
-        const root = document.getElementById('root');
+        const root = document.getElementById('ernestinho-carioca-root');
         if (!root) return;
         const originals = window.__EC_I18N_ORIGINAL_TEXT || (window.__EC_I18N_ORIGINAL_TEXT = new WeakMap());
         const originalAttrs = window.__EC_I18N_ORIGINAL_ATTRS || (window.__EC_I18N_ORIGINAL_ATTRS = new WeakMap());
@@ -19381,7 +19381,7 @@ function AppErnestinho(){
     // PT-BR · rótulos finais de Fortes.
     Object.assign(GLOBAL_UI_TRANSLATIONS.pt, { "Fuertes y fortalezas de Río": "Fortes e fortalezas do Rio", "Fortaleza seleccionada": "Fortificação selecionada", "Elegir otra fortaleza": "Escolher outra fortificação", "Buscar fuerte, fortaleza, Río o Niterói...": "Buscar forte, fortaleza, Rio ou Niterói...", "📍 Dirección": "📍 Endereço", "🕐 Visitas": "🕐 Visitas", "🎟️ Entrada": "🎟️ Entrada", "⏱️ Duración": "⏱️ Duração", "📅 Reserva": "📅 Reserva", "♿ Accesibilidad": "♿ Acessibilidade", "🪪 Documentos": "🪪 Documentos", "🚇 Cómo llegar": "🚇 Como chegar", "🛡️ Seguridad": "🛡️ Segurança", "💡 Consejo de Ernestinho": "💡 Dica do Ernestinho", "Ver fortaleza": "Ver fortificação", "Volver a fuertes y fortalezas": "Voltar para fortes e fortalezas" });
     useEffect(() => {
-        const root = document.getElementById('root');
+        const root = document.getElementById('ernestinho-carioca-root');
         if (!root)
             return;
         const originals = translationOriginalsRef.current;
