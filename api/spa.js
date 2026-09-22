@@ -55,6 +55,16 @@ function seoFor(urlPath) {
   const leaf = humanize(parts[parts.length - 1]);
   const root = parts[0] || '';
   const section = parts.length > 1 ? humanize(root) : '';
+  const sectionNames = {
+    gastronomia: 'Gastronomía',
+    museos: 'Museos',
+    barrios: 'Barrios',
+    experiencias: 'Experiencias',
+    lugares: 'Qué hacer',
+    guia: 'Guía de viaje',
+    transportes: 'Transporte',
+    articulos: 'Consejos de viaje'
+  };
   const sectionDescriptions = {
     gastronomia: `${leaf}: información práctica, qué pedir, ambiente, cómo llegar y consejos para comer en Río de Janeiro con la guía de Ernestinho Carioca.`,
     museos: `${leaf}: guía práctica con información para la visita, cómo llegar y qué combinar cerca en Río de Janeiro.`,
@@ -68,7 +78,7 @@ function seoFor(urlPath) {
   const description = sectionDescriptions[root] ||
     `Guía práctica de ${leaf} en Río de Janeiro: información, consejos y recomendaciones de Ernestinho Carioca para viajeros.`;
   return {
-    title: MAIN_TITLES[clean] || `${leaf}${section ? ` — ${section}` : ''} | Ernestinho Carioca`,
+    title: MAIN_TITLES[clean] || `${leaf}${section ? ` | ${sectionNames[root] || section} en Río de Janeiro` : ' | Río de Janeiro'} | Ernestinho Carioca`,
     description,
     canonical: SITE + clean,
     image: DEFAULT_OG_IMAGE
