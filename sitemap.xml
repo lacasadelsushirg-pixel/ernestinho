@@ -320,4 +320,9 @@
   <url><loc>https://www.ernestinhocarioca.com.br/transportes/uber</loc></url>
   <url><loc>https://www.ernestinhocarioca.com.br/tv</loc></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna</loc></url>
+  <url>
+    <loc>https://www.ernestinhocarioca.com.br/quiero</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
