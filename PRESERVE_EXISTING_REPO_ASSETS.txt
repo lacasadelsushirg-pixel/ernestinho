@@ -1,0 +1,3 @@
+Al publicar este overlay, conservar del repositorio actual:
+- assets/data-core.js
+- assets/embedded-images/ (especialmente embedded-15-d08692e83c1c.webp)

@@ -1,0 +1,24 @@
+{
+  "status": "FINAL OPTIMIZED OVERLAY / production candidate",
+  "synchronous_helpers_repaired": [
+    "seoResolveRoute",
+    "seoCurrentPath",
+    "seoSetMeta",
+    "seoMetaFor"
+  ],
+  "translation_blocks_deferred": 30,
+  "translation_raw_deferred": 593549,
+  "unused_inline_json_manifests_removed": 23,
+  "unused_inline_json_raw_removed": 8489,
+  "index_raw_bytes": 412933,
+  "index_gzip_bytes": 63113,
+  "app_raw_bytes": 719583,
+  "app_gzip_bytes": 145762,
+  "startup_json_gzip_bytes": 106508,
+  "es_app_plus_startup_json_gzip_bytes": 252270,
+  "known_existing_repo_dependencies": [
+    "/assets/data-core.js",
+    "/assets/embedded-images/embedded-15-d08692e83c1c.webp"
+  ],
+  "validation": "all generated JS/chunks syntax checked; all JSON parsed; lazy sync-helper bug repaired; language switching repaired; local refs audited"
+}
