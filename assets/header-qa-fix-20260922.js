@@ -77,3 +77,26 @@
   mo.observe(document.documentElement,{subtree:true,childList:true});
   setTimeout(()=>mo.disconnect(),15000);
 })();
+
+/* QUIERO language state repair · 2026-09-22
+   The legacy Consejos translator mutates text nodes in place. React can reuse those
+   nodes when only lang changes, leaving the previous translation visible. On /quiero
+   persist the requested language before a clean render so ES/PT/EN are reversible. */
+(function(){
+  if((location.pathname||'').replace(/\/+$/,'')!=='/quiero') return;
+  document.addEventListener('click',function(ev){
+    const el=ev.target&&ev.target.closest&&ev.target.closest('header button,header a');
+    if(!el) return;
+    const t=(el.textContent||'').trim().toUpperCase();
+    if(!['ES','PT','EN'].includes(t)) return;
+    const next=t.toLowerCase();
+    let current='es';
+    try{ current=(localStorage.getItem('ernestinho-lang')||document.documentElement.lang||'es').slice(0,2).toLowerCase(); }catch(_){}
+    if(current===next) return;
+    try{ localStorage.setItem('ernestinho-lang',next); }catch(_){}
+    setTimeout(function(){
+      const now=(document.documentElement.lang||'').slice(0,2).toLowerCase();
+      if(now!==next || next==='es') location.reload();
+    },80);
+  },true);
+})();
