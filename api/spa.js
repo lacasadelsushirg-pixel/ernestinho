@@ -148,7 +148,7 @@ function applySeo(html, seo, pathname) {
   out = out.replace(/<meta\s+[^>]*name=["']description["'][^>]*>/ig, '');
   out = out.replace(/<meta\s+[^>]*name=["']robots["'][^>]*>/ig, '');
   out = out.replace(/<meta\s+[^>]*property=["']og:(?:type|site_name|locale|title|description|url|image(?::(?:width|height|alt))?)["'][^>]*>/ig, '');
-  out = out.replace(/<meta\s+[^>]*name=["']twitter:(?:card|title|description|image)["'][^>]*>/ig, '');
+  out = out.replace(/<meta\s+[^>]*name=["']twitter:(?:card|title|description|image(?::alt)?)["'][^>]*>/ig, '');
   out = out.replace(/<script\s+[^>]*id=["']ec-route-schema["'][^>]*>[\s\S]*?<\/script>/ig, '');
   const tags = `
 <link rel="canonical" href="${escapeAttr(seo.canonical)}">
