@@ -18408,7 +18408,7 @@ function seoResolveRoute(pathname) {
     return result;
 }
 function seoCurrentPath(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId) {
-    if (section === 'consejos' && ((consejoId === null || consejoId === void 0 ? void 0 : consejoId.id) || consejoId) === 'recorridos-cuenta') {
+    if (section === 'consejos' && ((consejoId === null || consejoId === void 0 ? void 0 : consejoId.id) || consejoId) === 'caminando') {
         const actual = seoCleanPath(window.location.pathname);
         if (actual === '/quiero' || actual === '/ruta-centro' || actual === '/recorrido-centro')
             return actual;
@@ -18591,7 +18591,7 @@ function seoMetaFor(section, museoId, barrio, restaurante, articulo, temaGuia, c
     const metaDirecta = seoMetaFromPath(actualPath);
     if (metaDirecta) return metaDirecta;
     const path = seoCurrentPath(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId);
-    if (section === 'consejos' && ((consejoId === null || consejoId === void 0 ? void 0 : consejoId.id) || consejoId) === 'recorridos-cuenta') {
+    if (section === 'consejos' && ((consejoId === null || consejoId === void 0 ? void 0 : consejoId.id) || consejoId) === 'caminando') {
         const actual = seoCleanPath(window.location.pathname);
         const rutaSocial = (actual === '/quiero' || actual === '/ruta-centro' || actual === '/recorrido-centro') ? actual : '/quiero';
         return { path: rutaSocial, title: 'Del mar a la historia: recorrido por el Centro de Río | Ernestinho Carioca', description: 'Recorrido para hacer por tu cuenta desde la Zona Portuaria hasta el Centro de Río: AquaRio, Yup Star, Mural Etnias, Museu do Amanhã, São Bento, Confeitaria Colombo y Real Gabinete.', image: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788817390/1B0B6A7E-B0F2-49B0-A263-26D4A3FF3CE3.png' };
