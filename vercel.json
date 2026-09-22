@@ -2,7 +2,11 @@
   "rewrites": [
     {
       "source": "/quiero",
-      "destination": "/quiero/index.html"
+      "destination": "/index.html"
+    },
+    {
+      "source": "/quiero/",
+      "destination": "/index.html"
     },
     {
       "source": "/((?!assets/|quiero/|sitemap\\.xml$|robots\\.txt$).*)",
