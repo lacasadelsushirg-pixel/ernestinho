@@ -48,7 +48,15 @@ const MAIN_TITLES = {
   '/familia': 'Río de Janeiro con niños y familia | Ernestinho Carioca',
   '/compras': 'Compras en Río de Janeiro | Ernestinho Carioca',
   '/naturaleza': 'Naturaleza en Río de Janeiro | Ernestinho Carioca',
-  '/sos': 'Emergencias y ayuda en Río de Janeiro | Ernestinho Carioca'
+  '/sos': 'Emergencias y ayuda en Río de Janeiro | Ernestinho Carioca',
+  '/guia/rodoviaria-novo-rio-y-terminal-internacional-de-cruceros': 'Rodoviária Novo Rio y terminal de cruceros | Guía de Río',
+  '/guia/vacunas-y-fiebre-amarilla-antes-de-viajar-a-brasil': 'Vacunas y fiebre amarilla para viajar a Brasil | Guía de Río',
+  '/articulos/preparando-las-maletas-para-rio-clima-ropa-e-imprevistos': 'Qué llevar a Río: clima, ropa e imprevistos | Consejos',
+  '/articulos/electricidad-y-adaptadores-en-brasil-enchufes-y-voltaje': 'Enchufes y voltaje en Brasil: adaptadores | Consejos',
+  '/articulos/20-errores-que-debes-evitar-si-o-si-en-rio-de-janeiro': '20 errores que debes evitar en Río de Janeiro | Consejos',
+  '/museos/museu-da-historia-e-da-cultura-afro-brasileira-muhcab': 'MUHCAB: historia y cultura afrobrasileña | Museos de Río',
+  '/guia/consulados-y-ayuda-para-viajeros-extranjeros': 'Consulados y ayuda para extranjeros | Guía de Río',
+  '/guia/dinero-en-brasil-reales-tarjetas-y-seguridad': 'Dinero en Brasil: reales, tarjetas y seguridad | Guía de Río'
 };
 
 function seoFor(urlPath) {
