@@ -83,7 +83,27 @@ function seoFor(urlPath) {
     transportes: `${leaf}: cómo usarlo, consejos prácticos y lo que necesitas saber para moverte por Río de Janeiro.`,
     articulos: `${leaf}: guía y consejos de Ernestinho Carioca para preparar mejor tu viaje a Río de Janeiro.`
   };
-  const description = sectionDescriptions[root] ||
+  const hubDescriptions = {
+    '/transportes': 'Cómo moverse por Río de Janeiro: metro, VLT, BRT, buses, apps y consejos prácticos para elegir el transporte durante tu viaje.',
+    '/copacabana': 'Guía de Copacabana con playa, qué ver, transporte, seguridad, restaurantes y consejos prácticos para disfrutar el barrio.',
+    '/playas': 'Guía de las playas de Río de Janeiro: cuáles conocer, cómo llegar, qué esperar y consejos para elegir la mejor según tu plan.',
+    '/museos': 'Museos de Río de Janeiro: descubre opciones de arte, historia, ciencia y cultura con información práctica para organizar tu visita.',
+    '/barrios': 'Guía de barrios de Río de Janeiro: qué ver, ambiente, transporte y consejos para elegir dónde ir y dónde alojarte.',
+    '/gastronomia': 'Dónde comer en Río de Janeiro: restaurantes, cafés, comida brasileña y recomendaciones por barrio, momento y tipo de experiencia.',
+    '/experiencias': 'Experiencias en Río de Janeiro: actividades, paseos y planes para vivir la ciudad con información práctica y consejos de Ernestinho.',
+    '/prepara-tu-viaje': 'Prepara tu viaje a Río de Janeiro con información práctica sobre documentos, salud, internet, transporte, seguridad y alojamiento.',
+    '/vida-nocturna': 'Vida nocturna en Río de Janeiro: zonas, bares, samba y planes para salir de noche con consejos prácticos para organizarte.',
+    '/que-hacer': 'Qué hacer en Río de Janeiro: lugares, cultura, playas, naturaleza, actividades y planes para organizar cada día de tu viaje.',
+    '/guia': 'Guía práctica para viajar a Río de Janeiro: documentos, salud, internet, transporte, alojamiento, seguridad y ayuda para tu viaje.',
+    '/lugares': 'Lugares para conocer en Río de Janeiro: atracciones, miradores, patrimonio y rincones de la ciudad con consejos para organizar la visita.',
+    '/hospedaje': 'Dónde alojarse en Río de Janeiro: guía para elegir zona y hospedaje según tu viaje, con opciones y consejos desde Copacabana.',
+    '/eventos': 'Eventos en Río de Janeiro: agenda y planes para descubrir qué está pasando en la ciudad y organizar tu visita.',
+    '/familia': 'Río de Janeiro con niños y familia: actividades, lugares y planes para disfrutar la ciudad con información práctica.',
+    '/compras': 'Compras en Río de Janeiro: shoppings, ferias y mercados populares con información para elegir dónde comprar durante tu viaje.',
+    '/naturaleza': 'Naturaleza en Río de Janeiro: parques, senderos, miradores y espacios al aire libre para descubrir el lado verde de la ciudad.',
+    '/sos': 'Ayuda y emergencias en Río de Janeiro: información práctica y contactos útiles para resolver situaciones durante tu viaje.'
+  };
+  const description = hubDescriptions[clean] || sectionDescriptions[root] ||
     `Guía práctica de ${leaf} en Río de Janeiro: información, consejos y recomendaciones de Ernestinho Carioca para viajeros.`;
   return {
     title: MAIN_TITLES[clean] || (parts.length > 1 ? `${leaf} | ${sectionNames[root] || section} en Río` : `${leaf} | Río de Janeiro | Ernestinho Carioca`),
