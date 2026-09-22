@@ -17717,51 +17717,21 @@ function Master4Home({ go, onReserve, lang = 'es' }) {
     // V31.47 · PORTADA SIMPLE — catálogo principal visible sin depender del menú de 3 puntos.
     // Es una prueba reversible: no elimina ningún módulo ni cambia sus datos.
     const exploreCards = [
-        { route:'atracciones', icon:'★',
-          es:['Atracciones','Museos, cultura e historia'], pt:['Atrações','Museus, cultura e história'], en:['Attractions','Museums, culture and history'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_1.png' },
-        { route:'master4_gastronomia', icon:'●',
-          es:['Gastronomía','Dónde comer en Río'], pt:['Gastronomia','Onde comer no Rio'], en:['Food & dining','Where to eat in Rio'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_2.png' },
-        { route:'master4_playas', icon:'☀',
-          es:['Playas','Sol, mar y naturaleza'], pt:['Praias','Sol, mar e natureza'], en:['Beaches','Sun, sea and nature'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_3.png' },
-        { route:'familia', icon:'♥',
-          es:['Familia','Planes para todas las edades'], pt:['Família','Programas para todas as idades'], en:['Family','Plans for every age'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_4.png' },
-        { route:'naturaleza', icon:'⌁',
-          es:['Naturaleza & Trilhas','Montañas, bosque y senderos'], pt:['Natureza & Trilhas','Montanhas, floresta e trilhas'], en:['Nature & Trails','Mountains, forest and trails'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_5.png' },
-        { route:'master4_experiencias', icon:'✦',
-          es:['Experiencias','Tours y actividades'], pt:['Experiências','Passeios e atividades'], en:['Experiences','Tours and activities'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_6.png' },
-        { route:'grandes_eventos', icon:'♪',
-          es:['Eventos','Carnaval, conciertos y agenda'], pt:['Eventos','Carnaval, shows e agenda'], en:['Events','Carnival, concerts and calendar'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_7.png' },
-        { route:'nocturna', icon:'♫',
-          es:['Vida nocturna','Samba, bares y noches cariocas'], pt:['Vida noturna','Samba, bares e noites cariocas'], en:['Nightlife','Samba, bars and Rio nights'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_8.png' },
-        { route:'barrios', icon:'⌖',
-          es:['Barrios','Descubre Río zona por zona'], pt:['Bairros','Descubra o Rio região por região'], en:['Neighborhoods','Discover Rio area by area'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_9.png' },
-        { route:'compras', icon:'▣',
-          es:['Compras','Shoppings, ferias y mercados'], pt:['Compras','Shoppings, feiras e mercados'], en:['Shopping','Malls, fairs and markets'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_10.png' },
-        { route:'hospedaje', icon:'⌂',
-          es:['Hospedaje','Tu lugar para quedarte en Río'], pt:['Hospedagem','Seu lugar para ficar no Rio'], en:['Accommodation','Your place to stay in Rio'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_11.png' },
-        { route:'fotografia', icon:'◉',
-          es:['Fotografía','Los mejores lugares y horarios'], pt:['Fotografia','Os melhores lugares e horários'], en:['Photography','The best places and times'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_12.png' },
-        { route:'master4_transportes', icon:'→',
-          es:['Transportes','Muévete por la ciudad'], pt:['Transportes','Mova-se pela cidade'], en:['Transport','Get around the city'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_13.png' },
-        { route:'guia', icon:'✓',
-          es:['Guía para mi viaje','Todo antes y durante tu viaje'], pt:['Guia para minha viagem','Tudo antes e durante a viagem'], en:['Trip guide','Everything before and during your trip'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_14.png' },
-        { route:'consejos', icon:'★',
-          es:['Consejos','Tips reales para entender y disfrutar Río'], pt:['Dicas','Dicas reais para entender e aproveitar o Rio'], en:['Tips','Practical tips to understand and enjoy Rio'],
-          img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789954657/portada_home_nuevo_consejo.png' }
+        { route:'guia', icon:'✓', es:['Guía para mi viaje','Todo antes y durante tu viaje'], pt:['Guia para minha viagem','Tudo antes e durante a viagem'], en:['Trip guide','Everything before and during your trip'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_1.png' },
+        { route:'master4_transportes', icon:'→', es:['Transportes','Muévete por la ciudad'], pt:['Transportes','Mova-se pela cidade'], en:['Transport','Get around the city'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_2.png' },
+        { route:'hospedaje', icon:'⌂', es:['Hospedaje','Tu lugar para quedarte en Río'], pt:['Hospedagem','Seu lugar para ficar no Rio'], en:['Accommodation','Your place to stay in Rio'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_3.png' },
+        { route:'fotografia', icon:'◉', es:['Fotografía','Los mejores lugares y horarios'], pt:['Fotografia','Os melhores lugares e horários'], en:['Photography','The best places and times'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_4.png' },
+        { route:'compras', icon:'▣', es:['Compras','Shoppings, ferias y mercados'], pt:['Compras','Shoppings, feiras e mercados'], en:['Shopping','Malls, fairs and markets'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_5.png' },
+        { route:'barrios', icon:'⌖', es:['Barrios','Descubre Río zona por zona'], pt:['Bairros','Descubra o Rio região por região'], en:['Neighborhoods','Discover Rio area by area'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_6.png' },
+        { route:'grandes_eventos', icon:'♪', es:['Eventos','Carnaval, conciertos y agenda'], pt:['Eventos','Carnaval, shows e agenda'], en:['Events','Carnival, concerts and calendar'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_7.png' },
+        { route:'master4_experiencias', icon:'✦', es:['Experiencias','Tours y actividades'], pt:['Experiências','Passeios e atividades'], en:['Experiences','Tours and activities'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_8.png' },
+        { route:'master4_playas', icon:'☀', es:['Playas','Sol, mar y naturaleza'], pt:['Praias','Sol, mar e natureza'], en:['Beaches','Sun, sea and nature'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_9.png' },
+        { route:'nocturna', icon:'♫', es:['Vida nocturna','Samba, bares y noches cariocas'], pt:['Vida noturna','Samba, bares e noites cariocas'], en:['Nightlife','Samba, bars and Rio nights'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_10.png' },
+        { route:'master4_gastronomia', icon:'●', es:['Gastronomía','Dónde comer en Río'], pt:['Gastronomia','Onde comer no Rio'], en:['Food & dining','Where to eat in Rio'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_11.png' },
+        { route:'atracciones', icon:'★', es:['Atracciones','Museos, cultura e historia'], pt:['Atrações','Museus, cultura e história'], en:['Attractions','Museums, culture and history'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_12.png' },
+        { route:'familia', icon:'♥', es:['Familia','Planes para todas las edades'], pt:['Família','Programas para todas as idades'], en:['Family','Plans for every age'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_13.png' },
+        { route:'naturaleza', icon:'⌁', es:['Naturaleza & Trilhas','Montañas, bosque y senderos'], pt:['Natureza & Trilhas','Montanhas, floresta e trilhas'], en:['Nature & Trails','Mountains, forest and trails'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789918904/PORTADA_HOME_NUEVO_14.png' },
+        { route:'consejos', icon:'★', es:['Consejos','Tips reales para entender y disfrutar Río'], pt:['Dicas','Dicas reais para entender e aproveitar o Rio'], en:['Tips','Practical tips to understand and enjoy Rio'], img:'https://res.cloudinary.com/tdez3h4t/image/upload/v1789954657/portada_home_nuevo_consejo.png' }
     ].map(c => {
         const copy = c[lang] || c.es;
         return {...c, title:copy[0], sub:copy[1]};
@@ -19803,7 +19773,7 @@ function AppErnestinho(){
                     { id: 'barrios', label: 'Barrios' },
                     { id: 'hospedaje', label: 'Hospedaje' },
                     { id: 'cafe', label: 'Café Rio' },
-                ].filter((item) => !['copa_para_mi','rio_mes_a_mes','consejos','barrios'].includes(item.id)).map((item) => (React.createElement("button", { key: item.id, onClick: () => { setSeccionActual(item.id); setArticuloSeleccionado(null); }, className: `px-3 py-2 rounded-full transition-all ${seccionActual === item.id
+                ].filter((item) => !['copa_para_mi','rio_mes_a_mes','consejos','barrios','playas','grandes_eventos'].includes(item.id)).map((item) => (React.createElement("button", { key: item.id, onClick: () => { setSeccionActual(item.id); setArticuloSeleccionado(null); }, className: `px-3 py-2 rounded-full transition-all ${seccionActual === item.id
                         ? 'bg-teal-50 text-teal-700 font-bold'
                         : 'hover:bg-slate-100 text-slate-600'}` }, ui.nav[item.id] || item.label)))),
                 React.createElement("div", { className: "flex items-center gap-2 sm:gap-3" },
@@ -19857,7 +19827,7 @@ function AppErnestinho(){
                 { id: 'barrios', label: 'BARRIOS', icon: 'navigation' },
                 { id: 'hospedaje', label: 'HOSPEDAJE', icon: 'heart' },
                 { id: 'cafe', label: 'CAFÉ RIO', icon: 'coffee' },
-            ].filter((item) => !['copa_para_mi','rio_mes_a_mes','consejos','barrios'].includes(item.id)).map((item) => (React.createElement("button", { key: item.id, onClick: () => {
+            ].filter((item) => !['copa_para_mi','rio_mes_a_mes','consejos','barrios','playas','grandes_eventos'].includes(item.id)).map((item) => (React.createElement("button", { key: item.id, onClick: () => {
                     setSeccionActual(item.id);
                     setArticuloSeleccionado(null);
                     setMenuAbierto(false);
@@ -20464,7 +20434,7 @@ function AppErnestinho(){
                                         grupo: T('Consultar'),
                                         encuentro: T('Consultar')
                                     }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora")),
-                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho%2C%20quiero%20informaci%C3%B3n%20y%20reservar%20esta%20experiencia", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
+                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho,%20le%C3%AD%20tu%20art%C3%ADculo%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
             seccionActual === 'detalle_exp-4' && (React.createElement("section", { className: "py-12 sm:py-16 bg-slate-50" },
                 React.createElement("div", { className: "max-w-6xl mx-auto px-4 sm:px-6" },
                     React.createElement("button", { onClick: volverUnaVista, className: "inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors" }, T("\u2190 Volver a Experiencias")),
@@ -20552,7 +20522,7 @@ function AppErnestinho(){
                                         grupo: T('Consultar'),
                                         encuentro: 'Hoteles Zona Sul y Centro'
                                     }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora")),
-                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho%2C%20quiero%20informaci%C3%B3n%20y%20reservar%20esta%20experiencia", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
+                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho,%20le%C3%AD%20tu%20art%C3%ADculo%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
             seccionActual === 'detalle_exp-5' && (React.createElement("section", { className: "py-12 sm:py-16 bg-slate-50" },
                 React.createElement("div", { className: "max-w-6xl mx-auto px-4 sm:px-6" },
                     React.createElement("button", { onClick: volverUnaVista, className: "inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors" }, T("\u2190 Volver a Experiencias")),
@@ -20671,7 +20641,7 @@ function AppErnestinho(){
                                         grupo: T('Consultar'),
                                         encuentro: 'Hoteles Zona Sul y Centro'
                                     }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora")),
-                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho%2C%20quiero%20informaci%C3%B3n%20y%20reservar%20esta%20experiencia", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
+                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho,%20le%C3%AD%20tu%20art%C3%ADculo%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
             seccionActual === 'transportes' && (React.createElement("section", { className: "min-h-screen bg-white" },
                 React.createElement("div", { className: "relative h-[380px] overflow-hidden" },
                     React.createElement("img", { src: "https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3070", alt: "Transporte en R\u00EDo de Janeiro", className: "w-full h-full object-cover" }),
