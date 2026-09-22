@@ -189,7 +189,7 @@ function Master4Home({ go, onReserve, lang = 'es' }) {
                     React.createElement("p", { className: "text-xs mt-2 text-white/80" }, H.liveText),
                     React.createElement("span", { className: "inline-flex mt-4 rounded-full border border-white/60 px-4 py-2 text-[10px] font-black" }, H.liveCta))))));
 }
-// GRANDES_EVENTOS externalizado a JSON
+// window.GRANDES_EVENTOS externalizado a JSON
 
-// CALENDARIO_CARIOCA externalizado a JSON
+// window.CALENDARIO_CARIOCA externalizado a JSON
 window.Master4Home=Master4Home;

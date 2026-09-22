@@ -27,7 +27,7 @@ function CopacabanaParaMi() {
     const [weatherLive, setWeatherLive] = useState({ status: 'loading', data: null, error: null });
     const [ineaLive, setIneaLive] = useState({ status: 'loading', data: null, error: null });
     const [seaLive, setSeaLive] = useState({ status: 'loading', data: null, error: null });
-    const lodgingContext = COPA_LODGING_CONTEXTS[lodging];
+    const lodgingContext = window.COPA_LODGING_CONTEXTS[lodging];
     const refreshWeather = async () => {
         setWeatherLive({ status: 'loading', data: weatherLive.data, error: null });
         try {
@@ -91,7 +91,7 @@ function CopacabanaParaMi() {
     }, []);
     const selectLodging = value => {
         setLodging(value);
-        const item = COPA_LODGING_CONTEXTS[value];
+        const item = window.COPA_LODGING_CONTEXTS[value];
         if (item && item.zone)
             setZone(item.zone);
         setMessage(item && item.commercial
@@ -155,7 +155,7 @@ function CopacabanaParaMi() {
         seaWarning: liveContext.seaWarning,
         localFlag: liveContext.localFlag
     });
-    let allEvaluated = COPACABANA_PLACES_V1.map(p => copaEvaluatePlace(p, context));
+    let allEvaluated = window.COPACABANA_PLACES_V1.map(p => copaEvaluatePlace(p, context));
     if (contextDecision.avoidBeach) {
         allEvaluated = allEvaluated.map(x => x.type === 'beach' ? { ...x, eligible: false, exclusions: [...(x.exclusions || []), 'Contexto del mar no compatible con baño'] } : x);
     }
@@ -328,7 +328,7 @@ function CopacabanaParaMi() {
                         React.createElement("span", { className: "text-[10px] font-black uppercase tracking-widest text-amber-700" }, "\uD83C\uDFE0 Desde mi alojamiento"),
                         React.createElement("h2", { className: "text-xl sm:text-2xl font-black text-slate-900 mt-1" }, "Tu alojamiento puede ser el punto de partida"),
                         React.createElement("p", { className: "text-sm text-slate-600 mt-2 max-w-2xl" }, "Selecciona d\u00F3nde te hospedas y Ernestinho usar\u00E1 esa zona como origen. Los alojamientos propios est\u00E1n identificados como servicio comercial y no reciben ventaja oculta en el ranking.")),
-                    React.createElement("select", { value: lodging, onChange: e => selectLodging(e.target.value), className: "w-full lg:w-auto min-w-[260px] rounded-xl border border-amber-300 bg-white p-3 font-bold text-sm" }, Object.entries(COPA_LODGING_CONTEXTS).map(([k, v]) => React.createElement("option", { key: k, value: k }, v.label)))),
+                    React.createElement("select", { value: lodging, onChange: e => selectLodging(e.target.value), className: "w-full lg:w-auto min-w-[260px] rounded-xl border border-amber-300 bg-white p-3 font-bold text-sm" }, Object.entries(window.COPA_LODGING_CONTEXTS).map(([k, v]) => React.createElement("option", { key: k, value: k }, v.label)))),
                 lodging !== 'none' && React.createElement("div", { className: "mt-5" },
                     React.createElement("div", { className: "flex flex-wrap items-center gap-2 mb-3" },
                         React.createElement("span", { className: "rounded-full bg-amber-200 text-amber-950 px-3 py-1 text-[10px] font-black uppercase" }, "\uD83C\uDFE0 Alojamiento Ernestinho"),

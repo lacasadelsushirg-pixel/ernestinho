@@ -1,6 +1,6 @@
 function Master3NeighborhoodDetail({ barrio, onBack }) {
     const [tab, setTab] = useState('entiende');
-    const c = MASTER3_NEIGHBORHOOD_CONTENT[barrio === null || barrio === void 0 ? void 0 : barrio.id] || MASTER3_NEIGHBORHOOD_CONTENT['copacabana'];
+    const c = window.MASTER3_NEIGHBORHOOD_CONTENT[barrio === null || barrio === void 0 ? void 0 : barrio.id] || window.MASTER3_NEIGHBORHOOD_CONTENT['copacabana'];
     if (!barrio)
         return null;
     const tabs = [['entiende', '🧭 Entiende'], ['hacer', '✨ Qué hacer'], ['comer', '🍽️ Comer'], ['organiza', '🚇 Organiza'], ['para', '❤️ Para ti'], ['momento', '⏱️ Momento'], ['rutas', '🗺️ Rutas'], ['sos', '🆘 SOS'], ['mio', '⭐ Para mí']];
@@ -56,7 +56,7 @@ function Master3NeighborhoodDetail({ barrio, onBack }) {
                 React.createElement("h3", { className: "text-xl font-black mt-3" }, x))))));
 }
 function Master4TrustCenter({ go }) {
-    const gates = Array.isArray(MASTER3_PUBLICATION_GATE_RESULTS) ? MASTER3_PUBLICATION_GATE_RESULTS : [];
+    const gates = Array.isArray(window.MASTER3_PUBLICATION_GATE_RESULTS) ? MASTER3_PUBLICATION_GATE_RESULTS : [];
     const hold = gates.filter(x => x.level === 'HOLD').length;
     const editorial = gates.filter(x => x.level === 'EDITORIAL_ONLY').length;
     const issueCount = {};

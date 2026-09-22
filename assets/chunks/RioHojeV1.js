@@ -66,5 +66,5 @@ function RioHojeV1({go,lang='es'}){
   return React.createElement('div',{className:'min-h-screen bg-[#f7f8f6] pb-24 text-slate-950'},hero,body,footer);
 }
 
-window.__ERNESTINHO_RIO_HOJE__={version:'1.1-visual-final-local',mode:'dynamic-api+verified-seed+official-recurrence+canonical-media',api:'/api/rio-hoje',seedCount:RIO_HOJE_FALLBACK_EVENTS.length,recurringRules:RIO_HOJE_FALLBACK_RECURRING.length,imageRegistryCount:Object.keys(RIO_HOJE_IMAGE_REGISTRY).length,lastUpdated:'2026-09-13',getCanonicalEventImage,load:()=>fetch('/api/rio-hoje?window=week').then(r=>r.json())};
+window.__ERNESTINHO_RIO_HOJE__={version:'1.1-visual-final-local',mode:'dynamic-api+verified-seed+official-recurrence+canonical-media',api:'/api/rio-hoje',seedCount:window.RIO_HOJE_FALLBACK_EVENTS.length,recurringRules:window.RIO_HOJE_FALLBACK_RECURRING.length,imageRegistryCount:Object.keys(window.RIO_HOJE_IMAGE_REGISTRY).length,lastUpdated:'2026-09-13',getCanonicalEventImage,load:()=>fetch('/api/rio-hoje?window=week').then(r=>r.json())};
 window.RioHojeV1=RioHojeV1;

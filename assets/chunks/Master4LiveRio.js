@@ -6,7 +6,7 @@ function Master4LiveRio({ go }) {
                 React.createElement("span", { className: "block mt-8 text-[10px] font-black tracking-[.2em] text-red-400" }, "\uD83D\uDD34 R\u00CDO EN VIVO"),
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "Mira c\u00F3mo est\u00E1 R\u00EDo ahora mismo."),
                 React.createElement("p", { className: "text-white/70 mt-3 max-w-2xl" }, "C\u00E1maras p\u00FAblicas externas para echar un vistazo a la ciudad antes de salir. Una c\u00E1mara puede dejar de transmitir temporalmente; por eso abrimos siempre la fuente original."))),
-        React.createElement("section", { className: "max-w-6xl mx-auto px-4 sm:px-6 py-8 grid sm:grid-cols-2 gap-4" }, MASTER4_LIVE_CAMERAS.map(c => React.createElement("article", { key: c.name, className: "rounded-[1.8rem] bg-white border  p-6 flex flex-col min-h-60" },
+        React.createElement("section", { className: "max-w-6xl mx-auto px-4 sm:px-6 py-8 grid sm:grid-cols-2 gap-4" }, window.MASTER4_LIVE_CAMERAS.map(c => React.createElement("article", { key: c.name, className: "rounded-[1.8rem] bg-white border  p-6 flex flex-col min-h-60" },
             React.createElement("div", { className: "flex justify-between gap-3" },
                 React.createElement("span", { className: "text-4xl" }, c.icon),
                 React.createElement("span", { className: "h-fit rounded-full bg-red-50 text-red-700 px-3 py-1 text-[9px] font-black" },
@@ -23,5 +23,5 @@ function Master4LiveRio({ go }) {
                 " la imagen ayuda a ver nubes, movimiento y aspecto del mar, pero no reemplaza los boletines oficiales de lluvia, oleaje o balneabilidad.")));
 }
 
-MASTER4_TV_REPORTS.push({title:'Noticiero Canal 13',channel:'Canal 13',country:'Chile',desc:'Ernestinho desde Río de Janeiro',url:'https://res.cloudinary.com/tdez3h4t/video/upload/v1789923603/MECM6074.mov',image:''});
+window.MASTER4_TV_REPORTS.push({title:'Noticiero Canal 13',channel:'Canal 13',country:'Chile',desc:'Ernestinho desde Río de Janeiro',url:'https://res.cloudinary.com/tdez3h4t/video/upload/v1789923603/MECM6074.mov',image:''});
 window.Master4LiveRio=Master4LiveRio;

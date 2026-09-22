@@ -1,5 +1,5 @@
 function Master4Planner({ go }) {
-    const catalog = Array.isArray(MASTER3_CITY_PLACE_REGISTRY) ? MASTER3_CITY_PLACE_REGISTRY : [];
+    const catalog = Array.isArray(window.MASTER3_CITY_PLACE_REGISTRY) ? MASTER3_CITY_PLACE_REGISTRY : [];
     const [days, setDays] = useState(1);
     const [pace, setPace] = useState('Tranquilo');
     const [focus, setFocus] = useState('Primera vez');

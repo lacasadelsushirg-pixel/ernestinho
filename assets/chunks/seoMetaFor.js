@@ -19,8 +19,8 @@ function seoMetaFor(section, museoId, barrio, restaurante, articulo, temaGuia, c
         return { path, title: `${restaurante.nombre} en Río de Janeiro | Ernestinho Carioca`, description: restaurante.destaque };
     if (section === 'articulo_detalle' && articulo)
         return { path, title: `${articulo.titulo} | Ernestinho Carioca`, description: articulo.resumen };
-    if (section === 'guia' && temaGuia && GUIA_INFO[temaGuia]) {
-        const x = GUIA_INFO[temaGuia];
+    if (section === 'guia' && temaGuia && window.GUIA_INFO[temaGuia]) {
+        const x = window.GUIA_INFO[temaGuia];
         return { path, title: `${x.titulo} | Ernestinho Carioca`, description: x.intro };
     }
     const exp = seoExperienceFromState(section);
@@ -52,7 +52,7 @@ function seoMetaFor(section, museoId, barrio, restaurante, articulo, temaGuia, c
         fotografia: ['Dónde fotografiar Río de Janeiro | Ernestinho Carioca', 'Miradores y lugares para fotografiar Río de Janeiro.'],
         copa_para_mi: ['Copacabana | Guía de Ernestinho Carioca', 'Qué hacer, comer y descubrir en Copacabana desde una mirada local.']
     };
-    const base = labels[section] || labels[Object.keys(SEO_SECTION_ROUTES).find(k => SEO_SECTION_ROUTES[k] === path)] || null;
+    const base = labels[section] || labels[Object.keys(window.SEO_SECTION_ROUTES).find(k => window.SEO_SECTION_ROUTES[k] === path)] || null;
     return base ? { path, title: base[0], description: base[1], indexable: true } : { path, indexable: false };
 }
 // ===== FIN SEO ROUTER =====

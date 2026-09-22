@@ -1,6 +1,6 @@
 function GuiaRioCompleta({ onNavegar, onArticulo, tema, setTema, lang = 'es' }) {
     const T = (v) => { if (v == null) return v; if (typeof v === 'object' && !Array.isArray(v)) return v[lang] || v.es || v.pt || v.en || v; const z=String(v), g=(window.GLOBAL_UI_TRANSLATIONS&&window.GLOBAL_UI_TRANSLATIONS[lang])||{}; return lang==='es'?z:(g[z]||z); };
-    const info = tema ? GUIA_INFO[tema] : null, grupos = [...new Set(GUIA_TEMAS.map(x => x.grupo))];
+    const info = tema ? window.GUIA_INFO[tema] : null, grupos = [...new Set(GUIA_TEMAS.map(x => x.grupo))];
     if (info)
         return React.createElement("section", { className: "min-h-screen bg-slate-50 py-12" },
             React.createElement("article", { className: "max-w-4xl mx-auto px-4" },
@@ -33,7 +33,7 @@ function GuiaRioCompleta({ onNavegar, onArticulo, tema, setTema, lang = 'es' }) 
                 React.createElement("p", { className: "max-w-2xl mt-5 text-teal-50 text-lg" }, T("Prepara tu viaje, llega tranquilo y encuentra rápidamente la información esencial.")))),
         React.createElement("div", { className: "max-w-7xl mx-auto px-4 py-12" }, grupos.map(g => React.createElement("div", { key: g, className: "mb-12" },
             React.createElement("h2", { className: "text-2xl font-black" }, T(g)),
-            React.createElement("div", { className: "grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5" }, GUIA_TEMAS.filter(x => x.grupo === g).map(x => React.createElement((!x.sec && x.legacy === undefined) ? "a" : "button", { key: x.id, href: (!x.sec && x.legacy === undefined) ? `/guia/${seoSlug((GUIA_INFO[x.id] && GUIA_INFO[x.id].titulo) || x.titulo || x.id)}` : undefined, onClick: (ev) => { if (x.sec) return onNavegar(x.sec); if (x.legacy !== undefined) return onArticulo(ARTICULOS_CONSEJOS[x.legacy]); if (!(ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey)) { ev.preventDefault(); seoNavigate(`/guia/${seoSlug((GUIA_INFO[x.id] && GUIA_INFO[x.id].titulo) || x.titulo || x.id)}`); setTema(x.id); } }, className: "block text-left bg-white border border-slate-100 rounded-3xl overflow-hidden   transition" },
+            React.createElement("div", { className: "grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-5" }, GUIA_TEMAS.filter(x => x.grupo === g).map(x => React.createElement((!x.sec && x.legacy === undefined) ? "a" : "button", { key: x.id, href: (!x.sec && x.legacy === undefined) ? `/guia/${seoSlug((window.GUIA_INFO[x.id] && window.GUIA_INFO[x.id].titulo) || x.titulo || x.id)}` : undefined, onClick: (ev) => { if (x.sec) return onNavegar(x.sec); if (x.legacy !== undefined) return onArticulo(window.ARTICULOS_CONSEJOS[x.legacy]); if (!(ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey)) { ev.preventDefault(); seoNavigate(`/guia/${seoSlug((window.GUIA_INFO[x.id] && window.GUIA_INFO[x.id].titulo) || x.titulo || x.id)}`); setTema(x.id); } }, className: "block text-left bg-white border border-slate-100 rounded-3xl overflow-hidden   transition" },
                 x.imagen ? React.createElement("div", { className: "w-full aspect-[8/3] bg-slate-100 overflow-hidden" },
                     React.createElement("img", { src: x.imagen, alt: T(x.titulo), className: "w-full h-full object-cover", loading: "lazy" })) : null,
                 React.createElement("div", { className: "p-5" },
@@ -41,9 +41,9 @@ function GuiaRioCompleta({ onNavegar, onArticulo, tema, setTema, lang = 'es' }) 
                     React.createElement("p", { className: "text-xs text-slate-500 mt-2" }, T(x.resumen)),
                     React.createElement("span", { className: "block text-teal-700 text-[10px] font-black uppercase mt-4" }, T("Abrir →"))))))))));
 }
-// CONSEJOS_NUEVOS externalizado a JSON
+// window.CONSEJOS_NUEVOS externalizado a JSON
 
-// SEMANA_RIO externalizado a JSON
+// window.SEMANA_RIO externalizado a JSON
 
-// LLUVIA_RIO externalizado a JSON
+// window.LLUVIA_RIO externalizado a JSON
 window.GuiaRioCompleta=GuiaRioCompleta;

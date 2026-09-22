@@ -1,6 +1,6 @@
 function Master4CityBrain({ go }) {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
-    const data = Array.isArray(MASTER3_CITY_PLACE_REGISTRY) ? MASTER3_CITY_PLACE_REGISTRY : [];
+    const data = Array.isArray(window.MASTER3_CITY_PLACE_REGISTRY) ? MASTER3_CITY_PLACE_REGISTRY : [];
     const [selected, setSelected] = useState(null);
     const [q, setQ] = useState('');
     const shown = data.filter(x => (x.name + ' ' + (x.summary || '') + ' ' + (x.zone || '') + ' ' + (x.neighborhood || '')).toLowerCase().includes(q.toLowerCase()));

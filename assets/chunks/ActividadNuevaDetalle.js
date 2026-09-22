@@ -42,5 +42,5 @@ function ActividadNuevaDetalle({ actividad, onVolver, lang = 'es' }) {
                     T(" · imagen completa sin recorte"))))),
             canonical && React.createElement("div", { className: "mt-10" }, React.createElement(V4FitBlock, { entity: canonical }))));
 }
-// LISTA_20_CONSEJOS externalizado a JSON
+// window.LISTA_20_CONSEJOS externalizado a JSON
 window.ActividadNuevaDetalle=ActividadNuevaDetalle;

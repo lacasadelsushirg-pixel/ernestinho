@@ -1,5 +1,5 @@
 function GuiaTransportePublico({ onVolver, onMetro, modo, setModo }) {
-    const x = modo && TRANSPORTE_RIO.find(t => t.id === modo);
+    const x = modo && window.TRANSPORTE_RIO.find(t => t.id === modo);
     if (x)
         return React.createElement("section", { className: "min-h-screen bg-slate-50 py-10" },
             React.createElement("article", { className: "max-w-5xl mx-auto px-4" },
@@ -36,7 +36,7 @@ function GuiaTransportePublico({ onVolver, onMetro, modo, setModo }) {
                 React.createElement("h1", { className: "text-4xl sm:text-6xl font-black mt-2" }, "TRANSPORTE EN R\u00CDO"),
                 React.createElement("p", { className: "max-w-3xl text-slate-300 mt-4" }, "Elige el sistema seg\u00FAn tu destino, horario, equipaje y cantidad de personas. Las tarifas pueden cambiar: comprueba siempre el canal oficial."))),
         React.createElement("div", { className: "max-w-7xl mx-auto px-4 py-10" },
-            React.createElement("div", { className: "grid md:grid-cols-2 lg:grid-cols-3 gap-6" }, TRANSPORTE_RIO.map(t => React.createElement("button", { key: t.id, onClick: () => setModo(t.id), className: "text-left bg-white rounded-3xl overflow-hidden  border border-slate-100  transition" },
+            React.createElement("div", { className: "grid md:grid-cols-2 lg:grid-cols-3 gap-6" }, window.TRANSPORTE_RIO.map(t => React.createElement("button", { key: t.id, onClick: () => setModo(t.id), className: "text-left bg-white rounded-3xl overflow-hidden  border border-slate-100  transition" },
                 React.createElement("div", { className: "h-48" },
                     React.createElement("img", { src: t.foto, alt: t.nombre, className: "w-full h-full object-cover" })),
                 React.createElement("div", { className: "p-6" },
@@ -52,5 +52,5 @@ function GuiaTransportePublico({ onVolver, onMetro, modo, setModo }) {
 /* ===================================================== */
 /* FASE 6 · MVP REAL — ❤️ COPACABANA PARA MÍ · MOTOR v1.0 */
 /* ===================================================== */
-// COPACABANA_PLACES_V1 externalizado a JSON
+// window.COPACABANA_PLACES_V1 externalizado a JSON
 window.GuiaTransportePublico=GuiaTransportePublico;

@@ -2,8 +2,8 @@ function Master4SpecialGuides({ go }) {
     const [tab, setTab] = useState('familia');
     const configs = {
         familia: { icon: '👨‍👩‍👧', title: 'Río en familia', data: FAMILIA_DATA },
-        literatura: { icon: '📚', title: 'Río literario', data: ESPACIOS_LITERARIOS_DATA },
-        consejos: { icon: '💡', title: '20 consejos para Río', data: LISTA_20_CONSEJOS }
+        literatura: { icon: '📚', title: 'Río literario', data: window.ESPACIOS_LITERARIOS_DATA },
+        consejos: { icon: '💡', title: '20 consejos para Río', data: window.LISTA_20_CONSEJOS }
     };
     const c = configs[tab];
     const arr = Array.isArray(c.data) ? c.data : [];

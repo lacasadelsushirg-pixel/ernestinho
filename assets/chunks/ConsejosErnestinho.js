@@ -35,7 +35,7 @@ function ConsejosErnestinho({ onArticulo, onNavegar, onAbrirDetalle, seleccionad
     if (seleccionado && ['lluvia', 'presupuestos', 'sol'].includes(seleccionado.id))
         return React.createElement(ConsejoVisualCompleto, { seleccionado: seleccionado, onVolver: () => setSeleccionado(null), onNavegar: onNavegar, lang: lang });
     if (seleccionado) {
-        const visual = CONSEJOS_VISUALES[seleccionado.id];
+        const visual = window.CONSEJOS_VISUALES[seleccionado.id];
         return React.createElement("section", { ref: ecRef, className: "min-h-screen bg-amber-50 py-12" },
             React.createElement("article", { className: "max-w-4xl mx-auto px-4" },
                 React.createElement("button", { onClick: () => setSeleccionado(null), className: "font-black text-amber-800" }, CT("← Volver a Consejos")),
@@ -44,7 +44,7 @@ function ConsejosErnestinho({ onArticulo, onNavegar, onAbrirDetalle, seleccionad
                 React.createElement("span", { className: "block text-6xl mt-9" }, seleccionado.icon),
                 React.createElement("h1", { className: "text-3xl sm:text-5xl font-black mt-5" }, CT(seleccionado.titulo)),
                 React.createElement("p", { className: "text-lg text-slate-600 mt-4" }, CT(seleccionado.intro)),
-                seleccionado.id === 'semana' && React.createElement("div", { className: "grid md:grid-cols-2 gap-6 mt-9" }, SEMANA_RIO.map(d => React.createElement("article", { key: d.dia, className: "bg-white rounded-3xl overflow-hidden border border-amber-100 " },
+                seleccionado.id === 'semana' && React.createElement("div", { className: "grid md:grid-cols-2 gap-6 mt-9" }, window.SEMANA_RIO.map(d => React.createElement("article", { key: d.dia, className: "bg-white rounded-3xl overflow-hidden border border-amber-100 " },
                     React.createElement("img", { src: d.foto, alt: d.dia + ' en Río de Janeiro', className: "w-full h-48 object-cover" }),
                     React.createElement("div", { className: "p-6" },
                         React.createElement("span", { className: "text-amber-700 text-xs font-black uppercase" }, CT(d.tema)),
@@ -86,13 +86,13 @@ function ConsejosErnestinho({ onArticulo, onNavegar, onAbrirDetalle, seleccionad
         React.createElement("div", { className: "max-w-7xl mx-auto px-4 py-12" },
             React.createElement("h2", { className: "text-2xl font-black text-white" }, CT("Consejos esenciales")),
             React.createElement("div", { className: "grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-5" },
-                ARTICULOS_CONSEJOS.filter(a => a.id === 'art-1').map(a => React.createElement("button", { key: a.id, onClick: () => onArticulo(a), className: "group rounded-2xl overflow-hidden border border-white/10 bg-[#0b2a2a] text-left" },
+                window.ARTICULOS_CONSEJOS.filter(a => a.id === 'art-1').map(a => React.createElement("button", { key: a.id, onClick: () => onArticulo(a), className: "group rounded-2xl overflow-hidden border border-white/10 bg-[#0b2a2a] text-left" },
                     React.createElement("img", { src: portadaConsejo(6), alt: CT(a.titulo), loading: "lazy", className: "w-full aspect-[3/2] object-cover transition-transform duration-300 group-hover:scale-[1.02]" }))),
                 React.createElement("button", { onClick: () => onNavegar('guia'), className: "group rounded-2xl overflow-hidden border border-white/10 bg-[#0b2a2a] text-left" },
                     React.createElement("img", { src: portadaConsejo(7), alt: CT("Documentos, visado, vacunas, maleta y electricidad"), loading: "lazy", className: "w-full aspect-[3/2] object-cover transition-transform duration-300 group-hover:scale-[1.02]" }))),
             React.createElement("h2", { className: "text-2xl font-black mt-14 text-white" }, CT("Organiza y vive tu viaje")),
-            React.createElement("div", { className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5" }, CONSEJOS_NUEVOS.filter(x => x.id !== 'recorridos-cuenta').map(x => React.createElement("button", { key: x.id, onClick: () => setSeleccionado(x), className: "group rounded-3xl overflow-hidden border border-white/10 bg-[#0b2a2a] text-left transition" },
+            React.createElement("div", { className: "grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5" }, window.CONSEJOS_NUEVOS.filter(x => x.id !== 'recorridos-cuenta').map(x => React.createElement("button", { key: x.id, onClick: () => setSeleccionado(x), className: "group rounded-3xl overflow-hidden border border-white/10 bg-[#0b2a2a] text-left transition" },
                 React.createElement("img", { src: portadaConsejo(CONSEJOS_PORTADAS[x.id]), alt: CT(x.titulo), loading: "lazy", className: "w-full aspect-[3/2] object-cover transition-transform duration-300 group-hover:scale-[1.02]" }))))));
 }
-// TRANSPORTE_RIO externalizado a JSON
+// window.TRANSPORTE_RIO externalizado a JSON
 window.ConsejosErnestinho=ConsejosErnestinho;

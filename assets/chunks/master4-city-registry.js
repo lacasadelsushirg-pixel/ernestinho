@@ -15,7 +15,7 @@ function Master4CityRegistry({ go }) {
     const image = x => val(x, ['image', 'imagen', 'photo', 'foto', 'thumbnail', 'miniatura']);
     const id = x => val(x, ['id', 'slug', 'canonicalId']) || name(x);
     const norm = t => (t || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-    const gateFor = x => { const n = norm(name(x)); return (Array.isArray(MASTER3_PUBLICATION_GATE_RESULTS) ? MASTER3_PUBLICATION_GATE_RESULTS : []).find(g => norm(g.name) === n) || null; };
+    const gateFor = x => { const n = norm(name(x)); return (Array.isArray(window.MASTER3_PUBLICATION_GATE_RESULTS) ? MASTER3_PUBLICATION_GATE_RESULTS : []).find(g => norm(g.name) === n) || null; };
     const types = ['Todos', ...Array.from(new Set(data.map(kind).filter(Boolean))).slice(0, 30)];
     const shown = data.filter(x => (type === 'Todos' || kind(x) === type) && (!q || (name(x) + ' ' + summary(x) + ' ' + neighborhood(x) + ' ' + kind(x)).toLowerCase().includes(q.toLowerCase())));
     if (selected) {

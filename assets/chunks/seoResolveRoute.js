@@ -31,13 +31,13 @@ function seoResolveRoute(pathname) {
     }
     m = ruta.match(/^\/articulos\/([^/]+)$/);
     if (m) {
-        const articulo = ARTICULOS_CONSEJOS.find(x => seoSlug(x.titulo) === m[1] || seoSlug(x.id) === m[1]);
+        const articulo = window.ARTICULOS_CONSEJOS.find(x => seoSlug(x.titulo) === m[1] || seoSlug(x.id) === m[1]);
         if (articulo)
             return { ...result, seccion: 'articulo_detalle', articulo };
     }
     m = ruta.match(/^\/guia\/([^/]+)$/);
     if (m && m[1] !== 'pix') {
-        const temaId = Object.keys(GUIA_INFO).find(id => { var _a; return seoSlug(((_a = GUIA_INFO[id]) === null || _a === void 0 ? void 0 : _a.titulo) || id) === m[1] || seoSlug(id) === m[1]; });
+        const temaId = Object.keys(window.GUIA_INFO).find(id => { var _a; return seoSlug(((_a = window.GUIA_INFO[id]) === null || _a === void 0 ? void 0 : _a.titulo) || id) === m[1] || seoSlug(id) === m[1]; });
         if (temaId)
             return { ...result, seccion: 'guia', temaGuia: temaId };
     }
@@ -51,7 +51,7 @@ function seoResolveRoute(pathname) {
     const preferred = SEO_ROUTE_PREFERRED_SECTION[ruta];
     if (preferred)
         return { ...result, seccion: preferred };
-    const section = Object.keys(SEO_SECTION_ROUTES).find(key => SEO_SECTION_ROUTES[key] === ruta);
+    const section = Object.keys(window.SEO_SECTION_ROUTES).find(key => window.SEO_SECTION_ROUTES[key] === ruta);
     if (section)
         return { ...result, seccion: section };
     return result;

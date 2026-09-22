@@ -1,6 +1,6 @@
 function Master4AventuraPage({ go }) {
     const aventuraIds = ['parapente', 'parasail', 'paracaidas', 'rapel'];
-    const items = aventuraIds.map(id => ACTIVIDADES_NUEVAS.find(a => a.id === id)).filter(Boolean);
+    const items = aventuraIds.map(id => window.ACTIVIDADES_NUEVAS.find(a => a.id === id)).filter(Boolean);
     return React.createElement("div", { className: "min-h-screen bg-[#f7f7f4] pb-24" },
         React.createElement("header", { className: "max-w-7xl mx-auto px-4 sm:px-6 pt-6" },
             React.createElement("button", { onClick: () => go('que_hacer'), className: "text-xs font-black" }, "\u2190 QU\u00C9 HACER"),

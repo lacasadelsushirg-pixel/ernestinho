@@ -2,8 +2,8 @@ function Master4LegacyDataHub({ kind, go }) {
     const [q, setQ] = useState('');
     const [selected, setSelected] = useState(null);
     const configs = {
-        playas: { title: 'Playas reales del Master 3', icon: '🏖️', data: PLAYAS_DETALLADAS_DATA, back: 'master4_descubre' },
-        centros: { title: 'Centros culturales', icon: '🎨', data: CENTROS_CULTURALES_DATA, back: 'master4_patrimonio' },
+        playas: { title: 'Playas reales del Master 3', icon: '🏖️', data: window.PLAYAS_DETALLADAS_DATA, back: 'master4_descubre' },
+        centros: { title: 'Centros culturales', icon: '🎨', data: window.CENTROS_CULTURALES_DATA, back: 'master4_patrimonio' },
         teatros: { title: 'Teatros', icon: '🎭', data: TEATROS_DATA, back: 'master4_patrimonio' },
         iglesias: { title: 'Iglesias y patrimonio religioso', icon: '⛪', data: IGLESIAS_DATA, back: 'master4_patrimonio' },
         gastronomia: { title: 'Gastronomía real del Master 3', icon: '🍽️', data: GASTRONOMIA_DATA, back: 'master4_gastronomia' },

@@ -5,8 +5,8 @@ function GrandesEventosPage({ onBack }) {
     const [mesCalendario, setMesCalendario] = useState('Todos');
     const [eventoCalendario, setEventoCalendario] = useState(null);
     useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); }, [seleccionado]);
-    const tipos = ['Todos', ...new Set(GRANDES_EVENTOS.map(e => e.tipo))];
-    const visibles = GRANDES_EVENTOS.filter(e => filtro === 'Todos' || e.tipo === filtro);
+    const tipos = ['Todos', ...new Set(window.GRANDES_EVENTOS.map(e => e.tipo))];
+    const visibles = window.GRANDES_EVENTOS.filter(e => filtro === 'Todos' || e.tipo === filtro);
     if (!seleccionado)
         return React.createElement("section", { className: "min-h-screen bg-slate-950 text-white pb-20" },
             React.createElement("div", { className: "relative h-[28rem] overflow-hidden" },
@@ -47,7 +47,7 @@ function GrandesEventosPage({ onBack }) {
                     React.createElement("h2", { className: "text-3xl sm:text-4xl font-black mt-2" }, "Calendario Carioca \u00B7 mes a mes"),
                     React.createElement("p", { className: "text-slate-300 mt-3 max-w-3xl" }, "Aqu\u00ED s\u00ED diferenciamos entre una fecha fija, un evento 2027 confirmado y una referencia del a\u00F1o anterior. Si 2027 todav\u00EDa no fue anunciado, lo decimos claramente."),
                     React.createElement("div", { className: "flex gap-2 overflow-x-auto no-scrollbar py-6" }, ['Todos', 'ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC'].map(m => React.createElement("button", { key: m, onClick: () => setMesCalendario(m), className: `shrink-0 px-4 py-2 rounded-full text-xs font-black ${mesCalendario === m ? 'bg-amber-300 text-slate-950' : 'bg-white/10 text-white'}` }, m))),
-                    React.createElement("div", { className: "grid md:grid-cols-2 gap-4" }, CALENDARIO_CARIOCA.filter(x => mesCalendario === 'Todos' || x.mes.includes(mesCalendario)).map(x => React.createElement("article", { key: x.id, className: "bg-white text-slate-900 rounded-3xl overflow-hidden" },
+                    React.createElement("div", { className: "grid md:grid-cols-2 gap-4" }, window.CALENDARIO_CARIOCA.filter(x => mesCalendario === 'Todos' || x.mes.includes(mesCalendario)).map(x => React.createElement("article", { key: x.id, className: "bg-white text-slate-900 rounded-3xl overflow-hidden" },
                         x.miniatura && React.createElement("div", { className: "aspect-[16/7] bg-slate-200 overflow-hidden" },
                             React.createElement("img", { src: x.miniatura, alt: `${x.nombre} en Río de Janeiro`, className: "w-full h-full object-cover", loading: "lazy", onError: ev => { ev.currentTarget.style.display = 'none'; } })),
                         React.createElement("div", { className: "p-6" },

@@ -14,8 +14,8 @@ function ErnestinhoRoutesV1({go,lang='es'}){
   en:{back:'← BACK',eyebrow:'🧭 ERNESTINHO ROUTES · V1 PROTOTYPE',title:'Rio at your pace.',sub:'More than audio guides: practical routes that tell you where to start, how much to walk, when to stop early and what to do if the plan changes.',search:'Search area, theme or route',featured:'MOST ADVANCED PILOTS',all:'RESEARCHED CATALOG',start:'START ROUTE',details:'VIEW ROUTE',map:'OPEN MAP',hideMap:'CLOSE MAP',loc:'USE MY LOCATION',saved:'Progress saved on this device',next:'NEXT →',prev:'← PREVIOUS',finish:'FINISH',food:'FOOD STOP',audio:'AUDIO',empty:'No routes found with those filters.'}
  }[lang]||null;
  const norm=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
- const zones=['ALL',...Array.from(new Set(ERNESTINHO_ROUTES_V1.map(r=>r.zone)))];
- const filtered=ERNESTINHO_ROUTES_V1.filter(r=>{
+ const zones=['ALL',...Array.from(new Set(window.ERNESTINHO_ROUTES_V1.map(r=>r.zone)))];
+ const filtered=window.ERNESTINHO_ROUTES_V1.filter(r=>{
   const txt=norm([r.title,r.subtitle,r.zone,...(r.neighborhoods||[]),...(r.theme||[])].join(' '));
   return (!q||txt.includes(norm(q)))&&(zone==='ALL'||r.zone===zone)&&(access==='ALL'||r.accessType===access);
  }).sort((a,b)=>(b.priority||0)-(a.priority||0));
@@ -79,7 +79,7 @@ function ErnestinhoRoutesV1({go,lang='es'}){
  return h('div',{className:'min-h-screen bg-[#f7f7f4] pb-24'},
   h('header',{className:'max-w-7xl mx-auto px-4 sm:px-6 pt-6'},
    h('button',{onClick:()=>go('inicio'),className:'text-xs font-black'},t.back),
-   h('div',{className:'mt-5 rounded-[2.2rem] bg-slate-950 text-white p-7 sm:p-11 overflow-hidden relative'},h('div',{className:'absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_80%_20%,#34d399,transparent_35%)]'}),h('div',{className:'relative max-w-3xl'},h('div',{className:'text-[10px] font-black text-emerald-300'},t.eyebrow),h('h1',{className:'text-5xl sm:text-7xl font-black mt-2'},t.title),h('p',{className:'text-white/70 mt-4 text-base sm:text-lg'},t.sub),h('div',{className:'flex flex-wrap gap-2 mt-5'},h('span',{className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},ERNESTINHO_ROUTES_V1.length+' rutas candidatas'),h('span',{className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},ERNESTINHO_ROUTES_V1.filter(x=>x.status==='PILOT_READY').length+' pilotos avanzados'),h('span',{className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},ERNESTINHO_ROUTE_COMPETITORS.length+' benchmarks'))))),
+   h('div',{className:'mt-5 rounded-[2.2rem] bg-slate-950 text-white p-7 sm:p-11 overflow-hidden relative'},h('div',{className:'absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_80%_20%,#34d399,transparent_35%)]'}),h('div',{className:'relative max-w-3xl'},h('div',{className:'text-[10px] font-black text-emerald-300'},t.eyebrow),h('h1',{className:'text-5xl sm:text-7xl font-black mt-2'},t.title),h('p',{className:'text-white/70 mt-4 text-base sm:text-lg'},t.sub),h('div',{className:'flex flex-wrap gap-2 mt-5'},h('span',{className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},window.ERNESTINHO_ROUTES_V1.length+' rutas candidatas'),h('span',{className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},window.ERNESTINHO_ROUTES_V1.filter(x=>x.status==='PILOT_READY').length+' pilotos avanzados'),h('span',{className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},window.ERNESTINHO_ROUTE_COMPETITORS.length+' benchmarks'))))),
   h('main',{className:'max-w-7xl mx-auto px-4 sm:px-6'},
    h('div',{className:'mt-6 grid md:grid-cols-[1fr_auto_auto] gap-3'},h('input',{value:q,onChange:e=>setQ(e.target.value),placeholder:t.search,className:'rounded-2xl border bg-white px-5 py-4 text-sm outline-none'}),h('select',{value:zone,onChange:e=>setZone(e.target.value),className:'rounded-2xl border bg-white px-4 py-4 text-xs font-black'},...zones.map(z=>h('option',{key:z,value:z},z==='ALL'?'TODAS LAS ZONAS':z))),h('select',{value:access,onChange:e=>setAccess(e.target.value),className:'rounded-2xl border bg-white px-4 py-4 text-xs font-black'},...['ALL','FREE','HYBRID','PREMIUM'].map(z=>h('option',{key:z,value:z},z==='ALL'?'TODOS':z)))),
    h('section',{className:'mt-8'},h('div',{className:'flex items-end justify-between gap-4'},h('div',null,h('div',{className:'text-[10px] font-black text-emerald-700'},t.featured),h('h2',{className:'text-3xl font-black'},'Lo que ya se puede probar')),h('span',{className:'text-xs text-slate-500'},filtered.length+' rutas')),h('div',{className:'grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5'},...filtered.filter(r=>r.status==='PILOT_READY').map(r=>h(Card,{key:r.routeId,r})))),
@@ -87,13 +87,13 @@ function ErnestinhoRoutesV1({go,lang='es'}){
    h('section',{className:'mt-12 rounded-[2rem] bg-white border p-6'},h('h2',{className:'text-xl font-black'},'Qué NO voy a vender como autoguiado genérico'),h('div',{className:'grid md:grid-cols-2 gap-3 mt-4'},...ERNESTINHO_ROUTES_NOT_RECOMMENDED.map(x=>h('div',{key:x.routeId,className:'rounded-2xl bg-rose-50 border border-rose-100 p-4'},h('b',{className:'text-sm'},x.routeId),h('p',{className:'text-xs text-slate-600 mt-1'},x.reason)))))));
 }
 
-window.__ERNESTINHO_ROUTES__={version:'1.0',routes:ERNESTINHO_ROUTES_V1,competitors:ERNESTINHO_ROUTE_COMPETITORS,notRecommended:ERNESTINHO_ROUTES_NOT_RECOMMENDED,generatedAt:'2026-09-13'};
-window.__ERNESTINHO_ROUTE_MATCH__=function(q){const n=String(q||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();return ERNESTINHO_ROUTES_V1.map(r=>({r,s:[r.title,r.zone,...r.neighborhoods,...r.theme].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().split(' ').reduce((a,w)=>a+(w&&n.includes(w)?1:0),0)})).filter(x=>x.s>0).sort((a,b)=>b.s-a.s).slice(0,3).map(x=>x.r);};
+window.__ERNESTINHO_ROUTES__={version:'1.0',routes:window.ERNESTINHO_ROUTES_V1,competitors:window.ERNESTINHO_ROUTE_COMPETITORS,notRecommended:ERNESTINHO_ROUTES_NOT_RECOMMENDED,generatedAt:'2026-09-13'};
+window.__ERNESTINHO_ROUTE_MATCH__=function(q){const n=String(q||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();return window.ERNESTINHO_ROUTES_V1.map(r=>({r,s:[r.title,r.zone,...r.neighborhoods,...r.theme].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().split(' ').reduce((a,w)=>a+(w&&n.includes(w)?1:0),0)})).filter(x=>x.s>0).sort((a,b)=>b.s-a.s).slice(0,3).map(x=>x.r);};
 
 
 /* ===== RECORRIDOS ERNESTINHO V2 — PUBLIC SHOWCASE + PREMIUM PREVIEW ===== */
-function erV2Route(id){return ERNESTINHO_MASTER_ROUTE_CATALOG.find(r=>r.routeId===id)||null}
-function erV2Premium(id){return ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3[id]||ERNESTINHO_ROUTE_PREMIUM_CONTENT[id]||null}
+function erV2Route(id){return window.ERNESTINHO_MASTER_ROUTE_CATALOG.find(r=>r.routeId===id)||null}
+function erV2Premium(id){return window.ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3[id]||window.ERNESTINHO_ROUTE_PREMIUM_CONTENT[id]||null}
 function erV2Fmt(min){if(!min)return '—';const h=Math.floor(min/60),m=min%60;return h?(h+'h'+(m?' '+m+'m':'')):m+' min'}
 function ErnestinhoRoutesV2({go,lang='es'}){
   const h=React.createElement;
@@ -124,9 +124,9 @@ function ErnestinhoRoutesV2({go,lang='es'}){
     try{localStorage.setItem('ernestinho_route_'+rid,JSON.stringify({completed:comp,currentStop:idx,updatedAt:new Date().toISOString()}));}catch(e){}
   };
 
-  const zones=['ALL',...Array.from(new Set(ERNESTINHO_MASTER_ROUTE_CATALOG.map(r=>r.zone)))];
+  const zones=['ALL',...Array.from(new Set(window.ERNESTINHO_MASTER_ROUTE_CATALOG.map(r=>r.zone)))];
   const nq=q.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-  const rows=ERNESTINHO_MASTER_ROUTE_CATALOG.filter(r=>{
+  const rows=window.ERNESTINHO_MASTER_ROUTE_CATALOG.filter(r=>{
     const n=(r.title+' '+r.zone+' '+(r.neighborhoods||[]).join(' ')+' '+(r.theme||[]).join(' ')).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
     return (!nq||n.includes(nq))&&(zone==='ALL'||r.zone===zone);
   }).sort((a,b)=>(b.priority||0)-(a.priority||0));
@@ -207,9 +207,9 @@ function ErnestinhoRoutesV2({go,lang='es'}){
         h('h1',{key:'title',className:'text-5xl sm:text-7xl font-black mt-2'},L.title),
         h('p',{key:'sub',className:'text-white/70 mt-4 text-base sm:text-lg'},L.sub),
         h('div',{key:'m',className:'flex flex-wrap gap-2 mt-5'},[
-          h('span',{key:'r',className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},ERNESTINHO_MASTER_ROUTE_CATALOG.length+' rutas'),
-          h('span',{key:'p',className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},Object.keys(ERNESTINHO_ROUTE_PREMIUM_CONTENT).length+' paquetes premium en desarrollo V3'),
-          h('span',{key:'c',className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},ERNESTINHO_COMPETITOR_AUDIT_V2.length+' benchmarks')
+          h('span',{key:'r',className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},window.ERNESTINHO_MASTER_ROUTE_CATALOG.length+' rutas'),
+          h('span',{key:'p',className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},Object.keys(window.ERNESTINHO_ROUTE_PREMIUM_CONTENT).length+' paquetes premium en desarrollo V3'),
+          h('span',{key:'c',className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},window.ERNESTINHO_COMPETITOR_AUDIT_V2.length+' benchmarks')
         ])
       ])
     ]),
@@ -234,7 +234,7 @@ function ErnestinhoRoutesV2({go,lang='es'}){
   ]);
 }
 
-window.__ERNESTINHO_ROUTES_V3__={version:'3.0-final',routeCount:ERNESTINHO_MASTER_ROUTE_CATALOG.length,masterRouteCount:39,premiumPrototypeCount:Object.keys(ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3).length,premiumReadyCount:0,premiumNearReadyCount:2,mediaCount:14,sourceCount:33,generatedAt:'2026-09-13'};
-window.__ERNESTINHO_ROUTES_V2__={version:'2.0-compat',catalogCount:ERNESTINHO_MASTER_ROUTE_CATALOG.length,premiumCount:Object.keys(ERNESTINHO_ROUTE_PREMIUM_CONTENT).length,stopCount:0,competitorCount:ERNESTINHO_COMPETITOR_AUDIT_V2.length,gapCount:0,generatedAt:'2026-09-13'};
+window.__ERNESTINHO_ROUTES_V3__={version:'3.0-final',routeCount:window.ERNESTINHO_MASTER_ROUTE_CATALOG.length,masterRouteCount:39,premiumPrototypeCount:Object.keys(window.ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3).length,premiumReadyCount:0,premiumNearReadyCount:2,mediaCount:14,sourceCount:33,generatedAt:'2026-09-13'};
+window.__ERNESTINHO_ROUTES_V2__={version:'2.0-compat',catalogCount:window.ERNESTINHO_MASTER_ROUTE_CATALOG.length,premiumCount:Object.keys(window.ERNESTINHO_ROUTE_PREMIUM_CONTENT).length,stopCount:0,competitorCount:window.ERNESTINHO_COMPETITOR_AUDIT_V2.length,gapCount:0,generatedAt:'2026-09-13'};
 window.ErnestinhoRoutesV1=ErnestinhoRoutesV1;
 window.ErnestinhoRoutesV2=ErnestinhoRoutesV2;
