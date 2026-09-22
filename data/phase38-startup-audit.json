@@ -1,0 +1,630 @@
+{
+  "startup_json": [
+    {
+      "url": "/data/cultura.json",
+      "raw": 86015,
+      "gzip": 23934,
+      "keys": [
+        {
+          "name": "ESPACIOS_LITERARIOS_DATA",
+          "refs": 13,
+          "pre_app_refs": 11
+        },
+        {
+          "name": "CENTROS_CULTURALES_DATA",
+          "refs": 12,
+          "pre_app_refs": 10
+        },
+        {
+          "name": "FUERTES_DATA",
+          "refs": 12,
+          "pre_app_refs": 10
+        }
+      ]
+    },
+    {
+      "url": "/data/guia.json",
+      "raw": 63112,
+      "gzip": 22950,
+      "keys": [
+        {
+          "name": "GUIA_INFO",
+          "refs": 18,
+          "pre_app_refs": 12
+        },
+        {
+          "name": "CONSEJOS_NUEVOS",
+          "refs": 5,
+          "pre_app_refs": 3
+        }
+      ]
+    },
+    {
+      "url": "/data/rio-hoje.json",
+      "raw": 134450,
+      "gzip": 31694,
+      "keys": [
+        {
+          "name": "RIO_HOJE_FALLBACK_EVENTS",
+          "refs": 3,
+          "pre_app_refs": 3
+        },
+        {
+          "name": "RIO_HOJE_IMAGE_REGISTRY",
+          "refs": 3,
+          "pre_app_refs": 3
+        },
+        {
+          "name": "GRANDES_EVENTOS",
+          "refs": 6,
+          "pre_app_refs": 6
+        },
+        {
+          "name": "CALENDARIO_CARIOCA",
+          "refs": 2,
+          "pre_app_refs": 2
+        }
+      ]
+    },
+    {
+      "url": "/data/explorar.json",
+      "raw": 44683,
+      "gzip": 12639,
+      "keys": [
+        {
+          "name": "ACTIVIDADES_NUEVAS",
+          "refs": 12,
+          "pre_app_refs": 10
+        },
+        {
+          "name": "COPACABANA_PLACES_V1",
+          "refs": 2,
+          "pre_app_refs": 2
+        }
+      ]
+    },
+    {
+      "url": "/data/recorridos.json",
+      "raw": 340677,
+      "gzip": 54007,
+      "keys": [
+        {
+          "name": "ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "ERNESTINHO_MASTER_ROUTE_CATALOG",
+          "refs": 6,
+          "pre_app_refs": 6
+        },
+        {
+          "name": "ERNESTINHO_ROUTES_V1",
+          "refs": 6,
+          "pre_app_refs": 6
+        },
+        {
+          "name": "ERNESTINHO_ROUTE_PREMIUM_CONTENT",
+          "refs": 3,
+          "pre_app_refs": 3
+        }
+      ]
+    },
+    {
+      "url": "/data/gastronomia.json",
+      "raw": 56569,
+      "gzip": 13615,
+      "keys": [
+        {
+          "name": "GASTRONOMIA_BASE",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "GASTRONOMIA_EXTRA",
+          "refs": 1,
+          "pre_app_refs": 1
+        }
+      ]
+    },
+    {
+      "url": "/data/master3-runtime.json",
+      "raw": 181731,
+      "gzip": 41012,
+      "keys": [
+        {
+          "name": "MASTER3_FINAL_REFINED_CATALOG",
+          "refs": 0,
+          "pre_app_refs": 0
+        },
+        {
+          "name": "MASTER3_MONTH_I18N",
+          "refs": 0,
+          "pre_app_refs": 0
+        },
+        {
+          "name": "MASTER3_PUBLICATION_GATE_RESULTS",
+          "refs": 4,
+          "pre_app_refs": 4
+        },
+        {
+          "name": "MASTER3_CITY_PLACE_REGISTRY",
+          "refs": 6,
+          "pre_app_refs": 6
+        },
+        {
+          "name": "MASTER3_QUARANTINE",
+          "refs": 3,
+          "pre_app_refs": 3
+        },
+        {
+          "name": "MASTER3_NEIGHBORHOOD_CONTENT",
+          "refs": 2,
+          "pre_app_refs": 2
+        }
+      ]
+    },
+    {
+      "url": "/data/playas.json",
+      "raw": 28252,
+      "gzip": 5660,
+      "keys": [
+        {
+          "name": "PLAYAS_DETALLADAS_DATA",
+          "refs": 9,
+          "pre_app_refs": 8
+        },
+        {
+          "name": "ERNESTINHO_BEACH_V2",
+          "refs": 5,
+          "pre_app_refs": 5
+        }
+      ]
+    },
+    {
+      "url": "/data/vida-nocturna.json",
+      "raw": 6269,
+      "gzip": 2798,
+      "keys": [
+        {
+          "name": "FOTOS_VIDA_NOCTURNA",
+          "refs": 2,
+          "pre_app_refs": 2
+        }
+      ]
+    },
+    {
+      "url": "/data/transporte.json",
+      "raw": 12425,
+      "gzip": 4298,
+      "keys": [
+        {
+          "name": "TRANSCARIOCA_TRECHOS",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "TRANSPORTE_RIO",
+          "refs": 4,
+          "pre_app_refs": 4
+        }
+      ]
+    },
+    {
+      "url": "/data/naturaleza.json",
+      "raw": 11622,
+      "gzip": 5026,
+      "keys": [
+        {
+          "name": "PARQUES_NATURALEZA_DESTACADOS",
+          "refs": 4,
+          "pre_app_refs": 4
+        },
+        {
+          "name": "SENDEROS_RIO",
+          "refs": 9,
+          "pre_app_refs": 9
+        }
+      ]
+    },
+    {
+      "url": "/data/consejos-viaje.json",
+      "raw": 26677,
+      "gzip": 9961,
+      "keys": [
+        {
+          "name": "LISTA_20_CONSEJOS",
+          "refs": 3,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "TRAMPAS_TURISTA",
+          "refs": 3,
+          "pre_app_refs": 3
+        },
+        {
+          "name": "LLUVIA_RIO",
+          "refs": 3,
+          "pre_app_refs": 3
+        },
+        {
+          "name": "PERFILES_RIO",
+          "refs": 3,
+          "pre_app_refs": 3
+        },
+        {
+          "name": "SEMANA_RIO",
+          "refs": 3,
+          "pre_app_refs": 3
+        }
+      ]
+    },
+    {
+      "url": "/data/otros-datos-extra.json",
+      "raw": 36536,
+      "gzip": 11984,
+      "keys": [
+        {
+          "name": "CATEGORIAS_QUE_HACER",
+          "refs": 2,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "ALIAS_BUSQUEDA_GASTRONOMICA",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "RUTAS_RIO_FOTOS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "FOTO_RIO_URLS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "PRESUPUESTOS_RIO",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "RUTA_PORTUARIA",
+          "refs": 5,
+          "pre_app_refs": 5
+        },
+        {
+          "name": "SOL_RIO",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "RODIZIO_PASOS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "SOUVENIRS_RIO",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "FAQ_DESTACADAS",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "ERRORES_MAPS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "ERNESTINHO_DECISION_EXTRAS_V3",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "ERNESTINHO_INTENT_ONTOLOGY_V3",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "RIO_HOJE_FALLBACK_RECURRING",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "PATRONES_GASTRONOMIA",
+          "refs": 2,
+          "pre_app_refs": 2
+        }
+      ]
+    },
+    {
+      "url": "/data/viaje-consejos-extra.json",
+      "raw": 3930,
+      "gzip": 1770,
+      "keys": [
+        {
+          "name": "ARTICULOS_CONSEJOS",
+          "refs": 9,
+          "pre_app_refs": 3
+        },
+        {
+          "name": "CONSEJOS_VISUALES",
+          "refs": 3,
+          "pre_app_refs": 3
+        }
+      ]
+    },
+    {
+      "url": "/data/copacabana-extra.json",
+      "raw": 11395,
+      "gzip": 4241,
+      "keys": [
+        {
+          "name": "SUPERMERCADO_BRASIL",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "SUPERMERCADOS_COPACABANA",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "COPA_LODGING_CONTEXTS",
+          "refs": 3,
+          "pre_app_refs": 3
+        },
+        {
+          "name": "COPA_ACCEPTANCE_TESTS_V1",
+          "refs": 0,
+          "pre_app_refs": 0
+        },
+        {
+          "name": "COPA_SOS_GUIDES",
+          "refs": 1,
+          "pre_app_refs": 1
+        }
+      ]
+    },
+    {
+      "url": "/data/master-runtime-extra.json",
+      "raw": 59555,
+      "gzip": 21412,
+      "keys": [
+        {
+          "name": "MASTER3_CITY_SYSTEMS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_TRIP_PLANS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_UNDERSTAND",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_SOS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_FOOD_LOGIC",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_UNDERSTAND_DEEP",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "MASTER3_LIVE_LAYERS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_MONUMENTAL_COVERAGE",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "MASTER3_AZ",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_ITINERARIES_FULL",
+          "refs": 3,
+          "pre_app_refs": 3
+        },
+        {
+          "name": "MASTER3_INTERESTS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_AUDIT_RULES",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_RIO_TOP10",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_NEED_TO_KNOW",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_CARIOCA_30",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_DYNAMIC_RULES",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_HOLIDAY_LOGIC",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_PLACE_REGISTRY",
+          "refs": 3,
+          "pre_app_refs": 3
+        },
+        {
+          "name": "MASTER3_LODGING_INTEGRITY",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_TRAVELER_PROFILES_DEEP",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "MASTER3_FOOD_DECODER",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_RIO_HISTORY_TIMELINE",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_DECISION_SCENARIOS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_DETAILED_TRIP_PLANS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_NOW_ACTIONS",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "MASTER3_RAIN_I18N",
+          "refs": 0,
+          "pre_app_refs": 0
+        },
+        {
+          "name": "MASTER3_HEAT_I18N",
+          "refs": 0,
+          "pre_app_refs": 0
+        },
+        {
+          "name": "MASTER3_MONTH_UI_I18N",
+          "refs": 0,
+          "pre_app_refs": 0
+        },
+        {
+          "name": "MASTER3_EDITORIAL_COMMANDMENTS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_UNIFIED_DOORS",
+          "refs": 0,
+          "pre_app_refs": 0
+        },
+        {
+          "name": "MASTER4_SEARCH_INDEX",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER4_LIVE_CAMERAS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER4_TV_REPORTS",
+          "refs": 3,
+          "pre_app_refs": 3
+        }
+      ]
+    },
+    {
+      "url": "/data/premium-recorridos-extra.json",
+      "raw": 26765,
+      "gzip": 8221,
+      "keys": [
+        {
+          "name": "MASTER3_ROUTE_LIBRARY",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "MASTER3_ROUTE_DETAILS",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "SELF_GUIDED_TOURS_DATA",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "ERNESTINHO_ROUTE_COMPETITORS",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "ERNESTINHO_COMPETITOR_AUDIT_V2",
+          "refs": 2,
+          "pre_app_refs": 2
+        },
+        {
+          "name": "ERNESTINHO_ROUTE_MEDIA_V2",
+          "refs": 1,
+          "pre_app_refs": 1
+        },
+        {
+          "name": "SEO_SECTION_ROUTES",
+          "refs": 5,
+          "pre_app_refs": 5
+        }
+      ]
+    },
+    {
+      "url": "/data/rio-contenido-extra.json",
+      "raw": 33985,
+      "gzip": 11911,
+      "keys": [
+        {
+          "name": "ERNESTINHO_V6_CONTENT",
+          "refs": 7,
+          "pre_app_refs": 0
+        },
+        {
+          "name": "V7_CHAPTERS",
+          "refs": 1,
+          "pre_app_refs": 0
+        },
+        {
+          "name": "V7_SOURCE_LINKS",
+          "refs": 1,
+          "pre_app_refs": 0
+        }
+      ]
+    }
+  ]
+}

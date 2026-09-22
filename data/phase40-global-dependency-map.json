@@ -1,0 +1,492 @@
+{
+  "regions": [
+    {
+      "start": 44330,
+      "end": 45962,
+      "bytes": 1632,
+      "refs": [
+        [
+          "cultura.json",
+          [
+            "ESPACIOS_LITERARIOS_DATA",
+            "CENTROS_CULTURALES_DATA",
+            "FUERTES_DATA"
+          ]
+        ]
+      ],
+      "preview": "const CAFE_PRODUCTOS = [     { id: 'c1', nombre: 'Café Rio Tradicional Ernestinho', tipo: 'Grano entero o Molido (250g)', nota: 'Notas a chocolate, cuerpo denso y acidez suave.', p"
+    },
+    {
+      "start": 45962,
+      "end": 61879,
+      "bytes": 15917,
+      "refs": [
+        [
+          "cultura.json",
+          [
+            "ESPACIOS_LITERARIOS_DATA"
+          ]
+        ]
+      ],
+      "preview": "function SeccionEspaciosLiterarios({ seleccionInicial = null }) {     const [espacioSeleccionado, setEspacioSeleccionado] = useState(seleccionInicial);     const [selectorLiterario"
+    },
+    {
+      "start": 61879,
+      "end": 75334,
+      "bytes": 13455,
+      "refs": [
+        [
+          "cultura.json",
+          [
+            "CENTROS_CULTURALES_DATA"
+          ]
+        ]
+      ],
+      "preview": "function SeccionCentrosCulturales({ seleccionInicial = null }) {     const [centroSeleccionado, setCentroSeleccionado] = useState(seleccionInicial);     const [selectorCentrosAbier"
+    },
+    {
+      "start": 101366,
+      "end": 115354,
+      "bytes": 13988,
+      "refs": [
+        [
+          "cultura.json",
+          [
+            "FUERTES_DATA"
+          ]
+        ]
+      ],
+      "preview": "function SeccionFuertesFortalezas({ seleccionInicial = null }) {     const [fuerteSeleccionado, setFuerteSeleccionado] = useState(seleccionInicial);     const [selectorFuertesAbier"
+    },
+    {
+      "start": 171114,
+      "end": 176427,
+      "bytes": 5313,
+      "refs": [
+        [
+          "guia.json",
+          [
+            "GUIA_INFO"
+          ]
+        ]
+      ],
+      "preview": "const GUIA_TEMAS = [     { id: 'documentos', imagen: 'https://res.cloudinary.com/qa301cbc/image/upload/v1789040451/miniaturas_guia_rio_documentos_y_entrada.png', grupo: 'Antes de v"
+    },
+    {
+      "start": 192938,
+      "end": 199294,
+      "bytes": 6356,
+      "refs": [
+        [
+          "guia.json",
+          [
+            "GUIA_INFO",
+            "CONSEJOS_NUEVOS"
+          ]
+        ]
+      ],
+      "preview": "function GuiaRioCompleta({ onNavegar, onArticulo, tema, setTema, lang = 'es' }) {     const T = (v) => { if (v == null) return v; if (typeof v === 'object' && !Array.isArray(v)) re"
+    },
+    {
+      "start": 243219,
+      "end": 252998,
+      "bytes": 9779,
+      "refs": [
+        [
+          "guia.json",
+          [
+            "CONSEJOS_NUEVOS"
+          ]
+        ]
+      ],
+      "preview": "function ConsejosErnestinho({ onArticulo, onNavegar, onAbrirDetalle, seleccionado, setSeleccionado, lang = 'es' }) {     const ecRef = ECUseConsejosTranslation(lang, seleccionado &"
+    },
+    {
+      "start": 374969,
+      "end": 382372,
+      "bytes": 7403,
+      "refs": [
+        [
+          "master3-runtime.json",
+          [
+            "MASTER3_NEIGHBORHOOD_CONTENT"
+          ]
+        ]
+      ],
+      "preview": "function Master3NeighborhoodDetail({ barrio, onBack }) {     const [tab, setTab] = useState('entiende');     const c = MASTER3_NEIGHBORHOOD_CONTENT[barrio === null || barrio === vo"
+    },
+    {
+      "start": 450807,
+      "end": 456695,
+      "bytes": 5888,
+      "refs": [
+        [
+          "master3-runtime.json",
+          [
+            "MASTER3_CITY_PLACE_REGISTRY"
+          ]
+        ]
+      ],
+      "preview": "function Master3CityRegistry() {     const [ctx, setCtx] = useState({ interest: 'first', zone: 'any', rain: false, short: false, free: false });     const set = (k, v) => setCtx(c "
+    },
+    {
+      "start": 460614,
+      "end": 462281,
+      "bytes": 1667,
+      "refs": [
+        [
+          "master3-runtime.json",
+          [
+            "MASTER3_PUBLICATION_GATE_RESULTS"
+          ]
+        ]
+      ],
+      "preview": "function Master3MigrationQualityGate() {     const counts = MASTER3_PUBLICATION_GATE_RESULTS.reduce((a, x) => (a[x.level] = (a[x.level] || 0) + 1, a), {});     const holds = MASTER"
+    },
+    {
+      "start": 462675,
+      "end": 465702,
+      "bytes": 3027,
+      "refs": [
+        [
+          "master3-runtime.json",
+          [
+            "MASTER3_QUARANTINE"
+          ]
+        ]
+      ],
+      "preview": "function Master3WaveThreeAudit() {     const withSummary = MASTER3_QUARANTINE.filter(x => x.hasSummary).length;     const withImage = MASTER3_QUARANTINE.filter(x => x.hasImage).len"
+    },
+    {
+      "start": 532362,
+      "end": 540769,
+      "bytes": 8407,
+      "refs": [
+        [
+          "master3-runtime.json",
+          [
+            "MASTER3_CITY_PLACE_REGISTRY"
+          ]
+        ]
+      ],
+      "preview": "function Master4CityBrain({ go }) {     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;     const data = Array.isArray(MASTER3_CITY_PLACE_REGISTRY) ? MASTER3_CITY_PLACE_REGISTRY : "
+    },
+    {
+      "start": 540769,
+      "end": 547124,
+      "bytes": 6355,
+      "refs": [
+        [
+          "cultura.json",
+          [
+            "FUERTES_DATA"
+          ]
+        ],
+        [
+          "guia.json",
+          [
+            "CONSEJOS_NUEVOS"
+          ]
+        ]
+      ],
+      "preview": "function Master4RemainingContent({ go }) {     const [section, setSection] = useState('lugares');     const [dataset, setDataset] = useState('fuertes');     const [q, setQ] = useSt"
+    },
+    {
+      "start": 550316,
+      "end": 554661,
+      "bytes": 4345,
+      "refs": [
+        [
+          "master3-runtime.json",
+          [
+            "MASTER3_PUBLICATION_GATE_RESULTS"
+          ]
+        ]
+      ],
+      "preview": "function Master4TrustCenter({ go }) {     const gates = Array.isArray(MASTER3_PUBLICATION_GATE_RESULTS) ? MASTER3_PUBLICATION_GATE_RESULTS : [];     const hold = gates.filter(x => "
+    },
+    {
+      "start": 557655,
+      "end": 565858,
+      "bytes": 8203,
+      "refs": [
+        [
+          "master3-runtime.json",
+          [
+            "MASTER3_CITY_PLACE_REGISTRY"
+          ]
+        ]
+      ],
+      "preview": "function Master4Planner({ go }) {     const catalog = Array.isArray(MASTER3_CITY_PLACE_REGISTRY) ? MASTER3_CITY_PLACE_REGISTRY : [];     const [days, setDays] = useState(1);     co"
+    },
+    {
+      "start": 624343,
+      "end": 626571,
+      "bytes": 2228,
+      "refs": [
+        [
+          "cultura.json",
+          [
+            "ESPACIOS_LITERARIOS_DATA",
+            "CENTROS_CULTURALES_DATA",
+            "FUERTES_DATA"
+          ]
+        ]
+      ],
+      "preview": "const ERNESTINHO_V41_DATASETS = () => [     { name: 'FAMILIA_DATA', section: 'familia', component: 'SeccionFamilia', data: (typeof FAMILIA_DATA !== 'undefined' ? FAMILIA_DATA : [])"
+    },
+    {
+      "start": 694763,
+      "end": 696305,
+      "bytes": 1542,
+      "refs": [
+        [
+          "cultura.json",
+          [
+            "ESPACIOS_LITERARIOS_DATA",
+            "CENTROS_CULTURALES_DATA",
+            "FUERTES_DATA"
+          ]
+        ]
+      ],
+      "preview": "function v44Rows() {     const sets = [];     const add = (name, arr) => { try {         if (Array.isArray(arr))             sets.push([name, arr]);     }     catch (e) { } };     "
+    },
+    {
+      "start": 778492,
+      "end": 781948,
+      "bytes": 3456,
+      "refs": [
+        [
+          "cultura.json",
+          [
+            "ESPACIOS_LITERARIOS_DATA"
+          ]
+        ]
+      ],
+      "preview": "function Master4SpecialGuides({ go }) {     const [tab, setTab] = useState('familia');     const configs = {         familia: { icon: '👨‍👩‍👧', title: 'Río en familia', data: FAMILI"
+    },
+    {
+      "start": 781948,
+      "end": 790499,
+      "bytes": 8551,
+      "refs": [
+        [
+          "cultura.json",
+          [
+            "CENTROS_CULTURALES_DATA"
+          ]
+        ]
+      ],
+      "preview": "function Master4LegacyDataHub({ kind, go }) {     const [q, setQ] = useState('');     const [selected, setSelected] = useState(null);     const configs = {         playas: { title:"
+    },
+    {
+      "start": 926072,
+      "end": 929081,
+      "bytes": 3009,
+      "refs": [
+        [
+          "rio-hoje.json",
+          [
+            "RIO_HOJE_FALLBACK_EVENTS"
+          ]
+        ]
+      ],
+      "preview": "function Master4TV({ go, lang = 'es' }) {     return React.createElement(\"div\", { className: \"min-h-screen bg-[#f7f7f4] pb-24\" },         React.createElement(\"section\", { className"
+    },
+    {
+      "start": 929235,
+      "end": 929688,
+      "bytes": 453,
+      "refs": [
+        [
+          "rio-hoje.json",
+          [
+            "RIO_HOJE_FALLBACK_EVENTS",
+            "RIO_HOJE_IMAGE_REGISTRY"
+          ]
+        ]
+      ],
+      "preview": "function rioHojeFallbackExpand(days=28){const out=[...RIO_HOJE_FALLBACK_EVENTS],now=new Date();for(let i=0;i<days;i++){const d=new Date(now.getTime()+i*86400000),key=rioHojeDateKey"
+    },
+    {
+      "start": 930669,
+      "end": 930950,
+      "bytes": 281,
+      "refs": [
+        [
+          "rio-hoje.json",
+          [
+            "RIO_HOJE_IMAGE_REGISTRY"
+          ]
+        ]
+      ],
+      "preview": "function getCanonicalEventImage(eventId,event){const rec=RIO_HOJE_IMAGE_REGISTRY[eventId];if(rec)return rec;return {eventId,url:null,sourceType:'EDITORIAL_CATEGORY_PLACEHOLDER',his"
+    },
+    {
+      "start": 933146,
+      "end": 937870,
+      "bytes": 4724,
+      "refs": [
+        [
+          "rio-hoje.json",
+          [
+            "GRANDES_EVENTOS"
+          ]
+        ]
+      ],
+      "preview": "function RioHojeSmartMatches({query='',ctx,go,lang='es'}){const X={es:{badge:'⚡ RÍO HOJE · CAPA DINÁMICA',title:'También está pasando esto en Río',open:'ABRIR RÍO HOJE →',gem:'💎 ER"
+    },
+    {
+      "start": 938787,
+      "end": 954088,
+      "bytes": 15301,
+      "refs": [
+        [
+          "recorridos.json",
+          [
+            "ERNESTINHO_ROUTES_V1"
+          ]
+        ]
+      ],
+      "preview": "function ErnestinhoRoutesV1({go,lang='es'}){  const h=React.createElement;  const [q,setQ]=React.useState('');  const [zone,setZone]=React.useState('ALL');  const [access,setAccess"
+    },
+    {
+      "start": 954088,
+      "end": 954181,
+      "bytes": 93,
+      "refs": [
+        [
+          "recorridos.json",
+          [
+            "ERNESTINHO_MASTER_ROUTE_CATALOG"
+          ]
+        ]
+      ],
+      "preview": "function erV2Route(id){return ERNESTINHO_MASTER_ROUTE_CATALOG.find(r=>r.routeId===id)||null} "
+    },
+    {
+      "start": 954181,
+      "end": 954298,
+      "bytes": 117,
+      "refs": [
+        [
+          "recorridos.json",
+          [
+            "ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3",
+            "ERNESTINHO_ROUTE_PREMIUM_CONTENT"
+          ]
+        ]
+      ],
+      "preview": "function erV2Premium(id){return ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3[id]||ERNESTINHO_ROUTE_PREMIUM_CONTENT[id]||null} "
+    },
+    {
+      "start": 961485,
+      "end": 973595,
+      "bytes": 12110,
+      "refs": [
+        [
+          "recorridos.json",
+          [
+            "ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3",
+            "ERNESTINHO_MASTER_ROUTE_CATALOG",
+            "ERNESTINHO_ROUTE_PREMIUM_CONTENT"
+          ]
+        ]
+      ],
+      "preview": "function ErnestinhoRoutesV2({go,lang='es'}){   const h=React.createElement;   const [q,setQ]=React.useState('');   const [zone,setZone]=React.useState('ALL');   const [selected,set"
+    },
+    {
+      "start": 973595,
+      "end": 1001238,
+      "bytes": 27643,
+      "refs": [
+        [
+          "rio-hoje.json",
+          [
+            "RIO_HOJE_FALLBACK_EVENTS",
+            "RIO_HOJE_IMAGE_REGISTRY",
+            "GRANDES_EVENTOS"
+          ]
+        ]
+      ],
+      "preview": "function RioHojeV1({go,lang='es'}){   const [win,setWin]=useState('week'),[events,setEvents]=useState([]),[loading,setLoading]=useState(true),[fallbackMode,setFallbackMode]=useStat"
+    },
+    {
+      "start": 1001238,
+      "end": 1028941,
+      "bytes": 27703,
+      "refs": [
+        [
+          "rio-hoje.json",
+          [
+            "GRANDES_EVENTOS",
+            "CALENDARIO_CARIOCA"
+          ]
+        ]
+      ],
+      "preview": "function Master4Home({ go, onReserve, lang = 'es' }) {     const [saved, setSaved] = useState([]);     useEffect(() => { try {         setSaved(JSON.parse(localStorage.getItem('ern"
+    },
+    {
+      "start": 1028941,
+      "end": 1029057,
+      "bytes": 116,
+      "refs": [
+        [
+          "rio-hoje.json",
+          [
+            "CALENDARIO_CARIOCA"
+          ]
+        ]
+      ],
+      "preview": "const OTROS_EVENTOS_RIO = CALENDARIO_CARIOCA.map(e => [e.mes, `${e.icon} ${e.nombre}`, e.tipo, e.lugar, e.estado]); "
+    },
+    {
+      "start": 1031394,
+      "end": 1035082,
+      "bytes": 3688,
+      "refs": [
+        [
+          "guia.json",
+          [
+            "GUIA_INFO"
+          ]
+        ]
+      ],
+      "preview": "function seoResolveRoute(pathname) {     const ruta = seoCleanPath(pathname);     const result = { seccion: 'inicio', museoId: null, barrio: null, restaurante: null, articulo: null"
+    },
+    {
+      "start": 1035082,
+      "end": 1036371,
+      "bytes": 1289,
+      "refs": [
+        [
+          "guia.json",
+          [
+            "GUIA_INFO"
+          ]
+        ]
+      ],
+      "preview": "function seoCurrentPath(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId) {     if (section === 'consejos' && ((consejoId === null || consejoId === void 0 ? voi"
+    },
+    {
+      "start": 1045518,
+      "end": 1051811,
+      "bytes": 6293,
+      "refs": [
+        [
+          "guia.json",
+          [
+            "GUIA_INFO"
+          ]
+        ]
+      ],
+      "preview": "function seoMetaFor(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId) {     const actualPath = seoCleanPath(window.location.pathname);     const metaDirecta = s"
+    }
+  ],
+  "removed_unused_json_keys": {
+    "master3-runtime.json": [
+      "MASTER3_FINAL_REFINED_CATALOG",
+      "MASTER3_MONTH_I18N"
+    ]
+  }
+}
