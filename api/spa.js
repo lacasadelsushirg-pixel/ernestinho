@@ -63,7 +63,7 @@ function seoFor(urlPath) {
     lugares: 'Qué hacer',
     guia: 'Guía de viaje',
     transportes: 'Transporte',
-    articulos: 'Consejos de viaje'
+    articulos: 'Consejos'
   };
   const sectionDescriptions = {
     gastronomia: `${leaf}: información práctica, qué pedir, ambiente, cómo llegar y consejos para comer en Río de Janeiro con la guía de Ernestinho Carioca.`,
@@ -78,7 +78,7 @@ function seoFor(urlPath) {
   const description = sectionDescriptions[root] ||
     `Guía práctica de ${leaf} en Río de Janeiro: información, consejos y recomendaciones de Ernestinho Carioca para viajeros.`;
   return {
-    title: MAIN_TITLES[clean] || `${leaf}${section ? ` | ${sectionNames[root] || section} en Río de Janeiro` : ' | Río de Janeiro'} | Ernestinho Carioca`,
+    title: MAIN_TITLES[clean] || (parts.length > 1 ? `${leaf} | ${sectionNames[root] || section} en Río` : `${leaf} | Río de Janeiro | Ernestinho Carioca`),
     description,
     canonical: SITE + clean,
     image: DEFAULT_OG_IMAGE
@@ -125,7 +125,10 @@ function schemaFor(pathname, seo) {
     let acc='';
     parts.forEach((p,i)=>{
       acc += '/' + p;
-      items.push({'@type':'ListItem',position:i+2,name:humanize(p),item:SITE+acc});
+      const isCurrent = i === parts.length - 1;
+      if (isCurrent || validPaths.has(acc)) {
+        items.push({'@type':'ListItem',position:items.length+1,name:humanize(p),item:SITE+acc});
+      }
     });
     graph.push({'@type':'BreadcrumbList','@id':seo.canonical+'#breadcrumb',itemListElement:items});
   }
