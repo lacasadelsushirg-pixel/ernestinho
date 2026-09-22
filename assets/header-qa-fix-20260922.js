@@ -37,6 +37,12 @@
     });
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',apply,{once:true}); else apply();
-  const mo=new MutationObserver(apply); mo.observe(document.documentElement,{childList:true,subtree:true});
+  let queued=false;
+  const mo=new MutationObserver(()=>{
+    if(queued) return;
+    queued=true;
+    requestAnimationFrame(()=>{queued=false;apply();});
+  });
+  mo.observe(document.documentElement,{childList:true,subtree:true});
   setTimeout(()=>{apply();mo.disconnect();},12000);
 })();
