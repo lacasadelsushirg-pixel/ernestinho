@@ -16,5 +16,5 @@ window.__ecEnsureLanguagePayloads=function(){
  if(lang!=='es')await window.__ecEnsureLanguagePayloads();
  const urls=["/data/consejos-viaje-lazy52.json","/data/consejos-viaje.json","/data/copacabana-extra-lazy.json","/data/copacabana-extra-lazy52.json","/data/cultura.json","/data/explorar-lazy.json","/data/explorar.json","/data/guia.json","/data/master-runtime-extra-lazy.json","/data/master3-runtime-family.json","/data/master3-runtime-lazy.json","/data/naturaleza.json","/data/otros-datos-extra-lazy52.json","/data/otros-datos-extra.json","/data/playas.json","/data/premium-recorridos-extra.json","/data/recorridos.json","/data/rio-contenido-extra.json","/data/rio-hoje-family.json","/data/rio-hoje-lazy52.json","/data/rio-hoje.json","/data/transporte-lazy52.json","/data/transporte.json","/data/viaje-consejos-extra-lazy52.json","/data/viaje-consejos-extra.json","/data/vida-nocturna.json","/data/gastronomia.json"];
  await Promise.all(urls.map(window.__ecLoadData));
- const x=document.createElement('script');x.src='/assets/app.js?v=20260922-stable3';document.body.appendChild(x);
+ const x=document.createElement('script');x.src='/assets/app.js?v=20260922-stable4';document.body.appendChild(x);
 })().catch(e=>console.error('EC bootstrap',e));
