@@ -6,7 +6,7 @@
     if(!header) return;
 
     /* Header final: quitar únicamente los accesos pedidos. */
-    header.querySelectorAll('nav button, nav a, button, a').forEach(el=>{
+    header.querySelectorAll('nav > button, nav > a').forEach(el=>{
       const t=norm(el.textContent);
       if(['para mi','❤️ para mi','mes a mes','consejos','barrios','eventos','grandes eventos','playas'].includes(t)) el.remove();
     });
@@ -117,4 +117,37 @@
   const mo=new MutationObserver(apply);
   mo.observe(document.documentElement,{childList:true,subtree:true});
   setTimeout(()=>{apply();mo.disconnect();},15000);
+})();
+
+
+/* BARRIOS · integración ADN + idioma funcional · 2026-09-22 */
+(function(){
+  function currentLang(){try{return (localStorage.getItem('ernestinho-lang')||document.documentElement.lang||'es').slice(0,2).toLowerCase();}catch(_){return 'es';}}
+  function enhance(frame){
+    if(!frame||frame.dataset.ecBarriosEnhanced==='1') return;
+    let d; try{d=frame.contentDocument;}catch(_){return;} if(!d||!d.body)return;
+    frame.dataset.ecBarriosEnhanced='1';
+    const st=d.createElement('style'); st.id='ec-barrios-adn'; st.textContent=`
+      :root{color-scheme:dark} html,body{background:#071414!important;color:#f7f2e8!important}
+      body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}
+      header,nav,[class*="header"],[class*="hero"]{background:#0b2528!important;color:#fff!important}
+      main,section,[class*="page"],[class*="container"]{background-color:transparent!important}
+      article,[class*="card"],[class*="panel"],details{background:#102b2b!important;color:#f7f2e8!important;border-color:rgba(244,201,93,.28)!important;box-shadow:none!important}
+      h1,h2,h3,h4,strong{color:#f7f2e8!important} p,li,label,small{color:#d7e1dd!important}
+      button,a,[role="button"]{box-shadow:none!important} button{border-color:rgba(244,201,93,.35)!important}
+      input,select,textarea{background:#071b1b!important;color:#fff!important;border-color:rgba(244,201,93,.35)!important}
+      .ec-barr-lang{position:sticky;top:0;z-index:99999;display:flex;justify-content:center;gap:8px;padding:10px;background:#071414;border-bottom:1px solid rgba(244,201,93,.25)}
+      .ec-barr-lang button{border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:8px 13px;background:#102b2b;color:#fff;font-weight:900;font-size:12px}
+      .ec-barr-lang button[data-active="1"]{background:#f4c95d!important;color:#071414!important}
+    `; d.head.appendChild(st);
+    const bar=d.createElement('div');bar.className='ec-barr-lang';bar.setAttribute('aria-label','Idioma / Language');
+    [['es','🇪🇸 ES'],['pt','🇧🇷 PT'],['en','🇺🇸 EN']].forEach(([l,t])=>{const b=d.createElement('button');b.type='button';b.textContent=t;b.dataset.lang=l;b.onclick=()=>{try{localStorage.setItem('ernestinho-lang',l);}catch(_){};window.dispatchEvent(new CustomEvent('ec-barrios-lang',{detail:l}));location.reload();};bar.appendChild(b);});
+    d.body.insertBefore(bar,d.body.firstChild);
+    function translate(){const lang=currentLang(),dict=(window.GLOBAL_UI_TRANSLATIONS&&window.GLOBAL_UI_TRANSLATIONS[lang])||{};bar.querySelectorAll('button').forEach(b=>b.dataset.active=b.dataset.lang===lang?'1':'0');d.documentElement.lang=lang==='pt'?'pt-BR':lang; if(lang==='es')return; const w=d.createTreeWalker(d.body,NodeFilter.SHOW_TEXT);let n;while(n=w.nextNode()){const p=n.parentElement;if(!p||/^(SCRIPT|STYLE|TEXTAREA|CODE|PRE)$/.test(p.tagName)||p.closest('.ec-barr-lang'))continue;const raw=n.nodeValue,key=raw.trim();if(dict[key])n.nodeValue=raw.replace(key,dict[key]);} d.querySelectorAll('[placeholder],[title],[aria-label]').forEach(el=>['placeholder','title','aria-label'].forEach(a=>{const v=el.getAttribute(a);if(v&&dict[v])el.setAttribute(a,dict[v]);}));}
+    translate();
+    const mo=new MutationObserver(()=>translate());mo.observe(d.body,{childList:true,subtree:true});setTimeout(()=>mo.disconnect(),15000);
+  }
+  function scan(){document.querySelectorAll('iframe[title*="Barrios"],iframe[title*="BETA 23"]').forEach(f=>{try{enhance(f);}catch(_){};f.addEventListener('load',()=>{f.dataset.ecBarriosEnhanced='';enhance(f);},{once:true});});}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',scan,{once:true});else scan();
+  const mo=new MutationObserver(scan);mo.observe(document.documentElement,{childList:true,subtree:true});setTimeout(()=>mo.disconnect(),20000);
 })();
