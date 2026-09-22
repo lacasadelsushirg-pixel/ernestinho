@@ -87,8 +87,23 @@ function seoFallbackContent(pathname, seo) {
   const parts = pathname.split('/').filter(Boolean);
   if (!parts.length) return '';
   const leaf = humanize(parts[parts.length - 1]);
-  const section = parts.length > 1 ? humanize(parts[0]) : '';
-  return `<main id="ec-seo-fallback" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden" aria-hidden="true"><h1>${escapeAttr(leaf)}</h1><p>${escapeAttr(seo.description)}</p>${section ? `<p>${escapeAttr(section)} · Río de Janeiro</p>` : ''}<a href="${escapeAttr(SITE + '/')}">Guía de Río de Janeiro</a></main>`;
+  const root = parts[0] || '';
+  const section = parts.length > 1 ? humanize(root) : '';
+  const hubs = {
+    gastronomia: ['/gastronomia','Gastronomía en Río de Janeiro'],
+    museos: ['/museos','Museos de Río de Janeiro'],
+    barrios: ['/barrios','Barrios de Río de Janeiro'],
+    experiencias: ['/experiencias','Experiencias en Río de Janeiro'],
+    lugares: ['/que-hacer','Qué hacer en Río de Janeiro'],
+    guia: ['/prepara-tu-viaje','Prepara tu viaje a Río de Janeiro'],
+    transportes: ['/transportes','Transporte en Río de Janeiro'],
+    articulos: ['/prepara-tu-viaje','Consejos para viajar a Río de Janeiro']
+  };
+  const hub = hubs[root];
+  const hubLink = hub && hub[0] !== pathname
+    ? `<a href="${escapeAttr(SITE + hub[0])}">${escapeAttr(hub[1])}</a>`
+    : '';
+  return `<main id="ec-seo-fallback" class="ec-seo-fallback"><h1>${escapeAttr(leaf)}</h1><p>${escapeAttr(seo.description)}</p>${section ? `<p>${escapeAttr(section)} · Río de Janeiro</p>` : ''}<nav aria-label="Enlaces relacionados"><a href="${escapeAttr(SITE + '/')}">Guía de Río de Janeiro</a>${hubLink}</nav></main>`;
 }
 
 function schemaFor(pathname, seo) {
@@ -157,7 +172,8 @@ function applySeo(html, seo, pathname) {
 <meta name="twitter:description" content="${escapeAttr(seo.description)}">
 <meta name="twitter:image" content="${escapeAttr(seo.image)}">
 <script type="application/ld+json" id="ec-route-schema">${schemaFor(pathname,seo)}</script>${analyticsTags()}`;
-  out = out.replace(/<\/head>/i, `${tags}\n</head>`);
+  const fallbackStyle = '<style id="ec-seo-fallback-style">.ec-seo-fallback{padding:16px;max-width:1200px;margin:0 auto;font-family:system-ui,sans-serif}.ec-seo-fallback h1{font-size:1.5rem}.ec-seo-fallback nav{display:flex;gap:12px;flex-wrap:wrap}@media (scripting:enabled){.ec-seo-fallback{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}}</style>';
+  out = out.replace(/<\/head>/i, `${tags}\n${fallbackStyle}\n</head>`);
   const fallback = seoFallbackContent(pathname, seo);
   if (fallback) out = out.replace(/<body([^>]*)>/i, `<body$1>${fallback}`);
   return out;
