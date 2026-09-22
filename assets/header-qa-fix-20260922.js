@@ -94,9 +94,6 @@
     try{ current=(localStorage.getItem('ernestinho-lang')||document.documentElement.lang||'es').slice(0,2).toLowerCase(); }catch(_){}
     if(current===next) return;
     try{ localStorage.setItem('ernestinho-lang',next); }catch(_){}
-    setTimeout(function(){
-      const now=(document.documentElement.lang||'').slice(0,2).toLowerCase();
-      if(now!==next || next==='es') location.reload();
-    },80);
+    setTimeout(function(){ location.reload(); },80);
   },true);
 })();
