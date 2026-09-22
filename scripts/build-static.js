@@ -11,16 +11,16 @@ const GA_ID = 'G-QE1X83D419';
 
 
 const MAIN_TITLES = {
-  '/transportes': 'CÃ³mo moverse por RÃ­o de Janeiro | Ernestinho Carioca',
-  '/copacabana': 'GuÃ­a de Copacabana: quÃ© ver, playa y consejos | Ernestinho Carioca',
-  '/eventos/carnaval-de-rio': 'Carnaval de RÃ­o de Janeiro: guÃ­a completa | Ernestinho Carioca',
-  '/playas': 'Playas de RÃ­o de Janeiro | Ernestinho Carioca',
-  '/museos': 'Museos de RÃ­o de Janeiro | Ernestinho Carioca',
-  '/barrios': 'Barrios de RÃ­o de Janeiro | Ernestinho Carioca',
-  '/gastronomia': 'GastronomÃ­a en RÃ­o de Janeiro | Ernestinho Carioca',
-  '/experiencias': 'Experiencias en RÃ­o de Janeiro | Ernestinho Carioca',
-  '/prepara-tu-viaje': 'Prepara tu viaje a RÃ­o de Janeiro | Ernestinho Carioca',
-  '/vida-nocturna': 'Vida nocturna en RÃ­o de Janeiro | Ernestinho Carioca'
+  '/transportes': 'Cómo moverse por Río de Janeiro | Ernestinho Carioca',
+  '/copacabana': 'Guía de Copacabana: qué ver, playa y consejos | Ernestinho Carioca',
+  '/eventos/carnaval-de-rio': 'Carnaval de Río de Janeiro: guía completa | Ernestinho Carioca',
+  '/playas': 'Playas de Río de Janeiro | Ernestinho Carioca',
+  '/museos': 'Museos de Río de Janeiro | Ernestinho Carioca',
+  '/barrios': 'Barrios de Río de Janeiro | Ernestinho Carioca',
+  '/gastronomia': 'Gastronomía en Río de Janeiro | Ernestinho Carioca',
+  '/experiencias': 'Experiencias en Río de Janeiro | Ernestinho Carioca',
+  '/prepara-tu-viaje': 'Prepara tu viaje a Río de Janeiro | Ernestinho Carioca',
+  '/vida-nocturna': 'Vida nocturna en Río de Janeiro | Ernestinho Carioca'
 };
 
 function escapeAttr(value) {
@@ -40,16 +40,16 @@ function normalizeRoute(route) {
 function seoFor(route) {
   const clean = normalizeRoute(route);
   if (clean === '/') return {
-    title: 'Ernestinho Carioca | GuÃ­a completa de RÃ­o de Janeiro',
-    description: 'GuÃ­a de RÃ­o de Janeiro en espaÃ±ol con playas, barrios, transporte, cultura, gastronomÃ­a, consejos y experiencias.',
+    title: 'Ernestinho Carioca | Guía completa de Río de Janeiro',
+    description: 'Guía de Río de Janeiro en español con playas, barrios, transporte, cultura, gastronomía, consejos y experiencias.',
     canonical: DOMAIN + '/'
   };
   const parts = clean.split('/').filter(Boolean);
   const leaf = humanize(parts[parts.length - 1]);
   const section = parts.length > 1 ? humanize(parts[0]) : '';
   return {
-    title: MAIN_TITLES[clean] || `${leaf}${section ? ` â€” ${section}` : ''} | Ernestinho Carioca`,
-    description: `GuÃ­a prÃ¡ctica de ${leaf} en RÃ­o de Janeiro: informaciÃ³n, consejos y recomendaciones de Ernestinho Carioca para viajeros.`,
+    title: MAIN_TITLES[clean] || `${leaf}${section ? ` — ${section}` : ''} | Ernestinho Carioca`,
+    description: `Guía práctica de ${leaf} en Río de Janeiro: información, consejos y recomendaciones de Ernestinho Carioca para viajeros.`,
     canonical: DOMAIN + clean
   };
 }
@@ -91,7 +91,7 @@ let shell = source;
 if (start !== -1) {
   const codeStart = start + marker.length;
   const end = source.indexOf('</script>', codeStart);
-  if (end === -1) throw new Error('No se encontrÃ³ el cierre del script principal en index.html');
+  if (end === -1) throw new Error('No se encontró el cierre del script principal en index.html');
 
   appCode = source.slice(codeStart, end);
   compiled = esbuild.transformSync(appCode, {
@@ -123,7 +123,7 @@ copyIfExists('robots.txt');
 copyIfExists('sitemap.xml');
 copyIfExists('google9b0defc9c5a5ee7e.html');
 
-const notFound = '<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>PÃ¡gina no encontrada | Ernestinho Carioca</title></head><body><h1>PÃ¡gina no encontrada</h1><p><a href="/">Volver a Ernestinho Carioca</a></p></body></html>';
+const notFound = '<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="robots" content="noindex,nofollow"><title>Página no encontrada | Ernestinho Carioca</title></head><body><h1>Página no encontrada</h1><p><a href="/">Volver a Ernestinho Carioca</a></p></body></html>';
 fs.writeFileSync(path.join(OUT, '404.html'), notFound, 'utf8');
 
 console.log(`Static build complete: ${routes.size} routes, mode ${start === -1 ? 'precompiled-inline' : 'compiled-app.js'}, app ${(Buffer.byteLength(compiled || source) / 1024 / 1024).toFixed(2)} MB`);
