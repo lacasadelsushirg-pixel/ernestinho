@@ -66,7 +66,7 @@ function seoFor(urlPath) {
     articulos: 'Consejos'
   };
   const sectionDescriptions = {
-    gastronomia: `${leaf}: información práctica, qué pedir, ambiente, cómo llegar y consejos para comer en Río de Janeiro con la guía de Ernestinho Carioca.`,
+    gastronomia: `${leaf}: qué pedir, ambiente, cómo llegar y consejos prácticos para comer en Río de Janeiro con Ernestinho Carioca.`,
     museos: `${leaf}: guía práctica con información para la visita, cómo llegar y qué combinar cerca en Río de Janeiro.`,
     barrios: `${leaf}: guía del barrio con qué ver, cómo moverse, seguridad, transporte y recomendaciones para conocer Río de Janeiro.`,
     experiencias: `${leaf}: guía de la experiencia, qué esperar, información práctica y consejos para disfrutar Río de Janeiro.`,
