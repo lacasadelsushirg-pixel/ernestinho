@@ -61,10 +61,8 @@
           let digits='';
           if(/wa\.me$/i.test(u.hostname)||/wa\.me/i.test(u.hostname)) digits=u.pathname.replace(/\D/g,'');
           else digits=(u.searchParams.get('phone')||'').replace(/\D/g,'');
-          if(!digits || digits===EC_WA || /5521969946938$/.test(digits)){
-            const text=u.searchParams.get('text');
-            a.href='https://wa.me/'+EC_WA+(text?'?text='+encodeURIComponent(text):'');
-          }
+          const text=u.searchParams.get('text');
+          a.href='https://wa.me/'+EC_WA+(text?'?text='+encodeURIComponent(text):'');
         }catch(_){}
       }
       if(a.target==='_blank'){
