@@ -2,6 +2,8 @@ function VidaNocturnaCompleta({ onVolver }) {
     const [dia, setDia] = useState('Todos');
     const [tipo, setTipo] = useState('Todos');
     const [zona, setZona] = useState('Todas');
+    const DETALLE_NOCHE = {"pedra-sal":"pedra-do-sal","scenarium-noite":"rio-scenarium","carioca-gema":"carioca-da-gema","beco-rato":"beco-do-rato","trapiche":"trapiche-gamboa","bafo-noite":"bafo-da-prainha","sacadura":"sacadura-154","leviano":"leviano-bar","lapa40":"lapa-40-graus","circo":"circo-voador","fundicao":"fundicao-progresso","selina-lapa":"rooftop-lapa","bar-cachaca":"bar-da-cachaca","vaca-atolada":"vaca-atolada","armazem-senado":"armazem-senado","bar-omar-noite":"bar-do-omar","quartinho-noite":"quartinho","xepa":"xepa","bukowski":"bar-bukowski","coordenadas":"coordenadas-bar","macuna":"macuna","comuna":"comuna","brewteco":"brewteco-botafogo","yoo2":"yoo2-rooftop","fogo-chao-bar":"fogo-de-chao-botafogo","bip-bip":"bip-bip","blue-note":"blue-note-rio","isabel-lounge":"isabel-lounge","moonlounge":"moonlounge","beco-garrafas":"beco-das-garrafas","galeria-cafe":"galeria-cafe","pink-flamingo":"pink-flamingo","canastra":"canastra-bar","nosso":"nosso","astor-noite":"bar-astor","boa-praca-noite":"boa-praca-ipanema","jobi-noite":"jobi","renascenca":"renascenca-clube","feira-noite":"feira-sao-cristovao","cacique":"cacique-de-ramos","quadra-mangueira":"quadra-mangueira","quadra-salgueiro":"quadra-salgueiro","portela":"portela","vitrinni":"vitrinni","all-in":"all-in","bosque-bar":"bosque-bar","zeca-vogue":"zeca-vogue","vogue-square":"vogue-square","ocya-sunset":"ocya-ilha-primeira"};
+
     const zonas = ['Todas', ...new Set(VIDA_NOCTURNA_CON_FOTOS.map(x => x.zona))];
     const lista = VIDA_NOCTURNA_CON_FOTOS.filter(x => (dia === 'Todos' || x.dias.includes(dia)) && (tipo === 'Todos' || x.tipo === tipo) && (zona === 'Todas' || x.zona === zona));
     return React.createElement("section", { className: "min-h-screen bg-slate-950 text-white pb-20" },
@@ -41,7 +43,9 @@ function VidaNocturnaCompleta({ onVolver }) {
                         React.createElement("span", { className: "text-fuchsia-300 font-bold" }, x.tipo),
                         React.createElement("span", { className: "text-slate-400" }, x.dias.join(' · '))),
                     React.createElement("p", { className: "text-slate-300 text-sm mt-3 leading-relaxed" }, x.destaque),
-                    React.createElement("a", { href: x.mapa, target: "_blank", rel: "noopener noreferrer", className: "block mt-5 text-center bg-white hover:bg-fuchsia-500 hover:text-white text-slate-950 rounded-xl py-3 text-xs font-black uppercase" }, "Mapa y agenda"))))),
+                    React.createElement("div", { className: "grid grid-cols-2 gap-2 mt-5" },
+                        React.createElement("a", { href: "/vida-nocturna/" + (DETALLE_NOCHE[x.id] || x.id), className: "text-center bg-white hover:bg-fuchsia-500 hover:text-white text-slate-950 rounded-xl py-3 text-xs font-black uppercase" }, "Ver ficha"),
+                        React.createElement("a", { href: x.mapa, target: "_blank", rel: "noopener noreferrer", className: "text-center border border-slate-700 hover:border-fuchsia-500 text-white rounded-xl py-3 text-xs font-black uppercase" }, "Mapa")))))),
             React.createElement("div", { className: "mt-12 bg-fuchsia-950/60 border border-fuchsia-800 rounded-3xl p-7" },
                 React.createElement("h2", { className: "text-xl font-black" }, "Antes de salir"),
                 React.createElement("p", { className: "text-sm text-fuchsia-100 mt-2" }, "Los d\u00EDas indicados son orientativos. Confirma la agenda oficial, entrada, edad m\u00EDnima y horario. Para regresar de madrugada, solicita el transporte desde dentro del establecimiento y verifica matr\u00EDcula y conductor antes de subir."))));
