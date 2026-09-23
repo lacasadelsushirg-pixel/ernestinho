@@ -17,7 +17,7 @@ window.__ecEnsureLanguagePayloads=function(){
  await load('/assets/guide-editorial-extensions.js?v=20260923');
  await load('/assets/editorial-data.js?v=20260923');
  await load('/assets/gastronomy-data.js?v=20260923');
- await new Promise(resolve=>{if(Array.isArray(window.GASTRONOMIA_NUEVAS_CARDS))return resolve();const done=()=>{window.removeEventListener('ec:gastro-ready',done);resolve()};window.addEventListener('ec:gastro-ready',done,{once:true});setTimeout(done,8000)});
+ if(window.__ecGastronomyReady) await window.__ecGastronomyReady;
  const lang=localStorage.getItem('ernestinho-lang')||'es';
  if(lang!=='es'){await window.__ecEnsureLanguagePayloads();
   try{const parts=await Promise.all(Array.from({length:23},(_,i)=>fetch('/assets/translations/heavy-'+String(i+1).padStart(2,'0')+'.part?v=20260923',{cache:'force-cache'}).then(r=>{if(!r.ok)throw Error(r.url+' '+r.status);return r.text()})));(0,eval)(parts.join(''));await load('/assets/translations/heavy-tail.js?v=20260923');}catch(e){console.error('EC heavy translations',e);}
