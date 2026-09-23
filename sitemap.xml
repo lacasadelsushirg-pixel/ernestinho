@@ -331,6 +331,11 @@
   <url><loc>https://www.ernestinhocarioca.com.br/transportes/uber</loc></url>
   <url><loc>https://www.ernestinhocarioca.com.br/tv</loc></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna</loc></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/coordenadas-bar</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/bar-bukowski</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/xepa</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/quartinho</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/bar-do-omar</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/armazem-senado</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/vaca-atolada</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/bar-da-cachaca</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
