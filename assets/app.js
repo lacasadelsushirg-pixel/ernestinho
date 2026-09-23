@@ -587,6 +587,22 @@ function seoSlug(valor) {
         .replace(/^-+|-+$/g, '');
 }
 
+const SEO_SECTION_ROUTES = {
+    inicio: '/',
+    museos: '/museos',
+    playas: '/playas',
+    naturaleza: '/naturaleza',
+    gastronomia: '/gastronomia',
+    barrios: '/barrios',
+    transportes: '/transportes',
+    consejos: '/consejos',
+    experiencias: '/experiencias',
+    hola_ernestinho: '/hola-soy-ernestinho',
+    aventura: '/aventura',
+    fotografia: '/fotografia',
+    copa_para_mi: '/copacabana'
+};
+
 const SEO_ROUTE_PREFERRED_SECTION = {
     '/': 'inicio',
     '/museos': 'museos',
