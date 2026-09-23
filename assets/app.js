@@ -2224,6 +2224,14 @@ function AppErnestinho(){
                             "Dise\u00F1ado para viajeros que buscan vivir R\u00EDo de forma real y aut\u00E9ntica."),
                         React.createElement("button", { onClick: () => setSeccionActual('privacidad'), className: "text-xs text-teal-400 hover:text-teal-300 font-bold mt-3" }, "Privacidad, precios y condiciones")))))));
 }
+
+/* Deferred guide editorial extensions: GUIA_TEMAS/GUIA_INFO exist only after app initialization. */
+(function(){
+ const s=document.createElement('script');
+ s.src='/assets/guide-editorial-extensions.js?v=20260923-runtime-audit3';
+ s.onerror=()=>console.error('EC guide editorial extensions load failed');
+ document.head.appendChild(s);
+})();
 // MULTIDIOMA REAL · traducción EN EL RENDER de React.
 // El sistema anterior dependía de modificar el DOM después del render.
 // Esta capa intercepta los textos antes de que React los pinte, por lo que
