@@ -675,6 +675,8 @@ function seoResolveRoute(pathname) {
         return result;
     if (ruta === '/recorrido-centro' || ruta === '/quiero' || ruta === '/ruta-centro')
         return { ...result, seccion: 'consejos', consejoId: 'caminando' };
+    let hm = ruta.match(/^\/hospedaje\/([^/]+)$/);
+    if (hm) return { ...result, seccion: 'hospedaje', hospedajeId: hm[1] };
     const transportDeepRoutes = {'uber':'transporte_uber','metro':'transporte_metro','bicicletas':'transporte_bicicletas','traslados':'transporte_privado','transporte-publico':'transporte_publico'};
     let m = ruta.match(/^\/transportes\/([^/]+)$/);
     if (m && transportDeepRoutes[m[1]]) return { ...result, seccion: transportDeepRoutes[m[1]] };
@@ -733,6 +735,7 @@ function seoResolveRoute(pathname) {
     return result;
 }
 function seoCurrentPath(section, museoId, barrio, restaurante, articulo, temaGuia, consejoId) {
+    if (section === 'hospedaje') { const actual=seoCleanPath(window.location.pathname); if (/^\/hospedaje\/[^/]+$/.test(actual)) return actual; }
     if (section === 'consejos' && ((consejoId === null || consejoId === void 0 ? void 0 : consejoId.id) || consejoId) === 'caminando') {
         const actual = seoCleanPath(window.location.pathname);
         if (actual === '/quiero' || actual === '/ruta-centro' || actual === '/recorrido-centro')
@@ -986,7 +989,7 @@ function closeHospedajeCatalogo() {
     }
     document.body.style.overflow = '';
 }
-async function openHospedajeCatalogo(lang = 'es') {
+async function openHospedajeCatalogo(lang = 'es', stayId = null) {
     closeHospedajeCatalogo();
     const hospedajeCatalogoB64 = await ensureHospedajeCatalogData();
     const bytes = Uint8Array.from(atob(hospedajeCatalogoB64), c => c.charCodeAt(0));
@@ -995,7 +998,7 @@ async function openHospedajeCatalogo(lang = 'es') {
     __hospedajeOverlay.style.cssText = 'position:fixed;inset:0;z-index:99999;background:#f8f6f1;';
     const frame = document.createElement('iframe');
     frame.title = lang === 'pt' ? 'Hospedagens Ernestinho Carioca' : (lang === 'en' ? 'Ernestinho Carioca stays' : 'Alojamientos Ernestinho Carioca');
-    frame.src = __hospedajeBlobUrl + '#' + (['es', 'pt', 'en'].includes(lang) ? lang : 'es');
+    frame.src = __hospedajeBlobUrl + '#' + (['es', 'pt', 'en'].includes(lang) ? lang : 'es') + (stayId ? '/' + stayId : '');
     frame.style.cssText = 'width:100%;height:100%;border:0;background:#f8f6f1;';
     const close = document.createElement('button');
     close.type = 'button';
@@ -1007,6 +1010,11 @@ async function openHospedajeCatalogo(lang = 'es') {
     __hospedajeOverlay.appendChild(close);
     document.body.appendChild(__hospedajeOverlay);
     document.body.style.overflow = 'hidden';
+}
+
+if (!window.__ecHospedajeRouteBridge) {
+ window.__ecHospedajeRouteBridge=true;
+ window.addEventListener('message',e=>{const d=e.data||{};if(d.type==='ernestinho-hospedaje-open'&&d.id)seoNavigate('/hospedaje/'+encodeURIComponent(d.id));if(d.type==='ernestinho-hospedaje-close')seoNavigate('/hospedaje');});
 }
 
     // AUDITORIA V5 FINAL · Guía de Río + fichas individuales de Experiencias verificadas ES/PT/EN.
@@ -1032,6 +1040,7 @@ function ECLazySection({group,section,sectionProps}){return React.createElement(
 function AppErnestinho(){
     var _a;
     const rutaSeoInicial = seoResolveRoute(window.location.pathname);
+    useEffect(()=>{if(rutaSeoInicial.hospedajeId)setTimeout(()=>openHospedajeCatalogo(localStorage.getItem('ernestinho-lang')||'es',rutaSeoInicial.hospedajeId),80)},[]);
     const [seccionActual, setSeccionActualBase] = useState(rutaSeoInicial.seccion);
     const [historialSecciones, setHistorialSecciones] = useState([]);
     const [temaGuia, setTemaGuia] = useState(rutaSeoInicial.temaGuia || null);
@@ -1857,6 +1866,7 @@ function AppErnestinho(){
             setArticuloSeleccionado(resolved.articulo || null);
             setTemaGuia(resolved.temaGuia || null);
             setConsejoSeleccionado(resolved.consejoId ? (CONSEJOS_NUEVOS.find(x => x.id === resolved.consejoId) || null) : null);
+            if(resolved.hospedajeId)setTimeout(()=>openHospedajeCatalogo(localStorage.getItem('ernestinho-lang')||'es',resolved.hospedajeId),40);else if(resolved.seccion!=='hospedaje')closeHospedajeCatalogo();
             window.requestAnimationFrame(() => { window.__ernestinhoSeoPop = false; });
         };
         window.addEventListener('popstate', aplicarRuta);

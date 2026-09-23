@@ -98,6 +98,7 @@ function seoFor(urlPath) {
     lugares: 'Qué hacer',
     guia: 'Guía de viaje',
     transportes: 'Transporte',
+    hospedaje: 'Hospedaje',
     articulos: 'Consejos'
   };
   const sectionDescriptions = {
@@ -108,6 +109,7 @@ function seoFor(urlPath) {
     lugares: `${leaf}: qué ver, cómo llegar, información práctica y recomendaciones para incluirlo en tu viaje a Río de Janeiro.`,
     guia: `${leaf}: información práctica y consejos actualizados para preparar tu viaje a Río de Janeiro.`,
     transportes: `${leaf}: cómo usarlo, consejos prácticos y lo que necesitas saber para moverte por Río de Janeiro.`,
+    hospedaje: `${leaf}: fotos, capacidad, ubicación, servicios y consulta directa de este alojamiento Ernestinho en Río de Janeiro.`,
     articulos: `${leaf}: guía y consejos de Ernestinho Carioca para preparar mejor tu viaje a Río de Janeiro.`
   };
   const hubDescriptions = {
