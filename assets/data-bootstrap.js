@@ -10,6 +10,7 @@ window.__ecEnsureLanguagePayloads=function(){
  return window.__ecLanguagePayloadPromise;
 };
 (async()=>{
+ await fetch('/data/compras-manifest.json',{cache:'force-cache'}).then(r=>r.json()).then(x=>{window.COMPRAS_CARDS=x.cards||{}}).catch(e=>console.error('EC compras manifest',e));
  const load=src=>new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.onload=ok;x.onerror=fail;document.head.appendChild(x)});
  await load('/assets/qh-i18n.js?v=20260922');
  await load('/assets/core-recommendation-engine.js?v=20260923');
