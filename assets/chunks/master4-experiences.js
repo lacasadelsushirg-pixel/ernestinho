@@ -63,3 +63,4 @@ function Master4Experiences({ go, lang = 'es' }) {
                         React.createElement("span", { className: "block w-full rounded-xl bg-slate-950 text-white py-3 text-xs font-black" }, exp.id === 'carnaval-experience' ? T('COMPRAR CON DESCUENTO →') : exp.url ? T('COMPRAR / VER →') : exp.extra ? T('CONSULTAR →') : T('VER EXPERIENCIA →')))))))))));
 }
 window.Master4Experiences=Master4Experiences;
+
