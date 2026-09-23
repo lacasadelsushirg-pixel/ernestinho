@@ -19,7 +19,7 @@ const v6AppendUnique = (target, article) => {
     current.links = [...(current.links || []), ...official];
     current.v6 = { slugPropuesto: article.slug, metaDescription: article.meta, faqVisible: true, integradoSinDuplicar: true };
 };
-window.ERNESTINHO_V6_CONTENT.existing.forEach(entry => v6AppendUnique(entry.target, entry.article));
+((window.ERNESTINHO_V6_CONTENT && window.ERNESTINHO_V6_CONTENT.existing) || []).forEach(entry => v6AppendUnique(entry.target, entry.article));
 if (!GUIA_TEMAS.some(item => item.id === 'viajar-solo')) {
     GUIA_TEMAS.splice(1, 0, {
         id: 'viajar-solo',
