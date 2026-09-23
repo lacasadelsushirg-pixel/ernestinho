@@ -1,6 +1,6 @@
 
 
-// const COMPRAS_FICHAS externalizado en data-core.js
+// COMPRAS_FICHAS externalizado en data/compras-manifest.json
 
 var __compraOverlay=null;
 function closeCompraFicha(){if(__compraOverlay){__compraOverlay.remove();__compraOverlay=null;}if(window.location.hash==="#compras-ficha")history.replaceState(null,"",window.location.pathname+window.location.search);window.scrollTo(0,window.__comprasScrollY||0);}
@@ -875,7 +875,7 @@ catch (e) { }
 // Gastronomía externalizada en gastronomy-data.js
 const normalizarGastroNueva = (valor = '') => String(valor).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9$]+/g, ' ').trim();
 const textoVisibleGastroNueva = html => String(html || '').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;|&#160;/gi, ' ').replace(/&amp;/gi, '&').replace(/\s+/g, ' ');
-const GASTRONOMIA_INDICE_BUSQUEDA = new Map((window.GASTRONOMIA_NUEVAS_CARDS || []).map(card => [card.id, normalizarGastroNueva(`${card.title} ${(card.tags || []).join(' ')} ${textoVisibleGastroNueva((window.GASTRONOMIA_NUEVAS_HTML || {})[card.id])}`)]));
+const GASTRONOMIA_INDICE_BUSQUEDA = new Map((window.GASTRONOMIA_NUEVAS_CARDS || []).map(card => [card.id, normalizarGastroNueva(`${card.title} ${(card.tags || []).join(' ')} ${card.desc || card.descripcion || ''}`)]));
 
 const intencionGastroNueva = consulta => {
     const q = normalizarGastroNueva(consulta);
