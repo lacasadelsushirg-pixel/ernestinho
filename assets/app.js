@@ -602,6 +602,13 @@ const SEO_SECTION_ROUTES = {
     hola_ernestinho: '/hola-soy-ernestinho',
     aventura: '/aventura',
     fotografia: '/fotografia',
+    hospedaje: '/hospedaje',
+    compras: '/compras',
+    eventos: '/eventos',
+    nocturna: '/vida-nocturna',
+    atracciones: '/atracciones',
+    familia: '/familia',
+    cafe: '/cafe-ernestinho',
     copa_para_mi: '/copacabana'
 };
 
@@ -615,6 +622,14 @@ const SEO_ROUTE_PREFERRED_SECTION = {
     '/transportes': 'transportes',
     '/consejos': 'consejos',
     '/experiencias': 'experiencias',
+    '/hospedaje': 'hospedaje',
+    '/compras': 'compras',
+    '/eventos': 'eventos',
+    '/vida-nocturna': 'nocturna',
+    '/atracciones': 'atracciones',
+    '/familia': 'familia',
+    '/cafe-ernestinho': 'cafe',
+    '/fotografia': 'fotografia',
     '/hola-soy-ernestinho': 'hola_ernestinho'
 };
 function seoExperienceState(exp) {
