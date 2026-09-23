@@ -331,6 +331,11 @@
   <url><loc>https://www.ernestinhocarioca.com.br/transportes/uber</loc></url>
   <url><loc>https://www.ernestinhocarioca.com.br/tv</loc></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna</loc></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/circo-voador</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/lapa-40-graus</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/leviano-bar</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/sacadura-154</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/bafo-da-prainha</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/trapiche-gamboa</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/beco-do-rato</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/carioca-da-gema</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
