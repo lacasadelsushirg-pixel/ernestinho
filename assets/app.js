@@ -2222,7 +2222,7 @@ function AppErnestinho(){
                             " Ernestinho Carioca. Todos los derechos reservados.",
                             React.createElement("br", null),
                             "Dise\u00F1ado para viajeros que buscan vivir R\u00EDo de forma real y aut\u00E9ntica."),
-                        React.createElement("button", { onClick: () => setSeccionActual('privacidad'), className: "text-xs text-teal-400 hover:text-teal-300 font-bold mt-3" }, "Privacidad, precios y condiciones")))))));
+                        React.createElement("button", { onClick: () => setSeccionActual('privacidad'), className: "text-xs text-teal-400 hover:text-teal-300 font-bold mt-3" }, "Privacidad, precios y condiciones"))))));
 }
 // MULTIDIOMA REAL · traducción EN EL RENDER de React.
 // El sistema anterior dependía de modificar el DOM después del render.
