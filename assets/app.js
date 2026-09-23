@@ -64,15 +64,15 @@ const RUTAS_RIO_ORDEN = ['01', '25', '19', '21', '15', '18', '13', '12', '11', '
 // PARQUES_NATURALEZA_DESTACADOS externalizado a JSON
 
 function GuiaSenderos(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/culture-sections.js?v=20260923',name:'GuiaSenderos',componentProps:props})}
-function ActividadNuevaDetalle(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/ActividadNuevaDetalle.js?v=20260922',name:'ActividadNuevaDetalle',componentProps:props})}
+function ActividadNuevaDetalle(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/ActividadNuevaDetalle.js?v=20260923-modular',name:'ActividadNuevaDetalle',componentProps:props})}
 function SeccionEspaciosLiterarios(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/culture-sections.js?v=20260923',name:'SeccionEspaciosLiterarios',componentProps:props})}
 function SeccionCentrosCulturales(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/culture-sections.js?v=20260923',name:'SeccionCentrosCulturales',componentProps:props})}
 function SeccionTeatros(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/culture-sections.js?v=20260923',name:'SeccionTeatros',componentProps:props})}
 function SeccionIglesias(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/culture-sections.js?v=20260923',name:'SeccionIglesias',componentProps:props})}
 function SeccionFuertesFortalezas(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/culture-sections.js?v=20260923',name:'SeccionFuertesFortalezas',componentProps:props})}
 function SeccionFamilia(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/culture-sections.js?v=20260923',name:'SeccionFamilia',componentProps:props})}
-function VidaNocturnaCompleta(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/VidaNocturnaCompleta.js?v=20260922',name:'VidaNocturnaCompleta',componentProps:props})}
-function GuiaPix(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/GuiaPix.js?v=20260922',name:'GuiaPix',componentProps:props})}
+function VidaNocturnaCompleta(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/VidaNocturnaCompleta.js?v=20260923-modular',name:'VidaNocturnaCompleta',componentProps:props})}
+function GuiaPix(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/GuiaPix.js?v=20260923-modular',name:'GuiaPix',componentProps:props})}
 const pFoto = (id, nombre, zona, tipo, mejorHora, consejo, acceso = 'Gratis') => ({ id, nombre, zona, tipo, mejorHora, consejo, acceso });
 
 const FOTOGRAFIA_DATA = [
@@ -112,7 +112,7 @@ const FOTOGRAFIA_DATA = [
     pFoto('niteroi', 'MAC Niterói', 'Niterói', 'Arquitectura', 'Atardecer', 'Usa las curvas del museo para enmarcar Río al otro lado de la bahía.', 'Exterior gratis'),
     pFoto('santa-cruz', 'Fortaleza de Santa Cruz', 'Niterói', 'Arquitectura', 'Tarde', 'Arcos, murallas y Pan de Azúcar alineados desde la fortaleza.', 'Entrada pagada')
 ].map(x => ({ ...x, mapa: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.nombre + ' Rio de Janeiro')}`, img: FOTO_RIO_URLS[x.id] }));
-function GuiaFotografia(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/GuiaFotografia.js?v=20260922',name:'GuiaFotografia',componentProps:props})}
+function GuiaFotografia(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/GuiaFotografia.js?v=20260923-modular',name:'GuiaFotografia',componentProps:props})}
 const GUIA_TEMAS = [
     { id: 'documentos', imagen: 'https://res.cloudinary.com/qa301cbc/image/upload/v1789040451/miniaturas_guia_rio_documentos_y_entrada.png', grupo: 'Antes de viajar', icon: '🛂', titulo: 'Documentos y entrada', resumen: 'Identidad, pasaporte y visa.' },
     { id: 'menores', imagen: 'https://res.cloudinary.com/qa301cbc/image/upload/v1789040459/miniaturas_guia_rio_viajando_en_familia.png', grupo: 'Antes de viajar', icon: '👨‍👩‍👧', titulo: 'Viajar con menores', resumen: 'Autorizaciones y filiación.' },
@@ -139,9 +139,9 @@ const GUIA_INFO = window.GUIA_INFO || {};
 const CONSEJOS_NUEVOS = Array.isArray(window.CONSEJOS_NUEVOS) ? window.CONSEJOS_NUEVOS : [];
 const ARTICULOS_CONSEJOS = Array.isArray(window.ARTICULOS_CONSEJOS) ? window.ARTICULOS_CONSEJOS : [];
 
-function GuiaRioCompleta(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/GuiaRioCompleta.js?v=20260922',name:'GuiaRioCompleta',componentProps:props,dataUrls:["/data/consejos-viaje-lazy52.json"]})}
-function ConsejosErnestinho(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/ConsejosErnestinho.js?v=20260922',name:'ConsejosErnestinho',componentProps:props,dataUrls:["/data/consejos-viaje-lazy52.json","/data/explorar-lazy.json","/data/transporte-lazy52.json","/data/viaje-consejos-extra-lazy52.json"]})}
-function GuiaTransportePublico(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/GuiaTransportePublico.js?v=20260922',name:'GuiaTransportePublico',componentProps:props,dataUrls:["/data/explorar-lazy.json","/data/transporte-lazy52.json"]})}
+function GuiaRioCompleta(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/GuiaRioCompleta.js?v=20260923-modular',name:'GuiaRioCompleta',componentProps:props,dataUrls:["/data/consejos-viaje-lazy52.json"]})}
+function ConsejosErnestinho(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/ConsejosErnestinho.js?v=20260923-modular',name:'ConsejosErnestinho',componentProps:props,dataUrls:["/data/consejos-viaje-lazy52.json","/data/explorar-lazy.json","/data/transporte-lazy52.json","/data/viaje-consejos-extra-lazy52.json"]})}
+function GuiaTransportePublico(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/GuiaTransportePublico.js?v=20260923-modular',name:'GuiaTransportePublico',componentProps:props,dataUrls:["/data/explorar-lazy.json","/data/transporte-lazy52.json"]})}
 const COPA_POSITIONS = {
     posto2: { label: 'Posto 2 / Lido', lat: -22.9655, lng: -43.1762 },
     posto3: { label: 'Posto 3', lat: -22.9687, lng: -43.1804 },
@@ -438,7 +438,7 @@ const COPA_MASTER_3 = {
     ],
     profiles: [['👶', 'Con bebé', 'Sombra, distancias cortas, baño, aire acondicionado y plan de siesta.'], ['👨‍👩‍👧', 'Familia', 'Playa + comida sencilla + actividades cortas sin sobrecargar el día.'], ['🧑‍🎓', 'Adolescentes', 'Deporte, fotos, comida, playa y experiencias que no se sientan como una clase.'], ['👵', 'Mayores', 'El motor pregunta movilidad y ritmo; la edad por sí sola no decide.'], ['❤️', 'Pareja', 'Atardecer, paseo, gastronomía y experiencias íntimas sin asumir que romántico significa caro.'], ['🧍', 'Solo', 'Flexibilidad, vida local y decisiones según hora y ubicación.'], ['♿', 'Movilidad reducida', 'Solo recomendamos como accesible aquello que tenga datos suficientemente verificados.'], ['🐶', 'Mascota', 'Política de mascotas y espacios compatibles como filtros, no como suposiciones.']]
 };
-function CopacabanaMaster3Editorial(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/CopacabanaMaster3Editorial.js?v=20260922',name:'CopacabanaMaster3Editorial',componentProps:props})}
+function CopacabanaMaster3Editorial(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/CopacabanaMaster3Editorial.js?v=20260923-modular',name:'CopacabanaMaster3Editorial',componentProps:props})}
 const MASTER3_SITUATIONS = [
     ['🌧️', 'Está lloviendo', 'Prioriza interiores, traslados simples y planes que sigan valiendo la pena con mal tiempo.'],
     ['🔥', 'Hace mucho calor', 'Reordena horarios, reduce exposición y aumenta sombra, aire acondicionado y pausas.'],
@@ -506,18 +506,18 @@ const COPA_MASTER_SYSTEMS = [
         actions: ['¿Qué hago ahora?', 'Decídelo por mí', 'Cambió mi plan', 'Sorpréndeme']
     }
 ];
-function CopacabanaMasterSystems(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/CopacabanaMasterSystems.js?v=20260922',name:'CopacabanaMasterSystems',componentProps:props,dataUrls:["/data/copacabana-extra-lazy.json"]})}
-function CopacabanaParaMi(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/CopacabanaParaMi.js?v=20260922',name:'CopacabanaParaMi',componentProps:props,dataUrls:["/data/copacabana-extra-lazy.json","/data/explorar-lazy.json"]})}
-function Master4CityBrain(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4CityBrain.js?v=20260922',name:'Master4CityBrain',componentProps:props,dataUrls:["/data/master3-runtime-lazy.json"]})}
-function Master4Planner(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4Planner.js?v=20260922',name:'Master4Planner',componentProps:props,dataUrls:["/data/master3-runtime-lazy.json"]})}
+function CopacabanaMasterSystems(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/CopacabanaMasterSystems.js?v=20260923-modular',name:'CopacabanaMasterSystems',componentProps:props,dataUrls:["/data/copacabana-extra-lazy.json"]})}
+function CopacabanaParaMi(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/CopacabanaParaMi.js?v=20260923-modular',name:'CopacabanaParaMi',componentProps:props,dataUrls:["/data/copacabana-extra-lazy.json","/data/explorar-lazy.json"]})}
+function Master4CityBrain(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4CityBrain.js?v=20260923-modular',name:'Master4CityBrain',componentProps:props,dataUrls:["/data/master3-runtime-lazy.json"]})}
+function Master4Planner(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4Planner.js?v=20260923-modular',name:'Master4Planner',componentProps:props,dataUrls:["/data/master3-runtime-lazy.json"]})}
 /* recommendation engine loaded by data-bootstrap.js */
-function Master4SmartRioV4(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4SmartRioV4.js?v=20260922',name:'Master4SmartRioV4',componentProps:props})}
-function Master4SpecialGuides(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4SpecialGuides.js?v=20260922',name:'Master4SpecialGuides',componentProps:props})}
-function Master4LegacyDataHub(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4LegacyDataHub.js?v=20260922',name:'Master4LegacyDataHub',componentProps:props})}
-function Master4MuseumsReal(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4MuseumsReal.js?v=20260922',name:'Master4MuseumsReal',componentProps:props})}
-function Master4Place(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4Place.js?v=20260922',name:'Master4Place',componentProps:props})}
-function Master4MoreRio(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4MoreRio.js?v=20260922',name:'Master4MoreRio',componentProps:props})}
-function PartnerOfficialExperience(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/PartnerOfficialExperience.js?v=20260922',name:'PartnerOfficialExperience',componentProps:props})}
+function Master4SmartRioV4(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4SmartRioV4.js?v=20260923-modular',name:'Master4SmartRioV4',componentProps:props})}
+function Master4SpecialGuides(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4SpecialGuides.js?v=20260923-modular',name:'Master4SpecialGuides',componentProps:props})}
+function Master4LegacyDataHub(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4LegacyDataHub.js?v=20260923-modular',name:'Master4LegacyDataHub',componentProps:props})}
+function Master4MuseumsReal(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4MuseumsReal.js?v=20260923-modular',name:'Master4MuseumsReal',componentProps:props})}
+function Master4Place(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4Place.js?v=20260923-modular',name:'Master4Place',componentProps:props})}
+function Master4MoreRio(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4MoreRio.js?v=20260923-modular',name:'Master4MoreRio',componentProps:props})}
+function PartnerOfficialExperience(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/PartnerOfficialExperience.js?v=20260923-modular',name:'PartnerOfficialExperience',componentProps:props})}
 function decodeBarriosBeta23() {
     const bin = atob(BARRIOS_BETA23_B64);
     const bytes = Uint8Array.from(bin, ch => ch.charCodeAt(0));
@@ -562,19 +562,19 @@ function BarriosBeta23Embed({ go, lang = 'es' }) {
 function Master4Barrios({ go, lang }) {
     return React.createElement(BarriosBeta23Embed, { go: go, lang: lang });
 }
-function Master4AventuraPage(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4AventuraPage.js?v=20260922',name:'Master4AventuraPage',componentProps:props})}
-function Master4DiscoverRio(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4DiscoverRio.js?v=20260922',name:'Master4DiscoverRio',componentProps:props})}
-function Master4LiveRio(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4LiveRio.js?v=20260922',name:'Master4LiveRio',componentProps:props,dataUrls:["/data/master-runtime-extra-lazy.json"]})}
-function Master4TV(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4TV.js?v=20260922',name:'Master4TV',componentProps:props,dataUrls:["/data/master-runtime-extra-lazy.json"]})}
+function Master4AventuraPage(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4AventuraPage.js?v=20260923-modular',name:'Master4AventuraPage',componentProps:props})}
+function Master4DiscoverRio(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4DiscoverRio.js?v=20260923-modular',name:'Master4DiscoverRio',componentProps:props})}
+function Master4LiveRio(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4LiveRio.js?v=20260923-modular',name:'Master4LiveRio',componentProps:props,dataUrls:["/data/master-runtime-extra-lazy.json"]})}
+function Master4TV(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4TV.js?v=20260923-modular',name:'Master4TV',componentProps:props,dataUrls:["/data/master-runtime-extra-lazy.json"]})}
 const RIO_HOJE_COVER = "/assets/embedded-images/embedded-15-d08692e83c1c.webp";
 
 const ERNESTINHO_ROUTES_NOT_RECOMMENDED=[{"routeId":"pedra-da-gavea-solo-general-public","reason":"Exigencia física/técnica, trechos de escalaminhada y riesgos: no se presenta como paseo autoguiado general."},{"routeId":"circuito-dos-picos-dia-unico","reason":"El circuito oficial tiene 19 km y la propia administración recomienda dos o tres días; no convertirlo en day tour casual."},{"routeId":"centro-nocturno-solo-generico","reason":"Demasiado dependiente de evento, calle y horario; solo crear variantes contextualizadas con RÍO HOJE/vida nocturna."},{"routeId":"the-maze-como-destino-fijo","reason":"Acceso/eventos no suficientemente estables para anclar una ruta. Se mantiene como CONDITIONAL_STOP."}];
 // removed unreachable erRouteById
 
-function ErnestinhoRoutesV1(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/recorridos-family.js?v=20260922',name:'ErnestinhoRoutesV1',componentProps:props,dataUrls:['/data/premium-recorridos-extra.json']})}
-function ErnestinhoRoutesV2(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/recorridos-family.js?v=20260922',name:'ErnestinhoRoutesV2',componentProps:props,dataUrls:['/data/premium-recorridos-extra.json']})}
-function RioHojeV1(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/RioHojeV1.js?v=20260922',name:'RioHojeV1',componentProps:props,dataUrls:["/data/otros-datos-extra-lazy52.json","/data/rio-hoje-lazy52.json"]})}
-function Master4Home(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4Home.js?v=20260922',name:'Master4Home',componentProps:props})}
+function ErnestinhoRoutesV1(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/recorridos-family.js?v=20260923-modular',name:'ErnestinhoRoutesV1',componentProps:props,dataUrls:['/data/premium-recorridos-extra.json']})}
+function ErnestinhoRoutesV2(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/recorridos-family.js?v=20260923-modular',name:'ErnestinhoRoutesV2',componentProps:props,dataUrls:['/data/premium-recorridos-extra.json']})}
+function RioHojeV1(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/RioHojeV1.js?v=20260923-modular',name:'RioHojeV1',componentProps:props,dataUrls:["/data/otros-datos-extra-lazy52.json","/data/rio-hoje-lazy52.json"]})}
+function Master4Home(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/Master4Home.js?v=20260923-modular',name:'Master4Home',componentProps:props})}
 const EventoTabla = ({ headers, rows }) => React.createElement("div", { className: "overflow-x-auto rounded-2xl border border-slate-200 bg-white" },
     React.createElement("table", { className: "w-full min-w-[720px] text-sm" },
         React.createElement("thead", { className: "bg-slate-900 text-white" },
@@ -936,7 +936,7 @@ const intencionGastroNueva = consulta => {
     const aliases = { almuerzo: 'almuerzo', almorzar: 'almuerzo', almoco: 'almuerzo', almocar: 'almuerzo', lunch: 'almuerzo', cena: 'cena', cenar: 'cena', jantar: 'cena', dinner: 'cena', cafe: 'cafe', desayuno: 'cafe', breakfast: 'cafe', brunch: 'cafe', barato: 'economico', economico: 'economico', budget: 'economico', pf: 'economico', sushi: 'asiatica', asiatica: 'asiatica', japonesa: 'asiatica', japones: 'asiatica', carne: 'carnes', carnes: 'carnes', churrasco: 'carnes', rodizio: 'carnes', pescado: 'mariscos', pescados: 'mariscos', mariscos: 'mariscos', seafood: 'mariscos', pizza: 'italiana', italiana: 'italiana', pasta: 'italiana', boteco: 'carioca', carioca: 'carioca', brasilena: 'carioca', brasileira: 'carioca', vegetariana: 'vegetariana', vegana: 'vegetariana', vista: 'vista', rooftop: 'vista', experiencia: 'experiencia', especial: 'experiencia' };
     return q.split(/\s+/).map(p => aliases[p]).find(Boolean) || null;
 };
-function GastronomiaAfinada(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/GastronomiaAfinada.js?v=20260922',name:'GastronomiaAfinada',componentProps:props,dataUrls:["/data/otros-datos-extra-lazy.json"]})}
+function GastronomiaAfinada(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/GastronomiaAfinada.js?v=20260923-modular',name:'GastronomiaAfinada',componentProps:props,dataUrls:["/data/otros-datos-extra-lazy.json"]})}
 function cafeRioWhatsApp(producto, precio, idioma = 'es', coleccion = false) {
     const nombres = {
         trufado: { es: 'Café Rio Chocolate Trufado', pt: 'Café Rio Chocolate Trufado', en: 'Café Rio Truffled Chocolate' },
@@ -2057,24 +2057,24 @@ function AppErnestinho(){
                 React.createElement("div", { className: "text-center" },
                     React.createElement("h1", { className: "text-4xl sm:text-7xl font-black" }, lang === 'pt' ? 'ROTEIROS ERNESTINHO' : lang === 'en' ? 'ERNESTINHO ROUTES' : 'RECORRIDOS ERNESTINHO'),
                     React.createElement("p", { className: "mt-5 text-2xl sm:text-3xl font-black text-amber-300" }, lang === 'pt' ? 'Em breve' : lang === 'en' ? 'Coming soon' : 'Próximamente'))),
-            seccionActual === 'hola_ernestinho' && React.createElement(ECLazyRoute,{src:'/assets/chunks/ernestinho-story.js?v=20260922',name:'ErnestinhoStory',componentProps:{ go: setSeccionActual, lang: lang }}),
+            seccionActual === 'hola_ernestinho' && React.createElement(ECLazyRoute,{src:'/assets/chunks/ernestinho-story.js?v=20260923-modular',name:'ErnestinhoStory',componentProps:{ go: setSeccionActual, lang: lang }}),
             seccionActual === 'master4_live_rio' && React.createElement(Master4LiveRio, { go: setSeccionActual }),
             seccionActual === 'master4_tv' && React.createElement(Master4TV, { go: setSeccionActual, lang: lang }),
             seccionActual === 'master4_playas' && React.createElement(Master4BeachIndexV3, { go: setSeccionActual }),
-            seccionActual === 'master4_museos' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-catalog-page.js?v=20260922',name:'Master4CatalogPage',componentProps:{ kind: "museos", go: setSeccionActual }}),
-            seccionActual === 'master4_naturaleza' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-catalog-page.js?v=20260922',name:'Master4CatalogPage',componentProps:{ kind: "naturaleza", go: setSeccionActual }}),
+            seccionActual === 'master4_museos' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-catalog-page.js?v=20260923-modular',name:'Master4CatalogPage',componentProps:{ kind: "museos", go: setSeccionActual }}),
+            seccionActual === 'master4_naturaleza' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-catalog-page.js?v=20260923-modular',name:'Master4CatalogPage',componentProps:{ kind: "naturaleza", go: setSeccionActual }}),
             seccionActual === 'master4_barrios' && React.createElement(Master4Barrios, { go: setSeccionActual, lang: lang }),
-            seccionActual === 'master4_gastronomia' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-life-page.js?v=20260922',name:'Master4LifePage',componentProps:{ kind: "gastronomia", go: setSeccionActual }}),
-            seccionActual === 'master4_copacabana_comer' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-copacabana-food.js?v=20260922',name:'Master4CopacabanaFood',componentProps:{ go: setSeccionActual }}),
-            seccionActual === 'master4_transportes' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-life-page.js?v=20260922',name:'Master4LifePage',componentProps:{ kind: "transportes", go: setSeccionActual }}),
-            seccionActual === 'master4_consejos' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-life-page.js?v=20260922',name:'Master4LifePage',componentProps:{ kind: "consejos", go: setSeccionActual }}),
+            seccionActual === 'master4_gastronomia' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-life-page.js?v=20260923-modular',name:'Master4LifePage',componentProps:{ kind: "gastronomia", go: setSeccionActual }}),
+            seccionActual === 'master4_copacabana_comer' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-copacabana-food.js?v=20260923-modular',name:'Master4CopacabanaFood',componentProps:{ go: setSeccionActual }}),
+            seccionActual === 'master4_transportes' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-life-page.js?v=20260923-modular',name:'Master4LifePage',componentProps:{ kind: "transportes", go: setSeccionActual }}),
+            seccionActual === 'master4_consejos' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-life-page.js?v=20260923-modular',name:'Master4LifePage',componentProps:{ kind: "consejos", go: setSeccionActual }}),
             seccionActual === 'master4_patrimonio' && React.createElement(Master4MoreRio, { kind: "patrimonio", go: setSeccionActual }),
             seccionActual === 'master4_ocio' && React.createElement(Master4MoreRio, { kind: "ocio", go: setSeccionActual }),
             seccionActual === 'master4_viaje' && React.createElement(Master4MoreRio, { kind: "viaje", go: setSeccionActual }),
-            seccionActual === 'experiencias' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-experiences.js?v=20260922',name:'Master4Experiences',componentProps:{ go: setSeccionActual, lang: lang }}),
+            seccionActual === 'experiencias' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-experiences.js?v=20260923-modular',name:'Master4Experiences',componentProps:{ go: setSeccionActual, lang: lang }}),
             seccionActual === 'partner_rio_samba' && React.createElement(PartnerOfficialExperience, { type: "rio-samba", go: setSeccionActual }),
             seccionActual === 'partner_carnaval' && React.createElement(PartnerOfficialExperience, { type: "carnaval", go: setSeccionActual }),
-            seccionActual === 'master4_para_mi' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-situation-engine.js?v=20260922',name:'Master4SituationEngine',componentProps:{ go: setSeccionActual }}),
+            seccionActual === 'master4_para_mi' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-situation-engine.js?v=20260923-modular',name:'Master4SituationEngine',componentProps:{ go: setSeccionActual }}),
             seccionActual === 'master4_place_forte' && React.createElement(Master4Place, { place: "forte-copacabana", go: setSeccionActual }),
             seccionActual === 'master4_place_lage' && React.createElement(Master4Place, { place: "parque-lage-40", go: setSeccionActual }),
             seccionActual === 'master4_place_amanha' && React.createElement(Master4Place, { place: "museu-amanha-40", go: setSeccionActual }),
@@ -2089,13 +2089,13 @@ function AppErnestinho(){
             seccionActual === 'master4_ferias_real' && React.createElement(Master4LegacyDataHub, { kind: "ferias", go: setSeccionActual }),
             seccionActual === 'master4_mercados_real' && React.createElement(Master4LegacyDataHub, { kind: "mercados", go: setSeccionActual }),
             seccionActual === 'master4_shoppings_real' && React.createElement(Master4LegacyDataHub, { kind: "shoppings", go: setSeccionActual }),
-            seccionActual === 'master4_city_registry' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-city-registry.js?v=20260922',name:'Master4CityRegistry',componentProps:{ go: setSeccionActual }}),
+            seccionActual === 'master4_city_registry' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-city-registry.js?v=20260923-modular',name:'Master4CityRegistry',componentProps:{ go: setSeccionActual }}),
             seccionActual === 'master4_guias_especiales' && React.createElement(Master4SpecialGuides, { go: setSeccionActual }),
             seccionActual === 'master4_smart_rio' && React.createElement(Master4SmartRioV4, { go: setSeccionActual, lang: lang }),
             seccionActual === 'master4_entity_detail' && React.createElement(Master4EntityDetailV4, { go: setSeccionActual }),
             seccionActual === 'master4_entity_v4' && React.createElement(Master4EntityDetailV4, { go: setSeccionActual }),
             seccionActual === 'master4_planner' && React.createElement(Master4Planner, { go: setSeccionActual }),
-            seccionActual === 'grandes_eventos' && React.createElement(ECLazyRoute,{src:'/assets/chunks/grandes-eventos-page.js?v=20260922',name:'GrandesEventosPage',componentProps:{ onBack: volverUnaVista }}),
+            seccionActual === 'grandes_eventos' && React.createElement(ECLazyRoute,{src:'/assets/chunks/grandes-eventos-page.js?v=20260923-modular',name:'GrandesEventosPage',componentProps:{ onBack: volverUnaVista }}),
             seccionActual === 'master4_city_brain' && React.createElement(Master4CityBrain, { go: setSeccionActual }),
             seccionActual === 'master4_place_cristo' && React.createElement(Master4Place, { place: "cristo-40", go: setSeccionActual }),
             seccionActual === 'master4_place_pao' && React.createElement(Master4Place, { place: "pao-acucar-40", go: setSeccionActual }),
@@ -2164,7 +2164,7 @@ function AppErnestinho(){
                 React.createElement(CopacabanaMasterSystems, { go: setSeccionActual }),
                 React.createElement(CopacabanaMaster3Editorial, null),
                 React.createElement(CopacabanaParaMi, null))),
-            seccionActual === 'rio_mes_a_mes' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master3-month-weather-planner.js?v=20260922',name:'Master3MonthWeatherPlanner',componentProps:{ lang: lang }}),
+            seccionActual === 'rio_mes_a_mes' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master3-month-weather-planner.js?v=20260923-modular',name:'Master3MonthWeatherPlanner',componentProps:{ lang: lang }}),
             seccionActual === 'barrios' && React.createElement(BarriosBeta23Embed, { go: setSeccionActual, lang: lang }),
             seccionActual === 'hospedaje' && React.createElement(ECLazySection,{group:'hospitality',section:'hospedaje',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
             seccionActual === 'cafe' && React.createElement(ECLazySection,{group:'cafe',section:'cafe',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
