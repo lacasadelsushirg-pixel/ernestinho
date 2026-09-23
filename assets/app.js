@@ -136,6 +136,8 @@ const GUIA_TEMAS = [
     { id: 'mes-a-mes-guia', imagen: 'https://res.cloudinary.com/qa301cbc/image/upload/v1789040461/miniaturas_guia_rio_mes_a_mes.png', grupo: 'Planifica según la época', icon: '🗓️', titulo: 'Río mes a mes', resumen: 'Clima, temporada, eventos y qué esperar en cada mes.', sec: 'rio_mes_a_mes' }
 ];
 const GUIA_INFO = window.GUIA_INFO || {};
+const CONSEJOS_NUEVOS = Array.isArray(window.CONSEJOS_NUEVOS) ? window.CONSEJOS_NUEVOS : [];
+const ARTICULOS_CONSEJOS = Array.isArray(window.ARTICULOS_CONSEJOS) ? window.ARTICULOS_CONSEJOS : [];
 
 function GuiaRioCompleta(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/GuiaRioCompleta.js?v=20260922',name:'GuiaRioCompleta',componentProps:props,dataUrls:["/data/consejos-viaje-lazy52.json"]})}
 function ConsejosErnestinho(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/ConsejosErnestinho.js?v=20260922',name:'ConsejosErnestinho',componentProps:props,dataUrls:["/data/consejos-viaje-lazy52.json","/data/explorar-lazy.json","/data/transporte-lazy52.json","/data/viaje-consejos-extra-lazy52.json"]})}
