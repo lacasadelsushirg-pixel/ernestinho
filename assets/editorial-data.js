@@ -63,7 +63,8 @@ const VIDA_NOCTURNA_DATA = [
     n('portela', 'Portelão', 'Zona Norte', 'Madureira', 'Samba', ['Viernes', 'Sábado'], '$$', 'Eventos y ensayos de Portela en Madureira.'),
     n('vitrinni', 'Vitrinni Lounge', 'Barra y Recreio', 'Barra da Tijuca', 'Discoteca', ['Jueves', 'Viernes', 'Sábado'], '$$$', 'Lounge y discoteca con programación de DJs y fiestas.'),
     n('all-in', 'All In', 'Barra y Recreio', 'Barra da Tijuca', 'Música en vivo', ['Miércoles', 'Jueves', 'Viernes', 'Sábado'], '$$', 'Bar, bandas y noches temáticas en Jardim Oceânico.'),
-    n('bosque-bar', 'Bosque Bar', 'Zona Sul', 'Gávea', 'Discoteca', ['Jueves', 'Viernes', 'Sábado', 'Domingo'], '$    n('zeca-vogue', 'Bar do Zeca Pagodinho', 'Barra y Recreio', 'Barra da Tijuca', 'Pagode', ['Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'], '$$$', 'Pagode, samba y cocina brasileña en Vogue Square.'),
+    n('bosque-bar', 'Bosque Bar', 'Zona Sul', 'Gávea', 'Discoteca', ['Jueves', 'Viernes', 'Sábado', 'Domingo'], '$$$', 'Bar, DJs y fiestas en la Gávea; confirma la agenda de la noche antes de ir.'),
+    n('zeca-vogue', 'Bar do Zeca Pagodinho', 'Barra y Recreio', 'Barra da Tijuca', 'Pagode', ['Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'], '$$$', 'Pagode, samba y cocina brasileña en Vogue Square.'),
     n('ocya-sunset', 'Ocyá Ilha Primeira', 'Barra y Recreio', 'Ilha Primeira', 'Música en vivo', ['Viernes', 'Sábado', 'Domingo'], '$$$', 'Atardecer, cocina marina y eventos especiales a los que se llega en barco.')
 ];
 
