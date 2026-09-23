@@ -51,7 +51,7 @@ const VIDA_NOCTURNA_CON_FOTOS = VIDA_NOCTURNA_DATA.map((item, index) => ({ ...it
 }));
 const BARRIOS_DATA = __ecEditorialData.BARRIOS_DATA || [];
 const EXPERIENCIAS_DATA = __ecEditorialData.EXPERIENCIAS_DATA || [];
-// ACTIVIDADES_NUEVAS externalizado a JSON
+const ACTIVIDADES_NUEVAS = Array.isArray(window.ACTIVIDADES_NUEVAS) ? window.ACTIVIDADES_NUEVAS : [];
 
 // TRANSCARIOCA_TRECHOS externalizado a JSON
 
