@@ -6,7 +6,7 @@ const v6AsItems = article => [
     ...article.faq.map(([pregunta, respuesta]) => [`Preguntas frecuentes — ${pregunta}`, respuesta])
 ];
 const v6AppendUnique = (target, article) => {
-    if (!GUIA_INFO[target])
+    if (!article || typeof GUIA_INFO === 'undefined' || !GUIA_INFO[target])
         return;
     const current = GUIA_INFO[target];
     const titles = new Set((current.items || []).map(item => item[0]));
@@ -20,7 +20,7 @@ const v6AppendUnique = (target, article) => {
     current.v6 = { slugPropuesto: article.slug, metaDescription: article.meta, faqVisible: true, integradoSinDuplicar: true };
 };
 ((window.ERNESTINHO_V6_CONTENT && window.ERNESTINHO_V6_CONTENT.existing) || []).forEach(entry => v6AppendUnique(entry.target, entry.article));
-if (!GUIA_TEMAS.some(item => item.id === 'viajar-solo')) {
+if (typeof GUIA_TEMAS !== 'undefined' && !GUIA_TEMAS.some(item => item.id === 'viajar-solo')) {
     GUIA_TEMAS.splice(1, 0, {
         id: 'viajar-solo',
         imagen: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788907305/portada_planificando_el_viaje.png',
@@ -28,7 +28,7 @@ if (!GUIA_TEMAS.some(item => item.id === 'viajar-solo')) {
         resumen: 'Barrios, playa, noche, transporte y compañía.'
     });
 }
-GUIA_INFO['viajar-solo'] = {
+if (typeof GUIA_INFO !== 'undefined' && window.ERNESTINHO_V6_CONTENT && window.ERNESTINHO_V6_CONTENT.solo) GUIA_INFO['viajar-solo'] = {
     titulo: window.ERNESTINHO_V6_CONTENT.solo.title,
     intro: window.ERNESTINHO_V6_CONTENT.solo.intro,
     hero: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788907305/portada_planificando_el_viaje.png',
@@ -40,15 +40,17 @@ GUIA_INFO['viajar-solo'] = {
 };
 /* V7 — Top 200 consolidado en capítulos editoriales */
 
-window.V7_CHAPTERS.forEach(entry => { const info = GUIA_INFO[entry.target]; if (!info)
+(window.V7_CHAPTERS || []).forEach(entry => { const info = (typeof GUIA_INFO !== 'undefined' ? GUIA_INFO : {})[entry.target]; if (!info)
     return; if (!(info.items || []).some(x => x[0] === entry.title))
     info.items = [...(info.items || []), [entry.title, entry.body]]; });
-Object.assign(GLOBAL_UI_TRANSLATIONS.pt,window.__EC_T35_105||{});
-Object.assign(GLOBAL_UI_TRANSLATIONS.en,window.__EC_T35_106||{});
+window.GLOBAL_UI_TRANSLATIONS=window.GLOBAL_UI_TRANSLATIONS||{es:{},pt:{},en:{}};
+window.GLOBAL_UI_TRANSLATIONS.pt=window.GLOBAL_UI_TRANSLATIONS.pt||{}; window.GLOBAL_UI_TRANSLATIONS.en=window.GLOBAL_UI_TRANSLATIONS.en||{};
+Object.assign(window.GLOBAL_UI_TRANSLATIONS.pt,window.__EC_T35_105||{});
+Object.assign(window.GLOBAL_UI_TRANSLATIONS.en,window.__EC_T35_106||{});
 
-Object.entries(window.V7_SOURCE_LINKS).forEach(([target, links]) => { const info = GUIA_INFO[target]; if (!info)
+Object.entries(window.V7_SOURCE_LINKS || {}).forEach(([target, links]) => { const info = (typeof GUIA_INFO !== 'undefined' ? GUIA_INFO : {})[target]; if (!info)
     return; info.links = [...(info.links || [])]; links.forEach(link => { if (!info.links.some(x => x[1] === link[1]))
     info.links.push(link); }); });
-Object.assign(GLOBAL_UI_TRANSLATIONS.pt, { 'MOMENTO': 'MOMENTO', 'Ahora': 'Agora', 'Tarde': 'Tarde', 'Noche': 'Noite', 'Noche tarde': 'Noite avançada', '1 hora': '1 hora', '2 horas': '2 horas', 'Hoy completo': 'Dia inteiro', 'opciones compatibles para elegir.': 'opções compatíveis para escolher.', 'El orden cruza zona, interés, perfil, tiempo, momento del día y clima. Si llueve, las opciones exteriores quedan fuera; de noche no aparecen atracciones diurnas.': 'A ordem combina região, interesse, perfil, tempo, momento do dia e clima. Com chuva, opções externas ficam de fora; à noite, atrações diurnas não aparecem.' });
-Object.assign(GLOBAL_UI_TRANSLATIONS.en, { 'MOMENTO': 'TIME OF DAY', 'Ahora': 'Now', 'Tarde': 'Afternoon', 'Noche': 'Evening', 'Noche tarde': 'Late night', '1 hora': '1 hour', '2 horas': '2 hours', 'Hoy completo': 'Full day', 'opciones compatibles para elegir.': 'compatible options to choose from.', 'El orden cruza zona, interés, perfil, tiempo, momento del día y clima. Si llueve, las opciones exteriores quedan fuera; de noche no aparecen atracciones diurnas.': 'The ranking combines area, interest, profile, available time, time of day and weather. Outdoor options are excluded in rain; daytime attractions do not appear at night.' });
+Object.assign(window.GLOBAL_UI_TRANSLATIONS.pt, { 'MOMENTO': 'MOMENTO', 'Ahora': 'Agora', 'Tarde': 'Tarde', 'Noche': 'Noite', 'Noche tarde': 'Noite avançada', '1 hora': '1 hora', '2 horas': '2 horas', 'Hoy completo': 'Dia inteiro', 'opciones compatibles para elegir.': 'opções compatíveis para escolher.', 'El orden cruza zona, interés, perfil, tiempo, momento del día y clima. Si llueve, las opciones exteriores quedan fuera; de noche no aparecen atracciones diurnas.': 'A ordem combina região, interesse, perfil, tempo, momento do dia e clima. Com chuva, opções externas ficam de fora; à noite, atrações diurnas não aparecem.' });
+Object.assign(window.GLOBAL_UI_TRANSLATIONS.en, { 'MOMENTO': 'TIME OF DAY', 'Ahora': 'Now', 'Tarde': 'Afternoon', 'Noche': 'Evening', 'Noche tarde': 'Late night', '1 hora': '1 hour', '2 horas': '2 hours', 'Hoy completo': 'Full day', 'opciones compatibles para elegir.': 'compatible options to choose from.', 'El orden cruza zona, interés, perfil, tiempo, momento del día y clima. Si llueve, las opciones exteriores quedan fuera; de noche no aparecen atracciones diurnas.': 'The ranking combines area, interest, profile, available time, time of day and weather. Outdoor options are excluded in rain; daytime attractions do not appear at night.' });
 
