@@ -18,7 +18,6 @@ const GASTRONOMIA_DATA = [...(window.GASTRONOMIA_BASE||[]), ...(window.GASTRONOM
 }));
 const DIAS_NOCHE = ['Todos', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
 const TIPOS_NOCHE = ['Todos', 'Samba', 'Pagode', 'Música en vivo', 'Discoteca', 'Rooftop', 'Boteco', 'LGBTQIA+', 'Conciertos', 'Cultura'];
-const n = (id, nombre, zona, barrio, tipo, dias, precio, destaque, recomendado = false) => ({ id, nombre, zona, barrio, tipo, dias, precio, destaque, recomendado });
 const VIDA_NOCTURNA_DATA = [
     n('pedra-sal', 'Pedra do Sal', 'Centro y Zona Portuaria', 'Saúde', 'Samba', ['Lunes', 'Viernes'], '$', 'Roda de samba al aire libre en uno de los lugares fundamentales de la Pequeña África.', true),
     n('scenarium-noite', 'Rio Scenarium', 'Centro y Lapa', 'Lapa', 'Samba', ['Miércoles', 'Jueves', 'Viernes', 'Sábado'], '$$$', 'Música brasileña, restaurante y varios ambientes decorados con antigüedades.', true),
