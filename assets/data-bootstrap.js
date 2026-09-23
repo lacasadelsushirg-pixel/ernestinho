@@ -23,6 +23,9 @@ window.__ecEnsureLanguagePayloads=function(){
  const urls=["/data/consejos-viaje.json","/data/cultura.json","/data/explorar.json","/data/guia.json","/data/naturaleza.json","/data/otros-datos-extra.json","/data/playas.json","/data/premium-recorridos-extra.json","/data/rio-contenido-extra.json","/data/rio-hoje.json","/data/transporte.json","/data/viaje-consejos-extra.json","/data/vida-nocturna.json","/data/gastronomia.json"];
  await Promise.all(urls.map(url=>window.__ecLoadData(url).catch(e=>{console.error('EC data load failed',url,e);return null})));
  await load('/assets/app.js?v=20260922-runtimefix1');
+ // Experiencias has one canonical implementation. Load it explicitly after the legacy bundle
+ // so client navigation and a direct /experiencias load resolve to the same component.
+ await load('/assets/families/master4-experiences.js?v=20260922-canonical1');
 })().catch(e=>{
  console.error('EC bootstrap',e);
  const root=document.getElementById('ernestinho-carioca-root');
