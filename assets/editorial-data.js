@@ -31,7 +31,6 @@ const VIDA_NOCTURNA_DATA = [
     n('lapa40', 'Lapa 40 Graus', 'Centro y Lapa', 'Lapa', 'Discoteca', ['Jueves', 'Viernes', 'Sábado'], '$$', 'Música brasileña, pista de baile y varios pisos.'),
     n('circo', 'Circo Voador', 'Centro y Lapa', 'Lapa', 'Conciertos', ['Viernes', 'Sábado'], '$$', 'Uno de los escenarios más emblemáticos para conciertos en Río.', true),
     n('fundicao', 'Fundição Progresso', 'Centro y Lapa', 'Lapa', 'Conciertos', ['Jueves', 'Viernes', 'Sábado'], '$$', 'Grandes shows, fiestas y eventos culturales junto a los Arcos da Lapa.'),
-    n('selina-lapa', 'Rooftop Lapa', 'Centro y Lapa', 'Lapa', 'Rooftop', ['Jueves', 'Viernes', 'Sábado'], '$$', 'Terraza, música y vista de los Arcos; confirmar la programación vigente.'),
     n('bar-cachaca', 'Bar da Cachaça', 'Centro y Lapa', 'Lapa', 'Boteco', ['Todos'], '$', 'Punto informal para probar cachaças y vivir la calle de Lapa.'),
     n('vaca-atolada', 'Vaca Atolada', 'Centro y Lapa', 'Lapa', 'Samba', ['Viernes', 'Sábado'], '$', 'Samba informal, cerveza y cocina de boteco.'),
     n('armazem-senado', 'Armazém Senado', 'Centro y Lapa', 'Centro', 'Samba', ['Sábado'], '$', 'Roda de samba diurna que se extiende hacia la noche según la agenda.'),
