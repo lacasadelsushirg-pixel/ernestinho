@@ -8,7 +8,7 @@ function VidaNocturnaCompleta({ onVolver }) {
     const lista = VIDA_NOCTURNA_CON_FOTOS.filter(x => (dia === 'Todos' || x.dias.includes(dia)) && (tipo === 'Todos' || x.tipo === tipo) && (zona === 'Todas' || x.zona === zona));
     return React.createElement("section", { className: "min-h-screen bg-slate-950 text-white pb-20" },
         React.createElement("div", { className: "relative overflow-hidden" },
-            React.createElement("img", { src: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=85&w=1800", className: "absolute inset-0 w-full h-full object-cover opacity-35", alt: "Vida nocturna de R\u00EDo" }),
+            React.createElement("img", { src: "https://res.cloudinary.com/tdez3h4t/image/upload/v1790176971/rio_scenarium_vida_nocturna_1.jpg", className: "absolute inset-0 w-full h-full object-cover opacity-35", alt: "Vida nocturna de R\u00EDo" }),
             React.createElement("div", { className: "absolute inset-0 bg-gradient-to-r from-slate-950 via-purple-950/90 to-slate-950/30" }),
             React.createElement("div", { className: "relative max-w-7xl mx-auto px-4 sm:px-6 py-16 sm:py-24" },
                 React.createElement("button", { onClick: onVolver, className: "text-white/80 hover:text-fuchsia-300 font-bold text-sm" }, "\u2190 Volver a Qu\u00E9 hacer"),
