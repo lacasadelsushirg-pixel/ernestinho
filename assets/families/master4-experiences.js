@@ -1,4 +1,4 @@
-// deploy-version: experiencias-canonical-20260922-6-realchange
+// deploy-version: experiencias-canonical-20260922-7-vercel
 function Master4Experiences({ go, lang = 'es' }) {
     const T = (v) => { if (v == null) return v; if (typeof v === 'object' && !Array.isArray(v)) return v[lang] || v.es || v.pt || v.en || v; const z=String(v), g=(window.GLOBAL_UI_TRANSLATIONS&&window.GLOBAL_UI_TRANSLATIONS[lang])||{}; return lang==='es'?z:(g[z]||z); };
     const existentes = [...EXPERIENCIAS_DATA.map(exp => ({ ...exp, imagen: exp.portadaExperiencias || exp.imagen, miniatura: exp.portadaExperiencias || exp.imagen, intro: exp.descripcion, origen: 'tour' })), ...ACTIVIDADES_NUEVAS.map(exp => ({ ...exp, imagen: exp.portadaExperiencias || exp.miniatura, miniatura: exp.portadaExperiencias || exp.miniatura, descripcion: exp.intro, origen: 'actividad' }))];
