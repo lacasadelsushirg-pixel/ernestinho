@@ -22,10 +22,11 @@ window.__ecEnsureLanguagePayloads=function(){
  if(lang!=='es')await window.__ecEnsureLanguagePayloads().catch(e=>console.error('EC translations preload',e));
  const urls=["/data/consejos-viaje.json","/data/cultura.json","/data/explorar.json","/data/guia.json","/data/naturaleza.json","/data/otros-datos-extra.json","/data/playas.json","/data/premium-recorridos-extra.json","/data/rio-contenido-extra.json","/data/rio-hoje.json","/data/transporte.json","/data/viaje-consejos-extra.json","/data/vida-nocturna.json","/data/gastronomia.json"];
  await Promise.all(urls.map(url=>window.__ecLoadData(url).catch(e=>{console.error('EC data load failed',url,e);return null})));
- await load('/assets/app.js?v=20260922-runtimefix1');
- // Experiencias has one canonical implementation. Load it explicitly after the legacy bundle
- // so client navigation and a direct /experiencias load resolve to the same component.
- await load('/assets/families/master4-experiences.js?v=20260922-canonical4-force');
+ // Load the canonical Experiencias component BEFORE the legacy runtime.
+ // app.js builds its route table during startup; loading this afterwards is too late
+ // because the router may already hold the legacy Master4Experiences reference.
+ await load('/assets/families/master4-experiences.js?v=20260923-canonical-before-app');
+ await load('/assets/app.js?v=20260923-canonical-experiencias-router');
 })().catch(e=>{
  console.error('EC bootstrap',e);
  const root=document.getElementById('ernestinho-carioca-root');
