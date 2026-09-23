@@ -15,12 +15,8 @@ let __ecCultureDataPromise = null;
 function __ecEnsureCultureData(){
     if (window.MUSEOS_DATA && window.TEATROS_DATA && window.IGLESIAS_DATA && window.FAMILIA_DATA && window.MASTER4_MUSEOS_REAL) return Promise.resolve();
     if (__ecCultureDataPromise) return __ecCultureDataPromise;
-    __ecCultureDataPromise = new Promise((resolve,reject)=>{
-        const sc=document.createElement('script');
-        sc.src='/assets/section-culture-data.js?v=20260922-fase9'; sc.async=true;
-        sc.onload=()=>resolve(); sc.onerror=()=>{__ecCultureDataPromise=null;reject(new Error('No se pudo cargar section-culture-data.js'));};
-        document.head.appendChild(sc);
-    });
+    const files=['museos','teatros','iglesias','familia','museos-real'];
+    __ecCultureDataPromise=Promise.all(files.map(n=>new Promise((resolve,reject)=>{const sc=document.createElement('script');sc.src='/assets/culture/'+n+'.js?v=20260923';sc.async=true;sc.onload=resolve;sc.onerror=reject;document.head.appendChild(sc)}))).catch(e=>{__ecCultureDataPromise=null;throw e});
     return __ecCultureDataPromise;
 }
 
