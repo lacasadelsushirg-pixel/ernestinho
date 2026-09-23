@@ -2165,7 +2165,7 @@ function AppErnestinho(){
                 React.createElement(CopacabanaMaster3Editorial, null),
                 React.createElement(CopacabanaParaMi, null))),
             seccionActual === 'rio_mes_a_mes' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master3-month-weather-planner.js?v=20260922',name:'Master3MonthWeatherPlanner',componentProps:{ lang: lang }}),
-            seccionActual === 'barrios' && React.createElement(BarriosBeta23Embed, { go: setSeccionActual }),
+            seccionActual === 'barrios' && React.createElement(BarriosBeta23Embed, { go: setSeccionActual, lang: lang }),
             seccionActual === 'hospedaje' && React.createElement(ECLazySection,{group:'hospitality',section:'hospedaje',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
             seccionActual === 'cafe' && React.createElement(ECLazySection,{group:'cafe',section:'cafe',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
             seccionActual === 'privacidad' && React.createElement(ECLazySection,{group:'privacy',section:'privacidad',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
