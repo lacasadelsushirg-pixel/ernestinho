@@ -25,7 +25,7 @@ window.__ecEnsureLanguagePayloads=function(){
  await load('/assets/app.js?v=20260922-runtimefix1');
  // Experiencias has one canonical implementation. Load it explicitly after the legacy bundle
  // so client navigation and a direct /experiencias load resolve to the same component.
- await load('/assets/families/master4-experiences.js?v=20260922-canonical1');
+ await load('/assets/families/master4-experiences.js?v=20260922-canonical2');
 })().catch(e=>{
  console.error('EC bootstrap',e);
  const root=document.getElementById('ernestinho-carioca-root');
