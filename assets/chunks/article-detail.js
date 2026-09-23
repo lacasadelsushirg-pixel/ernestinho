@@ -192,5 +192,5 @@ articuloSeleccionado && (React.createElement("article", { className: "py-12 bg-w
                             React.createElement("p", { className: "text-slate-300 text-sm mt-1" }, "Dise\u00F1amos tu itinerario o te acompa\u00F1o en un tour privado exclusivo.")),
                         React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho,%20le\u00ED%20tu%20art\u00EDculo%20y%20quiero%20m\u00E1s%20informaci\u00F3n", target: "_blank", rel: "noopener noreferrer", className: "bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs uppercase py-4 px-6 rounded-full shrink-0 flex items-center gap-2  transition-transform hover:scale-105" },
                             React.createElement(Icon, { name: "message-circle", className: "w-5 h-5", fill: "#0f172a" }),
-                            "HABLAR CON ERNESTINHO POR WHATSAPP")))))),
-)}window.ECArticleDetail=ECArticleDetail;})();
+                            "HABLAR CON ERNESTINHO POR WHATSAPP"))))));
+}window.ECArticleDetail=ECArticleDetail;})();

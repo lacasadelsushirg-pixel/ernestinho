@@ -2169,7 +2169,7 @@ function AppErnestinho(){
             seccionActual === 'hospedaje' && React.createElement(ECLazySection,{group:'hospitality',section:'hospedaje',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
             seccionActual === 'cafe' && React.createElement(ECLazySection,{group:'cafe',section:'cafe',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
             seccionActual === 'privacidad' && React.createElement(ECLazySection,{group:'privacy',section:'privacidad',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
-            seccionActual === 'articulo_detalle' && articuloSeleccionado && React.createElement(ECLazyRoute,{src:'/assets/chunks/article-detail.js?v=20260923',name:'ECArticleDetail',componentProps:{articuloSeleccionado:articuloSeleccionado,onBack:volverUnaVista}}),
+            seccionActual === 'articulo_detalle' && articuloSeleccionado && React.createElement(ECLazyRoute,{src:'/assets/chunks/article-detail.js?v=20260923-full-parse1',name:'ECArticleDetail',componentProps:{articuloSeleccionado:articuloSeleccionado,onBack:volverUnaVista}}),
         modalReservaOpen && (React.createElement("div", { className: "fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fadeIn" },
             React.createElement("div", { className: "bg-white w-full max-w-lg rounded-3xl p-6 sm:p-8  border border-slate-100 relative" },
                 React.createElement("button", { onClick: () => setModalReservaOpen(false), className: "absolute top-5 right-5 p-2 text-slate-400 hover:text-slate-800 rounded-full hover:bg-slate-100 transition-colors" },
@@ -2222,7 +2222,7 @@ function AppErnestinho(){
                             " Ernestinho Carioca. Todos los derechos reservados.",
                             React.createElement("br", null),
                             "Dise\u00F1ado para viajeros que buscan vivir R\u00EDo de forma real y aut\u00E9ntica."),
-                        React.createElement("button", { onClick: () => setSeccionActual('privacidad'), className: "text-xs text-teal-400 hover:text-teal-300 font-bold mt-3" }, "Privacidad, precios y condiciones")))))));
+                        React.createElement("button", { onClick: () => setSeccionActual('privacidad'), className: "text-xs text-teal-400 hover:text-teal-300 font-bold mt-3" }, "Privacidad, precios y condiciones"))))))));
 }
 
 /* Deferred guide editorial extensions: GUIA_TEMAS/GUIA_INFO exist only after app initialization. */

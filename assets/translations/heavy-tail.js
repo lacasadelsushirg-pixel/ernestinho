@@ -1,3 +1,4 @@
+(function(){
   window.GLOBAL_UI_TRANSLATIONS = window.GLOBAL_UI_TRANSLATIONS || {pt:{},en:{}};
   window.GLOBAL_UI_TRANSLATIONS.pt = window.GLOBAL_UI_TRANSLATIONS.pt || {};
   window.GLOBAL_UI_TRANSLATIONS.en = window.GLOBAL_UI_TRANSLATIONS.en || {};
