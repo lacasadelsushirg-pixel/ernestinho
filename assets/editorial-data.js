@@ -69,12 +69,6 @@ const VIDA_NOCTURNA_DATA = [
 
 
 const FOTOS_NOCHE_APOYO = ['https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=80&w=1000', 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=1000', 'https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&q=80&w=1000', 'https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&q=80&w=1000'];
-const VIDA_NOCTURNA_CON_FOTOS = VIDA_NOCTURNA_DATA.map((item, index) => ({ ...item,
-    img: FOTOS_VIDA_NOCTURNA[item.id] || FOTOS_NOCHE_APOYO[index % FOTOS_NOCHE_APOYO.length],
-    mapa: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.nombre + ' ' + item.barrio + ' Rio de Janeiro')}`
-}));
-
-
 const BARRIOS_DATA = [
     { id: 'copacabana', nombre: 'Copacabana', zona: 'Zona Sul', lema: 'Mucho más que una playa.', desc: 'La postal más famosa de Río también es un barrio residencial lleno de historia, Art Déco, música, comercio y vida cotidiana.', para: ['Primera vez', 'Playa', 'Historia', 'Vida local'], combina: ['Leme', 'Ipanema', 'Urca'], img: 'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3122' },
     { id: 'ipanema-leblon', nombre: 'Ipanema & Leblon', zona: 'Zona Sul', lema: 'Playa, diseño, gastronomía y puesta de sol.', desc: 'Dos barrios vecinos para combinar playa, moda, cafés, restaurantes, miradores urbanos y caminatas con ritmo más pausado.', para: ['Parejas', 'Gastronomía', 'Compras', 'Atardecer'], combina: ['Copacabana', 'Lagoa', 'Jardim Botânico'], img: 'https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3123' },
