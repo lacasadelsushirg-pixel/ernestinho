@@ -11,7 +11,9 @@ window.__ecEnsureLanguagePayloads=function(){
 };
 (async()=>{
  await fetch('/data/compras-manifest.json',{cache:'force-cache'}).then(r=>r.json()).then(x=>{window.COMPRAS_CARDS=x.cards||{}}).catch(e=>console.error('EC compras manifest',e));
- const load=src=>new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.onload=ok;x.onerror=fail;document.head.appendChild(x)});
+ const load=src=>new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.onload=ok;x.onerror=()=>fail(new Error('No se pudo cargar '+src));document.head.appendChild(x)});
+ const ensureRuntime=async()=>{if(!window.React)await load('https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js');if(!window.ReactDOM)await load('https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js');if(!window.React||!window.ReactDOM||typeof window.ReactDOM.createRoot!=='function')throw new Error('React runtime no disponible');};
+ await ensureRuntime();
  await load('/assets/qh-i18n.js?v=20260922');
  await load('/assets/core-recommendation-engine.js?v=20260923');
  await load('/assets/guide-editorial-extensions.js?v=20260923');
@@ -25,4 +27,4 @@ window.__ecEnsureLanguagePayloads=function(){
  const urls=["/data/consejos-viaje-lazy52.json","/data/consejos-viaje.json","/data/copacabana-extra-lazy.json","/data/copacabana-extra-lazy52.json","/data/cultura.json","/data/explorar-lazy.json","/data/explorar.json","/data/guia.json","/data/master-runtime-extra-lazy.json","/data/master3-runtime-family.json","/data/master3-runtime-lazy.json","/data/naturaleza.json","/data/otros-datos-extra-lazy52.json","/data/otros-datos-extra.json","/data/playas.json","/data/premium-recorridos-extra.json","/data/rio-contenido-extra.json","/data/rio-hoje-family.json","/data/rio-hoje-lazy52.json","/data/rio-hoje.json","/data/transporte-lazy52.json","/data/transporte.json","/data/viaje-consejos-extra-lazy52.json","/data/viaje-consejos-extra.json","/data/vida-nocturna.json","/data/gastronomia.json"];
  for(const url of urls){try{await window.__ecLoadData(url)}catch(e){console.error('EC data load failed',url,e)}} try{const m=await fetch('/data/recorridos/manifest.json',{cache:'force-cache'}).then(r=>r.json());for(const url of (m.files||[])){await window.__ecLoadData(url)}}catch(e){console.error('EC recorridos load failed',e)}
  const x=document.createElement('script');x.src='/assets/app.js?v=20260922-stable8';x.onerror=()=>console.error('EC app load failed');document.body.appendChild(x);
-})().catch(e=>console.error('EC bootstrap',e));
+})().catch(e=>{console.error('EC bootstrap',e);const root=document.getElementById('ernestinho-carioca-root');if(root&&!root.childNodes.length)root.innerHTML='<div style="min-height:70vh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:Arial,sans-serif;text-align:center"><div><strong>Estamos cargando la guía de Río.</strong><br><span style="font-size:14px">Actualiza esta página en unos segundos.</span></div></div>';});
