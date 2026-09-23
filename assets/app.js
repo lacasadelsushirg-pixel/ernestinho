@@ -2106,7 +2106,6 @@ function AppErnestinho(){
             seccionActual === 'guia' && (React.createElement(GuiaRioCompleta, { onNavegar: setSeccionActual, onArticulo: verArticulo, tema: temaGuia, setTema: setTemaGuia, lang: lang })),
             seccionActual === 'transporte_publico' && (React.createElement(GuiaTransportePublico, { onVolver: volverUnaVista, onMetro: () => setSeccionActual('transporte_metro'), modo: modoTransportePublico, setModo: setModoTransportePublico })),
             seccionActual === 'guia_anterior' && React.createElement(ECLazySection,{group:'legacy-guides',section:'guia_anterior',sectionProps:{T:T,go:setSeccionActual,museoSeleccionado:museoSeleccionado,setMuseoSeleccionado:setMuseoSeleccionado}}),
-            seccionActual === 'experiencias' && React.createElement(ECLazyRoute,{src:'/assets/chunks/legacy-experiences.js?v=20260923',name:'ECLegacyExperiences',componentProps:{T:T,go:setSeccionActual,onReserve:abrirReserva,onBack:volverUnaVista,lang:lang}}),
             seccionActual === 'full_day_rio' && React.createElement(ECExperienceDetail,{kind:'full_day_rio',T:T,onBack:volverUnaVista,onReserve:abrirReserva}),
             seccionActual === 'buzios' && React.createElement(ECExperienceDetail,{kind:'buzios',T:T,onBack:volverUnaVista,onReserve:abrirReserva}),
             seccionActual === 'detalle_exp-3' && React.createElement(ECExperienceDetail,{kind:'detalle_exp-3',T:T,onBack:volverUnaVista,onReserve:abrirReserva}),
