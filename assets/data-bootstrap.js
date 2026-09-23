@@ -5,7 +5,7 @@ window.__ecLanguagePayloadPromise=null;
 window.__ecEnsureLanguagePayloads=function(){
  if(window.__EC_ALL_LANGUAGE_PAYLOADS_LOADED__)return Promise.resolve();
  if(window.__ecLanguagePayloadPromise)return window.__ecLanguagePayloadPromise;
- const files=['/assets/attr-translations.js?v=20260922',"/assets/translations/t34-01.js?v=20260923","/assets/translations/t34-02.js?v=20260923","/assets/translations/t34-03.js?v=20260923","/assets/translations/t34-04.js?v=20260923","/assets/translations/t34-05.js?v=20260923","/assets/translations/t35-01.js?v=20260923","/assets/translations/t35-02.js?v=20260923","/assets/translations/t35-03.js?v=20260923","/assets/translations/t35-04.js?v=20260923","/assets/translations/t35-05.js?v=20260923","/assets/translations/t35-06.js?v=20260923","/assets/translations/t35-07.js?v=20260923","/assets/translations/t35-08.js?v=20260923","/assets/translations/t35-09.js?v=20260923","/assets/translations/t35-10.js?v=20260923","/assets/translations/t35-11.js?v=20260923","/assets/translations/t35-12.js?v=20260923","/assets/translations/t35-13.js?v=20260923",'/assets/index-translations-extra.js?v=20260922-final'];
+ const files=['/assets/attr-translations.js?v=20260923-modular',"/assets/translations/t34-01.js?v=20260923","/assets/translations/t34-02.js?v=20260923","/assets/translations/t34-03.js?v=20260923","/assets/translations/t34-04.js?v=20260923","/assets/translations/t34-05.js?v=20260923","/assets/translations/t35-01.js?v=20260923","/assets/translations/t35-02.js?v=20260923","/assets/translations/t35-03.js?v=20260923","/assets/translations/t35-04.js?v=20260923","/assets/translations/t35-05.js?v=20260923","/assets/translations/t35-06.js?v=20260923","/assets/translations/t35-07.js?v=20260923","/assets/translations/t35-08.js?v=20260923","/assets/translations/t35-09.js?v=20260923","/assets/translations/t35-10.js?v=20260923","/assets/translations/t35-11.js?v=20260923","/assets/translations/t35-12.js?v=20260923","/assets/translations/t35-13.js?v=20260923",'/assets/index-translations-extra.js?v=20260923-modular'];
  window.__ecLanguagePayloadPromise=Promise.all(files.map(src=>new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.async=true;x.onload=ok;x.onerror=fail;document.head.appendChild(x)}))).then(()=>{window.__EC_ALL_LANGUAGE_PAYLOADS_LOADED__=true;});
  return window.__ecLanguagePayloadPromise;
 };
@@ -14,7 +14,7 @@ window.__ecEnsureLanguagePayloads=function(){
  const load=src=>new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.onload=ok;x.onerror=()=>fail(new Error('No se pudo cargar '+src));document.head.appendChild(x)});
  const ensureRuntime=async()=>{if(!window.React)await load('https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js');if(!window.ReactDOM)await load('https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js');if(!window.React||!window.ReactDOM||typeof window.ReactDOM.createRoot!=='function')throw new Error('React runtime no disponible');};
  await ensureRuntime();
- await load('/assets/qh-i18n.js?v=20260922');
+ await load('/assets/qh-i18n.js?v=20260923-modular');
  await load('/assets/core-recommendation-engine.js?v=20260923');
  await load('/assets/guide-editorial-extensions.js?v=20260923');
  await load('/assets/editorial-data.js?v=20260923');
