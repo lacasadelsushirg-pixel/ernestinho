@@ -27,7 +27,6 @@ window.__ecEnsureLanguagePayloads=function(){
  // overwriting the canonical function during startup.
  await load('/assets/app.js?v=20260923-canonical-experiencias-router-2');
  await load('/assets/families/master4-experiences.js?v=20260923-canonical-after-app');
- await load('/assets/experiencias-unify-fix.js?v=20260923-unify-1');
 })().catch(e=>{
  console.error('EC bootstrap',e);
  const root=document.getElementById('ernestinho-carioca-root');
