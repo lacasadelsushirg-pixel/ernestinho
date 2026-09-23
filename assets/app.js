@@ -3384,16 +3384,16 @@ function AppErnestinho(){
                                 React.createElement("span", { className: "bg-amber-400 rounded-full px-3 py-1 text-xs font-black" }, actividad.precio),
                                 React.createElement("a", { href: `/experiencias/${seoSlug(actividad.titulo)}`, onClick: (ev) => { if (!(ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey)) { ev.preventDefault(); seoNavigate(`/experiencias/${seoSlug(actividad.titulo)}`); setSeccionActual(`actividad_${actividad.id}`); } }, className: "bg-slate-900 text-white rounded-full px-5 py-3 text-xs font-black uppercase" }, "Ver actividad"))))))))),
             seccionActual.startsWith('actividad_') && React.createElement(ActividadNuevaDetalle, { actividad: ACTIVIDADES_NUEVAS.find(a => `actividad_${a.id}` === seccionActual), onVolver: volverUnaVista, lang: lang }),
-            React.createElement(ECExperienceDetail,{kind:'full_day_rio',T:T,onBack:volverUnaVista,onReserve:abrirReserva})
-            React.createElement(ECExperienceDetail,{kind:'buzios',T:T,onBack:volverUnaVista,onReserve:abrirReserva})
-            React.createElement(ECExperienceDetail,{kind:'detalle_exp-3',T:T,onBack:volverUnaVista,onReserve:abrirReserva})
-            React.createElement(ECExperienceDetail,{kind:'detalle_exp-4',T:T,onBack:volverUnaVista,onReserve:abrirReserva})
-            React.createElement(ECExperienceDetail,{kind:'detalle_exp-5',T:T,onBack:volverUnaVista,onReserve:abrirReserva})
-            React.createElement(ECLazySection,{group:'transport',section:'transportes',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}})
-            React.createElement(ECLazySection,{group:'transport',section:'transporte_uber',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}})
-            React.createElement(ECLazySection,{group:'transport',section:'transporte_metro',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}})
-            React.createElement(ECLazySection,{group:'transport',section:'transporte_bicicletas',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}})
-            React.createElement(ECLazySection,{group:'transport',section:'transporte_privado',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}})
+            seccionActual === 'full_day_rio' && React.createElement(ECExperienceDetail,{kind:'full_day_rio',T:T,onBack:volverUnaVista,onReserve:abrirReserva}),
+            seccionActual === 'buzios' && React.createElement(ECExperienceDetail,{kind:'buzios',T:T,onBack:volverUnaVista,onReserve:abrirReserva}),
+            seccionActual === 'detalle_exp-3' && React.createElement(ECExperienceDetail,{kind:'detalle_exp-3',T:T,onBack:volverUnaVista,onReserve:abrirReserva}),
+            seccionActual === 'detalle_exp-4' && React.createElement(ECExperienceDetail,{kind:'detalle_exp-4',T:T,onBack:volverUnaVista,onReserve:abrirReserva}),
+            seccionActual === 'detalle_exp-5' && React.createElement(ECExperienceDetail,{kind:'detalle_exp-5',T:T,onBack:volverUnaVista,onReserve:abrirReserva}),
+            seccionActual === 'transportes' && React.createElement(ECLazySection,{group:'transport',section:'transportes',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
+            seccionActual === 'transporte_uber' && React.createElement(ECLazySection,{group:'transport',section:'transporte_uber',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
+            seccionActual === 'transporte_metro' && React.createElement(ECLazySection,{group:'transport',section:'transporte_metro',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
+            seccionActual === 'transporte_bicicletas' && React.createElement(ECLazySection,{group:'transport',section:'transporte_bicicletas',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
+            seccionActual === 'transporte_privado' && React.createElement(ECLazySection,{group:'transport',section:'transporte_privado',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
             seccionActual === 'que_hacer' && (React.createElement("section", { className: "py-12 bg-[#071313] text-white min-h-screen" },
                 React.createElement("div", { className: "max-w-7xl mx-auto px-4 sm:px-6" },
                     React.createElement("div", { className: "text-center max-w-3xl mx-auto mb-12" },
@@ -3416,7 +3416,7 @@ function AppErnestinho(){
             seccionActual === 'aventura' && (React.createElement(Master4AventuraPage, { go: setSeccionActual })),
             seccionActual === 'fotografia' && (React.createElement(GuiaFotografia, { onVolver: volverUnaVista })),
             seccionActual === 'pix' && (React.createElement(GuiaPix, { onVolver: volverUnaVista })),
-            React.createElement(ECLazySection,{group:'attractions',section:'atracciones',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}})
+            seccionActual === 'atracciones' && React.createElement(ECLazySection,{group:'attractions',section:'atracciones',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
             seccionActual === 'museos' && (React.createElement("section", { className: "ec-dark-attraction py-12 bg-[#071313] min-h-screen" },
                 React.createElement("div", { className: "max-w-7xl mx-auto px-4 sm:px-6" },
                     React.createElement("div", { className: "text-center max-w-4xl mx-auto mb-10" },
@@ -3613,7 +3613,7 @@ function AppErnestinho(){
                             React.createElement("a", { href: `/articulos/${seoSlug(art.titulo)}`, onClick: (ev) => { if (!(ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey)) { ev.preventDefault(); verArticulo(art); } }, className: "self-start text-xs font-bold text-teal-600 hover:text-teal-700 uppercase flex items-center gap-1" },
                                 React.createElement("span", null, "Leer art\u00EDculo completo"),
                                 React.createElement(Icon, { name: "chevron-right", className: "w-4 h-4" })))))))))),
-            React.createElement(ECLazySection,{group:'beaches',section:'playas',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}})
+            seccionActual === 'playas' && React.createElement(ECLazySection,{group:'beaches',section:'playas',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
             seccionActual === 'compras' && React.createElement(ComprasCompletas, { go: setSeccionActual }),
             seccionActual === 'copa_para_mi' && (React.createElement(React.Fragment, null,
                 React.createElement(CopacabanaMasterSystems, { go: setSeccionActual }),
@@ -3621,9 +3621,9 @@ function AppErnestinho(){
                 React.createElement(CopacabanaParaMi, null))),
             seccionActual === 'rio_mes_a_mes' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master3-month-weather-planner.js?v=20260922',name:'Master3MonthWeatherPlanner',componentProps:{ lang: lang }}),
             seccionActual === 'barrios' && React.createElement(BarriosBeta23Embed, { go: setSeccionActual }),
-            React.createElement(ECLazySection,{group:'hospitality',section:'hospedaje',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}})
-            React.createElement(ECLazySection,{group:'cafe',section:'cafe',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}})
-            React.createElement(ECLazySection,{group:'privacy',section:'privacidad',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}})
+            seccionActual === 'hospedaje' && React.createElement(ECLazySection,{group:'hospitality',section:'hospedaje',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
+            seccionActual === 'cafe' && React.createElement(ECLazySection,{group:'cafe',section:'cafe',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
+            seccionActual === 'privacidad' && React.createElement(ECLazySection,{group:'privacy',section:'privacidad',sectionProps:{T:T,onBack:volverUnaVista,go:setSeccionActual,lang:lang}}),
             seccionActual === 'articulo_detalle' && articuloSeleccionado && (React.createElement("article", { className: "py-12 bg-white" },
                 React.createElement("div", { className: articuloSeleccionado.id === 'art-1' ? "max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8" : "max-w-4xl mx-auto px-4 sm:px-6" },
                     React.createElement("button", { onClick: volverUnaVista, className: "inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors" }, "\u2190 Volver a la vista anterior"),

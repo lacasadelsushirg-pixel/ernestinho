@@ -69,7 +69,7 @@ section === 'transportes' && (React.createElement("section", { className: "min-h
                                             setTemaGuia('alquiler-auto');
                                             seoNavigate(`/guia/${seoSlug(GUIA_INFO['alquiler-auto'].titulo)}`);
                                             setSeccionActualBase('guia');
-                                        }, className: "mt-auto w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-xl transition-colors" }, "\uD83D\uDE97 Ver gu\u00EDa de alquiler de auto")))))))),,
+                                        }, className: "mt-auto w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-xl transition-colors" }, "\uD83D\uDE97 Ver gu\u00EDa de alquiler de auto")))))))),
 section === 'transporte_uber' && (React.createElement("section", { className: "min-h-screen bg-white" },
                 React.createElement("div", { className: "max-w-5xl mx-auto px-5 py-8" },
                     React.createElement("button", { onClick: onBack, className: "mb-6 text-sm font-bold text-slate-600 hover:text-teal-600" }, "\u2190 Volver a Transportes"),
@@ -90,7 +90,7 @@ section === 'transporte_uber' && (React.createElement("section", { className: "m
                         React.createElement("li", null, "\u2713 En zonas muy concurridas, espera en un punto seguro y visible.")),
                     React.createElement("h2", { className: "text-2xl font-black text-slate-900 mb-4" }, "\u00BFCu\u00E1ndo recomiendo utilizar Uber?"),
                     React.createElement("p", { className: "text-slate-600 leading-relaxed mb-4" }, "Para ir al aeropuerto con equipaje, regresar despu\u00E9s de una noche de paseo, desplazarte entre barrios alejados o cuando el transporte p\u00FAblico no sea pr\u00E1ctico, Uber puede ahorrarte bastante tiempo."),
-                    React.createElement("p", { className: "text-slate-600 leading-relaxed" }, "En horas punta, grandes eventos o zonas con mucha demanda, el precio puede aumentar y el tiempo de espera puede ser mayor. En esos casos conviene comparar el precio con el Metro antes de solicitar el viaje.")))),,
+                    React.createElement("p", { className: "text-slate-600 leading-relaxed" }, "En horas punta, grandes eventos o zonas con mucha demanda, el precio puede aumentar y el tiempo de espera puede ser mayor. En esos casos conviene comparar el precio con el Metro antes de solicitar el viaje.")))),
 section === 'transporte_metro' && (React.createElement("section", { className: "min-h-screen bg-white" },
                 React.createElement("div", { className: "max-w-5xl mx-auto px-5 py-8" },
                     React.createElement("button", { onClick: onBack, className: "mb-6 text-sm font-bold text-slate-600 hover:text-teal-600" }, "\u2190 Volver a Transportes"),
@@ -154,7 +154,7 @@ section === 'transporte_metro' && (React.createElement("section", { className: "
                             " es una estaci\u00F3n estrat\u00E9gica para conectar con Barra da Tijuca y el sistema BRT.")),
                     React.createElement("div", { className: "mt-10 bg-slate-900 text-white rounded-3xl p-7" },
                         React.createElement("h3", { className: "text-xl font-black mb-3" }, "\uD83D\uDCA1 Mi consejo"),
-                        React.createElement("p", { className: "text-white/80 text-sm leading-relaxed" }, "Para un turista que se est\u00E1 alojando en Copacabana, Ipanema o Botafogo, aprender a utilizar el Metro puede significar un ahorro importante de tiempo y dinero. Para distancias cortas o cuando llevas equipaje, Uber puede ser m\u00E1s c\u00F3modo."))))),,
+                        React.createElement("p", { className: "text-white/80 text-sm leading-relaxed" }, "Para un turista que se est\u00E1 alojando en Copacabana, Ipanema o Botafogo, aprender a utilizar el Metro puede significar un ahorro importante de tiempo y dinero. Para distancias cortas o cuando llevas equipaje, Uber puede ser m\u00E1s c\u00F3modo."))))),
 section === 'transporte_bicicletas' && (React.createElement("section", { className: "min-h-screen bg-white" },
                 React.createElement("div", { className: "max-w-5xl mx-auto px-5 py-8" },
                     React.createElement("button", { onClick: onBack, className: "mb-6 text-sm font-bold text-slate-600 hover:text-teal-600" }, "\u2190 Volver a Transportes"),
@@ -205,7 +205,7 @@ section === 'transporte_bicicletas' && (React.createElement("section", { classNa
                     React.createElement("img", { src: "https://res.cloudinary.com/qa301cbc/image/upload/f_auto,q_auto/IMG_3068", alt: "Ciclov\u00EDas de R\u00EDo de Janeiro", className: "w-full rounded-3xl mb-8" }),
                     React.createElement("div", { className: "bg-amber-50 border border-amber-200 rounded-2xl p-6" },
                         React.createElement("h3", { className: "font-black text-slate-900 mb-2" }, T("⭐ Consejo de Ernestinho")),
-                        React.createElement("p", { className: "text-slate-700 text-sm leading-relaxed" }, "Para disfrutar realmente la bicicleta en R\u00EDo, intenta utilizar las ciclov\u00EDas y evita las calles con mucho tr\u00E1fico cuando exista una alternativa m\u00E1s segura."))))),,
+                        React.createElement("p", { className: "text-slate-700 text-sm leading-relaxed" }, "Para disfrutar realmente la bicicleta en R\u00EDo, intenta utilizar las ciclov\u00EDas y evita las calles con mucho tr\u00E1fico cuando exista una alternativa m\u00E1s segura."))))),
 section === 'transporte_privado' && (React.createElement("section", { className: "min-h-screen bg-white" },
                 React.createElement("div", { className: "max-w-5xl mx-auto px-5 py-8" },
                     React.createElement("button", { onClick: onBack, className: "mb-6 text-sm font-bold text-slate-600 hover:text-teal-600" }, "\u2190 Volver a Transportes"),

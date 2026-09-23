@@ -1,6 +1,5 @@
 /* EC experience detail routes — lazy extracted 2026-09-23 */
-(function(){
-function ECExperienceDetailChunk({kind,T,onBack,onReserve}){const volverUnaVista=onBack,abrirReserva=onReserve;return React.createElement(React.Fragment,null,
+(function(){function ECExperienceDetailChunk({kind,T,onBack,onReserve}){const volverUnaVista=onBack,abrirReserva=onReserve;return React.createElement(React.Fragment,null,
 kind === 'full_day_rio' && (React.createElement("section", { className: "py-12 sm:py-16 bg-slate-50" },
                 React.createElement("div", { className: "max-w-6xl mx-auto px-4 sm:px-6" },
                     React.createElement("button", { onClick: volverUnaVista, className: "inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors" }, T("\u2190 Volver a Experiencias")),
@@ -130,7 +129,7 @@ kind === 'full_day_rio' && (React.createElement("section", { className: "py-12 s
                                     duracion: 'Aproximadamente 8 horas',
                                     grupo: T('Consultar disponibilidad'),
                                     encuentro: T('Hoteles de Zona Sul y Centro')
-                                }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-10 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora"))))))),,
+                                }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-10 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora"))))))),
 kind === 'buzios' && (React.createElement("section", { className: "py-12 sm:py-16 bg-slate-50" },
                 React.createElement("div", { className: "max-w-6xl mx-auto px-4 sm:px-6" },
                     React.createElement("button", { onClick: volverUnaVista, className: "inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors" }, T("\u2190 Volver a Experiencias")),
@@ -240,7 +239,7 @@ kind === 'buzios' && (React.createElement("section", { className: "py-12 sm:py-1
                                     duracion: 'Aproximadamente 13 horas',
                                     grupo: T('Salidas todos los días'),
                                     encuentro: T('Consultar')
-                                }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-10 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora"))))))),,
+                                }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-10 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora"))))))),
 kind === 'detalle_exp-3' && (React.createElement("section", { className: "py-12 sm:py-16 bg-slate-50" },
                 React.createElement("div", { className: "max-w-6xl mx-auto px-4 sm:px-6" },
                     React.createElement("button", { onClick: volverUnaVista, className: "inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors" }, T("\u2190 Volver a Experiencias")),
@@ -355,7 +354,7 @@ kind === 'detalle_exp-3' && (React.createElement("section", { className: "py-12 
                                         grupo: T('Consultar'),
                                         encuentro: T('Consultar')
                                     }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora")),
-                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho,%20le%C3%AD%20tu%20art%C3%ADculo%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),,
+                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho,%20le%C3%AD%20tu%20art%C3%ADculo%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
 kind === 'detalle_exp-4' && (React.createElement("section", { className: "py-12 sm:py-16 bg-slate-50" },
                 React.createElement("div", { className: "max-w-6xl mx-auto px-4 sm:px-6" },
                     React.createElement("button", { onClick: volverUnaVista, className: "inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors" }, T("\u2190 Volver a Experiencias")),
@@ -443,7 +442,7 @@ kind === 'detalle_exp-4' && (React.createElement("section", { className: "py-12 
                                         grupo: T('Consultar'),
                                         encuentro: 'Hoteles Zona Sul y Centro'
                                     }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora")),
-                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho,%20le%C3%AD%20tu%20art%C3%ADculo%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),,
+                                React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho,%20le%C3%AD%20tu%20art%C3%ADculo%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
 kind === 'detalle_exp-5' && (React.createElement("section", { className: "py-12 sm:py-16 bg-slate-50" },
                 React.createElement("div", { className: "max-w-6xl mx-auto px-4 sm:px-6" },
                     React.createElement("button", { onClick: volverUnaVista, className: "inline-flex items-center gap-2 text-slate-500 hover:text-slate-900 font-bold text-xs uppercase mb-8 transition-colors" }, T("\u2190 Volver a Experiencias")),
@@ -563,6 +562,4 @@ kind === 'detalle_exp-5' && (React.createElement("section", { className: "py-12 
                                         encuentro: 'Hoteles Zona Sul y Centro'
                                     }), className: "w-full lg:w-auto bg-slate-950 hover:bg-slate-800 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105" }, T("\uD83D\uDCC5 Reservar Ahora")),
                                 React.createElement("a", { href: "https://wa.me/5521969946938?text=Hola%20Ernestinho,%20le%C3%AD%20tu%20art%C3%ADculo%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n", target: "_blank", rel: "noopener noreferrer", className: "w-full lg:w-auto bg-green-600 hover:bg-green-700 text-white font-black text-sm uppercase tracking-wider py-4 px-8 rounded-2xl  transition-all hover:scale-105 text-center" }, T("\uD83D\uDCAC WhatsApp")))))))),
-)}
-window.ECExperienceDetailChunk=ECExperienceDetailChunk;
-})();
+)}window.ECExperienceDetailChunk=ECExperienceDetailChunk;})();
