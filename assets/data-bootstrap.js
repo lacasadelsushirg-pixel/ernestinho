@@ -17,7 +17,9 @@ window.__ecEnsureLanguagePayloads=function(){
  await load('/assets/guide-editorial-extensions.js?v=20260923');
  await load('/assets/editorial-data.js?v=20260923');
  const lang=localStorage.getItem('ernestinho-lang')||'es';
- if(lang!=='es')await window.__ecEnsureLanguagePayloads();
+ if(lang!=='es'){await window.__ecEnsureLanguagePayloads();
+  try{const parts=await Promise.all(Array.from({length:23},(_,i)=>fetch('/assets/translations/heavy-'+String(i+1).padStart(2,'0')+'.part?v=20260923',{cache:'force-cache'}).then(r=>{if(!r.ok)throw Error(r.url+' '+r.status);return r.text()})));(0,eval)(parts.join(''));await load('/assets/translations/heavy-tail.js?v=20260923');}catch(e){console.error('EC heavy translations',e);}
+ }
  const urls=["/data/consejos-viaje-lazy52.json","/data/consejos-viaje.json","/data/copacabana-extra-lazy.json","/data/copacabana-extra-lazy52.json","/data/cultura.json","/data/explorar-lazy.json","/data/explorar.json","/data/guia.json","/data/master-runtime-extra-lazy.json","/data/master3-runtime-family.json","/data/master3-runtime-lazy.json","/data/naturaleza.json","/data/otros-datos-extra-lazy52.json","/data/otros-datos-extra.json","/data/playas.json","/data/premium-recorridos-extra.json","/data/recorridos.json","/data/rio-contenido-extra.json","/data/rio-hoje-family.json","/data/rio-hoje-lazy52.json","/data/rio-hoje.json","/data/transporte-lazy52.json","/data/transporte.json","/data/viaje-consejos-extra-lazy52.json","/data/viaje-consejos-extra.json","/data/vida-nocturna.json","/data/gastronomia.json"];
  for(const url of urls){try{await window.__ecLoadData(url)}catch(e){console.error('EC data load failed',url,e)}}
  const x=document.createElement('script');x.src='/assets/app.js?v=20260922-stable8';x.onerror=()=>console.error('EC app load failed');document.body.appendChild(x);
