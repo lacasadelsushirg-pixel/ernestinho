@@ -22,9 +22,9 @@ window.__ecEnsureLanguagePayloads=function(){
  if(lang!=='es')await window.__ecEnsureLanguagePayloads().catch(e=>console.error('EC translations preload',e));
  const urls=["/data/consejos-viaje.json","/data/cultura.json","/data/explorar.json","/data/guia.json","/data/naturaleza.json","/data/otros-datos-extra.json","/data/playas.json","/data/premium-recorridos-extra.json","/data/rio-contenido-extra.json","/data/rio-hoje.json","/data/transporte.json","/data/viaje-consejos-extra.json","/data/vida-nocturna.json","/data/gastronomia.json"];
  await Promise.all(urls.map(url=>window.__ecLoadData(url).catch(e=>{console.error('EC data load failed',url,e);return null})));
- // Runtime principal + componentes extraídos. Experiencias vive únicamente en /assets/chunks/Master4Experiences.js.
- await load('/assets/app.js?v=20260923-runtime-4');
- await load('/assets/chunks/Master4Experiences.js?v=20260923-experiencias-canonical-4');
+ // Runtime principal. Experiencias tiene una sola implementación canónica.
+ await load('/assets/app.js?v=20260923-runtime-5');
+ await load('/assets/experiencias.js?v=20260923-single-5');
 })().catch(e=>{
  console.error('EC bootstrap',e);
  const root=document.getElementById('ernestinho-carioca-root');
