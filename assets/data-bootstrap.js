@@ -16,7 +16,6 @@ window.__ecEnsureLanguagePayloads=function(){
  await ensureRuntime();
  await load('/assets/qh-i18n.js?v=20260923-modular');
  await load('/assets/core-recommendation-engine.js?v=20260923');
- await load('/assets/guide-editorial-extensions.js?v=20260923');
  await load('/assets/editorial-data.js?v=20260923');
  await load('/assets/gastronomy-data.js?v=20260923');
  if(window.__ecGastronomyReady) await window.__ecGastronomyReady;
