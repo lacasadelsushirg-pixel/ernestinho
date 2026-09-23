@@ -591,6 +591,7 @@ function seoSlug(valor) {
 
 const SEO_SECTION_ROUTES = {
     inicio: '/',
+    guia: '/guia',
     museos: '/museos',
     playas: '/playas',
     naturaleza: '/naturaleza',
@@ -604,7 +605,7 @@ const SEO_SECTION_ROUTES = {
     fotografia: '/fotografia',
     hospedaje: '/hospedaje',
     compras: '/compras',
-    eventos: '/eventos',
+    grandes_eventos: '/eventos',
     nocturna: '/vida-nocturna',
     atracciones: '/atracciones',
     familia: '/familia',
@@ -614,6 +615,7 @@ const SEO_SECTION_ROUTES = {
 
 const SEO_ROUTE_PREFERRED_SECTION = {
     '/': 'inicio',
+    '/guia': 'guia',
     '/museos': 'museos',
     '/playas': 'playas',
     '/naturaleza': 'naturaleza',
@@ -624,7 +626,7 @@ const SEO_ROUTE_PREFERRED_SECTION = {
     '/experiencias': 'experiencias',
     '/hospedaje': 'hospedaje',
     '/compras': 'compras',
-    '/eventos': 'eventos',
+    '/eventos': 'grandes_eventos',
     '/vida-nocturna': 'nocturna',
     '/atracciones': 'atracciones',
     '/familia': 'familia',
