@@ -53,11 +53,32 @@ function installStyle(){
  .ec-real-cover .ec-cover-title{position:absolute;left:14px;right:14px;top:72%;transform:translateY(-50%);z-index:4;text-align:center;color:#fff;font-family:"Lutshine","Arial Narrow","Helvetica Neue",Arial,sans-serif;font-weight:700;font-size:clamp(1.02rem,2.15vw,1.72rem);line-height:1;letter-spacing:.055em;text-transform:uppercase;text-shadow:0 2px 4px rgba(0,0,0,.82);pointer-events:none}
  .ec-real-cover .ec-cover-arrow{position:absolute;right:15px;bottom:13px;z-index:4;color:#fff;font:700 1.15rem/1 Arial,sans-serif;text-shadow:0 2px 4px rgba(0,0,0,.82);pointer-events:none}
  .ec-real-cover img{object-fit:cover!important;object-position:center center!important}
+ .ec-floating-home{position:fixed;right:18px;bottom:22px;z-index:2147483000;border:0;border-radius:999px;background:#0f3d3a;color:#fff;padding:11px 16px;font:700 13px/1.1 Arial,sans-serif;letter-spacing:.02em;box-shadow:0 6px 22px rgba(0,0,0,.28);cursor:pointer}
+ .ec-floating-home:hover{filter:brightness(1.08)}
+ .ec-floating-home:focus-visible{outline:3px solid #f5b942;outline-offset:3px}
  @media(max-width:640px){.ec-real-cover .ec-cover-title{left:10px;right:10px;top:71%;font-size:clamp(.86rem,4.2vw,1.16rem);letter-spacing:.045em}.ec-real-cover .ec-cover-arrow{right:10px;bottom:9px;font-size:1rem}}
  `;
  document.head.appendChild(s);
 }
+function goHome(){
+ history.pushState({},'', '/');
+ window.dispatchEvent(new PopStateEvent('popstate'));
+    syncFloatingHome();
+ requestAnimationFrame(()=>window.scrollTo({top:0,left:0,behavior:'auto'}));
+}
+function syncFloatingHome(){
+ const p=(location.pathname||'/').replace(/\/+$/,'')||'/';
+ const wanted=p==='/barrios'||p==='/gastronomia';
+ let b=document.getElementById('ec-floating-home');
+ if(wanted&&!b){
+  b=document.createElement('button'); b.id='ec-floating-home'; b.className='ec-floating-home'; b.type='button';
+  b.textContent='← VOLVER'; b.setAttribute('aria-label','Volver al inicio');
+  b.addEventListener('click',function(ev){ev.preventDefault();ev.stopPropagation();goHome();},true);
+  document.body.appendChild(b);
+ } else if(!wanted&&b){b.remove();}
+}
 function apply(){
+ syncFloatingHome();
  const section=getSection(); if(!section)return;
  const grid=[...section.querySelectorAll('div')].find(d=>d.children.length===15&&[...d.children].every(x=>x.tagName==='BUTTON'));
  if(!grid)return;
@@ -83,6 +104,8 @@ function apply(){
  });
 }
 let queued=false; const run=()=>{if(queued)return;queued=true;requestAnimationFrame(()=>{queued=false;apply();});};
+window.addEventListener('popstate',()=>{syncFloatingHome();run();});
+document.addEventListener('click',()=>setTimeout(syncFloatingHome,0),true);
 document.readyState==='loading'?document.addEventListener('DOMContentLoaded',run):run();
 new MutationObserver(run).observe(document.documentElement,{childList:true,subtree:true});
 })();
