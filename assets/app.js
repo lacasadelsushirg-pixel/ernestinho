@@ -1155,11 +1155,11 @@ function AppErnestinho(){
 
     const UI_TEXT = {
         es: { tagline: 'Río desde mi mirada', talk: 'Hablar con Ernestinho', back: 'Volver a la vista anterior',
-            nav: { copa_para_mi: '❤️ Para mí', guia: 'Guía de Río', rio_mes_a_mes: 'Mes a mes', master4_experiencias: 'Experiencias', grandes_eventos: 'Eventos', transportes: 'Transportes', que_hacer: 'Qué Hacer', consejos: 'Consejos', playas: 'Playas', compras: 'Compras', barrios: 'Barrios', hospedaje: 'Hospedaje', cafe: 'Café Rio' } },
+            nav: { copa_para_mi: '❤️ Para mí', guia: 'Guía de Río', rio_mes_a_mes: 'Mes a mes', experiencias: 'Experiencias', grandes_eventos: 'Eventos', transportes: 'Transportes', que_hacer: 'Qué Hacer', consejos: 'Consejos', playas: 'Playas', compras: 'Compras', barrios: 'Barrios', hospedaje: 'Hospedaje', cafe: 'Café Rio' } },
         pt: { tagline: 'O Rio pelo meu olhar', talk: 'Falar com Ernestinho', back: 'Voltar à tela anterior',
-            nav: { copa_para_mi: '❤️ Para mim', guia: 'Guia do Rio', rio_mes_a_mes: 'Mês a mês', master4_experiencias: 'Experiências', grandes_eventos: 'Eventos', transportes: 'Transportes', que_hacer: 'O que fazer', consejos: 'Dicas', playas: 'Praias', compras: 'Compras', barrios: 'Bairros', hospedaje: 'Hospedagem', cafe: 'Café Rio' } },
+            nav: { copa_para_mi: '❤️ Para mim', guia: 'Guia do Rio', rio_mes_a_mes: 'Mês a mês', experiencias: 'Experiências', grandes_eventos: 'Eventos', transportes: 'Transportes', que_hacer: 'O que fazer', consejos: 'Dicas', playas: 'Praias', compras: 'Compras', barrios: 'Bairros', hospedaje: 'Hospedagem', cafe: 'Café Rio' } },
         en: { tagline: 'Rio through my eyes', talk: 'Talk to Ernestinho', back: 'Back to previous view',
-            nav: { copa_para_mi: '❤️ For me', guia: 'Rio Guide', rio_mes_a_mes: 'Month by month', master4_experiencias: 'Experiences', grandes_eventos: 'Events', transportes: 'Transport', que_hacer: 'Things to do', consejos: 'Tips', playas: 'Beaches', compras: 'Shopping', barrios: 'Neighborhoods', hospedaje: 'Where to stay', cafe: 'Café Rio' } }
+            nav: { copa_para_mi: '❤️ For me', guia: 'Rio Guide', rio_mes_a_mes: 'Month by month', experiencias: 'Experiences', grandes_eventos: 'Events', transportes: 'Transport', que_hacer: 'Things to do', consejos: 'Tips', playas: 'Beaches', compras: 'Shopping', barrios: 'Neighborhoods', hospedaje: 'Where to stay', cafe: 'Café Rio' } }
     };
     const ui = UI_TEXT[lang] || UI_TEXT.es;
     // Traducción progresiva global: conserva primero las traducciones completas ya cargadas.
@@ -1943,7 +1943,7 @@ function AppErnestinho(){
                     { id: 'copa_para_mi', label: '❤️ Para mí' },
                     { id: 'guia', label: 'Guía de Río' },
                     { id: 'rio_mes_a_mes', label: 'Mes a mes' },
-                    { id: 'master4_experiencias', label: 'Experiencias' },
+                    { id: 'experiencias', label: 'Experiencias' },
                     { id: 'grandes_eventos', label: 'Eventos' },
                     { id: 'transportes', label: 'Transportes' },
                     { id: 'que_hacer', label: 'Qué Hacer' },
@@ -1997,7 +1997,7 @@ function AppErnestinho(){
                 { id: 'inicio', label: 'INICIO', icon: 'sun' },
                 { id: 'copa_para_mi', label: '❤️ PARA MÍ', icon: 'heart' },
                 { id: 'guia', label: 'GUÍA DE RÍO', icon: 'compass' },
-                { id: 'master4_experiencias', label: 'EXPERIENCIAS', icon: 'star' },
+                { id: 'experiencias', label: 'EXPERIENCIAS', icon: 'star' },
                 { id: 'grandes_eventos', label: 'GRANDES EVENTOS', icon: 'calendar-days' },
                 { id: 'transportes', label: 'TRANSPORTES', icon: 'bus' },
                 { id: 'que_hacer', label: 'QUÉ HACER', icon: 'map-pin' },
@@ -2038,7 +2038,7 @@ function AppErnestinho(){
             seccionActual === 'master4_patrimonio' && React.createElement(Master4MoreRio, { kind: "patrimonio", go: setSeccionActual }),
             seccionActual === 'master4_ocio' && React.createElement(Master4MoreRio, { kind: "ocio", go: setSeccionActual }),
             seccionActual === 'master4_viaje' && React.createElement(Master4MoreRio, { kind: "viaje", go: setSeccionActual }),
-            seccionActual === 'master4_experiencias' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-experiences.js?v=20260922',name:'Master4Experiences',componentProps:{ go: setSeccionActual, lang: lang }}),
+            seccionActual === 'experiencias' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-experiences.js?v=20260922',name:'Master4Experiences',componentProps:{ go: setSeccionActual, lang: lang }}),
             seccionActual === 'partner_rio_samba' && React.createElement(PartnerOfficialExperience, { type: "rio-samba", go: setSeccionActual }),
             seccionActual === 'partner_carnaval' && React.createElement(PartnerOfficialExperience, { type: "carnaval", go: setSeccionActual }),
             seccionActual === 'master4_para_mi' && React.createElement(ECLazyRoute,{src:'/assets/chunks/master4-situation-engine.js?v=20260922',name:'Master4SituationEngine',componentProps:{ go: setSeccionActual }}),
