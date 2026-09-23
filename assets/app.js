@@ -675,7 +675,13 @@ function seoResolveRoute(pathname) {
         return result;
     if (ruta === '/recorrido-centro' || ruta === '/quiero' || ruta === '/ruta-centro')
         return { ...result, seccion: 'consejos', consejoId: 'caminando' };
-    let m = ruta.match(/^\/museos\/([^/]+)$/);
+    const transportDeepRoutes = {'uber':'transporte_uber','metro':'transporte_metro','bicicletas':'transporte_bicicletas','traslados':'transporte_privado','transporte-publico':'transporte_publico'};
+    let m = ruta.match(/^\/transportes\/([^/]+)$/);
+    if (m && transportDeepRoutes[m[1]]) return { ...result, seccion: transportDeepRoutes[m[1]] };
+    const placeDeepRoutes = {'forte-de-copacabana':'master4_place_forte','parque-lage':'master4_place_lage','museu-do-amanha':'master4_place_amanha','ipanema':'master4_place_ipanema','cristo-redentor':'master4_place_cristo','pao-de-acucar':'master4_place_pao','jardim-botanico':'master4_place_jardim','floresta-da-tijuca':'master4_place_tijuca','pedra-bonita':'master4_place_pedra','mar':'master4_place_mar','mam-rio':'master4_place_mam','palacio-do-catete':'master4_place_catete','musal':'master4_place_musal','santa-teresa':'master4_place_santa','lapa':'master4_place_lapa','aquario':'master4_place_aquario','maracana':'master4_place_maracana','real-gabinete-portugues':'master4_place_gabinete','escadaria-selaron':'master4_place_selaron','buzios':'master4_place_buzios'};
+    m = ruta.match(/^\/lugares\/([^/]+)$/);
+    if (m && placeDeepRoutes[m[1]]) return { ...result, seccion: placeDeepRoutes[m[1]] };
+    m = ruta.match(/^\/museos\/([^/]+)$/);
     if (m) {
         const museo = MUSEOS_DATA.find(x => seoSlug(x.nombre) === m[1]);
         if (museo)
