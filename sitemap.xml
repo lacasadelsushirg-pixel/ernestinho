@@ -331,6 +331,11 @@
   <url><loc>https://www.ernestinhocarioca.com.br/transportes/uber</loc></url>
   <url><loc>https://www.ernestinhocarioca.com.br/tv</loc></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna</loc></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/bosque-bar</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/all-in</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/vitrinni</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/portela</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/quadra-salgueiro</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/quadra-mangueira</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/cacique-de-ramos</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.ernestinhocarioca.com.br/vida-nocturna/feira-sao-cristovao</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
