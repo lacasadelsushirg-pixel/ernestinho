@@ -1,4 +1,6 @@
 name: Rebuild Gate
+permissions:
+  contents: write
 on:
   workflow_dispatch:
   push:
@@ -15,6 +17,15 @@ jobs:
       - run: npm install
       - run: npm run build:css
       - run: test -s assets/css/site.css
+      - name: Commit compiled CSS
+        run: |
+          if ! git diff --quiet -- assets/css/site.css; then
+            git config user.name github-actions[bot]
+            git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+            git add assets/css/site.css
+            git commit -m "Rebuild: compile local production CSS"
+            git push
+          fi
       - name: Persist compiled CSS
         uses: actions/upload-artifact@v4
         with:
