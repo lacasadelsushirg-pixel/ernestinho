@@ -114,3 +114,53 @@ test('internal homepage destinations render meaningful content', async ({ page }
     await p.close();
   }
 });
+
+
+test('critical public sections render on desktop and mobile', async ({ page }) => {
+  const routes = ['/guia','/transportes','/hospedaje','/fotografia','/compras','/barrios','/eventos','/experiencias','/playas','/vida-nocturna','/gastronomia','/atracciones','/familia','/cafe-ernestinho','/consejos','/quiero'];
+  for (const route of routes) {
+    const errors = [];
+    const onError = e => errors.push(e.message);
+    page.on('pageerror', onError);
+    const response = await page.goto(route, { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(800);
+    const state = await page.evaluate(() => ({
+      text: document.body?.innerText.trim().length || 0,
+      html: document.body?.innerHTML.length || 0,
+      root: document.querySelector('#ernestinho-carioca-root')?.innerHTML.length || 0
+    }));
+    expect(response && response.status(), route).toBeLessThan(400);
+    expect(state.html, route).toBeGreaterThan(100);
+    expect(state.text, route).toBeGreaterThan(20);
+    expect(state.root, route).toBeGreaterThan(20);
+    expect(errors, route + '\n' + errors.join('\n')).toEqual([]);
+    page.off('pageerror', onError);
+  }
+});
+
+test('representative deep content routes render', async ({ page }) => {
+  const routes = [
+    '/barrios/copacabana',
+    '/experiencias/full-day-rio',
+    '/guia/dinero-en-brasil-reales-tarjetas-y-seguridad',
+    '/museos/museu-da-historia-e-da-cultura-afro-brasileira-muhcab'
+  ];
+  for (const route of routes) {
+    const response = await page.goto(route, { waitUntil: 'domcontentloaded' });
+    await page.waitForTimeout(700);
+    expect(response && response.status(), route).toBeLessThan(400);
+    expect((await page.locator('body').innerText()).trim().length, route).toBeGreaterThan(50);
+  }
+});
+
+test('SEO essentials exist on representative routes', async ({ page }) => {
+  const routes = ['/', '/barrios/copacabana', '/experiencias/full-day-rio', '/gastronomia'];
+  for (const route of routes) {
+    const response = await page.goto(route, { waitUntil: 'domcontentloaded' });
+    expect(response && response.status(), route).toBeLessThan(400);
+    await expect(page.locator('head title')).not.toHaveText('');
+    await expect(page.locator('meta[name="description"]')).toHaveAttribute('content', /.+/);
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', /^https:\/\/www\.ernestinhocarioca\.com\.br\//);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /index/i);
+  }
+});
