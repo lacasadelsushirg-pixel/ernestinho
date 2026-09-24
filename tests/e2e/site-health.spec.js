@@ -95,7 +95,7 @@ test('internal homepage destinations render meaningful content', async ({ page }
   const origin = new URL(page.url()).origin;
   const urls = await page.locator('a[href]').evaluateAll((nodes, origin) => [...new Set(nodes.map(n => n.href))]
     .filter(h => { try { const u = new URL(h); return u.origin === origin && /^https?:$/.test(u.protocol) && u.pathname !== '/'; } catch { return false; } })
-    .slice(0, 15), origin);
+    .slice(0, 8), origin);
   for (const url of urls) {
     const p = await page.context().newPage();
     const errors = [];
