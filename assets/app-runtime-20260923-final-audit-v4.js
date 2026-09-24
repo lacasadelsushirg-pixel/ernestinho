@@ -914,7 +914,7 @@ catch (e) { }
 // Gastronomía externalizada en gastronomy-data.js
 const normalizarGastroNueva = (valor = '') => String(valor).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9$]+/g, ' ').trim();
 const textoVisibleGastroNueva = html => String(html || '').replace(/<style[\s\S]*?<\/style>/gi, ' ').replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<[^>]+>/g, ' ').replace(/&nbsp;|&#160;/gi, ' ').replace(/&amp;/gi, '&').replace(/\s+/g, ' ');
-const GASTRONOMIA_INDICE_BUSQUEDA = new Map((window.GASTRONOMIA_NUEVAS_CARDS || []).map(card => [card.id, normalizarGastroNueva(`${card.title} ${(card.tags || []).join(' ')} ${card.desc || card.descripcion || ''}`)]));
+const GASTRONOMIA_INDICE_BUSQUEDA = { get(id){ const card=(window.GASTRONOMIA_NUEVAS_CARDS||[]).find(x=>x.id===id); return card?normalizarGastroNueva(`${card.title} ${(card.tags||[]).join(' ')} ${card.desc||card.descripcion||''}`):''; } };
 
 const intencionGastroNueva = consulta => {
     const q = normalizarGastroNueva(consulta);

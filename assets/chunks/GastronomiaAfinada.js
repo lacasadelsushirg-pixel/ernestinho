@@ -7,7 +7,8 @@ function GastronomiaAfinada({ onVolver, initialSel = null }) {
     ];
     const consulta = normalizarGastroNueva(q);
     const intencion = intencionGastroNueva(q);
-    const gastroCards = window.GASTRONOMIA_NUEVAS_CARDS || [];
+    const [gastroCards, setGastroCards] = useState(() => window.GASTRONOMIA_NUEVAS_CARDS || []);
+    React.useEffect(() => { let active=true; const ready=window.__ecGastronomyReady||Promise.resolve(); ready.then(()=>{if(active)setGastroCards([...(window.GASTRONOMIA_NUEVAS_CARDS||[])]);}).catch(e=>console.error('EC gastronomy catalog',e)); return()=>{active=false}; }, []);
     const [detailHtml, setDetailHtml] = useState('');
     React.useEffect(() => { let active = true; setDetailHtml(''); if (!sel) return () => { active = false; }; fetch('/data/gastronomia/fichas/' + sel + '.json', { cache: 'force-cache' }).then(r => { if (!r.ok) throw Error('Gastronomía ' + r.status); return r.json(); }).then(x => { if (active) setDetailHtml(x.html || ''); }).catch(e => { console.error('EC gastronomy detail', e); if (active) setDetailHtml('<div class="card"><h2>No pude cargar esta ficha</h2><p>Vuelve a intentarlo.</p></div>'); }); return () => { active = false; }; }, [sel]);
     const patrones = window.PATRONES_GASTRONOMIA || {};
