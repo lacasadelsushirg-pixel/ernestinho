@@ -20,8 +20,8 @@ window.__ecEnsureLanguagePayloads=function(){
 };
 (async()=>{
  const root=document.getElementById('ernestinho-carioca-root');
- const showLoading=()=>{if(root)root.innerHTML='<div style="min-height:70vh;display:flex;align-items:center;justify-content:center;padding:24px;font:600 18px Arial,sans-serif;color:#0b2528;text-align:center">Preparando tu guía de Río…</div>';};
- const showError=e=>{console.error('EC bootstrap fatal',e);if(root)root.innerHTML='<div style="min-height:70vh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:Arial,sans-serif;text-align:center"><div><strong>La guía no pudo iniciar correctamente.</strong><br><span style="font-size:14px">Actualiza la página. Si continúa, revisaremos el error registrado en consola.</span></div></div>';};
+ const showLoading=()=>{if(root){root.setAttribute('aria-busy','true');const old=document.getElementById('ec-bootstrap-status');if(!old){const s=document.createElement('div');s.id='ec-bootstrap-status';s.setAttribute('role','status');s.style.cssText='position:fixed;right:12px;bottom:12px;z-index:9999;padding:8px 12px;border-radius:999px;background:#0b2528;color:#f4c95d;font:600 12px Arial,sans-serif';s.textContent='Preparando tu guía de Río…';document.body.appendChild(s);}}};
+ const showError=e=>{console.error('EC bootstrap fatal',e);if(root){root.removeAttribute('aria-busy');}const s=document.getElementById('ec-bootstrap-status');if(s){s.textContent='La guía funciona en modo básico';s.style.background='#7f1d1d';s.style.color='#fff';setTimeout(()=>s.remove(),6000);}};
  showLoading();
  const load=src=>window.__ecWithTimeout(new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.onload=ok;x.onerror=()=>fail(new Error('No se pudo cargar '+src));document.head.appendChild(x)}),12000,src);
  try{
@@ -42,7 +42,7 @@ window.__ecEnsureLanguagePayloads=function(){
   if(preload.length) await Promise.allSettled([...new Set(preload)].map(window.__ecLoadData));
 
   await load('/assets/app-runtime-20260923-final-audit-v4.js?v=20260923-final-audit');
-  if(root&&/Preparando tu guía/.test(root.textContent||''))throw new Error('Runtime cargó pero React no reemplazó la pantalla de inicio');
+  if(root){root.removeAttribute('aria-busy');const s=document.getElementById('ec-bootstrap-status');if(s)s.remove();}\n  if(root&&document.getElementById('ec-static-fallback'))throw new Error('Runtime cargó pero React no reemplazó el fallback estático');
 
   Promise.resolve().then(async()=>{
    load('/assets/gastronomy-data.js?v=20260923-final-audit').catch(e=>console.error('EC gastronomy background',e));
