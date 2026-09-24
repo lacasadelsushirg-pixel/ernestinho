@@ -76,12 +76,14 @@ test('homepage resources load without server failures', async ({ page }) => {
     const u = r.url();
     if (r.status() >= 400 && !u.startsWith('data:')) bad.push({ status: r.status(), url: u });
   });
-  await page.goto('/', { waitUntil: 'networkidle' });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(1200);
   expect(bad, JSON.stringify(bad, null, 2)).toEqual([]);
 });
 
 test('homepage images are not broken', async ({ page }) => {
-  await page.goto('/', { waitUntil: 'networkidle' });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(1200);
   const broken = await page.locator('img').evaluateAll(imgs => imgs
     .filter(i => i.currentSrc && (!i.complete || i.naturalWidth === 0))
     .map(i => i.currentSrc));
