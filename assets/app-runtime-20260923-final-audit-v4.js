@@ -1723,39 +1723,13 @@ function AppErnestinho(){
             translateAttrs(root);
             root.querySelectorAll('[placeholder],[title],[aria-label],[alt]').forEach(translateAttrs);
         };
-        // Apply immediately and keep a callable hook for route/detail changes.
+        // Translation is applied explicitly on language/route changes.
+        // Avoid observing the entire React tree: large section mounts can generate
+        // thousands of childList records and starve the browser main thread.
         window.__ernestinhoApplyLanguage = walk;
         window.__ernestinhoNormCache = { pt: null, en: null };
         walk();
-        // React often reuses the same DOM nodes and only changes nodeValue.
-        // childList alone does NOT catch those updates, so characterData is essential.
-        let rafTranslate = null;
-        const scheduleWalk = () => {
-            if (rafTranslate)
-                cancelAnimationFrame(rafTranslate);
-            rafTranslate = requestAnimationFrame(() => {
-                rafTranslate = null;
-                walk();
-            });
-        };
-        const obs = new MutationObserver(mutations => {
-            // Only translate when React actually adds/replaces content. Watching our own
-            // translated text/attributes caused a self-sustaining mutation loop.
-            if (mutations.some(m => m.type === 'childList' && m.addedNodes && m.addedNodes.length)) scheduleWalk();
-        });
-        obs.observe(root, {
-            childList: true,
-            subtree: true
-        });
-        // A second pass catches content mounted by nested components in the next frame.
-        const t1 = setTimeout(scheduleWalk, 0);
-        const t2 = setTimeout(scheduleWalk, 80);
         return () => {
-            obs.disconnect();
-            if (rafTranslate)
-                cancelAnimationFrame(rafTranslate);
-            clearTimeout(t1);
-            clearTimeout(t2);
             if (window.__ernestinhoApplyLanguage === walk)
                 delete window.__ernestinhoApplyLanguage;
         };
