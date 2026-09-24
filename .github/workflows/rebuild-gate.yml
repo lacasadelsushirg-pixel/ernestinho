@@ -13,6 +13,8 @@ jobs:
         with:
           node-version: 20
       - run: npm install
+      - run: npm run build:css
+      - run: test -s assets/css/site.css
       - run: npm run check:syntax
 
 # gate-trigger: 20260924-b
