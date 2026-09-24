@@ -3,12 +3,17 @@
   "scripts": {
     "check:syntax": "node scripts/validate-rebuild.js",
     "test:e2e": "playwright test",
-    "build:css": "tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/site.css --minify"
+    "build:css": "tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/site.css --minify",
+    "build:vendor": "node scripts/build-vendor.js",
+    "build": "npm run build:css && npm run build:vendor"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "esbuild": "^0.25.10",
     "@tailwindcss/cli": "^4.1.13",
-    "tailwindcss": "^4.1.13"
+    "tailwindcss": "^4.1.13",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "lucide": "^0.468.0"
   }
 }
