@@ -1,0 +1,33 @@
+name: Ernestinho QA
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: URL to audit
+        required: false
+        default: https://www.ernestinhocarioca.com.br
+  pull_request:
+  push:
+    branches: [qa-playwright-20260924]
+jobs:
+  playwright:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      BASE_URL: ${{ github.event.inputs.base_url || 'https://www.ernestinhocarioca.com.br' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm install
+      - run: npx playwright install --with-deps chromium webkit
+      - run: npm run test:e2e
+      - name: Upload Playwright report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 14
