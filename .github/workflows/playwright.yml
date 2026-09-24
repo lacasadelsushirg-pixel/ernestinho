@@ -30,5 +30,6 @@ jobs:
           name: playwright-report
           path: |
             playwright-report/
-            test-results/
-          retention-days: 14
+            test-results/**/*.png
+            test-results/**/error-context.md
+          retention-days: 3
