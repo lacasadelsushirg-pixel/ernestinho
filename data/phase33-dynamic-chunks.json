@@ -1,0 +1,49 @@
+{
+  "extracted": [
+    {
+      "component": "GrandesEventosPage",
+      "file": "grandes-eventos-page.js",
+      "bytes": 30897
+    },
+    {
+      "component": "ErnestinhoStory",
+      "file": "ernestinho-story.js",
+      "bytes": 30678
+    },
+    {
+      "component": "Master4LifePage",
+      "file": "master4-life-page.js",
+      "bytes": 9919
+    },
+    {
+      "component": "Master4CopacabanaFood",
+      "file": "master4-copacabana-food.js",
+      "bytes": 9328
+    },
+    {
+      "component": "Master4Experiences",
+      "file": "master4-experiences.js",
+      "bytes": 8798
+    },
+    {
+      "component": "Master4CatalogPage",
+      "file": "master4-catalog-page.js",
+      "bytes": 8650
+    },
+    {
+      "component": "Master4CityRegistry",
+      "file": "master4-city-registry.js",
+      "bytes": 8848
+    },
+    {
+      "component": "Master4SituationEngine",
+      "file": "master4-situation-engine.js",
+      "bytes": 5515
+    },
+    {
+      "component": "Master3MonthWeatherPlanner",
+      "file": "master3-month-weather-planner.js",
+      "bytes": 5093
+    }
+  ]
+}

@@ -7,10 +7,8 @@ function GastronomiaAfinada({ onVolver, initialSel = null }) {
     ];
     const consulta = normalizarGastroNueva(q);
     const intencion = intencionGastroNueva(q);
-    const [gastroCards, setGastroCards] = useState(() => window.GASTRONOMIA_NUEVAS_CARDS || []);
-    React.useEffect(() => { let active=true; const ready=window.__ecGastronomyReady||Promise.resolve(); ready.then(()=>{if(active)setGastroCards([...(window.GASTRONOMIA_NUEVAS_CARDS||[])]);}).catch(e=>console.error('EC gastronomy catalog',e)); return()=>{active=false}; }, []);
-    const [detailHtml, setDetailHtml] = useState('');
-    React.useEffect(() => { let active = true; setDetailHtml(''); if (!sel) return () => { active = false; }; fetch('/data/gastronomia/fichas/' + sel + '.json', { cache: 'force-cache' }).then(r => { if (!r.ok) throw Error('Gastronomía ' + r.status); return r.json(); }).then(x => { if (active) setDetailHtml(x.html || ''); }).catch(e => { console.error('EC gastronomy detail', e); if (active) setDetailHtml('<div class="card"><h2>No pude cargar esta ficha</h2><p>Vuelve a intentarlo.</p></div>'); }); return () => { active = false; }; }, [sel]);
+    const gastroCards = window.GASTRONOMIA_NUEVAS_CARDS || [];
+    const gastroHtml = window.GASTRONOMIA_NUEVAS_HTML || {};
     const patrones = window.PATRONES_GASTRONOMIA || {};
     const testPatron = (id, corpus) => { const p = patrones[id]; return p && typeof p.test === 'function' ? p.test(corpus) : corpus.includes(id || ''); };
     const shown = gastroCards.filter(card => {
@@ -39,6 +37,6 @@ function GastronomiaAfinada({ onVolver, initialSel = null }) {
             shown.length === 0 && React.createElement('div', { className: 'max-w-3xl mx-auto px-4 text-center py-14' }, React.createElement('h2', { className: 'text-2xl font-black' }, 'No encontramos coincidencias'), React.createElement('p', { className: 'text-slate-400 mt-2' }, 'Prueba otra palabra o limpia la búsqueda.')))
             : React.createElement('div', { className: 'max-w-5xl mx-auto px-4 sm:px-6 py-8' },
                 React.createElement('button', { onClick: () => { seoNavigate('/gastronomia'); setSel(null); }, className: 'mb-5 rounded-full bg-amber-400 text-slate-950 px-5 py-3 font-black' }, '← Volver a Gastronomía'),
-                React.createElement('div', { onClick: (ev) => { const a = ev.target && ev.target.closest ? ev.target.closest('a[href="index.html"], a[href="./index.html"]') : null; if (a) { ev.preventDefault(); setSel(null); window.scrollTo({ top: 0, behavior: 'smooth' }); } }, dangerouslySetInnerHTML: { __html: detailHtml || '<div class="card"><p>Cargando ficha…</p></div>' } })));
+                React.createElement('div', { onClick: (ev) => { const a = ev.target && ev.target.closest ? ev.target.closest('a[href="index.html"], a[href="./index.html"]') : null; if (a) { ev.preventDefault(); setSel(null); window.scrollTo({ top: 0, behavior: 'smooth' }); } }, dangerouslySetInnerHTML: { __html: gastroHtml[sel] || '' } })));
 }
 window.GastronomiaAfinada=GastronomiaAfinada;

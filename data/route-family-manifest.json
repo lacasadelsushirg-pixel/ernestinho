@@ -1,0 +1,98 @@
+{
+  "GrandesEventosPage": {
+    "closure": 1,
+    "movable": 1,
+    "shared": 0,
+    "raw_bytes": 30948,
+    "syntax_ok": true,
+    "file": "assets/families/grandes-eventos-page.js"
+  },
+  "ErnestinhoStory": {
+    "closure": 1,
+    "movable": 1,
+    "shared": 0,
+    "raw_bytes": 31155,
+    "syntax_ok": true,
+    "file": "assets/families/ernestinho-story.js"
+  },
+  "RioHojeV1": {
+    "closure": 7,
+    "movable": 4,
+    "shared": 3,
+    "raw_bytes": 28937,
+    "syntax_ok": true,
+    "file": "assets/families/rio-hoje-v1.js"
+  },
+  "Master4Home": {
+    "closure": 2,
+    "movable": 2,
+    "shared": 0,
+    "raw_bytes": 31229,
+    "syntax_ok": true,
+    "file": "assets/families/master4-home.js"
+  },
+  "PartnerOfficialExperience": {
+    "closure": 3,
+    "movable": 3,
+    "shared": 0,
+    "raw_bytes": 80463,
+    "syntax_ok": true,
+    "file": "assets/families/partner-official-experience.js"
+  },
+  "Master4LifePage": {
+    "closure": 1,
+    "movable": 1,
+    "shared": 0,
+    "raw_bytes": 10144,
+    "syntax_ok": true,
+    "file": "assets/families/master4-life-page.js"
+  },
+  "Master4CopacabanaFood": {
+    "closure": 1,
+    "movable": 1,
+    "shared": 0,
+    "raw_bytes": 9347,
+    "syntax_ok": true,
+    "file": "assets/families/master4-copacabana-food.js"
+  },
+  "Master4Experiences": {
+    "closure": 1,
+    "movable": 1,
+    "shared": 0,
+    "raw_bytes": 8858,
+    "syntax_ok": true,
+    "file": "assets/families/master4-experiences.js"
+  },
+  "Master4CatalogPage": {
+    "closure": 1,
+    "movable": 1,
+    "shared": 0,
+    "raw_bytes": 8790,
+    "syntax_ok": true,
+    "file": "assets/families/master4-catalog-page.js"
+  },
+  "Master4CityRegistry": {
+    "closure": 1,
+    "movable": 1,
+    "shared": 0,
+    "raw_bytes": 8861,
+    "syntax_ok": true,
+    "file": "assets/families/master4-city-registry.js"
+  },
+  "Master4SituationEngine": {
+    "closure": 1,
+    "movable": 1,
+    "shared": 0,
+    "raw_bytes": 5609,
+    "syntax_ok": true,
+    "file": "assets/families/master4-situation-engine.js"
+  },
+  "Master3MonthWeatherPlanner": {
+    "closure": 1,
+    "movable": 1,
+    "shared": 0,
+    "raw_bytes": 5121,
+    "syntax_ok": true,
+    "file": "assets/families/master3-month-weather-planner.js"
+  }
+}

@@ -1,0 +1,172 @@
+{
+  "recorridos.json": [
+    {
+      "key": "ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3",
+      "hits": 2,
+      "contexts": [
+        "ER_ROUTE_CATALOG.find(r=>r.routeId===id)||null} function erV2Premium(id){return ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3[id]||ERNESTINHO_ROUTE_PREMIUM_CONTENT[id]||null} function erV2Fmt(min){if(!min)return '—';const h=Math.floor(min/6",
+        "STER_ROUTE_CATALOG.length,masterRouteCount:39,premiumPrototypeCount:Object.keys(ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3).length,premiumReadyCount:0,premiumNearReadyCount:2,mediaCount:14,sourceCount:33,generatedAt:'2026-09-13'}; window"
+      ]
+    },
+    {
+      "key": "ERNESTINHO_MASTER_ROUTE_CATALOG",
+      "hits": 6,
+      "contexts": [
+        "V2 — PUBLIC SHOWCASE + PREMIUM PREVIEW ===== */   function erV2Route(id){return ERNESTINHO_MASTER_ROUTE_CATALOG.find(r=>r.routeId===id)||null} function erV2Premium(id){return ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3[id]||ERNESTINHO_ROU",
+        ").toISOString()}));}catch(e){}   };    const zones=['ALL',...Array.from(new Set(ERNESTINHO_MASTER_ROUTE_CATALOG.map(r=>r.zone)))];   const nq=q.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase();   const rows=ERNESTINHO",
+        "q=q.normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase();   const rows=ERNESTINHO_MASTER_ROUTE_CATALOG.filter(r=>{     const n=(r.title+' '+r.zone+' '+(r.neighborhoods||[]).join(' ')+' '+(r.theme||[]).join(' ')).normalize"
+      ]
+    },
+    {
+      "key": "ERNESTINHO_ROUTES_V1",
+      "hits": 6,
+      "contexts": [
+        "/[\\u0300-\\u036f]/g,'').toLowerCase();  const zones=['ALL',...Array.from(new Set(ERNESTINHO_ROUTES_V1.map(r=>r.zone)))];  const filtered=ERNESTINHO_ROUTES_V1.filter(r=>{   const txt=norm([r.title,r.subtitle,r.zone,...(r.neighborhoo",
+        "',...Array.from(new Set(ERNESTINHO_ROUTES_V1.map(r=>r.zone)))];  const filtered=ERNESTINHO_ROUTES_V1.filter(r=>{   const txt=norm([r.title,r.subtitle,r.zone,...(r.neighborhoods||[]),...(r.theme||[])].join(' '));   return (!q||txt.",
+        "('span',{className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},ERNESTINHO_ROUTES_V1.length+' rutas candidatas'),h('span',{className:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},ERNESTINHO_ROUTES_V1"
+      ]
+    },
+    {
+      "key": "ERNESTINHO_ROUTE_PREMIUM_CONTENT",
+      "hits": 3,
+      "contexts": [
+        "|null} function erV2Premium(id){return ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3[id]||ERNESTINHO_ROUTE_PREMIUM_CONTENT[id]||null} function erV2Fmt(min){if(!min)return '—';const h=Math.floor(min/60),m=min%60;return h?(h+'h'+(m?' '+m+'m':",
+        "ssName:'rounded-full bg-white/10 px-3 py-2 text-[10px] font-black'},Object.keys(ERNESTINHO_ROUTE_PREMIUM_CONTENT).length+' paquetes premium en desarrollo V3'),           h('span',{key:'c',className:'rounded-full bg-white/10 px-3 p",
+        "t',catalogCount:ERNESTINHO_MASTER_ROUTE_CATALOG.length,premiumCount:Object.keys(ERNESTINHO_ROUTE_PREMIUM_CONTENT).length,stopCount:0,competitorCount:ERNESTINHO_COMPETITOR_AUDIT_V2.length,gapCount:0,generatedAt:'2026-09-13'};   fun"
+      ]
+    }
+  ],
+  "master3-runtime.json": [
+    {
+      "key": "MASTER3_FINAL_REFINED_CATALOG",
+      "hits": 0,
+      "contexts": []
+    },
+    {
+      "key": "MASTER3_MONTH_I18N",
+      "hits": 0,
+      "contexts": []
+    },
+    {
+      "key": "MASTER3_PUBLICATION_GATE_RESULTS",
+      "hits": 4,
+      "contexts": [
+        "aster3UnifiedShell  function Master3MigrationQualityGate() {     const counts = MASTER3_PUBLICATION_GATE_RESULTS.reduce((a, x) => (a[x.level] = (a[x.level] || 0) + 1, a), {});     const holds = MASTER3_PUBLICATION_GATE_RESULTS.fil",
+        "educe((a, x) => (a[x.level] = (a[x.level] || 0) + 1, a), {});     const holds = MASTER3_PUBLICATION_GATE_RESULTS.filter(x => x.level === 'HOLD');     return React.createElement(\"section\", { className: \"max-w-7xl mx-auto px-4 sm:px",
+        ")))))); } function Master4TrustCenter({ go }) {     const gates = Array.isArray(MASTER3_PUBLICATION_GATE_RESULTS) ? MASTER3_PUBLICATION_GATE_RESULTS : [];     const hold = gates.filter(x => x.level === 'HOLD').length;     const ed"
+      ]
+    },
+    {
+      "key": "MASTER3_CITY_PLACE_REGISTRY",
+      "hits": 6,
+      "contexts": [
+        ";     const set = (k, v) => setCtx(c => ({ ...c, [k]: v }));     const ranked = MASTER3_CITY_PLACE_REGISTRY.map(p => master3CityScore(p, ctx)).sort((a, b) => b.score - a.score).slice(0, 6);     return React.createElement(\"section\"",
+        "                    React.createElement(\"strong\", null,                         MASTER3_CITY_PLACE_REGISTRY.length,                         \" lugares ya normalizados en esta pasada.\"),                     \" Esta capa no reemplaza ",
+        " var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;     const data = Array.isArray(MASTER3_CITY_PLACE_REGISTRY) ? MASTER3_CITY_PLACE_REGISTRY : [];     const [selected, setSelected] = useState(null);     const [q, setQ] = useState(''"
+      ]
+    },
+    {
+      "key": "MASTER3_QUARANTINE",
+      "hits": 3,
+      "contexts": [
+        "e\", \"localFlag\"] };  function Master3WaveThreeAudit() {     const withSummary = MASTER3_QUARANTINE.filter(x => x.hasSummary).length;     const withImage = MASTER3_QUARANTINE.filter(x => x.hasImage).length;     return React.createE",
+        "ry = MASTER3_QUARANTINE.filter(x => x.hasSummary).length;     const withImage = MASTER3_QUARANTINE.filter(x => x.hasImage).length;     return React.createElement(\"section\", { className: \"max-w-7xl mx-auto px-4 sm:px-6 py-10\" },   ",
+        "                       React.createElement(\"strong\", { className: \"text-3xl\" }, MASTER3_QUARANTINE.length),                         React.createElement(\"span\", { className: \"block text-[9px]\" }, \"EN CUARENTENA\")),                 "
+      ]
+    },
+    {
+      "key": "MASTER3_NEIGHBORHOOD_CONTENT",
+      "hits": 2,
+      "contexts": [
+        "rrio, onBack }) {     const [tab, setTab] = useState('entiende');     const c = MASTER3_NEIGHBORHOOD_CONTENT[barrio === null || barrio === void 0 ? void 0 : barrio.id] || MASTER3_NEIGHBORHOOD_CONTENT['copacabana'];     if (!barrio",
+        "GHBORHOOD_CONTENT[barrio === null || barrio === void 0 ? void 0 : barrio.id] || MASTER3_NEIGHBORHOOD_CONTENT['copacabana'];     if (!barrio)         return null;     const tabs = [['entiende', '🧭 Entiende'], ['hacer', '✨ Qué hacer"
+      ]
+    }
+  ],
+  "rio-hoje.json": [
+    {
+      "key": "RIO_HOJE_FALLBACK_EVENTS",
+      "hits": 3,
+      "contexts": [
+        "0F3n. No voy a inventar ni completar videos sin el enlace original.\")))); }  // RIO_HOJE_FALLBACK_EVENTS externalizado a JSON   function rioHojeDateKey(d){return new Intl.DateTimeFormat('en-CA',{timeZone:'America/Sao_Paulo',year:'",
+        "ay:'2-digit'}).format(d)} function rioHojeFallbackExpand(days=28){const out=[...RIO_HOJE_FALLBACK_EVENTS],now=new Date();for(let i=0;i<days;i++){const d=new Date(now.getTime()+i*86400000),key=rioHojeDateKey(d),wd=new Date(key+'T12",
+        "erified-seed+official-recurrence+canonical-media',api:'/api/rio-hoje',seedCount:RIO_HOJE_FALLBACK_EVENTS.length,recurringRules:RIO_HOJE_FALLBACK_RECURRING.length,imageRegistryCount:Object.keys(RIO_HOJE_IMAGE_REGISTRY).length,lastU"
+      ]
+    },
+    {
+      "key": "RIO_HOJE_IMAGE_REGISTRY",
+      "hits": 3,
+      "contexts": [
+        "ventId+'-'+key,seriesId:r.eventId,startDate:key,endDate:key})})}return out}  // RIO_HOJE_IMAGE_REGISTRY externalizado a JSON  const RIO_HOJE_COVER = \"/assets/embedded-images/embedded-15-d08692e83c1c.webp\";  const RIO_HOJE_CATEGORY",
+        "rn c}return 'CULTURA'} function getCanonicalEventImage(eventId,event){const rec=RIO_HOJE_IMAGE_REGISTRY[eventId];if(rec)return rec;return {eventId,url:null,sourceType:'EDITORIAL_CATEGORY_PLACEHOLDER',historical:false,verified:true",
+        "ecurringRules:RIO_HOJE_FALLBACK_RECURRING.length,imageRegistryCount:Object.keys(RIO_HOJE_IMAGE_REGISTRY).length,lastUpdated:'2026-09-13',getCanonicalEventImage,load:()=>fetch('/api/rio-hoje?window=week').then(r=>r.json())};    fun"
+      ]
+    },
+    {
+      "key": "GRANDES_EVENTOS",
+      "hits": 6,
+      "contexts": [
+        "IGN:'DESIGN',ENERGIA:'ENERGIA',FIESTAS:'FESTAS',FUTEBOL:'FUTEBOL',GAMES:'GAMES',GRANDES_EVENTOS:'GRANDES EVENTOS',JAPAO:'JAPÃO',LITERATURA:'LITERATURA',MUSEUS:'MUSEUS',NATURALEZA:'NATUREZA',NEGOCIOS:'NEGÓCIOS',OUTDOOR:'AO AR LIVRE",
+        "GN:'DESIGN',ENERGIA:'ENERGY',FIESTAS:'PARTIES',FUTEBOL:'FOOTBALL',GAMES:'GAMES',GRANDES_EVENTOS:'MAJOR EVENTS',JAPAO:'JAPAN',LITERATURA:'LITERATURE',MUSEUS:'MUSEUMS',NATURALEZA:'NATURE',NEGOCIOS:'BUSINESS',OUTDOOR:'OUTDOORS',TEATR",
+        "ISEÑO',ENERGIA:'ENERGÍA',FIESTAS:'FIESTAS',FUTEBOL:'FÚTBOL',GAMES:'VIDEOJUEGOS',GRANDES_EVENTOS:'GRANDES EVENTOS',JAPAO:'JAPÓN',LITERATURA:'LITERATURA',MUSEUS:'MUSEOS',NATURALEZA:'NATURALEZA',NEGOCIOS:'NEGOCIOS',OUTDOOR:'AL AIRE L"
+      ]
+    },
+    {
+      "key": "CALENDARIO_CARIOCA",
+      "hits": 2,
+      "contexts": [
+        "] font-black\" }, H.liveCta)))))); } // GRANDES_EVENTOS externalizado a JSON  // CALENDARIO_CARIOCA externalizado a JSON  const OTROS_EVENTOS_RIO = CALENDARIO_CARIOCA.map(e => [e.mes, `${e.icon} ${e.nombre}`, e.tipo, e.lugar, e.est",
+        "o a JSON  // CALENDARIO_CARIOCA externalizado a JSON  const OTROS_EVENTOS_RIO = CALENDARIO_CARIOCA.map(e => [e.mes, `${e.icon} ${e.nombre}`, e.tipo, e.lugar, e.estado]); const EventoTabla = ({ headers, rows }) => React.createEleme"
+      ]
+    }
+  ],
+  "cultura.json": [
+    {
+      "key": "ESPACIOS_LITERARIOS_DATA",
+      "hits": 11,
+      "contexts": [
+        "              */ /* ===================================================== */ // ESPACIOS_LITERARIOS_DATA externalizado a JSON  /* ===================================================== */ // CENTROS_CULTURALES_DATA externalizado a ",
+        "raria] = useState('');     const espacioActual = espacioSeleccionado         ? (ESPACIOS_LITERARIOS_DATA.find((espacio) => espacio.id === espacioSeleccionado) || null)         : null;     useEffect(() => {         if (espacioSelec",
+        "null)         : null;     useEffect(() => {         if (espacioSeleccionado && !ESPACIOS_LITERARIOS_DATA.some((x) => x.id === espacioSeleccionado)) {             setEspacioSeleccionado(null);         }     }, [espacioSeleccionado]"
+      ]
+    },
+    {
+      "key": "CENTROS_CULTURALES_DATA",
+      "hits": 10,
+      "contexts": [
+        "nalizado a JSON  /* ===================================================== */ // CENTROS_CULTURALES_DATA externalizado a JSON  /* ===================================================== */ // TEATROS_DATA lazy-loaded from /assets/sec",
+        "st [busquedaCentro, setBusquedaCentro] = useState('');     const centroActual = CENTROS_CULTURALES_DATA.find((centro) => centro.id === centroSeleccionado);     const centrosFiltrados = CENTROS_CULTURALES_DATA.filter((centro) => ce",
+        "ind((centro) => centro.id === centroSeleccionado);     const centrosFiltrados = CENTROS_CULTURALES_DATA.filter((centro) => centro.nombre         .toLowerCase()         .includes(busquedaCentro.toLowerCase()));     return (React.cr"
+      ]
+    },
+    {
+      "key": "FUERTES_DATA",
+      "hits": 10,
+      "contexts": [
+        "culture-data.js  /* ===================================================== */ // FUERTES_DATA externalizado a JSON  /* ===================================================== */ /* COMPONENTE DE ESPACIOS LITERARIOS                   ",
+        "st [busquedaFuerte, setBusquedaFuerte] = useState('');     const fuerteActual = FUERTES_DATA.find((fuerte) => fuerte.id === fuerteSeleccionado);     const fuertesFiltrados = FUERTES_DATA.filter((fuerte) => `${fuerte.nombre} ${fuer",
+        "ind((fuerte) => fuerte.id === fuerteSeleccionado);     const fuertesFiltrados = FUERTES_DATA.filter((fuerte) => `${fuerte.nombre} ${fuerte.ciudad}`         .toLowerCase()         .includes(busquedaFuerte.toLowerCase()));     retur"
+      ]
+    }
+  ],
+  "guia.json": [
+    {
+      "key": "GUIA_INFO",
+      "hits": 12,
+      "contexts": [
+        "a, temporada, eventos y qué esperar en cada mes.', sec: 'rio_mes_a_mes' } ]; // GUIA_INFO externalizado a JSON  const ASSISTCARD_AFFILIATE_URL = 'https://assistcard.com/br/b2c/afiliados?utm_source=mais&utm_medium=maisplataforma&ut",
+        "SLATIONS[lang])||{}; return lang==='es'?z:(g[z]||z); };     const info = tema ? GUIA_INFO[tema] : null, grupos = [...new Set(GUIA_TEMAS.map(x => x.grupo))];     if (info)         return React.createElement(\"section\", { className: ",
+        "ton\", { key: x.id, href: (!x.sec && x.legacy === undefined) ? `/guia/${seoSlug((GUIA_INFO[x.id] && GUIA_INFO[x.id].titulo) || x.titulo || x.id)}` : undefined, onClick: (ev) => { if (x.sec) return onNavegar(x.sec); if (x.legacy !=="
+      ]
+    },
+    {
+      "key": "CONSEJOS_NUEVOS",
+      "hits": 3,
+      "contexts": [
+        "-teal-700 text-[10px] font-black uppercase mt-4\" }, T(\"Abrir →\")))))))))); } // CONSEJOS_NUEVOS externalizado a JSON  // SEMANA_RIO externalizado a JSON  // LLUVIA_RIO externalizado a JSON   const TIPOS_RODIZIO = [     { nombre: '",
+        "eElement(\"div\", { className: \"grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5\" }, CONSEJOS_NUEVOS.filter(x => x.id !== 'recorridos-cuenta').map(x => React.createElement(\"button\", { key: x.id, onClick: () => setSeleccionado(x), class",
+        "práctica', '📚', GUIA_TEMAS],                 consejos: ['Consejos nuevos', '💡', CONSEJOS_NUEVOS],                 faq: ['Preguntas frecuentes', '❓', FAQ_DESTACADAS],                 quehacer: ['Qué hacer', '🎯', CATEGORIAS_QUE_HACE"
+      ]
+    }
+  ]
+}

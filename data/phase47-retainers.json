@@ -1,0 +1,256 @@
+{
+  "/data/cultura.json": {
+    "ESPACIOS_LITERARIOS_DATA": [
+      "ActividadNuevaDetalle",
+      "SeccionEspaciosLiterarios",
+      "Master4SmartRioV3",
+      "v44Rows",
+      "AppErnestinho"
+    ],
+    "CENTROS_CULTURALES_DATA": [
+      "ActividadNuevaDetalle",
+      "SeccionCentrosCulturales",
+      "Master4SmartRioV3",
+      "v44Rows",
+      "AppErnestinho"
+    ],
+    "FUERTES_DATA": [
+      "ActividadNuevaDetalle",
+      "SeccionFuertesFortalezas",
+      "Master4RemainingContent",
+      "Master4SmartRioV3",
+      "v44Rows",
+      "AppErnestinho"
+    ]
+  },
+  "/data/guia.json": {
+    "GUIA_INFO": [
+      "GuiaFotografia",
+      "seoCurrentPath",
+      "AppErnestinho"
+    ],
+    "CONSEJOS_NUEVOS": [
+      "Master4RemainingContent",
+      "AppErnestinho"
+    ]
+  },
+  "/data/rio-hoje.json": {
+    "RIO_HOJE_FALLBACK_EVENTS": [
+      "rioHojeFallbackExpand"
+    ],
+    "RIO_HOJE_IMAGE_REGISTRY": [
+      "rioHojeFallbackExpand",
+      "getCanonicalEventImage"
+    ],
+    "GRANDES_EVENTOS": [
+      "RioHojeSmartMatches"
+    ],
+    "CALENDARIO_CARIOCA": [
+      "Master4Home"
+    ]
+  },
+  "/data/explorar.json": {
+    "ACTIVIDADES_NUEVAS": [
+      "__ecEnsureCultureData",
+      "Master4RemainingContent",
+      "v43ExperienceRows",
+      "v44Rows",
+      "seoExperienceFromState",
+      "AppErnestinho"
+    ]
+  },
+  "/data/recorridos.json": {
+    "ERNESTINHO_ROUTE_PREMIUM_CONTENT_V3": [
+      "erV2Premium",
+      "ErnestinhoRoutesV2"
+    ],
+    "ERNESTINHO_MASTER_ROUTE_CATALOG": [
+      "erV2Route",
+      "ErnestinhoRoutesV2"
+    ],
+    "ERNESTINHO_ROUTES_V1": [
+      "ErnestinhoRoutesV1"
+    ],
+    "ERNESTINHO_ROUTE_PREMIUM_CONTENT": [
+      "erV2Premium",
+      "ErnestinhoRoutesV2"
+    ]
+  },
+  "/data/gastronomia.json": {
+    "GASTRONOMIA_BASE": [
+      "__ecEnsureCultureData"
+    ],
+    "GASTRONOMIA_EXTRA": [
+      "__ecEnsureCultureData"
+    ]
+  },
+  "/data/master3-runtime.json": {
+    "MASTER3_PUBLICATION_GATE_RESULTS": [
+      "Master4TrustCenter"
+    ],
+    "MASTER3_NEIGHBORHOOD_CONTENT": [
+      "Master3NeighborhoodDetail"
+    ]
+  },
+  "/data/playas.json": {
+    "PLAYAS_DETALLADAS_DATA": [
+      "__ecEnsureCultureData",
+      "Master4SmartRioV3",
+      "v44Rows",
+      "AppErnestinho"
+    ],
+    "ERNESTINHO_BEACH_V2": [
+      "master4PlanBLabel",
+      "v3Image",
+      "v3RichBeachExtras",
+      "Master4EntityDetailV3"
+    ]
+  },
+  "/data/vida-nocturna.json": {
+    "FOTOS_VIDA_NOCTURNA": [
+      "__ecEnsureCultureData"
+    ]
+  },
+  "/data/transporte.json": {
+    "TRANSCARIOCA_TRECHOS": [
+      "__ecEnsureCultureData",
+      "GuiaSenderos"
+    ],
+    "TRANSPORTE_RIO": [
+      "Master4RemainingContent"
+    ]
+  },
+  "/data/naturaleza.json": {
+    "PARQUES_NATURALEZA_DESTACADOS": [
+      "__ecEnsureCultureData",
+      "Master4SmartRioV3"
+    ],
+    "SENDEROS_RIO": [
+      "__ecEnsureCultureData",
+      "GuiaSenderos",
+      "Master4RemainingContent",
+      "Master4SmartRioV3",
+      "v44Rows"
+    ]
+  },
+  "/data/consejos-viaje.json": {
+    "LISTA_20_CONSEJOS": [
+      "AppErnestinho"
+    ],
+    "TRAMPAS_TURISTA": [
+      "GuiaRioCompleta",
+      "GuiaCincoConsejos",
+      "Master4RemainingContent"
+    ],
+    "LLUVIA_RIO": [
+      "ConsejoVisualCompleto",
+      "Master4RemainingContent"
+    ],
+    "PERFILES_RIO": [
+      "GuiaRioCompleta",
+      "GuiaCincoConsejos",
+      "Master4RemainingContent"
+    ],
+    "SEMANA_RIO": [
+      "Master4RemainingContent"
+    ]
+  },
+  "/data/otros-datos-extra.json": {
+    "CATEGORIAS_QUE_HACER": [
+      "Master4RemainingContent",
+      "AppErnestinho"
+    ],
+    "ALIAS_BUSQUEDA_GASTRONOMICA": [
+      "__ecEnsureCultureData"
+    ],
+    "RUTAS_RIO_FOTOS": [
+      "GuiaSenderos"
+    ],
+    "FOTO_RIO_URLS": [
+      "GuiaPix"
+    ],
+    "PRESUPUESTOS_RIO": [
+      "ConsejoVisualCompleto"
+    ],
+    "RUTA_PORTUARIA": [
+      "ConsejoVisualCompleto",
+      "Master4RemainingContent"
+    ],
+    "SOL_RIO": [
+      "ConsejoVisualCompleto"
+    ],
+    "RODIZIO_PASOS": [
+      "GuiaSupermercadoRodizio"
+    ],
+    "SOUVENIRS_RIO": [
+      "GuiaCincoConsejos",
+      "Master4RemainingContent"
+    ],
+    "FAQ_DESTACADAS": [
+      "GuiaCincoConsejos",
+      "Master4RemainingContent"
+    ],
+    "ERRORES_MAPS": [
+      "GuiaCincoConsejos"
+    ],
+    "ERNESTINHO_DECISION_EXTRAS_V3": [
+      "v3DecisionCatalog"
+    ],
+    "ERNESTINHO_INTENT_ONTOLOGY_V3": [
+      "parseTravelerQueryLocalV3"
+    ],
+    "RIO_HOJE_FALLBACK_RECURRING": [
+      "rioHojeFallbackExpand"
+    ]
+  },
+  "/data/viaje-consejos-extra.json": {
+    "ARTICULOS_CONSEJOS": [
+      "AppErnestinho"
+    ],
+    "CONSEJOS_VISUALES": [
+      "GuiaSupermercadoRodizio",
+      "ConsejoVisualCompleto"
+    ]
+  },
+  "/data/copacabana-extra.json": {
+    "SUPERMERCADO_BRASIL": [
+      "GuiaSupermercadoRodizio",
+      "Master4RemainingContent"
+    ],
+    "SUPERMERCADOS_COPACABANA": [
+      "GuiaSupermercadoRodizio"
+    ]
+  },
+  "/data/master-runtime-extra.json": {
+    "MASTER3_CITY_SYSTEMS": [
+      "ErnestinhoMaster3Hub"
+    ],
+    "MASTER3_TRIP_PLANS": [
+      "ErnestinhoMaster3Hub"
+    ],
+    "MASTER3_UNDERSTAND": [
+      "ErnestinhoMaster3Hub"
+    ],
+    "MASTER4_SEARCH_INDEX": [
+      "Master4HomeSearch"
+    ]
+  },
+  "/data/premium-recorridos-extra.json": {
+    "SELF_GUIDED_TOURS_DATA": [
+      "v46MatchTours",
+      "v46Decision"
+    ],
+    "ERNESTINHO_ROUTE_COMPETITORS": [
+      "ErnestinhoRoutesV1"
+    ],
+    "ERNESTINHO_COMPETITOR_AUDIT_V2": [
+      "ErnestinhoRoutesV2"
+    ],
+    "ERNESTINHO_ROUTE_MEDIA_V2": [
+      "erV2Img"
+    ],
+    "SEO_SECTION_ROUTES": [
+      "seoPathForSection"
+    ]
+  }
+}

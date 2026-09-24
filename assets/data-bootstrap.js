@@ -5,15 +5,33 @@ window.__ecLanguagePayloadPromise=null;
 window.__ecEnsureLanguagePayloads=function(){
  if(window.__EC_ALL_LANGUAGE_PAYLOADS_LOADED__)return Promise.resolve();
  if(window.__ecLanguagePayloadPromise)return window.__ecLanguagePayloadPromise;
- const files=['/assets/attr-translations.js?v=20260922','/assets/translations-app-payload.js?v=20260922','/assets/translations-app-payload-2.js?v=20260922','/assets/index-translations-extra.js?v=20260922-final','/assets/translations-heavy.js?v=20260922-lazy-v1'];
+ const files=['/assets/attr-translations.js?v=20260922','/assets/translations-app-payload.js?v=20260922','/assets/index-translations-extra.js?v=20260922-final'];
  window.__ecLanguagePayloadPromise=Promise.all(files.map(src=>new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.async=true;x.onload=ok;x.onerror=fail;document.head.appendChild(x)}))).then(()=>{window.__EC_ALL_LANGUAGE_PAYLOADS_LOADED__=true;});
  return window.__ecLanguagePayloadPromise;
 };
 (async()=>{
- const load=src=>new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.onload=ok;x.onerror=fail;document.head.appendChild(x)});
- await load('/assets/qh-i18n.js?v=20260922');
- const lang=localStorage.getItem('ernestinho-lang')||'es';
- if(lang!=='es')await window.__ecEnsureLanguagePayloads();
- const urls=["/data/cultura.json","/data/guia.json","/data/rio-hoje.json","/data/explorar.json","/data/gastronomia.json","/data/playas.json","/data/vida-nocturna.json","/data/transporte.json","/data/naturaleza.json","/data/consejos-viaje.json","/data/otros-datos-extra.json","/data/viaje-consejos-extra.json"]; for(const u of urls){await window.__ecLoadData(u);}
- const x=document.createElement('script');x.src='/assets/app.js?v=20260922-final';document.body.appendChild(x);
-})().catch(e=>{console.error('EC bootstrap',e);const root=document.getElementById('ernestinho-carioca-root');if(root)root.innerHTML='<div style="min-height:100vh;background:#071b1b;color:#fff;display:flex;align-items:center;justify-content:center;padding:32px;text-align:center;font-family:Arial,sans-serif"><div><h1 style="font-size:30px;margin:0 0 12px">Ernestinho Carioca</h1><p style="opacity:.85">Estamos cargando la guía de Río. Actualiza la página en unos segundos.</p></div></div>';});
+ const load=src=>new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.async=true;x.onload=ok;x.onerror=()=>fail(new Error('No se pudo cargar '+src));document.head.appendChild(x)});
+ const ensureRuntime=async()=>{
+   if(!window.React)await load('https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js');
+   if(!window.ReactDOM)await load('https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js');
+   if(!window.React||!window.ReactDOM||typeof window.ReactDOM.createRoot!=='function')throw new Error('React runtime no disponible');
+ };
+ await ensureRuntime();
+ await load('/assets/qh-i18n.js?v=20260922').catch(e=>console.error('EC qh-i18n',e));
+ let lang='es';try{lang=localStorage.getItem('ernestinho-lang')||'es'}catch(e){}
+ if(lang!=='es')await window.__ecEnsureLanguagePayloads().catch(e=>console.error('EC translations preload',e));
+ const urls=["/data/consejos-viaje.json","/data/cultura.json","/data/explorar.json","/data/guia.json","/data/naturaleza.json","/data/otros-datos-extra.json","/data/playas.json","/data/premium-recorridos-extra.json","/data/rio-contenido-extra.json","/data/rio-hoje.json","/data/transporte.json","/data/viaje-consejos-extra.json","/data/vida-nocturna.json","/data/gastronomia.json"];
+ await Promise.all(urls.map(url=>window.__ecLoadData(url).catch(e=>{console.error('EC data load failed',url,e);return null})));
+ // Compatibilidad temporal mientras app.js legado sigue activo.
+ // El bundle antiguo esperaba esta colección del antiguo gastronomy-data.js.
+ if(!window.GASTRONOMIA_NUEVAS_CARDS){
+   window.GASTRONOMIA_NUEVAS_CARDS=[...(window.GASTRONOMIA_BASE||[]),...(window.GASTRONOMIA_EXTRA||[])];
+ }
+ // Runtime principal. Experiencias tiene una sola implementación canónica.
+ await load('/assets/app.js?v=20260923-runtime-6');
+ await load('/assets/experiencias.js?v=20260923-single-5');
+})().catch(e=>{
+ console.error('EC bootstrap',e);
+ const root=document.getElementById('ernestinho-carioca-root');
+ if(root&&!root.childNodes.length)root.innerHTML='<div style="min-height:70vh;display:flex;align-items:center;justify-content:center;padding:24px;font-family:Arial,sans-serif;text-align:center"><div><strong>Estamos cargando la guía de Río.</strong><br><span style="font-size:14px">Actualiza esta página en unos segundos.</span></div></div>';
+});

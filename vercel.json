@@ -16,8 +16,5 @@
       "source": "/((?!api/|assets/|sitemap\\.xml$|robots\\.txt$|google9b0defc9c5a5ee7e\\.html$).*)",
       "destination": "/api/spa?path=/$1"
     }
-  ],
-  "github": {
-    "silent": false
-  }
+  ]
 }
