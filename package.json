@@ -2,10 +2,13 @@
   "private": true,
   "scripts": {
     "check:syntax": "node scripts/validate-rebuild.js",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "build:css": "tailwindcss -i ./assets/css/tailwind-input.css -o ./assets/css/site.css --minify"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",
-    "esbuild": "^0.25.10"
+    "esbuild": "^0.25.10",
+    "@tailwindcss/cli": "^4.1.13",
+    "tailwindcss": "^4.1.13"
   }
 }
