@@ -106,7 +106,7 @@ const FOTOGRAFIA_DATA = [
     pFoto('gigoia', 'Ilha da Gigóia', 'Barra', 'Urbana', 'Mañana o atardecer', 'Casas, canales, barcos y fauna; pide permiso antes de retratar residentes.', 'Barco pagado'),
     pFoto('niteroi', 'MAC Niterói', 'Niterói', 'Arquitectura', 'Atardecer', 'Usa las curvas del museo para enmarcar Río al otro lado de la bahía.', 'Exterior gratis'),
     pFoto('santa-cruz', 'Fortaleza de Santa Cruz', 'Niterói', 'Arquitectura', 'Tarde', 'Arcos, murallas y Pan de Azúcar alineados desde la fortaleza.', 'Entrada pagada')
-].map(x => ({ ...x, mapa: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.nombre + ' Rio de Janeiro')}`, img: FOTO_RIO_URLS[x.id] }));
+].map(x => ({ ...x, mapa: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(x.nombre + ' Rio de Janeiro')}`, img: ((window.FOTO_RIO_URLS||{})[x.id] || '') }));
 function GuiaFotografia(props){return React.createElement(ECLazyRoute,{src:'/assets/chunks/GuiaFotografia.js?v=20260923-modular',name:'GuiaFotografia',componentProps:props})}
 const GUIA_TEMAS = [
     { id: 'documentos', imagen: 'https://res.cloudinary.com/qa301cbc/image/upload/v1789040451/miniaturas_guia_rio_documentos_y_entrada.png', grupo: 'Antes de viajar', icon: '🛂', titulo: 'Documentos y entrada', resumen: 'Identidad, pasaporte y visa.' },
