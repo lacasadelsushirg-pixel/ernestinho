@@ -21,12 +21,16 @@ function __ecEnsureCultureData(){
 }
 
 // --- COMPONENTE DE ÍCONO AUXILIAR LIGERO ---
+let __ecLucideRaf = null;
+function __ecScheduleLucideIcons() {
+    if (!window.lucide || __ecLucideRaf) return;
+    __ecLucideRaf = requestAnimationFrame(() => {
+        __ecLucideRaf = null;
+        window.lucide.createIcons();
+    });
+}
 const Icon = ({ name, className = "w-5 h-5", fill = "none" }) => {
-    useEffect(() => {
-        if (window.lucide) {
-            window.lucide.createIcons();
-        }
-    }, [name]);
+    useEffect(() => { __ecScheduleLucideIcons(); }, [name]);
     return React.createElement("i", { "data-lucide": name, className: className, style: { fill: fill !== 'none' ? fill : 'transparent' } });
 };
 // --- DATOS MUESTRA Y CONTENIDOS COMPLETOS ---
@@ -1855,9 +1859,7 @@ function AppErnestinho(){
         };
         subirAlInicio();
         const siguienteCuadro = window.requestAnimationFrame(subirAlInicio);
-        if (window.lucide) {
-            window.lucide.createIcons();
-        }
+        __ecScheduleLucideIcons();
         return () => window.cancelAnimationFrame(siguienteCuadro);
     }, [seccionActual, articuloSeleccionado, temaGuia, consejoSeleccionado, modoTransportePublico, restauranteSeleccionado, modalReservaOpen]);
     const abrirReserva = (exp) => {
