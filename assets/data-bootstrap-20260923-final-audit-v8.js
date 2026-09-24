@@ -42,7 +42,8 @@ window.__ecEnsureLanguagePayloads=function(){
   if(preload.length) await Promise.allSettled([...new Set(preload)].map(window.__ecLoadData));
 
   await load('/assets/app-runtime-20260923-final-audit-v4.js?v=20260923-final-audit');
-  if(root){root.removeAttribute('aria-busy');const s=document.getElementById('ec-bootstrap-status');if(s)s.remove();}\n  if(root&&document.getElementById('ec-static-fallback'))throw new Error('Runtime cargó pero React no reemplazó el fallback estático');
+  if(root){root.removeAttribute('aria-busy');const s=document.getElementById('ec-bootstrap-status');if(s)s.remove();}
+  if(root&&document.getElementById('ec-static-fallback'))throw new Error('Runtime cargó pero React no reemplazó el fallback estático');
 
   Promise.resolve().then(async()=>{
    load('/assets/gastronomy-data.js?v=20260923-final-audit').catch(e=>console.error('EC gastronomy background',e));
