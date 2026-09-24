@@ -68,3 +68,49 @@ test('homepage internal links respond', async ({ page, request }) => {
     expect(r.status(), url).toBeLessThan(400);
   }
 });
+
+
+test('homepage resources load without server failures', async ({ page }) => {
+  const bad = [];
+  page.on('response', r => {
+    const u = r.url();
+    if (r.status() >= 400 && !u.startsWith('data:')) bad.push({ status: r.status(), url: u });
+  });
+  await page.goto('/', { waitUntil: 'networkidle' });
+  expect(bad, JSON.stringify(bad, null, 2)).toEqual([]);
+});
+
+test('homepage images are not broken', async ({ page }) => {
+  await page.goto('/', { waitUntil: 'networkidle' });
+  const broken = await page.locator('img').evaluateAll(imgs => imgs
+    .filter(i => i.currentSrc && (!i.complete || i.naturalWidth === 0))
+    .map(i => i.currentSrc));
+  expect(broken, JSON.stringify(broken, null, 2)).toEqual([]);
+});
+
+test('internal homepage destinations render meaningful content', async ({ page }) => {
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  const origin = new URL(page.url()).origin;
+  const urls = await page.locator('a[href]').evaluateAll((nodes, origin) => [...new Set(nodes.map(n => n.href))]
+    .filter(h => { try { const u = new URL(h); return u.origin === origin && /^https?:$/.test(u.protocol) && u.pathname !== '/'; } catch { return false; } })
+    .slice(0, 40), origin);
+  for (const url of urls) {
+    const p = await page.context().newPage();
+    const errors = [];
+    p.on('pageerror', e => errors.push(e.message));
+    const response = await p.goto(url, { waitUntil: 'domcontentloaded' });
+    await p.waitForTimeout(600);
+    const state = await p.evaluate(() => ({
+      text: document.body?.innerText.trim().length || 0,
+      html: document.body?.innerHTML.length || 0,
+      display: document.body ? getComputedStyle(document.body).display : null,
+      visibility: document.body ? getComputedStyle(document.body).visibility : null
+    }));
+    expect(response && response.status(), url).toBeLessThan(400);
+    expect(state.html, url).toBeGreaterThan(50);
+    expect(state.display, url).not.toBe('none');
+    expect(state.visibility, url).not.toBe('hidden');
+    expect(errors, url + '\n' + errors.join('\n')).toEqual([]);
+    await p.close();
+  }
+});
