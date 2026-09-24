@@ -15,6 +15,12 @@ jobs:
       - run: npm install
       - run: npm run build:css
       - run: test -s assets/css/site.css
+      - name: Persist compiled CSS
+        uses: actions/upload-artifact@v4
+        with:
+          name: rebuild-site-css
+          path: assets/css/site.css
+          retention-days: 3
       - run: npm run check:syntax
 
 # gate-trigger: 20260924-b
