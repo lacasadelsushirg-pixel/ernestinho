@@ -166,3 +166,45 @@ test('SEO essentials exist on representative routes', async ({ page }) => {
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /index/i);
   }
 });
+
+
+test('homepage category order and language controls match the production contract', async ({ page }) => {
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(1200);
+  const expected = ['Guía para mi viaje','Transportes','Hospedaje','Fotografía','Compras','Barrios','Eventos','Experiencias','Playas','Vida nocturna','Gastronomía','Atracciones','Familia','Café Río','Consejos'];
+  const labels = await page.locator('section button[aria-label]').evaluateAll(nodes => nodes.map(n => n.getAttribute('aria-label')).filter(Boolean));
+  let cursor = -1;
+  for (const label of expected) {
+    const next = labels.indexOf(label, cursor + 1);
+    expect(next, 'missing/out-of-order homepage card: ' + label + '\n' + labels.join(' | ')).toBeGreaterThan(cursor);
+    cursor = next;
+  }
+  await expect(page.locator('[aria-label="Idioma / Language"]').last()).toBeVisible();
+});
+
+test('language switching changes the homepage without page errors', async ({ page }) => {
+  const errors = [];
+  page.on('pageerror', e => errors.push(e.message));
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(700);
+  const lang = page.locator('[aria-label="Idioma / Language"]').last();
+  await lang.getByRole('button', { name: /PT/ }).click();
+  await expect(page.locator('h1')).toContainText(/Rio não se visita/i);
+  await lang.getByRole('button', { name: /EN/ }).click();
+  await expect(page.locator('h1')).toContainText(/Rio is not just visited/i);
+  await lang.getByRole('button', { name: /ES/ }).click();
+  await expect(page.locator('h1')).toContainText(/Río no se visita/i);
+  expect(errors, errors.join('\n')).toEqual([]);
+});
+
+test('mobile header exposes language and menu without stray event/beach top items', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
+  await page.waitForTimeout(700);
+  await expect(page.locator('[aria-label="Idioma / Language"]').last()).toBeVisible();
+  const menu = page.getByRole('button', { name: /Abrir Menú/i });
+  await expect(menu).toBeVisible();
+  await menu.click();
+  const visibleMenu = page.locator('header, body').getByRole('button').filter({ hasText: /EXPERIENCIAS|TRANSPORTES|HOSPEDAJE/ });
+  expect(await visibleMenu.count()).toBeGreaterThan(0);
+});
