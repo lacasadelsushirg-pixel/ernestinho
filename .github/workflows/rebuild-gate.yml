@@ -17,20 +17,24 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: test -s assets/css/site.css
-      - name: Commit compiled CSS
+      - name: Commit compiled frontend assets
         run: |
-          if ! git diff --quiet -- assets/css/site.css; then
+          git add assets/css/site.css assets/vendor/react.js assets/vendor/react-dom.js assets/vendor/lucide.js
+          if ! git diff --cached --quiet; then
             git config user.name github-actions[bot]
             git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-            git add assets/css/site.css
-            git commit -m "Rebuild: compile local production CSS"
+            git commit -m "Rebuild: compile local frontend assets"
             git push
           fi
-      - name: Persist compiled CSS
+      - name: Persist compiled frontend assets
         uses: actions/upload-artifact@v4
         with:
-          name: rebuild-site-css
-          path: assets/css/site.css
+          name: rebuild-frontend-assets
+          path: |
+            assets/css/site.css
+            assets/vendor/react.js
+            assets/vendor/react-dom.js
+            assets/vendor/lucide.js
           retention-days: 3
       - run: npm run check:syntax
 
