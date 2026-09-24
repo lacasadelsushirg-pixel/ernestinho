@@ -1,3 +1,12 @@
+const { useState, useEffect } = React;
+const Icon = ({ name, className = "w-5 h-5", fill = "none" }) => React.createElement("i", { "data-lucide": name, className, style: { fill: fill !== "none" ? fill : "transparent" } });
+function Master4HomeSearch({ go, lang = 'es', placeholder = '' }) {
+    const [q,setQ]=useState('');
+    const submit=(e)=>{e&&e.preventDefault();const v=q.trim();if(!v)return; if(typeof go==='function') go('master4_descubre');};
+    return React.createElement("form",{onSubmit:submit,className:"flex w-full items-center gap-2 rounded-2xl bg-white/95 p-2 shadow-xl"},
+      React.createElement("input",{value:q,onChange:e=>setQ(e.target.value),placeholder:placeholder|| (lang==='pt'?'O que você procura?':lang==='en'?'What are you looking for?':'¿Qué estás buscando?'),className:"min-w-0 flex-1 bg-transparent px-3 py-2 text-sm text-slate-900 outline-none"}),
+      React.createElement("button",{type:"submit",className:"rounded-xl bg-amber-300 px-4 py-2 text-xs font-black text-slate-950"},lang==='pt'?'BUSCAR':lang==='en'?'SEARCH':'BUSCAR'));
+}
 function Master4Home({ go, onReserve, lang = 'es' }) {
     const [saved, setSaved] = useState([]);
     useEffect(() => { try {
