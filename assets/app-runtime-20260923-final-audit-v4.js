@@ -21,17 +21,12 @@ function __ecEnsureCultureData(){
 }
 
 // --- COMPONENTE DE ÍCONO AUXILIAR LIGERO ---
-let __ecLucideRaf = null;
 function __ecScheduleLucideIcons() {
-    if (!window.lucide || __ecLucideRaf) return;
-    __ecLucideRaf = requestAnimationFrame(() => {
-        __ecLucideRaf = null;
-        window.lucide.createIcons();
-    });
+    // Global lucide.createIcons() repeatedly rescans and rewrites the whole React tree.
+    // Keep the hook as a no-op for legacy callers; icons render as lightweight placeholders.
 }
 const Icon = ({ name, className = "w-5 h-5", fill = "none" }) => {
-    useEffect(() => { __ecScheduleLucideIcons(); }, [name]);
-    return React.createElement("i", { "data-lucide": name, className: className, style: { fill: fill !== 'none' ? fill : 'transparent' } });
+    return React.createElement("i", { "data-ec-icon": name, "aria-hidden": "true", className: className, style: { fill: fill !== 'none' ? fill : 'transparent' } });
 };
 // --- DATOS MUESTRA Y CONTENIDOS COMPLETOS ---
 
