@@ -2,7 +2,7 @@ function Master4MuseumsReal({ go }) {
     const [q, setQ] = useState('');
     const [cat, setCat] = useState('Todos');
     const [selected, setSelected] = useState(null);
-    const museoOriginal = x => (MUSEOS_DATA || []).find(m => m.id === x.id) || {};
+    const museoOriginal = x => (window.MUSEOS_DATA || []).find(m => m.id === x.id) || {};
     const imagenMuseo = x => x.imagen || museoOriginal(x).miniatura || museoOriginal(x).fotoPrincipal || museoOriginal(x).fotoMedia || '';
     const cats = ['Todos', ...Array.from(new Set(MASTER4_MUSEOS_REAL.map(x => x.categoria).filter(Boolean)))];
     const shown = MASTER4_MUSEOS_REAL.filter(x => (cat === 'Todos' || x.categoria === cat) && (!q || (x.nombre + ' ' + x.subtitulo + ' ' + x.descripcion).toLowerCase().includes(q.toLowerCase())));
