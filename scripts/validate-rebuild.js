@@ -1,5 +1,19 @@
 const fs=require('fs');const path=require('path');const vm=require('vm');
 const ROOT=process.cwd(),MAX=250000,fail=[];
+
+function assertRuntimeReferences() {
+  const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  const bootstrap = fs.readFileSync(path.join(root, 'assets/data-bootstrap-20260923-final-audit-v8.js'), 'utf8');
+  const refs = [];
+  const re = /['"]\/(assets|data)\/([^'"?]+)(?:\?[^'"]*)?['"]/g;
+  for (const source of [index, bootstrap]) {
+    let m;
+    while ((m = re.exec(source))) refs.push('/' + m[1] + '/' + m[2]);
+  }
+  for (const ref of [...new Set(refs)]) {
+    if (!fs.existsSync(path.join(root, ref.slice(1)))) failures.push('missing runtime reference: ' + ref);
+  }
+}
 function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>{const p=path.join(d,e.name);return e.isDirectory()?walk(p):[p]})}
 const files=walk(ROOT).filter(p=>!p.includes(path.sep+'.git'+path.sep)&&!p.includes(path.sep+'node_modules'+path.sep));
 for(const p of files){
@@ -22,5 +36,6 @@ const sitemap=fs.readFileSync(path.join(ROOT,'sitemap.xml'),'utf8');
 const urls=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(x=>x[1]);
 if(urls.length<300)fail.push('sitemap unexpectedly small: '+urls.length);
 if(new Set(urls).size!==urls.length)fail.push('sitemap has duplicate URLs');
+assertRuntimeReferences();
 console.log(JSON.stringify({files:files.length,js:files.filter(x=>x.endsWith('.js')).length,json:files.filter(x=>x.endsWith('.json')).length,sitemap:urls.length,maxJsBytes:Math.max(...files.filter(x=>x.endsWith('.js')).map(x=>fs.statSync(x).size)),failures:fail},null,2));
 if(fail.length)process.exit(1);
