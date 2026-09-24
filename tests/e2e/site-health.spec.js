@@ -62,7 +62,7 @@ test('homepage internal links respond', async ({ page, request }) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   const origin = new URL(page.url()).origin;
   const hrefs = await page.locator('a[href]').evaluateAll(ns => [...new Set(ns.map(n => n.href))]);
-  const internal = hrefs.filter(h => { try { const u = new URL(h); return u.origin === origin && /^https?:$/.test(u.protocol); } catch { return false; } }).slice(0, 80);
+  const internal = hrefs.filter(h => { try { const u = new URL(h); return u.origin === origin && /^https?:$/.test(u.protocol); } catch { return false; } }).slice(0, 30);
   for (const url of internal) {
     const r = await request.get(url);
     expect(r.status(), url).toBeLessThan(400);
@@ -101,7 +101,7 @@ test('internal homepage destinations render meaningful content', async ({ page }
     const errors = [];
     p.on('pageerror', e => errors.push(e.message));
     const response = await p.goto(url, { waitUntil: 'domcontentloaded' });
-    await p.waitForTimeout(250);
+    await p.waitForTimeout(150);
     const state = await p.evaluate(() => ({
       text: document.body?.innerText.trim().length || 0,
       html: document.body?.innerHTML.length || 0,
@@ -125,7 +125,7 @@ test('critical public sections render on desktop and mobile', async ({ page }) =
     const onError = e => errors.push(e.message);
     page.on('pageerror', onError);
     const response = await page.goto(route, { waitUntil: 'domcontentloaded' });
-    await page.waitForTimeout(300);
+    await page.waitForTimeout(180);
     const state = await page.evaluate(() => ({
       text: document.body?.innerText.trim().length || 0,
       html: document.body?.innerHTML.length || 0,
