@@ -1,8 +1,9 @@
 const esbuild=require('esbuild'),fs=require('fs'),path=require('path');
 const out=path.resolve(__dirname,'../assets/vendor');fs.mkdirSync(out,{recursive:true});
 async function build(){
- await esbuild.build({entryPoints:[require.resolve('react/umd/react.production.min.js')],bundle:false,minify:false,outfile:path.join(out,'react.js')});
- await esbuild.build({entryPoints:[require.resolve('react-dom/umd/react-dom.production.min.js')],bundle:false,minify:false,outfile:path.join(out,'react-dom.js')});
+ const reactRoot=path.dirname(require.resolve('react/package.json')); const domRoot=path.dirname(require.resolve('react-dom/package.json'));
+ fs.copyFileSync(path.join(reactRoot,'umd','react.production.min.js'),path.join(out,'react.js'));
+ fs.copyFileSync(path.join(domRoot,'umd','react-dom.production.min.js'),path.join(out,'react-dom.js'));
  await esbuild.build({stdin:{contents:"import {createIcons,ArrowLeft,ArrowRight,ChevronDown,ChevronLeft,ChevronRight,Menu,X,Search,MapPin,Clock,Calendar,Phone,MessageCircle,ExternalLink,Globe,Instagram,Star,Heart,Info,Navigation,Car,Bus,Train,Ship,Plane,Camera,Users,Utensils,Ticket,Map,Home,Accessibility,Wifi,CreditCard} from 'lucide'; window.lucide={createIcons,ArrowLeft,ArrowRight,ChevronDown,ChevronLeft,ChevronRight,Menu,X,Search,MapPin,Clock,Calendar,Phone,MessageCircle,ExternalLink,Globe,Instagram,Star,Heart,Info,Navigation,Car,Bus,Train,Ship,Plane,Camera,Users,Utensils,Ticket,Map,Home,Accessibility,Wifi,CreditCard};",resolveDir:process.cwd()},bundle:true,minify:true,format:'iife',platform:'browser',outfile:path.join(out,'lucide.js')});
  for(const f of ['react.js','react-dom.js','lucide.js']){const n=fs.statSync(path.join(out,f)).size;if(!n)throw Error(f+' empty');console.log(f,n);}
 }build().catch(e=>{console.error(e);process.exit(1)});
