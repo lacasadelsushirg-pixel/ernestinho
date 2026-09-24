@@ -13,7 +13,6 @@ module.exports = defineConfig({
     ignoreHTTPSErrors: true
   },
   projects: [
-    { name: 'chromium-desktop', use: { ...devices['Desktop Chrome'] } },
-    { name: 'webkit-mobile', use: { ...devices['iPhone 14'] } }
+    { name: 'chromium-desktop', use: { ...devices['Desktop Chrome'] } }
   ]
 });
