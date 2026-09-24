@@ -1168,15 +1168,20 @@ function AppErnestinho(){
             });
         };
         apply(root);
+        let translateRaf = null;
         const observer = new MutationObserver(mutations => {
-            observer.disconnect();
-            mutations.forEach(m => {
-                if (m.type === 'characterData' && m.target.parentNode) apply(m.target.parentNode);
-                m.addedNodes && m.addedNodes.forEach(n => { if (n.nodeType === 1) apply(n); else if (n.nodeType === 3 && n.parentNode) apply(n.parentNode); });
+            if (translateRaf) return;
+            translateRaf = requestAnimationFrame(() => {
+                translateRaf = null;
+                observer.disconnect();
+                mutations.forEach(m => {
+                    if (m.type === 'characterData' && m.target.parentNode) apply(m.target.parentNode);
+                    m.addedNodes && m.addedNodes.forEach(n => { if (n.nodeType === 1) apply(n); else if (n.nodeType === 3 && n.parentNode) apply(n.parentNode); });
+                });
+                observer.observe(root, {subtree:true, childList:true, characterData:true});
             });
-            observer.observe(root, {subtree:true, childList:true, characterData:true});
         });
-        observer.observe(root, {subtree:true, childList:true, characterData:true});
+        observer.observe(root, {subtree:true, childList:true,characterData:true});
         return () => observer.disconnect();
     }, [lang, seccionActual, temaGuia]);
 
@@ -1784,13 +1789,14 @@ function AppErnestinho(){
                 walk();
             });
         };
-        const obs = new MutationObserver(scheduleWalk);
+        const obs = new MutationObserver(mutations => {
+            // Only translate when React actually adds/replaces content. Watching our own
+            // translated text/attributes caused a self-sustaining mutation loop.
+            if (mutations.some(m => m.type === 'childList' && m.addedNodes && m.addedNodes.length)) scheduleWalk();
+        });
         obs.observe(root, {
             childList: true,
-            subtree: true,
-            characterData: true,
-            attributes: true,
-            attributeFilter: ['placeholder', 'title', 'aria-label', 'alt']
+            subtree: true
         });
         // A second pass catches content mounted by nested components in the next frame.
         const t1 = setTimeout(scheduleWalk, 0);
