@@ -1,6 +1,11 @@
 {
   "private": true,
+  "scripts": {
+    "test:e2e": "playwright test",
+    "test:e2e:report": "playwright show-report"
+  },
   "devDependencies": {
-    "esbuild": "^0.25.10"
+    "esbuild": "^0.25.10",
+    "@playwright/test": "^1.55.0"
   }
 }
