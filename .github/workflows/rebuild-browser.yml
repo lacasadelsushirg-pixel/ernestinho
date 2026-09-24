@@ -1,6 +1,8 @@
 name: Rebuild Browser Gate
 on:
   workflow_dispatch:
+  push:
+    branches: [rebuild-production-20260924]
 jobs:
   browser:
     runs-on: ubuntu-latest
