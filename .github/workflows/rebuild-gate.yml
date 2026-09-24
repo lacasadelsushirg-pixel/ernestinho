@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 20
       - run: npm install
-      - run: npm run build:css
+      - run: npm run build
       - run: test -s assets/css/site.css
       - name: Commit compiled CSS
         run: |
