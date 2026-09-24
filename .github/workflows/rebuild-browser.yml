@@ -1,0 +1,19 @@
+name: Rebuild Browser Gate
+on:
+  workflow_dispatch:
+  push:
+    branches: [rebuild-production-20260924]
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npx playwright install --with-deps chromium webkit
+      - run: npm run test:e2e
+        env:
+          BASE_URL: https://www.ernestinhocarioca.com.br
