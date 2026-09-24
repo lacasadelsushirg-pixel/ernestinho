@@ -2,8 +2,8 @@ const fs=require('fs');const path=require('path');const vm=require('vm');
 const ROOT=process.cwd(),MAX=250000,fail=[];
 
 function assertRuntimeReferences() {
-  const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-  const bootstrap = fs.readFileSync(path.join(root, 'assets/data-bootstrap-20260923-final-audit-v8.js'), 'utf8');
+  const index = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+  const bootstrap = fs.readFileSync(path.join(ROOT, 'assets/data-bootstrap-20260923-final-audit-v8.js'), 'utf8');
   const refs = [];
   const re = /['"]\/(assets|data)\/([^'"?]+)(?:\?[^'"]*)?['"]/g;
   for (const source of [index, bootstrap]) {
@@ -11,7 +11,7 @@ function assertRuntimeReferences() {
     while ((m = re.exec(source))) refs.push('/' + m[1] + '/' + m[2]);
   }
   for (const ref of [...new Set(refs)]) {
-    if (!fs.existsSync(path.join(root, ref.slice(1)))) failures.push('missing runtime reference: ' + ref);
+    if (!fs.existsSync(path.join(ROOT, ref.slice(1)))) fail.push('missing runtime reference: ' + ref);
   }
 }
 function walk(d){return fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>{const p=path.join(d,e.name);return e.isDirectory()?walk(p):[p]})}
