@@ -1128,62 +1128,7 @@ function AppErnestinho(){
         catch (e) { }
         document.documentElement.lang = lang === 'pt' ? 'pt-BR' : (lang === 'en' ? 'en' : 'es');
     }, [lang]);
-    // Capa de seguridad multidioma: traduce también textos heredados escritos directamente en JSX.
-    // Conserva siempre el español original para poder cambiar de idioma sin contaminar el DOM.
-    useEffect(() => {
-        const root = document.getElementById('ernestinho-carioca-root');
-        if (!root) return;
-        const originals = window.__EC_I18N_ORIGINAL_TEXT || (window.__EC_I18N_ORIGINAL_TEXT = new WeakMap());
-        const originalAttrs = window.__EC_I18N_ORIGINAL_ATTRS || (window.__EC_I18N_ORIGINAL_ATTRS = new WeakMap());
-        const dict = (window.GLOBAL_UI_TRANSLATIONS && window.GLOBAL_UI_TRANSLATIONS[lang]) || {};
-        const attrs = ['placeholder','title','aria-label','alt'];
-        const apply = (scope) => {
-            const walker = document.createTreeWalker(scope, NodeFilter.SHOW_TEXT);
-            let n;
-            while ((n = walker.nextNode())) {
-                const parent = n.parentElement;
-                if (!parent || /^(SCRIPT|STYLE|TEXTAREA|CODE|PRE)$/.test(parent.tagName)) continue;
-                if (!originals.has(n)) originals.set(n, n.nodeValue);
-                const original = originals.get(n);
-                if (lang === 'es') { if (n.nodeValue !== original) n.nodeValue = original; continue; }
-                const key = String(original || '').trim();
-                if (!key || !dict[key]) continue;
-                const lead = (String(original).match(/^\s*/) || [''])[0];
-                const tail = (String(original).match(/\s*$/) || [''])[0];
-                const next = lead + dict[key] + tail;
-                if (n.nodeValue !== next) n.nodeValue = next;
-            }
-            const els = scope.querySelectorAll ? [scope, ...scope.querySelectorAll('*')] : [];
-            els.forEach(el => {
-                if (!el || !el.getAttribute) return;
-                let saved = originalAttrs.get(el);
-                if (!saved) { saved = {}; originalAttrs.set(el, saved); }
-                attrs.forEach(a => {
-                    if (!el.hasAttribute(a)) return;
-                    if (!(a in saved)) saved[a] = el.getAttribute(a);
-                    const original = saved[a];
-                    if (lang === 'es') { if (el.getAttribute(a) !== original) el.setAttribute(a, original); return; }
-                    if (dict[original]) el.setAttribute(a, dict[original]);
-                });
-            });
-        };
-        apply(root);
-        let translateRaf = null;
-        const observer = new MutationObserver(mutations => {
-            if (translateRaf) return;
-            translateRaf = requestAnimationFrame(() => {
-                translateRaf = null;
-                observer.disconnect();
-                mutations.forEach(m => {
-                    if (m.type === 'characterData' && m.target.parentNode) apply(m.target.parentNode);
-                    m.addedNodes && m.addedNodes.forEach(n => { if (n.nodeType === 1) apply(n); else if (n.nodeType === 3 && n.parentNode) apply(n.parentNode); });
-                });
-                observer.observe(root, {subtree:true, childList:true, characterData:true});
-            });
-        });
-        observer.observe(root, {subtree:true, childList:true,characterData:true});
-        return () => observer.disconnect();
-    }, [lang, seccionActual, temaGuia]);
+    // Traducción DOM heredada consolidada más abajo en un único observador.
 
     const UI_TEXT = {
         es: { tagline: 'Río desde mi mirada', talk: 'Hablar con Ernestinho', back: 'Volver a la vista anterior',
