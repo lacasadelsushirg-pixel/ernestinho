@@ -25,8 +25,8 @@ window.__ecEnsureLanguagePayloads=function(){
  showLoading();
  const load=src=>window.__ecWithTimeout(new Promise((ok,fail)=>{const x=document.createElement('script');x.src=src;x.onload=ok;x.onerror=()=>fail(new Error('No se pudo cargar '+src));document.head.appendChild(x)}),12000,src);
  try{
-  if(!window.React)await load('https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js');
-  if(!window.ReactDOM)await load('https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js');
+  if(!window.React)await load('/assets/vendor/react.js');
+  if(!window.ReactDOM)await load('/assets/vendor/react-dom.js');
   if(!window.React||!window.ReactDOM||typeof window.ReactDOM.createRoot!=='function')throw new Error('React runtime no disponible');
 
   await load('/assets/qh-i18n.js?v=20260923-final-audit');
