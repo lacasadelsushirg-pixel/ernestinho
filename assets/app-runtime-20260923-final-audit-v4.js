@@ -2527,7 +2527,7 @@ requestAnimationFrame(() => requestAnimationFrame(() => {
         precompiledJS: true,
         babelRuntime: false,
         diagnostics: 'on-demand',
-        initialCatalogBuilt: !!CANONICAL_RECOMMENDATION_CACHE,
+        initialCatalogBuilt: typeof CANONICAL_RECOMMENDATION_CACHE !== 'undefined' && !!CANONICAL_RECOMMENDATION_CACHE,
         eagerImages: document.querySelectorAll('img[loading="eager"]').length,
         lazyImages: document.querySelectorAll('img[loading="lazy"]').length,
         lazyIframes: document.querySelectorAll('iframe[loading="lazy"]').length,
