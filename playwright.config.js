@@ -4,12 +4,12 @@ module.exports = defineConfig({
   timeout: 30000,
   expect: { timeout: 7000 },
   fullyParallel: false,
-  retries: process.env.CI ? 1 : 0,
-  workers: process.env.CI ? 2 : undefined,
-  reporter: [['list'], ['html', { outputFolder: 'playwright-report', open: 'never' }]],
+  retries: 0,
+  workers: 1,
+  reporter: [['list']],
   use: {
     baseURL: process.env.BASE_URL || 'https://www.ernestinhocarioca.com.br',
-    trace: 'on-first-retry', screenshot: 'only-on-failure', video: 'off',
+    trace: 'off', screenshot: 'only-on-failure', video: 'off',
     ignoreHTTPSErrors: true
   },
   projects: [
