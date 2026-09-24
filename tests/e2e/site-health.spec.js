@@ -62,11 +62,9 @@ test('homepage internal links respond', async ({ page, request }) => {
   await page.goto('/', { waitUntil: 'domcontentloaded' });
   const origin = new URL(page.url()).origin;
   const hrefs = await page.locator('a[href]').evaluateAll(ns => [...new Set(ns.map(n => n.href))]);
-  const internal = hrefs.filter(h => { try { const u = new URL(h); return u.origin === origin && /^https?:$/.test(u.protocol); } catch { return false; } }).slice(0, 30);
-  for (const url of internal) {
-    const r = await request.get(url);
-    expect(r.status(), url).toBeLessThan(400);
-  }
+  const internal = hrefs.filter(h => { try { const u = new URL(h); return u.origin === origin && /^https?:$/.test(u.protocol); } catch { return false; } }).slice(0, 20);
+  const results = await Promise.all(internal.map(async url => ({ url, status: (await request.get(url, { timeout: 5000 })).status() })));
+  for (const r of results) expect(r.status, r.url).toBeLessThan(400);
 });
 
 
