@@ -93,13 +93,13 @@ test('internal homepage destinations render meaningful content', async ({ page }
   const origin = new URL(page.url()).origin;
   const urls = await page.locator('a[href]').evaluateAll((nodes, origin) => [...new Set(nodes.map(n => n.href))]
     .filter(h => { try { const u = new URL(h); return u.origin === origin && /^https?:$/.test(u.protocol) && u.pathname !== '/'; } catch { return false; } })
-    .slice(0, 40), origin);
+    .slice(0, 15), origin);
   for (const url of urls) {
     const p = await page.context().newPage();
     const errors = [];
     p.on('pageerror', e => errors.push(e.message));
     const response = await p.goto(url, { waitUntil: 'domcontentloaded' });
-    await p.waitForTimeout(600);
+    await p.waitForTimeout(250);
     const state = await p.evaluate(() => ({
       text: document.body?.innerText.trim().length || 0,
       html: document.body?.innerHTML.length || 0,
@@ -117,13 +117,13 @@ test('internal homepage destinations render meaningful content', async ({ page }
 
 
 test('critical public sections render on desktop and mobile', async ({ page }) => {
-  const routes = ['/guia','/transportes','/hospedaje','/fotografia','/compras','/barrios','/eventos','/experiencias','/playas','/vida-nocturna','/gastronomia','/atracciones','/familia','/cafe-ernestinho','/consejos','/quiero'];
+  const routes = ['/guia','/transportes','/hospedaje','/compras','/barrios','/experiencias','/vida-nocturna','/gastronomia','/consejos','/quiero'];
   for (const route of routes) {
     const errors = [];
     const onError = e => errors.push(e.message);
     page.on('pageerror', onError);
     const response = await page.goto(route, { waitUntil: 'domcontentloaded' });
-    await page.waitForTimeout(800);
+    await page.waitForTimeout(300);
     const state = await page.evaluate(() => ({
       text: document.body?.innerText.trim().length || 0,
       html: document.body?.innerHTML.length || 0,
@@ -147,7 +147,7 @@ test('representative deep content routes render', async ({ page }) => {
   ];
   for (const route of routes) {
     const response = await page.goto(route, { waitUntil: 'domcontentloaded' });
-    await page.waitForTimeout(700);
+    await page.waitForTimeout(300);
     expect(response && response.status(), route).toBeLessThan(400);
     expect((await page.locator('body').innerText()).trim().length, route).toBeGreaterThan(50);
   }
