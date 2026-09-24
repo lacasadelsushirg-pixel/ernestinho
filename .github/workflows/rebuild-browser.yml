@@ -3,9 +3,6 @@ on:
   workflow_dispatch:
   push:
     branches: [rebuild-production-20260924]
-concurrency:
-  group: rebuild-browser-gate-${{ github.ref }}-${{ github.workflow }}
-  cancel-in-progress: true
 jobs:
   browser:
     runs-on: ubuntu-latest
