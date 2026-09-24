@@ -4,7 +4,7 @@ on:
   push:
     branches: [rebuild-production-20260924]
 concurrency:
-  group: rebuild-browser-${{ github.ref }}
+  group: rebuild-browser-gate
   cancel-in-progress: true
 jobs:
   browser:
