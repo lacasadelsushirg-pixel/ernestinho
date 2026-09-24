@@ -70,7 +70,7 @@ function Master4Home({ go, onReserve, lang = 'es' }) {
         const copy = c[lang] || c.es;
         return {...c, title:copy[0], sub:copy[1]};
     });
-    const featured = EXPERIENCIAS_DATA.slice(0, 5);
+    const featured = (((window.EC_EDITORIAL_DATA||{}).EXPERIENCIAS_DATA)||[]).slice(0, 5);
     const featuredRailRef = React.useRef(null);
     const [featuredPage, setFeaturedPage] = useState(0);
     const moveFeatured = direction => {
