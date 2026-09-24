@@ -9,7 +9,7 @@ module.exports = defineConfig({
   reporter: [['list'], ['html', { outputFolder: 'playwright-report', open: 'never' }]],
   use: {
     baseURL: process.env.BASE_URL || 'https://www.ernestinhocarioca.com.br',
-    trace: 'retain-on-failure', screenshot: 'only-on-failure', video: 'retain-on-failure',
+    trace: 'on-first-retry', screenshot: 'only-on-failure', video: 'off',
     ignoreHTTPSErrors: true
   },
   projects: [
