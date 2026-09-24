@@ -14,6 +14,21 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npx playwright install --with-deps chromium webkit
-      - run: npm run test:e2e
+      - run: npm run build:css
+      - name: Start rebuild candidate locally
+        run: |
+          node scripts/serve-rebuild.js > /tmp/rebuild-server.log 2>&1 &
+          echo $! > /tmp/rebuild-server.pid
+          for i in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:4173/ > /dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/rebuild-server.log
+          exit 1
+      - name: Test rebuild candidate
+        run: npm run test:e2e
         env:
-          BASE_URL: https://www.ernestinhocarioca.com.br
+          BASE_URL: http://127.0.0.1:4173
+      - name: Show local server log on failure
+        if: failure()
+        run: cat /tmp/rebuild-server.log || true
