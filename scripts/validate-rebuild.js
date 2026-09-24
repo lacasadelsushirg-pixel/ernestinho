@@ -9,6 +9,14 @@ for(const p of files){
  if(rel.endsWith('.json')){try{JSON.parse(b.toString('utf8'))}catch(e){fail.push(rel+' JSON: '+e.message)}}
 }
 const html=fs.readFileSync(path.join(ROOT,'index.html'),'utf8');
+const forbidden=[
+ ['Tailwind CDN','https://cdn.tailwindcss.com'],
+ ['remote React','https://unpkg.com/react@'],
+ ['remote ReactDOM','https://unpkg.com/react-dom@'],
+ ['remote Lucide','https://unpkg.com/lucide@']
+];
+for(const [label,token] of forbidden)if(html.includes(token))fail.push('index still depends on '+label);
+
 for(const must of ['ernestinho-carioca-root','ec-static-fallback','data-bootstrap-20260923-final-audit-v8.js'])if(!html.includes(must))fail.push('index missing '+must);
 const sitemap=fs.readFileSync(path.join(ROOT,'sitemap.xml'),'utf8');
 const urls=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(x=>x[1]);
