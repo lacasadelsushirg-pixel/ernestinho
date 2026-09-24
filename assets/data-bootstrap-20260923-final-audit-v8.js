@@ -30,7 +30,6 @@ window.__ecEnsureLanguagePayloads=function(){
   if(!window.React||!window.ReactDOM||typeof window.ReactDOM.createRoot!=='function')throw new Error('React runtime no disponible');
 
   await load('/assets/qh-i18n.js?v=20260923-final-audit');
-  await load('/assets/core-recommendation-engine.js?v=20260923-final-audit');
   await load('/assets/editorial-data.js?v=20260923-final-audit');
   const path=window.location.pathname||'/';
   const preload=[];
@@ -47,6 +46,7 @@ window.__ecEnsureLanguagePayloads=function(){
 
   Promise.resolve().then(async()=>{
    load('/assets/gastronomy-data.js?v=20260923-final-audit').catch(e=>console.error('EC gastronomy background',e));
+   if(new URLSearchParams(location.search).get('debug')==='1') load('/assets/core-recommendation-engine.js?v=20260923-final-audit').catch(e=>console.error('EC diagnostics engine',e));
    try{
     await window.__ecWithTimeout(fetch('/data/compras-manifest.json',{cache:'force-cache'}),10000,'compras manifest').then(r=>r.json()).then(x=>{window.COMPRAS_CARDS=x.cards||{}});
    }catch(e){console.error('EC compras manifest',e);}
