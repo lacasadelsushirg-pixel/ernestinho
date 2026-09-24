@@ -41,7 +41,7 @@ const TIPOS_NOCHE = __ecEditorialData.TIPOS_NOCHE || [];
 const VIDA_NOCTURNA_DATA = __ecEditorialData.VIDA_NOCTURNA_DATA || [];
 const FOTOS_NOCHE_APOYO = __ecEditorialData.FOTOS_NOCHE_APOYO || [];
 const VIDA_NOCTURNA_CON_FOTOS = VIDA_NOCTURNA_DATA.map((item, index) => ({ ...item,
-    img: (window.FOTOS_VIDA_NOCTURNA||{})[item.id] || FOTOS_NOCHE_APOYO[index % Math.max(FOTOS_NOCHE_APOYO.length,1)],
+    img: (window.FOTOS_VIDA_NOCTURNA || {})[item.id] || (FOTOS_NOCHE_APOYO.length ? FOTOS_NOCHE_APOYO[index % FOTOS_NOCHE_APOYO.length] : ''),
     mapa: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.nombre + ' ' + item.barrio + ' Rio de Janeiro')}`
 }));
 const BARRIOS_DATA = __ecEditorialData.BARRIOS_DATA || [];
