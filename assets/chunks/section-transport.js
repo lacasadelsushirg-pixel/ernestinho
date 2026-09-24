@@ -67,7 +67,7 @@ section === 'transportes' && (React.createElement("section", { className: "min-h
                                     React.createElement("button", { onClick: () => {
                                             setHistorialSecciones(prev => [...prev, seccionActual].slice(-50));
                                             setTemaGuia('alquiler-auto');
-                                            seoNavigate(`/guia/${seoSlug(GUIA_INFO['alquiler-auto'].titulo)}`);
+                                            seoNavigate(`/guia/${seoSlug(((window.GUIA_INFO||{})['alquiler-auto']||{titulo:'Alquiler de auto'}).titulo)}`);
                                             setSeccionActualBase('guia');
                                         }, className: "mt-auto w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-xl transition-colors" }, "\uD83D\uDE97 Ver gu\u00EDa de alquiler de auto")))))))),
 section === 'transporte_uber' && (React.createElement("section", { className: "min-h-screen bg-white" },

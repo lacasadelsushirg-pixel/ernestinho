@@ -10,7 +10,7 @@ section === 'museos' && (React.createElement("section", { className: "ec-dark-at
                         React.createElement("div", { className: "bg-[#123b3b] rounded-3xl border border-slate-100  p-5 sm:p-6" },
                             React.createElement("p", { className: "text-[11px] font-bold uppercase tracking-widest text-teal-600 mb-2" }, "Museo seleccionado"),
                             React.createElement("div", { className: "flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4" },
-                                React.createElement("h2", { className: "text-xl sm:text-2xl font-black text-slate-900" }, (_a = MUSEOS_DATA.find((museo) => museo.id === museoSeleccionado)) === null || _a === void 0 ? void 0 : _a.nombre),
+                                React.createElement("h2", { className: "text-xl sm:text-2xl font-black text-slate-900" }, (_a = (window.MUSEOS_DATA||[]).find((museo) => museo.id === museoSeleccionado)) === null || _a === void 0 ? void 0 : _a.nombre),
                                 React.createElement("button", { type: "button", onClick: () => { if (museoSeleccionado) { seoNavigate('/museos'); setMuseoSeleccionado(null); window.scrollTo({top:0,behavior:'instant'}); } else { setSelectorMuseosAbierto(true); } }, className: "inline-flex items-center justify-center gap-2 bg-slate-900 hover:bg-teal-700 text-white font-black text-xs uppercase tracking-wide px-5 py-3.5 rounded-xl transition-all" },
                                     React.createElement("span", null, museoSeleccionado ? '← VOLVER A TODOS LOS MUSEOS' : 'Todos los museos a la vista'),
                                     React.createElement("span", null, selectorMuseosAbierto ? '▲' : '▼')))),
@@ -19,7 +19,7 @@ section === 'museos' && (React.createElement("section", { className: "ec-dark-at
                                 React.createElement("span", { className: "absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" }, "\uD83D\uDD0D"),
                                 React.createElement("input", { type: "text", value: busquedaMuseo, onChange: (e) => setBusquedaMuseo(e.target.value), placeholder: "Buscar museo por nombre...", className: "w-full bg-[#123b3b] border border-amber-300/30 rounded-xl py-3.5 pl-11 pr-4 text-sm text-slate-700 outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500" })),
                             React.createElement("div", { className: "pr-1" },
-                                React.createElement("div", { className: "grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3" }, MUSEOS_DATA
+                                React.createElement("div", { className: "grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3" }, (window.MUSEOS_DATA||[])
                                     .filter((museo) => museo.nombre
                                     .toLowerCase()
                                     .includes(busquedaMuseo.toLowerCase()))
@@ -38,10 +38,10 @@ section === 'museos' && (React.createElement("section", { className: "ec-dark-at
                                     museo.miniatura && (React.createElement("div", { className: "w-full aspect-[4/3] overflow-hidden bg-[#123b3b]" },
                                         React.createElement("img", { src: museo.miniatura, alt: museo.nombre, className: "w-full h-full object-contain" }))),
                                     React.createElement("div", { className: "px-3 py-4" }, museo.nombre)))))),
-                            MUSEOS_DATA.filter((museo) => museo.nombre
+                            (window.MUSEOS_DATA||[]).filter((museo) => museo.nombre
                                 .toLowerCase()
                                 .includes(busquedaMuseo.toLowerCase())).length === 0 && (React.createElement("p", { className: "text-center text-sm text-slate-500 py-8" }, "No encontramos un museo con ese nombre."))))),
-                    MUSEOS_DATA
+                    (window.MUSEOS_DATA||[])
                         .filter((museo) => museo.id === museoSeleccionado)
                         .map((museo) => (React.createElement("div", { key: museo.id },
                         React.createElement("button", { type: "button", onClick: () => { seoNavigate('/museos'); setMuseoSeleccionado(null); setBusquedaMuseo(''); window.scrollTo({top:0,behavior:'instant'}); }, className: "mb-6 inline-flex items-center gap-2 text-white/80 hover:text-amber-300 font-black text-xs uppercase tracking-wide" }, "← VOLVER AL CATÁLOGO"),

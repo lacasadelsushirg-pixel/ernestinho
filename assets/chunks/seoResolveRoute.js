@@ -7,7 +7,7 @@ function seoResolveRoute(pathname) {
         return { ...result, seccion: 'consejos', consejoId: 'caminando' };
     let m = ruta.match(/^\/museos\/([^/]+)$/);
     if (m) {
-        const museo = MUSEOS_DATA.find(x => seoSlug(x.nombre) === m[1]);
+        const museo = (window.MUSEOS_DATA||[]).find(x => seoSlug(x.nombre) === m[1]);
         if (museo)
             return { ...result, seccion: 'museos', museoId: museo.id };
     }
@@ -22,7 +22,7 @@ function seoResolveRoute(pathname) {
     }
     m = ruta.match(/^\/gastronomia\/([^/]+)$/);
     if (m) {
-        const cardNueva = (typeof GASTRONOMIA_NUEVAS_CARDS !== 'undefined' ? GASTRONOMIA_NUEVAS_CARDS : []).find(x => seoSlug(x.title) === m[1] || seoSlug(x.id) === m[1]);
+        const cardNueva = (window.GASTRONOMIA_NUEVAS_CARDS||[]).find(x => seoSlug(x.title) === m[1] || seoSlug(x.id) === m[1]);
         if (cardNueva)
             return { ...result, seccion: 'gastronomia', restaurante: { id: cardNueva.id, nombre: cardNueva.title, nueva: true } };
         const restaurante = GASTRONOMIA_DATA.find(x => seoSlug(x.nombre) === m[1]);
@@ -37,7 +37,7 @@ function seoResolveRoute(pathname) {
     }
     m = ruta.match(/^\/guia\/([^/]+)$/);
     if (m && m[1] !== 'pix') {
-        const temaId = Object.keys(window.GUIA_INFO).find(id => { var _a; return seoSlug(((_a = window.GUIA_INFO[id]) === null || _a === void 0 ? void 0 : _a.titulo) || id) === m[1] || seoSlug(id) === m[1]; });
+        const temaId = Object.keys(window.GUIA_INFO||{}).find(id => { var _a; return seoSlug(((_a = (window.GUIA_INFO||{})[id]) === null || _a === void 0 ? void 0 : _a.titulo) || id) === m[1] || seoSlug(id) === m[1]; });
         if (temaId)
             return { ...result, seccion: 'guia', temaGuia: temaId };
     }

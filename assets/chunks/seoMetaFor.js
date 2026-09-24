@@ -9,7 +9,7 @@ function seoMetaFor(section, museoId, barrio, restaurante, articulo, temaGuia, c
         return { path: rutaSocial, title: 'Del mar a la historia: recorrido por el Centro de Río | Ernestinho Carioca', description: 'Recorrido para hacer por tu cuenta desde la Zona Portuaria hasta el Centro de Río: AquaRio, Yup Star, Mural Etnias, Museu do Amanhã, São Bento, Confeitaria Colombo y Real Gabinete.', image: 'https://res.cloudinary.com/qa301cbc/image/upload/v1788817390/1B0B6A7E-B0F2-49B0-A263-26D4A3FF3CE3.png' };
     }
     if (section === 'museos' && museoId && path.startsWith('/museos/')) {
-        const x = MUSEOS_DATA.find(v => v.id === museoId);
+        const x = (window.MUSEOS_DATA||[]).find(v => v.id === museoId);
         if (x)
             return { path, title: `${x.nombre} en Río de Janeiro | Ernestinho Carioca`, description: x.descripcion || x.subtitulo };
     }
@@ -19,8 +19,8 @@ function seoMetaFor(section, museoId, barrio, restaurante, articulo, temaGuia, c
         return { path, title: `${restaurante.nombre} en Río de Janeiro | Ernestinho Carioca`, description: restaurante.destaque };
     if (section === 'articulo_detalle' && articulo)
         return { path, title: `${articulo.titulo} | Ernestinho Carioca`, description: articulo.resumen };
-    if (section === 'guia' && temaGuia && window.GUIA_INFO[temaGuia]) {
-        const x = window.GUIA_INFO[temaGuia];
+    if (section === 'guia' && temaGuia && (window.GUIA_INFO||{})[temaGuia]) {
+        const x = (window.GUIA_INFO||{})[temaGuia];
         return { path, title: `${x.titulo} | Ernestinho Carioca`, description: x.intro };
     }
     const exp = seoExperienceFromState(section);
