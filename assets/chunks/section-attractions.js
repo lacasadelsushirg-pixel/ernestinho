@@ -9,7 +9,7 @@ section === 'atracciones' && (React.createElement("section", { className: "py-12
                         React.createElement("p", { className: "text-white/65 text-base sm:text-lg" }, "Museos, iglesias, fortalezas, teatros y espacios culturales. Entra por imagen y descubre cada lugar con toda su información.")),
                     React.createElement("div", { className: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" }, [
                       ['centros_culturales','Centros culturales','Arte, exposiciones, música, cine y patrimonio.',(CENTROS_CULTURALES_DATA[0]||{}).miniatura || (CENTROS_CULTURALES_DATA[0]||{}).fotoPrincipal,'🎭'],
-                      ['museos','Museos','Historia, ciencia, arte, aviación y patrimonio naval.',(MUSEOS_DATA[0]||{}).miniatura || (MUSEOS_DATA[0]||{}).fotoPrincipal,'🏛️'],
+                      ['museos','Museos','Historia, ciencia, arte, aviación y patrimonio naval.',((window.MUSEOS_DATA||[])[0]||{}).miniatura || ((window.MUSEOS_DATA||[])[0]||{}).fotoPrincipal,'🏛️'],
                       ['iglesias','Iglesias','Templos históricos y arquitectura religiosa carioca.',(IGLESIAS_DATA[0]||{}).miniatura || (IGLESIAS_DATA[0]||{}).fotoPrincipal,'⛪'],
                       ['fuertes_fortalezas','Fuertes y fortalezas','Construcciones militares, historia y vistas de Río.',(FUERTES_DATA[0]||{}).miniatura || (FUERTES_DATA[0]||{}).fotoPrincipal,'🏰'],
                       ['teatros','Teatros','Grandes escenarios, conciertos y salas históricas.',(TEATROS_DATA[0]||{}).miniatura || (TEATROS_DATA[0]||{}).fotoPrincipal,'🎭'],
