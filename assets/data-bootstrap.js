@@ -28,7 +28,8 @@ window.__ecEnsureLanguagePayloads=function(){
    window.GASTRONOMIA_NUEVAS_CARDS=[...(window.GASTRONOMIA_BASE||[]),...(window.GASTRONOMIA_EXTRA||[])];
  }
  // Runtime principal. Experiencias tiene una sola implementación canónica.
- await load('/assets/app.js?v=20260923-runtime-6');
+ await load('/assets/app.js?v=20260926-language-coverage-1');
+ await load('/assets/language-final-fixes.js?v=20260926-1');
  await load('/assets/experiencias.js?v=20260923-single-5');
 })().catch(e=>{
  console.error('EC bootstrap',e);
