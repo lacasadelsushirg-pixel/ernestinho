@@ -29,7 +29,7 @@ window.__ecEnsureLanguagePayloads=function(){
  }
  // Runtime principal. Experiencias tiene una sola implementación canónica.
  await load('/assets/app.js?v=20260926-language-coverage-1');
- await load('/assets/language-final-fixes.js?v=20260926-3');
+ await load('/assets/language-final-fixes.js?v=20260926-4');
  await load('/assets/experiencias.js?v=20260923-single-5');
 })().catch(e=>{
  console.error('EC bootstrap',e);
