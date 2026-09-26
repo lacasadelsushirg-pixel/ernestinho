@@ -57,4 +57,26 @@ Object.assign(ui.en,{
 "★ TOUR GUIADO R$200 + taxa da Marinha":"★ GUIDED TOUR R$200 + Navy fee",
 "★ TOUR GUIADO A partir de R$200 + taxa da Marinha":"★ GUIDED TOUR From R$200 + Navy fee"
 });
+Object.assign(ui.pt,{
+"★ Tour Guiado":"★ Passeio Guiado",
+"⏱️ Duración:":"⏱️ Duração:",
+"👥 Grupo:":"👥 Grupo:",
+"📍 Punto:":"📍 Ponto:",
+"👁️ Ver Experiencia":"👁️ Ver Experiência",
+"Nuevas actividades":"Novas atividades",
+"Más formas de vivir Río":"Mais formas de viver o Rio",
+"culture & comunidad":"cultura & comunidade",
+"nature & senderismo":"natureza & trilhas"
+});
+Object.assign(ui.en,{
+"★ Tour Guiado":"★ Guided Tour",
+"⏱️ Duración:":"⏱️ Duration:",
+"👥 Grupo:":"👥 Group:",
+"📍 Punto:":"📍 Pickup:",
+"👁️ Ver Experiencia":"👁️ View Experience",
+"Nuevas actividades":"New activities",
+"Más formas de vivir Río":"More ways to experience Rio",
+"culture & comunidad":"culture & community",
+"nature & senderismo":"nature & hiking"
+});
 window.__ernestinhoNormCache={pt:null,en:null};return true};let n=0;const run=()=>{if(add()&&typeof window.__ernestinhoApplyLanguage==="function")window.__ernestinhoApplyLanguage();else if(n++<40)setTimeout(run,50)};run();})();
