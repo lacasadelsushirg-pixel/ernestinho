@@ -10,6 +10,8 @@
 'CULTURA & COMUNIDADE':{pt:'CULTURA & COMUNIDADE',en:'CULTURE & COMMUNITY'},
 'CULTURE & COMMUNITY':{pt:'CULTURA & COMUNIDADE',en:'CULTURE & COMMUNITY'},
 'NATURE & SENDERISMO':{pt:'NATUREZA & TRILHAS',en:'NATURE & HIKING'},
+'natureza & senderismo':{pt:'natureza & trilhas',en:'nature & hiking'},
+'R$230 + taxa marinha':{pt:'R$230 + taxa da Marinha',en:'R$230 + marine fee'},
 'NATUREZA & SENDERISMO':{pt:'NATUREZA & TRILHAS',en:'NATURE & HIKING'},
 'NATUREZA & TRILHAS':{pt:'NATUREZA & TRILHAS',en:'NATURE & HIKING'},
 'NATURE & HIKING':{pt:'NATUREZA & TRILHAS',en:'NATURE & HIKING'},
