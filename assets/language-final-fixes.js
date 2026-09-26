@@ -79,4 +79,24 @@ Object.assign(ui.en,{
 "culture & comunidad":"culture & community",
 "nature & senderismo":"nature & hiking"
 });
+Object.assign(ui.pt,{
+"consultar próxima salida":"consultar próxima saída",
+"check next departure":"consultar próxima saída",
+"check match schedule":"consultar conforme a partida",
+"consultar según partido":"consultar conforme a partida",
+"CULTURA & COMUNIDAD":"CULTURA & COMUNIDADE",
+"CULTURE & COMMUNITY":"CULTURA & COMUNIDADE",
+"NATUREZA & SENDERISMO":"NATUREZA & TRILHAS",
+"NATURE & HIKING":"NATUREZA & TRILHAS"
+});
+Object.assign(ui.en,{
+"consultar próxima salida":"check next departure",
+"consultar próxima saída":"check next departure",
+"consultar según partido":"check match schedule",
+"consultar conforme a partida":"check match schedule",
+"CULTURA & COMUNIDAD":"CULTURE & COMMUNITY",
+"CULTURA & COMUNIDADE":"CULTURE & COMMUNITY",
+"NATUREZA & SENDERISMO":"NATURE & HIKING",
+"NATUREZA & TRILHAS":"NATURE & HIKING"
+});
 window.__ernestinhoNormCache={pt:null,en:null};return true};let n=0;const run=()=>{if(add()&&typeof window.__ernestinhoApplyLanguage==="function")window.__ernestinhoApplyLanguage();else if(n++<40)setTimeout(run,50)};run();})();
