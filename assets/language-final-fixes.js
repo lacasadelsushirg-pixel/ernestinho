@@ -6,7 +6,7 @@
 "Reportajes, entrevistas y programas de Chile, Argentina y otros medios.":"Reportagens, entrevistas e programas do Chile, da Argentina e de outros veículos.",
 "SOCIO AFILIADO · RESERVA ONLINE":"PARCEIRO AFILIADO · RESERVA ONLINE",
 "City Tour Panorámico Musical Hop-on Hop-off: más de 30 puntos, audioguía, música, Wi-Fi y libertad para subir y bajar. Reserva con el enlace afiliado oficial de Ernestinho Carioca.":"City Tour panorâmico musical Hop-on Hop-off: mais de 30 pontos, audioguia, música, Wi-Fi e liberdade para subir e descer. Reserve pelo link de afiliado oficial do Ernestinho Carioca.",
-"taxa marinha":"taxa da Marinha"
+"taxa marinha":"taxa da Marinha","marine fee":"taxa da Marinha","Navy fee":"taxa da Marinha"
 });
 Object.assign(ui.en,{
 "Río de Janeiro desde mi mirada":"Rio de Janeiro through my eyes",
