@@ -21,4 +21,40 @@ Object.assign(ui.en,{
 "DIA INTEIRO R$230 + taxa marinha":"FULL DAY R$230 + marine fee",
 "ÁGUAS CRISTALINAS R$200 + taxa da Marinha":"CRYSTAL WATERS R$200 + Navy fee"
 });
+Object.assign(ui.pt,{
+"TOUR GUIADO":"PASSEIO GUIADO",
+"Duración:":"Duração:",
+"Grupo:":"Grupo:",
+"Punto:":"Embarque:",
+"VER EXPERIENCIA":"VER EXPERIÊNCIA",
+"NUEVAS ACTIVIDADES":"NOVAS ATIVIDADES",
+"MÁS FORMAS DE VIVIR RÍO":"MAIS FORMAS DE VIVER O RIO",
+"CULTURA & COMUNIDAD":"CULTURA & COMUNIDADE",
+"NATURE & SENDERISMO":"NATUREZA & TRILHAS",
+"check próxima salida":"consultar próxima saída",
+"check según partido":"consultar conforme a partida",
+"★ TOUR GUIADO R$430":"★ PASSEIO GUIADO R$430",
+"★ TOUR GUIADO R$230 + taxa marinha":"★ PASSEIO GUIADO R$230 + taxa da Marinha",
+"★ TOUR GUIADO R$230 / R$250 com almoço":"★ PASSEIO GUIADO R$230 / R$250 com almoço",
+"★ TOUR GUIADO R$200 + taxa da Marinha":"★ PASSEIO GUIADO R$200 + taxa da Marinha",
+"★ TOUR GUIADO A partir de R$200 + taxa da Marinha":"★ PASSEIO GUIADO A partir de R$200 + taxa da Marinha"
+});
+Object.assign(ui.en,{
+"TOUR GUIADO":"GUIDED TOUR",
+"Duración:":"Duration:",
+"Grupo:":"Group:",
+"Punto:":"Pickup:",
+"VER EXPERIENCIA":"VIEW EXPERIENCE",
+"NUEVAS ACTIVIDADES":"NEW ACTIVITIES",
+"MÁS FORMAS DE VIVIR RÍO":"MORE WAYS TO EXPERIENCE RIO",
+"CULTURA & COMUNIDAD":"CULTURE & COMMUNITY",
+"NATURE & SENDERISMO":"NATURE & HIKING",
+"check próxima salida":"check next departure",
+"check según partido":"check match schedule",
+"★ TOUR GUIADO R$430":"★ GUIDED TOUR R$430",
+"★ TOUR GUIADO R$230 + taxa marinha":"★ GUIDED TOUR R$230 + marine fee",
+"★ TOUR GUIADO R$230 / R$250 com almoço":"★ GUIDED TOUR R$230 / R$250 with lunch",
+"★ TOUR GUIADO R$200 + taxa da Marinha":"★ GUIDED TOUR R$200 + Navy fee",
+"★ TOUR GUIADO A partir de R$200 + taxa da Marinha":"★ GUIDED TOUR From R$200 + Navy fee"
+});
 window.__ernestinhoNormCache={pt:null,en:null};return true};let n=0;const run=()=>{if(add()&&typeof window.__ernestinhoApplyLanguage==="function")window.__ernestinhoApplyLanguage();else if(n++<40)setTimeout(run,50)};run();})();
